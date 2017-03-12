@@ -1,0 +1,60 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "IQKeyboardManagerSwift-Swift.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "IQKeyboardManagerSwift-umbrella.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Pods.build/Debug-iphonesimulator/IQKeyboardManagerSwift.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/Pods_Slide.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-Slide-umbrella.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Pods/Target Support Files/Pods-Slide/Pods-Slide-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_Slide-Swift.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/Pods_Slide.framework/Headers/Pods_Slide-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/Pods_Slide.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Pods.build/Debug-iphonesimulator/Pods-Slide.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

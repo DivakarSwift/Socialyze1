@@ -1,0 +1,9 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "039236ed760f1600c6bf4964dfe295c1"
+build_time: [542211703, 128788000]
+inputs:
+  "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Slide/ViewController.swift": [542208258, 0]
+  "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Slide/SelectionViewController.swift": [542208970, 0]
+  "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Slide/AppDelegate.swift": [542211687, 0]
+  "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Slide/CustomActivityIndicatorView.swift": [542207723, 0]
+  "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Slide/PostedViewController.swift": [542155726, 0]

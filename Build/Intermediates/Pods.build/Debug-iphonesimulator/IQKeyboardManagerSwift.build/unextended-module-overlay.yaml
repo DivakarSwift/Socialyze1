@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Pods.build/Debug-iphonesimulator/IQKeyboardManagerSwift.build/unextended-module.modulemap',
+    }]
+  }]
+}

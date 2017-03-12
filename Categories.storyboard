@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Categories View Controller-->
+        <scene sceneID="qcF-uF-9M7">
+            <objects>
+                <viewController storyboardIdentifier="categoryDetailViewController" id="2Nx-S1-xmf" customClass="CategoriesViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QQh-oy-w7f"/>
+                        <viewControllerLayoutGuide type="bottom" id="RzW-O7-ROV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wbe-1n-hP3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testprofile2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="CMr-Ws-DqD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nora, 21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lk2-Pl-G83">
+                                <rect key="frame" x="34" y="0.0" width="72" height="21.666666666666668"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.6368377221" green="0.048687425069999998" blue="0.13850137730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-Rb-cf3">
+                                <rect key="frame" x="241" y="647" width="60" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="F9f-03-JP4"/>
+                                    <constraint firstAttribute="width" constant="60" id="QYP-c6-nRb"/>
+                                </constraints>
+                                <state key="normal" image="ladybird.png"/>
+                                <connections>
+                                    <segue destination="Q5v-td-E0K" kind="show" id="vGy-V4-hxx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAf-tw-I4N">
+                                <rect key="frame" x="173" y="639" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="o9T-ko-bG8"/>
+                                    <constraint firstAttribute="width" constant="60" id="qC8-qD-ET3"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="thehomebutton.png"/>
+                                <connections>
+                                    <segue destination="sBn-x1-vpJ" kind="show" id="DK4-OY-Xuz"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="This is where the 100 character Event description will go from the previous screen.. e.g getting coffee" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF5-2E-WGr">
+                                <rect key="frame" x="0.0" y="382.66666666666674" width="414" height="38.333333333333314"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nMO-Rb-cf3" firstAttribute="leading" secondItem="hAf-tw-I4N" secondAttribute="trailing" constant="8" id="0iu-mp-eqq"/>
+                            <constraint firstItem="nMO-Rb-cf3" firstAttribute="leading" secondItem="hAf-tw-I4N" secondAttribute="trailing" constant="8" id="4Vb-Yk-uQZ"/>
+                            <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="CMr-Ws-DqD" secondAttribute="bottom" id="5eB-qi-WnV"/>
+                            <constraint firstItem="CMr-Ws-DqD" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" id="8Sf-65-YwG"/>
+                            <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="nMO-Rb-cf3" secondAttribute="bottom" constant="37" id="9rh-PO-42O"/>
+                            <constraint firstItem="hAf-tw-I4N" firstAttribute="top" secondItem="gF5-2E-WGr" secondAttribute="bottom" constant="218" id="BBV-8W-SHJ"/>
+                            <constraint firstItem="gF5-2E-WGr" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leading" id="EoP-nR-r4h"/>
+                            <constraint firstAttribute="trailing" secondItem="CMr-Ws-DqD" secondAttribute="trailing" id="FcI-L0-SkZ"/>
+                            <constraint firstItem="CMr-Ws-DqD" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leading" id="Fnx-0q-4J2"/>
+                            <constraint firstItem="lk2-Pl-G83" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="topMargin" id="GCe-T8-tg5"/>
+                            <constraint firstAttribute="trailing" secondItem="gF5-2E-WGr" secondAttribute="trailing" id="IK6-CN-VzJ"/>
+                            <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="hAf-tw-I4N" secondAttribute="bottom" constant="37" id="Ull-mp-hh0"/>
+                            <constraint firstItem="lk2-Pl-G83" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leadingMargin" constant="14" id="piu-YH-zjX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nMO-Rb-cf3" secondAttribute="trailing" constant="93" id="uDe-mm-ZIL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="eventDescription" destination="gF5-2E-WGr" id="AOP-a6-2bk"/>
+                        <outlet property="imageView" destination="CMr-Ws-DqD" id="57v-Qd-1h3"/>
+                        <outlet property="userName" destination="lk2-Pl-G83" id="Ctd-jR-bmQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xf0-EC-Im0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-111.59420289855073" y="-270.6521739130435"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="gUC-nG-Hnf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="sBn-x1-vpJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lk5-Pe-Fxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="440" y="-253"/>
+        </scene>
+        <!--Matches-->
+        <scene sceneID="GmS-Ji-opl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Matches" id="Q5v-td-E0K" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-wc-hSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="438" y="-118"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ladybird.png" width="149" height="149"/>
+        <image name="testprofile2.JPG" width="640" height="640"/>
+        <image name="thehomebutton.png" width="267" height="267"/>
+    </resources>
+</document>

@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "d34f9f12638afae4f8c9f881e99a838b"
+build_time: [542186347, 999317000]
+inputs:
+  "/Users/muhammadsalman/Desktop/Slide-Salman/Slide/ViewController.swift": [542136388, 0]
+  "/Users/muhammadsalman/Desktop/Slide-Salman/Slide/AppDelegate.swift": [542136388, 0]
