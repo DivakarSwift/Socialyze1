@@ -51,6 +51,7 @@
 		FCB623091E6EC44C007DF4AE /* myprofile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCB623081E6EC44C007DF4AE /* myprofile.jpg */; };
 		FCB6230B1E6EC4B6007DF4AE /* PostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB6230A1E6EC4B6007DF4AE /* PostedViewController.swift */; };
 		FCB6230F1E6ED14E007DF4AE /* editbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = FCB6230E1E6ED14E007DF4AE /* editbutton.png */; };
+		FCF847D21E795DAE009F49F8 /* exclamation.png in Resources */ = {isa = PBXBuildFile; fileRef = FCF847D11E795DAE009F49F8 /* exclamation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,7 @@
 		FCB623081E6EC44C007DF4AE /* myprofile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = myprofile.jpg; sourceTree = "<group>"; };
 		FCB6230A1E6EC4B6007DF4AE /* PostedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostedViewController.swift; path = Slide/PostedViewController.swift; sourceTree = "<group>"; };
 		FCB6230E1E6ED14E007DF4AE /* editbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editbutton.png; sourceTree = "<group>"; };
+		FCF847D11E795DAE009F49F8 /* exclamation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exclamation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				FC7A242F1E696810004C9E44 /* coldcoffee.png */,
 				FC7A24491E6970E3004C9E44 /* createevent.png */,
 				FC7A24301E696810004C9E44 /* dining.png */,
+				FCF847D11E795DAE009F49F8 /* exclamation.png */,
 				FCB6230E1E6ED14E007DF4AE /* editbutton.png */,
 				FC7A24311E696810004C9E44 /* Fitness.png */,
 				FC2C36631E7244C8003C1CF9 /* fitness2.png */,
@@ -338,6 +341,7 @@
 				FC7A243C1E696810004C9E44 /* dining.png in Resources */,
 				FC7A24421E696810004C9E44 /* Other.png in Resources */,
 				FC52197B1E6FC32000EDF19A /* ladybird.png in Resources */,
+				FCF847D21E795DAE009F49F8 /* exclamation.png in Resources */,
 				FC7A243E1E696810004C9E44 /* gaming.png in Resources */,
 				FC2C365C1E722BC8003C1CF9 /* stockpicround.png in Resources */,
 				FC5219851E70132D00EDF19A /* testprofile2.JPG in Resources */,

@@ -15,7 +15,8 @@ class CategoriesViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var userName: UILabel!
-    
+    @IBAction func reportUser(_ sender: Any) {
+    }
     func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
         let translation = gestureRecognizer.translation(in: view)

@@ -12,7 +12,8 @@ class SwipingViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var userBio: UILabel!
-    
+    @IBAction func reportUser(_ sender: Any) {
+    }
      func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
         let translation = gestureRecognizer.translation(in: view)

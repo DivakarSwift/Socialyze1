@@ -15,9 +15,6 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     @IBOutlet var userImg: UIButton!
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var txtDescription: UITextView!
-    @IBOutlet var btn1People: UIButton!
-    @IBOutlet var btn2People: UIButton!
-    @IBOutlet var btn3People: UIButton!
     @IBOutlet var lblCharacterLft: UILabel!
     var val : String!
     
@@ -37,20 +34,7 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
          eventsArray = ["Coffee","Dining","Party","Nightlife","Fitness","Gaming","Study Group","Causes","Chill","Others"]
         pickerView.delegate = self
         txtDescription.delegate = self
-        btn1People.layer.borderWidth = 1
-        btn1People.layer.borderColor = (UIColor.white).cgColor
-        btn2People.layer.borderWidth = 1
-        btn2People.layer.borderColor = (UIColor.white).cgColor
-        btn3People.layer.borderWidth = 1
-        btn3People.layer.borderColor = (UIColor.white).cgColor
-        
-        btn3People.layer.cornerRadius = 5; // this value vary as per your desire
-        btn3People.clipsToBounds = true;
-        btn2People.layer.cornerRadius = 5; // this value vary as per your desire
-        btn2People.clipsToBounds = true;
-        btn1People.layer.cornerRadius = 5; // this value vary as per your desire
-        btn1People.clipsToBounds = true;
-        
+               
         
           addLoadingIndicator()
         self.navigationController?.navigationBar.topItem?.title = "Back"
@@ -76,23 +60,8 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func btnPeopleSelection(_ sender: UIButton) {
-        btn1People.layer.borderWidth = 1
-        btn1People.layer.borderColor = (UIColor.white).cgColor
-        btn2People.layer.borderWidth = 1
-        btn2People.layer.borderColor = (UIColor.white).cgColor
-        btn3People.layer.borderWidth = 1
-        btn3People.layer.borderColor = (UIColor.white).cgColor
-        btn3People.layer.cornerRadius = 5; // this value vary as per your desire
-        btn3People.clipsToBounds = true;
-        btn2People.layer.cornerRadius = 5; // this value vary as per your desire
-        btn2People.clipsToBounds = true;
-        btn1People.layer.cornerRadius = 5; // this value vary as per your desire
-        btn1People.clipsToBounds = true;
-        
-        sender.layer.borderWidth = 1
-        sender.layer.borderColor = (UIColor.red).cgColor
-    }
+  
+     
 
     @IBAction func btnPost(_ sender: Any) {
         activityIndicator.startAnimating()
