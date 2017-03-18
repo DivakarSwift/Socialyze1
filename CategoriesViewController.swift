@@ -11,12 +11,18 @@ import UIKit
 class CategoriesViewController: UIViewController {
   
     let categoryDefaults = UserDefaults.standard
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        return CustomActivityIndicatorView(image: image)
+    }()
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var userName: UILabel!
     @IBAction func reportUser(_ sender: Any) {
     }
+    
+    
     func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
         let translation = gestureRecognizer.translation(in: view)
@@ -64,6 +70,8 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addLoadingIndicator()
+        
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
         
         imageView.isUserInteractionEnabled = true
@@ -74,20 +82,15 @@ class CategoriesViewController: UIViewController {
 
     
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activityIndicator.stopAnimating()
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func addLoadingIndicator () {
+        self.view.addSubview(activityIndicator)
+        activityIndicator.center = self.view.center
     }
-    */
 
 }

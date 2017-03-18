@@ -9,7 +9,10 @@
 import UIKit
 
 class SwipingViewController: UIViewController {
-
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        return CustomActivityIndicatorView(image: image)
+    }()
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var userBio: UILabel!
     @IBAction func reportUser(_ sender: Any) {
@@ -61,8 +64,8 @@ class SwipingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        addLoadingIndicator()
    
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
         
@@ -72,20 +75,14 @@ class SwipingViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activityIndicator.stopAnimating()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func addLoadingIndicator () {
+        self.view.addSubview(activityIndicator)
+        activityIndicator.center = self.view.center
     }
-    */
 
 }
