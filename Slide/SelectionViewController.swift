@@ -44,6 +44,11 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activityIndicator.stopAnimating()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
