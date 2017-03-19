@@ -102,7 +102,9 @@ class ViewController: UIViewController,UIScrollViewDelegate {
     }
     
     func profileBtn(_ sender: UIBarButtonItem) {
-       
+        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        let controller = storyboard.instantiateInitialViewController()
+        self.navigationController?.pushViewController(controller!, animated: true)
     }
     
 //    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
