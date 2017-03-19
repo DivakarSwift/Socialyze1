@@ -5,6 +5,8 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -154,7 +156,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnPost:" destination="ujX-dW-eJB" eventType="touchUpInside" id="C8p-SU-8Ng"/>
-                                    <segue destination="aAD-EQ-4Lj" kind="show" id="Uw7-JH-TfE"/>
+                                    <segue destination="vDK-dG-DfW" kind="show" id="sjm-p0-xIj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where the 100 character Event description will go from the previous screen.. e.g Trying a new bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddA-Pm-bFS">
@@ -196,14 +198,6 @@
             </objects>
             <point key="canvasLocation" x="1711.2" y="162.3688155922039"/>
         </scene>
-        <!--Categories-->
-        <scene sceneID="Yvv-cd-sVb">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Categories" id="aAD-EQ-4Lj" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VyG-90-y0O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2204" y="304"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="tZ1-IV-gmk">
             <objects>
@@ -231,11 +225,116 @@
             </objects>
             <point key="canvasLocation" x="-124" y="646"/>
         </scene>
+        <!--Swiping View Controller-->
+        <scene sceneID="beA-xp-Qc7">
+            <objects>
+                <viewController storyboardIdentifier="SwipingViewController" id="vDK-dG-DfW" customClass="SwipingViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6EB-wc-3a7"/>
+                        <viewControllerLayoutGuide type="bottom" id="Say-Ou-Wvh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RTD-qv-t3U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testuserprofile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="cYw-Hn-c0C">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-lB-giK">
+                                <rect key="frame" x="147" y="639" width="120" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3a-Bh-JQs">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="kbE-qi-N6a"/>
+                                            <constraint firstAttribute="width" secondItem="R3a-Bh-JQs" secondAttribute="height" multiplier="1:1" id="rvw-kU-ZRG"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="thehomebutton.png"/>
+                                        <connections>
+                                            <segue destination="4fC-TM-GVC" kind="show" id="YZE-PN-Jf0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1k-rB-mhS">
+                                        <rect key="frame" x="60" y="0.0" width="60" height="60"/>
+                                        <state key="normal" image="ladybird.png"/>
+                                        <connections>
+                                            <segue destination="Dmy-ci-ay1" kind="show" id="ROr-mQ-dYF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="This is where the 100 character bio of user will go. Likes, dislikes, etc." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gac-hg-1kj">
+                                <rect key="frame" x="0.0" y="349" width="414" height="38.333333333333314"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LI8-VG-xPM">
+                                <rect key="frame" x="368" y="690" width="26" height="26"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="cLr-4l-nol"/>
+                                    <constraint firstAttribute="width" secondItem="LI8-VG-xPM" secondAttribute="height" multiplier="1:1" id="oKW-wr-a7G"/>
+                                </constraints>
+                                <color key="tintColor" red="0.88255472720000006" green="0.88255472720000006" blue="0.88255472720000006" alpha="0.1475278253" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="exclamation.png"/>
+                                <connections>
+                                    <action selector="reportUser:" destination="vDK-dG-DfW" eventType="touchUpInside" id="dSw-Rn-8dU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ronnie, 21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-dc-tgK">
+                                <rect key="frame" x="16" y="64" width="90.666666666666671" height="21.666666666666671"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.6368377221" green="0.048687425069999998" blue="0.13850137730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RcG-dc-tgK" firstAttribute="top" secondItem="6EB-wc-3a7" secondAttribute="bottom" id="9db-3H-lNH"/>
+                            <constraint firstItem="Gac-hg-1kj" firstAttribute="centerY" secondItem="RTD-qv-t3U" secondAttribute="centerY" id="BP6-bI-xVh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LI8-VG-xPM" secondAttribute="trailing" id="CSI-bu-Iuj"/>
+                            <constraint firstItem="Say-Ou-Wvh" firstAttribute="top" secondItem="1fa-lB-giK" secondAttribute="bottom" constant="37" id="EZc-jz-d72"/>
+                            <constraint firstAttribute="trailing" secondItem="Gac-hg-1kj" secondAttribute="trailing" id="IfU-KA-HHB"/>
+                            <constraint firstItem="Gac-hg-1kj" firstAttribute="centerX" secondItem="RTD-qv-t3U" secondAttribute="centerX" id="O5W-MP-TY4"/>
+                            <constraint firstItem="1fa-lB-giK" firstAttribute="centerX" secondItem="RTD-qv-t3U" secondAttribute="centerX" id="QD6-lr-SZa"/>
+                            <constraint firstItem="Gac-hg-1kj" firstAttribute="leading" secondItem="RTD-qv-t3U" secondAttribute="leading" id="jcS-im-8rE"/>
+                            <constraint firstItem="Say-Ou-Wvh" firstAttribute="top" secondItem="LI8-VG-xPM" secondAttribute="bottom" constant="20" id="jq0-nJ-rST"/>
+                            <constraint firstItem="cYw-Hn-c0C" firstAttribute="leading" secondItem="RTD-qv-t3U" secondAttribute="leading" id="mPn-cj-SN3"/>
+                            <constraint firstItem="Say-Ou-Wvh" firstAttribute="top" secondItem="cYw-Hn-c0C" secondAttribute="bottom" id="nxp-Yx-p3i"/>
+                            <constraint firstItem="RcG-dc-tgK" firstAttribute="leading" secondItem="RTD-qv-t3U" secondAttribute="leading" constant="16" id="pEj-Ct-dbS"/>
+                            <constraint firstItem="cYw-Hn-c0C" firstAttribute="top" secondItem="RTD-qv-t3U" secondAttribute="top" id="q8o-pl-xgr"/>
+                            <constraint firstAttribute="trailing" secondItem="cYw-Hn-c0C" secondAttribute="trailing" id="uMb-PG-XhD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="cYw-Hn-c0C" id="Q9m-UU-DdB"/>
+                        <outlet property="userBio" destination="RcG-dc-tgK" id="Yla-If-fkv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ms-9h-Lzz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2544.9275362318845" y="163.85869565217394"/>
+        </scene>
+        <!--Matches-->
+        <scene sceneID="ZOK-vO-FUu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Matches" id="Dmy-ci-ay1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRi-2L-dUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2797" y="577"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="exclamation.png" width="64" height="64"/>
+        <image name="ladybird.png" width="149" height="149"/>
         <image name="myprofile.jpg" width="960" height="1280"/>
+        <image name="testuserprofile.jpg" width="652" height="960"/>
+        <image name="thehomebutton.png" width="267" height="267"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Dtw-5B-cgj"/>
+        <segue reference="YZE-PN-Jf0"/>
     </inferredMetricsTieBreakers>
 </document>

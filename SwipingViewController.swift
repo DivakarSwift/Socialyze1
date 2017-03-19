@@ -15,9 +15,11 @@ class SwipingViewController: UIViewController {
     }()
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var userBio: UILabel!
+    
     @IBAction func reportUser(_ sender: Any) {
     }
-     func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
+    
+    func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
         let translation = gestureRecognizer.translation(in: view)
         
@@ -66,7 +68,7 @@ class SwipingViewController: UIViewController {
         super.viewDidLoad()
         
         addLoadingIndicator()
-   
+        
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
         
         imageView.isUserInteractionEnabled = true
@@ -74,7 +76,7 @@ class SwipingViewController: UIViewController {
         imageView.addGestureRecognizer(gesture)
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.activityIndicator.stopAnimating()
@@ -84,5 +86,5 @@ class SwipingViewController: UIViewController {
         self.view.addSubview(activityIndicator)
         activityIndicator.center = self.view.center
     }
-
+    
 }
