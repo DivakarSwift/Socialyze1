@@ -213,30 +213,33 @@
                                                                     <rect key="frame" x="0.0" y="31.666666666666686" width="382" height="30"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age Range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFd-r8-owO">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="232" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="195" height="30"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="i4R-HC-0k2">
-                                                                            <rect key="frame" x="230" y="0.0" width="154" height="31"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" constant="150" id="qKF-ab-IZM"/>
-                                                                            </constraints>
+                                                                            <rect key="frame" x="193" y="0.0" width="191" height="31"/>
+                                                                            <connections>
+                                                                                <action selector="ageSlider:" destination="Xua-vR-Ynp" eventType="valueChanged" id="y9c-SX-t2H"/>
+                                                                            </connections>
                                                                         </slider>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <stackView opaque="NO" tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rw9-hI-uMS">
+                                                                <stackView opaque="NO" tag="8" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Rw9-hI-uMS">
                                                                     <rect key="frame" x="0.0" y="71.666666666666686" width="382" height="30"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance (in miles)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVU-5I-IVg">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="232" height="30"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bid-MM-puE">
-                                                                            <rect key="frame" x="230" y="0.0" width="154" height="31"/>
+                                                                            <rect key="frame" x="193" y="0.0" width="191" height="31"/>
+                                                                            <connections>
+                                                                                <action selector="distanceSlider:" destination="Xua-vR-Ynp" eventType="valueChanged" id="Cc8-f5-hYS"/>
+                                                                            </connections>
                                                                         </slider>
                                                                     </subviews>
                                                                 </stackView>
@@ -249,6 +252,9 @@
                                                                             <state key="normal" title="Privacy Policy">
                                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="privacyPolicyBtn:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="NaB-Mg-N5U"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toq-GZ-PQZ">
                                                                             <rect key="frame" x="0.0" y="32" width="171" height="31.999999999999943"/>
@@ -256,25 +262,36 @@
                                                                             <state key="normal" title="Terms and Conditions ">
                                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="termsAndConditionsBtn:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="Gi8-32-D0A"/>
+                                                                            </connections>
                                                                         </button>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8e-G0-JSl">
-                                                                            <rect key="frame" x="0.0" y="63.999999999999943" width="53.666666666666671" height="32"/>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnx-vU-RxO">
+                                                                            <rect key="frame" x="0.0" y="63.999999999999943" width="54" height="32"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                            <state key="normal" title="Logout">
+                                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="deleteAccountBtn:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="cJh-D8-aDZ"/>
+                                                                                <action selector="logout:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="ABa-0v-dmg"/>
+                                                                            </connections>
+                                                                        </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIe-iY-MN3">
                                                                             <rect key="frame" x="0.0" y="95.999999999999943" width="117" height="32"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                             <state key="normal" title="Delete Account">
                                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="deleteAccountBtn:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="0I3-hK-XGE"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="bid-MM-puE" firstAttribute="width" secondItem="i4R-HC-0k2" secondAttribute="width" id="dNb-XK-CnA"/>
+                                                                <constraint firstItem="i4R-HC-0k2" firstAttribute="width" secondItem="bid-MM-puE" secondAttribute="width" id="Cft-tW-Oic"/>
                                                             </constraints>
                                                         </stackView>
                                                     </subviews>

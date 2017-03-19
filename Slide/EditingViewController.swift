@@ -17,4 +17,24 @@ class EditingTableViewController: UITableViewController {
     @IBAction func doneNavBtn(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func ageSlider(_ sender: Any) {
+    }
+    
+    @IBAction func distanceSlider(_ sender: Any) {
+    }
+    
+    @IBAction func deleteAccountBtn(_ sender: Any) {
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+    }
+     
+    @IBAction func privacyPolicyBtn(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://www.google.com")!)
+    }
+    
+    @IBAction func termsAndConditionsBtn(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://www.google.com")!)
+    }
 }
