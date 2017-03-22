@@ -7,5 +7,6 @@ target 'Slide' do
 
   # Pods for Slide
 pod 'IQKeyboardManagerSwift'
+pod 'Firebase/Core'
 
 end

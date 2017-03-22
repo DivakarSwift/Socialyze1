@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13571740EAF410EA1ADC42F1 /* Pods_Slide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */; };
+		1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */; };
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
 		1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */; };
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
 		4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				FC7A24211E695F56004C9E44 /* Assets.xcassets */,
 				FC7A24231E695F56004C9E44 /* LaunchScreen.storyboard */,
 				FC7A24261E695F56004C9E44 /* Info.plist */,
+				1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */,
 			);
 			path = Slide;
 			sourceTree = "<group>";
@@ -290,7 +293,7 @@
 				TargetAttributes = {
 					FC7A24161E695F56004C9E44 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -346,6 +349,7 @@
 				FC7A243C1E696810004C9E44 /* dining.png in Resources */,
 				FC7A24421E696810004C9E44 /* Other.png in Resources */,
 				FC52197B1E6FC32000EDF19A /* ladybird.png in Resources */,
+				1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */,
 				FCF847D21E795DAE009F49F8 /* exclamation.png in Resources */,
 				FC7A243E1E696810004C9E44 /* gaming.png in Resources */,
 				FC2C365C1E722BC8003C1CF9 /* stockpicround.png in Resources */,
@@ -383,7 +387,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8930F92A409D0A851E289616 /* [CP] Embed Pods Frameworks */ = {
@@ -541,11 +545,12 @@
 			baseConfigurationReference = 4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyzea;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -557,11 +562,12 @@
 			baseConfigurationReference = 6FB78CCFC1102B749DFF93D8 /* Pods-Slide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyzea;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
