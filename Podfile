@@ -10,5 +10,8 @@ pod 'IQKeyboardManagerSwift'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+#pod 'FBSDKShareKit'
 
 end
