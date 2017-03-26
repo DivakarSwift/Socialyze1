@@ -9,14 +9,18 @@
 import UIKit
 
 class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-      var picker = UIImagePickerController()
-  var eventsArray = Array<String>()
+    var picker = UIImagePickerController()
+    var eventsArray = Array<String>()
+    
     @IBOutlet weak var objectToMove: UIView!
     @IBOutlet var userImg: UIButton!
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var txtDescription: UITextView!
     @IBOutlet var lblCharacterLft: UILabel!
     var val : String!
+    
+    @IBOutlet weak var lblBioCharactersLeft: UILabel!
+    @IBOutlet weak var txtUserBio: UITextView!
     
     @IBOutlet var btnPost: UIButton!
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
@@ -26,17 +30,17 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         picker.delegate = self
-       
+        
         self.title = "Create Event"
         // Do any additional setup after loading the view.
-         eventsArray = ["Coffee","Dining","Party","Nightlife","Fitness","Gaming","Study Group","Causes","Chill","Others"]
+        eventsArray = ["Coffee","Dining","Party","Nightlife","Fitness","Gaming","Study Group","Causes","Chill","Others"]
         pickerView.delegate = self
         txtDescription.delegate = self
-               
         
-          addLoadingIndicator()
+        
+        addLoadingIndicator()
         self.navigationController?.navigationBar.topItem?.title = "Back"
         
         btnPost.layer.cornerRadius = 5; // this value vary as per your desire
@@ -49,25 +53,25 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         super.viewWillAppear(animated)
         self.activityIndicator.stopAnimating()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-  
+     // MARK: - Navigation
      
-
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    
+    
     @IBAction func btnPost(_ sender: Any) {
         activityIndicator.startAnimating()
     }
@@ -82,7 +86,7 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-         val = eventsArray[row]
+        val = eventsArray[row]
         return val
     }
     
@@ -143,7 +147,7 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
             print("completion block")
         })
         // Add the actions
-
+        
     }
     
     func openCamera()
@@ -155,7 +159,7 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         }
         else
         {
-           
+            
         }
     }
     func openGallary()
@@ -170,7 +174,7 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         userImg.setImage(image, for: UIControlState.normal)
         userImg.setTitle("", for: UIControlState.normal)
         
-     
+        
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -178,7 +182,7 @@ class SelectionViewController: UIViewController,UIPickerViewDelegate,UIPickerVie
         self.dismiss(animated: true, completion: nil)
         
     }
-
+    
     
     func addLoadingIndicator () {
         self.view.addSubview(activityIndicator)

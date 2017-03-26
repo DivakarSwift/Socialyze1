@@ -81,13 +81,36 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dav-hd-Usd">
+                                <rect key="frame" x="20" y="510" width="374" height="90"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="RxY-Hg-1YD"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ujX-dW-eJB" id="7dE-wI-uzg"/>
+                                </connections>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 Characters Left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODb-kV-pte">
+                                <rect key="frame" x="287" y="602" width="107" height="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ykr-JO-YdY" secondAttribute="trailing" id="3W7-jD-y46"/>
                             <constraint firstItem="5Yy-hJ-A4W" firstAttribute="top" secondItem="FuY-Bp-86q" secondAttribute="bottom" constant="20" id="3sW-L5-5zI"/>
+                            <constraint firstItem="ODb-kV-pte" firstAttribute="trailing" secondItem="dav-hd-Usd" secondAttribute="trailing" id="5dJ-M9-Js9"/>
                             <constraint firstItem="cTo-mn-hlP" firstAttribute="width" secondItem="9Fh-49-oF0" secondAttribute="width" multiplier="0.4" id="7Bw-DD-6Bu"/>
                             <constraint firstItem="agC-49-AWF" firstAttribute="top" secondItem="5Yy-hJ-A4W" secondAttribute="bottom" constant="10" id="D8d-Ni-k0W"/>
+                            <constraint firstItem="dav-hd-Usd" firstAttribute="leading" secondItem="agC-49-AWF" secondAttribute="leading" id="H9X-fr-78K"/>
+                            <constraint firstItem="ODb-kV-pte" firstAttribute="top" secondItem="dav-hd-Usd" secondAttribute="bottom" constant="2" id="KLo-1q-gbo"/>
                             <constraint firstAttribute="trailing" secondItem="FuY-Bp-86q" secondAttribute="trailing" constant="20" id="Ltc-VV-UjN"/>
                             <constraint firstItem="agC-49-AWF" firstAttribute="trailing" secondItem="FuY-Bp-86q" secondAttribute="trailing" id="P3a-7y-Xfv"/>
                             <constraint firstItem="Ykr-JO-YdY" firstAttribute="top" secondItem="bXz-pP-sBF" secondAttribute="bottom" id="YYh-eR-2hh"/>
@@ -99,7 +122,9 @@
                             <constraint firstItem="OAp-vA-vCh" firstAttribute="top" secondItem="cTo-mn-hlP" secondAttribute="bottom" constant="20" id="fQN-nY-10S"/>
                             <constraint firstItem="agC-49-AWF" firstAttribute="leading" secondItem="5Yy-hJ-A4W" secondAttribute="leading" id="hbU-PA-AsA"/>
                             <constraint firstItem="ecL-Ph-vIe" firstAttribute="top" secondItem="agC-49-AWF" secondAttribute="bottom" constant="2" id="kXg-Vx-NiW"/>
+                            <constraint firstItem="dav-hd-Usd" firstAttribute="width" secondItem="agC-49-AWF" secondAttribute="width" id="lXH-KK-Vj4"/>
                             <constraint firstItem="FuY-Bp-86q" firstAttribute="top" secondItem="VQz-AB-UWR" secondAttribute="bottom" constant="10" id="lxu-sd-Zwu"/>
+                            <constraint firstItem="dav-hd-Usd" firstAttribute="top" secondItem="agC-49-AWF" secondAttribute="bottom" constant="24" id="n3r-Qj-wOu"/>
                             <constraint firstItem="Ykr-JO-YdY" firstAttribute="leading" secondItem="9Fh-49-oF0" secondAttribute="leading" id="smj-E4-z6E"/>
                             <constraint firstItem="VQz-AB-UWR" firstAttribute="top" secondItem="bXz-pP-sBF" secondAttribute="bottom" constant="130" id="vY0-cF-X2L"/>
                             <constraint firstItem="VQz-AB-UWR" firstAttribute="leading" secondItem="9Fh-49-oF0" secondAttribute="leading" constant="20" id="zR0-Tj-HVw"/>
@@ -108,9 +133,11 @@
                     <navigationItem key="navigationItem" id="W6f-hV-DFf"/>
                     <connections>
                         <outlet property="btnPost" destination="cTo-mn-hlP" id="fXs-wA-cwG"/>
+                        <outlet property="lblBioCharactersLeft" destination="ODb-kV-pte" id="JTR-cC-TOw"/>
                         <outlet property="lblCharacterLft" destination="ecL-Ph-vIe" id="CbY-8R-Flq"/>
                         <outlet property="pickerView" destination="FuY-Bp-86q" id="VzM-HB-Xzq"/>
                         <outlet property="txtDescription" destination="agC-49-AWF" id="Jpd-aP-CeM"/>
+                        <outlet property="txtUserBio" destination="dav-hd-Usd" id="Mn1-ep-OaQ"/>
                         <segue destination="q1R-Uq-Cjd" kind="show" id="Dtw-5B-cgj"/>
                     </connections>
                 </viewController>
