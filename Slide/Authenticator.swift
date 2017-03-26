@@ -24,6 +24,7 @@ enum Provider: String {
 protocol AuthenticatorDelegate {
     func didOccurAuthentication(error: AuthenticationError)
     func didSignInWithUser(user: FIRUser?)
+    func didLogoutUser()
 }
 
 enum AuthenticationError: Error {
@@ -47,8 +48,8 @@ class Authenticator {
     
     init() {}
     
-    func isUserLoggedIn() -> Bool{
-        return FIRAuth.auth()?.currentUser != nil
+    static var isUserLoggedIn: Bool{
+        return Authenticator.currentFIRUser != nil
     }
     
     func authenticateWith(provider: Provider) {
@@ -85,29 +86,20 @@ class Authenticator {
         })
     }
     
-    func logout(completionHandler: CompletionBlock) {
+    func logout() {
         
         LoginManager().logOut() //facebook logout
         
         do {
             try FIRAuth.auth()?.signOut()
-            completionHandler()
+            self.delegate?.didLogoutUser()
         }catch {
-            doLog("Error")
+            self.delegate?.didOccurAuthentication(error: AuthenticationError.logoutFailed(with: error))
+            doLog("Error \(error)")
         }
     }
     
-    func unauthFromFirebase() {
-        do {
-            try FIRAuth.auth()?.signOut()
-        }catch {
-            
-        }
-    }
-    
-    
-    
-    func profileChangeRequest(nickname: String?, photoUrl: URL?, completion: CallBackWithError?) {
+    static func profileChangeRequest(nickname: String?, photoUrl: URL?, completion: CallBackWithError?) {
         if let changeRequest = FIRAuth.auth()?.currentUser?.profileChangeRequest(){
             changeRequest.displayName = nickname
             changeRequest.photoURL = photoUrl
@@ -115,24 +107,24 @@ class Authenticator {
         }
     }
     
-    func sendVefificationEmail(completion: CallBackWithError?) {
+    static func sendVefificationEmail(completion: CallBackWithError?) {
         FIRAuth.auth()?.currentUser?.sendEmailVerification(completion: completion)
     }
     
-    func sendEmailForPasswordRecovery(email: String, completion: @escaping CallBackWithError) {
+    static func sendEmailForPasswordRecovery(email: String, completion: @escaping CallBackWithError) {
         FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: completion)
     }
     
-    func currentFIRUser() -> FIRUser {
+    static var currentFIRUser: FIRUser {
         return FIRAuth.auth()!.currentUser!
     }
     
-    func reAuthenticate(email: String, password: String, completion: CallBackWithError?) {
+    static func reAuthenticate(email: String, password: String, completion: CallBackWithError?) {
         let credential = FIREmailPasswordAuthProvider.credential(withEmail: email, password: password)
         FIRAuth.auth()?.currentUser?.reauthenticate(with: credential, completion: completion)
     }
     
-    func updatePassword(password: String, completion: CallBackWithError?) {
+    static func updatePassword(password: String, completion: CallBackWithError?) {
         FIRAuth.auth()?.currentUser?.updatePassword(password, completion: completion)
     }
     

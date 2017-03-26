@@ -7,27 +7,36 @@
 //
 
 import Foundation
-import SwiftyJSON
+import ObjectMapper
 
-struct User {
+struct User: Mappable {
+    var id: String?
+    var dateOfBirth: TimeInterval?
+    var name: String?
     var bio: String?
     var images: [URL] = []
     var distanceLowerBound: Double?
     var distanceUpperBound: Double?
     var ageLowerBound: Double?
     var ageUpperBound: Double?
+    var blockedUsers: [String] = []
+    var userWhoBlockedMe: [String] = []
     
-//    init(dict: [String: Any]) {
-//        self.bio = (dict["bio"] as? String) ?? ""
-//        
-//        let images = (dict["images"] as? [String]) ?? []
-//        self.images = images.flatMap(URL.init(string: ))
-//        
-//        self.distanceLowerBound = (dict["distanceLowerBound"] as? Double) ?? 0.0
-//        self.distanceUpperBound = (dict["distanceUpperBound"] as? Double) ?? 0.0
-//         self.ageLowerBound = (dict["ageLowerBound"] as? Double) ?? 0.0
-//         self.ageUpperBound = (dict["ageUpperBound"] as? Double) ?? 0.0
-//    }
+    init?(map: Map) {
+        self.mapping(map: map)
+    }
     
-//    init
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        dateOfBirth <- map["dateOfBirth"]
+        name <- map["name"]
+        bio <- map["bio"]
+        images <- (map["images"], URLTransform())
+        distanceLowerBound <- map["distanceLowerBound"]
+        distanceUpperBound <- map["distanceUpperrBound"]
+        ageLowerBound <- map["ageLowerBound"]
+        ageUpperBound <- map["ageUpperBound"]
+        blockedUsers <- map["blockedUsers"]
+        userWhoBlockedMe <- map["blockedByUsers"]
+    }
 }
