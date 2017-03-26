@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -97,6 +96,7 @@
                     <connections>
                         <outlet property="eventDescription" destination="gF5-2E-WGr" id="AOP-a6-2bk"/>
                         <outlet property="imageView" destination="Suk-AW-li8" id="bAb-2i-INK"/>
+                        <outlet property="infoButton" destination="fmo-QB-gAY" id="jCf-JQ-zgC"/>
                         <outlet property="userName" destination="lk2-Pl-G83" id="Ctd-jR-bmQ"/>
                     </connections>
                 </viewController>

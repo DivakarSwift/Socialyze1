@@ -9,17 +9,73 @@
 import UIKit
 
 class CategoriesViewController: UIViewController {
+    
+    var users: [User] = []
   
     let categoryDefaults = UserDefaults.standard
+    
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
         return CustomActivityIndicatorView(image: image)
     }()
     
+    @IBOutlet weak var infoButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var userName: UILabel!
+    
     @IBAction func reportUser(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let block = UIAlertAction(title: "Block", style: .default) { (_) in
+            if let user = self.users.first {
+                self.activityIndicator.startAnimating()
+                FirebaseManager.shared.block(user: user, completion: { (success, error) in
+                    self.activityIndicator.stopAnimating()
+                    if success {
+                        self.alert(message: "User blocked.")
+                        self.users.remove(at: 0)
+                    }else {
+                        self.alert(message: "Can't unblock the user. Try again!")
+                    }
+                })
+            }
+        }
+        
+        let reportAndBlock = UIAlertAction(title: "Report", style: .default) { (_) in
+            if let user = self.users.first {
+                let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
+                reportAlert.addTextField(configurationHandler: { (textField) in
+                    textField.placeholder = "Remarks"
+                })
+                
+                let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
+                    self.activityIndicator.startAnimating()
+                    FirebaseManager.shared.blockAndReport(user: user, remark: "", completion: { (success, error) in
+                        self.activityIndicator.stopAnimating()
+                        if success {
+                            self.alert(message: "Reported on user.")
+                            self.users.remove(at: 0)
+                        }else {
+                            self.alert(message: "Can't report the user. Try again!")
+                        }
+                    })
+                })
+                
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                reportAlert.addAction(ok)
+                reportAlert.addAction(cancel)
+                
+                self.present(reportAlert, animated: true, completion: nil)
+            }
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(block)
+        alert.addAction(reportAndBlock)
+        alert.addAction(cancel)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -69,6 +125,9 @@ class CategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.infoButton.rounded()
+        self.infoButton.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
         
         addLoadingIndicator()
         
