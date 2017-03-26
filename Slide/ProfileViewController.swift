@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class ProfileViewController: UIViewController {
             self.editButton.isHidden = false
             self.bioLabel.isHidden = false
             self.bioLabel.text = user?.bio
-            self.userImageView.image = UIImage()
+            self.userImageView.kf.setImage(with: user?.images.first)
         }
     }
     
@@ -34,7 +35,7 @@ class ProfileViewController: UIViewController {
             FirebaseManager.shared.getUser(withId: userId, completion: { (user, error) in
                 if let error = error {
                     self.alert(message: error.localizedDescription, okAction: {
-                        self.navigationController?.popViewController(animated: true)
+                        _ = self.navigationController?.popViewController(animated: true)
                         self.dismiss(animated: true, completion: nil)
                     })
                 }else {
