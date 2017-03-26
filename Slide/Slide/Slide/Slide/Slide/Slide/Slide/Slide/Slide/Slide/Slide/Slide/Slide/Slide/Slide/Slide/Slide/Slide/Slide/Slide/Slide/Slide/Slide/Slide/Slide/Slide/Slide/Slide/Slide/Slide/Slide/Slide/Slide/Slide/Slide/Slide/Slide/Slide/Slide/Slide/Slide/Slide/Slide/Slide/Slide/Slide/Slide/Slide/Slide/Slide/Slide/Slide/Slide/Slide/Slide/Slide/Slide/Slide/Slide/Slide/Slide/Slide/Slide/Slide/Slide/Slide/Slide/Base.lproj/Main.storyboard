@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ddF-1J-eb0">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="EcZ-Py-x3A">
+                                <rect key="frame" x="0.0" y="64" width="414" height="786"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dX-6F-ZJs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="786"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isN-x6-hSq">
+                                                <rect key="frame" x="77" y="20" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="YgT-QG-Rk1"/>
+                                                    <constraint firstAttribute="width" constant="100" id="jub-An-QAp"/>
+                                                </constraints>
+                                                <state key="normal" image="coldcoffee.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jNG-YB-IjV"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEM-wt-hld">
+                                                <rect key="frame" x="99" y="125" width="57" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Coffee"/>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajd-uX-1qC">
+                                                <rect key="frame" x="237" y="20" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="1"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="GCQ-nw-aMp"/>
+                                                    <constraint firstAttribute="width" constant="100" id="vJv-DC-lR8"/>
+                                                </constraints>
+                                                <state key="normal" image="dining.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jgX-NF-OTI"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6t-Tn-Yen">
+                                                <rect key="frame" x="260" y="125" width="55" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Dining"/>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPW-uF-5Jf">
+                                                <rect key="frame" x="77" y="169" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="2"/>
+                                                <state key="normal" image="nightlife.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jJz-nq-yXd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-zO-rKr">
+                                                <rect key="frame" x="237" y="169" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="3"/>
+                                                <state key="normal" image="houseparty.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IZ5-iD-qHe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFm-9y-e8q">
+                                                <rect key="frame" x="91" y="274" width="72" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Nightlife"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RmV-ee-8vw">
+                                                <rect key="frame" x="264" y="274" width="46" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Party"/>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFu-qX-xWV">
+                                                <rect key="frame" x="77" y="318" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="4"/>
+                                                <state key="normal" image="fitness2.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pRE-y7-rZl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vx2-z9-aIy">
+                                                <rect key="frame" x="237" y="318" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="5"/>
+                                                <state key="normal" image="gaming.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVD-6i-1yh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7I-vF-SSf">
+                                                <rect key="frame" x="96" y="423" width="62" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Fitness"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nS-Jd-sPH">
+                                                <rect key="frame" x="254" y="423" width="67" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Gaming"/>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMC-7x-Nht">
+                                                <rect key="frame" x="77" y="467" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="6"/>
+                                                <state key="normal" image="study group.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ynj-q0-Kas"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYq-ef-Kr4">
+                                                <rect key="frame" x="237" y="467" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="7"/>
+                                                <state key="normal" image="causes2.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f87-wW-a7x"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9y-Q9-T4Q">
+                                                <rect key="frame" x="73" y="572" width="108" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Study Group"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xG-UY-fyF">
+                                                <rect key="frame" x="255" y="572" width="65" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Causes"/>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zkw-H2-yfo">
+                                                <rect key="frame" x="77" y="616" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="8"/>
+                                                <state key="normal" image="chill.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vhz-bc-YOq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewR-ou-GTv">
+                                                <rect key="frame" x="237" y="616" width="100" height="100"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="9"/>
+                                                <state key="normal" image="Other.png"/>
+                                                <connections>
+                                                    <action selector="switchToCategoryFromButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P3U-Hv-LBd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SB6-iu-XPC">
+                                                <rect key="frame" x="108" y="721" width="38" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Chill"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyh-0N-Sfq">
+                                                <rect key="frame" x="258" y="721" width="59" height="34"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Others"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="b8V-zO-rKr" firstAttribute="top" secondItem="Q6t-Tn-Yen" secondAttribute="bottom" constant="10" id="0JL-YK-H4q"/>
+                                            <constraint firstItem="Gyh-0N-Sfq" firstAttribute="centerY" secondItem="SB6-iu-XPC" secondAttribute="centerY" id="0R1-qK-jXz"/>
+                                            <constraint firstItem="3nS-Jd-sPH" firstAttribute="centerX" secondItem="vx2-z9-aIy" secondAttribute="centerX" id="4om-jm-St7"/>
+                                            <constraint firstItem="Gyh-0N-Sfq" firstAttribute="centerX" secondItem="ewR-ou-GTv" secondAttribute="centerX" id="58S-Q7-boE"/>
+                                            <constraint firstItem="Q6t-Tn-Yen" firstAttribute="centerX" secondItem="ajd-uX-1qC" secondAttribute="centerX" id="5CA-KQ-FWD"/>
+                                            <constraint firstItem="VPW-uF-5Jf" firstAttribute="width" secondItem="isN-x6-hSq" secondAttribute="width" id="5CI-kZ-nUW"/>
+                                            <constraint firstItem="vx2-z9-aIy" firstAttribute="top" secondItem="RmV-ee-8vw" secondAttribute="bottom" constant="10" id="5nT-vf-vza"/>
+                                            <constraint firstItem="VPW-uF-5Jf" firstAttribute="top" secondItem="Q6t-Tn-Yen" secondAttribute="bottom" constant="10" id="5s1-tb-b3E"/>
+                                            <constraint firstItem="b8V-zO-rKr" firstAttribute="centerX" secondItem="ajd-uX-1qC" secondAttribute="centerX" id="6RG-vm-XXV"/>
+                                            <constraint firstItem="ewR-ou-GTv" firstAttribute="width" secondItem="ajd-uX-1qC" secondAttribute="width" id="7e7-hL-Ilh"/>
+                                            <constraint firstItem="ajd-uX-1qC" firstAttribute="top" secondItem="5dX-6F-ZJs" secondAttribute="top" constant="20" id="AYS-6O-XUD"/>
+                                            <constraint firstItem="dFu-qX-xWV" firstAttribute="width" secondItem="isN-x6-hSq" secondAttribute="width" id="B8k-SP-s4D"/>
+                                            <constraint firstItem="ewR-ou-GTv" firstAttribute="top" secondItem="3xG-UY-fyF" secondAttribute="bottom" constant="10" id="Bc9-iM-Uld"/>
+                                            <constraint firstItem="b8V-zO-rKr" firstAttribute="height" secondItem="ajd-uX-1qC" secondAttribute="height" id="Cpi-Ez-HWM"/>
+                                            <constraint firstItem="Q6t-Tn-Yen" firstAttribute="centerY" secondItem="gEM-wt-hld" secondAttribute="centerY" id="FEh-HE-rIP"/>
+                                            <constraint firstItem="cMC-7x-Nht" firstAttribute="width" secondItem="isN-x6-hSq" secondAttribute="width" id="G66-GS-hUY"/>
+                                            <constraint firstItem="dFu-qX-xWV" firstAttribute="height" secondItem="isN-x6-hSq" secondAttribute="height" id="GYT-yb-Mhk"/>
+                                            <constraint firstItem="Zkw-H2-yfo" firstAttribute="top" secondItem="B9y-Q9-T4Q" secondAttribute="bottom" constant="10" id="InD-Qe-9aR"/>
+                                            <constraint firstItem="n7I-vF-SSf" firstAttribute="top" secondItem="dFu-qX-xWV" secondAttribute="bottom" constant="5" id="InU-aI-pTL"/>
+                                            <constraint firstItem="MFm-9y-e8q" firstAttribute="centerX" secondItem="VPW-uF-5Jf" secondAttribute="centerX" id="JB2-DE-kn6"/>
+                                            <constraint firstItem="VPW-uF-5Jf" firstAttribute="height" secondItem="isN-x6-hSq" secondAttribute="height" id="JzJ-AV-kjD"/>
+                                            <constraint firstItem="isN-x6-hSq" firstAttribute="centerX" secondItem="5dX-6F-ZJs" secondAttribute="centerX" constant="-80" id="KEi-pu-eTr"/>
+                                            <constraint firstItem="ewR-ou-GTv" firstAttribute="height" secondItem="ajd-uX-1qC" secondAttribute="height" id="KgG-8g-Uov"/>
+                                            <constraint firstItem="SB6-iu-XPC" firstAttribute="top" secondItem="Zkw-H2-yfo" secondAttribute="bottom" constant="5" id="KrS-GC-tIY"/>
+                                            <constraint firstItem="3xG-UY-fyF" firstAttribute="centerX" secondItem="vYq-ef-Kr4" secondAttribute="centerX" id="LkD-tm-B3W"/>
+                                            <constraint firstItem="B9y-Q9-T4Q" firstAttribute="centerX" secondItem="cMC-7x-Nht" secondAttribute="centerX" id="MG2-y9-Jkr"/>
+                                            <constraint firstItem="vx2-z9-aIy" firstAttribute="width" secondItem="ajd-uX-1qC" secondAttribute="width" id="NNA-9a-tZj"/>
+                                            <constraint firstItem="Zkw-H2-yfo" firstAttribute="height" secondItem="isN-x6-hSq" secondAttribute="height" id="NxY-zx-HaY"/>
+                                            <constraint firstItem="MFm-9y-e8q" firstAttribute="top" secondItem="VPW-uF-5Jf" secondAttribute="bottom" constant="5" id="Olx-pe-1bl"/>
+                                            <constraint firstItem="b8V-zO-rKr" firstAttribute="width" secondItem="ajd-uX-1qC" secondAttribute="width" id="Pqf-F0-2P4"/>
+                                            <constraint firstItem="n7I-vF-SSf" firstAttribute="centerX" secondItem="dFu-qX-xWV" secondAttribute="centerX" id="Rrs-HP-ILr"/>
+                                            <constraint firstItem="dFu-qX-xWV" firstAttribute="top" secondItem="RmV-ee-8vw" secondAttribute="bottom" constant="10" id="TXg-lV-Kkb"/>
+                                            <constraint firstItem="cMC-7x-Nht" firstAttribute="height" secondItem="isN-x6-hSq" secondAttribute="height" id="U4t-s8-1cE"/>
+                                            <constraint firstItem="cMC-7x-Nht" firstAttribute="top" secondItem="n7I-vF-SSf" secondAttribute="bottom" constant="10" id="XFQ-n0-C0v"/>
+                                            <constraint firstItem="vYq-ef-Kr4" firstAttribute="width" secondItem="ajd-uX-1qC" secondAttribute="width" id="Xew-mt-Cbk"/>
+                                            <constraint firstItem="3xG-UY-fyF" firstAttribute="centerY" secondItem="B9y-Q9-T4Q" secondAttribute="centerY" id="YIR-9I-qeY"/>
+                                            <constraint firstItem="Zkw-H2-yfo" firstAttribute="centerX" secondItem="isN-x6-hSq" secondAttribute="centerX" id="YgE-wi-nDd"/>
+                                            <constraint firstItem="VPW-uF-5Jf" firstAttribute="centerX" secondItem="isN-x6-hSq" secondAttribute="centerX" id="Ymf-cg-eXR"/>
+                                            <constraint firstItem="Zkw-H2-yfo" firstAttribute="width" secondItem="isN-x6-hSq" secondAttribute="width" id="Zsh-nc-jge"/>
+                                            <constraint firstItem="vYq-ef-Kr4" firstAttribute="centerX" secondItem="ajd-uX-1qC" secondAttribute="centerX" id="aEQ-mC-nPJ"/>
+                                            <constraint firstItem="gEM-wt-hld" firstAttribute="centerX" secondItem="isN-x6-hSq" secondAttribute="centerX" id="dkl-uS-bHD"/>
+                                            <constraint firstItem="vYq-ef-Kr4" firstAttribute="height" secondItem="ajd-uX-1qC" secondAttribute="height" id="dzp-46-aBp"/>
+                                            <constraint firstItem="RmV-ee-8vw" firstAttribute="top" secondItem="b8V-zO-rKr" secondAttribute="bottom" constant="5" id="e2F-iX-wAm"/>
+                                            <constraint firstItem="cMC-7x-Nht" firstAttribute="centerX" secondItem="isN-x6-hSq" secondAttribute="centerX" id="e3N-S1-5eM"/>
+                                            <constraint firstItem="vx2-z9-aIy" firstAttribute="height" secondItem="ajd-uX-1qC" secondAttribute="height" id="f71-bB-Dyc"/>
+                                            <constraint firstItem="vx2-z9-aIy" firstAttribute="centerX" secondItem="ajd-uX-1qC" secondAttribute="centerX" id="ge3-sq-bYS"/>
+                                            <constraint firstItem="ewR-ou-GTv" firstAttribute="centerX" secondItem="ajd-uX-1qC" secondAttribute="centerX" id="hJn-wL-wxS"/>
+                                            <constraint firstItem="gEM-wt-hld" firstAttribute="top" secondItem="isN-x6-hSq" secondAttribute="bottom" constant="5" id="jrV-tw-mnW"/>
+                                            <constraint firstItem="ajd-uX-1qC" firstAttribute="centerX" secondItem="5dX-6F-ZJs" secondAttribute="centerX" constant="80" id="m1s-I8-vS1"/>
+                                            <constraint firstItem="SB6-iu-XPC" firstAttribute="centerX" secondItem="Zkw-H2-yfo" secondAttribute="centerX" id="oj9-hG-l2v"/>
+                                            <constraint firstAttribute="height" constant="786" id="vcr-Za-aV6"/>
+                                            <constraint firstItem="vYq-ef-Kr4" firstAttribute="top" secondItem="3nS-Jd-sPH" secondAttribute="bottom" constant="10" id="w5J-35-EuR"/>
+                                            <constraint firstItem="isN-x6-hSq" firstAttribute="top" secondItem="5dX-6F-ZJs" secondAttribute="top" constant="20" id="wEN-8Y-0jw"/>
+                                            <constraint firstItem="RmV-ee-8vw" firstAttribute="centerX" secondItem="b8V-zO-rKr" secondAttribute="centerX" id="xSq-9e-gL3"/>
+                                            <constraint firstItem="B9y-Q9-T4Q" firstAttribute="top" secondItem="cMC-7x-Nht" secondAttribute="bottom" constant="5" id="y6s-x7-yxl"/>
+                                            <constraint firstItem="dFu-qX-xWV" firstAttribute="centerX" secondItem="isN-x6-hSq" secondAttribute="centerX" id="yIa-ti-eiI"/>
+                                            <constraint firstItem="3nS-Jd-sPH" firstAttribute="centerY" secondItem="n7I-vF-SSf" secondAttribute="centerY" id="z7i-O3-zIN"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="5dX-6F-ZJs" secondAttribute="trailing" id="4Jq-92-FN6"/>
+                                    <constraint firstItem="5dX-6F-ZJs" firstAttribute="leading" secondItem="EcZ-Py-x3A" secondAttribute="leading" id="Soj-En-A1n"/>
+                                    <constraint firstItem="5dX-6F-ZJs" firstAttribute="centerX" secondItem="EcZ-Py-x3A" secondAttribute="centerX" id="TnG-ws-htH"/>
+                                    <constraint firstItem="5dX-6F-ZJs" firstAttribute="top" secondItem="EcZ-Py-x3A" secondAttribute="top" id="U3N-YC-Zfp"/>
+                                    <constraint firstAttribute="bottom" secondItem="5dX-6F-ZJs" secondAttribute="bottom" id="X7u-a8-LSG"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.050000000000000003" height="0.29999999999999999"/>
+                        <constraints>
+                            <constraint firstItem="EcZ-Py-x3A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="BC8-lc-JMi"/>
+                            <constraint firstItem="EcZ-Py-x3A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="GN5-Gs-NRu"/>
+                            <constraint firstItem="EcZ-Py-x3A" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="T0o-CW-055"/>
+                            <constraint firstAttribute="trailing" secondItem="EcZ-Py-x3A" secondAttribute="trailing" id="Y1r-SK-lFa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EcZ-Py-x3A" secondAttribute="bottom" id="clW-Q6-6d5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4nA-Tf-uLl"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="850"/>
+                    <connections>
+                        <outlet property="mainView" destination="5dX-6F-ZJs" id="vwf-90-OcU"/>
+                        <outlet property="scrolView" destination="EcZ-Py-x3A" id="VjD-27-fQB"/>
+                        <segue destination="dSg-os-irL" kind="show" id="uZi-SU-WhH"/>
+                        <segue destination="35w-DO-SmY" kind="show" identifier="categoryDetail" id="eV7-YI-ME7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="139"/>
+        </scene>
+        <!--Events-->
+        <scene sceneID="BP5-XC-PIg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Events" id="dSg-os-irL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLP-AU-Mm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1545" y="232"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="PZM-Rj-kTc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Categories" id="35w-DO-SmY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VEJ-uw-YS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="305"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ah0-jK-Ici">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ddF-1J-eb0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apb-Db-fU9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ZA2-s2-X8R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dq5-ea-YC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Other.png" width="128" height="128"/>
+        <image name="causes2.png" width="128" height="128"/>
+        <image name="chill.png" width="128" height="128"/>
+        <image name="coldcoffee.png" width="128" height="128"/>
+        <image name="dining.png" width="128" height="128"/>
+        <image name="fitness2.png" width="128" height="128"/>
+        <image name="gaming.png" width="128" height="128"/>
+        <image name="houseparty.png" width="128" height="128"/>
+        <image name="nightlife.png" width="128" height="128"/>
+        <image name="study group.png" width="128" height="128"/>
+    </resources>
+</document>

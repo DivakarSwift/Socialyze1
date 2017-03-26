@@ -58,6 +58,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
   - IQKeyboardManagerSwift (4.0.8)
+  - Kingfisher (3.5.2)
   - ObjectMapper (2.2.5)
   - SwiftyJSON (3.1.4)
 
@@ -69,6 +70,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - IQKeyboardManagerSwift
+  - Kingfisher (~> 3.0)
   - ObjectMapper
   - SwiftyJSON
 
@@ -89,9 +91,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 80acdb2a0e42c9015eeb7bec2f207d5c991eec78
+PODFILE CHECKSUM: 71493f0d198e6e3aba8fddddc9e8216042cee99a
 
 COCOAPODS: 1.1.1

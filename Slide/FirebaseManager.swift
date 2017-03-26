@@ -17,6 +17,15 @@ enum Node: String {
     case report
 }
 
+enum FirebaseManagerError: Error {
+    case noUserFound
+    var localizedDescription: String {
+        switch self {
+        case .noUserFound: return "User not found."
+        }
+    }
+}
+
 class FirebaseManager {
     static let shared = FirebaseManager()
     
@@ -25,11 +34,22 @@ class FirebaseManager {
     let reference = FIRDatabase.database().reference()
     
     func saveUser(user: User, completion: @escaping CallBackWithSuccessError) {
-        let user = user.toJSON()
+        let userDict = user.toJSON()
         
-        reference.child(Node.user.rawValue).childByAutoId().updateChildValues(user) { (error, _) in
+        reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
             completion(error == nil, error)
         }
+    }
+    
+    func getUser(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
+        reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            let json = JSON(snapshot.value)
+            if let user: User = json.map() {
+                completion(user, nil)
+            }else {
+                completion(nil, FirebaseManagerError.noUserFound)
+            }
+        })
     }
     
     func getAllUser(completion: @escaping ([User]) -> Void) {
@@ -42,11 +62,11 @@ class FirebaseManager {
     }
     
     func block(user: User, completion: @escaping CallBackWithSuccessError) {
-        reference.child(Node.user.rawValue).child(user.id!).updateChildValues(["blockedByUsers" : Authenticator.currentFIRUser.uid]) { (error, _) in
+        reference.child(Node.user.rawValue).child(user.id!).updateChildValues(["blockedByUsers" : Authenticator.currentFIRUser!.uid]) { (error, _) in
             if let error = error {
                 completion(false, error)
             }else {
-                reference.child(Node.user.rawValue).child(Authenticator.currentFIRUser.uid).updateChildValues(["blockedUsers" : user.id!], withCompletionBlock: { (error, _) in
+                self.reference.child(Node.user.rawValue).child(Authenticator.currentFIRUser!.uid).updateChildValues(["blockedUsers" : user.id!], withCompletionBlock: { (error, _) in
                     completion(error == nil, error)
                 })
             }
@@ -65,7 +85,7 @@ class FirebaseManager {
     
     func report(user: User, remark: String, completion: @escaping CallBackWithSuccessError) {
         let dict = [
-            "reportedBy": Authenticator.currentFIRUser.uid,
+            "reportedBy": Authenticator.currentFIRUser!.uid,
             "remarks": remark,
             "reportedOn": user.id!
         ]

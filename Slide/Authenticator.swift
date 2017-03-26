@@ -16,14 +16,14 @@ typealias CallBackWithError = (Error?) -> ()
 
 enum Provider: String {
     case facebook = "facebook.com"
-    case twitter = "twitter.com"
-    case google = "google.com"
-    case password = "password"
+//    case twitter = "twitter.com"
+//    case google = "google.com"
+//    case password = "password"
 }
 
 protocol AuthenticatorDelegate {
     func didOccurAuthentication(error: AuthenticationError)
-    func didSignInWithUser(user: FIRUser?)
+    func didSignInUser()
     func didLogoutUser()
 }
 
@@ -32,13 +32,13 @@ enum AuthenticationError: Error {
     case facebookLoginCancelled
     case firebaseAuthenticationFailed(with: Error)
     case logoutFailed(with: Error)
-    
+
     var localizedDescription: String {
         switch self {
-        case .facebookLoginFailed : return "Oops! Something went wrong with facebook login."
         case .facebookLoginCancelled: return "Facebook login was cancelled."
-        case .firebaseAuthenticationFailed: return "System can't authenticate the user."
-        case .logoutFailed: return "System can't logout at the moment."
+        case .facebookLoginFailed(with: let error): return error.localizedDescription
+        case .firebaseAuthenticationFailed(with: let error): return error.localizedDescription
+        case .logoutFailed(with: let error): return error.localizedDescription
         }
     }
 }
@@ -81,7 +81,16 @@ class Authenticator {
             if let error = error {
                 self.delegate?.didOccurAuthentication(error: .firebaseAuthenticationFailed(with: error))
             }else {
-                self.delegate?.didSignInWithUser(user: user)
+                var user = User()
+                user.id = Authenticator.currentFIRUser?.uid
+                
+                FirebaseManager.shared.saveUser(user: user, completion: { (success, error) in
+                    if let error = error {
+                        self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
+                    }else {
+                        self.delegate?.didSignInUser()
+                    }
+                })
             }
         })
     }
@@ -115,8 +124,8 @@ class Authenticator {
         FIRAuth.auth()?.sendPasswordReset(withEmail: email, completion: completion)
     }
     
-    static var currentFIRUser: FIRUser {
-        return FIRAuth.auth()!.currentUser!
+    static var currentFIRUser: FIRUser? {
+        return FIRAuth.auth()?.currentUser
     }
     
     static func reAuthenticate(email: String, password: String, completion: CallBackWithError?) {

@@ -22,6 +22,8 @@ struct User: Mappable {
     var blockedUsers: [String] = []
     var userWhoBlockedMe: [String] = []
     
+    init() {}
+    
     init?(map: Map) {
         self.mapping(map: map)
     }

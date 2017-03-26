@@ -15,5 +15,6 @@ pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'SwiftyJSON'
 pod 'ObjectMapper'
+pod 'Kingfisher', '~> 3.0'
 
 end

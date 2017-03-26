@@ -70,6 +70,7 @@
                                 </constraints>
                                 <state key="normal" image="editbutton.png"/>
                                 <connections>
+                                    <action selector="editProfile:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="0Ir-5q-kQ2"/>
                                     <segue destination="Xua-vR-Ynp" kind="show" id="RNp-YQ-jzq"/>
                                 </connections>
                             </button>
@@ -91,6 +92,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CO1-Ia-K0p"/>
+                    <connections>
+                        <outlet property="bioLabel" destination="sYc-n2-R8B" id="xAa-ka-VfE"/>
+                        <outlet property="editButton" destination="3dB-7f-XWW" id="H3Q-87-i5D"/>
+                        <outlet property="userImageView" destination="12q-Lr-3tK" id="vi6-GL-zb9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BS6-An-PF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
