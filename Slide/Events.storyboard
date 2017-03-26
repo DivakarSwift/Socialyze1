@@ -311,7 +311,8 @@
                     <connections>
                         <outlet property="imageView" destination="cYw-Hn-c0C" id="Q9m-UU-DdB"/>
                         <outlet property="infoButton" destination="LI8-VG-xPM" id="192-fx-lfi"/>
-                        <outlet property="userBio" destination="RcG-dc-tgK" id="Yla-If-fkv"/>
+                        <outlet property="userBio" destination="Gac-hg-1kj" id="P98-cy-OUx"/>
+                        <outlet property="userNameAgeLabel" destination="RcG-dc-tgK" id="hmd-Dt-DpR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ms-9h-Lzz" userLabel="First Responder" sceneMemberID="firstResponder"/>

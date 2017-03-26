@@ -18,6 +18,7 @@
 		1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787661E87FBDC006B2445 /* LoginViewController.swift */; };
 		1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */; };
 		1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */; };
+		1FE7876D1E8818A9006B2445 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876C1E8818A9006B2445 /* Event.swift */; };
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
 		7085EDF51E6EEAC000AD3420 /* bugbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7085EDF41E6EEAC000AD3420 /* bugbutton.png */; };
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
@@ -76,6 +77,7 @@
 		1FE787661E87FBDC006B2445 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../UIViewExtension.swift; sourceTree = "<group>"; };
+		1FE7876C1E8818A9006B2445 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.debug.xcconfig"; sourceTree = "<group>"; };
 		6FB78CCFC1102B749DFF93D8 /* Pods-Slide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.release.xcconfig"; sourceTree = "<group>"; };
 		7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				1FE787621E877DAD006B2445 /* User.swift */,
+				1FE7876C1E8818A9006B2445 /* Event.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				FC5219791E6FBD2400EDF19A /* SwipingViewController.swift in Sources */,
 				1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */,
 				1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */,
+				1FE7876D1E8818A9006B2445 /* Event.swift in Sources */,
 				1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */,
 				FC1936821E710463009F2912 /* EditingViewController.swift in Sources */,
 				1FE787651E87F0B2006B2445 /* JSONExtension.swift in Sources */,

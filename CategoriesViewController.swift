@@ -10,7 +10,18 @@ import UIKit
 
 class CategoriesViewController: UIViewController {
     
-    var users: [User] = []
+    var users: [User] = [] {
+        didSet {
+            self.imageView.kf.setImage(with: users.first?.images.first)
+            self.userName.text = users.first?.name
+        }
+    }
+    
+    var events: [Event] = [] {
+        didSet {
+//            self.eventDescription.text = events.first
+        }
+    }
   
     let categoryDefaults = UserDefaults.standard
     
@@ -34,6 +45,7 @@ class CategoriesViewController: UIViewController {
                     if success {
                         self.alert(message: "User blocked.")
                         self.users.remove(at: 0)
+                        self.events.remove(at: 0)
                     }else {
                         self.alert(message: "Can't unblock the user. Try again!")
                     }
@@ -55,6 +67,7 @@ class CategoriesViewController: UIViewController {
                         if success {
                             self.alert(message: "Reported on user.")
                             self.users.remove(at: 0)
+                            self.events.remove(at: 0)
                         }else {
                             self.alert(message: "Can't report the user. Try again!")
                         }

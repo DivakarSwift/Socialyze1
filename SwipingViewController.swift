@@ -9,12 +9,20 @@
 import UIKit
 
 class SwipingViewController: UIViewController {
-    var users: [User] = []
+    var users: [User] = [] {
+        didSet {
+            self.userBio.text = users.first?.bio
+            self.imageView.kf.setImage(with: users.first?.images.first)
+            self.userNameAgeLabel.text = users.first?.name
+        }
+    }
     
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
         return CustomActivityIndicatorView(image: image)
     }()
+    
+    @IBOutlet weak var userNameAgeLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var userBio: UILabel!
     @IBOutlet weak var infoButton: UIButton!
