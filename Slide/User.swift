@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 struct User {
-    let bio: String
-    let images: [URL]
-    let distanceLowerBound: Double
-    let distanceUpperBound: Double
-    let ageLowerBound: Double
-    let ageUpperBound: Double
+    var bio: String?
+    var images: [URL] = []
+    var distanceLowerBound: Double?
+    var distanceUpperBound: Double?
+    var ageLowerBound: Double?
+    var ageUpperBound: Double?
     
 //    init(dict: [String: Any]) {
 //        self.bio = (dict["bio"] as? String) ?? ""

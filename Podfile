@@ -14,5 +14,6 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'SwiftyJSON'
+pod 'ObjectMapper'
 
 end
