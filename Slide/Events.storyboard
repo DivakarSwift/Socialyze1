@@ -108,6 +108,7 @@
                             <constraint firstItem="5Yy-hJ-A4W" firstAttribute="top" secondItem="FuY-Bp-86q" secondAttribute="bottom" constant="20" id="3sW-L5-5zI"/>
                             <constraint firstItem="ODb-kV-pte" firstAttribute="trailing" secondItem="dav-hd-Usd" secondAttribute="trailing" id="5dJ-M9-Js9"/>
                             <constraint firstItem="cTo-mn-hlP" firstAttribute="width" secondItem="9Fh-49-oF0" secondAttribute="width" multiplier="0.4" id="7Bw-DD-6Bu"/>
+                            <constraint firstItem="cTo-mn-hlP" firstAttribute="top" secondItem="ODb-kV-pte" secondAttribute="bottom" constant="60" id="Bci-at-hQ2"/>
                             <constraint firstItem="agC-49-AWF" firstAttribute="top" secondItem="5Yy-hJ-A4W" secondAttribute="bottom" constant="10" id="D8d-Ni-k0W"/>
                             <constraint firstItem="dav-hd-Usd" firstAttribute="leading" secondItem="agC-49-AWF" secondAttribute="leading" id="H9X-fr-78K"/>
                             <constraint firstItem="ODb-kV-pte" firstAttribute="top" secondItem="dav-hd-Usd" secondAttribute="bottom" constant="2" id="KLo-1q-gbo"/>
@@ -126,7 +127,6 @@
                             <constraint firstItem="FuY-Bp-86q" firstAttribute="top" secondItem="VQz-AB-UWR" secondAttribute="bottom" constant="10" id="lxu-sd-Zwu"/>
                             <constraint firstItem="dav-hd-Usd" firstAttribute="top" secondItem="agC-49-AWF" secondAttribute="bottom" constant="24" id="n3r-Qj-wOu"/>
                             <constraint firstItem="Ykr-JO-YdY" firstAttribute="leading" secondItem="9Fh-49-oF0" secondAttribute="leading" id="smj-E4-z6E"/>
-                            <constraint firstItem="VQz-AB-UWR" firstAttribute="top" secondItem="bXz-pP-sBF" secondAttribute="bottom" constant="130" id="vY0-cF-X2L"/>
                             <constraint firstItem="VQz-AB-UWR" firstAttribute="leading" secondItem="9Fh-49-oF0" secondAttribute="leading" constant="20" id="zR0-Tj-HVw"/>
                         </constraints>
                     </view>
@@ -244,10 +244,10 @@
             </objects>
             <point key="canvasLocation" x="-44" y="164.16791604197903"/>
         </scene>
-        <!--Main-->
+        <!--mainNav-->
         <scene sceneID="lLK-Ru-qXI">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="4fC-TM-GVC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="mainNav" id="4fC-TM-GVC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nkc-B3-fLw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-124" y="646"/>
