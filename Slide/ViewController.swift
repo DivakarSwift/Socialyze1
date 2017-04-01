@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController,UIScrollViewDelegate {
-
-    @IBOutlet var scrolView: UIScrollView!
-    @IBOutlet var mainView: UIView!
+class ViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    let data: [String] = ["Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert"]
+    let images: [UIImage] = [#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"), #imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6")]
+    //http://lorempixel.com/400/200/
     @IBAction func switchToCategoryFromButton(_ sender: Any) {
         let categoryDefaults = UserDefaults.standard
         switch (sender as AnyObject).tag {
@@ -51,7 +53,7 @@ class ViewController: UIViewController,UIScrollViewDelegate {
         }
         
         print("button press \(categoryDefaults.value(forKey: "Category") as! String)")
- 
+        
         performSegue(withIdentifier: "categoryDetail", sender: self)
     }
     
@@ -60,9 +62,13 @@ class ViewController: UIViewController,UIScrollViewDelegate {
         
         
         super.viewDidLoad()
-
-        scrolView.delegate = self
         
+        let mosaicLayout = TRMosaicLayout()
+        self.collectionView?.collectionViewLayout = mosaicLayout
+        mosaicLayout.delegate = self
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             title: "Create Event",
@@ -80,17 +86,11 @@ class ViewController: UIViewController,UIScrollViewDelegate {
             
             
         )
-        // Do any additional setup after loading the view, typically from a nib.
-    
-
-    
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Home"
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -108,8 +108,38 @@ class ViewController: UIViewController,UIScrollViewDelegate {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-//    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-//        return mainView
-//    }
+}
 
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "categoryDetail", sender: self)
+    }
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 18
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        (cell.viewWithTag(1) as! UIImageView).image = images[indexPath.row]
+        (cell.viewWithTag(2) as! UILabel).text = data[indexPath.row]
+        return cell
+    }
+}
+
+extension ViewController : TRMosaicLayoutDelegate {
+    
+    func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
+        return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    func heightForSmallMosaicCell() -> CGFloat {
+        return 200
+    }
 }
