@@ -136,7 +136,7 @@ extension ViewController : TRMosaicLayoutDelegate {
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0.5, left: 0.5, bottom: 0.5, right: 0.5)
     }
     
     func heightForSmallMosaicCell() -> CGFloat {

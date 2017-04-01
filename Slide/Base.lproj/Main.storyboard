@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ddF-1J-eb0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,8 +36,8 @@
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekd-se-SCz">
                                                     <rect key="frame" x="0.0" y="0.0" width="139" height="200"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9SY-0W-esB">
-                                                    <rect key="frame" x="0.0" y="166.66666666666663" width="139" height="25.333333333333343"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9SY-0W-esB">
+                                                    <rect key="frame" x="5" y="166.66666666666663" width="129" height="25.333333333333343"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -46,14 +46,14 @@
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="9SY-0W-esB" secondAttribute="trailing" id="1u1-mi-kx5"/>
+                                            <constraint firstAttribute="trailing" secondItem="9SY-0W-esB" secondAttribute="trailing" constant="5" id="1u1-mi-kx5"/>
                                             <constraint firstItem="9SY-0W-esB" firstAttribute="height" relation="lessThanOrEqual" secondItem="ekd-se-SCz" secondAttribute="height" multiplier="0.3" id="5nT-m4-ZCg"/>
                                             <constraint firstAttribute="trailing" secondItem="ekd-se-SCz" secondAttribute="trailing" id="8Wx-Fi-bOt"/>
                                             <constraint firstAttribute="bottom" secondItem="ekd-se-SCz" secondAttribute="bottom" id="UZm-8E-yMC"/>
                                             <constraint firstAttribute="bottom" secondItem="9SY-0W-esB" secondAttribute="bottom" constant="8" id="VhA-FR-b9M"/>
                                             <constraint firstItem="ekd-se-SCz" firstAttribute="leading" secondItem="eZ4-b7-110" secondAttribute="leading" id="dsm-2D-YEy"/>
                                             <constraint firstItem="ekd-se-SCz" firstAttribute="top" secondItem="eZ4-b7-110" secondAttribute="top" id="sR0-QM-HG7"/>
-                                            <constraint firstItem="9SY-0W-esB" firstAttribute="leading" secondItem="eZ4-b7-110" secondAttribute="leading" id="whl-Yy-RYI"/>
+                                            <constraint firstItem="9SY-0W-esB" firstAttribute="leading" secondItem="eZ4-b7-110" secondAttribute="leading" constant="5" id="whl-Yy-RYI"/>
                                         </constraints>
                                         <size key="customSize" width="139" height="200"/>
                                     </collectionViewCell>
