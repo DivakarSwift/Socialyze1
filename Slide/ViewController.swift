@@ -8,13 +8,16 @@
 
 import UIKit
 
+struct Places {
+    let nameAddress: String
+    let mainImage: UIImage
+    let secondImage: UIImage?
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let data: [String] = ["Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert", "Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert","Playing football", "Going for coffee", "Watching Movies", "Singing in Concert"]
-    let images: [UIImage] = [#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"), #imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6"),#imageLiteral(resourceName: "lake"), #imageLiteral(resourceName: "i200"), #imageLiteral(resourceName: "i200-2"), #imageLiteral(resourceName: "i200-3"), #imageLiteral(resourceName: "i200-4"), #imageLiteral(resourceName: "i200-5"), #imageLiteral(resourceName: "i200-6")]
-    //http://lorempixel.com/400/200/
     @IBAction func switchToCategoryFromButton(_ sender: Any) {
         let categoryDefaults = UserDefaults.standard
         switch (sender as AnyObject).tag {
@@ -87,12 +90,56 @@ class ViewController: UIViewController {
             
         )
         
+        setupPlaces()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Home"
     }
     
+    var places = [Places]()
+    
+    func setupPlaces() {
+        places.append(Places.init(nameAddress: "RPAC, Ohio State", mainImage: #imageLiteral(resourceName: "RPAC1-yelp"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "The Union, Ohio State", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil))
+        places.append(Places.init(nameAddress: "18th Ave Library, Ohio State", mainImage: #imageLiteral(resourceName: "18thAvelibrary"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "Thompson Library, Ohio State", mainImage: #imageLiteral(resourceName: "ThompsonLibrary"), secondImage: #imageLiteral(resourceName: "ThompsonLibrary1")))
+        
+        places.append(Places.init(nameAddress: "Capital University", mainImage: #imageLiteral(resourceName: "CapitalUni"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "Columbus State CC.", mainImage: #imageLiteral(resourceName: "ColumbusStateCC"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Ohio Expo Center", mainImage: #imageLiteral(resourceName: "ohioexpocenter"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Columbus Convention Center", mainImage: #imageLiteral(resourceName: "GreaterConventionCenter"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Starbucks Coffee (across Union)", mainImage: #imageLiteral(resourceName: "Starbucks1"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Chipotle (across Union)", mainImage: #imageLiteral(resourceName: "Chipotle"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Ugly Tuna", mainImage: #imageLiteral(resourceName: "UglyTuna "), secondImage: nil))
+        places.append(Places.init(nameAddress: "Short North Pint House", mainImage: #imageLiteral(resourceName: "Pinthouse"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Axis Nightclub", mainImage: #imageLiteral(resourceName: "Axisnightclub"), secondImage: nil))
+        places.append(Places.init(nameAddress: "World of Beer", mainImage: #imageLiteral(resourceName: "WorldofBeer3"), secondImage: #imageLiteral(resourceName: "WorldofBeer1")))
+        places.append(Places.init(nameAddress: "Park street Cantina", mainImage: #imageLiteral(resourceName: "ParkStreetCantina"), secondImage: #imageLiteral(resourceName: "ParkStreetCantina1")))
+        places.append(Places.init(nameAddress: "Char bar", mainImage: #imageLiteral(resourceName: "Charbar"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Mapfre stadium", mainImage: #imageLiteral(resourceName: "mapfre-stadium"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Nationwide Arena", mainImage: #imageLiteral(resourceName: "NationwideArena"), secondImage: #imageLiteral(resourceName: "NationWideArena1")))
+        
+        places.append(Places.init(nameAddress: "Out R Inn", mainImage: #imageLiteral(resourceName: "OutRInn"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "Midway Bar and Grill", mainImage: #imageLiteral(resourceName: "MidwayonHigh-Yelp"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "Newport Music & Big Bar", mainImage: #imageLiteral(resourceName: "NewportMusicHall-yelp"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Polaris Fashion Mall", mainImage: #imageLiteral(resourceName: "PolarisFashionPlace"), secondImage: #imageLiteral(resourceName: "PolarisFashionPlace1-yelp")))
+        places.append(Places.init(nameAddress: "Easton Town Center", mainImage: #imageLiteral(resourceName: "EastonTownCenter"), secondImage: nil))
+        places.append(Places.init(nameAddress: "Downtown, Columbus", mainImage: #imageLiteral(resourceName: "DowntownColumbus "), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "Short North", mainImage: #imageLiteral(resourceName: "ShortNorth"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "German Village", mainImage: #imageLiteral(resourceName: "germanvillage"), secondImage: nil))
+        
+        places.append(Places.init(nameAddress: "Fox in the Snow Cafe", mainImage: #imageLiteral(resourceName: "FoxandSnowCafe"), secondImage: nil))
+        self.collectionView.reloadData()
+    }
     
     func eventBtn(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Events", bundle: nil)
@@ -118,13 +165,13 @@ extension ViewController: UICollectionViewDelegate {
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 18
+        return places.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        (cell.viewWithTag(1) as! UIImageView).image = images[indexPath.row]
-        (cell.viewWithTag(2) as! UILabel).text = data[indexPath.row]
+        (cell.viewWithTag(1) as! UIImageView).image = places[indexPath.row].mainImage
+        (cell.viewWithTag(2) as! UILabel).text = places[indexPath.row].nameAddress
         return cell
     }
 }
@@ -132,6 +179,10 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController : TRMosaicLayoutDelegate {
     
     func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
+        // return .small
+//        if [,2,3].contains(indexPath.item % 9) {
+//            return .small
+//        }
         return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
     }
     
