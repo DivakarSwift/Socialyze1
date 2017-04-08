@@ -13,6 +13,7 @@
 		1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */; };
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
 		1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */; };
+		1FB505471E9866DA007A3D52 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */; };
 		1FE7875E1E876B24006B2445 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7875D1E876B24006B2445 /* Authenticator.swift */; };
 		1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7875F1E877D36006B2445 /* FirebaseManager.swift */; };
 		1FE787631E877DAD006B2445 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787621E877DAD006B2445 /* User.swift */; };
@@ -74,6 +75,7 @@
 		1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
+		1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		1FE7875D1E876B24006B2445 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		1FE7875F1E877D36006B2445 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1FE787621E877DAD006B2445 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				FC7A241E1E695F56004C9E44 /* Main.storyboard */,
 				FC7A241C1E695F56004C9E44 /* ViewController.swift */,
 				1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */,
+				1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */,
 				FC1936821E710463009F2912 /* EditingViewController.swift in Sources */,
 				1FE787651E87F0B2006B2445 /* JSONExtension.swift in Sources */,
+				1FB505471E9866DA007A3D52 /* PlaceDetailViewController.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,

@@ -159,7 +159,11 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "categoryDetail", sender: self)
+        let place = places[indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
+        vc.place = place
+        self.navigationController?.pushViewController(vc, animated: true)
+       // self.performSegue(withIdentifier: "categoryDetail", sender: self)
     }
 }
 
@@ -179,10 +183,6 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController : TRMosaicLayoutDelegate {
     
     func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
-        // return .small
-//        if [,2,3].contains(indexPath.item % 9) {
-//            return .small
-//        }
         return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
     }
     

@@ -76,7 +76,6 @@
                     <connections>
                         <outlet property="collectionView" destination="P4a-Jm-eDM" id="shI-Di-AAs"/>
                         <segue destination="dSg-os-irL" kind="show" id="uZi-SU-WhH"/>
-                        <segue destination="35w-DO-SmY" kind="show" identifier="categoryDetail" id="eV7-YI-ME7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -97,7 +96,7 @@
                 <viewControllerPlaceholder storyboardName="Categories" id="35w-DO-SmY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEJ-uw-YS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1546" y="305"/>
+            <point key="canvasLocation" x="1972" y="340"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="xxg-d7-h7D">
@@ -151,5 +150,133 @@
             </objects>
             <point key="canvasLocation" x="51" y="139"/>
         </scene>
+        <!--Place Detail View Controller-->
+        <scene sceneID="6tY-WQ-smv">
+            <objects>
+                <viewController storyboardIdentifier="PlaceDetailViewController" id="OQW-zf-Zui" customClass="PlaceDetailViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vzG-qA-tRM"/>
+                        <viewControllerLayoutGuide type="bottom" id="jq2-HF-NdH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dpq-ck-TJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testuserprofile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="HtE-1a-ofZ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rDe-Aa-fKK">
+                                <rect key="frame" x="127" y="655" width="160" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqG-X1-r1X">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
+                                        <color key="backgroundColor" red="0.63474899530410767" green="0.045094050467014313" blue="0.1373322606086731" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="6eB-Lf-Cub"/>
+                                            <constraint firstAttribute="width" constant="160" id="mgV-9m-y4j"/>
+                                        </constraints>
+                                        <state key="normal" title="Check In &amp; Swipe"/>
+                                        <connections>
+                                            <segue destination="35w-DO-SmY" kind="show" id="0b6-0d-Buk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5V-6x-JJM">
+                                <rect key="frame" x="0.0" y="349.33333333333331" width="414" height="38.333333333333371"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V1k-db-Ndc">
+                                <rect key="frame" x="76" y="387" width="262" height="57.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="   " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-mz-Ve2">
+                                        <rect key="frame" x="0.0" y="0.0" width="262" height="19.333333333333314"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="74 people ar checked in including your 5 friends " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWC-ZF-jWY">
+                                        <rect key="frame" x="0.0" y="19.333333333333314" width="262" height="38.333333333333371"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ecm-p5-5NR">
+                                <rect key="frame" x="0.0" y="20" width="414" height="66"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-om-fH0">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="66"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Thompson Library Ohio State" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-Hz-1UU">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="66"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="66" id="QuB-nd-V4J"/>
+                                                    <constraint firstAttribute="width" constant="150" id="dyM-3j-JXo"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="    " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0X-va-SrW">
+                                                <rect key="frame" x="150" y="0.0" width="20" height="66"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="1vY-HA-8yk"/>
+                                                    <constraint firstAttribute="height" constant="66" id="Q14-tF-qCU"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="8RV-8v-fVH"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="HtE-1a-ofZ" secondAttribute="trailing" id="ABG-Eb-ost"/>
+                            <constraint firstItem="jq2-HF-NdH" firstAttribute="top" secondItem="rDe-Aa-fKK" secondAttribute="bottom" constant="37" id="GeZ-JI-fbk"/>
+                            <constraint firstItem="HtE-1a-ofZ" firstAttribute="top" secondItem="dpq-ck-TJJ" secondAttribute="top" id="PMf-Zm-LSv"/>
+                            <constraint firstItem="l5V-6x-JJM" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="R8t-YE-Jm8"/>
+                            <constraint firstItem="jq2-HF-NdH" firstAttribute="top" secondItem="HtE-1a-ofZ" secondAttribute="bottom" id="Wbe-Df-vTA"/>
+                            <constraint firstAttribute="trailing" secondItem="ecm-p5-5NR" secondAttribute="trailing" id="Xf8-2H-h4H"/>
+                            <constraint firstItem="HtE-1a-ofZ" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="bCN-c6-xja"/>
+                            <constraint firstItem="ecm-p5-5NR" firstAttribute="top" secondItem="vzG-qA-tRM" secondAttribute="bottom" id="df5-Dt-vV0"/>
+                            <constraint firstItem="ecm-p5-5NR" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="hlR-ta-gBS"/>
+                            <constraint firstItem="V1k-db-Ndc" firstAttribute="centerX" secondItem="l5V-6x-JJM" secondAttribute="centerX" id="i8F-7h-G8y"/>
+                            <constraint firstItem="l5V-6x-JJM" firstAttribute="centerY" secondItem="dpq-ck-TJJ" secondAttribute="centerY" id="nur-nI-z8o"/>
+                            <constraint firstItem="l5V-6x-JJM" firstAttribute="centerX" secondItem="dpq-ck-TJJ" secondAttribute="centerX" id="v15-Qa-Wod"/>
+                            <constraint firstAttribute="trailing" secondItem="V1k-db-Ndc" secondAttribute="trailing" constant="76" id="vvi-Gw-KGF"/>
+                            <constraint firstItem="rDe-Aa-fKK" firstAttribute="centerX" secondItem="dpq-ck-TJJ" secondAttribute="centerX" id="wi4-dJ-cQ1"/>
+                            <constraint firstItem="V1k-db-Ndc" firstAttribute="top" secondItem="l5V-6x-JJM" secondAttribute="bottom" id="xQ7-zr-V4f"/>
+                            <constraint firstAttribute="trailing" secondItem="l5V-6x-JJM" secondAttribute="trailing" id="ybH-73-KeS"/>
+                            <constraint firstItem="V1k-db-Ndc" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" constant="76" id="ze1-Qx-qCG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="checkInStatusLabel" destination="gWC-ZF-jWY" id="dI7-Pu-eId"/>
+                        <outlet property="placeDetailLbl" destination="l5V-6x-JJM" id="Hka-5V-MRk"/>
+                        <outlet property="placeImageView" destination="HtE-1a-ofZ" id="3L7-F4-GEm"/>
+                        <outlet property="placeNameAddressLbl" destination="cMk-Hz-1UU" id="Hyg-3Q-5ro"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G5v-Dp-Vcn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128.985507246377" y="-56.250000000000007"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="testuserprofile.jpg" width="652" height="960"/>
+    </resources>
 </document>
