@@ -30,6 +30,7 @@ class CategoriesViewController: UIViewController {
         return CustomActivityIndicatorView(image: image)
     }()
     
+    @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
@@ -110,6 +111,15 @@ class CategoriesViewController: UIViewController {
         
         label.transform = stretchAndRotation
         
+        if label.center.x < 150 {
+            actionImageView.image = #imageLiteral(resourceName: "crossmark")
+            actionImageView.isHidden = false
+        }else if label.center.x > self.view.bounds.width - 150 {
+            actionImageView.image = #imageLiteral(resourceName: "checkmark")
+            actionImageView.isHidden = false
+        }else {
+            actionImageView.isHidden = true
+        }
         
         if gestureRecognizer.state == UIGestureRecognizerState.ended {
             

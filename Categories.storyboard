@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,6 +22,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="SjA-zs-owl">
+                                <rect key="frame" x="85" y="281" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="UO6-5m-YVN"/>
+                                    <constraint firstAttribute="width" secondItem="SjA-zs-owl" secondAttribute="height" multiplier="1:1" id="upI-T0-IXw"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testprofile2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="Suk-AW-li8">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
@@ -78,6 +85,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Mzx-XG-7I6" firstAttribute="centerX" secondItem="wbe-1n-hP3" secondAttribute="centerX" id="2cx-hK-WiM"/>
+                            <constraint firstItem="Mzx-XG-7I6" firstAttribute="top" secondItem="SjA-zs-owl" secondAttribute="bottom" constant="40" id="527-5g-KYz"/>
                             <constraint firstItem="gF5-2E-WGr" firstAttribute="centerX" secondItem="wbe-1n-hP3" secondAttribute="centerX" id="Cnm-y1-Ygi"/>
                             <constraint firstAttribute="trailing" secondItem="Suk-AW-li8" secondAttribute="trailing" id="Ctm-j6-6He"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="Suk-AW-li8" secondAttribute="bottom" id="Hwo-wQ-ywG"/>
@@ -89,11 +97,13 @@
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="Mzx-XG-7I6" secondAttribute="bottom" constant="37" id="csZ-7w-rYG"/>
                             <constraint firstAttribute="trailing" secondItem="gF5-2E-WGr" secondAttribute="trailing" id="dlA-Ma-5kx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fmo-QB-gAY" secondAttribute="trailing" id="ezz-h3-WIn"/>
+                            <constraint firstItem="SjA-zs-owl" firstAttribute="centerX" secondItem="wbe-1n-hP3" secondAttribute="centerX" id="idl-cs-53g"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="fmo-QB-gAY" secondAttribute="bottom" constant="20" id="mfu-xG-6ey"/>
                             <constraint firstItem="Suk-AW-li8" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" id="sPu-kQ-TOf"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionImageView" destination="SjA-zs-owl" id="8tY-tK-mzR"/>
                         <outlet property="eventDescription" destination="gF5-2E-WGr" id="AOP-a6-2bk"/>
                         <outlet property="imageView" destination="Suk-AW-li8" id="bAb-2i-INK"/>
                         <outlet property="infoButton" destination="fmo-QB-gAY" id="jCf-JQ-zgC"/>
@@ -122,6 +132,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark" width="204" height="204"/>
         <image name="exclamation.png" width="64" height="64"/>
         <image name="ladybird.png" width="149" height="149"/>
         <image name="testprofile2.JPG" width="640" height="640"/>
