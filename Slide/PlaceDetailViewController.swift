@@ -9,7 +9,7 @@
 import UIKit
 
 class PlaceDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var placeNameAddressLbl: UILabel!
     @IBOutlet weak var placeDetailLbl: UILabel!
     @IBOutlet weak var checkInStatusLabel: UILabel!
@@ -17,27 +17,51 @@ class PlaceDetailViewController: UIViewController {
     
     var place: Places?
     
+    let thresholdRadius = 30.48
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.placeImageView.image = place?.secondImage ?? place?.mainImage
         self.placeNameAddressLbl.text = place?.nameAddress
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.locationUpdated()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func locationUpdated() {
+        if let distance = getDistanceToUser() {
+            let text: String
+            if distance <= thresholdRadius { // 100 ft
+                text = "less than 100ft"
+            }else {
+                let ft = distance * 3.28084
+                
+                if ft >= 5280 {
+                    text = "at \(Int(ft / 5280))mi"
+                }else {
+                    text = "at \(Int(distance * 3.28084))ft"
+                }
+            }
+            self.placeNameAddressLbl.text = self.place!.nameAddress + " (\(text))"
+        }
     }
-    */
-
+    
+    func getDistanceToUser() -> Double? {
+        if let place = self.place, let distance = SlydeLocationManager.shared.distanceFromUser(lat: place.lat, long: place.long) {
+            return distance
+        }
+        return nil
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "Categories" {
+            if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
+                return true
+            }else {
+                self.alert(message: GlobalConstants.Message.userNotInPerimeter)
+                return false
+            }
+        }
+        return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
+    }
+    
 }

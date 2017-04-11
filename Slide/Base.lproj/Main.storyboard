@@ -177,7 +177,7 @@
                                         </constraints>
                                         <state key="normal" title="Check In &amp; Swipe"/>
                                         <connections>
-                                            <segue destination="35w-DO-SmY" kind="show" id="0b6-0d-Buk"/>
+                                            <segue destination="35w-DO-SmY" kind="show" identifier="Categories" id="0b6-0d-Buk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -213,7 +213,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-om-fH0">
                                         <rect key="frame" x="0.0" y="0.0" width="170" height="66"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Thompson Library Ohio State" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-Hz-1UU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Thompson Library Ohio State" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-Hz-1UU">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="66"/>
                                                 <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                                 <constraints>
