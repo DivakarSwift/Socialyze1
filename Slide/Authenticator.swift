@@ -16,15 +16,16 @@ typealias CallBackWithError = (Error?) -> ()
 
 enum Provider: String {
     case facebook = "facebook.com"
-//    case twitter = "twitter.com"
-//    case google = "google.com"
-//    case password = "password"
+    //    case twitter = "twitter.com"
+    //    case google = "google.com"
+    //    case password = "password"
 }
 
 protocol AuthenticatorDelegate {
     func didOccurAuthentication(error: AuthenticationError)
     func didSignInUser()
     func didLogoutUser()
+    func shouldUserSignInIntoFirebase() -> Bool
 }
 
 enum AuthenticationError: Error {
@@ -32,7 +33,7 @@ enum AuthenticationError: Error {
     case facebookLoginCancelled
     case firebaseAuthenticationFailed(with: Error)
     case logoutFailed(with: Error)
-
+    
     var localizedDescription: String {
         switch self {
         case .facebookLoginCancelled: return "Facebook login was cancelled."
@@ -51,14 +52,14 @@ class Authenticator {
     static var isUserLoggedIn: Bool{
         return Authenticator.currentFIRUser != nil
     }
-    
+    typealias ShouldSignIn = Bool
     func authenticateWith(provider: Provider) {
         switch provider {
         case .facebook:
             let loginManager = LoginManager()
             loginManager.logOut()
-            
-            loginManager.logIn([.publicProfile ], viewController: nil) { loginResult in
+            let userPhotos = "user_photos"
+            loginManager.logIn([.publicProfile, .custom(userPhotos) ], viewController: nil) { loginResult in
                 switch loginResult {
                 case .failed(let error):
                     self.delegate?.didOccurAuthentication(error: .facebookLoginFailed(with: error))
@@ -68,7 +69,15 @@ class Authenticator {
                     doLog("User cancelled login.")
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                     let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
-                    self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                    
+                    if grantedPermissions.contains(Permission(name: userPhotos)) {
+                        GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.set(value: true)
+                    }
+                    GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
+                    if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
+                        self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                    }
+                    
                     doLog("Logged in! \(grantedPermissions) \(declinedPermissions) \(accessToken)")
                 }
             }

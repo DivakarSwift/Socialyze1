@@ -13,6 +13,25 @@ struct GlobalConstants {
     static private let cancel = "Cancel"
     static private let error = "Error"
     
+    struct UserDefaultKey {
+        let key: String
+        
+        func set(value: Any?) {
+            UserDefaults.standard.set(value, forKey: self.key)
+        }
+        
+        func remove() {
+            UserDefaults.standard.removeObject(forKey: self.key)
+        }
+        
+        func value<T: Any>() -> T? {
+            return UserDefaults.standard.value(forKey: self.key) as? T
+        }
+        
+        static let userPhotosPermissionStatusFromFacebook = UserDefaultKey(key: "User_Photos_Permission_Status_From_Facebook")
+        static let userIdFromFacebook = UserDefaultKey(key: "User_ID_From_Facebook")
+    }
+    
     struct Notification {
         let name: String
         
