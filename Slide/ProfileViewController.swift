@@ -20,6 +20,20 @@ class ProfileViewController: UIViewController {
     var userId: String?
     let authenticator = Authenticator()
     
+    var images = [String]() {
+        didSet {
+            if images.count == 1 {
+                changeImage()
+            }else if images.count == 2 {
+                startTimer()
+            }
+        }
+    }
+    
+    var currentImageIndex = 0
+    
+    var imageTimer: Timer?
+    
     private var user: User? {
         didSet {
             self.editButton.isHidden = false
@@ -57,6 +71,44 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.images.count > 1 {
+            currentImageIndex = 0
+            changeImage()
+            self.startTimer()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.viewWillDisappear(animated)
+        self.stopTimer()
+    }
+    
+    func startTimer() {
+        self.imageTimer?.invalidate()
+        self.imageTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        self.imageTimer?.invalidate()
+        self.imageTimer = nil
+    }
+    
+    func changeImage() {
+        if currentImageIndex < images.count && currentImageIndex >= 0 {
+            let imageURLString = images[currentImageIndex]
+            if let url = URL(string: imageURLString) {
+                self.userImageView.kf.setImage(with: url, placeholder: self.userImageView.image)
+            }
+        }
+        if currentImageIndex == images.count - 1 {
+            currentImageIndex = 0
+        }else {
+            currentImageIndex += 1
+        }
+    }
+    
     func permissionCheck() -> Bool {
         if let userPhotosPermission: Bool = GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.value(), userPhotosPermission == true {
             return true
@@ -73,13 +125,16 @@ class ProfileViewController: UIViewController {
         
         if let fbUserId: String = accesstoken?.userId {
             let albumRequest = GraphRequest.init(graphPath: "/\(fbUserId)/albums", parameters: [ : ], accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)
-            albumRequest.start({ (response, result) in
+            albumRequest.start({ [weak self] (response, result) in
                 switch result {
                 case .failed(let error):
                     print(error)
                 case .success(response: let response):
                     // 103443236448565
-                    let profileAlbumId = JSON(response.dictionaryValue)["data"].arrayValue.reduce("") { (collection, json) -> String in
+                    guard let responseDict = response.dictionaryValue else {
+                        return
+                    }
+                    let profileAlbumId = JSON(responseDict)["data"].arrayValue.reduce("") { (collection, json) -> String in
                         if collection.isEmpty && json["name"].stringValue == "Profile Pictures" {
                             return json["id"].stringValue
                         }
@@ -92,7 +147,10 @@ class ProfileViewController: UIViewController {
                         case .failed(let error):
                             print(error)
                         case .success(response: let response):
-                            let photosIds = JSON(response.dictionaryValue)["data"].arrayValue.map({
+                            guard let responseDict = response.dictionaryValue else {
+                                return
+                            }
+                            let photosIds = JSON(responseDict)["data"].arrayValue.map({
                                 return $0["id"].stringValue
                             })
                             
@@ -106,13 +164,26 @@ class ProfileViewController: UIViewController {
                                     case .failed(let error):
                                         print(error)
                                     case .success(response: let response):
-                                        print(response.arrayValue)
-                                        print(response.dictionaryValue)
-                                        print(response.stringValue)
+                                        guard let responseDict = response.dictionaryValue else {
+                                            return
+                                        }
+                                        let imageJsons = JSON(responseDict)["images"].arrayValue
+                                        if let imageURLString = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
+                                            let jsonHeight = json["height"].intValue
+                                            let resultHeight = result["height"].intValue
+                                            if jsonHeight > resultHeight {
+                                                return json
+                                            }
+                                            return result
+                                        })["source"].string {
+                                            if !(self?.images.contains(imageURLString) ?? true) {
+                                                self?.images.append(imageURLString)
+                                            }
+                                        }
                                     }
                                 })
                             })
-//                            print(photos)
+                            //                            print(photos)
                         }
                     })
                     // /{album-id}/photos
