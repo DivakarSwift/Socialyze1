@@ -10,14 +10,16 @@ import UIKit
 import IQKeyboardManagerSwift
 import Firebase
 import FBSDKCoreKit
+import GoogleMaps
 
 func doLog(_ items: Any...) {
     print(items)
 }
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -26,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         IQKeyboardManager.sharedManager().enable = true
+        GMSServices.provideAPIKey(GlobalConstants.APIKeys.googleMap)
         
         SlydeLocationManager.shared.startUpdatingLocation()
         

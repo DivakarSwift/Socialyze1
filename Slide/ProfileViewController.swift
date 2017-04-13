@@ -81,7 +81,7 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.viewWillDisappear(animated)
+        super.viewWillDisappear(animated)
         self.stopTimer()
     }
     

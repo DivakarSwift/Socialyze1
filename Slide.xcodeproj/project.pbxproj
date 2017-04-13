@@ -10,6 +10,8 @@
 		13571740EAF410EA1ADC42F1 /* Pods_Slide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */; };
 		1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C9A41E8F4FA900934676 /* MosaicLayout.swift */; };
 		1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */; };
+		1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */; };
+		1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */; };
 		1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */; };
 		1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DC1E9CA584004B12FC /* LocationManager.swift */; };
 		1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DE1E9CA5AF004B12FC /* Constants.swift */; };
@@ -74,6 +76,8 @@
 		1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06C9A41E8F4FA900934676 /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
 		1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicColumn.swift; sourceTree = "<group>"; };
+		1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
+		1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceToUserMapViewController.swift; sourceTree = "<group>"; };
 		1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F9F02DC1E9CA584004B12FC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1F9F02DE1E9CA5AF004B12FC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -161,6 +165,15 @@
 				1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */,
 			);
 			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		1F0E23B21E9F39A900EC0F4D /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */,
+				1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */,
+			);
+			name = Maps;
 			sourceTree = "<group>";
 		};
 		1FE787611E877DA1006B2445 /* Models */ = {
@@ -255,6 +268,7 @@
 		FC7A24191E695F56004C9E44 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
+				1F0E23B21E9F39A900EC0F4D /* Maps */,
 				1F9F02DE1E9CA5AF004B12FC /* Constants.swift */,
 				1F9F02DC1E9CA584004B12FC /* LocationManager.swift */,
 				1F06C9A31E8F4F9800934676 /* Dashboard */,
@@ -397,6 +411,7 @@
 				FC7A24201E695F56004C9E44 /* Main.storyboard in Resources */,
 				FC2C36661E724881003C1CF9 /* causes2.png in Resources */,
 				FC7A24481E6970D8004C9E44 /* profile.png in Resources */,
+				1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */,
 				FC2C36601E722D21003C1CF9 /* stockpicround1.png in Resources */,
 				FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */,
 				FC52197D1E6FF78E00EDF19A /* testuserprofile.jpg in Resources */,
@@ -472,6 +487,7 @@
 				FC5219791E6FBD2400EDF19A /* SwipingViewController.swift in Sources */,
 				1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */,
 				1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */,
+				1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */,
 				1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */,
 				1FE7876D1E8818A9006B2445 /* Event.swift in Sources */,
 				1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */,

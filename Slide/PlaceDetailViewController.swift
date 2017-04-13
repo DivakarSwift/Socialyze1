@@ -64,4 +64,14 @@ class PlaceDetailViewController: UIViewController {
         return super.shouldPerformSegue(withIdentifier: identifier, sender: sender)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "openMap" {
+            let destinationVC = segue.destination as! PlaceToUserMapViewController
+            destinationVC.place = self.place
+        }
+        return super.prepare(for: segue, sender: sender)
+    }
+    
+    
+    
 }

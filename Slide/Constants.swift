@@ -13,6 +13,10 @@ struct GlobalConstants {
     static private let cancel = "Cancel"
     static private let error = "Error"
     
+    struct APIKeys {
+        static let googleMap = "AIzaSyDSWx1WCz8F_-4z0cjImhFpHEyQrvfIqyg"
+    }
+    
     struct UserDefaultKey {
         let key: String
         

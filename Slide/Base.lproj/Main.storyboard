@@ -137,7 +137,7 @@
             <objects>
                 <navigationController storyboardIdentifier="mainNav" automaticallyAdjustsScrollViewInsets="NO" id="ddF-1J-eb0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apb-Db-fU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apb-Db-fU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -149,6 +149,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dq5-ea-YC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="51" y="139"/>
+        </scene>
+        <!--PlaceToUserMapViewController-->
+        <scene sceneID="VXt-BV-MCI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Maps" referencedIdentifier="PlaceToUserMapViewController" id="N3A-lP-WFd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ss0-EG-dKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2775" y="-401"/>
         </scene>
         <!--Place Detail View Controller-->
         <scene sceneID="6tY-WQ-smv">
@@ -211,7 +219,7 @@
                                 <rect key="frame" x="0.0" y="20" width="414" height="66"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-om-fH0">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Thompson Library Ohio State" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-Hz-1UU">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="66"/>
@@ -226,7 +234,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="    " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0X-va-SrW">
                                                 <rect key="frame" x="150" y="0.0" width="20" height="66"/>
-                                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
+                                                <color key="backgroundColor" red="0.33333333333333331" green="0.3333333432674408" blue="0.3333333432674408" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="20" id="1vY-HA-8yk"/>
                                                     <constraint firstAttribute="height" constant="66" id="Q14-tF-qCU"/>
@@ -235,6 +243,19 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdN-uq-JUU">
+                                                <rect key="frame" x="170" y="0.0" width="44" height="66"/>
+                                                <color key="backgroundColor" red="0.33333333329999998" green="0.33333334329999997" blue="0.33333334329999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="FzU-NC-cFQ"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="11" maxX="0.0" maxY="11"/>
+                                                <state key="normal" image="map"/>
+                                                <connections>
+                                                    <segue destination="N3A-lP-WFd" kind="show" identifier="openMap" id="JdW-Ww-yGH"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -277,6 +298,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="128" height="128"/>
         <image name="testuserprofile.jpg" width="652" height="960"/>
     </resources>
 </document>
