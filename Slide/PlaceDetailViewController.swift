@@ -15,9 +15,12 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
-    var place: Places?
+    var place: Place?
     
-    let thresholdRadius = 30.48
+    let thresholdRadius = 30.48 //100ft
+    
+    let facebookService = FacebookService.shared
+    private let authenticator = Authenticator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,13 @@ class PlaceDetailViewController: UIViewController {
         self.placeImageView.image = place?.secondImage ?? place?.mainImage
         self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
+        
+        if facebookService.isUserFriendsPermissionGiven() {
+            getUserFriends()
+        }else {
+            authenticator.delegate = self
+            authenticator.authenticateWith(provider: .facebook)
+        }
     }
     
     func locationUpdated() {
@@ -43,6 +53,12 @@ class PlaceDetailViewController: UIViewController {
             }
             self.placeNameAddressLbl.text = self.place!.nameAddress + " (\(text))"
         }
+    }
+    
+    func getUserFriends() {
+        facebookService.getUserFriends(failure: { [weak self] (error) in
+            self?.alert(message: error)
+        })
     }
     
     func getDistanceToUser() -> Double? {
@@ -71,7 +87,29 @@ class PlaceDetailViewController: UIViewController {
         }
         return super.prepare(for: segue, sender: sender)
     }
+}
+
+extension PlaceDetailViewController: AuthenticatorDelegate {
+    func didOccurAuthentication(error: AuthenticationError) {
+        self.alert(message: error.localizedDescription)
+    }
     
+    func didSignInUser() {
+        
+    }
     
+    func didLogoutUser() {
+        
+    }
     
+    func shouldUserSignInIntoFirebase() -> Bool {
+        if facebookService.isPhotoPermissionGiven() {
+            getUserFriends()
+        }else {
+            self.alert(message: "Facebook user friends permission is not granted.", okAction: {
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+        return false
+    }
 }

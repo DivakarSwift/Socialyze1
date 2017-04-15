@@ -30,6 +30,8 @@ class CategoriesViewController: UIViewController {
         return CustomActivityIndicatorView(image: image)
     }()
     
+    let userService = UserService()
+    
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet var imageView: UIImageView!
@@ -41,14 +43,14 @@ class CategoriesViewController: UIViewController {
         let block = UIAlertAction(title: "Block", style: .default) { (_) in
             if let user = self.users.first {
                 self.activityIndicator.startAnimating()
-                FirebaseManager.shared.block(user: user, completion: { (success, error) in
-                    self.activityIndicator.stopAnimating()
+                self.userService.block(user: user, completion: {[weak self] (success, error) in
+                    self?.activityIndicator.stopAnimating()
                     if success {
-                        self.alert(message: "User blocked.")
-                        self.users.remove(at: 0)
-                        self.events.remove(at: 0)
+                        self?.alert(message: "User blocked.")
+                        self?.users.remove(at: 0)
+                        self?.events.remove(at: 0)
                     }else {
-                        self.alert(message: "Can't unblock the user. Try again!")
+                        self?.alert(message: "Can't unblock the user. Try again!")
                     }
                 })
             }
@@ -63,14 +65,14 @@ class CategoriesViewController: UIViewController {
                 
                 let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
                     self.activityIndicator.startAnimating()
-                    FirebaseManager.shared.blockAndReport(user: user, remark: "", completion: { (success, error) in
-                        self.activityIndicator.stopAnimating()
+                    self.userService.blockAndReport(user: user, remark: "", completion: { [weak self] (success, error) in
+                        self?.activityIndicator.stopAnimating()
                         if success {
-                            self.alert(message: "Reported on user.")
-                            self.users.remove(at: 0)
-                            self.events.remove(at: 0)
+                            self?.alert(message: "Reported on user.")
+                            self?.users.remove(at: 0)
+                            self?.events.remove(at: 0)
                         }else {
-                            self.alert(message: "Can't report the user. Try again!")
+                            self?.alert(message: "Can't report the user. Try again!")
                         }
                     })
                 })

@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     
     var userId: String?
     let authenticator = Authenticator()
+    let facebookService = FacebookService.shared
+    let userService = UserService()
     
     var images = [String]() {
         didSet {
@@ -49,22 +51,22 @@ class ProfileViewController: UIViewController {
         self.bioLabel.isHidden = true
         
         if let userId = userId {
-            FirebaseManager.shared.getUser(withId: userId, completion: { (user, error) in
+            userService.getUser(withId: userId, completion: {[weak self] (user, error) in
                 if let error = error {
-                    self.alert(message: error.localizedDescription, okAction: {
-                        _ = self.navigationController?.popViewController(animated: true)
-                        self.dismiss(animated: true, completion: nil)
+                    self?.alert(message: error.localizedDescription, okAction: {
+                        _ = self?.navigationController?.popViewController(animated: true)
+                        self?.dismiss(animated: true, completion: nil)
                     })
                 }else {
-                    self.user = user
+                    self?.user = user
                 }
             })
         }
         
-        if let userPhotosPermission: Bool = GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.value(), userPhotosPermission == true {
-            proceedToTakeUserPhotos()
+        if facebookService.isPhotoPermissionGiven() {
+            self.loadProfilePicturesFromFacebook()
         }else {
-            authenticator.delegate = self
+            self.authenticator.delegate = self
             self.authenticator.authenticateWith(provider: .facebook)
         }
         
@@ -83,6 +85,16 @@ class ProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopTimer()
+    }
+    
+    func loadProfilePicturesFromFacebook() {
+        facebookService.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
+            self?.images.append(photoUrlString)
+        }, completion: { 
+            
+        }) {[weak self] (error) in
+            self?.alert(message: error)
+        }
     }
     
     func startTimer() {
@@ -109,88 +121,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func permissionCheck() -> Bool {
-        if let userPhotosPermission: Bool = GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.value(), userPhotosPermission == true {
-            return true
-        }else {
-            return false
-        }
-    }
-    
     @IBAction func editProfile(_ sender: Any) {
-    }
-    
-    func proceedToTakeUserPhotos() {
-        let accesstoken = AccessToken.current
-        
-        if let fbUserId: String = accesstoken?.userId {
-            let albumRequest = GraphRequest.init(graphPath: "/\(fbUserId)/albums", parameters: [ : ], accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)
-            albumRequest.start({ [weak self] (response, result) in
-                switch result {
-                case .failed(let error):
-                    print(error)
-                case .success(response: let response):
-                    // 103443236448565
-                    guard let responseDict = response.dictionaryValue else {
-                        return
-                    }
-                    let profileAlbumId = JSON(responseDict)["data"].arrayValue.reduce("") { (collection, json) -> String in
-                        if collection.isEmpty && json["name"].stringValue == "Profile Pictures" {
-                            return json["id"].stringValue
-                        }
-                        return collection
-                    }
-                    
-                    let photosRequest = GraphRequest.init(graphPath: "/\(profileAlbumId)/photos", parameters: [:], accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)
-                    photosRequest.start({ (response, result) in
-                        switch result {
-                        case .failed(let error):
-                            print(error)
-                        case .success(response: let response):
-                            guard let responseDict = response.dictionaryValue else {
-                                return
-                            }
-                            let photosIds = JSON(responseDict)["data"].arrayValue.map({
-                                return $0["id"].stringValue
-                            })
-                            
-                            let firstFive = photosIds.dropLast(photosIds.count - 5)
-                            print(firstFive)
-                            
-                            firstFive.forEach({ (photoId) in
-                                let photoRequest = GraphRequest.init(graphPath: "/\(photoId)", parameters: ["fields": "images"], accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)
-                                photoRequest.start({ (response, result) in
-                                    switch result {
-                                    case .failed(let error):
-                                        print(error)
-                                    case .success(response: let response):
-                                        guard let responseDict = response.dictionaryValue else {
-                                            return
-                                        }
-                                        let imageJsons = JSON(responseDict)["images"].arrayValue
-                                        if let imageURLString = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
-                                            let jsonHeight = json["height"].intValue
-                                            let resultHeight = result["height"].intValue
-                                            if jsonHeight > resultHeight {
-                                                return json
-                                            }
-                                            return result
-                                        })["source"].string {
-                                            if !(self?.images.contains(imageURLString) ?? true) {
-                                                self?.images.append(imageURLString)
-                                            }
-                                        }
-                                    }
-                                })
-                            })
-                            //                            print(photos)
-                        }
-                    })
-                    // /{album-id}/photos
-                    
-                }
-            })
-        }
     }
     
 }
@@ -209,12 +140,12 @@ extension ProfileViewController: AuthenticatorDelegate {
     }
     
     func shouldUserSignInIntoFirebase() -> Bool {
-        if !permissionCheck() {
+        if facebookService.isPhotoPermissionGiven() {
+            self.loadProfilePicturesFromFacebook()
+        }else {
             self.alert(message: "Facebook user photos permission is not granted.", okAction: {
                 self.dismiss(animated: true, completion: nil)
             })
-        }else {
-            proceedToTakeUserPhotos()
         }
         return false
     }

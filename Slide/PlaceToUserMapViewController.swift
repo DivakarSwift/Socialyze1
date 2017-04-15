@@ -13,7 +13,7 @@ class PlaceToUserMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    var place: Places?
+    var place: Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()

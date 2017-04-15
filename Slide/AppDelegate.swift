@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Firebase
+import FacebookCore
 import FBSDKCoreKit
 import GoogleMaps
 
@@ -16,15 +17,16 @@ func doLog(_ items: Any...) {
     print(items)
 }
 
+var currentUser: User?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
         FIRApp.configure()
         IQKeyboardManager.sharedManager().enable = true
@@ -36,17 +38,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
+        checkForLogin()
+        
         return true
     }
-
+    
+    func checkForLogin() {
+        let identifier: String
+        
+        let fbTokenNeedsRefrehsed = AccessToken.current?.expirationDate.timeIntervalSinceNow ?? 0 < 60*60*5
+        
+        
+        if Authenticator.isUserLoggedIn, let loggedInAlready: Bool = GlobalConstants.UserDefaultKey.firstTimeLogin.value(), loggedInAlready && !fbTokenNeedsRefrehsed {
+            identifier = "mainNav"
+        }else {
+            identifier = "LoginViewController"
+            Authenticator().logout()
+        }
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        self.window?.rootViewController = vc
+    }
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-       FBSDKAppEvents.activateApp()
+        FBSDKAppEvents.activateApp()
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance().application(app, open: url, options: options)
+        return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
-
-
+    
+    
 }
 

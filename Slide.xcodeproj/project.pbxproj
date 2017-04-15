@@ -12,6 +12,9 @@
 		1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */; };
 		1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */; };
 		1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */; };
+		1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546511EA1C15A00D726E8 /* UserService.swift */; };
+		1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546571EA1C22200D726E8 /* PlaceService.swift */; };
+		1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546591EA1C2E300D726E8 /* FacebookService.swift */; };
 		1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */; };
 		1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DC1E9CA584004B12FC /* LocationManager.swift */; };
 		1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DE1E9CA5AF004B12FC /* Constants.swift */; };
@@ -78,6 +81,9 @@
 		1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicColumn.swift; sourceTree = "<group>"; };
 		1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceToUserMapViewController.swift; sourceTree = "<group>"; };
+		1F6546511EA1C15A00D726E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		1F6546571EA1C22200D726E8 /* PlaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
+		1F6546591EA1C2E300D726E8 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
 		1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F9F02DC1E9CA584004B12FC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1F9F02DE1E9CA5AF004B12FC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -116,7 +122,7 @@
 		FC5219841E70132D00EDF19A /* testprofile2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testprofile2.JPG; sourceTree = "<group>"; };
 		FC5219861E70163600EDF19A /* homebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homebutton.png; sourceTree = "<group>"; };
 		FC7A24171E695F56004C9E44 /* Slide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Slide.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC7A241A1E695F56004C9E44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FC7A241A1E695F56004C9E44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Slide/AppDelegate.swift; sourceTree = "<group>"; };
 		FC7A241C1E695F56004C9E44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC7A241F1E695F56004C9E44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC7A24211E695F56004C9E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,6 +164,7 @@
 		1F06C9A31E8F4F9800934676 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				1FE787661E87FBDC006B2445 /* LoginViewController.swift */,
 				1F06C9A41E8F4FA900934676 /* MosaicLayout.swift */,
 				FC7A241E1E695F56004C9E44 /* Main.storyboard */,
 				FC7A241C1E695F56004C9E44 /* ViewController.swift */,
@@ -174,6 +181,49 @@
 				1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */,
 			);
 			name = Maps;
+			sourceTree = "<group>";
+		};
+		1F6546531EA1C19100D726E8 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1FE7875D1E876B24006B2445 /* Authenticator.swift */,
+				1FE7875F1E877D36006B2445 /* FirebaseManager.swift */,
+				1F6546511EA1C15A00D726E8 /* UserService.swift */,
+				1F6546571EA1C22200D726E8 /* PlaceService.swift */,
+				1F6546591EA1C2E300D726E8 /* FacebookService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		1F6546541EA1C1BC00D726E8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */,
+				1FE787641E87F0B2006B2445 /* JSONExtension.swift */,
+				1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		1F6546551EA1C1D000D726E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC7A24211E695F56004C9E44 /* Assets.xcassets */,
+				FC7A24231E695F56004C9E44 /* LaunchScreen.storyboard */,
+				FC7A24261E695F56004C9E44 /* Info.plist */,
+				1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		1F6546561EA1C1F400D726E8 /* UTILS */ = {
+			isa = PBXGroup;
+			children = (
+				7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */,
+				1F9F02DE1E9CA5AF004B12FC /* Constants.swift */,
+				1F9F02DC1E9CA584004B12FC /* LocationManager.swift */,
+			);
+			name = UTILS;
 			sourceTree = "<group>";
 		};
 		1FE787611E877DA1006B2445 /* Models */ = {
@@ -250,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				FC7A24191E695F56004C9E44 /* Slide */,
+				FC7A241A1E695F56004C9E44 /* AppDelegate.swift */,
 				FC7A242C1E696810004C9E44 /* Event Images */,
 				FC7A24181E695F56004C9E44 /* Products */,
 				7085EDF61E6EEB3700AD3420 /* Frameworks */,
@@ -268,27 +319,17 @@
 		FC7A24191E695F56004C9E44 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
+				1F6546561EA1C1F400D726E8 /* UTILS */,
+				1F6546551EA1C1D000D726E8 /* Resources */,
+				1F6546541EA1C1BC00D726E8 /* Extensions */,
+				1F6546531EA1C19100D726E8 /* Services */,
 				1F0E23B21E9F39A900EC0F4D /* Maps */,
-				1F9F02DE1E9CA5AF004B12FC /* Constants.swift */,
-				1F9F02DC1E9CA584004B12FC /* LocationManager.swift */,
 				1F06C9A31E8F4F9800934676 /* Dashboard */,
-				1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */,
-				1FE787641E87F0B2006B2445 /* JSONExtension.swift */,
 				1FE787611E877DA1006B2445 /* Models */,
-				FC7A241A1E695F56004C9E44 /* AppDelegate.swift */,
-				7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */,
 				FC52197F1E70108500EDF19A /* Categories */,
 				FC52197E1E70100E00EDF19A /* Events */,
 				FC1936831E7104BC009F2912 /* Matches */,
 				FC19367E1E70FB8E009F2912 /* Profile */,
-				FC7A24211E695F56004C9E44 /* Assets.xcassets */,
-				FC7A24231E695F56004C9E44 /* LaunchScreen.storyboard */,
-				FC7A24261E695F56004C9E44 /* Info.plist */,
-				1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */,
-				1FE7875D1E876B24006B2445 /* Authenticator.swift */,
-				1FE7875F1E877D36006B2445 /* FirebaseManager.swift */,
-				1FE787661E87FBDC006B2445 /* LoginViewController.swift */,
-				1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */,
 			);
 			path = Slide;
 			sourceTree = "<group>";
@@ -487,6 +528,7 @@
 				FC5219791E6FBD2400EDF19A /* SwipingViewController.swift in Sources */,
 				1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */,
 				1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */,
+				1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */,
 				1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */,
 				1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */,
 				1FE7876D1E8818A9006B2445 /* Event.swift in Sources */,
@@ -496,6 +538,7 @@
 				1FB505471E9866DA007A3D52 /* PlaceDetailViewController.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
+				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,
 				FCB623071E6EC323007DF4AE /* SelectionViewController.swift in Sources */,
 				1FE787631E877DAD006B2445 /* User.swift in Sources */,
@@ -508,6 +551,7 @@
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
 				FCB6230B1E6EC4B6007DF4AE /* PostedViewController.swift in Sources */,
+				1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

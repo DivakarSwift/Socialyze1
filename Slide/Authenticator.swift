@@ -53,13 +53,15 @@ class Authenticator {
         return Authenticator.currentFIRUser != nil
     }
     typealias ShouldSignIn = Bool
+    
     func authenticateWith(provider: Provider) {
         switch provider {
         case .facebook:
             let loginManager = LoginManager()
             loginManager.logOut()
             let userPhotos = "user_photos"
-            loginManager.logIn([.publicProfile, .custom(userPhotos) ], viewController: nil) { loginResult in
+            // let taggableFriends = "taggable_friends"
+            loginManager.logIn([.publicProfile, .custom(userPhotos), .userFriends], viewController: nil) { loginResult in
                 switch loginResult {
                 case .failed(let error):
                     self.delegate?.didOccurAuthentication(error: .facebookLoginFailed(with: error))
@@ -70,10 +72,12 @@ class Authenticator {
                 case .success(let grantedPermissions, let declinedPermissions, let accessToken):
                     let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
                     
-                    if grantedPermissions.contains(Permission(name: userPhotos)) {
-                        GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.set(value: true)
-                    }
+                    GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: userPhotos)))
+                    GlobalConstants.UserDefaultKey.userFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: "user_friends"))) //"user_friends"
+                    // GlobalConstants.UserDefaultKey.taggableFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: taggableFriends)))
+                    
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
+                    
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
                         self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
                     }
@@ -92,8 +96,8 @@ class Authenticator {
             }else {
                 var user = User()
                 user.id = Authenticator.currentFIRUser?.uid
-                
-                FirebaseManager.shared.saveUser(user: user, completion: { (success, error) in
+                GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
+                UserService().saveUser(user: user, completion: { (success, error) in
                     if let error = error {
                         self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
                     }else {
