@@ -45,14 +45,19 @@ enum AuthenticationError: Error {
 }
 
 class Authenticator {
+    static let shared = Authenticator()
+    
+    var user: User?
+    
+    typealias ShouldSignIn = Bool
+    
     var delegate: AuthenticatorDelegate?
     
-    init() {}
+    private init() {}
     
     static var isUserLoggedIn: Bool{
         return Authenticator.currentFIRUser != nil
     }
-    typealias ShouldSignIn = Bool
     
     func authenticateWith(provider: Provider) {
         switch provider {
@@ -96,6 +101,8 @@ class Authenticator {
             }else {
                 var user = User()
                 user.id = Authenticator.currentFIRUser?.uid
+                user.fbId = AccessToken.current?.userId
+                
                 GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
                 UserService().saveUser(user: user, completion: { (success, error) in
                     if let error = error {

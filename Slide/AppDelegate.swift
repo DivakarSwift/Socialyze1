@@ -10,7 +10,6 @@ import UIKit
 import IQKeyboardManagerSwift
 import Firebase
 import FacebookCore
-import FBSDKCoreKit
 import GoogleMaps
 
 func doLog(_ items: Any...) {
@@ -18,6 +17,8 @@ func doLog(_ items: Any...) {
 }
 
 var currentUser: User?
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         GMSServices.provideAPIKey(GlobalConstants.APIKeys.googleMap)
         
-        SlydeLocationManager.shared.startUpdatingLocation()
+        SlydeLocationManager.shared.requestLocation()
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 18.0/255.0, green: 18.0/255.0, blue: 18.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
@@ -44,23 +45,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func checkForLogin() {
-        let identifier: String
         
         let fbTokenNeedsRefrehsed = AccessToken.current?.expirationDate.timeIntervalSinceNow ?? 0 < 60*60*5
         
         
         if Authenticator.isUserLoggedIn, let loggedInAlready: Bool = GlobalConstants.UserDefaultKey.firstTimeLogin.value(), loggedInAlready && !fbTokenNeedsRefrehsed {
-            identifier = "mainNav"
+            let identifier = "mainNav"
+            let userId = Authenticator.currentFIRUser?.uid
+            
+            UserService().getUser(withId: userId!, completion: { (user, error) in
+                print(error)
+                Authenticator.shared.user = user
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+                self.window?.rootViewController = vc
+            })
         }else {
-            identifier = "LoginViewController"
-            Authenticator().logout()
+            let identifier = "LoginViewController"
+            Authenticator.shared.logout()
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+            self.window?.rootViewController = vc
         }
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
-        self.window?.rootViewController = vc
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        FBSDKAppEvents.activateApp()
+        AppEventsLogger.activate(application)
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {

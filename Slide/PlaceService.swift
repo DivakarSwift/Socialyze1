@@ -8,26 +8,46 @@
 
 import Foundation
 import FirebaseDatabase
+import  SwiftyJSON
 
 class PlaceService: FirebaseManager {
-    func user(user: User, checkInAt place: Place, completion: @escaping (_ key: String, _ success: Bool, _ error: Error?) -> ()) {
+    func user(_ user: User, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
+        
+        let ref = self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(user.id!)
+        
         let values = [
             "userId": user.id!,
-            "time": Date().timeIntervalSince1970
-        ] as [String : Any]
-        
-        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").childByAutoId().setValue(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+            "time": Date().timeIntervalSince1970,
+            "fbId": user.fbId!,
             
-            completion(ref.key, error == nil, error)
+            ] as [String : Any]
+        
+        ref.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+            completion(error == nil, error)
         })
     }
     
     
-    func updateCheckIn() {
+    func user(_ user: User, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
         
+        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(user.id!).removeValue(completionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+            completion(error == nil, error)
+        })
     }
     
-    func getCheckInUsers() {
-        
+    func getCheckInUsers(at place: Place, completion: @escaping ([Checkin])->(), failure: @escaping (Error)->()) {
+        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+            if let snapshotValue = snapshot.value {
+                if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
+                    return json.map()
+                }) {
+                    completion(json)
+                    print(json)
+                    return
+                }
+            }
+            failure(FirebaseManagerError.noDataFound)
+            print(snapshot.value)
+        })
     }
 }

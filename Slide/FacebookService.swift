@@ -10,7 +10,6 @@ import Foundation
 import FacebookCore
 import SwiftyJSON
 
-
 class FacebookService {
     private init() {
         
@@ -20,6 +19,7 @@ class FacebookService {
     
     private var images = [String]()
     private var hasImageCount = -1
+    private var friends = [FacebookFriend]()
     
     func isPhotoPermissionGiven() -> Bool {
         if let userPhotosPermission: Bool = GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.value(), userPhotosPermission == true {
@@ -52,22 +52,41 @@ class FacebookService {
         }
     }
     
-    func getUserFriends(failure: @escaping (GlobalConstants.Message)->()) {
-        let accesstoken = AccessToken.current
-        if let fbUserId: String = accesstoken?.userId {
-            self.createGraphRequestAndStart(forPath: "/me/friends",  params:["fields": "uid"], success: { (response) in
-                print(response.dictionaryValue)
-                guard let responseDict = response.dictionaryValue else {
-                    return
-                }
-                print(responseDict["data"])
-                let photosIds = JSON(responseDict)["data"].arrayValue.forEach({
-                     print($0)//["id"].stringValue
-                })
-                print(response.arrayValue)
-                print(response.stringValue)
-            }, failure: failure)
+    func getUserFriends(success: @escaping ([FacebookFriend]) -> (), failure: @escaping (GlobalConstants.Message)->()) {
+        self.getUserFriends(nextPageCursor: nil, complete: { 
+            success(self.friends)
+        }) { (error) in
+            failure(error)
+            success(self.friends)
         }
+    }
+    
+    private func getUserFriends(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
+        var params = ["fields": "id, name, picture", "limit" : 200] as [String : Any]
+        if let nextPageCursor = nextPageCursor {
+            params["after"] = nextPageCursor
+        }
+        
+        self.createGraphRequestAndStart(forPath: "/me/friends",  params: params, success: { (response) in
+            print(response.dictionaryValue ?? [:])
+            guard let responseDict = response.dictionaryValue else {
+                return
+            }
+            let json = JSON(responseDict)
+            json["data"].arrayValue.forEach({
+                if let id = $0["id"].string, let name = $0["name"].string, let profileImageURL = $0["picture","data", "url"].string {
+                    let friend = FacebookFriend(id: id, name: name, profileURLString: profileImageURL)
+                    if !self.friends.contains(friend) {
+                        self.friends.append(friend)
+                    }
+                }
+            })
+            if let nextPageCursor = json["paging","cursors", "after"].string {
+                self.getUserFriends(nextPageCursor: nextPageCursor, complete: complete, failure: failure)
+            }else {
+                complete()
+            }
+        }, failure: failure)
     }
     
     
@@ -111,36 +130,37 @@ class FacebookService {
                         failure(GlobalConstants.Message.oops)
                         return
                     }
-                    
-                    firstFive.enumerated().forEach({ (index, photoId) in
-                        // GET PHOTO FROM ID
-                        self?.createGraphRequestAndStart(forPath: "/\(photoId)", params: ["fields": "images"], success: { (response) in
-                            guard let responseDict = response.dictionaryValue else {
-                                return
-                            }
-                            let imageJsons = JSON(responseDict)["images"].arrayValue
-                            if imageJsons.count == 0 {
-                                failure(GlobalConstants.Message.oops)
-                                return
-                            }
-                            if let imageURLString = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
-                                let jsonHeight = json["height"].intValue
-                                let resultHeight = result["height"].intValue
-                                if jsonHeight > resultHeight {
-                                    return json
+                    if let me = self {
+                        firstFive.enumerated().forEach({ (index, photoId) in
+                            // GET PHOTO FROM ID
+                            me.createGraphRequestAndStart(forPath: "/\(photoId)", params: ["fields": "images"], success: { (response) in
+                                guard let responseDict = response.dictionaryValue else {
+                                    return
                                 }
-                                return result
-                            })["source"].string {
-                                if let contains = self?.images.contains(imageURLString), !contains {
-                                    value(imageURLString)
-                                    self?.images.append(imageURLString)
-                                    if firstFive.count - 1 == index {
-                                        completion()
+                                let imageJsons = JSON(responseDict)["images"].arrayValue
+                                if imageJsons.count == 0 {
+                                    failure(GlobalConstants.Message.oops)
+                                    return
+                                }
+                                if let imageURLString = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
+                                    let jsonHeight = json["height"].intValue
+                                    let resultHeight = result["height"].intValue
+                                    if jsonHeight > resultHeight {
+                                        return json
+                                    }
+                                    return result
+                                })["source"].string {
+                                    if !me.images.contains(imageURLString) {
+                                        value(imageURLString)
+                                        me.images.append(imageURLString)
+                                        if firstFive.count - 1 == index {
+                                            completion()
+                                        }
                                     }
                                 }
-                            }
-                        }, failure: failure)
-                    })
+                            }, failure: failure)
+                        })
+                    }
                     
                     }, failure: failure)
                 

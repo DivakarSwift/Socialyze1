@@ -18,7 +18,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     
     var userId: String?
-    let authenticator = Authenticator()
+    let authenticator = Authenticator.shared
     let facebookService = FacebookService.shared
     let userService = UserService()
     

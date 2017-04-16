@@ -183,9 +183,9 @@
                                             <constraint firstAttribute="height" constant="44" id="6eB-Lf-Cub"/>
                                             <constraint firstAttribute="width" constant="160" id="mgV-9m-y4j"/>
                                         </constraints>
-                                        <state key="normal" title="Check In &amp; Swipe"/>
+                                        <state key="normal" title="Check In"/>
                                         <connections>
-                                            <segue destination="35w-DO-SmY" kind="show" identifier="Categories" id="0b6-0d-Buk"/>
+                                            <action selector="checkIn:" destination="OQW-zf-Zui" eventType="touchUpInside" id="hvC-yp-N8G"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -198,7 +198,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V1k-db-Ndc">
-                                <rect key="frame" x="76" y="388" width="262" height="59"/>
+                                <rect key="frame" x="76" y="388" width="262" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="   " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-mz-Ve2">
                                         <rect key="frame" x="0.0" y="0.0" width="262" height="20"/>
@@ -207,8 +207,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="74 people ar checked in including your 5 friends " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWC-ZF-jWY">
-                                        <rect key="frame" x="0.0" y="20" width="262" height="39"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWC-ZF-jWY">
+                                        <rect key="frame" x="0.0" y="20" width="262" height="20"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="highlightedColor"/>
@@ -290,6 +290,7 @@
                         <outlet property="placeDetailLbl" destination="l5V-6x-JJM" id="Hka-5V-MRk"/>
                         <outlet property="placeImageView" destination="HtE-1a-ofZ" id="3L7-F4-GEm"/>
                         <outlet property="placeNameAddressLbl" destination="cMk-Hz-1UU" id="Hyg-3Q-5ro"/>
+                        <segue destination="35w-DO-SmY" kind="show" identifier="Categories" id="vJs-Ew-t4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5v-Dp-Vcn" userLabel="First Responder" sceneMemberID="firstResponder"/>

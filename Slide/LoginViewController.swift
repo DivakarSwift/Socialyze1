@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let authenticator = Authenticator()
+    let authenticator = Authenticator.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,7 @@ extension LoginViewController: AuthenticatorDelegate {
     }
     
     func didSignInUser() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "mainNav")
-        self.view.window?.rootViewController = vc
+        appDelegate.checkForLogin()
     }
     
     func didOccurAuthentication(error: AuthenticationError) {

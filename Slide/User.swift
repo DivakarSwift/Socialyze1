@@ -11,6 +11,7 @@ import ObjectMapper
 
 struct User: Mappable {
     var id: String?
+    var fbId: String?
     var dateOfBirth: TimeInterval?
     var name: String?
     var bio: String?
@@ -30,6 +31,7 @@ struct User: Mappable {
     
     mutating func mapping(map: Map) {
         id <- map["id"]
+        fbId <- map["fbId"]
         dateOfBirth <- map["dateOfBirth"]
         name <- map["name"]
         bio <- map["bio"]
