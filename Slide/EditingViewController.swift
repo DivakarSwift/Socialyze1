@@ -28,6 +28,8 @@ class EditingTableViewController: UITableViewController {
     }
     
     @IBAction func logout(_ sender: Any) {
+        Authenticator.shared.logout()
+        appDelegate.checkForLogin()
     }
      
     @IBAction func privacyPolicyBtn(_ sender: Any) {

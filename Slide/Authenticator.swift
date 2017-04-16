@@ -118,6 +118,7 @@ class Authenticator {
     func logout() {
         
         LoginManager().logOut() //facebook logout
+        GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
         
         do {
             try FIRAuth.auth()?.signOut()

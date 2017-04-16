@@ -21,6 +21,12 @@ class FacebookService {
     private var hasImageCount = -1
     private var friends = [FacebookFriend]()
     
+    func logout() {
+        images = []
+        hasImageCount = -1
+        friends = []
+    }
+    
     func isPhotoPermissionGiven() -> Bool {
         if let userPhotosPermission: Bool = GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.value(), userPhotosPermission == true {
             return true
