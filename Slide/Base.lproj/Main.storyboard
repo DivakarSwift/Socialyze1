@@ -268,21 +268,21 @@
                                 <rect key="frame" x="0.0" y="426.33333333333326" width="414" height="228.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WPc-Gh-Xg7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendsCell" id="WPc-Gh-Xg7">
                                         <rect key="frame" x="0.0" y="28" width="414" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WPc-Gh-Xg7" id="ygQ-E1-Ls6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="34.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2uM-rQ-O8b">
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2uM-rQ-O8b">
                                                     <rect key="frame" x="0.0" y="2.3333333333333339" width="30" height="30.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="S8G-Dz-r1u"/>
                                                         <constraint firstAttribute="width" secondItem="2uM-rQ-O8b" secondAttribute="height" multiplier="1:1" id="d1g-kK-REV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-ld-1Z7">
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-ld-1Z7">
                                                     <rect key="frame" x="38" y="0.0" width="376" height="34.666666666666664"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -302,6 +302,10 @@
                                         <color key="backgroundColor" red="0.33333333329999998" green="0.33333334329999997" blue="0.33333334329999997" alpha="0.5" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OQW-zf-Zui" id="1nK-Fz-zCw"/>
+                                    <outlet property="delegate" destination="OQW-zf-Zui" id="Rdo-8C-m6f"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -331,6 +335,7 @@
                     </view>
                     <connections>
                         <outlet property="checkInStatusLabel" destination="gWC-ZF-jWY" id="dI7-Pu-eId"/>
+                        <outlet property="friendsTableView" destination="yJb-qJ-ptO" id="xli-Ud-sBV"/>
                         <outlet property="placeDetailLbl" destination="l5V-6x-JJM" id="Hka-5V-MRk"/>
                         <outlet property="placeImageView" destination="HtE-1a-ofZ" id="3L7-F4-GEm"/>
                         <outlet property="placeNameAddressLbl" destination="cMk-Hz-1UU" id="Hyg-3Q-5ro"/>
