@@ -75,14 +75,6 @@ class ViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Create Event",
-            style: UIBarButtonItemStyle.plain,
-            target: self,
-            action: #selector(eventBtn)
-        )
-        
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             title: "Profile",
             style: UIBarButtonItemStyle.plain,
@@ -97,7 +89,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.title = "Home"
+        self.title = "Explore Columbus"
     }
     
     var places = [Place]()
