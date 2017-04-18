@@ -15,6 +15,8 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
+    @IBOutlet weak var friendsTableView: UITableView!
+    
     var place: Place?
     
     let thresholdRadius = 30.48 //100ft
@@ -143,12 +145,24 @@ class PlaceDetailViewController: UIViewController {
         })
     }
     
+    func getCheckedInFriends() -> [FacebookFriend] {
+        let fbIds = self.checkinData.flatMap({$0.fbId})
+        let friendCheckins = self.faceBookFriends.filter({fbIds.contains($0.id)})
+        return friendCheckins
+    }
+    
     func changeStatus() {
         if self.checkinData.count > 0 {
+<<<<<<< HEAD
             let fbIds = self.faceBookFriends.map({$0.id})
             let friendCheckins = checkinData.filter({fbIds.contains($0.fbId!)})
             var text = "\(checkinData.count) checked in "
             text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friend(s). " : "")
+=======
+            let friendCheckins = getCheckedInFriends()
+            var text = "\(checkinData.count) people are checked in"
+            text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friends " : "")
+>>>>>>> origin/Setup2
             self.checkInStatusLabel.text = text
         }else {
             self.checkInStatusLabel.text = ""
@@ -207,5 +221,23 @@ extension PlaceDetailViewController: AuthenticatorDelegate {
             })
         }
         return false
+    }
+}
+
+extension PlaceDetailViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.getCheckedInFriends().count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let friend = self.getCheckedInFriends()[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
+        let label = cell.viewWithTag(2) as! UILabel
+        label.text = friend.name
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        imageView.kf.setImage(with: URL(string: friend.profileURLString))
+        return cell
     }
 }

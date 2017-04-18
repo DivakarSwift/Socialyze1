@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -191,24 +192,24 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5V-6x-JJM">
-                                <rect key="frame" x="0.0" y="349" width="414" height="39"/>
+                                <rect key="frame" x="0.0" y="349.33333333333331" width="414" height="38.333333333333371"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V1k-db-Ndc">
-                                <rect key="frame" x="76" y="388" width="262" height="40"/>
+                                <rect key="frame" x="76" y="387.66666666666669" width="262" height="38.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="   " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-mz-Ve2">
-                                        <rect key="frame" x="0.0" y="0.0" width="262" height="20"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="262" height="19.333333333333314"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWC-ZF-jWY">
-                                        <rect key="frame" x="0.0" y="20" width="262" height="20"/>
+                                        <rect key="frame" x="0.0" y="19.333333333333314" width="262" height="19.333333333333314"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="highlightedColor"/>
@@ -263,16 +264,63 @@
                                     <constraint firstAttribute="height" constant="66" id="8RV-8v-fVH"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yJb-qJ-ptO">
+                                <rect key="frame" x="0.0" y="426.33333333333326" width="414" height="228.66666666666674"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendsCell" id="WPc-Gh-Xg7">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="35"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WPc-Gh-Xg7" id="ygQ-E1-Ls6">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2uM-rQ-O8b">
+                                                    <rect key="frame" x="0.0" y="2.3333333333333339" width="30" height="30.333333333333329"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="S8G-Dz-r1u"/>
+                                                        <constraint firstAttribute="width" secondItem="2uM-rQ-O8b" secondAttribute="height" multiplier="1:1" id="d1g-kK-REV"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-ld-1Z7">
+                                                    <rect key="frame" x="38" y="0.0" width="376" height="34.666666666666664"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2uM-rQ-O8b" firstAttribute="centerY" secondItem="ygQ-E1-Ls6" secondAttribute="centerY" id="8Se-cq-XYs"/>
+                                                <constraint firstItem="ERD-ld-1Z7" firstAttribute="leading" secondItem="2uM-rQ-O8b" secondAttribute="trailing" constant="8" id="AD9-eR-eWJ"/>
+                                                <constraint firstItem="ERD-ld-1Z7" firstAttribute="top" secondItem="ygQ-E1-Ls6" secondAttribute="top" id="EgU-CH-b3j"/>
+                                                <constraint firstAttribute="bottom" secondItem="ERD-ld-1Z7" secondAttribute="bottom" id="Tre-2j-ogY"/>
+                                                <constraint firstItem="2uM-rQ-O8b" firstAttribute="leading" secondItem="ygQ-E1-Ls6" secondAttribute="leading" id="hiB-bd-Ftz"/>
+                                                <constraint firstAttribute="trailing" secondItem="ERD-ld-1Z7" secondAttribute="trailing" id="zGX-6n-qX6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.33333333329999998" green="0.33333334329999997" blue="0.33333334329999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="OQW-zf-Zui" id="1nK-Fz-zCw"/>
+                                    <outlet property="delegate" destination="OQW-zf-Zui" id="Rdo-8C-m6f"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="yJb-qJ-ptO" secondAttribute="trailing" id="10p-XX-dcL"/>
                             <constraint firstAttribute="trailing" secondItem="HtE-1a-ofZ" secondAttribute="trailing" id="ABG-Eb-ost"/>
+                            <constraint firstItem="rDe-Aa-fKK" firstAttribute="top" secondItem="yJb-qJ-ptO" secondAttribute="bottom" id="CkC-Is-Qv0"/>
                             <constraint firstItem="jq2-HF-NdH" firstAttribute="top" secondItem="rDe-Aa-fKK" secondAttribute="bottom" constant="37" id="GeZ-JI-fbk"/>
                             <constraint firstItem="HtE-1a-ofZ" firstAttribute="top" secondItem="dpq-ck-TJJ" secondAttribute="top" id="PMf-Zm-LSv"/>
                             <constraint firstItem="l5V-6x-JJM" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="R8t-YE-Jm8"/>
                             <constraint firstItem="jq2-HF-NdH" firstAttribute="top" secondItem="HtE-1a-ofZ" secondAttribute="bottom" id="Wbe-Df-vTA"/>
                             <constraint firstAttribute="trailing" secondItem="ecm-p5-5NR" secondAttribute="trailing" id="Xf8-2H-h4H"/>
                             <constraint firstItem="HtE-1a-ofZ" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="bCN-c6-xja"/>
+                            <constraint firstItem="yJb-qJ-ptO" firstAttribute="top" secondItem="V1k-db-Ndc" secondAttribute="bottom" id="bCw-xE-nK2"/>
+                            <constraint firstItem="yJb-qJ-ptO" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="cLg-VK-CZl"/>
                             <constraint firstItem="ecm-p5-5NR" firstAttribute="top" secondItem="vzG-qA-tRM" secondAttribute="bottom" id="df5-Dt-vV0"/>
                             <constraint firstItem="ecm-p5-5NR" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="hlR-ta-gBS"/>
                             <constraint firstItem="V1k-db-Ndc" firstAttribute="centerX" secondItem="l5V-6x-JJM" secondAttribute="centerX" id="i8F-7h-G8y"/>
@@ -287,6 +335,7 @@
                     </view>
                     <connections>
                         <outlet property="checkInStatusLabel" destination="gWC-ZF-jWY" id="dI7-Pu-eId"/>
+                        <outlet property="friendsTableView" destination="yJb-qJ-ptO" id="xli-Ud-sBV"/>
                         <outlet property="placeDetailLbl" destination="l5V-6x-JJM" id="Hka-5V-MRk"/>
                         <outlet property="placeImageView" destination="HtE-1a-ofZ" id="3L7-F4-GEm"/>
                         <outlet property="placeNameAddressLbl" destination="cMk-Hz-1UU" id="Hyg-3Q-5ro"/>

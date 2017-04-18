@@ -12,6 +12,7 @@
 		1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */; };
 		1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */; };
 		1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */; };
+		1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */; };
 		1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546511EA1C15A00D726E8 /* UserService.swift */; };
 		1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546571EA1C22200D726E8 /* PlaceService.swift */; };
 		1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546591EA1C2E300D726E8 /* FacebookService.swift */; };
@@ -22,7 +23,6 @@
 		1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DE1E9CA5AF004B12FC /* Constants.swift */; };
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
 		1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */; };
-		1FB505471E9866DA007A3D52 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */; };
 		1FE7875E1E876B24006B2445 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7875D1E876B24006B2445 /* Authenticator.swift */; };
 		1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7875F1E877D36006B2445 /* FirebaseManager.swift */; };
 		1FE787631E877DAD006B2445 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787621E877DAD006B2445 /* User.swift */; };
@@ -83,6 +83,7 @@
 		1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicColumn.swift; sourceTree = "<group>"; };
 		1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceToUserMapViewController.swift; sourceTree = "<group>"; };
+		1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		1F6546511EA1C15A00D726E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		1F6546571EA1C22200D726E8 /* PlaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		1F6546591EA1C2E300D726E8 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		1F9F02DE1E9CA5AF004B12FC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
-		1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 		1FE7875D1E876B24006B2445 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		1FE7875F1E877D36006B2445 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1FE787621E877DAD006B2445 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -168,12 +168,12 @@
 		1F06C9A31E8F4F9800934676 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */,
 				1FE787661E87FBDC006B2445 /* LoginViewController.swift */,
 				1F06C9A41E8F4FA900934676 /* MosaicLayout.swift */,
 				FC7A241E1E695F56004C9E44 /* Main.storyboard */,
 				FC7A241C1E695F56004C9E44 /* ViewController.swift */,
 				1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */,
-				1FB505461E9866DA007A3D52 /* PlaceDetailViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -542,7 +542,6 @@
 				1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */,
 				FC1936821E710463009F2912 /* EditingViewController.swift in Sources */,
 				1FE787651E87F0B2006B2445 /* JSONExtension.swift in Sources */,
-				1FB505471E9866DA007A3D52 /* PlaceDetailViewController.swift in Sources */,
 				1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
@@ -553,6 +552,7 @@
 				FC7A241B1E695F56004C9E44 /* AppDelegate.swift in Sources */,
 				7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */,
 				1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */,
+				1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */,
 				FC5219811E70114700EDF19A /* CategoriesViewController.swift in Sources */,
 				1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */,
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,
