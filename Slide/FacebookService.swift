@@ -125,6 +125,12 @@ class FacebookService {
                         return $0["id"].stringValue
                     })
                     let photoCount = photosIds.count
+                    
+                    if photoCount == 0 {
+                        failure(GlobalConstants.Message(title: "Error", message: "Please upload/change profile picture in facebook.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil))
+                        return
+                    }
+                    
                     self?.hasImageCount = photoCount
                     var firstFive = [String]()
                     for i in 0...min(4, photoCount - 1) {
@@ -132,10 +138,6 @@ class FacebookService {
                     }
                     print(firstFive)
                     
-                    if photoCount == 0 {
-                        failure(GlobalConstants.Message(title: "Error", message: "Please upload/change profile picture in facebook.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil))
-                        return
-                    }
                     if let me = self {
                         firstFive.enumerated().forEach({ (index, photoId) in
                             // GET PHOTO FROM ID
