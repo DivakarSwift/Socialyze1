@@ -154,9 +154,10 @@ class PlaceDetailViewController: UIViewController {
     
     func changeStatus() {
         if self.checkinData.count > 0 {
-            let friendCheckins = getCheckedInFriends()
-            var text = "\(checkinData.count) people are checked in"
-            text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friends " : "")
+            let fbIds = self.faceBookFriends.map({$0.id})
+            let friendCheckins = checkinData.filter({fbIds.contains($0.fbId!)})
+            var text = "\(checkinData.count) checked in "
+            text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friend(s). " : "")
             self.checkInStatusLabel.text = text
         }else {
             self.checkInStatusLabel.text = ""
