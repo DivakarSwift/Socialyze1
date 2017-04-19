@@ -133,7 +133,7 @@ class FacebookService {
                     print(firstFive)
                     
                     if photoCount == 0 {
-                        failure(GlobalConstants.Message.oops)
+                        failure(GlobalConstants.Message(title: "Error", message: "Please upload/change profile picture in facebook.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil))
                         return
                     }
                     if let me = self {
