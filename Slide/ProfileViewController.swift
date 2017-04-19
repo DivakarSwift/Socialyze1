@@ -90,9 +90,9 @@ class ProfileViewController: UIViewController {
         facebookService.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
             self?.images.append(photoUrlString)
             }, completion: { [weak self] in
-                if let me = self, let user = me.user {
+                if let me = self, let _ = me.user {
                     me.user?.images = me.images.flatMap({URL(string: $0)})
-                    me.userService.saveUser(user: user, completion: {[weak self] (success, error) in
+                    me.userService.saveUser(user: me.user!, completion: {[weak self] (success, error) in
                         if let error = error {
                             self?.alert(message: error.localizedDescription)
                         }
