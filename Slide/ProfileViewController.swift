@@ -59,15 +59,14 @@ class ProfileViewController: UIViewController {
                     })
                 }else {
                     self?.user = user
+                    if self?.facebookService.isPhotoPermissionGiven() ?? false {
+                        self?.loadProfilePicturesFromFacebook()
+                    }else {
+                        self?.authenticator.delegate = self
+                        self?.authenticator.authenticateWith(provider: .facebook)
+                    }
                 }
             })
-        }
-        
-        if facebookService.isPhotoPermissionGiven() {
-            self.loadProfilePicturesFromFacebook()
-        }else {
-            self.authenticator.delegate = self
-            self.authenticator.authenticateWith(provider: .facebook)
         }
         
         // Do any additional setup after loading the view.
@@ -90,8 +89,15 @@ class ProfileViewController: UIViewController {
     func loadProfilePicturesFromFacebook() {
         facebookService.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
             self?.images.append(photoUrlString)
-        }, completion: { 
-            
+            }, completion: { [weak self] in
+                if let me = self, let user = me.user {
+                    me.user?.images = me.images.flatMap({URL(string: $0)})
+                    me.userService.saveUser(user: user, completion: {[weak self] (success, error) in
+                        if let error = error {
+                            self?.alert(message: error.localizedDescription)
+                        }
+                    })
+                }
         }) {[weak self] (error) in
             self?.alert(message: error)
         }

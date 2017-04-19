@@ -127,7 +127,7 @@ class FacebookService {
                     let photoCount = photosIds.count
                     self?.hasImageCount = photoCount
                     var firstFive = [String]()
-                    for i in 0...min(5, photosIds.count) {
+                    for i in 0...min(5, photoCount - 1) {
                         firstFive.append(photosIds[i])
                     }
                     print(firstFive)
