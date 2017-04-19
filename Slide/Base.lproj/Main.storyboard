@@ -138,7 +138,7 @@
             <objects>
                 <navigationController storyboardIdentifier="mainNav" automaticallyAdjustsScrollViewInsets="NO" id="ddF-1J-eb0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apb-Db-fU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apb-Db-fU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -264,26 +264,26 @@
                                     <constraint firstAttribute="height" constant="66" id="8RV-8v-fVH"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="35" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yJb-qJ-ptO">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yJb-qJ-ptO">
                                 <rect key="frame" x="0.0" y="426.33333333333326" width="414" height="228.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="friendsCell" id="WPc-Gh-Xg7">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="35"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WPc-Gh-Xg7" id="ygQ-E1-Ls6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="34.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2uM-rQ-O8b">
-                                                    <rect key="frame" x="0.0" y="2.3333333333333339" width="30" height="30.333333333333329"/>
+                                                    <rect key="frame" x="187.33333333333334" y="2.3333333333333321" width="40" height="40.333333333333329"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="S8G-Dz-r1u"/>
+                                                        <constraint firstAttribute="width" constant="40" id="S8G-Dz-r1u"/>
                                                         <constraint firstAttribute="width" secondItem="2uM-rQ-O8b" secondAttribute="height" multiplier="1:1" id="d1g-kK-REV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-ld-1Z7">
-                                                    <rect key="frame" x="38" y="0.0" width="376" height="34.666666666666664"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-ld-1Z7">
+                                                    <rect key="frame" x="0.0" y="42.666666666666671" width="414" height="27.000000000000014"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -291,15 +291,15 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="2uM-rQ-O8b" firstAttribute="centerY" secondItem="ygQ-E1-Ls6" secondAttribute="centerY" id="8Se-cq-XYs"/>
-                                                <constraint firstItem="ERD-ld-1Z7" firstAttribute="leading" secondItem="2uM-rQ-O8b" secondAttribute="trailing" constant="8" id="AD9-eR-eWJ"/>
-                                                <constraint firstItem="ERD-ld-1Z7" firstAttribute="top" secondItem="ygQ-E1-Ls6" secondAttribute="top" id="EgU-CH-b3j"/>
+                                                <constraint firstItem="2uM-rQ-O8b" firstAttribute="centerX" secondItem="ygQ-E1-Ls6" secondAttribute="centerX" id="HEp-7b-f8P"/>
+                                                <constraint firstItem="ERD-ld-1Z7" firstAttribute="top" secondItem="2uM-rQ-O8b" secondAttribute="bottom" id="Pex-1K-6zY"/>
+                                                <constraint firstItem="ERD-ld-1Z7" firstAttribute="leading" secondItem="ygQ-E1-Ls6" secondAttribute="leading" id="PfQ-iu-Ibb"/>
                                                 <constraint firstAttribute="bottom" secondItem="ERD-ld-1Z7" secondAttribute="bottom" id="Tre-2j-ogY"/>
-                                                <constraint firstItem="2uM-rQ-O8b" firstAttribute="leading" secondItem="ygQ-E1-Ls6" secondAttribute="leading" id="hiB-bd-Ftz"/>
-                                                <constraint firstAttribute="trailing" secondItem="ERD-ld-1Z7" secondAttribute="trailing" id="zGX-6n-qX6"/>
+                                                <constraint firstItem="2uM-rQ-O8b" firstAttribute="top" secondItem="ygQ-E1-Ls6" secondAttribute="top" constant="3" id="mVZ-qd-my1"/>
+                                                <constraint firstAttribute="trailing" secondItem="ERD-ld-1Z7" secondAttribute="trailing" id="mdx-8I-uQ5"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.33333333329999998" green="0.33333334329999997" blue="0.33333334329999997" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
