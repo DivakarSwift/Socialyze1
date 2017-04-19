@@ -57,6 +57,7 @@ class PlaceDetailViewController: UIViewController {
         }
         
         getCheckedinUsers()
+        friendsTableView.tableFooterView = UIView()
     }
     
     deinit {
@@ -160,6 +161,7 @@ class PlaceDetailViewController: UIViewController {
         }else {
             self.checkInStatusLabel.text = ""
         }
+        self.friendsTableView.reloadData()
     }
     
     func getCheckedinUsers() {
