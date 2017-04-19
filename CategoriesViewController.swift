@@ -144,6 +144,7 @@ class CategoriesViewController: UIViewController {
             
             label.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
             
+            actionImageView.isHidden = true
         }
         
     }
@@ -161,6 +162,7 @@ class CategoriesViewController: UIViewController {
         imageView.isUserInteractionEnabled = true
         
         imageView.addGestureRecognizer(gesture)
+        actionImageView.isHidden = true
         
     }
 
