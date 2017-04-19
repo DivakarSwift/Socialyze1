@@ -20,7 +20,7 @@ class PlaceDetailViewController: UIViewController {
     var place: Place?
     
     let thresholdRadius = 30.48 //100ft
-    let checkInThreshold: TimeInterval = 5*60 //min
+    let checkInThreshold: TimeInterval = 3*60*60 //3hr
     
     private var isCheckedIn = false
     
@@ -97,7 +97,7 @@ class PlaceDetailViewController: UIViewController {
                 
                 if success {
                     SlydeLocationManager.shared.stopUpdatingLocation()
-                    Timer.scheduledTimer(timeInterval: 120, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
+                    Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
                 }
             }
             
@@ -233,6 +233,7 @@ extension PlaceDetailViewController: UITableViewDataSource {
         label.text = friend.name
         
         let imageView = cell.viewWithTag(1) as! UIImageView
+        imageView.rounded()
         imageView.kf.setImage(with: URL(string: friend.profileURLString))
         return cell
     }

@@ -199,17 +199,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V1k-db-Ndc">
-                                <rect key="frame" x="76" y="387.66666666666669" width="262" height="38.666666666666629"/>
+                                <rect key="frame" x="0.33333333333334281" y="387.66666666666669" width="414" height="38.666666666666629"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="   " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-mz-Ve2">
-                                        <rect key="frame" x="0.0" y="0.0" width="262" height="19.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="19.333333333333314"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWC-ZF-jWY">
-                                        <rect key="frame" x="0.0" y="19.333333333333314" width="262" height="19.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="19.333333333333314" width="414" height="19.333333333333314"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <nil key="highlightedColor"/>
@@ -324,13 +324,12 @@
                             <constraint firstItem="ecm-p5-5NR" firstAttribute="top" secondItem="vzG-qA-tRM" secondAttribute="bottom" id="df5-Dt-vV0"/>
                             <constraint firstItem="ecm-p5-5NR" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="hlR-ta-gBS"/>
                             <constraint firstItem="V1k-db-Ndc" firstAttribute="centerX" secondItem="l5V-6x-JJM" secondAttribute="centerX" id="i8F-7h-G8y"/>
+                            <constraint firstItem="V1k-db-Ndc" firstAttribute="width" secondItem="l5V-6x-JJM" secondAttribute="width" id="k5Z-pU-rJe"/>
                             <constraint firstItem="l5V-6x-JJM" firstAttribute="centerY" secondItem="dpq-ck-TJJ" secondAttribute="centerY" id="nur-nI-z8o"/>
                             <constraint firstItem="l5V-6x-JJM" firstAttribute="centerX" secondItem="dpq-ck-TJJ" secondAttribute="centerX" id="v15-Qa-Wod"/>
-                            <constraint firstAttribute="trailing" secondItem="V1k-db-Ndc" secondAttribute="trailing" constant="76" id="vvi-Gw-KGF"/>
                             <constraint firstItem="rDe-Aa-fKK" firstAttribute="centerX" secondItem="dpq-ck-TJJ" secondAttribute="centerX" id="wi4-dJ-cQ1"/>
                             <constraint firstItem="V1k-db-Ndc" firstAttribute="top" secondItem="l5V-6x-JJM" secondAttribute="bottom" id="xQ7-zr-V4f"/>
                             <constraint firstAttribute="trailing" secondItem="l5V-6x-JJM" secondAttribute="trailing" id="ybH-73-KeS"/>
-                            <constraint firstItem="V1k-db-Ndc" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" constant="76" id="ze1-Qx-qCG"/>
                         </constraints>
                     </view>
                     <connections>
