@@ -20,8 +20,9 @@ class SlydeLocationManager: NSObject {
     
     let manager = CLLocationManager()
     weak var delegate: VedaLocationManagerDelegate?
-    
+    // 40.00313,-83.00782
     fileprivate var location: CLLocation? = CLLocation(latitude: 39.997957, longitude: -83.0085650)
+    //lat: 39.997957, long: -83.0085650))
     
     fileprivate var shouldGetLocationContiniously = false
     
@@ -92,7 +93,7 @@ extension SlydeLocationManager: CLLocationManagerDelegate {
         if !self.shouldGetLocationContiniously {
             self.stopUpdatingLocation()
         }
-        self.location = locations.last
+        // self.location = locations.last
         
         if let _ = self.location?.coordinate {
             GlobalConstants.Notification.newLocationObtained.fire()

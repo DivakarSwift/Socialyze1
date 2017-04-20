@@ -119,6 +119,7 @@ class Authenticator {
         
         LoginManager().logOut() //facebook logout
         GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
+        ChatService.shared.logout()
         
         do {
             try FIRAuth.auth()?.signOut()

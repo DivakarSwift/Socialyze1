@@ -18,5 +18,6 @@ pod 'ObjectMapper'
 pod 'Kingfisher', '~> 3.0'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+pod 'NoChat'
 
 end
