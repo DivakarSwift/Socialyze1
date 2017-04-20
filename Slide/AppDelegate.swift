@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let identifier = "mainNav"
             let userId = Authenticator.currentFIRUser?.uid
             
-            UserService().getUser(withId: userId!, completion: { (user, error) in
+            UserService().getMe(withId: userId!, completion: { (user, error) in
                 print(error)
                 Authenticator.shared.user = user
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)

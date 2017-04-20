@@ -18,7 +18,7 @@ class PlaceService: FirebaseManager {
         let values = [
             "userId": user.id!,
             "time": Date().timeIntervalSince1970,
-            "fbId": user.fbId!,
+            "fbId": user.profile.fbId!,
             
             ] as [String : Any]
         

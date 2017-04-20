@@ -12,17 +12,20 @@ class CategoriesViewController: UIViewController {
     
     var users: [User] = [] {
         didSet {
-            self.imageView.kf.setImage(with: users.first?.images.first)
-            self.userName.text = users.first?.name
+            if oldValue.count == 0 && users.count == 1 {
+                changeUser()
+            }
         }
     }
     
     var events: [Event] = [] {
         didSet {
-//            self.eventDescription.text = events.first
+            //            self.eventDescription.text = events.first
         }
     }
-  
+    
+    var checkinUserIds = Set<String>()
+    
     let categoryDefaults = UserDefaults.standard
     
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
@@ -37,6 +40,30 @@ class CategoriesViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var userName: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.infoButton.rounded()
+        self.infoButton.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
+        
+        addLoadingIndicator()
+        
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
+        
+        imageView.isUserInteractionEnabled = true
+        
+        imageView.addGestureRecognizer(gesture)
+        actionImageView.isHidden = true
+        
+        self.activityIndicator.startAnimating()
+        self.getAllCheckedInUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.activityIndicator.stopAnimating()
+    }
     
     @IBAction func reportUser(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -126,13 +153,9 @@ class CategoriesViewController: UIViewController {
         if gestureRecognizer.state == UIGestureRecognizerState.ended {
             
             if label.center.x < 100 {
-                
-                print("Reject")
-                
+               rejectUser()
             } else if label.center.x > self.view.bounds.width - 100 {
-                
-                print("Accept")
-                
+                acceptUser()
             }
             
             rotation = CGAffineTransform(rotationAngle: 0)
@@ -149,34 +172,71 @@ class CategoriesViewController: UIViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        self.infoButton.rounded()
-        self.infoButton.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
-        
-        addLoadingIndicator()
-        
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
-        
-        imageView.isUserInteractionEnabled = true
-        
-        imageView.addGestureRecognizer(gesture)
-        actionImageView.isHidden = true
-        
-    }
-
-    
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.activityIndicator.stopAnimating()
+    func removeTopUser() -> User? {
+        let rejectedUser = self.users.first
+        self.users = Array(users.dropFirst())
+        self.changeUser()
+        return rejectedUser
     }
     
-
+    func rejectUser() {
+        _ = removeTopUser()
+    }
+    
+    func acceptUser() {
+        let acceptedUser = removeTopUser()
+        
+        if let acceptedUser = acceptedUser, let myId = Authenticator.shared.user?.id {
+            self.userService.accept(user: acceptedUser, myId: myId, completion: { [weak self] (success, isMatching) in
+                if isMatching {
+                    self?.alert(message: "This somebody likes you too.")
+                }
+            })
+        }
+    }
+    
     func addLoadingIndicator () {
         self.view.addSubview(activityIndicator)
         activityIndicator.center = self.view.center
     }
-
+    
+    func getAllCheckedInUsers() {
+        var acknowledgedCount = 0 {
+            didSet {
+                if acknowledgedCount == self.checkinUserIds.count {
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
+        acknowledgedCount = 0
+        self.checkinUserIds.forEach { (userId) in
+            userService.getUser(withId: userId, completion: { [weak self] (user, error) in
+                
+                if let error = error {
+                    self?.alert(message: error.localizedDescription)
+                    return
+                }
+                
+                if let user = user {
+                    if let index = self?.users.index(of: user) {
+                        self?.users[index] = user
+                    }else {
+                        self?.users.append(user)
+                    }
+                }
+            })
+        }
+    }
+    
+    func changeUser() {
+        if let user = users.first {
+            self.imageView.kf.setImage(with: user.profile.images.first)
+            self.userName.text = user.profile.name
+            self.eventDescription.text = user.profile.bio
+        }else {
+            self.alert(message: "No result found. Try again later.", okAction: {
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+        }
+    }
 }

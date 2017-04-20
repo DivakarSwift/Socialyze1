@@ -12,10 +12,6 @@ import SwiftyJSON
 
 class UserService: FirebaseManager {
     
-    func getFacebookFriends() {
-        
-    }
-    
     func saveUser(user: User, completion: @escaping CallBackWithSuccessError) {
         let userDict = user.toJSON()
         
@@ -24,9 +20,20 @@ class UserService: FirebaseManager {
         }
     }
     
-    func getUser(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
+    func getMe(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
         reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
-            let json = JSON(snapshot.value)
+            let json = JSON(snapshot.value ?? [])
+            if let user: User = json.map() {
+                completion(user, nil)
+            }else {
+                completion(nil, FirebaseManagerError.noUserFound)
+            }
+        })
+    }
+    
+    func getUser(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
+        reference.child(Node.user.rawValue).child(Node.profile.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            let json = JSON(snapshot.value ?? [])
             if let user: User = json.map() {
                 completion(user, nil)
             }else {
@@ -42,6 +49,30 @@ class UserService: FirebaseManager {
                 completion(users)
             }
         })
+    }
+    
+    func accept(user: User, myId: String, completion: @escaping(_ success: Bool, _ isMatching: Bool) -> Void) {
+        // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
+        
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).observeSingleEvent(of: .value, with: {(snapshot) in
+            let json = JSON(snapshot.value ?? [])
+            let matched = json["matched"].boolValue
+            let time = json["time"].doubleValue
+            
+            let isMatching = matched && (Date().timeIntervalSince1970 - time) < checkInThreshold
+            let value = [
+                "matched": isMatching,
+                "time": Date().timeIntervalSince1970
+            ] as [String : Any]
+            
+            self.reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(user.id!).updateChildValues(value) { (error, _) in
+                completion(error == nil, isMatching)
+            }
+        })
+    }
+    
+    func getReportedAndBlockedUsers(completion: @escaping ([User]) -> Void) {
+        
     }
     
     func block(user: User, completion: @escaping CallBackWithSuccessError) {

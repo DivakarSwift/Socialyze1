@@ -14,6 +14,8 @@ typealias CallBackWithSuccessError = (_: Bool, _: Error?) -> Void
 enum Node: String {
     case user
     case report
+    case acceptList
+    case profile
 }
 
 enum FirebaseManagerError: Error {

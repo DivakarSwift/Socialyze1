@@ -40,8 +40,8 @@ class ProfileViewController: UIViewController {
         didSet {
             self.editButton.isHidden = false
             self.bioLabel.isHidden = false
-            self.bioLabel.text = user?.bio
-            self.userImageView.kf.setImage(with: user?.images.first)
+            self.bioLabel.text = user?.profile.bio
+            self.userImageView.kf.setImage(with: user?.profile.images.first)
         }
     }
     
@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
         self.bioLabel.isHidden = true
         
         if let userId = userId {
-            userService.getUser(withId: userId, completion: {[weak self] (user, error) in
+            userService.getMe(withId: userId, completion: {[weak self] (user, error) in
                 if let error = error {
                     self?.alert(message: error.localizedDescription, okAction: {
                         _ = self?.navigationController?.popViewController(animated: true)
@@ -91,7 +91,7 @@ class ProfileViewController: UIViewController {
             self?.images.append(photoUrlString)
             }, completion: { [weak self] in
                 if let me = self, let _ = me.user {
-                    me.user?.images = me.images.flatMap({URL(string: $0)})
+                    me.user?.profile.images = me.images.flatMap({URL(string: $0)})
                     me.userService.saveUser(user: me.user!, completion: {[weak self] (success, error) in
                         if let error = error {
                             self?.alert(message: error.localizedDescription)

@@ -9,19 +9,16 @@
 import Foundation
 import ObjectMapper
 
-struct User: Mappable {
+func ==(lhs: User, rhs: User) -> Bool {
+    return lhs.id == rhs.id
+}
+
+struct User: Mappable, Equatable {
     var id: String?
-    var fbId: String?
-    var dateOfBirth: TimeInterval?
-    var name: String?
-    var bio: String?
-    var images: [URL] = []
-    var distanceLowerBound: Double?
-    var distanceUpperBound: Double?
-    var ageLowerBound: Double?
-    var ageUpperBound: Double?
+    var profile = Profile()
     var blockedUsers: [String] = []
     var userWhoBlockedMe: [String] = []
+    var acceptedStatus = false
     
     init() {}
     
@@ -31,6 +28,32 @@ struct User: Mappable {
     
     mutating func mapping(map: Map) {
         id <- map["id"]
+        profile <- map["profile"]
+        blockedUsers <- map["blockedUsers"]
+        userWhoBlockedMe <- map["blockedByUsers"]
+    }
+}
+
+struct Profile: Mappable {
+    var fbId: String?
+    var dateOfBirth: TimeInterval?
+    var name: String?
+    var bio: String?
+    var images: [URL] = []
+    var distanceLowerBound: Double?
+    var distanceUpperBound: Double?
+    var ageLowerBound: Double?
+    var ageUpperBound: Double?
+    
+    init() {
+        
+    }
+    
+    init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    mutating func mapping(map: Map) {
         fbId <- map["fbId"]
         dateOfBirth <- map["dateOfBirth"]
         name <- map["name"]
@@ -40,7 +63,6 @@ struct User: Mappable {
         distanceUpperBound <- map["distanceUpperrBound"]
         ageLowerBound <- map["ageLowerBound"]
         ageUpperBound <- map["ageUpperBound"]
-        blockedUsers <- map["blockedUsers"]
-        userWhoBlockedMe <- map["blockedByUsers"]
     }
+    
 }

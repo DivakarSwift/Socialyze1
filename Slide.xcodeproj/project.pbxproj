@@ -31,6 +31,7 @@
 		1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */; };
 		1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */; };
 		1FE7876D1E8818A9006B2445 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876C1E8818A9006B2445 /* Event.swift */; };
+		1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E51EA84348001BD4F2 /* ChatService.swift */; };
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
 		7085EDF51E6EEAC000AD3420 /* bugbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7085EDF41E6EEAC000AD3420 /* bugbutton.png */; };
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
@@ -102,6 +103,7 @@
 		1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../UIViewExtension.swift; sourceTree = "<group>"; };
 		1FE7876C1E8818A9006B2445 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		1FEC06E51EA84348001BD4F2 /* ChatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.debug.xcconfig"; sourceTree = "<group>"; };
 		6FB78CCFC1102B749DFF93D8 /* Pods-Slide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.release.xcconfig"; sourceTree = "<group>"; };
 		7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				1F6546511EA1C15A00D726E8 /* UserService.swift */,
 				1F6546571EA1C22200D726E8 /* PlaceService.swift */,
 				1F6546591EA1C2E300D726E8 /* FacebookService.swift */,
+				1FEC06E51EA84348001BD4F2 /* ChatService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */,
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
+				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,
 				FCB6230B1E6EC4B6007DF4AE /* PostedViewController.swift in Sources */,
 				1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */,
 			);

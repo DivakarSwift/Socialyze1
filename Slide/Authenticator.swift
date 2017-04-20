@@ -101,7 +101,7 @@ class Authenticator {
             }else {
                 var user = User()
                 user.id = Authenticator.currentFIRUser?.uid
-                user.fbId = AccessToken.current?.userId
+                user.profile.fbId = AccessToken.current?.userId
                 
                 GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
                 UserService().saveUser(user: user, completion: { (success, error) in
