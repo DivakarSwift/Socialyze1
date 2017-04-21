@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 - "initialize"
 depends-top-level:
-- !private "UIOffset"
-- "IQBarButtonItem"
-- "UIBarButtonItem"
-- !private "UIBarMetrics"
 - !private "UIControlState"
-- "AssignmentPrecedence"
 - !private "UIBarButtonItemStyle"
+- !private "UIBarMetrics"
+- "IQBarButtonItem"
+- !private "UIOffset"
+- "UIBarButtonItem"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "UIBarButtonItemStyle"]
 - !private ["Ps9AnyObject", "UIBarMetrics"]
@@ -376,8 +376,8 @@ depends-dynamic-lookup:
 - !private "initialize"
 depends-external:
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Pods.build/Debug-iphonesimulator/IQKeyboardManagerSwift.build/unextended-module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/IQKeyboardManagerSwift.build/unextended-module.modulemap"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"

@@ -101,7 +101,7 @@ class Authenticator {
             }else {
                 var user = User()
                 user.id = Authenticator.currentFIRUser?.uid
-                user.profile.fbId = AccessToken.current?.userId
+                user.fbId = AccessToken.current?.userId
                 
                 GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
                 UserService().saveUser(user: user, completion: { (success, error) in
@@ -119,7 +119,6 @@ class Authenticator {
         
         LoginManager().logOut() //facebook logout
         GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
-        ChatService.shared.logout()
         
         do {
             try FIRAuth.auth()?.signOut()

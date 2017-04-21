@@ -10,6 +10,7 @@ import UIKit
 public enum TRMosaicCellType {
     case big
     case small
+    
 }
 
 public protocol TRMosaicLayoutDelegate {

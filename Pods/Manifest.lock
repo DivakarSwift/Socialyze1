@@ -18,19 +18,19 @@ PODS:
     - FacebookCore (~> 0.2)
     - FBSDKCoreKit (~> 4.15)
     - FBSDKShareKit (~> 4.15)
-  - FBSDKCoreKit (4.20.2):
+  - FBSDKCoreKit (4.19.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.20.2):
+  - FBSDKLoginKit (4.19.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.20.2):
+  - FBSDKShareKit (4.19.0):
     - FBSDKCoreKit
-  - Firebase/Auth (3.15.0):
+  - Firebase/Auth (3.13.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
-  - Firebase/Core (3.15.0):
+  - Firebase/Core (3.13.0):
     - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - Firebase/Database (3.15.0):
+    - FirebaseCore (= 3.5.0)
+  - Firebase/Database (3.13.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.2)
   - FirebaseAnalytics (3.7.0):
@@ -41,11 +41,12 @@ PODS:
     - FirebaseAnalytics (~> 3.7)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (3.5.2):
+  - FirebaseCore (3.5.0):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
   - FirebaseDatabase (3.1.2):
     - FirebaseAnalytics (~> 3.7)
   - FirebaseInstanceID (1.0.9)
+  - FloatRatingView (2.0)
   - GoogleMaps (2.2.0):
     - GoogleMaps/Maps (= 2.2.0)
   - GoogleMaps/Base (2.2.0)
@@ -63,11 +64,12 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
-  - GTMSessionFetcher/Core (1.1.9)
+  - GTMSessionFetcher/Core (1.1.8)
   - IQKeyboardManagerSwift (4.0.8)
-  - Kingfisher (3.5.2)
-  - ObjectMapper (2.2.5)
+  - Kingfisher (3.4.0)
+  - ObjectMapper (2.2.3)
   - SwiftyJSON (3.1.4)
+  - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
   - FacebookCore
@@ -76,36 +78,40 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - FloatRatingView (~> 2.0.0)
   - GoogleMaps
   - GooglePlaces
   - IQKeyboardManagerSwift
   - Kingfisher (~> 3.0)
   - ObjectMapper
   - SwiftyJSON
+  - TTTAttributedLabel
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FacebookCore: 2cb3f0fbff218e9d3119cec84bae983b232412de
   FacebookLogin: c9d606504735780a9e3002465a615512e0a691a5
   FacebookShare: 8e9ee8ea06505e6a1d3d719b0cc63e840fb8aaeb
-  FBSDKCoreKit: 82eac696eb6157da5f4266c3a241f00e9bd72471
-  FBSDKLoginKit: 2211bede07c83391349eacc1fd86cf6d9289ce38
-  FBSDKShareKit: ca9b22264ea49a896dafb2467c1a4f72aa41996f
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
+  FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
+  FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
+  FBSDKShareKit: 5953758366278430dc322d5cdc906db361ed7f81
+  Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseCore: 1c0a13bf59bb95cdd19577252499f0ec6a03e999
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FloatRatingView: 857ab8f10040d06a42fc979f486c8f9fecd2f2e5
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
-  Kingfisher: 9950e382c500b6834ce004c7c4131c444e90c3a1
-  ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
+  Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
+  ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: f7b056e505067ad4b2d06ee1e021399ce7d5952b
+PODFILE CHECKSUM: c291846907b13d0ef1f91047691d7c48c1b11ff4
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.0.1

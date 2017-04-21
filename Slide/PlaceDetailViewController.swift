@@ -8,8 +8,6 @@
 
 import UIKit
 
-let checkInThreshold: TimeInterval = 3*60*60 //3hr
-
 class PlaceDetailViewController: UIViewController {
     
     @IBOutlet weak var placeNameAddressLbl: UILabel!
@@ -22,6 +20,7 @@ class PlaceDetailViewController: UIViewController {
     var place: Place?
     
     let thresholdRadius = 30.48 //100ft
+    let checkInThreshold: TimeInterval = 5*60 //min
     
     private var isCheckedIn = false
     
@@ -58,7 +57,6 @@ class PlaceDetailViewController: UIViewController {
         }
         
         getCheckedinUsers()
-        friendsTableView.tableFooterView = UIView()
     }
     
     deinit {
@@ -68,11 +66,7 @@ class PlaceDetailViewController: UIViewController {
     @IBAction func checkIn(_ sender: UIButton) {
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
             self.checkIn {[weak self] in
-                if self?.checkinData.count != 0 {
-                    self?.performSegue(withIdentifier: "Categories", sender: self)
-                }else {
-                    self?.alert(message: "Only you are checked in to the place. Please try again later so that other people also gets checked in into the place.")
-                }
+                self?.performSegue(withIdentifier: "Categories", sender: self)
             }
         }else {
             self.alert(message: GlobalConstants.Message.userNotInPerimeter)
@@ -102,7 +96,7 @@ class PlaceDetailViewController: UIViewController {
                 
                 if success {
                     SlydeLocationManager.shared.stopUpdatingLocation()
-                    Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
+                    Timer.scheduledTimer(timeInterval: 120, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
                 }
             }
             
@@ -167,20 +161,19 @@ class PlaceDetailViewController: UIViewController {
         }else {
             self.checkInStatusLabel.text = ""
         }
-        self.friendsTableView.reloadData()
     }
     
     func getCheckedinUsers() {
         placeService.getCheckInUsers(at: self.place!, completion: {[weak self] (checkin) in
             self?.checkinData = checkin.filter({(checkin) -> Bool in
-                if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
+                if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time, let checkInThreshold = self?.checkInThreshold {
                     // return true
                     return checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
                 }
                 return false
             })
             }, failure: {[weak self] error in
-                self?.alert(message: error.localizedDescription)
+                
         })
     }
     
@@ -195,9 +188,6 @@ class PlaceDetailViewController: UIViewController {
         if segue.identifier == "openMap" {
             let destinationVC = segue.destination as! PlaceToUserMapViewController
             destinationVC.place = self.place
-        }else if segue.identifier == "Categories" {
-            let destinationVC = segue.destination as! CategoriesViewController
-            destinationVC.checkinUserIds = Set(self.checkinData.flatMap({$0.userId}))
         }
         return super.prepare(for: segue, sender: sender)
     }
@@ -241,7 +231,6 @@ extension PlaceDetailViewController: UITableViewDataSource {
         label.text = friend.name
         
         let imageView = cell.viewWithTag(1) as! UIImageView
-        imageView.rounded()
         imageView.kf.setImage(with: URL(string: friend.profileURLString))
         return cell
     }

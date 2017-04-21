@@ -6,16 +6,16 @@ provides-member:
 - ["CSo8UIWindow", "topMostController"]
 - ["CSo8UIWindow", "currentViewController"]
 provides-dynamic-lookup:
-- "topMostController"
 - "currentViewController"
+- "topMostController"
 depends-top-level:
-- !private "UINavigationController"
-- !private "!="
-- "CastingPrecedence"
 - "UIWindow"
-- "AssignmentPrecedence"
-- "UIViewController"
+- "CastingPrecedence"
 - !private "&&"
+- "AssignmentPrecedence"
+- !private "!="
+- !private "UINavigationController"
+- "UIViewController"
 depends-member:
 - ["Ps9AnyObject", "currentViewController"]
 - !private ["Ps9AnyObject", "presentedViewController"]
@@ -195,8 +195,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Pods.build/Debug-iphoneos/IQKeyboardManagerSwift.build/unextended-module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/IQKeyboardManagerSwift/IQKeyboardManagerSwift-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/IQKeyboardManagerSwift.build/unextended-module.modulemap"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"

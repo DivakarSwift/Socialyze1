@@ -1,0 +1,300 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "GraphRequestConnectionDelegateBridge"
+provides-nominal:
+- "C12FacebookCore36GraphRequestConnectionDelegateBridge"
+provides-member:
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", ""]
+provides-dynamic-lookup:
+- "requestConnection"
+- "requestConnection"
+- "networkProgressHandler"
+- "setupAsDelegateFor"
+- "networkFailureHandler"
+depends-top-level:
+- !private "Int64"
+- "GraphRequestConnection"
+- "Error"
+- "AssignmentPrecedence"
+- "FBSDKGraphRequestConnectionDelegate"
+- "FBSDKGraphRequestConnection"
+- "GraphRequestConnectionDelegateBridge"
+- !private "Unmanaged"
+- "Int"
+- "NSObject"
+- !private "objc_setAssociatedObject"
+depends-member:
+- !private ["Ps9AnyObject", "Int64"]
+- ["Ps9AnyObject", "NetworkFailureHandler"]
+- ["Ps9AnyObject", "NetworkProgressHandler"]
+- !private ["Ps9AnyObject", "Unmanaged"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "networkFailureHandler"]
+- ["Ps9AnyObject", "networkProgressHandler"]
+- !private ["Ps9AnyObject", "objc_setAssociatedObject"]
+- ["Ps9AnyObject", "requestConnection"]
+- ["Ps9AnyObject", "requestConnectionDidFinishLoading"]
+- ["Ps9AnyObject", "requestConnectionWillBeginLoading"]
+- ["Ps9AnyObject", "setupAsDelegateFor"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps17BitwiseOperations", "init"]
+- !private ["Ps7CVarArg", "Int64"]
+- !private ["Ps7CVarArg", "Unmanaged"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "networkFailureHandler"]
+- ["Ps7CVarArg", "networkProgressHandler"]
+- !private ["Ps7CVarArg", "objc_setAssociatedObject"]
+- ["Ps7CVarArg", "requestConnection"]
+- ["Ps7CVarArg", "requestConnectionDidFinishLoading"]
+- ["Ps7CVarArg", "requestConnectionWillBeginLoading"]
+- ["Ps7CVarArg", "setupAsDelegateFor"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Int64"]
+- !private ["Ps28CustomDebugStringConvertible", "Unmanaged"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "networkFailureHandler"]
+- ["Ps28CustomDebugStringConvertible", "networkProgressHandler"]
+- !private ["Ps28CustomDebugStringConvertible", "objc_setAssociatedObject"]
+- ["Ps28CustomDebugStringConvertible", "requestConnection"]
+- ["Ps28CustomDebugStringConvertible", "requestConnectionDidFinishLoading"]
+- ["Ps28CustomDebugStringConvertible", "requestConnectionWillBeginLoading"]
+- ["Ps28CustomDebugStringConvertible", "setupAsDelegateFor"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Int64"]
+- !private ["Ps23CustomStringConvertible", "Unmanaged"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "networkFailureHandler"]
+- ["Ps23CustomStringConvertible", "networkProgressHandler"]
+- !private ["Ps23CustomStringConvertible", "objc_setAssociatedObject"]
+- ["Ps23CustomStringConvertible", "requestConnection"]
+- ["Ps23CustomStringConvertible", "requestConnectionDidFinishLoading"]
+- ["Ps23CustomStringConvertible", "requestConnectionWillBeginLoading"]
+- ["Ps23CustomStringConvertible", "setupAsDelegateFor"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "Int64"]
+- !private ["Ps9Equatable", "OBJC_ASSOCIATION_RETAIN"]
+- !private ["Ps9Equatable", "Unmanaged"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "networkFailureHandler"]
+- ["Ps9Equatable", "networkProgressHandler"]
+- !private ["Ps9Equatable", "objc_setAssociatedObject"]
+- ["Ps9Equatable", "requestConnection"]
+- ["Ps9Equatable", "requestConnectionDidFinishLoading"]
+- ["Ps9Equatable", "requestConnectionWillBeginLoading"]
+- ["Ps9Equatable", "setupAsDelegateFor"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["CSo27FBSDKGraphRequestConnection", "deinit"]
+- !private ["CSo27FBSDKGraphRequestConnection", "delegate"]
+- !private ["PSo35FBSDKGraphRequestConnectionDelegate", "Int64"]
+- !private ["PSo35FBSDKGraphRequestConnectionDelegate", "Unmanaged"]
+- !private ["PSo35FBSDKGraphRequestConnectionDelegate", "networkFailureHandler"]
+- !private ["PSo35FBSDKGraphRequestConnectionDelegate", "networkProgressHandler"]
+- !private ["PSo35FBSDKGraphRequestConnectionDelegate", "objc_setAssociatedObject"]
+- ["PSo35FBSDKGraphRequestConnectionDelegate", "requestConnection"]
+- ["PSo35FBSDKGraphRequestConnectionDelegate", "requestConnectionDidFinishLoading"]
+- ["PSo35FBSDKGraphRequestConnectionDelegate", "requestConnectionWillBeginLoading"]
+- ["PSo35FBSDKGraphRequestConnectionDelegate", ""]
+- ["C12FacebookCore22GraphRequestConnection", "NetworkFailureHandler"]
+- ["C12FacebookCore22GraphRequestConnection", "NetworkProgressHandler"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "Error"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "FBSDKGraphRequestConnection"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "GraphRequestConnection"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "Int"]
+- !private ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "Int64"]
+- !private ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "Unmanaged"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "deinit"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "init"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "networkFailureHandler"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "networkProgressHandler"]
+- !private ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "objc_setAssociatedObject"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "requestConnection"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "requestConnectionDidFinishLoading"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "requestConnectionWillBeginLoading"]
+- ["C12FacebookCore36GraphRequestConnectionDelegateBridge", "setupAsDelegateFor"]
+- !private ["Ps8Hashable", "Int64"]
+- !private ["Ps8Hashable", "OBJC_ASSOCIATION_RETAIN"]
+- !private ["Ps8Hashable", "Unmanaged"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "networkFailureHandler"]
+- ["Ps8Hashable", "networkProgressHandler"]
+- !private ["Ps8Hashable", "objc_setAssociatedObject"]
+- ["Ps8Hashable", "requestConnection"]
+- ["Ps8Hashable", "requestConnectionDidFinishLoading"]
+- ["Ps8Hashable", "requestConnectionWillBeginLoading"]
+- ["Ps8Hashable", "setupAsDelegateFor"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- ["Si", "deinit"]
+- ["Vs5Int64", "deinit"]
+- !private ["Vs5Int64", "init"]
+- !private ["Ps7Integer", "init"]
+- !private ["Ps17IntegerArithmetic", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- ["CSo8NSObject", "Error"]
+- ["CSo8NSObject", "FBSDKGraphRequestConnection"]
+- ["CSo8NSObject", "GraphRequestConnection"]
+- ["CSo8NSObject", "Int"]
+- !private ["CSo8NSObject", "Int64"]
+- !private ["CSo8NSObject", "Unmanaged"]
+- ["CSo8NSObject", "deinit"]
+- !private ["CSo8NSObject", "delegate"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "networkFailureHandler"]
+- ["CSo8NSObject", "networkProgressHandler"]
+- !private ["CSo8NSObject", "objc_setAssociatedObject"]
+- ["CSo8NSObject", "requestConnection"]
+- ["CSo8NSObject", "requestConnectionDidFinishLoading"]
+- ["CSo8NSObject", "requestConnectionWillBeginLoading"]
+- ["CSo8NSObject", "setupAsDelegateFor"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "Int64"]
+- !private ["PSo16NSObjectProtocol", "Unmanaged"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "networkFailureHandler"]
+- ["PSo16NSObjectProtocol", "networkProgressHandler"]
+- !private ["PSo16NSObjectProtocol", "objc_setAssociatedObject"]
+- ["PSo16NSObjectProtocol", "requestConnection"]
+- ["PSo16NSObjectProtocol", "requestConnectionDidFinishLoading"]
+- ["PSo16NSObjectProtocol", "requestConnectionWillBeginLoading"]
+- ["PSo16NSObjectProtocol", "setupAsDelegateFor"]
+- ["PSo16NSObjectProtocol", ""]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "OBJC_ASSOCIATION_RETAIN"]
+- !private ["Ps13SignedInteger", "init"]
+- !private ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "init"]
+- ["Vs9Unmanaged", "deinit"]
+- !private ["Vs9Unmanaged", "passUnretained"]
+- !private ["Vs9Unmanaged", "toOpaque"]
+- ["Sv", "deinit"]
+- !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps9_Hashable", "Int64"]
+- !private ["Ps9_Hashable", "OBJC_ASSOCIATION_RETAIN"]
+- !private ["Ps9_Hashable", "Unmanaged"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "networkFailureHandler"]
+- ["Ps9_Hashable", "networkProgressHandler"]
+- !private ["Ps9_Hashable", "objc_setAssociatedObject"]
+- ["Ps9_Hashable", "requestConnection"]
+- ["Ps9_Hashable", "requestConnectionDidFinishLoading"]
+- ["Ps9_Hashable", "requestConnectionWillBeginLoading"]
+- ["Ps9_Hashable", "setupAsDelegateFor"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "init"]
+- !private ["Ps8_Integer", "init"]
+- !private ["Ps18_IntegerArithmetic", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps14_SignedInteger", "init"]
+- !private ["Ps11_Strideable", "init"]
+- !private ["OSC22objc_AssociationPolicy", "OBJC_ASSOCIATION_RETAIN"]
+- ["OSC22objc_AssociationPolicy", "deinit"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps17BitwiseOperations"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "CSo27FBSDKGraphRequestConnection"
+- "PSo35FBSDKGraphRequestConnectionDelegate"
+- "C12FacebookCore22GraphRequestConnection"
+- "C12FacebookCore36GraphRequestConnectionDelegateBridge"
+- "Ps8Hashable"
+- "SQ"
+- "Si"
+- "Vs5Int64"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps10MirrorPath"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Sq"
+- !private "Ps16RawRepresentable"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "Vs9Unmanaged"
+- "Sv"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+- "OSC22objc_AssociationPolicy"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/FacebookCore/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/FacebookCore.build/unextended-module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/Bolts/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/Bolts.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/FBSDKCoreKit/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/FBSDKCoreKit.build/module.modulemap"
+interface-hash: "5ca158eb8ca54167ffbc9947f294de7e"

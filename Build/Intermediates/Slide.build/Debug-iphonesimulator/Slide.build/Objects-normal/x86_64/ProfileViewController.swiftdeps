@@ -1,0 +1,1677 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "ProfileViewController"
+provides-nominal:
+- "C5Slide21ProfileViewController"
+provides-member:
+- ["C5Slide21ProfileViewController", ""]
+provides-dynamic-lookup:
+- "changeImage"
+- "currentImageIndex"
+- "didSignInUser"
+- "bioLabel"
+- "stopTimer"
+- "editButton"
+- "editProfile"
+- "shouldUserSignInIntoFirebase"
+- "userId"
+- "viewDidLoad"
+- "loadProfilePicturesFromFacebook"
+- "imageTimer"
+- "didLogoutUser"
+- "images"
+- "viewWillAppear"
+- "userImageView"
+- "viewWillDisappear"
+- "startTimer"
+depends-top-level:
+- "AuthenticatorDelegate"
+- "Timer"
+- "String"
+- !private "BooleanLiteralType"
+- !private "<"
+- !private "+="
+- "User"
+- "UILabel"
+- !private "StringLiteralType"
+- !private ">"
+- "UIImageView"
+- "Authenticator"
+- "UserService"
+- "AuthenticationError"
+- !private "=="
+- "AssignmentPrecedence"
+- "UIButton"
+- !private "URL"
+- "UIViewController"
+- "FacebookService"
+- "Bool"
+- !private "&&"
+- !private ">="
+- !private "-"
+- "ProfileViewController"
+depends-member:
+- ["Ps9AnyObject", "Authenticator"]
+- ["Ps9AnyObject", "FacebookService"]
+- ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "Timer"]
+- !private ["Ps9AnyObject", "URL"]
+- ["Ps9AnyObject", "UserService"]
+- !private ["Ps9AnyObject", "alert"]
+- !private ["Ps9AnyObject", "authenticateWith"]
+- ["Ps9AnyObject", "authenticator"]
+- ["Ps9AnyObject", "bioLabel"]
+- ["Ps9AnyObject", "changeImage"]
+- ["Ps9AnyObject", "currentImageIndex"]
+- !private ["Ps9AnyObject", "delegate"]
+- ["Ps9AnyObject", "didLogoutUser"]
+- ["Ps9AnyObject", "didOccurAuthentication"]
+- ["Ps9AnyObject", "didSignInUser"]
+- !private ["Ps9AnyObject", "dismiss"]
+- ["Ps9AnyObject", "editButton"]
+- ["Ps9AnyObject", "editProfile"]
+- ["Ps9AnyObject", "facebookService"]
+- !private ["Ps9AnyObject", "getUser"]
+- !private ["Ps9AnyObject", "image"]
+- ["Ps9AnyObject", "imageTimer"]
+- ["Ps9AnyObject", "images"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "invalidate"]
+- !private ["Ps9AnyObject", "isHidden"]
+- !private ["Ps9AnyObject", "isPhotoPermissionGiven"]
+- !private ["Ps9AnyObject", "kf"]
+- ["Ps9AnyObject", "loadProfilePicturesFromFacebook"]
+- !private ["Ps9AnyObject", "loadUserProfilePhotos"]
+- !private ["Ps9AnyObject", "navigationController"]
+- !private ["Ps9AnyObject", "popViewController"]
+- !private ["Ps9AnyObject", "scheduledTimer"]
+- !private ["Ps9AnyObject", "setImage"]
+- ["Ps9AnyObject", "shared"]
+- ["Ps9AnyObject", "shouldUserSignInIntoFirebase"]
+- ["Ps9AnyObject", "startTimer"]
+- ["Ps9AnyObject", "stopTimer"]
+- !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", "user"]
+- ["Ps9AnyObject", "userId"]
+- ["Ps9AnyObject", "userImageView"]
+- ["Ps9AnyObject", "userService"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", "viewWillAppear"]
+- ["Ps9AnyObject", "viewWillDisappear"]
+- ["Ps9AnyObject", ""]
+- !private ["P12FacebookCore26AppEventParameterValueType", "IntegerLiteralType"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "Stride"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "_DisabledRangeIndex"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "init"]
+- !private ["Sa", "Index"]
+- !private ["Sa", "IndexDistance"]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "SubSequence"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "append"]
+- !private ["Sa", "count"]
+- ["Sa", "deinit"]
+- !private ["Sa", "first"]
+- ["Sa", "init"]
+- !private ["Sa", "subscript"]
+- ["O5Slide19AuthenticationError", "deinit"]
+- !private ["O5Slide19AuthenticationError", "localizedDescription"]
+- !private ["C5Slide13Authenticator", "authenticateWith"]
+- ["C5Slide13Authenticator", "deinit"]
+- !private ["C5Slide13Authenticator", "delegate"]
+- ["C5Slide13Authenticator", "shared"]
+- ["P5Slide21AuthenticatorDelegate", "Authenticator"]
+- ["P5Slide21AuthenticatorDelegate", "FacebookService"]
+- ["P5Slide21AuthenticatorDelegate", "String"]
+- !private ["P5Slide21AuthenticatorDelegate", "Timer"]
+- !private ["P5Slide21AuthenticatorDelegate", "URL"]
+- ["P5Slide21AuthenticatorDelegate", "UserService"]
+- !private ["P5Slide21AuthenticatorDelegate", "alert"]
+- !private ["P5Slide21AuthenticatorDelegate", "authenticator"]
+- !private ["P5Slide21AuthenticatorDelegate", "bioLabel"]
+- !private ["P5Slide21AuthenticatorDelegate", "changeImage"]
+- !private ["P5Slide21AuthenticatorDelegate", "currentImageIndex"]
+- ["P5Slide21AuthenticatorDelegate", "didLogoutUser"]
+- ["P5Slide21AuthenticatorDelegate", "didOccurAuthentication"]
+- ["P5Slide21AuthenticatorDelegate", "didSignInUser"]
+- !private ["P5Slide21AuthenticatorDelegate", "dismiss"]
+- !private ["P5Slide21AuthenticatorDelegate", "editButton"]
+- !private ["P5Slide21AuthenticatorDelegate", "facebookService"]
+- !private ["P5Slide21AuthenticatorDelegate", "imageTimer"]
+- !private ["P5Slide21AuthenticatorDelegate", "images"]
+- !private ["P5Slide21AuthenticatorDelegate", "loadProfilePicturesFromFacebook"]
+- !private ["P5Slide21AuthenticatorDelegate", "navigationController"]
+- ["P5Slide21AuthenticatorDelegate", "shouldUserSignInIntoFirebase"]
+- !private ["P5Slide21AuthenticatorDelegate", "startTimer"]
+- !private ["P5Slide21AuthenticatorDelegate", "stopTimer"]
+- !private ["P5Slide21AuthenticatorDelegate", "user"]
+- !private ["P5Slide21AuthenticatorDelegate", "userId"]
+- !private ["P5Slide21AuthenticatorDelegate", "userImageView"]
+- !private ["P5Slide21AuthenticatorDelegate", "userService"]
+- ["P5Slide21AuthenticatorDelegate", ""]
+- !private ["P12ObjectMapper12BaseMappable", "bio"]
+- !private ["P12ObjectMapper12BaseMappable", "images"]
+- !private ["Ps23BidirectionalCollection", "Index"]
+- !private ["Ps23BidirectionalCollection", "IndexDistance"]
+- !private ["Ps23BidirectionalCollection", "Indices"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "SubSequence"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps23BidirectionalCollection", "append"]
+- !private ["Ps23BidirectionalCollection", "count"]
+- !private ["Ps23BidirectionalCollection", "first"]
+- ["Ps23BidirectionalCollection", "init"]
+- !private ["Ps23BidirectionalCollection", "subscript"]
+- !private ["Ps22BidirectionalIndexable", "Index"]
+- !private ["Ps22BidirectionalIndexable", "IndexDistance"]
+- !private ["Ps22BidirectionalIndexable", "Indices"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "SubSequence"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "append"]
+- !private ["Ps22BidirectionalIndexable", "count"]
+- !private ["Ps22BidirectionalIndexable", "first"]
+- ["Ps22BidirectionalIndexable", "init"]
+- !private ["Ps22BidirectionalIndexable", "subscript"]
+- !private ["Vs18BidirectionalSlice", "Index"]
+- !private ["Vs18BidirectionalSlice", "IndexDistance"]
+- !private ["Vs18BidirectionalSlice", "Indices"]
+- !private ["Vs18BidirectionalSlice", "Iterator"]
+- !private ["Vs18BidirectionalSlice", "SubSequence"]
+- !private ["Vs18BidirectionalSlice", "_Element"]
+- !private ["Ps17BitwiseOperations", "IntegerLiteralType"]
+- !private ["Ps17BitwiseOperations", "Stride"]
+- !private ["Ps17BitwiseOperations", "_DisabledRangeIndex"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "image"]
+- !private ["PSo15CALayerDelegate", "isHidden"]
+- !private ["PSo15CALayerDelegate", "kf"]
+- !private ["PSo15CALayerDelegate", "text"]
+- ["Ps7CVarArg", "Authenticator"]
+- ["Ps7CVarArg", "FacebookService"]
+- !private ["Ps7CVarArg", "Index"]
+- !private ["Ps7CVarArg", "IndexDistance"]
+- !private ["Ps7CVarArg", "IntegerLiteralType"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "Stride"]
+- ["Ps7CVarArg", "String"]
+- !private ["Ps7CVarArg", "SubSequence"]
+- !private ["Ps7CVarArg", "Timer"]
+- !private ["Ps7CVarArg", "URL"]
+- ["Ps7CVarArg", "UserService"]
+- !private ["Ps7CVarArg", "_DisabledRangeIndex"]
+- !private ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "alert"]
+- !private ["Ps7CVarArg", "append"]
+- ["Ps7CVarArg", "authenticator"]
+- ["Ps7CVarArg", "bioLabel"]
+- ["Ps7CVarArg", "changeImage"]
+- !private ["Ps7CVarArg", "count"]
+- ["Ps7CVarArg", "currentImageIndex"]
+- ["Ps7CVarArg", "didLogoutUser"]
+- ["Ps7CVarArg", "didOccurAuthentication"]
+- ["Ps7CVarArg", "didSignInUser"]
+- !private ["Ps7CVarArg", "dismiss"]
+- ["Ps7CVarArg", "editButton"]
+- ["Ps7CVarArg", "editProfile"]
+- ["Ps7CVarArg", "facebookService"]
+- !private ["Ps7CVarArg", "first"]
+- !private ["Ps7CVarArg", "image"]
+- ["Ps7CVarArg", "imageTimer"]
+- ["Ps7CVarArg", "images"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "invalidate"]
+- !private ["Ps7CVarArg", "isHidden"]
+- !private ["Ps7CVarArg", "kf"]
+- ["Ps7CVarArg", "loadProfilePicturesFromFacebook"]
+- !private ["Ps7CVarArg", "navigationController"]
+- !private ["Ps7CVarArg", "popViewController"]
+- !private ["Ps7CVarArg", "scheduledTimer"]
+- ["Ps7CVarArg", "shouldUserSignInIntoFirebase"]
+- ["Ps7CVarArg", "startTimer"]
+- ["Ps7CVarArg", "stopTimer"]
+- !private ["Ps7CVarArg", "subscript"]
+- !private ["Ps7CVarArg", "text"]
+- ["Ps7CVarArg", "user"]
+- ["Ps7CVarArg", "userId"]
+- ["Ps7CVarArg", "userImageView"]
+- ["Ps7CVarArg", "userService"]
+- ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", "viewWillAppear"]
+- ["Ps7CVarArg", "viewWillDisappear"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Collection", "Index"]
+- !private ["Ps10Collection", "IndexDistance"]
+- !private ["Ps10Collection", "Indices"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "SubSequence"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "append"]
+- !private ["Ps10Collection", "count"]
+- !private ["Ps10Collection", "first"]
+- ["Ps10Collection", "init"]
+- !private ["Ps10Collection", "subscript"]
+- !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["Ps10Comparable", "_DisabledRangeIndex"]
+- !private ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "Authenticator"]
+- ["Ps28CustomDebugStringConvertible", "FacebookService"]
+- !private ["Ps28CustomDebugStringConvertible", "Index"]
+- !private ["Ps28CustomDebugStringConvertible", "IndexDistance"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- ["Ps28CustomDebugStringConvertible", "String"]
+- !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- !private ["Ps28CustomDebugStringConvertible", "Timer"]
+- !private ["Ps28CustomDebugStringConvertible", "URL"]
+- ["Ps28CustomDebugStringConvertible", "UserService"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "alert"]
+- !private ["Ps28CustomDebugStringConvertible", "append"]
+- ["Ps28CustomDebugStringConvertible", "authenticator"]
+- ["Ps28CustomDebugStringConvertible", "bioLabel"]
+- ["Ps28CustomDebugStringConvertible", "changeImage"]
+- !private ["Ps28CustomDebugStringConvertible", "count"]
+- ["Ps28CustomDebugStringConvertible", "currentImageIndex"]
+- ["Ps28CustomDebugStringConvertible", "didLogoutUser"]
+- ["Ps28CustomDebugStringConvertible", "didOccurAuthentication"]
+- ["Ps28CustomDebugStringConvertible", "didSignInUser"]
+- !private ["Ps28CustomDebugStringConvertible", "dismiss"]
+- ["Ps28CustomDebugStringConvertible", "editButton"]
+- ["Ps28CustomDebugStringConvertible", "editProfile"]
+- ["Ps28CustomDebugStringConvertible", "facebookService"]
+- !private ["Ps28CustomDebugStringConvertible", "first"]
+- !private ["Ps28CustomDebugStringConvertible", "image"]
+- ["Ps28CustomDebugStringConvertible", "imageTimer"]
+- ["Ps28CustomDebugStringConvertible", "images"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "invalidate"]
+- !private ["Ps28CustomDebugStringConvertible", "isHidden"]
+- !private ["Ps28CustomDebugStringConvertible", "kf"]
+- ["Ps28CustomDebugStringConvertible", "loadProfilePicturesFromFacebook"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationController"]
+- !private ["Ps28CustomDebugStringConvertible", "popViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "scheduledTimer"]
+- ["Ps28CustomDebugStringConvertible", "shouldUserSignInIntoFirebase"]
+- ["Ps28CustomDebugStringConvertible", "startTimer"]
+- ["Ps28CustomDebugStringConvertible", "stopTimer"]
+- !private ["Ps28CustomDebugStringConvertible", "subscript"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", "user"]
+- ["Ps28CustomDebugStringConvertible", "userId"]
+- ["Ps28CustomDebugStringConvertible", "userImageView"]
+- ["Ps28CustomDebugStringConvertible", "userService"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
+- ["Ps28CustomDebugStringConvertible", "viewWillDisappear"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "IntegerLiteralType"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisabledRangeIndex"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Index"]
+- !private ["Ps17CustomReflectable", "IndexDistance"]
+- !private ["Ps17CustomReflectable", "IntegerLiteralType"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "Stride"]
+- !private ["Ps17CustomReflectable", "SubSequence"]
+- !private ["Ps17CustomReflectable", "_DisabledRangeIndex"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "append"]
+- !private ["Ps17CustomReflectable", "count"]
+- !private ["Ps17CustomReflectable", "first"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "subscript"]
+- ["Ps23CustomStringConvertible", "Authenticator"]
+- ["Ps23CustomStringConvertible", "FacebookService"]
+- !private ["Ps23CustomStringConvertible", "Index"]
+- !private ["Ps23CustomStringConvertible", "IndexDistance"]
+- !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
+- ["Ps23CustomStringConvertible", "String"]
+- !private ["Ps23CustomStringConvertible", "SubSequence"]
+- !private ["Ps23CustomStringConvertible", "Timer"]
+- !private ["Ps23CustomStringConvertible", "URL"]
+- ["Ps23CustomStringConvertible", "UserService"]
+- !private ["Ps23CustomStringConvertible", "_DisabledRangeIndex"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "alert"]
+- !private ["Ps23CustomStringConvertible", "append"]
+- ["Ps23CustomStringConvertible", "authenticator"]
+- ["Ps23CustomStringConvertible", "bioLabel"]
+- ["Ps23CustomStringConvertible", "changeImage"]
+- !private ["Ps23CustomStringConvertible", "count"]
+- ["Ps23CustomStringConvertible", "currentImageIndex"]
+- ["Ps23CustomStringConvertible", "didLogoutUser"]
+- ["Ps23CustomStringConvertible", "didOccurAuthentication"]
+- ["Ps23CustomStringConvertible", "didSignInUser"]
+- !private ["Ps23CustomStringConvertible", "dismiss"]
+- ["Ps23CustomStringConvertible", "editButton"]
+- ["Ps23CustomStringConvertible", "editProfile"]
+- ["Ps23CustomStringConvertible", "facebookService"]
+- !private ["Ps23CustomStringConvertible", "first"]
+- !private ["Ps23CustomStringConvertible", "image"]
+- ["Ps23CustomStringConvertible", "imageTimer"]
+- ["Ps23CustomStringConvertible", "images"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "invalidate"]
+- !private ["Ps23CustomStringConvertible", "isHidden"]
+- !private ["Ps23CustomStringConvertible", "kf"]
+- ["Ps23CustomStringConvertible", "loadProfilePicturesFromFacebook"]
+- !private ["Ps23CustomStringConvertible", "navigationController"]
+- !private ["Ps23CustomStringConvertible", "popViewController"]
+- !private ["Ps23CustomStringConvertible", "scheduledTimer"]
+- ["Ps23CustomStringConvertible", "shouldUserSignInIntoFirebase"]
+- ["Ps23CustomStringConvertible", "startTimer"]
+- ["Ps23CustomStringConvertible", "stopTimer"]
+- !private ["Ps23CustomStringConvertible", "subscript"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", "user"]
+- ["Ps23CustomStringConvertible", "userId"]
+- ["Ps23CustomStringConvertible", "userImageView"]
+- ["Ps23CustomStringConvertible", "userService"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", "viewWillAppear"]
+- ["Ps23CustomStringConvertible", "viewWillDisappear"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Vs27DefaultBidirectionalIndices", "Index"]
+- !private ["Vs27DefaultBidirectionalIndices", "Iterator"]
+- !private ["Vs27DefaultBidirectionalIndices", "SubSequence"]
+- !private ["Vs27DefaultBidirectionalIndices", "_Element"]
+- !private ["Vs26DefaultRandomAccessIndices", "Index"]
+- !private ["Vs26DefaultRandomAccessIndices", "IndexDistance"]
+- !private ["Vs26DefaultRandomAccessIndices", "Indices"]
+- !private ["Vs26DefaultRandomAccessIndices", "Iterator"]
+- !private ["Vs26DefaultRandomAccessIndices", "SubSequence"]
+- !private ["Vs26DefaultRandomAccessIndices", "_Element"]
+- ["Sd", "deinit"]
+- ["Ps9Equatable", "Authenticator"]
+- ["Ps9Equatable", "FacebookService"]
+- !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "Stride"]
+- ["Ps9Equatable", "String"]
+- !private ["Ps9Equatable", "Timer"]
+- !private ["Ps9Equatable", "URL"]
+- ["Ps9Equatable", "UserService"]
+- !private ["Ps9Equatable", "_DisabledRangeIndex"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "alert"]
+- ["Ps9Equatable", "authenticator"]
+- ["Ps9Equatable", "bioLabel"]
+- ["Ps9Equatable", "changeImage"]
+- ["Ps9Equatable", "currentImageIndex"]
+- ["Ps9Equatable", "didLogoutUser"]
+- ["Ps9Equatable", "didOccurAuthentication"]
+- ["Ps9Equatable", "didSignInUser"]
+- !private ["Ps9Equatable", "dismiss"]
+- ["Ps9Equatable", "editButton"]
+- ["Ps9Equatable", "editProfile"]
+- !private ["Ps9Equatable", "facebook"]
+- ["Ps9Equatable", "facebookService"]
+- !private ["Ps9Equatable", "image"]
+- ["Ps9Equatable", "imageTimer"]
+- ["Ps9Equatable", "images"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "invalidate"]
+- !private ["Ps9Equatable", "isHidden"]
+- !private ["Ps9Equatable", "kf"]
+- ["Ps9Equatable", "loadProfilePicturesFromFacebook"]
+- !private ["Ps9Equatable", "localizedDescription"]
+- !private ["Ps9Equatable", "navigationController"]
+- !private ["Ps9Equatable", "popViewController"]
+- !private ["Ps9Equatable", "scheduledTimer"]
+- ["Ps9Equatable", "shouldUserSignInIntoFirebase"]
+- ["Ps9Equatable", "startTimer"]
+- ["Ps9Equatable", "stopTimer"]
+- !private ["Ps9Equatable", "text"]
+- ["Ps9Equatable", "user"]
+- ["Ps9Equatable", "userId"]
+- ["Ps9Equatable", "userImageView"]
+- ["Ps9Equatable", "userService"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", "viewWillAppear"]
+- ["Ps9Equatable", "viewWillDisappear"]
+- ["Ps9Equatable", ""]
+- !private ["Ps5Error", "localizedDescription"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Index"]
+- !private ["Ps25ExpressibleByArrayLiteral", "IndexDistance"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "SubSequence"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "append"]
+- !private ["Ps25ExpressibleByArrayLiteral", "count"]
+- !private ["Ps25ExpressibleByArrayLiteral", "first"]
+- ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "subscript"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["C5Slide15FacebookService", "deinit"]
+- !private ["C5Slide15FacebookService", "isPhotoPermissionGiven"]
+- !private ["C5Slide15FacebookService", "loadUserProfilePhotos"]
+- ["C5Slide15FacebookService", "shared"]
+- !private ["C5Slide15FirebaseManager", "getUser"]
+- ["C5Slide15FirebaseManager", "init"]
+- !private ["O5Slide20FirebaseManagerError", "deinit"]
+- !private ["O5Slide20FirebaseManagerError", "localizedDescription"]
+- ["Ps8Hashable", "Authenticator"]
+- ["Ps8Hashable", "FacebookService"]
+- !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "Stride"]
+- ["Ps8Hashable", "String"]
+- !private ["Ps8Hashable", "Timer"]
+- !private ["Ps8Hashable", "URL"]
+- ["Ps8Hashable", "UserService"]
+- !private ["Ps8Hashable", "_DisabledRangeIndex"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "alert"]
+- ["Ps8Hashable", "authenticator"]
+- ["Ps8Hashable", "bioLabel"]
+- ["Ps8Hashable", "changeImage"]
+- ["Ps8Hashable", "currentImageIndex"]
+- ["Ps8Hashable", "didLogoutUser"]
+- ["Ps8Hashable", "didOccurAuthentication"]
+- ["Ps8Hashable", "didSignInUser"]
+- !private ["Ps8Hashable", "dismiss"]
+- ["Ps8Hashable", "editButton"]
+- ["Ps8Hashable", "editProfile"]
+- !private ["Ps8Hashable", "facebook"]
+- ["Ps8Hashable", "facebookService"]
+- !private ["Ps8Hashable", "image"]
+- ["Ps8Hashable", "imageTimer"]
+- ["Ps8Hashable", "images"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "invalidate"]
+- !private ["Ps8Hashable", "isHidden"]
+- !private ["Ps8Hashable", "kf"]
+- ["Ps8Hashable", "loadProfilePicturesFromFacebook"]
+- !private ["Ps8Hashable", "localizedDescription"]
+- !private ["Ps8Hashable", "navigationController"]
+- !private ["Ps8Hashable", "popViewController"]
+- !private ["Ps8Hashable", "scheduledTimer"]
+- ["Ps8Hashable", "shouldUserSignInIntoFirebase"]
+- ["Ps8Hashable", "startTimer"]
+- ["Ps8Hashable", "stopTimer"]
+- !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", "user"]
+- ["Ps8Hashable", "userId"]
+- ["Ps8Hashable", "userImageView"]
+- ["Ps8Hashable", "userService"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", "viewWillAppear"]
+- ["Ps8Hashable", "viewWillDisappear"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Index"]
+- !private ["Ps9Indexable", "IndexDistance"]
+- !private ["Ps9Indexable", "Indices"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "SubSequence"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "append"]
+- !private ["Ps9Indexable", "count"]
+- !private ["Ps9Indexable", "first"]
+- ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "subscript"]
+- !private ["Ps13IndexableBase", "Index"]
+- !private ["Ps13IndexableBase", "IndexDistance"]
+- !private ["Ps13IndexableBase", "Indices"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "SubSequence"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "append"]
+- !private ["Ps13IndexableBase", "count"]
+- !private ["Ps13IndexableBase", "first"]
+- ["Ps13IndexableBase", "init"]
+- !private ["Ps13IndexableBase", "subscript"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "Stride"]
+- !private ["Si", "_DisabledRangeIndex"]
+- ["Si", "deinit"]
+- !private ["Ps7Integer", "IntegerLiteralType"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps7Integer", "_DisabledRangeIndex"]
+- !private ["Ps17IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "IntegerLiteralType"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "Stride"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "_DisabledRangeIndex"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- ["C10Kingfisher10Kingfisher", "deinit"]
+- !private ["C10Kingfisher10Kingfisher", "setImage"]
+- !private ["P10Kingfisher20KingfisherCompatible", "image"]
+- !private ["P10Kingfisher20KingfisherCompatible", "init"]
+- !private ["P10Kingfisher20KingfisherCompatible", "isHidden"]
+- !private ["P10Kingfisher20KingfisherCompatible", "kf"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["P12ObjectMapper8Mappable", "bio"]
+- !private ["P12ObjectMapper8Mappable", "images"]
+- !private ["VV5Slide15GlobalConstants7Message", "deinit"]
+- !private ["Ps10MirrorPath", "IntegerLiteralType"]
+- !private ["Ps10MirrorPath", "Stride"]
+- !private ["Ps10MirrorPath", "_DisabledRangeIndex"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Index"]
+- !private ["Ps17MutableCollection", "IndexDistance"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "SubSequence"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps17MutableCollection", "append"]
+- !private ["Ps17MutableCollection", "count"]
+- !private ["Ps17MutableCollection", "first"]
+- ["Ps17MutableCollection", "init"]
+- !private ["Ps17MutableCollection", "subscript"]
+- !private ["Ps16MutableIndexable", "Index"]
+- !private ["Ps16MutableIndexable", "IndexDistance"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "SubSequence"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["Ps16MutableIndexable", "append"]
+- !private ["Ps16MutableIndexable", "count"]
+- !private ["Ps16MutableIndexable", "first"]
+- ["Ps16MutableIndexable", "init"]
+- !private ["Ps16MutableIndexable", "subscript"]
+- ["CSo7NSCoder", "deinit"]
+- ["PSo8NSCoding", "Authenticator"]
+- ["PSo8NSCoding", "FacebookService"]
+- ["PSo8NSCoding", "String"]
+- !private ["PSo8NSCoding", "Timer"]
+- !private ["PSo8NSCoding", "URL"]
+- ["PSo8NSCoding", "UserService"]
+- !private ["PSo8NSCoding", "alert"]
+- ["PSo8NSCoding", "authenticator"]
+- ["PSo8NSCoding", "bioLabel"]
+- ["PSo8NSCoding", "changeImage"]
+- ["PSo8NSCoding", "currentImageIndex"]
+- ["PSo8NSCoding", "didLogoutUser"]
+- ["PSo8NSCoding", "didOccurAuthentication"]
+- ["PSo8NSCoding", "didSignInUser"]
+- !private ["PSo8NSCoding", "dismiss"]
+- ["PSo8NSCoding", "editButton"]
+- ["PSo8NSCoding", "editProfile"]
+- ["PSo8NSCoding", "facebookService"]
+- !private ["PSo8NSCoding", "image"]
+- ["PSo8NSCoding", "imageTimer"]
+- ["PSo8NSCoding", "images"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isHidden"]
+- !private ["PSo8NSCoding", "kf"]
+- ["PSo8NSCoding", "loadProfilePicturesFromFacebook"]
+- !private ["PSo8NSCoding", "navigationController"]
+- !private ["PSo8NSCoding", "popViewController"]
+- ["PSo8NSCoding", "shouldUserSignInIntoFirebase"]
+- ["PSo8NSCoding", "startTimer"]
+- ["PSo8NSCoding", "stopTimer"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", "user"]
+- ["PSo8NSCoding", "userId"]
+- ["PSo8NSCoding", "userImageView"]
+- ["PSo8NSCoding", "userService"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", "viewWillAppear"]
+- ["PSo8NSCoding", "viewWillDisappear"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- ["PSo26NSExtensionRequestHandling", "Authenticator"]
+- ["PSo26NSExtensionRequestHandling", "FacebookService"]
+- ["PSo26NSExtensionRequestHandling", "String"]
+- !private ["PSo26NSExtensionRequestHandling", "Timer"]
+- !private ["PSo26NSExtensionRequestHandling", "URL"]
+- ["PSo26NSExtensionRequestHandling", "UserService"]
+- !private ["PSo26NSExtensionRequestHandling", "alert"]
+- ["PSo26NSExtensionRequestHandling", "authenticator"]
+- ["PSo26NSExtensionRequestHandling", "bioLabel"]
+- ["PSo26NSExtensionRequestHandling", "changeImage"]
+- ["PSo26NSExtensionRequestHandling", "currentImageIndex"]
+- ["PSo26NSExtensionRequestHandling", "didLogoutUser"]
+- ["PSo26NSExtensionRequestHandling", "didOccurAuthentication"]
+- ["PSo26NSExtensionRequestHandling", "didSignInUser"]
+- !private ["PSo26NSExtensionRequestHandling", "dismiss"]
+- ["PSo26NSExtensionRequestHandling", "editButton"]
+- ["PSo26NSExtensionRequestHandling", "editProfile"]
+- ["PSo26NSExtensionRequestHandling", "facebookService"]
+- ["PSo26NSExtensionRequestHandling", "imageTimer"]
+- ["PSo26NSExtensionRequestHandling", "images"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "loadProfilePicturesFromFacebook"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationController"]
+- !private ["PSo26NSExtensionRequestHandling", "popViewController"]
+- ["PSo26NSExtensionRequestHandling", "shouldUserSignInIntoFirebase"]
+- ["PSo26NSExtensionRequestHandling", "startTimer"]
+- ["PSo26NSExtensionRequestHandling", "stopTimer"]
+- ["PSo26NSExtensionRequestHandling", "user"]
+- ["PSo26NSExtensionRequestHandling", "userId"]
+- ["PSo26NSExtensionRequestHandling", "userImageView"]
+- ["PSo26NSExtensionRequestHandling", "userService"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
+- ["PSo26NSExtensionRequestHandling", "viewWillDisappear"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "AuthenticationError"]
+- ["CSo8NSObject", "Authenticator"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "FacebookService"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "Timer"]
+- ["CSo8NSObject", "UIButton"]
+- ["CSo8NSObject", "UIImageView"]
+- ["CSo8NSObject", "UILabel"]
+- !private ["CSo8NSObject", "URL"]
+- ["CSo8NSObject", "User"]
+- ["CSo8NSObject", "UserService"]
+- !private ["CSo8NSObject", "alert"]
+- ["CSo8NSObject", "authenticator"]
+- ["CSo8NSObject", "bioLabel"]
+- ["CSo8NSObject", "changeImage"]
+- ["CSo8NSObject", "currentImageIndex"]
+- ["CSo8NSObject", "didLogoutUser"]
+- ["CSo8NSObject", "didOccurAuthentication"]
+- ["CSo8NSObject", "didSignInUser"]
+- !private ["CSo8NSObject", "dismiss"]
+- ["CSo8NSObject", "editButton"]
+- ["CSo8NSObject", "editProfile"]
+- ["CSo8NSObject", "facebookService"]
+- !private ["CSo8NSObject", "image"]
+- ["CSo8NSObject", "imageTimer"]
+- ["CSo8NSObject", "images"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "invalidate"]
+- !private ["CSo8NSObject", "isHidden"]
+- !private ["CSo8NSObject", "kf"]
+- ["CSo8NSObject", "loadProfilePicturesFromFacebook"]
+- !private ["CSo8NSObject", "navigationController"]
+- !private ["CSo8NSObject", "popViewController"]
+- !private ["CSo8NSObject", "scheduledTimer"]
+- ["CSo8NSObject", "shouldUserSignInIntoFirebase"]
+- ["CSo8NSObject", "startTimer"]
+- ["CSo8NSObject", "stopTimer"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "user"]
+- ["CSo8NSObject", "userId"]
+- ["CSo8NSObject", "userImageView"]
+- ["CSo8NSObject", "userService"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "viewWillAppear"]
+- ["CSo8NSObject", "viewWillDisappear"]
+- ["PSo16NSObjectProtocol", "Authenticator"]
+- ["PSo16NSObjectProtocol", "FacebookService"]
+- ["PSo16NSObjectProtocol", "String"]
+- !private ["PSo16NSObjectProtocol", "Timer"]
+- !private ["PSo16NSObjectProtocol", "URL"]
+- ["PSo16NSObjectProtocol", "UserService"]
+- !private ["PSo16NSObjectProtocol", "alert"]
+- ["PSo16NSObjectProtocol", "authenticator"]
+- ["PSo16NSObjectProtocol", "bioLabel"]
+- ["PSo16NSObjectProtocol", "changeImage"]
+- ["PSo16NSObjectProtocol", "currentImageIndex"]
+- ["PSo16NSObjectProtocol", "didLogoutUser"]
+- ["PSo16NSObjectProtocol", "didOccurAuthentication"]
+- ["PSo16NSObjectProtocol", "didSignInUser"]
+- !private ["PSo16NSObjectProtocol", "dismiss"]
+- ["PSo16NSObjectProtocol", "editButton"]
+- ["PSo16NSObjectProtocol", "editProfile"]
+- ["PSo16NSObjectProtocol", "facebookService"]
+- !private ["PSo16NSObjectProtocol", "image"]
+- ["PSo16NSObjectProtocol", "imageTimer"]
+- ["PSo16NSObjectProtocol", "images"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "invalidate"]
+- !private ["PSo16NSObjectProtocol", "isHidden"]
+- !private ["PSo16NSObjectProtocol", "kf"]
+- ["PSo16NSObjectProtocol", "loadProfilePicturesFromFacebook"]
+- !private ["PSo16NSObjectProtocol", "navigationController"]
+- !private ["PSo16NSObjectProtocol", "popViewController"]
+- !private ["PSo16NSObjectProtocol", "scheduledTimer"]
+- ["PSo16NSObjectProtocol", "shouldUserSignInIntoFirebase"]
+- ["PSo16NSObjectProtocol", "startTimer"]
+- ["PSo16NSObjectProtocol", "stopTimer"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", "user"]
+- ["PSo16NSObjectProtocol", "userId"]
+- ["PSo16NSObjectProtocol", "userImageView"]
+- ["PSo16NSObjectProtocol", "userService"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", "viewWillAppear"]
+- ["PSo16NSObjectProtocol", "viewWillDisappear"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- ["Sq", "deinit"]
+- ["C5Slide21ProfileViewController", "AuthenticationError"]
+- ["C5Slide21ProfileViewController", "Authenticator"]
+- ["C5Slide21ProfileViewController", "Bool"]
+- ["C5Slide21ProfileViewController", "FacebookService"]
+- ["C5Slide21ProfileViewController", "String"]
+- ["C5Slide21ProfileViewController", "Timer"]
+- ["C5Slide21ProfileViewController", "UIButton"]
+- ["C5Slide21ProfileViewController", "UIImageView"]
+- ["C5Slide21ProfileViewController", "UILabel"]
+- !private ["C5Slide21ProfileViewController", "URL"]
+- ["C5Slide21ProfileViewController", "User"]
+- ["C5Slide21ProfileViewController", "UserService"]
+- !private ["C5Slide21ProfileViewController", "alert"]
+- ["C5Slide21ProfileViewController", "authenticator"]
+- ["C5Slide21ProfileViewController", "bioLabel"]
+- ["C5Slide21ProfileViewController", "changeImage"]
+- ["C5Slide21ProfileViewController", "currentImageIndex"]
+- ["C5Slide21ProfileViewController", "deinit"]
+- ["C5Slide21ProfileViewController", "didLogoutUser"]
+- ["C5Slide21ProfileViewController", "didOccurAuthentication"]
+- ["C5Slide21ProfileViewController", "didSignInUser"]
+- !private ["C5Slide21ProfileViewController", "dismiss"]
+- ["C5Slide21ProfileViewController", "editButton"]
+- ["C5Slide21ProfileViewController", "editProfile"]
+- ["C5Slide21ProfileViewController", "facebookService"]
+- ["C5Slide21ProfileViewController", "imageTimer"]
+- ["C5Slide21ProfileViewController", "images"]
+- ["C5Slide21ProfileViewController", "init"]
+- ["C5Slide21ProfileViewController", "loadProfilePicturesFromFacebook"]
+- !private ["C5Slide21ProfileViewController", "navigationController"]
+- ["C5Slide21ProfileViewController", "shouldUserSignInIntoFirebase"]
+- ["C5Slide21ProfileViewController", "startTimer"]
+- ["C5Slide21ProfileViewController", "stopTimer"]
+- !private ["C5Slide21ProfileViewController", "user"]
+- ["C5Slide21ProfileViewController", "userId"]
+- ["C5Slide21ProfileViewController", "userImageView"]
+- ["C5Slide21ProfileViewController", "userService"]
+- ["C5Slide21ProfileViewController", "viewDidLoad"]
+- ["C5Slide21ProfileViewController", "viewWillAppear"]
+- ["C5Slide21ProfileViewController", "viewWillDisappear"]
+- ["O5Slide8Provider", "deinit"]
+- !private ["O5Slide8Provider", "facebook"]
+- !private ["Ps22RandomAccessCollection", "Index"]
+- !private ["Ps22RandomAccessCollection", "IndexDistance"]
+- !private ["Ps22RandomAccessCollection", "Indices"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "SubSequence"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps22RandomAccessCollection", "append"]
+- !private ["Ps22RandomAccessCollection", "count"]
+- !private ["Ps22RandomAccessCollection", "first"]
+- ["Ps22RandomAccessCollection", "init"]
+- !private ["Ps22RandomAccessCollection", "subscript"]
+- !private ["Ps21RandomAccessIndexable", "Index"]
+- !private ["Ps21RandomAccessIndexable", "IndexDistance"]
+- !private ["Ps21RandomAccessIndexable", "Indices"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "SubSequence"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "append"]
+- !private ["Ps21RandomAccessIndexable", "count"]
+- !private ["Ps21RandomAccessIndexable", "first"]
+- ["Ps21RandomAccessIndexable", "init"]
+- !private ["Ps21RandomAccessIndexable", "subscript"]
+- !private ["Vs17RandomAccessSlice", "Index"]
+- !private ["Vs17RandomAccessSlice", "IndexDistance"]
+- !private ["Vs17RandomAccessSlice", "Indices"]
+- !private ["Vs17RandomAccessSlice", "Iterator"]
+- !private ["Vs17RandomAccessSlice", "SubSequence"]
+- !private ["Vs17RandomAccessSlice", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Index"]
+- !private ["Ps26RangeReplaceableCollection", "IndexDistance"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "SubSequence"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "append"]
+- !private ["Ps26RangeReplaceableCollection", "count"]
+- !private ["Ps26RangeReplaceableCollection", "first"]
+- ["Ps26RangeReplaceableCollection", "init"]
+- !private ["Ps26RangeReplaceableCollection", "subscript"]
+- !private ["Ps25RangeReplaceableIndexable", "Index"]
+- !private ["Ps25RangeReplaceableIndexable", "IndexDistance"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "SubSequence"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "append"]
+- !private ["Ps25RangeReplaceableIndexable", "count"]
+- !private ["Ps25RangeReplaceableIndexable", "first"]
+- ["Ps25RangeReplaceableIndexable", "init"]
+- !private ["Ps25RangeReplaceableIndexable", "subscript"]
+- !private ["Ps16RawRepresentable", "facebook"]
+- !private ["P10Foundation20ReferenceConvertible", "init"]
+- !private ["P10Kingfisher8Resource", "init"]
+- ["C10Kingfisher17RetrieveImageTask", "deinit"]
+- ["V10ObjectiveC8Selector", "deinit"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Index"]
+- !private ["Ps8Sequence", "IndexDistance"]
+- !private ["Ps8Sequence", "Indices"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "SubSequence"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "append"]
+- !private ["Ps8Sequence", "count"]
+- !private ["Ps8Sequence", "first"]
+- ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "subscript"]
+- !private ["Ps13SignedInteger", "IntegerLiteralType"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps13SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps12SignedNumber", "IntegerLiteralType"]
+- !private ["Ps12SignedNumber", "Stride"]
+- !private ["Ps12SignedNumber", "_DisabledRangeIndex"]
+- !private ["Vs5Slice", "Index"]
+- !private ["Vs5Slice", "Iterator"]
+- !private ["Vs5Slice", "SubSequence"]
+- !private ["Vs5Slice", "_Element"]
+- !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["Ps10Strideable", "_DisabledRangeIndex"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- ["CSo5Timer", "deinit"]
+- !private ["CSo5Timer", "invalidate"]
+- !private ["CSo5Timer", "scheduledTimer"]
+- !private ["PSo29UIAccessibilityIdentification", "image"]
+- !private ["PSo29UIAccessibilityIdentification", "isHidden"]
+- !private ["PSo29UIAccessibilityIdentification", "kf"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- !private ["PSo12UIAppearance", "image"]
+- !private ["PSo12UIAppearance", "isHidden"]
+- !private ["PSo12UIAppearance", "kf"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo21UIAppearanceContainer", "Authenticator"]
+- ["PSo21UIAppearanceContainer", "FacebookService"]
+- ["PSo21UIAppearanceContainer", "String"]
+- !private ["PSo21UIAppearanceContainer", "Timer"]
+- !private ["PSo21UIAppearanceContainer", "URL"]
+- ["PSo21UIAppearanceContainer", "UserService"]
+- !private ["PSo21UIAppearanceContainer", "alert"]
+- ["PSo21UIAppearanceContainer", "authenticator"]
+- ["PSo21UIAppearanceContainer", "bioLabel"]
+- ["PSo21UIAppearanceContainer", "changeImage"]
+- ["PSo21UIAppearanceContainer", "currentImageIndex"]
+- ["PSo21UIAppearanceContainer", "didLogoutUser"]
+- ["PSo21UIAppearanceContainer", "didOccurAuthentication"]
+- ["PSo21UIAppearanceContainer", "didSignInUser"]
+- !private ["PSo21UIAppearanceContainer", "dismiss"]
+- ["PSo21UIAppearanceContainer", "editButton"]
+- ["PSo21UIAppearanceContainer", "editProfile"]
+- ["PSo21UIAppearanceContainer", "facebookService"]
+- !private ["PSo21UIAppearanceContainer", "image"]
+- ["PSo21UIAppearanceContainer", "imageTimer"]
+- ["PSo21UIAppearanceContainer", "images"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isHidden"]
+- !private ["PSo21UIAppearanceContainer", "kf"]
+- ["PSo21UIAppearanceContainer", "loadProfilePicturesFromFacebook"]
+- !private ["PSo21UIAppearanceContainer", "navigationController"]
+- !private ["PSo21UIAppearanceContainer", "popViewController"]
+- ["PSo21UIAppearanceContainer", "shouldUserSignInIntoFirebase"]
+- ["PSo21UIAppearanceContainer", "startTimer"]
+- ["PSo21UIAppearanceContainer", "stopTimer"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", "user"]
+- ["PSo21UIAppearanceContainer", "userId"]
+- ["PSo21UIAppearanceContainer", "userImageView"]
+- ["PSo21UIAppearanceContainer", "userService"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", "viewWillAppear"]
+- ["PSo21UIAppearanceContainer", "viewWillDisappear"]
+- ["PSo21UIAppearanceContainer", ""]
+- !private ["CSo8UIButton", "isHidden"]
+- ["PSo18UIContentContainer", "Authenticator"]
+- ["PSo18UIContentContainer", "FacebookService"]
+- ["PSo18UIContentContainer", "String"]
+- !private ["PSo18UIContentContainer", "Timer"]
+- !private ["PSo18UIContentContainer", "URL"]
+- ["PSo18UIContentContainer", "UserService"]
+- !private ["PSo18UIContentContainer", "alert"]
+- ["PSo18UIContentContainer", "authenticator"]
+- ["PSo18UIContentContainer", "bioLabel"]
+- ["PSo18UIContentContainer", "changeImage"]
+- ["PSo18UIContentContainer", "currentImageIndex"]
+- ["PSo18UIContentContainer", "didLogoutUser"]
+- ["PSo18UIContentContainer", "didOccurAuthentication"]
+- ["PSo18UIContentContainer", "didSignInUser"]
+- !private ["PSo18UIContentContainer", "dismiss"]
+- ["PSo18UIContentContainer", "editButton"]
+- ["PSo18UIContentContainer", "editProfile"]
+- ["PSo18UIContentContainer", "facebookService"]
+- ["PSo18UIContentContainer", "imageTimer"]
+- ["PSo18UIContentContainer", "images"]
+- !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "loadProfilePicturesFromFacebook"]
+- !private ["PSo18UIContentContainer", "navigationController"]
+- !private ["PSo18UIContentContainer", "popViewController"]
+- ["PSo18UIContentContainer", "shouldUserSignInIntoFirebase"]
+- ["PSo18UIContentContainer", "startTimer"]
+- ["PSo18UIContentContainer", "stopTimer"]
+- ["PSo18UIContentContainer", "user"]
+- ["PSo18UIContentContainer", "userId"]
+- ["PSo18UIContentContainer", "userImageView"]
+- ["PSo18UIContentContainer", "userService"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", "viewWillAppear"]
+- ["PSo18UIContentContainer", "viewWillDisappear"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "isHidden"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["CSo9UIControl", "isHidden"]
+- !private ["PSo17UICoordinateSpace", "image"]
+- !private ["PSo17UICoordinateSpace", "isHidden"]
+- !private ["PSo17UICoordinateSpace", "kf"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo13UIDynamicItem", "image"]
+- !private ["PSo13UIDynamicItem", "isHidden"]
+- !private ["PSo13UIDynamicItem", "kf"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo18UIFocusEnvironment", "Authenticator"]
+- ["PSo18UIFocusEnvironment", "FacebookService"]
+- ["PSo18UIFocusEnvironment", "String"]
+- !private ["PSo18UIFocusEnvironment", "Timer"]
+- !private ["PSo18UIFocusEnvironment", "URL"]
+- ["PSo18UIFocusEnvironment", "UserService"]
+- !private ["PSo18UIFocusEnvironment", "alert"]
+- ["PSo18UIFocusEnvironment", "authenticator"]
+- ["PSo18UIFocusEnvironment", "bioLabel"]
+- ["PSo18UIFocusEnvironment", "changeImage"]
+- ["PSo18UIFocusEnvironment", "currentImageIndex"]
+- ["PSo18UIFocusEnvironment", "didLogoutUser"]
+- ["PSo18UIFocusEnvironment", "didOccurAuthentication"]
+- ["PSo18UIFocusEnvironment", "didSignInUser"]
+- !private ["PSo18UIFocusEnvironment", "dismiss"]
+- ["PSo18UIFocusEnvironment", "editButton"]
+- ["PSo18UIFocusEnvironment", "editProfile"]
+- ["PSo18UIFocusEnvironment", "facebookService"]
+- !private ["PSo18UIFocusEnvironment", "image"]
+- ["PSo18UIFocusEnvironment", "imageTimer"]
+- ["PSo18UIFocusEnvironment", "images"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isHidden"]
+- !private ["PSo18UIFocusEnvironment", "kf"]
+- ["PSo18UIFocusEnvironment", "loadProfilePicturesFromFacebook"]
+- !private ["PSo18UIFocusEnvironment", "navigationController"]
+- !private ["PSo18UIFocusEnvironment", "popViewController"]
+- ["PSo18UIFocusEnvironment", "shouldUserSignInIntoFirebase"]
+- ["PSo18UIFocusEnvironment", "startTimer"]
+- ["PSo18UIFocusEnvironment", "stopTimer"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "user"]
+- ["PSo18UIFocusEnvironment", "userId"]
+- ["PSo18UIFocusEnvironment", "userImageView"]
+- ["PSo18UIFocusEnvironment", "userService"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", "viewWillAppear"]
+- ["PSo18UIFocusEnvironment", "viewWillDisappear"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "image"]
+- !private ["PSo11UIFocusItem", "isHidden"]
+- !private ["PSo11UIFocusItem", "kf"]
+- !private ["PSo11UIFocusItem", "text"]
+- !private ["CSo11UIImageView", "image"]
+- !private ["CSo11UIImageView", "kf"]
+- !private ["CSo7UILabel", "isHidden"]
+- !private ["CSo7UILabel", "text"]
+- !private ["CSo22UINavigationController", "deinit"]
+- !private ["CSo22UINavigationController", "popViewController"]
+- ["CSo11UIResponder", "AuthenticationError"]
+- ["CSo11UIResponder", "Authenticator"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "FacebookService"]
+- ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "Timer"]
+- ["CSo11UIResponder", "UIButton"]
+- ["CSo11UIResponder", "UIImageView"]
+- ["CSo11UIResponder", "UILabel"]
+- !private ["CSo11UIResponder", "URL"]
+- ["CSo11UIResponder", "User"]
+- ["CSo11UIResponder", "UserService"]
+- !private ["CSo11UIResponder", "alert"]
+- ["CSo11UIResponder", "authenticator"]
+- ["CSo11UIResponder", "bioLabel"]
+- ["CSo11UIResponder", "changeImage"]
+- ["CSo11UIResponder", "currentImageIndex"]
+- ["CSo11UIResponder", "didLogoutUser"]
+- ["CSo11UIResponder", "didOccurAuthentication"]
+- ["CSo11UIResponder", "didSignInUser"]
+- !private ["CSo11UIResponder", "dismiss"]
+- ["CSo11UIResponder", "editButton"]
+- ["CSo11UIResponder", "editProfile"]
+- ["CSo11UIResponder", "facebookService"]
+- !private ["CSo11UIResponder", "image"]
+- ["CSo11UIResponder", "imageTimer"]
+- ["CSo11UIResponder", "images"]
+- ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isHidden"]
+- !private ["CSo11UIResponder", "kf"]
+- ["CSo11UIResponder", "loadProfilePicturesFromFacebook"]
+- !private ["CSo11UIResponder", "navigationController"]
+- !private ["CSo11UIResponder", "popViewController"]
+- ["CSo11UIResponder", "shouldUserSignInIntoFirebase"]
+- ["CSo11UIResponder", "startTimer"]
+- ["CSo11UIResponder", "stopTimer"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "user"]
+- ["CSo11UIResponder", "userId"]
+- ["CSo11UIResponder", "userImageView"]
+- ["CSo11UIResponder", "userService"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "viewWillAppear"]
+- ["CSo11UIResponder", "viewWillDisappear"]
+- ["PSo30UIResponderStandardEditActions", "Authenticator"]
+- ["PSo30UIResponderStandardEditActions", "FacebookService"]
+- ["PSo30UIResponderStandardEditActions", "String"]
+- !private ["PSo30UIResponderStandardEditActions", "Timer"]
+- !private ["PSo30UIResponderStandardEditActions", "URL"]
+- ["PSo30UIResponderStandardEditActions", "UserService"]
+- !private ["PSo30UIResponderStandardEditActions", "alert"]
+- ["PSo30UIResponderStandardEditActions", "authenticator"]
+- ["PSo30UIResponderStandardEditActions", "bioLabel"]
+- ["PSo30UIResponderStandardEditActions", "changeImage"]
+- ["PSo30UIResponderStandardEditActions", "currentImageIndex"]
+- ["PSo30UIResponderStandardEditActions", "didLogoutUser"]
+- ["PSo30UIResponderStandardEditActions", "didOccurAuthentication"]
+- ["PSo30UIResponderStandardEditActions", "didSignInUser"]
+- !private ["PSo30UIResponderStandardEditActions", "dismiss"]
+- ["PSo30UIResponderStandardEditActions", "editButton"]
+- ["PSo30UIResponderStandardEditActions", "editProfile"]
+- ["PSo30UIResponderStandardEditActions", "facebookService"]
+- !private ["PSo30UIResponderStandardEditActions", "image"]
+- ["PSo30UIResponderStandardEditActions", "imageTimer"]
+- ["PSo30UIResponderStandardEditActions", "images"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "kf"]
+- ["PSo30UIResponderStandardEditActions", "loadProfilePicturesFromFacebook"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationController"]
+- !private ["PSo30UIResponderStandardEditActions", "popViewController"]
+- ["PSo30UIResponderStandardEditActions", "shouldUserSignInIntoFirebase"]
+- ["PSo30UIResponderStandardEditActions", "startTimer"]
+- ["PSo30UIResponderStandardEditActions", "stopTimer"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- ["PSo30UIResponderStandardEditActions", "user"]
+- ["PSo30UIResponderStandardEditActions", "userId"]
+- ["PSo30UIResponderStandardEditActions", "userImageView"]
+- ["PSo30UIResponderStandardEditActions", "userService"]
+- ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
+- ["PSo30UIResponderStandardEditActions", "viewWillDisappear"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["PSo16UIStateRestoring", "Authenticator"]
+- ["PSo16UIStateRestoring", "FacebookService"]
+- ["PSo16UIStateRestoring", "String"]
+- !private ["PSo16UIStateRestoring", "Timer"]
+- !private ["PSo16UIStateRestoring", "URL"]
+- ["PSo16UIStateRestoring", "UserService"]
+- !private ["PSo16UIStateRestoring", "alert"]
+- ["PSo16UIStateRestoring", "authenticator"]
+- ["PSo16UIStateRestoring", "bioLabel"]
+- ["PSo16UIStateRestoring", "changeImage"]
+- ["PSo16UIStateRestoring", "currentImageIndex"]
+- ["PSo16UIStateRestoring", "didLogoutUser"]
+- ["PSo16UIStateRestoring", "didOccurAuthentication"]
+- ["PSo16UIStateRestoring", "didSignInUser"]
+- !private ["PSo16UIStateRestoring", "dismiss"]
+- ["PSo16UIStateRestoring", "editButton"]
+- ["PSo16UIStateRestoring", "editProfile"]
+- ["PSo16UIStateRestoring", "facebookService"]
+- ["PSo16UIStateRestoring", "imageTimer"]
+- ["PSo16UIStateRestoring", "images"]
+- !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "loadProfilePicturesFromFacebook"]
+- !private ["PSo16UIStateRestoring", "navigationController"]
+- !private ["PSo16UIStateRestoring", "popViewController"]
+- ["PSo16UIStateRestoring", "shouldUserSignInIntoFirebase"]
+- ["PSo16UIStateRestoring", "startTimer"]
+- ["PSo16UIStateRestoring", "stopTimer"]
+- ["PSo16UIStateRestoring", "user"]
+- ["PSo16UIStateRestoring", "userId"]
+- ["PSo16UIStateRestoring", "userImageView"]
+- ["PSo16UIStateRestoring", "userService"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", "viewWillAppear"]
+- ["PSo16UIStateRestoring", "viewWillDisappear"]
+- ["PSo16UIStateRestoring", ""]
+- ["PSo18UITraitEnvironment", "Authenticator"]
+- ["PSo18UITraitEnvironment", "FacebookService"]
+- ["PSo18UITraitEnvironment", "String"]
+- !private ["PSo18UITraitEnvironment", "Timer"]
+- !private ["PSo18UITraitEnvironment", "URL"]
+- ["PSo18UITraitEnvironment", "UserService"]
+- !private ["PSo18UITraitEnvironment", "alert"]
+- ["PSo18UITraitEnvironment", "authenticator"]
+- ["PSo18UITraitEnvironment", "bioLabel"]
+- ["PSo18UITraitEnvironment", "changeImage"]
+- ["PSo18UITraitEnvironment", "currentImageIndex"]
+- ["PSo18UITraitEnvironment", "didLogoutUser"]
+- ["PSo18UITraitEnvironment", "didOccurAuthentication"]
+- ["PSo18UITraitEnvironment", "didSignInUser"]
+- !private ["PSo18UITraitEnvironment", "dismiss"]
+- ["PSo18UITraitEnvironment", "editButton"]
+- ["PSo18UITraitEnvironment", "editProfile"]
+- ["PSo18UITraitEnvironment", "facebookService"]
+- !private ["PSo18UITraitEnvironment", "image"]
+- ["PSo18UITraitEnvironment", "imageTimer"]
+- ["PSo18UITraitEnvironment", "images"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isHidden"]
+- !private ["PSo18UITraitEnvironment", "kf"]
+- ["PSo18UITraitEnvironment", "loadProfilePicturesFromFacebook"]
+- !private ["PSo18UITraitEnvironment", "navigationController"]
+- !private ["PSo18UITraitEnvironment", "popViewController"]
+- ["PSo18UITraitEnvironment", "shouldUserSignInIntoFirebase"]
+- ["PSo18UITraitEnvironment", "startTimer"]
+- ["PSo18UITraitEnvironment", "stopTimer"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", "user"]
+- ["PSo18UITraitEnvironment", "userId"]
+- ["PSo18UITraitEnvironment", "userImageView"]
+- ["PSo18UITraitEnvironment", "userService"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", "viewWillAppear"]
+- ["PSo18UITraitEnvironment", "viewWillDisappear"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "image"]
+- !private ["CSo6UIView", "isHidden"]
+- !private ["CSo6UIView", "kf"]
+- !private ["CSo6UIView", "text"]
+- ["CSo16UIViewController", "AuthenticationError"]
+- ["CSo16UIViewController", "Authenticator"]
+- ["CSo16UIViewController", "Bool"]
+- ["CSo16UIViewController", "FacebookService"]
+- ["CSo16UIViewController", "String"]
+- ["CSo16UIViewController", "Timer"]
+- ["CSo16UIViewController", "UIButton"]
+- ["CSo16UIViewController", "UIImageView"]
+- ["CSo16UIViewController", "UILabel"]
+- !private ["CSo16UIViewController", "URL"]
+- ["CSo16UIViewController", "User"]
+- ["CSo16UIViewController", "UserService"]
+- !private ["CSo16UIViewController", "alert"]
+- ["CSo16UIViewController", "authenticator"]
+- ["CSo16UIViewController", "bioLabel"]
+- ["CSo16UIViewController", "changeImage"]
+- ["CSo16UIViewController", "currentImageIndex"]
+- ["CSo16UIViewController", "deinit"]
+- ["CSo16UIViewController", "didLogoutUser"]
+- ["CSo16UIViewController", "didOccurAuthentication"]
+- ["CSo16UIViewController", "didSignInUser"]
+- !private ["CSo16UIViewController", "dismiss"]
+- ["CSo16UIViewController", "editButton"]
+- ["CSo16UIViewController", "editProfile"]
+- ["CSo16UIViewController", "facebookService"]
+- ["CSo16UIViewController", "imageTimer"]
+- ["CSo16UIViewController", "images"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "loadProfilePicturesFromFacebook"]
+- !private ["CSo16UIViewController", "navigationController"]
+- !private ["CSo16UIViewController", "popViewController"]
+- ["CSo16UIViewController", "shouldUserSignInIntoFirebase"]
+- ["CSo16UIViewController", "startTimer"]
+- ["CSo16UIViewController", "stopTimer"]
+- ["CSo16UIViewController", "user"]
+- ["CSo16UIViewController", "userId"]
+- ["CSo16UIViewController", "userImageView"]
+- ["CSo16UIViewController", "userService"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "viewWillAppear"]
+- ["CSo16UIViewController", "viewWillDisappear"]
+- ["CSo16UIViewController", ""]
+- ["V10Foundation3URL", "deinit"]
+- !private ["V10Foundation3URL", "init"]
+- !private ["V5Slide4User", "bio"]
+- !private ["V5Slide4User", "images"]
+- ["C5Slide11UserService", "deinit"]
+- !private ["C5Slide11UserService", "getUser"]
+- ["C5Slide11UserService", "init"]
+- !private ["Ps14_ArrayProtocol", "Index"]
+- !private ["Ps14_ArrayProtocol", "IndexDistance"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "SubSequence"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps14_ArrayProtocol", "append"]
+- !private ["Ps14_ArrayProtocol", "count"]
+- !private ["Ps14_ArrayProtocol", "first"]
+- ["Ps14_ArrayProtocol", "init"]
+- !private ["Ps14_ArrayProtocol", "subscript"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "kf"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps24_DestructorSafeContainer", "Index"]
+- !private ["Ps24_DestructorSafeContainer", "IndexDistance"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "SubSequence"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "append"]
+- !private ["Ps24_DestructorSafeContainer", "count"]
+- !private ["Ps24_DestructorSafeContainer", "first"]
+- ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps24_DestructorSafeContainer", "subscript"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "IntegerLiteralType"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisabledRangeIndex"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "Authenticator"]
+- ["Ps9_Hashable", "FacebookService"]
+- !private ["Ps9_Hashable", "IntegerLiteralType"]
+- !private ["Ps9_Hashable", "Stride"]
+- ["Ps9_Hashable", "String"]
+- !private ["Ps9_Hashable", "Timer"]
+- !private ["Ps9_Hashable", "URL"]
+- ["Ps9_Hashable", "UserService"]
+- !private ["Ps9_Hashable", "_DisabledRangeIndex"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "alert"]
+- ["Ps9_Hashable", "authenticator"]
+- ["Ps9_Hashable", "bioLabel"]
+- ["Ps9_Hashable", "changeImage"]
+- ["Ps9_Hashable", "currentImageIndex"]
+- ["Ps9_Hashable", "didLogoutUser"]
+- ["Ps9_Hashable", "didOccurAuthentication"]
+- ["Ps9_Hashable", "didSignInUser"]
+- !private ["Ps9_Hashable", "dismiss"]
+- ["Ps9_Hashable", "editButton"]
+- ["Ps9_Hashable", "editProfile"]
+- !private ["Ps9_Hashable", "facebook"]
+- ["Ps9_Hashable", "facebookService"]
+- !private ["Ps9_Hashable", "image"]
+- ["Ps9_Hashable", "imageTimer"]
+- ["Ps9_Hashable", "images"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "invalidate"]
+- !private ["Ps9_Hashable", "isHidden"]
+- !private ["Ps9_Hashable", "kf"]
+- ["Ps9_Hashable", "loadProfilePicturesFromFacebook"]
+- !private ["Ps9_Hashable", "localizedDescription"]
+- !private ["Ps9_Hashable", "navigationController"]
+- !private ["Ps9_Hashable", "popViewController"]
+- !private ["Ps9_Hashable", "scheduledTimer"]
+- ["Ps9_Hashable", "shouldUserSignInIntoFirebase"]
+- ["Ps9_Hashable", "startTimer"]
+- ["Ps9_Hashable", "stopTimer"]
+- !private ["Ps9_Hashable", "text"]
+- ["Ps9_Hashable", "user"]
+- ["Ps9_Hashable", "userId"]
+- ["Ps9_Hashable", "userImageView"]
+- ["Ps9_Hashable", "userService"]
+- ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", "viewWillAppear"]
+- ["Ps9_Hashable", "viewWillDisappear"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps14_Incrementable", "_DisabledRangeIndex"]
+- !private ["Ps8_Integer", "IntegerLiteralType"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps8_Integer", "_DisabledRangeIndex"]
+- !private ["Ps18_IntegerArithmetic", "IntegerLiteralType"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "Index"]
+- !private ["Ps21_ObjectiveCBridgeable", "IndexDistance"]
+- !private ["Ps21_ObjectiveCBridgeable", "IntegerLiteralType"]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
+- !private ["Ps21_ObjectiveCBridgeable", "SubSequence"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisabledRangeIndex"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "count"]
+- !private ["Ps21_ObjectiveCBridgeable", "first"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "subscript"]
+- !private ["Ps14_SignedInteger", "IntegerLiteralType"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps14_SignedInteger", "_DisabledRangeIndex"]
+- !private ["Ps11_Strideable", "IntegerLiteralType"]
+- !private ["Ps11_Strideable", "Stride"]
+- !private ["Ps11_Strideable", "_DisabledRangeIndex"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "P12FacebookCore26AppEventParameterValueType"
+- "Sa"
+- "O5Slide19AuthenticationError"
+- "C5Slide13Authenticator"
+- "P5Slide21AuthenticatorDelegate"
+- !private "P12ObjectMapper12BaseMappable"
+- "Ps23BidirectionalCollection"
+- "Ps22BidirectionalIndexable"
+- !private "Vs18BidirectionalSlice"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- "Ps10Collection"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "Vs27DefaultBidirectionalIndices"
+- !private "Vs26DefaultRandomAccessIndices"
+- "Sd"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "C5Slide15FacebookService"
+- "C5Slide15FirebaseManager"
+- !private "O5Slide20FirebaseManagerError"
+- "Ps8Hashable"
+- "SQ"
+- "Ps9Indexable"
+- "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps16IteratorProtocol"
+- !private "P10SwiftyJSON17JSONSubscriptType"
+- "C10Kingfisher10Kingfisher"
+- !private "P10Kingfisher20KingfisherCompatible"
+- !private "Ps25LosslessStringConvertible"
+- !private "P12ObjectMapper8Mappable"
+- !private "VV5Slide15GlobalConstants7Message"
+- !private "Ps10MirrorPath"
+- "Ps17MutableCollection"
+- "Ps16MutableIndexable"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "Sq"
+- "C5Slide21ProfileViewController"
+- "O5Slide8Provider"
+- "Ps22RandomAccessCollection"
+- "Ps21RandomAccessIndexable"
+- !private "Vs17RandomAccessSlice"
+- "Ps26RangeReplaceableCollection"
+- "Ps25RangeReplaceableIndexable"
+- !private "Ps16RawRepresentable"
+- !private "P10Foundation20ReferenceConvertible"
+- !private "P10Kingfisher8Resource"
+- "C10Kingfisher17RetrieveImageTask"
+- "V10ObjectiveC8Selector"
+- "Ps8Sequence"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Vs5Slice"
+- !private "Ps10Strideable"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- "CSo5Timer"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- !private "CSo8UIButton"
+- "PSo18UIContentContainer"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "CSo9UIControl"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo11UIImageView"
+- !private "CSo7UILabel"
+- !private "CSo22UINavigationController"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- "V10Foundation3URL"
+- !private "V5Slide4User"
+- "C5Slide11UserService"
+- "Ps14_ArrayProtocol"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps34_ExpressibleByFileReferenceLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Downloads/Socialyze1-Setup2/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCoordinateBounds.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCompatabilityMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GoogleMapsBase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSURLTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSSyncTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSServices.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolyline.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolygon.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaService.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCamera.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanorama.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOrientation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMutablePath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarkerLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarker.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSUISettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView+Animation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapStyle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorDisplay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorBuilding.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGroundOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeometryUtils.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeocoder.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSProjection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCoordinateBounds+GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCircle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraPosition.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCALayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSDeprecationMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSAddress.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Modules/module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Modules/ObjectMapper.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Headers/ObjectMapper-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Headers/ObjectMapper-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSUserAddedPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesClient.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceTypes.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadataList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadata.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihoodList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihood.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteTableDataSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteResultsViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompletePrediction.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteMatchFragment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFilter.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFetcher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAddressComponent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GooglePlaces.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules/FloatRatingView.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/IQKeyboardManagerSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Headers/Kingfisher-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Headers/Kingfisher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Headers/Kingfisher-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Modules/module.modulemap"
+interface-hash: "a0afd856f37a178d62871ce4b2aa7216"

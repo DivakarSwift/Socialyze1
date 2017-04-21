@@ -1,0 +1,454 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "GlobalConstants"
+provides-nominal:
+- "V5Slide15GlobalConstants"
+- "VV5Slide15GlobalConstants7APIKeys"
+- "VV5Slide15GlobalConstants14UserDefaultKey"
+- "VV5Slide15GlobalConstants12Notification"
+- "VV5Slide15GlobalConstants7Message"
+provides-member:
+- ["V5Slide15GlobalConstants", ""]
+- ["VV5Slide15GlobalConstants7APIKeys", ""]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", ""]
+- ["VV5Slide15GlobalConstants12Notification", ""]
+- ["VV5Slide15GlobalConstants7Message", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "NSNotification"
+- "CastingPrecedence"
+- "UIApplicationOpenSettingsURLString"
+- "GlobalConstants"
+- "URL"
+- "AnyHashable"
+- !private "NotificationCenter"
+- "UIApplication"
+- "String"
+- "StringLiteralType"
+- !private "UserDefaults"
+depends-member:
+- ["VV5Slide15GlobalConstants7APIKeys", "API_KEY"]
+- ["VV5Slide15GlobalConstants7APIKeys", "googleMap"]
+- ["VV5Slide15GlobalConstants7APIKeys", "init"]
+- ["Ps9AnyObject", "Name"]
+- !private ["Ps9AnyObject", "default"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "openURL"]
+- !private ["Ps9AnyObject", "post"]
+- !private ["Ps9AnyObject", "removeObject"]
+- !private ["Ps9AnyObject", "set"]
+- ["Ps9AnyObject", "shared"]
+- !private ["Ps9AnyObject", "standard"]
+- ["Ps9AnyObject", "uppercased"]
+- !private ["Ps9AnyObject", "value"]
+- ["Sb", "deinit"]
+- ["Ps7CVarArg", "Name"]
+- !private ["Ps7CVarArg", "default"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "openURL"]
+- !private ["Ps7CVarArg", "post"]
+- !private ["Ps7CVarArg", "removeObject"]
+- !private ["Ps7CVarArg", "set"]
+- ["Ps7CVarArg", "shared"]
+- !private ["Ps7CVarArg", "standard"]
+- ["Ps7CVarArg", "uppercased"]
+- !private ["Ps7CVarArg", "value"]
+- ["Ps10Comparable", "init"]
+- ["Ps10Comparable", "uppercased"]
+- ["Ps28CustomDebugStringConvertible", "Name"]
+- !private ["Ps28CustomDebugStringConvertible", "default"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "openURL"]
+- !private ["Ps28CustomDebugStringConvertible", "post"]
+- !private ["Ps28CustomDebugStringConvertible", "removeObject"]
+- !private ["Ps28CustomDebugStringConvertible", "set"]
+- ["Ps28CustomDebugStringConvertible", "shared"]
+- !private ["Ps28CustomDebugStringConvertible", "standard"]
+- ["Ps28CustomDebugStringConvertible", "uppercased"]
+- !private ["Ps28CustomDebugStringConvertible", "value"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps29CustomPlaygroundQuickLookable", "uppercased"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps17CustomReflectable", "uppercased"]
+- ["Ps23CustomStringConvertible", "Name"]
+- !private ["Ps23CustomStringConvertible", "default"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "openURL"]
+- !private ["Ps23CustomStringConvertible", "post"]
+- !private ["Ps23CustomStringConvertible", "removeObject"]
+- !private ["Ps23CustomStringConvertible", "set"]
+- ["Ps23CustomStringConvertible", "shared"]
+- !private ["Ps23CustomStringConvertible", "standard"]
+- ["Ps23CustomStringConvertible", "uppercased"]
+- !private ["Ps23CustomStringConvertible", "value"]
+- ["Ps9Equatable", "Name"]
+- !private ["Ps9Equatable", "default"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "openURL"]
+- !private ["Ps9Equatable", "post"]
+- !private ["Ps9Equatable", "removeObject"]
+- !private ["Ps9Equatable", "set"]
+- ["Ps9Equatable", "shared"]
+- !private ["Ps9Equatable", "standard"]
+- ["Ps9Equatable", "uppercased"]
+- !private ["Ps9Equatable", "value"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "uppercased"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "uppercased"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "uppercased"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "uppercased"]
+- ["V5Slide15GlobalConstants", "APIKeys"]
+- ["V5Slide15GlobalConstants", "AnyHashable"]
+- ["V5Slide15GlobalConstants", "Message"]
+- ["V5Slide15GlobalConstants", "NSNotification"]
+- ["V5Slide15GlobalConstants", "Notification"]
+- !private ["V5Slide15GlobalConstants", "NotificationCenter"]
+- ["V5Slide15GlobalConstants", "String"]
+- ["V5Slide15GlobalConstants", "UIApplication"]
+- ["V5Slide15GlobalConstants", "UIApplicationOpenSettingsURLString"]
+- ["V5Slide15GlobalConstants", "URL"]
+- ["V5Slide15GlobalConstants", "UserDefaultKey"]
+- !private ["V5Slide15GlobalConstants", "UserDefaults"]
+- !private ["V5Slide15GlobalConstants", "cancel"]
+- ["V5Slide15GlobalConstants", "error"]
+- ["V5Slide15GlobalConstants", "init"]
+- ["V5Slide15GlobalConstants", "ok"]
+- ["Ps8Hashable", "Name"]
+- !private ["Ps8Hashable", "default"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "openURL"]
+- !private ["Ps8Hashable", "post"]
+- !private ["Ps8Hashable", "removeObject"]
+- !private ["Ps8Hashable", "set"]
+- ["Ps8Hashable", "shared"]
+- !private ["Ps8Hashable", "standard"]
+- ["Ps8Hashable", "uppercased"]
+- !private ["Ps8Hashable", "value"]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps25LosslessStringConvertible", "uppercased"]
+- ["VV5Slide15GlobalConstants7Message", "Message"]
+- ["VV5Slide15GlobalConstants7Message", "String"]
+- ["VV5Slide15GlobalConstants7Message", "UIApplication"]
+- ["VV5Slide15GlobalConstants7Message", "UIApplicationOpenSettingsURLString"]
+- ["VV5Slide15GlobalConstants7Message", "URL"]
+- ["VV5Slide15GlobalConstants7Message", "cancelAction"]
+- ["VV5Slide15GlobalConstants7Message", "cancelTitle"]
+- ["VV5Slide15GlobalConstants7Message", "deinit"]
+- ["VV5Slide15GlobalConstants7Message", "error"]
+- ["VV5Slide15GlobalConstants7Message", "init"]
+- ["VV5Slide15GlobalConstants7Message", "locationDenied"]
+- ["VV5Slide15GlobalConstants7Message", "message"]
+- ["VV5Slide15GlobalConstants7Message", "ok"]
+- ["VV5Slide15GlobalConstants7Message", "okAction"]
+- ["VV5Slide15GlobalConstants7Message", "okTitle"]
+- ["VV5Slide15GlobalConstants7Message", "oops"]
+- ["VV5Slide15GlobalConstants7Message", "title"]
+- ["VV5Slide15GlobalConstants7Message", "userNotInPerimeter"]
+- ["Ps10MirrorPath", "init"]
+- ["Ps10MirrorPath", "uppercased"]
+- ["PSo8NSCoding", "Name"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "uppercased"]
+- ["PSo9NSCopying", "Name"]
+- ["PSo9NSCopying", "init"]
+- ["PSo9NSCopying", "uppercased"]
+- ["PSo16NSMutableCopying", "init"]
+- ["PSo16NSMutableCopying", "uppercased"]
+- ["CSo14NSNotification", "Name"]
+- ["CSo8NSObject", "Name"]
+- !private ["CSo8NSObject", "default"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "openURL"]
+- !private ["CSo8NSObject", "post"]
+- !private ["CSo8NSObject", "removeObject"]
+- !private ["CSo8NSObject", "set"]
+- ["CSo8NSObject", "shared"]
+- !private ["CSo8NSObject", "standard"]
+- ["CSo8NSObject", "uppercased"]
+- !private ["CSo8NSObject", "value"]
+- ["PSo16NSObjectProtocol", "Name"]
+- !private ["PSo16NSObjectProtocol", "default"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "openURL"]
+- !private ["PSo16NSObjectProtocol", "post"]
+- !private ["PSo16NSObjectProtocol", "removeObject"]
+- !private ["PSo16NSObjectProtocol", "set"]
+- ["PSo16NSObjectProtocol", "shared"]
+- !private ["PSo16NSObjectProtocol", "standard"]
+- ["PSo16NSObjectProtocol", "uppercased"]
+- !private ["PSo16NSObjectProtocol", "value"]
+- ["PSo14NSSecureCoding", "init"]
+- ["PSo14NSSecureCoding", "uppercased"]
+- ["CSo8NSString", "init"]
+- ["CSo8NSString", "uppercased"]
+- ["VCSo14NSNotification4Name", "deinit"]
+- !private ["VCSo14NSNotification4Name", "init"]
+- ["VV5Slide15GlobalConstants12Notification", "AnyHashable"]
+- ["VV5Slide15GlobalConstants12Notification", "NSNotification"]
+- ["VV5Slide15GlobalConstants12Notification", "Notification"]
+- !private ["VV5Slide15GlobalConstants12Notification", "NotificationCenter"]
+- ["VV5Slide15GlobalConstants12Notification", "String"]
+- ["VV5Slide15GlobalConstants12Notification", "deinit"]
+- ["VV5Slide15GlobalConstants12Notification", "fire"]
+- ["VV5Slide15GlobalConstants12Notification", "init"]
+- ["VV5Slide15GlobalConstants12Notification", "locationAuthorizationStatusChanged"]
+- ["VV5Slide15GlobalConstants12Notification", "locationUpdateError"]
+- ["VV5Slide15GlobalConstants12Notification", "name"]
+- ["VV5Slide15GlobalConstants12Notification", "newLocationObtained"]
+- ["VV5Slide15GlobalConstants12Notification", "notification"]
+- !private ["CSo18NotificationCenter", "default"]
+- ["CSo18NotificationCenter", "deinit"]
+- !private ["CSo18NotificationCenter", "post"]
+- ["Sq", "deinit"]
+- !private ["Ps16RawRepresentable", "init"]
+- ["P10Foundation20ReferenceConvertible", "init"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["SS", "uppercased"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps16TextOutputStream", "uppercased"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["Ps20TextOutputStreamable", "uppercased"]
+- ["CSo13UIApplication", "deinit"]
+- ["CSo13UIApplication", "openURL"]
+- ["CSo13UIApplication", "shared"]
+- ["CSo11UIResponder", "openURL"]
+- ["CSo11UIResponder", "shared"]
+- ["PSo30UIResponderStandardEditActions", "openURL"]
+- ["PSo30UIResponderStandardEditActions", "shared"]
+- ["V10Foundation3URL", "deinit"]
+- ["V10Foundation3URL", "init"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "String"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "UserDefaultKey"]
+- !private ["VV5Slide15GlobalConstants14UserDefaultKey", "UserDefaults"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "deinit"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "firstTimeLogin"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "init"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "key"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "remove"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "set"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "taggableFriendsPermissionStatusFromFacebook"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "userFriendsPermissionStatusFromFacebook"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "userIdFromFacebook"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "userPhotosPermissionStatusFromFacebook"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "value"]
+- ["CSo12UserDefaults", "deinit"]
+- !private ["CSo12UserDefaults", "removeObject"]
+- !private ["CSo12UserDefaults", "set"]
+- !private ["CSo12UserDefaults", "standard"]
+- !private ["CSo12UserDefaults", "value"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "uppercased"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "uppercased"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "uppercased"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "uppercased"]
+- ["Ps34_ExpressibleByFileReferenceLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "Name"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "uppercased"]
+- ["Ps9_Hashable", "Name"]
+- !private ["Ps9_Hashable", "default"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "openURL"]
+- !private ["Ps9_Hashable", "post"]
+- !private ["Ps9_Hashable", "removeObject"]
+- !private ["Ps9_Hashable", "set"]
+- ["Ps9_Hashable", "shared"]
+- !private ["Ps9_Hashable", "standard"]
+- ["Ps9_Hashable", "uppercased"]
+- !private ["Ps9_Hashable", "value"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- ["Ps21_ObjectiveCBridgeable", "uppercased"]
+- !private ["Ps20_SwiftNewtypeWrapper", "init"]
+depends-nominal:
+- "VV5Slide15GlobalConstants7APIKeys"
+- "Ps9AnyObject"
+- "Sb"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "V5Slide15GlobalConstants"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "VV5Slide15GlobalConstants7Message"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo14NSNotification"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "VCSo14NSNotification4Name"
+- "VV5Slide15GlobalConstants12Notification"
+- "CSo18NotificationCenter"
+- "Sq"
+- !private "Ps16RawRepresentable"
+- "P10Foundation20ReferenceConvertible"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "CSo13UIApplication"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "V10Foundation3URL"
+- "VV5Slide15GlobalConstants14UserDefaultKey"
+- "CSo12UserDefaults"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps34_ExpressibleByFileReferenceLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps20_SwiftNewtypeWrapper"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreImage.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/arm64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/arm64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/arm64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCoordinateBounds.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCompatabilityMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GoogleMapsBase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSURLTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSSyncTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSServices.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolyline.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolygon.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaService.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCamera.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanorama.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOrientation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMutablePath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarkerLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarker.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSUISettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView+Animation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapStyle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorDisplay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorBuilding.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGroundOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeometryUtils.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeocoder.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSProjection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCoordinateBounds+GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCircle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraPosition.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCALayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSDeprecationMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSAddress.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Modules/module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreLocation.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/ObjectMapper/ObjectMapper.framework/Modules/ObjectMapper.swiftmodule/arm64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSUserAddedPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesClient.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceTypes.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadataList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadata.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihoodList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihood.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteTableDataSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteResultsViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompletePrediction.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteMatchFragment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFilter.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFetcher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAddressComponent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GooglePlaces.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/FloatRatingView/FloatRatingView.framework/Modules/FloatRatingView.swiftmodule/arm64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/IQKeyboardManagerSwift.swiftmodule/arm64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm64.swiftmodule"
+interface-hash: "a4699ea966894e01335b58a97563abe9"

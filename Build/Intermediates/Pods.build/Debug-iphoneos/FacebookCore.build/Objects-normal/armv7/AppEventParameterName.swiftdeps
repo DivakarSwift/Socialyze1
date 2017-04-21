@@ -1,0 +1,458 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "AppEventParameterName"
+- "=="
+provides-nominal:
+- "O12FacebookCore21AppEventParameterName"
+provides-member:
+- ["O12FacebookCore21AppEventParameterName", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "FBSDKAppEventParameterNameContentID"
+- !private "FBSDKAppEventParameterNameNumItems"
+- "Hashable"
+- !private "FBSDKAppEventParameterNameSearchString"
+- "Bool"
+- "String"
+- !private "FBSDKAppEventParameterNameDescription"
+- !private "FBSDKAppEventParameterNameCurrency"
+- "=="
+- "AssignmentPrecedence"
+- !private "FBSDKAppEventParameterNameMaxRatingValue"
+- "CustomStringConvertible"
+- !private "FBSDKAppEventParameterNameRegistrationMethod"
+- "ExpressibleByStringLiteral"
+- "StringLiteralType"
+- !private "FBSDKAppEventParameterNamePaymentInfoAvailable"
+- !private "FBSDKAppEventParameterNameSuccess"
+- !private "FBSDKAppEventNameAchievedLevel"
+- !private "FBSDKAppEventParameterNameContentType"
+- "AppEventParameterName"
+- "Int"
+- "RawRepresentable"
+depends-member:
+- !private ["Ps9AnyObject", "hashValue"]
+- ["O12FacebookCore21AppEventParameterName", "=="]
+- ["O12FacebookCore21AppEventParameterName", "AppEventParameterName"]
+- ["O12FacebookCore21AppEventParameterName", "Bool"]
+- ["O12FacebookCore21AppEventParameterName", "Description"]
+- ["O12FacebookCore21AppEventParameterName", "ExtendedGraphemeClusterLiteralType"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventNameAchievedLevel"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameContentID"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameContentType"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameCurrency"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameDescription"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameNumItems"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameSearchString"]
+- !private ["O12FacebookCore21AppEventParameterName", "FBSDKAppEventParameterNameSuccess"]
+- ["O12FacebookCore21AppEventParameterName", "Int"]
+- ["O12FacebookCore21AppEventParameterName", "RawValue"]
+- ["O12FacebookCore21AppEventParameterName", "String"]
+- ["O12FacebookCore21AppEventParameterName", "StringLiteralType"]
+- ["O12FacebookCore21AppEventParameterName", "UnicodeScalarLiteralType"]
+- ["O12FacebookCore21AppEventParameterName", "_toAnyHashable"]
+- ["O12FacebookCore21AppEventParameterName", "contentId"]
+- ["O12FacebookCore21AppEventParameterName", "contentType"]
+- ["O12FacebookCore21AppEventParameterName", "currency"]
+- ["O12FacebookCore21AppEventParameterName", "custom"]
+- ["O12FacebookCore21AppEventParameterName", "deinit"]
+- ["O12FacebookCore21AppEventParameterName", "description"]
+- ["O12FacebookCore21AppEventParameterName", "hashValue"]
+- ["O12FacebookCore21AppEventParameterName", "init"]
+- ["O12FacebookCore21AppEventParameterName", "itemCount"]
+- ["O12FacebookCore21AppEventParameterName", "level"]
+- ["O12FacebookCore21AppEventParameterName", "maxRatingValue"]
+- ["O12FacebookCore21AppEventParameterName", "paymentInfoAvailable"]
+- ["O12FacebookCore21AppEventParameterName", "rawValue"]
+- ["O12FacebookCore21AppEventParameterName", "registrationMethod"]
+- ["O12FacebookCore21AppEventParameterName", "searchedString"]
+- ["O12FacebookCore21AppEventParameterName", "successful"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps28CustomDebugStringConvertible", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- ["Ps23CustomStringConvertible", "Description"]
+- ["Ps23CustomStringConvertible", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps23CustomStringConvertible", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps23CustomStringConvertible", "RawValue"]
+- ["Ps23CustomStringConvertible", "StringLiteralType"]
+- ["Ps23CustomStringConvertible", "UnicodeScalarLiteralType"]
+- ["Ps23CustomStringConvertible", "_toAnyHashable"]
+- ["Ps23CustomStringConvertible", "contentId"]
+- ["Ps23CustomStringConvertible", "contentType"]
+- ["Ps23CustomStringConvertible", "currency"]
+- ["Ps23CustomStringConvertible", "custom"]
+- ["Ps23CustomStringConvertible", "description"]
+- ["Ps23CustomStringConvertible", "hashValue"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "itemCount"]
+- ["Ps23CustomStringConvertible", "level"]
+- ["Ps23CustomStringConvertible", "maxRatingValue"]
+- ["Ps23CustomStringConvertible", "paymentInfoAvailable"]
+- ["Ps23CustomStringConvertible", "rawValue"]
+- ["Ps23CustomStringConvertible", "registrationMethod"]
+- ["Ps23CustomStringConvertible", "searchedString"]
+- ["Ps23CustomStringConvertible", "successful"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "Description"]
+- ["Ps9Equatable", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps9Equatable", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps9Equatable", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps9Equatable", "RawValue"]
+- ["Ps9Equatable", "StringLiteralType"]
+- ["Ps9Equatable", "UnicodeScalarLiteralType"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "contentId"]
+- ["Ps9Equatable", "contentType"]
+- ["Ps9Equatable", "currency"]
+- ["Ps9Equatable", "custom"]
+- ["Ps9Equatable", "description"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "itemCount"]
+- ["Ps9Equatable", "level"]
+- ["Ps9Equatable", "maxRatingValue"]
+- ["Ps9Equatable", "paymentInfoAvailable"]
+- ["Ps9Equatable", "rawValue"]
+- ["Ps9Equatable", "registrationMethod"]
+- ["Ps9Equatable", "searchedString"]
+- ["Ps9Equatable", "successful"]
+- ["Ps9Equatable", ""]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "Description"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "RawValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "StringLiteralType"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "UnicodeScalarLiteralType"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "_toAnyHashable"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "contentId"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "contentType"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "currency"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "custom"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "description"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "hashValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "itemCount"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "level"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "maxRatingValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "paymentInfoAvailable"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "rawValue"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "registrationMethod"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "searchedString"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "successful"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", ""]
+- !private ["Ps32ExpressibleByStringInterpolation", "hashValue"]
+- ["Ps26ExpressibleByStringLiteral", "Description"]
+- ["Ps26ExpressibleByStringLiteral", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps26ExpressibleByStringLiteral", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps26ExpressibleByStringLiteral", "RawValue"]
+- ["Ps26ExpressibleByStringLiteral", "StringLiteralType"]
+- ["Ps26ExpressibleByStringLiteral", "UnicodeScalarLiteralType"]
+- ["Ps26ExpressibleByStringLiteral", "_toAnyHashable"]
+- ["Ps26ExpressibleByStringLiteral", "contentId"]
+- ["Ps26ExpressibleByStringLiteral", "contentType"]
+- ["Ps26ExpressibleByStringLiteral", "currency"]
+- ["Ps26ExpressibleByStringLiteral", "custom"]
+- ["Ps26ExpressibleByStringLiteral", "description"]
+- ["Ps26ExpressibleByStringLiteral", "hashValue"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "itemCount"]
+- ["Ps26ExpressibleByStringLiteral", "level"]
+- ["Ps26ExpressibleByStringLiteral", "maxRatingValue"]
+- ["Ps26ExpressibleByStringLiteral", "paymentInfoAvailable"]
+- ["Ps26ExpressibleByStringLiteral", "rawValue"]
+- ["Ps26ExpressibleByStringLiteral", "registrationMethod"]
+- ["Ps26ExpressibleByStringLiteral", "searchedString"]
+- ["Ps26ExpressibleByStringLiteral", "successful"]
+- ["Ps26ExpressibleByStringLiteral", ""]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "Description"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "RawValue"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "StringLiteralType"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "UnicodeScalarLiteralType"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "_toAnyHashable"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "contentId"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "contentType"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "currency"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "custom"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "description"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "hashValue"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "itemCount"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "level"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "maxRatingValue"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "paymentInfoAvailable"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "rawValue"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "registrationMethod"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "searchedString"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "successful"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", ""]
+- ["Ps8Hashable", "Description"]
+- ["Ps8Hashable", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps8Hashable", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps8Hashable", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps8Hashable", "RawValue"]
+- ["Ps8Hashable", "StringLiteralType"]
+- ["Ps8Hashable", "UnicodeScalarLiteralType"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "contentId"]
+- ["Ps8Hashable", "contentType"]
+- ["Ps8Hashable", "currency"]
+- ["Ps8Hashable", "custom"]
+- ["Ps8Hashable", "description"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "itemCount"]
+- ["Ps8Hashable", "level"]
+- ["Ps8Hashable", "maxRatingValue"]
+- ["Ps8Hashable", "paymentInfoAvailable"]
+- ["Ps8Hashable", "rawValue"]
+- ["Ps8Hashable", "registrationMethod"]
+- ["Ps8Hashable", "searchedString"]
+- ["Ps8Hashable", "successful"]
+- ["Ps8Hashable", ""]
+- ["Si", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "hashValue"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- !private ["PSo8NSCoding", "hashValue"]
+- !private ["PSo9NSCopying", "hashValue"]
+- !private ["PSo16NSMutableCopying", "hashValue"]
+- !private ["CSo8NSObject", "hashValue"]
+- !private ["PSo16NSObjectProtocol", "hashValue"]
+- !private ["PSo14NSSecureCoding", "hashValue"]
+- !private ["CSo8NSString", "hashValue"]
+- ["Ps16RawRepresentable", "Description"]
+- ["Ps16RawRepresentable", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps16RawRepresentable", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps16RawRepresentable", "RawValue"]
+- ["Ps16RawRepresentable", "StringLiteralType"]
+- ["Ps16RawRepresentable", "UnicodeScalarLiteralType"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- ["Ps16RawRepresentable", "contentId"]
+- ["Ps16RawRepresentable", "contentType"]
+- ["Ps16RawRepresentable", "currency"]
+- ["Ps16RawRepresentable", "custom"]
+- ["Ps16RawRepresentable", "description"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "itemCount"]
+- ["Ps16RawRepresentable", "level"]
+- ["Ps16RawRepresentable", "maxRatingValue"]
+- ["Ps16RawRepresentable", "paymentInfoAvailable"]
+- ["Ps16RawRepresentable", "rawValue"]
+- ["Ps16RawRepresentable", "registrationMethod"]
+- ["Ps16RawRepresentable", "searchedString"]
+- ["Ps16RawRepresentable", "successful"]
+- ["Ps16RawRepresentable", ""]
+- ["SS", "deinit"]
+- !private ["SS", "hashValue"]
+- !private ["Ps16TextOutputStream", "hashValue"]
+- !private ["Ps20TextOutputStreamable", "hashValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "hashValue"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "hashValue"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "hashValue"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "hashValue"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "hashValue"]
+- ["Ps9_Hashable", "Description"]
+- ["Ps9_Hashable", "ExtendedGraphemeClusterLiteralType"]
+- !private ["Ps9_Hashable", "FBSDKAppEventNameAchievedLevel"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameContentID"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameContentType"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameCurrency"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameDescription"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameMaxRatingValue"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameNumItems"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNamePaymentInfoAvailable"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameRegistrationMethod"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameSearchString"]
+- !private ["Ps9_Hashable", "FBSDKAppEventParameterNameSuccess"]
+- ["Ps9_Hashable", "RawValue"]
+- ["Ps9_Hashable", "StringLiteralType"]
+- ["Ps9_Hashable", "UnicodeScalarLiteralType"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "contentId"]
+- ["Ps9_Hashable", "contentType"]
+- ["Ps9_Hashable", "currency"]
+- ["Ps9_Hashable", "custom"]
+- ["Ps9_Hashable", "description"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "itemCount"]
+- ["Ps9_Hashable", "level"]
+- ["Ps9_Hashable", "maxRatingValue"]
+- ["Ps9_Hashable", "paymentInfoAvailable"]
+- ["Ps9_Hashable", "rawValue"]
+- ["Ps9_Hashable", "registrationMethod"]
+- ["Ps9_Hashable", "searchedString"]
+- ["Ps9_Hashable", "successful"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- "O12FacebookCore21AppEventParameterName"
+- !private "P12FacebookCore26AppEventParameterValueType"
+- "Sb"
+- !private "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "Si"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "Ps16RawRepresentable"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FacebookCore/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FacebookCore.build/unextended-module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/Bolts/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/Bolts.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FBSDKCoreKit/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FBSDKCoreKit.build/module.modulemap"
+interface-hash: "be2b8b150562f2b24814b44a0aa0d91d"

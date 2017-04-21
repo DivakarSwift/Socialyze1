@@ -1,5 +1,36 @@
-/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/ViewController.o
-/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/SelectionViewController.o
-/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/AppDelegate.o
-/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/CustomActivityIndicatorView.o
-/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/PostedViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/Constants.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/Authenticator.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/CustomCell.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/SwipingViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/UIViewControllerExtension.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/MosaicColumn.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/UserService.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/PlaceToUserMapViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/FirebaseManager.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/Event.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/MatchesTableViewCell.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/EditingViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/PDGradientView.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/JSONExtension.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/CheckInModel.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/MatchesViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/MosaicLayout.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/PlaceService.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/ViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/SelectionViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/User.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/AppDelegate.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/CustomActivityIndicatorView.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/UIViewExtension.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/PlaceDetailViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/CategoriesViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/LoginViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/FacebookFriend.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/LocationManager.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/ProfileViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/MatchesCollectionViewCell.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/PostedViewController.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/FacebookService.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/Places+CoreDataClass.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/Places+CoreDataProperties.o
+/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Slide.build/Debug-iphonesimulator/Slide.build/Objects-normal/x86_64/Places+CoreDataModel.o

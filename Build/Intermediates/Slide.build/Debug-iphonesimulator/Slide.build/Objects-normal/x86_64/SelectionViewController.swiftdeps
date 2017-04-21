@@ -6,84 +6,82 @@ provides-nominal:
 provides-member:
 - ["C5Slide23SelectionViewController", ""]
 provides-dynamic-lookup:
-- "btnPeopleSelection"
-- "btn1People"
-- "btnImage"
-- "lblCharacterLft"
-- "openGallary"
-- "txtDescription"
-- "imagePickerControllerDidCancel"
-- "btn3People"
-- "didReceiveMemoryWarning"
-- "eventsArray"
-- "textView"
-- "imagePickerController"
-- "numberOfComponents"
-- "userImg"
-- "val"
-- "openCamera"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "pickerView"
-- "btnPost"
-- "btnPost"
-- "viewDidLoad"
-- "moveImageInCircile"
 - "picker"
-- "addLoadingIndicator"
+- "lblBioCharactersLeft"
+- "numberOfComponents"
+- "didReceiveMemoryWarning"
 - "objectToMove"
-- "btn2People"
+- "openCamera"
+- "lblCharacterLft"
+- "btnImage"
+- "addLoadingIndicator"
+- "openGallary"
+- "moveImageInCircile"
+- "imagePickerController"
+- "imagePickerControllerDidCancel"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "pickerView"
+- "viewWillAppear"
+- "val"
+- "txtUserBio"
+- "eventsArray"
+- "userImg"
+- "btnPost"
+- "btnPost"
+- "textView"
+- "viewDidLoad"
+- "txtDescription"
 depends-top-level:
-- !private "UIImage"
-- !private "print"
+- !private "*"
+- "String"
+- "CustomActivityIndicatorView"
+- "Int"
+- "UIImagePickerController"
 - !private "+"
+- "UIPickerViewDelegate"
 - !private "kCAAnimationPaced"
 - !private "CGAffineTransform"
-- !private "CGPoint"
-- !private "UIAlertActionStyle"
-- !private "CGFloat"
-- "Array"
-- "String"
-- !private "CAKeyframeAnimation"
-- !private "/"
-- "Bool"
-- !private "UIImagePickerControllerSourceType"
-- !private "UnicodeScalarType"
-- !private "kCAAnimationRotateAuto"
-- !private "-"
-- "CustomActivityIndicatorView"
 - "SelectionViewController"
-- !private "UIControlState"
-- !private "UIColor"
-- "UIButton"
-- "CastingPrecedence"
-- "UIImagePickerController"
+- !private "M_PI"
 - "UIViewController"
-- !private "&&"
-- "UIPickerViewDelegate"
+- !private ">"
+- "UIView"
 - "AssignmentPrecedence"
 - !private "=="
-- "UIPickerView"
-- !private ">"
-- !private "UIAlertAction"
-- "UIImagePickerControllerDelegate"
-- !private "M_PI"
+- !private "UnicodeScalarType"
+- "CastingPrecedence"
+- !private "UIControlState"
+- !private "-"
+- !private "CGPoint"
+- !private "CAKeyframeAnimation"
+- !private "print"
 - !private "StringLiteralType"
-- "UINavigationControllerDelegate"
-- "NSRange"
-- "UIView"
-- !private "UIImagePickerControllerOriginalImage"
-- "UIPickerViewDataSource"
-- "UIActionSheetDelegate"
-- "UITextViewDelegate"
 - !private "UIAlertController"
-- !private "UIBezierPath"
-- !private "*"
+- "UIPickerView"
+- "UINavigationControllerDelegate"
+- !private "UIImagePickerControllerSourceType"
+- !private "kCAAnimationRotateAuto"
 - !private "BooleanLiteralType"
+- "UIImagePickerControllerDelegate"
+- !private "UIImagePickerControllerOriginalImage"
+- "UIActionSheetDelegate"
+- !private "UIAlertActionStyle"
+- !private "UIImage"
+- "UITextViewDelegate"
+- "Bool"
+- !private "UIAlertAction"
 - "UITextView"
+- "UIPickerViewDataSource"
+- !private "/"
 - "UILabel"
-- "Int"
+- "Array"
+- "UIButton"
+- !private "CGFloat"
+- !private "&&"
+- !private "UIBezierPath"
+- "NSRange"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - ["Ps9AnyObject", "Array"]
@@ -98,7 +96,6 @@ depends-member:
 - !private ["Ps9AnyObject", "UIAlertActionStyle"]
 - !private ["Ps9AnyObject", "UIAlertController"]
 - !private ["Ps9AnyObject", "UIBezierPath"]
-- !private ["Ps9AnyObject", "UIColor"]
 - !private ["Ps9AnyObject", "UIControlState"]
 - !private ["Ps9AnyObject", "UIImage"]
 - ["Ps9AnyObject", "UIImagePickerController"]
@@ -112,17 +109,10 @@ depends-member:
 - !private ["Ps9AnyObject", "addAction"]
 - ["Ps9AnyObject", "addLoadingIndicator"]
 - !private ["Ps9AnyObject", "addSubview"]
-- !private ["Ps9AnyObject", "borderColor"]
-- !private ["Ps9AnyObject", "borderWidth"]
-- ["Ps9AnyObject", "btn1People"]
-- ["Ps9AnyObject", "btn2People"]
-- ["Ps9AnyObject", "btn3People"]
 - ["Ps9AnyObject", "btnImage"]
-- ["Ps9AnyObject", "btnPeopleSelection"]
 - ["Ps9AnyObject", "btnPost"]
 - !private ["Ps9AnyObject", "calculationMode"]
 - !private ["Ps9AnyObject", "center"]
-- !private ["Ps9AnyObject", "cgColor"]
 - !private ["Ps9AnyObject", "cgPath"]
 - !private ["Ps9AnyObject", "characters"]
 - !private ["Ps9AnyObject", "clipsToBounds"]
@@ -142,6 +132,7 @@ depends-member:
 - !private ["Ps9AnyObject", "kCAAnimationPaced"]
 - !private ["Ps9AnyObject", "kCAAnimationRotateAuto"]
 - !private ["Ps9AnyObject", "layer"]
+- ["Ps9AnyObject", "lblBioCharactersLeft"]
 - ["Ps9AnyObject", "lblCharacterLft"]
 - ["Ps9AnyObject", "moveImageInCircile"]
 - !private ["Ps9AnyObject", "navigationBar"]
@@ -158,7 +149,6 @@ depends-member:
 - ["Ps9AnyObject", "pickerView"]
 - !private ["Ps9AnyObject", "present"]
 - !private ["Ps9AnyObject", "print"]
-- !private ["Ps9AnyObject", "red"]
 - !private ["Ps9AnyObject", "repeatCount"]
 - !private ["Ps9AnyObject", "rotationMode"]
 - ["Ps9AnyObject", "scrollViewDidEndDecelerating"]
@@ -177,6 +167,7 @@ depends-member:
 - !private ["Ps9AnyObject", "setTitle"]
 - !private ["Ps9AnyObject", "sourceType"]
 - !private ["Ps9AnyObject", "startAnimating"]
+- !private ["Ps9AnyObject", "stopAnimating"]
 - !private ["Ps9AnyObject", "text"]
 - ["Ps9AnyObject", "textView"]
 - ["Ps9AnyObject", "textViewDidBeginEditing"]
@@ -188,16 +179,22 @@ depends-member:
 - !private ["Ps9AnyObject", "title"]
 - !private ["Ps9AnyObject", "topItem"]
 - ["Ps9AnyObject", "txtDescription"]
+- ["Ps9AnyObject", "txtUserBio"]
 - ["Ps9AnyObject", "userImg"]
 - ["Ps9AnyObject", "val"]
 - !private ["Ps9AnyObject", "view"]
 - ["Ps9AnyObject", "viewDidLoad"]
 - ["Ps9AnyObject", "viewForZooming"]
 - ["Ps9AnyObject", "viewForZoomingInScrollView"]
-- !private ["Ps9AnyObject", "white"]
+- ["Ps9AnyObject", "viewWillAppear"]
 - ["Ps9AnyObject", "willPresent"]
 - ["Ps9AnyObject", "willPresentActionSheet"]
 - ["Ps9AnyObject", ""]
+- !private ["P12FacebookCore26AppEventParameterValueType", "IntegerLiteralType"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "Stride"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "_DisabledRangeIndex"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "characters"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "init"]
 - !private ["Sa", "Element"]
 - !private ["Sa", "Index"]
 - !private ["Sa", "IndexDistance"]
@@ -262,8 +259,6 @@ depends-member:
 - !private ["CSo19CAKeyframeAnimation", "repeatCount"]
 - !private ["CSo19CAKeyframeAnimation", "rotationMode"]
 - !private ["CSo7CALayer", "add"]
-- !private ["CSo7CALayer", "borderColor"]
-- !private ["CSo7CALayer", "borderWidth"]
 - !private ["CSo7CALayer", "cornerRadius"]
 - ["CSo7CALayer", "deinit"]
 - !private ["PSo15CALayerDelegate", "addSubview"]
@@ -275,11 +270,10 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "setImage"]
 - !private ["PSo15CALayerDelegate", "setTitle"]
 - !private ["PSo15CALayerDelegate", "startAnimating"]
+- !private ["PSo15CALayerDelegate", "stopAnimating"]
 - !private ["PSo15CALayerDelegate", "text"]
 - !private ["PSo15CALayerDelegate", "topItem"]
 - !private ["PSo13CAMediaTiming", "add"]
-- !private ["PSo13CAMediaTiming", "borderColor"]
-- !private ["PSo13CAMediaTiming", "borderWidth"]
 - !private ["PSo13CAMediaTiming", "calculationMode"]
 - !private ["PSo13CAMediaTiming", "cornerRadius"]
 - !private ["PSo13CAMediaTiming", "duration"]
@@ -298,7 +292,6 @@ depends-member:
 - ["VSC17CGAffineTransform", "deinit"]
 - !private ["VSC17CGAffineTransform", "init"]
 - !private ["VSC17CGAffineTransform", "rotated"]
-- ["CSo7CGColor", "deinit"]
 - ["V12CoreGraphics7CGFloat", "deinit"]
 - !private ["V12CoreGraphics7CGFloat", "init"]
 - ["VSC7CGPoint", "deinit"]
@@ -321,7 +314,6 @@ depends-member:
 - !private ["Ps7CVarArg", "UIAlertActionStyle"]
 - !private ["Ps7CVarArg", "UIAlertController"]
 - !private ["Ps7CVarArg", "UIBezierPath"]
-- !private ["Ps7CVarArg", "UIColor"]
 - !private ["Ps7CVarArg", "UIControlState"]
 - !private ["Ps7CVarArg", "UIImage"]
 - ["Ps7CVarArg", "UIImagePickerController"]
@@ -337,17 +329,10 @@ depends-member:
 - !private ["Ps7CVarArg", "addAction"]
 - ["Ps7CVarArg", "addLoadingIndicator"]
 - !private ["Ps7CVarArg", "addSubview"]
-- !private ["Ps7CVarArg", "borderColor"]
-- !private ["Ps7CVarArg", "borderWidth"]
-- ["Ps7CVarArg", "btn1People"]
-- ["Ps7CVarArg", "btn2People"]
-- ["Ps7CVarArg", "btn3People"]
 - ["Ps7CVarArg", "btnImage"]
-- ["Ps7CVarArg", "btnPeopleSelection"]
 - ["Ps7CVarArg", "btnPost"]
 - !private ["Ps7CVarArg", "calculationMode"]
 - !private ["Ps7CVarArg", "center"]
-- !private ["Ps7CVarArg", "cgColor"]
 - !private ["Ps7CVarArg", "cgPath"]
 - !private ["Ps7CVarArg", "characters"]
 - !private ["Ps7CVarArg", "clipsToBounds"]
@@ -368,6 +353,7 @@ depends-member:
 - !private ["Ps7CVarArg", "kCAAnimationPaced"]
 - !private ["Ps7CVarArg", "kCAAnimationRotateAuto"]
 - !private ["Ps7CVarArg", "layer"]
+- ["Ps7CVarArg", "lblBioCharactersLeft"]
 - ["Ps7CVarArg", "lblCharacterLft"]
 - ["Ps7CVarArg", "moveImageInCircile"]
 - !private ["Ps7CVarArg", "navigationBar"]
@@ -384,7 +370,6 @@ depends-member:
 - ["Ps7CVarArg", "pickerView"]
 - !private ["Ps7CVarArg", "present"]
 - !private ["Ps7CVarArg", "print"]
-- !private ["Ps7CVarArg", "red"]
 - !private ["Ps7CVarArg", "repeatCount"]
 - !private ["Ps7CVarArg", "rotationMode"]
 - ["Ps7CVarArg", "scrollViewDidEndDecelerating"]
@@ -403,6 +388,7 @@ depends-member:
 - !private ["Ps7CVarArg", "setTitle"]
 - !private ["Ps7CVarArg", "sourceType"]
 - !private ["Ps7CVarArg", "startAnimating"]
+- !private ["Ps7CVarArg", "stopAnimating"]
 - !private ["Ps7CVarArg", "subscript"]
 - !private ["Ps7CVarArg", "text"]
 - ["Ps7CVarArg", "textView"]
@@ -415,13 +401,14 @@ depends-member:
 - !private ["Ps7CVarArg", "title"]
 - !private ["Ps7CVarArg", "topItem"]
 - ["Ps7CVarArg", "txtDescription"]
+- ["Ps7CVarArg", "txtUserBio"]
 - ["Ps7CVarArg", "userImg"]
 - ["Ps7CVarArg", "val"]
 - !private ["Ps7CVarArg", "view"]
 - ["Ps7CVarArg", "viewDidLoad"]
 - ["Ps7CVarArg", "viewForZooming"]
 - ["Ps7CVarArg", "viewForZoomingInScrollView"]
-- !private ["Ps7CVarArg", "white"]
+- ["Ps7CVarArg", "viewWillAppear"]
 - ["Ps7CVarArg", "willPresent"]
 - ["Ps7CVarArg", "willPresentActionSheet"]
 - ["Ps7CVarArg", ""]
@@ -447,6 +434,7 @@ depends-member:
 - !private ["C5Slide27CustomActivityIndicatorView", "deinit"]
 - !private ["C5Slide27CustomActivityIndicatorView", "init"]
 - !private ["C5Slide27CustomActivityIndicatorView", "startAnimating"]
+- !private ["C5Slide27CustomActivityIndicatorView", "stopAnimating"]
 - ["Ps28CustomDebugStringConvertible", "Array"]
 - !private ["Ps28CustomDebugStringConvertible", "CAKeyframeAnimation"]
 - !private ["Ps28CustomDebugStringConvertible", "CGAffineTransform"]
@@ -463,7 +451,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "UIAlertActionStyle"]
 - !private ["Ps28CustomDebugStringConvertible", "UIAlertController"]
 - !private ["Ps28CustomDebugStringConvertible", "UIBezierPath"]
-- !private ["Ps28CustomDebugStringConvertible", "UIColor"]
 - !private ["Ps28CustomDebugStringConvertible", "UIControlState"]
 - !private ["Ps28CustomDebugStringConvertible", "UIImage"]
 - ["Ps28CustomDebugStringConvertible", "UIImagePickerController"]
@@ -478,17 +465,10 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "addAction"]
 - ["Ps28CustomDebugStringConvertible", "addLoadingIndicator"]
 - !private ["Ps28CustomDebugStringConvertible", "addSubview"]
-- !private ["Ps28CustomDebugStringConvertible", "borderColor"]
-- !private ["Ps28CustomDebugStringConvertible", "borderWidth"]
-- ["Ps28CustomDebugStringConvertible", "btn1People"]
-- ["Ps28CustomDebugStringConvertible", "btn2People"]
-- ["Ps28CustomDebugStringConvertible", "btn3People"]
 - ["Ps28CustomDebugStringConvertible", "btnImage"]
-- ["Ps28CustomDebugStringConvertible", "btnPeopleSelection"]
 - ["Ps28CustomDebugStringConvertible", "btnPost"]
 - !private ["Ps28CustomDebugStringConvertible", "calculationMode"]
 - !private ["Ps28CustomDebugStringConvertible", "center"]
-- !private ["Ps28CustomDebugStringConvertible", "cgColor"]
 - !private ["Ps28CustomDebugStringConvertible", "cgPath"]
 - !private ["Ps28CustomDebugStringConvertible", "characters"]
 - !private ["Ps28CustomDebugStringConvertible", "clipsToBounds"]
@@ -509,6 +489,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "kCAAnimationPaced"]
 - !private ["Ps28CustomDebugStringConvertible", "kCAAnimationRotateAuto"]
 - !private ["Ps28CustomDebugStringConvertible", "layer"]
+- ["Ps28CustomDebugStringConvertible", "lblBioCharactersLeft"]
 - ["Ps28CustomDebugStringConvertible", "lblCharacterLft"]
 - ["Ps28CustomDebugStringConvertible", "moveImageInCircile"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationBar"]
@@ -525,7 +506,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "pickerView"]
 - !private ["Ps28CustomDebugStringConvertible", "present"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
-- !private ["Ps28CustomDebugStringConvertible", "red"]
 - !private ["Ps28CustomDebugStringConvertible", "repeatCount"]
 - !private ["Ps28CustomDebugStringConvertible", "rotationMode"]
 - ["Ps28CustomDebugStringConvertible", "scrollViewDidEndDecelerating"]
@@ -544,6 +524,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "setTitle"]
 - !private ["Ps28CustomDebugStringConvertible", "sourceType"]
 - !private ["Ps28CustomDebugStringConvertible", "startAnimating"]
+- !private ["Ps28CustomDebugStringConvertible", "stopAnimating"]
 - !private ["Ps28CustomDebugStringConvertible", "subscript"]
 - !private ["Ps28CustomDebugStringConvertible", "text"]
 - ["Ps28CustomDebugStringConvertible", "textView"]
@@ -556,13 +537,14 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "title"]
 - !private ["Ps28CustomDebugStringConvertible", "topItem"]
 - ["Ps28CustomDebugStringConvertible", "txtDescription"]
+- ["Ps28CustomDebugStringConvertible", "txtUserBio"]
 - ["Ps28CustomDebugStringConvertible", "userImg"]
 - ["Ps28CustomDebugStringConvertible", "val"]
 - !private ["Ps28CustomDebugStringConvertible", "view"]
 - ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
 - ["Ps28CustomDebugStringConvertible", "viewForZooming"]
 - ["Ps28CustomDebugStringConvertible", "viewForZoomingInScrollView"]
-- !private ["Ps28CustomDebugStringConvertible", "white"]
+- ["Ps28CustomDebugStringConvertible", "viewWillAppear"]
 - ["Ps28CustomDebugStringConvertible", "willPresent"]
 - ["Ps28CustomDebugStringConvertible", "willPresentActionSheet"]
 - ["Ps28CustomDebugStringConvertible", ""]
@@ -605,7 +587,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "UIAlertActionStyle"]
 - !private ["Ps23CustomStringConvertible", "UIAlertController"]
 - !private ["Ps23CustomStringConvertible", "UIBezierPath"]
-- !private ["Ps23CustomStringConvertible", "UIColor"]
 - !private ["Ps23CustomStringConvertible", "UIControlState"]
 - !private ["Ps23CustomStringConvertible", "UIImage"]
 - ["Ps23CustomStringConvertible", "UIImagePickerController"]
@@ -622,17 +603,10 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "addAction"]
 - ["Ps23CustomStringConvertible", "addLoadingIndicator"]
 - !private ["Ps23CustomStringConvertible", "addSubview"]
-- !private ["Ps23CustomStringConvertible", "borderColor"]
-- !private ["Ps23CustomStringConvertible", "borderWidth"]
-- ["Ps23CustomStringConvertible", "btn1People"]
-- ["Ps23CustomStringConvertible", "btn2People"]
-- ["Ps23CustomStringConvertible", "btn3People"]
 - ["Ps23CustomStringConvertible", "btnImage"]
-- ["Ps23CustomStringConvertible", "btnPeopleSelection"]
 - ["Ps23CustomStringConvertible", "btnPost"]
 - !private ["Ps23CustomStringConvertible", "calculationMode"]
 - !private ["Ps23CustomStringConvertible", "center"]
-- !private ["Ps23CustomStringConvertible", "cgColor"]
 - !private ["Ps23CustomStringConvertible", "cgPath"]
 - !private ["Ps23CustomStringConvertible", "characters"]
 - !private ["Ps23CustomStringConvertible", "clipsToBounds"]
@@ -653,6 +627,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "kCAAnimationPaced"]
 - !private ["Ps23CustomStringConvertible", "kCAAnimationRotateAuto"]
 - !private ["Ps23CustomStringConvertible", "layer"]
+- ["Ps23CustomStringConvertible", "lblBioCharactersLeft"]
 - ["Ps23CustomStringConvertible", "lblCharacterLft"]
 - ["Ps23CustomStringConvertible", "moveImageInCircile"]
 - !private ["Ps23CustomStringConvertible", "navigationBar"]
@@ -669,7 +644,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "pickerView"]
 - !private ["Ps23CustomStringConvertible", "present"]
 - !private ["Ps23CustomStringConvertible", "print"]
-- !private ["Ps23CustomStringConvertible", "red"]
 - !private ["Ps23CustomStringConvertible", "repeatCount"]
 - !private ["Ps23CustomStringConvertible", "rotationMode"]
 - ["Ps23CustomStringConvertible", "scrollViewDidEndDecelerating"]
@@ -688,6 +662,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "setTitle"]
 - !private ["Ps23CustomStringConvertible", "sourceType"]
 - !private ["Ps23CustomStringConvertible", "startAnimating"]
+- !private ["Ps23CustomStringConvertible", "stopAnimating"]
 - !private ["Ps23CustomStringConvertible", "subscript"]
 - !private ["Ps23CustomStringConvertible", "text"]
 - ["Ps23CustomStringConvertible", "textView"]
@@ -700,13 +675,14 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "title"]
 - !private ["Ps23CustomStringConvertible", "topItem"]
 - ["Ps23CustomStringConvertible", "txtDescription"]
+- ["Ps23CustomStringConvertible", "txtUserBio"]
 - ["Ps23CustomStringConvertible", "userImg"]
 - ["Ps23CustomStringConvertible", "val"]
 - !private ["Ps23CustomStringConvertible", "view"]
 - ["Ps23CustomStringConvertible", "viewDidLoad"]
 - ["Ps23CustomStringConvertible", "viewForZooming"]
 - ["Ps23CustomStringConvertible", "viewForZoomingInScrollView"]
-- !private ["Ps23CustomStringConvertible", "white"]
+- ["Ps23CustomStringConvertible", "viewWillAppear"]
 - ["Ps23CustomStringConvertible", "willPresent"]
 - ["Ps23CustomStringConvertible", "willPresentActionSheet"]
 - ["Ps23CustomStringConvertible", ""]
@@ -739,7 +715,6 @@ depends-member:
 - !private ["Ps9Equatable", "UIAlertActionStyle"]
 - !private ["Ps9Equatable", "UIAlertController"]
 - !private ["Ps9Equatable", "UIBezierPath"]
-- !private ["Ps9Equatable", "UIColor"]
 - !private ["Ps9Equatable", "UIControlState"]
 - !private ["Ps9Equatable", "UIImage"]
 - ["Ps9Equatable", "UIImagePickerController"]
@@ -755,19 +730,12 @@ depends-member:
 - !private ["Ps9Equatable", "addAction"]
 - ["Ps9Equatable", "addLoadingIndicator"]
 - !private ["Ps9Equatable", "addSubview"]
-- !private ["Ps9Equatable", "borderColor"]
-- !private ["Ps9Equatable", "borderWidth"]
-- ["Ps9Equatable", "btn1People"]
-- ["Ps9Equatable", "btn2People"]
-- ["Ps9Equatable", "btn3People"]
 - ["Ps9Equatable", "btnImage"]
-- ["Ps9Equatable", "btnPeopleSelection"]
 - ["Ps9Equatable", "btnPost"]
 - !private ["Ps9Equatable", "calculationMode"]
 - !private ["Ps9Equatable", "camera"]
 - !private ["Ps9Equatable", "cancel"]
 - !private ["Ps9Equatable", "center"]
-- !private ["Ps9Equatable", "cgColor"]
 - !private ["Ps9Equatable", "cgPath"]
 - !private ["Ps9Equatable", "characters"]
 - !private ["Ps9Equatable", "clipsToBounds"]
@@ -788,6 +756,7 @@ depends-member:
 - !private ["Ps9Equatable", "kCAAnimationPaced"]
 - !private ["Ps9Equatable", "kCAAnimationRotateAuto"]
 - !private ["Ps9Equatable", "layer"]
+- ["Ps9Equatable", "lblBioCharactersLeft"]
 - ["Ps9Equatable", "lblCharacterLft"]
 - ["Ps9Equatable", "moveImageInCircile"]
 - !private ["Ps9Equatable", "navigationBar"]
@@ -806,7 +775,6 @@ depends-member:
 - ["Ps9Equatable", "pickerView"]
 - !private ["Ps9Equatable", "present"]
 - !private ["Ps9Equatable", "print"]
-- !private ["Ps9Equatable", "red"]
 - !private ["Ps9Equatable", "repeatCount"]
 - !private ["Ps9Equatable", "rotated"]
 - !private ["Ps9Equatable", "rotationMode"]
@@ -826,6 +794,7 @@ depends-member:
 - !private ["Ps9Equatable", "setTitle"]
 - !private ["Ps9Equatable", "sourceType"]
 - !private ["Ps9Equatable", "startAnimating"]
+- !private ["Ps9Equatable", "stopAnimating"]
 - !private ["Ps9Equatable", "text"]
 - ["Ps9Equatable", "textView"]
 - ["Ps9Equatable", "textViewDidBeginEditing"]
@@ -837,13 +806,14 @@ depends-member:
 - !private ["Ps9Equatable", "title"]
 - !private ["Ps9Equatable", "topItem"]
 - ["Ps9Equatable", "txtDescription"]
+- ["Ps9Equatable", "txtUserBio"]
 - ["Ps9Equatable", "userImg"]
 - ["Ps9Equatable", "val"]
 - !private ["Ps9Equatable", "view"]
 - ["Ps9Equatable", "viewDidLoad"]
 - ["Ps9Equatable", "viewForZooming"]
 - ["Ps9Equatable", "viewForZoomingInScrollView"]
-- !private ["Ps9Equatable", "white"]
+- ["Ps9Equatable", "viewWillAppear"]
 - ["Ps9Equatable", "willPresent"]
 - ["Ps9Equatable", "willPresentActionSheet"]
 - ["Ps9Equatable", ""]
@@ -889,7 +859,6 @@ depends-member:
 - !private ["Ps8Hashable", "UIAlertActionStyle"]
 - !private ["Ps8Hashable", "UIAlertController"]
 - !private ["Ps8Hashable", "UIBezierPath"]
-- !private ["Ps8Hashable", "UIColor"]
 - !private ["Ps8Hashable", "UIControlState"]
 - !private ["Ps8Hashable", "UIImage"]
 - ["Ps8Hashable", "UIImagePickerController"]
@@ -905,19 +874,12 @@ depends-member:
 - !private ["Ps8Hashable", "addAction"]
 - ["Ps8Hashable", "addLoadingIndicator"]
 - !private ["Ps8Hashable", "addSubview"]
-- !private ["Ps8Hashable", "borderColor"]
-- !private ["Ps8Hashable", "borderWidth"]
-- ["Ps8Hashable", "btn1People"]
-- ["Ps8Hashable", "btn2People"]
-- ["Ps8Hashable", "btn3People"]
 - ["Ps8Hashable", "btnImage"]
-- ["Ps8Hashable", "btnPeopleSelection"]
 - ["Ps8Hashable", "btnPost"]
 - !private ["Ps8Hashable", "calculationMode"]
 - !private ["Ps8Hashable", "camera"]
 - !private ["Ps8Hashable", "cancel"]
 - !private ["Ps8Hashable", "center"]
-- !private ["Ps8Hashable", "cgColor"]
 - !private ["Ps8Hashable", "cgPath"]
 - !private ["Ps8Hashable", "characters"]
 - !private ["Ps8Hashable", "clipsToBounds"]
@@ -938,6 +900,7 @@ depends-member:
 - !private ["Ps8Hashable", "kCAAnimationPaced"]
 - !private ["Ps8Hashable", "kCAAnimationRotateAuto"]
 - !private ["Ps8Hashable", "layer"]
+- ["Ps8Hashable", "lblBioCharactersLeft"]
 - ["Ps8Hashable", "lblCharacterLft"]
 - ["Ps8Hashable", "moveImageInCircile"]
 - !private ["Ps8Hashable", "navigationBar"]
@@ -955,7 +918,6 @@ depends-member:
 - ["Ps8Hashable", "pickerView"]
 - !private ["Ps8Hashable", "present"]
 - !private ["Ps8Hashable", "print"]
-- !private ["Ps8Hashable", "red"]
 - !private ["Ps8Hashable", "repeatCount"]
 - !private ["Ps8Hashable", "rotationMode"]
 - ["Ps8Hashable", "scrollViewDidEndDecelerating"]
@@ -974,6 +936,7 @@ depends-member:
 - !private ["Ps8Hashable", "setTitle"]
 - !private ["Ps8Hashable", "sourceType"]
 - !private ["Ps8Hashable", "startAnimating"]
+- !private ["Ps8Hashable", "stopAnimating"]
 - !private ["Ps8Hashable", "text"]
 - ["Ps8Hashable", "textView"]
 - ["Ps8Hashable", "textViewDidBeginEditing"]
@@ -985,13 +948,14 @@ depends-member:
 - !private ["Ps8Hashable", "title"]
 - !private ["Ps8Hashable", "topItem"]
 - ["Ps8Hashable", "txtDescription"]
+- ["Ps8Hashable", "txtUserBio"]
 - ["Ps8Hashable", "userImg"]
 - ["Ps8Hashable", "val"]
 - !private ["Ps8Hashable", "view"]
 - ["Ps8Hashable", "viewDidLoad"]
 - ["Ps8Hashable", "viewForZooming"]
 - ["Ps8Hashable", "viewForZoomingInScrollView"]
-- !private ["Ps8Hashable", "white"]
+- ["Ps8Hashable", "viewWillAppear"]
 - ["Ps8Hashable", "willPresent"]
 - ["Ps8Hashable", "willPresentActionSheet"]
 - ["Ps8Hashable", ""]
@@ -1032,6 +996,17 @@ depends-member:
 - !private ["Ps17IntegerArithmetic", "Stride"]
 - !private ["Ps17IntegerArithmetic", "_DisabledRangeIndex"]
 - !private ["Ps16IteratorProtocol", "Element"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "IntegerLiteralType"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "Stride"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "_DisabledRangeIndex"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "characters"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["P10Kingfisher20KingfisherCompatible", "characters"]
+- !private ["P10Kingfisher20KingfisherCompatible", "clipsToBounds"]
+- !private ["P10Kingfisher20KingfisherCompatible", "init"]
+- !private ["P10Kingfisher20KingfisherCompatible", "layer"]
+- !private ["P10Kingfisher20KingfisherCompatible", "setImage"]
+- !private ["P10Kingfisher20KingfisherCompatible", "setTitle"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "characters"]
 - !private ["Ps25LosslessStringConvertible", "init"]
@@ -1069,7 +1044,6 @@ depends-member:
 - !private ["PSo8NSCoding", "UIAlertActionStyle"]
 - !private ["PSo8NSCoding", "UIAlertController"]
 - !private ["PSo8NSCoding", "UIBezierPath"]
-- !private ["PSo8NSCoding", "UIColor"]
 - !private ["PSo8NSCoding", "UIControlState"]
 - !private ["PSo8NSCoding", "UIImage"]
 - ["PSo8NSCoding", "UIImagePickerController"]
@@ -1083,17 +1057,10 @@ depends-member:
 - !private ["PSo8NSCoding", "addAction"]
 - ["PSo8NSCoding", "addLoadingIndicator"]
 - !private ["PSo8NSCoding", "addSubview"]
-- !private ["PSo8NSCoding", "borderColor"]
-- !private ["PSo8NSCoding", "borderWidth"]
-- ["PSo8NSCoding", "btn1People"]
-- ["PSo8NSCoding", "btn2People"]
-- ["PSo8NSCoding", "btn3People"]
 - ["PSo8NSCoding", "btnImage"]
-- ["PSo8NSCoding", "btnPeopleSelection"]
 - ["PSo8NSCoding", "btnPost"]
 - !private ["PSo8NSCoding", "calculationMode"]
 - !private ["PSo8NSCoding", "center"]
-- !private ["PSo8NSCoding", "cgColor"]
 - !private ["PSo8NSCoding", "cgPath"]
 - !private ["PSo8NSCoding", "characters"]
 - !private ["PSo8NSCoding", "clipsToBounds"]
@@ -1113,6 +1080,7 @@ depends-member:
 - !private ["PSo8NSCoding", "kCAAnimationPaced"]
 - !private ["PSo8NSCoding", "kCAAnimationRotateAuto"]
 - !private ["PSo8NSCoding", "layer"]
+- ["PSo8NSCoding", "lblBioCharactersLeft"]
 - ["PSo8NSCoding", "lblCharacterLft"]
 - ["PSo8NSCoding", "moveImageInCircile"]
 - !private ["PSo8NSCoding", "navigationBar"]
@@ -1129,7 +1097,6 @@ depends-member:
 - ["PSo8NSCoding", "pickerView"]
 - !private ["PSo8NSCoding", "present"]
 - !private ["PSo8NSCoding", "print"]
-- !private ["PSo8NSCoding", "red"]
 - !private ["PSo8NSCoding", "repeatCount"]
 - !private ["PSo8NSCoding", "rotationMode"]
 - ["PSo8NSCoding", "scrollViewDidEndDecelerating"]
@@ -1148,6 +1115,7 @@ depends-member:
 - !private ["PSo8NSCoding", "setTitle"]
 - !private ["PSo8NSCoding", "sourceType"]
 - !private ["PSo8NSCoding", "startAnimating"]
+- !private ["PSo8NSCoding", "stopAnimating"]
 - !private ["PSo8NSCoding", "text"]
 - ["PSo8NSCoding", "textView"]
 - ["PSo8NSCoding", "textViewDidBeginEditing"]
@@ -1159,28 +1127,26 @@ depends-member:
 - !private ["PSo8NSCoding", "title"]
 - !private ["PSo8NSCoding", "topItem"]
 - ["PSo8NSCoding", "txtDescription"]
+- ["PSo8NSCoding", "txtUserBio"]
 - ["PSo8NSCoding", "userImg"]
 - ["PSo8NSCoding", "val"]
 - !private ["PSo8NSCoding", "view"]
 - ["PSo8NSCoding", "viewDidLoad"]
 - ["PSo8NSCoding", "viewForZooming"]
 - ["PSo8NSCoding", "viewForZoomingInScrollView"]
-- !private ["PSo8NSCoding", "white"]
+- ["PSo8NSCoding", "viewWillAppear"]
 - ["PSo8NSCoding", "willPresent"]
 - ["PSo8NSCoding", "willPresentActionSheet"]
 - ["PSo8NSCoding", ""]
 - !private ["PSo9NSCopying", "calculationMode"]
-- !private ["PSo9NSCopying", "cgColor"]
 - !private ["PSo9NSCopying", "cgPath"]
 - !private ["PSo9NSCopying", "characters"]
 - !private ["PSo9NSCopying", "duration"]
 - !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "isAdditive"]
 - !private ["PSo9NSCopying", "path"]
-- !private ["PSo9NSCopying", "red"]
 - !private ["PSo9NSCopying", "repeatCount"]
 - !private ["PSo9NSCopying", "rotationMode"]
-- !private ["PSo9NSCopying", "white"]
 - ["PSo26NSExtensionRequestHandling", "Array"]
 - !private ["PSo26NSExtensionRequestHandling", "CAKeyframeAnimation"]
 - !private ["PSo26NSExtensionRequestHandling", "CGAffineTransform"]
@@ -1193,7 +1159,6 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "UIAlertActionStyle"]
 - !private ["PSo26NSExtensionRequestHandling", "UIAlertController"]
 - !private ["PSo26NSExtensionRequestHandling", "UIBezierPath"]
-- !private ["PSo26NSExtensionRequestHandling", "UIColor"]
 - !private ["PSo26NSExtensionRequestHandling", "UIControlState"]
 - !private ["PSo26NSExtensionRequestHandling", "UIImage"]
 - ["PSo26NSExtensionRequestHandling", "UIImagePickerController"]
@@ -1205,11 +1170,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "activityIndicator.storage"]
 - !private ["PSo26NSExtensionRequestHandling", "addAction"]
 - ["PSo26NSExtensionRequestHandling", "addLoadingIndicator"]
-- ["PSo26NSExtensionRequestHandling", "btn1People"]
-- ["PSo26NSExtensionRequestHandling", "btn2People"]
-- ["PSo26NSExtensionRequestHandling", "btn3People"]
 - ["PSo26NSExtensionRequestHandling", "btnImage"]
-- ["PSo26NSExtensionRequestHandling", "btnPeopleSelection"]
 - ["PSo26NSExtensionRequestHandling", "btnPost"]
 - !private ["PSo26NSExtensionRequestHandling", "delegate"]
 - ["PSo26NSExtensionRequestHandling", "didPresent"]
@@ -1223,6 +1184,7 @@ depends-member:
 - !private ["PSo26NSExtensionRequestHandling", "isSourceTypeAvailable"]
 - !private ["PSo26NSExtensionRequestHandling", "kCAAnimationPaced"]
 - !private ["PSo26NSExtensionRequestHandling", "kCAAnimationRotateAuto"]
+- ["PSo26NSExtensionRequestHandling", "lblBioCharactersLeft"]
 - ["PSo26NSExtensionRequestHandling", "lblCharacterLft"]
 - ["PSo26NSExtensionRequestHandling", "moveImageInCircile"]
 - !private ["PSo26NSExtensionRequestHandling", "navigationBar"]
@@ -1260,12 +1222,14 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "textViewShouldEndEditing"]
 - !private ["PSo26NSExtensionRequestHandling", "title"]
 - ["PSo26NSExtensionRequestHandling", "txtDescription"]
+- ["PSo26NSExtensionRequestHandling", "txtUserBio"]
 - ["PSo26NSExtensionRequestHandling", "userImg"]
 - ["PSo26NSExtensionRequestHandling", "val"]
 - !private ["PSo26NSExtensionRequestHandling", "view"]
 - ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
 - ["PSo26NSExtensionRequestHandling", "viewForZooming"]
 - ["PSo26NSExtensionRequestHandling", "viewForZoomingInScrollView"]
+- ["PSo26NSExtensionRequestHandling", "viewWillAppear"]
 - ["PSo26NSExtensionRequestHandling", "willPresent"]
 - ["PSo26NSExtensionRequestHandling", "willPresentActionSheet"]
 - ["PSo26NSExtensionRequestHandling", ""]
@@ -1287,7 +1251,6 @@ depends-member:
 - !private ["CSo8NSObject", "UIAlertController"]
 - !private ["CSo8NSObject", "UIBezierPath"]
 - ["CSo8NSObject", "UIButton"]
-- !private ["CSo8NSObject", "UIColor"]
 - !private ["CSo8NSObject", "UIControlState"]
 - !private ["CSo8NSObject", "UIImage"]
 - ["CSo8NSObject", "UIImagePickerController"]
@@ -1305,17 +1268,10 @@ depends-member:
 - !private ["CSo8NSObject", "addAction"]
 - ["CSo8NSObject", "addLoadingIndicator"]
 - !private ["CSo8NSObject", "addSubview"]
-- !private ["CSo8NSObject", "borderColor"]
-- !private ["CSo8NSObject", "borderWidth"]
-- ["CSo8NSObject", "btn1People"]
-- ["CSo8NSObject", "btn2People"]
-- ["CSo8NSObject", "btn3People"]
 - ["CSo8NSObject", "btnImage"]
-- ["CSo8NSObject", "btnPeopleSelection"]
 - ["CSo8NSObject", "btnPost"]
 - !private ["CSo8NSObject", "calculationMode"]
 - !private ["CSo8NSObject", "center"]
-- !private ["CSo8NSObject", "cgColor"]
 - !private ["CSo8NSObject", "cgPath"]
 - !private ["CSo8NSObject", "characters"]
 - !private ["CSo8NSObject", "clipsToBounds"]
@@ -1335,6 +1291,7 @@ depends-member:
 - !private ["CSo8NSObject", "kCAAnimationPaced"]
 - !private ["CSo8NSObject", "kCAAnimationRotateAuto"]
 - !private ["CSo8NSObject", "layer"]
+- ["CSo8NSObject", "lblBioCharactersLeft"]
 - ["CSo8NSObject", "lblCharacterLft"]
 - ["CSo8NSObject", "moveImageInCircile"]
 - !private ["CSo8NSObject", "navigationBar"]
@@ -1351,7 +1308,6 @@ depends-member:
 - ["CSo8NSObject", "pickerView"]
 - !private ["CSo8NSObject", "present"]
 - !private ["CSo8NSObject", "print"]
-- !private ["CSo8NSObject", "red"]
 - !private ["CSo8NSObject", "repeatCount"]
 - !private ["CSo8NSObject", "rotationMode"]
 - ["CSo8NSObject", "scrollViewDidEndDecelerating"]
@@ -1370,6 +1326,7 @@ depends-member:
 - !private ["CSo8NSObject", "setTitle"]
 - !private ["CSo8NSObject", "sourceType"]
 - !private ["CSo8NSObject", "startAnimating"]
+- !private ["CSo8NSObject", "stopAnimating"]
 - !private ["CSo8NSObject", "text"]
 - ["CSo8NSObject", "textView"]
 - ["CSo8NSObject", "textViewDidBeginEditing"]
@@ -1381,13 +1338,14 @@ depends-member:
 - !private ["CSo8NSObject", "title"]
 - !private ["CSo8NSObject", "topItem"]
 - ["CSo8NSObject", "txtDescription"]
+- ["CSo8NSObject", "txtUserBio"]
 - ["CSo8NSObject", "userImg"]
 - ["CSo8NSObject", "val"]
 - !private ["CSo8NSObject", "view"]
 - ["CSo8NSObject", "viewDidLoad"]
 - ["CSo8NSObject", "viewForZooming"]
 - ["CSo8NSObject", "viewForZoomingInScrollView"]
-- !private ["CSo8NSObject", "white"]
+- ["CSo8NSObject", "viewWillAppear"]
 - ["CSo8NSObject", "willPresent"]
 - ["CSo8NSObject", "willPresentActionSheet"]
 - ["PSo16NSObjectProtocol", "Array"]
@@ -1402,7 +1360,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "UIAlertActionStyle"]
 - !private ["PSo16NSObjectProtocol", "UIAlertController"]
 - !private ["PSo16NSObjectProtocol", "UIBezierPath"]
-- !private ["PSo16NSObjectProtocol", "UIColor"]
 - !private ["PSo16NSObjectProtocol", "UIControlState"]
 - !private ["PSo16NSObjectProtocol", "UIImage"]
 - ["PSo16NSObjectProtocol", "UIImagePickerController"]
@@ -1416,17 +1373,10 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "addAction"]
 - ["PSo16NSObjectProtocol", "addLoadingIndicator"]
 - !private ["PSo16NSObjectProtocol", "addSubview"]
-- !private ["PSo16NSObjectProtocol", "borderColor"]
-- !private ["PSo16NSObjectProtocol", "borderWidth"]
-- ["PSo16NSObjectProtocol", "btn1People"]
-- ["PSo16NSObjectProtocol", "btn2People"]
-- ["PSo16NSObjectProtocol", "btn3People"]
 - ["PSo16NSObjectProtocol", "btnImage"]
-- ["PSo16NSObjectProtocol", "btnPeopleSelection"]
 - ["PSo16NSObjectProtocol", "btnPost"]
 - !private ["PSo16NSObjectProtocol", "calculationMode"]
 - !private ["PSo16NSObjectProtocol", "center"]
-- !private ["PSo16NSObjectProtocol", "cgColor"]
 - !private ["PSo16NSObjectProtocol", "cgPath"]
 - !private ["PSo16NSObjectProtocol", "characters"]
 - !private ["PSo16NSObjectProtocol", "clipsToBounds"]
@@ -1446,6 +1396,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "kCAAnimationPaced"]
 - !private ["PSo16NSObjectProtocol", "kCAAnimationRotateAuto"]
 - !private ["PSo16NSObjectProtocol", "layer"]
+- ["PSo16NSObjectProtocol", "lblBioCharactersLeft"]
 - ["PSo16NSObjectProtocol", "lblCharacterLft"]
 - ["PSo16NSObjectProtocol", "moveImageInCircile"]
 - !private ["PSo16NSObjectProtocol", "navigationBar"]
@@ -1462,7 +1413,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "pickerView"]
 - !private ["PSo16NSObjectProtocol", "present"]
 - !private ["PSo16NSObjectProtocol", "print"]
-- !private ["PSo16NSObjectProtocol", "red"]
 - !private ["PSo16NSObjectProtocol", "repeatCount"]
 - !private ["PSo16NSObjectProtocol", "rotationMode"]
 - ["PSo16NSObjectProtocol", "scrollViewDidEndDecelerating"]
@@ -1481,6 +1431,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "setTitle"]
 - !private ["PSo16NSObjectProtocol", "sourceType"]
 - !private ["PSo16NSObjectProtocol", "startAnimating"]
+- !private ["PSo16NSObjectProtocol", "stopAnimating"]
 - !private ["PSo16NSObjectProtocol", "text"]
 - ["PSo16NSObjectProtocol", "textView"]
 - ["PSo16NSObjectProtocol", "textViewDidBeginEditing"]
@@ -1492,21 +1443,19 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "title"]
 - !private ["PSo16NSObjectProtocol", "topItem"]
 - ["PSo16NSObjectProtocol", "txtDescription"]
+- ["PSo16NSObjectProtocol", "txtUserBio"]
 - ["PSo16NSObjectProtocol", "userImg"]
 - ["PSo16NSObjectProtocol", "val"]
 - !private ["PSo16NSObjectProtocol", "view"]
 - ["PSo16NSObjectProtocol", "viewDidLoad"]
 - ["PSo16NSObjectProtocol", "viewForZooming"]
 - ["PSo16NSObjectProtocol", "viewForZoomingInScrollView"]
-- !private ["PSo16NSObjectProtocol", "white"]
+- ["PSo16NSObjectProtocol", "viewWillAppear"]
 - ["PSo16NSObjectProtocol", "willPresent"]
 - ["PSo16NSObjectProtocol", "willPresentActionSheet"]
 - ["PSo16NSObjectProtocol", ""]
-- !private ["PSo14NSSecureCoding", "cgColor"]
 - !private ["PSo14NSSecureCoding", "characters"]
 - !private ["PSo14NSSecureCoding", "init"]
-- !private ["PSo14NSSecureCoding", "red"]
-- !private ["PSo14NSSecureCoding", "white"]
 - !private ["CSo8NSString", "characters"]
 - !private ["CSo8NSString", "init"]
 - !private ["Ps9OptionSet", "normal"]
@@ -1575,7 +1524,6 @@ depends-member:
 - !private ["C5Slide23SelectionViewController", "UIAlertController"]
 - !private ["C5Slide23SelectionViewController", "UIBezierPath"]
 - ["C5Slide23SelectionViewController", "UIButton"]
-- !private ["C5Slide23SelectionViewController", "UIColor"]
 - !private ["C5Slide23SelectionViewController", "UIControlState"]
 - !private ["C5Slide23SelectionViewController", "UIImage"]
 - ["C5Slide23SelectionViewController", "UIImagePickerController"]
@@ -1590,11 +1538,7 @@ depends-member:
 - !private ["C5Slide23SelectionViewController", "activityIndicator"]
 - !private ["C5Slide23SelectionViewController", "activityIndicator.storage"]
 - ["C5Slide23SelectionViewController", "addLoadingIndicator"]
-- ["C5Slide23SelectionViewController", "btn1People"]
-- ["C5Slide23SelectionViewController", "btn2People"]
-- ["C5Slide23SelectionViewController", "btn3People"]
 - ["C5Slide23SelectionViewController", "btnImage"]
-- ["C5Slide23SelectionViewController", "btnPeopleSelection"]
 - ["C5Slide23SelectionViewController", "btnPost"]
 - ["C5Slide23SelectionViewController", "deinit"]
 - ["C5Slide23SelectionViewController", "didPresent"]
@@ -1607,6 +1551,7 @@ depends-member:
 - ["C5Slide23SelectionViewController", "init"]
 - !private ["C5Slide23SelectionViewController", "kCAAnimationPaced"]
 - !private ["C5Slide23SelectionViewController", "kCAAnimationRotateAuto"]
+- ["C5Slide23SelectionViewController", "lblBioCharactersLeft"]
 - ["C5Slide23SelectionViewController", "lblCharacterLft"]
 - ["C5Slide23SelectionViewController", "moveImageInCircile"]
 - ["C5Slide23SelectionViewController", "navigationController"]
@@ -1642,12 +1587,14 @@ depends-member:
 - ["C5Slide23SelectionViewController", "textViewShouldEndEditing"]
 - !private ["C5Slide23SelectionViewController", "title"]
 - ["C5Slide23SelectionViewController", "txtDescription"]
+- ["C5Slide23SelectionViewController", "txtUserBio"]
 - ["C5Slide23SelectionViewController", "userImg"]
 - ["C5Slide23SelectionViewController", "val"]
 - !private ["C5Slide23SelectionViewController", "view"]
 - ["C5Slide23SelectionViewController", "viewDidLoad"]
 - ["C5Slide23SelectionViewController", "viewForZooming"]
 - ["C5Slide23SelectionViewController", "viewForZoomingInScrollView"]
+- ["C5Slide23SelectionViewController", "viewWillAppear"]
 - ["C5Slide23SelectionViewController", "willPresent"]
 - ["C5Slide23SelectionViewController", "willPresentActionSheet"]
 - !private ["Ps8Sequence", "Element"]
@@ -1692,6 +1639,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "setImage"]
 - !private ["PSo29UIAccessibilityIdentification", "setTitle"]
 - !private ["PSo29UIAccessibilityIdentification", "startAnimating"]
+- !private ["PSo29UIAccessibilityIdentification", "stopAnimating"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
 - !private ["PSo29UIAccessibilityIdentification", "topItem"]
 - ["PSo21UIActionSheetDelegate", "Array"]
@@ -1706,7 +1654,6 @@ depends-member:
 - !private ["PSo21UIActionSheetDelegate", "UIAlertActionStyle"]
 - !private ["PSo21UIActionSheetDelegate", "UIAlertController"]
 - !private ["PSo21UIActionSheetDelegate", "UIBezierPath"]
-- !private ["PSo21UIActionSheetDelegate", "UIColor"]
 - !private ["PSo21UIActionSheetDelegate", "UIControlState"]
 - !private ["PSo21UIActionSheetDelegate", "UIImage"]
 - ["PSo21UIActionSheetDelegate", "UIImagePickerController"]
@@ -1716,9 +1663,6 @@ depends-member:
 - ["PSo21UIActionSheetDelegate", "actionSheetCancel"]
 - !private ["PSo21UIActionSheetDelegate", "activityIndicator"]
 - !private ["PSo21UIActionSheetDelegate", "addLoadingIndicator"]
-- !private ["PSo21UIActionSheetDelegate", "btn1People"]
-- !private ["PSo21UIActionSheetDelegate", "btn2People"]
-- !private ["PSo21UIActionSheetDelegate", "btn3People"]
 - !private ["PSo21UIActionSheetDelegate", "btnPost"]
 - ["PSo21UIActionSheetDelegate", "didPresent"]
 - ["PSo21UIActionSheetDelegate", "didPresentActionSheet"]
@@ -1789,6 +1733,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "setImage"]
 - !private ["PSo12UIAppearance", "setTitle"]
 - !private ["PSo12UIAppearance", "startAnimating"]
+- !private ["PSo12UIAppearance", "stopAnimating"]
 - !private ["PSo12UIAppearance", "text"]
 - !private ["PSo12UIAppearance", "topItem"]
 - ["PSo21UIAppearanceContainer", "Array"]
@@ -1803,7 +1748,6 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "UIAlertActionStyle"]
 - !private ["PSo21UIAppearanceContainer", "UIAlertController"]
 - !private ["PSo21UIAppearanceContainer", "UIBezierPath"]
-- !private ["PSo21UIAppearanceContainer", "UIColor"]
 - !private ["PSo21UIAppearanceContainer", "UIControlState"]
 - !private ["PSo21UIAppearanceContainer", "UIImage"]
 - ["PSo21UIAppearanceContainer", "UIImagePickerController"]
@@ -1816,11 +1760,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "addAction"]
 - ["PSo21UIAppearanceContainer", "addLoadingIndicator"]
 - !private ["PSo21UIAppearanceContainer", "addSubview"]
-- ["PSo21UIAppearanceContainer", "btn1People"]
-- ["PSo21UIAppearanceContainer", "btn2People"]
-- ["PSo21UIAppearanceContainer", "btn3People"]
 - ["PSo21UIAppearanceContainer", "btnImage"]
-- ["PSo21UIAppearanceContainer", "btnPeopleSelection"]
 - ["PSo21UIAppearanceContainer", "btnPost"]
 - !private ["PSo21UIAppearanceContainer", "center"]
 - !private ["PSo21UIAppearanceContainer", "clipsToBounds"]
@@ -1837,6 +1777,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "kCAAnimationPaced"]
 - !private ["PSo21UIAppearanceContainer", "kCAAnimationRotateAuto"]
 - !private ["PSo21UIAppearanceContainer", "layer"]
+- ["PSo21UIAppearanceContainer", "lblBioCharactersLeft"]
 - ["PSo21UIAppearanceContainer", "lblCharacterLft"]
 - ["PSo21UIAppearanceContainer", "moveImageInCircile"]
 - !private ["PSo21UIAppearanceContainer", "navigationBar"]
@@ -1868,6 +1809,7 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "setTitle"]
 - !private ["PSo21UIAppearanceContainer", "sourceType"]
 - !private ["PSo21UIAppearanceContainer", "startAnimating"]
+- !private ["PSo21UIAppearanceContainer", "stopAnimating"]
 - !private ["PSo21UIAppearanceContainer", "text"]
 - ["PSo21UIAppearanceContainer", "textView"]
 - ["PSo21UIAppearanceContainer", "textViewDidBeginEditing"]
@@ -1879,12 +1821,14 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "title"]
 - !private ["PSo21UIAppearanceContainer", "topItem"]
 - ["PSo21UIAppearanceContainer", "txtDescription"]
+- ["PSo21UIAppearanceContainer", "txtUserBio"]
 - ["PSo21UIAppearanceContainer", "userImg"]
 - ["PSo21UIAppearanceContainer", "val"]
 - !private ["PSo21UIAppearanceContainer", "view"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", "viewForZooming"]
 - ["PSo21UIAppearanceContainer", "viewForZoomingInScrollView"]
+- ["PSo21UIAppearanceContainer", "viewWillAppear"]
 - ["PSo21UIAppearanceContainer", "willPresent"]
 - ["PSo21UIAppearanceContainer", "willPresentActionSheet"]
 - ["PSo21UIAppearanceContainer", ""]
@@ -1893,14 +1837,9 @@ depends-member:
 - ["CSo12UIBezierPath", "deinit"]
 - !private ["CSo12UIBezierPath", "init"]
 - !private ["CSo8UIButton", "clipsToBounds"]
-- ["CSo8UIButton", "deinit"]
 - !private ["CSo8UIButton", "layer"]
 - !private ["CSo8UIButton", "setImage"]
 - !private ["CSo8UIButton", "setTitle"]
-- !private ["CSo7UIColor", "cgColor"]
-- ["CSo7UIColor", "deinit"]
-- !private ["CSo7UIColor", "red"]
-- !private ["CSo7UIColor", "white"]
 - ["PSo18UIContentContainer", "Array"]
 - !private ["PSo18UIContentContainer", "CAKeyframeAnimation"]
 - !private ["PSo18UIContentContainer", "CGAffineTransform"]
@@ -1913,7 +1852,6 @@ depends-member:
 - !private ["PSo18UIContentContainer", "UIAlertActionStyle"]
 - !private ["PSo18UIContentContainer", "UIAlertController"]
 - !private ["PSo18UIContentContainer", "UIBezierPath"]
-- !private ["PSo18UIContentContainer", "UIColor"]
 - !private ["PSo18UIContentContainer", "UIControlState"]
 - !private ["PSo18UIContentContainer", "UIImage"]
 - ["PSo18UIContentContainer", "UIImagePickerController"]
@@ -1925,11 +1863,7 @@ depends-member:
 - ["PSo18UIContentContainer", "activityIndicator.storage"]
 - !private ["PSo18UIContentContainer", "addAction"]
 - ["PSo18UIContentContainer", "addLoadingIndicator"]
-- ["PSo18UIContentContainer", "btn1People"]
-- ["PSo18UIContentContainer", "btn2People"]
-- ["PSo18UIContentContainer", "btn3People"]
 - ["PSo18UIContentContainer", "btnImage"]
-- ["PSo18UIContentContainer", "btnPeopleSelection"]
 - ["PSo18UIContentContainer", "btnPost"]
 - !private ["PSo18UIContentContainer", "delegate"]
 - ["PSo18UIContentContainer", "didPresent"]
@@ -1943,6 +1877,7 @@ depends-member:
 - !private ["PSo18UIContentContainer", "isSourceTypeAvailable"]
 - !private ["PSo18UIContentContainer", "kCAAnimationPaced"]
 - !private ["PSo18UIContentContainer", "kCAAnimationRotateAuto"]
+- ["PSo18UIContentContainer", "lblBioCharactersLeft"]
 - ["PSo18UIContentContainer", "lblCharacterLft"]
 - ["PSo18UIContentContainer", "moveImageInCircile"]
 - !private ["PSo18UIContentContainer", "navigationBar"]
@@ -1980,12 +1915,14 @@ depends-member:
 - ["PSo18UIContentContainer", "textViewShouldEndEditing"]
 - !private ["PSo18UIContentContainer", "title"]
 - ["PSo18UIContentContainer", "txtDescription"]
+- ["PSo18UIContentContainer", "txtUserBio"]
 - ["PSo18UIContentContainer", "userImg"]
 - ["PSo18UIContentContainer", "val"]
 - !private ["PSo18UIContentContainer", "view"]
 - ["PSo18UIContentContainer", "viewDidLoad"]
 - ["PSo18UIContentContainer", "viewForZooming"]
 - ["PSo18UIContentContainer", "viewForZoomingInScrollView"]
+- ["PSo18UIContentContainer", "viewWillAppear"]
 - ["PSo18UIContentContainer", "willPresent"]
 - ["PSo18UIContentContainer", "willPresentActionSheet"]
 - ["PSo18UIContentContainer", ""]
@@ -2006,6 +1943,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "setImage"]
 - !private ["PSo17UICoordinateSpace", "setTitle"]
 - !private ["PSo17UICoordinateSpace", "startAnimating"]
+- !private ["PSo17UICoordinateSpace", "stopAnimating"]
 - !private ["PSo17UICoordinateSpace", "text"]
 - !private ["PSo17UICoordinateSpace", "topItem"]
 - !private ["PSo13UIDynamicItem", "addSubview"]
@@ -2017,6 +1955,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "setImage"]
 - !private ["PSo13UIDynamicItem", "setTitle"]
 - !private ["PSo13UIDynamicItem", "startAnimating"]
+- !private ["PSo13UIDynamicItem", "stopAnimating"]
 - !private ["PSo13UIDynamicItem", "text"]
 - !private ["PSo13UIDynamicItem", "topItem"]
 - ["PSo18UIFocusEnvironment", "Array"]
@@ -2031,7 +1970,6 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "UIAlertActionStyle"]
 - !private ["PSo18UIFocusEnvironment", "UIAlertController"]
 - !private ["PSo18UIFocusEnvironment", "UIBezierPath"]
-- !private ["PSo18UIFocusEnvironment", "UIColor"]
 - !private ["PSo18UIFocusEnvironment", "UIControlState"]
 - !private ["PSo18UIFocusEnvironment", "UIImage"]
 - ["PSo18UIFocusEnvironment", "UIImagePickerController"]
@@ -2044,11 +1982,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "addAction"]
 - ["PSo18UIFocusEnvironment", "addLoadingIndicator"]
 - !private ["PSo18UIFocusEnvironment", "addSubview"]
-- ["PSo18UIFocusEnvironment", "btn1People"]
-- ["PSo18UIFocusEnvironment", "btn2People"]
-- ["PSo18UIFocusEnvironment", "btn3People"]
 - ["PSo18UIFocusEnvironment", "btnImage"]
-- ["PSo18UIFocusEnvironment", "btnPeopleSelection"]
 - ["PSo18UIFocusEnvironment", "btnPost"]
 - !private ["PSo18UIFocusEnvironment", "center"]
 - !private ["PSo18UIFocusEnvironment", "clipsToBounds"]
@@ -2065,6 +1999,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "kCAAnimationPaced"]
 - !private ["PSo18UIFocusEnvironment", "kCAAnimationRotateAuto"]
 - !private ["PSo18UIFocusEnvironment", "layer"]
+- ["PSo18UIFocusEnvironment", "lblBioCharactersLeft"]
 - ["PSo18UIFocusEnvironment", "lblCharacterLft"]
 - ["PSo18UIFocusEnvironment", "moveImageInCircile"]
 - !private ["PSo18UIFocusEnvironment", "navigationBar"]
@@ -2096,6 +2031,7 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "setTitle"]
 - !private ["PSo18UIFocusEnvironment", "sourceType"]
 - !private ["PSo18UIFocusEnvironment", "startAnimating"]
+- !private ["PSo18UIFocusEnvironment", "stopAnimating"]
 - !private ["PSo18UIFocusEnvironment", "text"]
 - ["PSo18UIFocusEnvironment", "textView"]
 - ["PSo18UIFocusEnvironment", "textViewDidBeginEditing"]
@@ -2107,12 +2043,14 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "title"]
 - !private ["PSo18UIFocusEnvironment", "topItem"]
 - ["PSo18UIFocusEnvironment", "txtDescription"]
+- ["PSo18UIFocusEnvironment", "txtUserBio"]
 - ["PSo18UIFocusEnvironment", "userImg"]
 - ["PSo18UIFocusEnvironment", "val"]
 - !private ["PSo18UIFocusEnvironment", "view"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", "viewForZooming"]
 - ["PSo18UIFocusEnvironment", "viewForZoomingInScrollView"]
+- ["PSo18UIFocusEnvironment", "viewWillAppear"]
 - ["PSo18UIFocusEnvironment", "willPresent"]
 - ["PSo18UIFocusEnvironment", "willPresentActionSheet"]
 - ["PSo18UIFocusEnvironment", ""]
@@ -2125,6 +2063,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "setImage"]
 - !private ["PSo11UIFocusItem", "setTitle"]
 - !private ["PSo11UIFocusItem", "startAnimating"]
+- !private ["PSo11UIFocusItem", "stopAnimating"]
 - !private ["PSo11UIFocusItem", "text"]
 - !private ["PSo11UIFocusItem", "topItem"]
 - ["CSo7UIImage", "deinit"]
@@ -2146,7 +2085,6 @@ depends-member:
 - !private ["PSo31UIImagePickerControllerDelegate", "UIAlertActionStyle"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UIAlertController"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UIBezierPath"]
-- !private ["PSo31UIImagePickerControllerDelegate", "UIColor"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UIControlState"]
 - !private ["PSo31UIImagePickerControllerDelegate", "UIImage"]
 - ["PSo31UIImagePickerControllerDelegate", "UIImagePickerController"]
@@ -2156,9 +2094,6 @@ depends-member:
 - ["PSo31UIImagePickerControllerDelegate", "actionSheetCancel"]
 - !private ["PSo31UIImagePickerControllerDelegate", "activityIndicator"]
 - !private ["PSo31UIImagePickerControllerDelegate", "addLoadingIndicator"]
-- !private ["PSo31UIImagePickerControllerDelegate", "btn1People"]
-- !private ["PSo31UIImagePickerControllerDelegate", "btn2People"]
-- !private ["PSo31UIImagePickerControllerDelegate", "btn3People"]
 - !private ["PSo31UIImagePickerControllerDelegate", "btnPost"]
 - ["PSo31UIImagePickerControllerDelegate", "didPresent"]
 - ["PSo31UIImagePickerControllerDelegate", "didPresentActionSheet"]
@@ -2236,7 +2171,6 @@ depends-member:
 - !private ["PSo30UINavigationControllerDelegate", "UIAlertActionStyle"]
 - !private ["PSo30UINavigationControllerDelegate", "UIAlertController"]
 - !private ["PSo30UINavigationControllerDelegate", "UIBezierPath"]
-- !private ["PSo30UINavigationControllerDelegate", "UIColor"]
 - !private ["PSo30UINavigationControllerDelegate", "UIControlState"]
 - !private ["PSo30UINavigationControllerDelegate", "UIImage"]
 - ["PSo30UINavigationControllerDelegate", "UIImagePickerController"]
@@ -2246,9 +2180,6 @@ depends-member:
 - ["PSo30UINavigationControllerDelegate", "actionSheetCancel"]
 - !private ["PSo30UINavigationControllerDelegate", "activityIndicator"]
 - !private ["PSo30UINavigationControllerDelegate", "addLoadingIndicator"]
-- !private ["PSo30UINavigationControllerDelegate", "btn1People"]
-- !private ["PSo30UINavigationControllerDelegate", "btn2People"]
-- !private ["PSo30UINavigationControllerDelegate", "btn3People"]
 - !private ["PSo30UINavigationControllerDelegate", "btnPost"]
 - ["PSo30UINavigationControllerDelegate", "didPresent"]
 - ["PSo30UINavigationControllerDelegate", "didPresentActionSheet"]
@@ -2315,7 +2246,6 @@ depends-member:
 - !private ["PSo22UIPickerViewDataSource", "UIAlertActionStyle"]
 - !private ["PSo22UIPickerViewDataSource", "UIAlertController"]
 - !private ["PSo22UIPickerViewDataSource", "UIBezierPath"]
-- !private ["PSo22UIPickerViewDataSource", "UIColor"]
 - !private ["PSo22UIPickerViewDataSource", "UIControlState"]
 - !private ["PSo22UIPickerViewDataSource", "UIImage"]
 - ["PSo22UIPickerViewDataSource", "UIImagePickerController"]
@@ -2325,9 +2255,6 @@ depends-member:
 - ["PSo22UIPickerViewDataSource", "actionSheetCancel"]
 - !private ["PSo22UIPickerViewDataSource", "activityIndicator"]
 - !private ["PSo22UIPickerViewDataSource", "addLoadingIndicator"]
-- !private ["PSo22UIPickerViewDataSource", "btn1People"]
-- !private ["PSo22UIPickerViewDataSource", "btn2People"]
-- !private ["PSo22UIPickerViewDataSource", "btn3People"]
 - !private ["PSo22UIPickerViewDataSource", "btnPost"]
 - ["PSo22UIPickerViewDataSource", "didPresent"]
 - ["PSo22UIPickerViewDataSource", "didPresentActionSheet"]
@@ -2391,7 +2318,6 @@ depends-member:
 - !private ["PSo20UIPickerViewDelegate", "UIAlertActionStyle"]
 - !private ["PSo20UIPickerViewDelegate", "UIAlertController"]
 - !private ["PSo20UIPickerViewDelegate", "UIBezierPath"]
-- !private ["PSo20UIPickerViewDelegate", "UIColor"]
 - !private ["PSo20UIPickerViewDelegate", "UIControlState"]
 - !private ["PSo20UIPickerViewDelegate", "UIImage"]
 - ["PSo20UIPickerViewDelegate", "UIImagePickerController"]
@@ -2401,9 +2327,6 @@ depends-member:
 - ["PSo20UIPickerViewDelegate", "actionSheetCancel"]
 - !private ["PSo20UIPickerViewDelegate", "activityIndicator"]
 - !private ["PSo20UIPickerViewDelegate", "addLoadingIndicator"]
-- !private ["PSo20UIPickerViewDelegate", "btn1People"]
-- !private ["PSo20UIPickerViewDelegate", "btn2People"]
-- !private ["PSo20UIPickerViewDelegate", "btn3People"]
 - !private ["PSo20UIPickerViewDelegate", "btnPost"]
 - ["PSo20UIPickerViewDelegate", "didPresent"]
 - ["PSo20UIPickerViewDelegate", "didPresentActionSheet"]
@@ -2471,7 +2394,6 @@ depends-member:
 - !private ["CSo11UIResponder", "UIAlertController"]
 - !private ["CSo11UIResponder", "UIBezierPath"]
 - ["CSo11UIResponder", "UIButton"]
-- !private ["CSo11UIResponder", "UIColor"]
 - !private ["CSo11UIResponder", "UIControlState"]
 - !private ["CSo11UIResponder", "UIImage"]
 - ["CSo11UIResponder", "UIImagePickerController"]
@@ -2488,11 +2410,7 @@ depends-member:
 - !private ["CSo11UIResponder", "addAction"]
 - ["CSo11UIResponder", "addLoadingIndicator"]
 - !private ["CSo11UIResponder", "addSubview"]
-- ["CSo11UIResponder", "btn1People"]
-- ["CSo11UIResponder", "btn2People"]
-- ["CSo11UIResponder", "btn3People"]
 - ["CSo11UIResponder", "btnImage"]
-- ["CSo11UIResponder", "btnPeopleSelection"]
 - ["CSo11UIResponder", "btnPost"]
 - !private ["CSo11UIResponder", "center"]
 - !private ["CSo11UIResponder", "clipsToBounds"]
@@ -2509,6 +2427,7 @@ depends-member:
 - !private ["CSo11UIResponder", "kCAAnimationPaced"]
 - !private ["CSo11UIResponder", "kCAAnimationRotateAuto"]
 - !private ["CSo11UIResponder", "layer"]
+- ["CSo11UIResponder", "lblBioCharactersLeft"]
 - ["CSo11UIResponder", "lblCharacterLft"]
 - ["CSo11UIResponder", "moveImageInCircile"]
 - !private ["CSo11UIResponder", "navigationBar"]
@@ -2540,6 +2459,7 @@ depends-member:
 - !private ["CSo11UIResponder", "setTitle"]
 - !private ["CSo11UIResponder", "sourceType"]
 - !private ["CSo11UIResponder", "startAnimating"]
+- !private ["CSo11UIResponder", "stopAnimating"]
 - !private ["CSo11UIResponder", "text"]
 - ["CSo11UIResponder", "textView"]
 - ["CSo11UIResponder", "textViewDidBeginEditing"]
@@ -2551,12 +2471,14 @@ depends-member:
 - !private ["CSo11UIResponder", "title"]
 - !private ["CSo11UIResponder", "topItem"]
 - ["CSo11UIResponder", "txtDescription"]
+- ["CSo11UIResponder", "txtUserBio"]
 - ["CSo11UIResponder", "userImg"]
 - ["CSo11UIResponder", "val"]
 - !private ["CSo11UIResponder", "view"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - ["CSo11UIResponder", "viewForZooming"]
 - ["CSo11UIResponder", "viewForZoomingInScrollView"]
+- ["CSo11UIResponder", "viewWillAppear"]
 - ["CSo11UIResponder", "willPresent"]
 - ["CSo11UIResponder", "willPresentActionSheet"]
 - ["PSo30UIResponderStandardEditActions", "Array"]
@@ -2571,7 +2493,6 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertActionStyle"]
 - !private ["PSo30UIResponderStandardEditActions", "UIAlertController"]
 - !private ["PSo30UIResponderStandardEditActions", "UIBezierPath"]
-- !private ["PSo30UIResponderStandardEditActions", "UIColor"]
 - !private ["PSo30UIResponderStandardEditActions", "UIControlState"]
 - !private ["PSo30UIResponderStandardEditActions", "UIImage"]
 - ["PSo30UIResponderStandardEditActions", "UIImagePickerController"]
@@ -2584,11 +2505,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "addAction"]
 - ["PSo30UIResponderStandardEditActions", "addLoadingIndicator"]
 - !private ["PSo30UIResponderStandardEditActions", "addSubview"]
-- ["PSo30UIResponderStandardEditActions", "btn1People"]
-- ["PSo30UIResponderStandardEditActions", "btn2People"]
-- ["PSo30UIResponderStandardEditActions", "btn3People"]
 - ["PSo30UIResponderStandardEditActions", "btnImage"]
-- ["PSo30UIResponderStandardEditActions", "btnPeopleSelection"]
 - ["PSo30UIResponderStandardEditActions", "btnPost"]
 - !private ["PSo30UIResponderStandardEditActions", "center"]
 - !private ["PSo30UIResponderStandardEditActions", "clipsToBounds"]
@@ -2605,6 +2522,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "kCAAnimationPaced"]
 - !private ["PSo30UIResponderStandardEditActions", "kCAAnimationRotateAuto"]
 - !private ["PSo30UIResponderStandardEditActions", "layer"]
+- ["PSo30UIResponderStandardEditActions", "lblBioCharactersLeft"]
 - ["PSo30UIResponderStandardEditActions", "lblCharacterLft"]
 - ["PSo30UIResponderStandardEditActions", "moveImageInCircile"]
 - !private ["PSo30UIResponderStandardEditActions", "navigationBar"]
@@ -2636,6 +2554,7 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "setTitle"]
 - !private ["PSo30UIResponderStandardEditActions", "sourceType"]
 - !private ["PSo30UIResponderStandardEditActions", "startAnimating"]
+- !private ["PSo30UIResponderStandardEditActions", "stopAnimating"]
 - !private ["PSo30UIResponderStandardEditActions", "text"]
 - ["PSo30UIResponderStandardEditActions", "textView"]
 - ["PSo30UIResponderStandardEditActions", "textViewDidBeginEditing"]
@@ -2647,12 +2566,14 @@ depends-member:
 - !private ["PSo30UIResponderStandardEditActions", "title"]
 - !private ["PSo30UIResponderStandardEditActions", "topItem"]
 - ["PSo30UIResponderStandardEditActions", "txtDescription"]
+- ["PSo30UIResponderStandardEditActions", "txtUserBio"]
 - ["PSo30UIResponderStandardEditActions", "userImg"]
 - ["PSo30UIResponderStandardEditActions", "val"]
 - !private ["PSo30UIResponderStandardEditActions", "view"]
 - ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
 - ["PSo30UIResponderStandardEditActions", "viewForZooming"]
 - ["PSo30UIResponderStandardEditActions", "viewForZoomingInScrollView"]
+- ["PSo30UIResponderStandardEditActions", "viewWillAppear"]
 - ["PSo30UIResponderStandardEditActions", "willPresent"]
 - ["PSo30UIResponderStandardEditActions", "willPresentActionSheet"]
 - ["PSo30UIResponderStandardEditActions", ""]
@@ -2670,7 +2591,6 @@ depends-member:
 - !private ["PSo20UIScrollViewDelegate", "UIAlertActionStyle"]
 - !private ["PSo20UIScrollViewDelegate", "UIAlertController"]
 - !private ["PSo20UIScrollViewDelegate", "UIBezierPath"]
-- !private ["PSo20UIScrollViewDelegate", "UIColor"]
 - !private ["PSo20UIScrollViewDelegate", "UIControlState"]
 - !private ["PSo20UIScrollViewDelegate", "UIImage"]
 - ["PSo20UIScrollViewDelegate", "UIImagePickerController"]
@@ -2680,9 +2600,6 @@ depends-member:
 - ["PSo20UIScrollViewDelegate", "actionSheetCancel"]
 - !private ["PSo20UIScrollViewDelegate", "activityIndicator"]
 - !private ["PSo20UIScrollViewDelegate", "addLoadingIndicator"]
-- !private ["PSo20UIScrollViewDelegate", "btn1People"]
-- !private ["PSo20UIScrollViewDelegate", "btn2People"]
-- !private ["PSo20UIScrollViewDelegate", "btn3People"]
 - !private ["PSo20UIScrollViewDelegate", "btnPost"]
 - ["PSo20UIScrollViewDelegate", "didPresent"]
 - ["PSo20UIScrollViewDelegate", "didPresentActionSheet"]
@@ -2746,7 +2663,6 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "UIAlertActionStyle"]
 - !private ["PSo16UIStateRestoring", "UIAlertController"]
 - !private ["PSo16UIStateRestoring", "UIBezierPath"]
-- !private ["PSo16UIStateRestoring", "UIColor"]
 - !private ["PSo16UIStateRestoring", "UIControlState"]
 - !private ["PSo16UIStateRestoring", "UIImage"]
 - ["PSo16UIStateRestoring", "UIImagePickerController"]
@@ -2758,11 +2674,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "activityIndicator.storage"]
 - !private ["PSo16UIStateRestoring", "addAction"]
 - ["PSo16UIStateRestoring", "addLoadingIndicator"]
-- ["PSo16UIStateRestoring", "btn1People"]
-- ["PSo16UIStateRestoring", "btn2People"]
-- ["PSo16UIStateRestoring", "btn3People"]
 - ["PSo16UIStateRestoring", "btnImage"]
-- ["PSo16UIStateRestoring", "btnPeopleSelection"]
 - ["PSo16UIStateRestoring", "btnPost"]
 - !private ["PSo16UIStateRestoring", "delegate"]
 - ["PSo16UIStateRestoring", "didPresent"]
@@ -2776,6 +2688,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "isSourceTypeAvailable"]
 - !private ["PSo16UIStateRestoring", "kCAAnimationPaced"]
 - !private ["PSo16UIStateRestoring", "kCAAnimationRotateAuto"]
+- ["PSo16UIStateRestoring", "lblBioCharactersLeft"]
 - ["PSo16UIStateRestoring", "lblCharacterLft"]
 - ["PSo16UIStateRestoring", "moveImageInCircile"]
 - !private ["PSo16UIStateRestoring", "navigationBar"]
@@ -2813,12 +2726,14 @@ depends-member:
 - ["PSo16UIStateRestoring", "textViewShouldEndEditing"]
 - !private ["PSo16UIStateRestoring", "title"]
 - ["PSo16UIStateRestoring", "txtDescription"]
+- ["PSo16UIStateRestoring", "txtUserBio"]
 - ["PSo16UIStateRestoring", "userImg"]
 - ["PSo16UIStateRestoring", "val"]
 - !private ["PSo16UIStateRestoring", "view"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", "viewForZooming"]
 - ["PSo16UIStateRestoring", "viewForZoomingInScrollView"]
+- ["PSo16UIStateRestoring", "viewWillAppear"]
 - ["PSo16UIStateRestoring", "willPresent"]
 - ["PSo16UIStateRestoring", "willPresentActionSheet"]
 - ["PSo16UIStateRestoring", ""]
@@ -2841,7 +2756,6 @@ depends-member:
 - !private ["PSo18UITextViewDelegate", "UIAlertActionStyle"]
 - !private ["PSo18UITextViewDelegate", "UIAlertController"]
 - !private ["PSo18UITextViewDelegate", "UIBezierPath"]
-- !private ["PSo18UITextViewDelegate", "UIColor"]
 - !private ["PSo18UITextViewDelegate", "UIControlState"]
 - !private ["PSo18UITextViewDelegate", "UIImage"]
 - ["PSo18UITextViewDelegate", "UIImagePickerController"]
@@ -2851,9 +2765,6 @@ depends-member:
 - ["PSo18UITextViewDelegate", "actionSheetCancel"]
 - !private ["PSo18UITextViewDelegate", "activityIndicator"]
 - !private ["PSo18UITextViewDelegate", "addLoadingIndicator"]
-- !private ["PSo18UITextViewDelegate", "btn1People"]
-- !private ["PSo18UITextViewDelegate", "btn2People"]
-- !private ["PSo18UITextViewDelegate", "btn3People"]
 - !private ["PSo18UITextViewDelegate", "btnPost"]
 - ["PSo18UITextViewDelegate", "didPresent"]
 - ["PSo18UITextViewDelegate", "didPresentActionSheet"]
@@ -2917,7 +2828,6 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "UIAlertActionStyle"]
 - !private ["PSo18UITraitEnvironment", "UIAlertController"]
 - !private ["PSo18UITraitEnvironment", "UIBezierPath"]
-- !private ["PSo18UITraitEnvironment", "UIColor"]
 - !private ["PSo18UITraitEnvironment", "UIControlState"]
 - !private ["PSo18UITraitEnvironment", "UIImage"]
 - ["PSo18UITraitEnvironment", "UIImagePickerController"]
@@ -2930,11 +2840,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "addAction"]
 - ["PSo18UITraitEnvironment", "addLoadingIndicator"]
 - !private ["PSo18UITraitEnvironment", "addSubview"]
-- ["PSo18UITraitEnvironment", "btn1People"]
-- ["PSo18UITraitEnvironment", "btn2People"]
-- ["PSo18UITraitEnvironment", "btn3People"]
 - ["PSo18UITraitEnvironment", "btnImage"]
-- ["PSo18UITraitEnvironment", "btnPeopleSelection"]
 - ["PSo18UITraitEnvironment", "btnPost"]
 - !private ["PSo18UITraitEnvironment", "center"]
 - !private ["PSo18UITraitEnvironment", "clipsToBounds"]
@@ -2951,6 +2857,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "kCAAnimationPaced"]
 - !private ["PSo18UITraitEnvironment", "kCAAnimationRotateAuto"]
 - !private ["PSo18UITraitEnvironment", "layer"]
+- ["PSo18UITraitEnvironment", "lblBioCharactersLeft"]
 - ["PSo18UITraitEnvironment", "lblCharacterLft"]
 - ["PSo18UITraitEnvironment", "moveImageInCircile"]
 - !private ["PSo18UITraitEnvironment", "navigationBar"]
@@ -2982,6 +2889,7 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "setTitle"]
 - !private ["PSo18UITraitEnvironment", "sourceType"]
 - !private ["PSo18UITraitEnvironment", "startAnimating"]
+- !private ["PSo18UITraitEnvironment", "stopAnimating"]
 - !private ["PSo18UITraitEnvironment", "text"]
 - ["PSo18UITraitEnvironment", "textView"]
 - ["PSo18UITraitEnvironment", "textViewDidBeginEditing"]
@@ -2993,12 +2901,14 @@ depends-member:
 - !private ["PSo18UITraitEnvironment", "title"]
 - !private ["PSo18UITraitEnvironment", "topItem"]
 - ["PSo18UITraitEnvironment", "txtDescription"]
+- ["PSo18UITraitEnvironment", "txtUserBio"]
 - ["PSo18UITraitEnvironment", "userImg"]
 - ["PSo18UITraitEnvironment", "val"]
 - !private ["PSo18UITraitEnvironment", "view"]
 - ["PSo18UITraitEnvironment", "viewDidLoad"]
 - ["PSo18UITraitEnvironment", "viewForZooming"]
 - ["PSo18UITraitEnvironment", "viewForZoomingInScrollView"]
+- ["PSo18UITraitEnvironment", "viewWillAppear"]
 - ["PSo18UITraitEnvironment", "willPresent"]
 - ["PSo18UITraitEnvironment", "willPresentActionSheet"]
 - ["PSo18UITraitEnvironment", ""]
@@ -3010,6 +2920,7 @@ depends-member:
 - !private ["CSo6UIView", "setImage"]
 - !private ["CSo6UIView", "setTitle"]
 - !private ["CSo6UIView", "startAnimating"]
+- !private ["CSo6UIView", "stopAnimating"]
 - !private ["CSo6UIView", "text"]
 - !private ["CSo6UIView", "topItem"]
 - ["CSo16UIViewController", "Array"]
@@ -3028,7 +2939,6 @@ depends-member:
 - !private ["CSo16UIViewController", "UIAlertController"]
 - !private ["CSo16UIViewController", "UIBezierPath"]
 - ["CSo16UIViewController", "UIButton"]
-- !private ["CSo16UIViewController", "UIColor"]
 - !private ["CSo16UIViewController", "UIControlState"]
 - !private ["CSo16UIViewController", "UIImage"]
 - ["CSo16UIViewController", "UIImagePickerController"]
@@ -3044,11 +2954,7 @@ depends-member:
 - ["CSo16UIViewController", "activityIndicator.storage"]
 - !private ["CSo16UIViewController", "addAction"]
 - ["CSo16UIViewController", "addLoadingIndicator"]
-- ["CSo16UIViewController", "btn1People"]
-- ["CSo16UIViewController", "btn2People"]
-- ["CSo16UIViewController", "btn3People"]
 - ["CSo16UIViewController", "btnImage"]
-- ["CSo16UIViewController", "btnPeopleSelection"]
 - ["CSo16UIViewController", "btnPost"]
 - ["CSo16UIViewController", "deinit"]
 - !private ["CSo16UIViewController", "delegate"]
@@ -3063,6 +2969,7 @@ depends-member:
 - !private ["CSo16UIViewController", "isSourceTypeAvailable"]
 - !private ["CSo16UIViewController", "kCAAnimationPaced"]
 - !private ["CSo16UIViewController", "kCAAnimationRotateAuto"]
+- ["CSo16UIViewController", "lblBioCharactersLeft"]
 - ["CSo16UIViewController", "lblCharacterLft"]
 - ["CSo16UIViewController", "moveImageInCircile"]
 - !private ["CSo16UIViewController", "navigationBar"]
@@ -3100,12 +3007,14 @@ depends-member:
 - ["CSo16UIViewController", "textViewShouldEndEditing"]
 - !private ["CSo16UIViewController", "title"]
 - ["CSo16UIViewController", "txtDescription"]
+- ["CSo16UIViewController", "txtUserBio"]
 - ["CSo16UIViewController", "userImg"]
 - ["CSo16UIViewController", "val"]
 - !private ["CSo16UIViewController", "view"]
 - ["CSo16UIViewController", "viewDidLoad"]
 - ["CSo16UIViewController", "viewForZooming"]
 - ["CSo16UIViewController", "viewForZoomingInScrollView"]
+- ["CSo16UIViewController", "viewWillAppear"]
 - ["CSo16UIViewController", "willPresent"]
 - ["CSo16UIViewController", "willPresentActionSheet"]
 - ["CSo16UIViewController", ""]
@@ -3134,6 +3043,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setImage"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "setTitle"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "startAnimating"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "stopAnimating"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "topItem"]
 - !private ["Ps24_DestructorSafeContainer", "Element"]
@@ -3156,9 +3066,6 @@ depends-member:
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "characters"]
 - !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
-- !private ["Ps26_ExpressibleByColorLiteral", "cgColor"]
-- !private ["Ps26_ExpressibleByColorLiteral", "red"]
-- !private ["Ps26_ExpressibleByColorLiteral", "white"]
 - !private ["Ps26_ExpressibleByImageLiteral", "init"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "characters"]
 - !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
@@ -3176,7 +3083,6 @@ depends-member:
 - !private ["Ps9_Hashable", "UIAlertActionStyle"]
 - !private ["Ps9_Hashable", "UIAlertController"]
 - !private ["Ps9_Hashable", "UIBezierPath"]
-- !private ["Ps9_Hashable", "UIColor"]
 - !private ["Ps9_Hashable", "UIControlState"]
 - !private ["Ps9_Hashable", "UIImage"]
 - ["Ps9_Hashable", "UIImagePickerController"]
@@ -3192,19 +3098,12 @@ depends-member:
 - !private ["Ps9_Hashable", "addAction"]
 - ["Ps9_Hashable", "addLoadingIndicator"]
 - !private ["Ps9_Hashable", "addSubview"]
-- !private ["Ps9_Hashable", "borderColor"]
-- !private ["Ps9_Hashable", "borderWidth"]
-- ["Ps9_Hashable", "btn1People"]
-- ["Ps9_Hashable", "btn2People"]
-- ["Ps9_Hashable", "btn3People"]
 - ["Ps9_Hashable", "btnImage"]
-- ["Ps9_Hashable", "btnPeopleSelection"]
 - ["Ps9_Hashable", "btnPost"]
 - !private ["Ps9_Hashable", "calculationMode"]
 - !private ["Ps9_Hashable", "camera"]
 - !private ["Ps9_Hashable", "cancel"]
 - !private ["Ps9_Hashable", "center"]
-- !private ["Ps9_Hashable", "cgColor"]
 - !private ["Ps9_Hashable", "cgPath"]
 - !private ["Ps9_Hashable", "characters"]
 - !private ["Ps9_Hashable", "clipsToBounds"]
@@ -3225,6 +3124,7 @@ depends-member:
 - !private ["Ps9_Hashable", "kCAAnimationPaced"]
 - !private ["Ps9_Hashable", "kCAAnimationRotateAuto"]
 - !private ["Ps9_Hashable", "layer"]
+- ["Ps9_Hashable", "lblBioCharactersLeft"]
 - ["Ps9_Hashable", "lblCharacterLft"]
 - ["Ps9_Hashable", "moveImageInCircile"]
 - !private ["Ps9_Hashable", "navigationBar"]
@@ -3242,7 +3142,6 @@ depends-member:
 - ["Ps9_Hashable", "pickerView"]
 - !private ["Ps9_Hashable", "present"]
 - !private ["Ps9_Hashable", "print"]
-- !private ["Ps9_Hashable", "red"]
 - !private ["Ps9_Hashable", "repeatCount"]
 - !private ["Ps9_Hashable", "rotationMode"]
 - ["Ps9_Hashable", "scrollViewDidEndDecelerating"]
@@ -3261,6 +3160,7 @@ depends-member:
 - !private ["Ps9_Hashable", "setTitle"]
 - !private ["Ps9_Hashable", "sourceType"]
 - !private ["Ps9_Hashable", "startAnimating"]
+- !private ["Ps9_Hashable", "stopAnimating"]
 - !private ["Ps9_Hashable", "text"]
 - ["Ps9_Hashable", "textView"]
 - ["Ps9_Hashable", "textViewDidBeginEditing"]
@@ -3272,13 +3172,14 @@ depends-member:
 - !private ["Ps9_Hashable", "title"]
 - !private ["Ps9_Hashable", "topItem"]
 - ["Ps9_Hashable", "txtDescription"]
+- ["Ps9_Hashable", "txtUserBio"]
 - ["Ps9_Hashable", "userImg"]
 - ["Ps9_Hashable", "val"]
 - !private ["Ps9_Hashable", "view"]
 - ["Ps9_Hashable", "viewDidLoad"]
 - ["Ps9_Hashable", "viewForZooming"]
 - ["Ps9_Hashable", "viewForZoomingInScrollView"]
-- !private ["Ps9_Hashable", "white"]
+- ["Ps9_Hashable", "viewWillAppear"]
 - ["Ps9_Hashable", "willPresent"]
 - ["Ps9_Hashable", "willPresentActionSheet"]
 - ["Ps9_Hashable", ""]
@@ -3318,6 +3219,7 @@ depends-member:
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
+- !private "P12FacebookCore26AppEventParameterValueType"
 - "Sa"
 - "Ps23BidirectionalCollection"
 - "Ps22BidirectionalIndexable"
@@ -3333,7 +3235,6 @@ depends-nominal:
 - !private "PSo13CAMediaTiming"
 - !private "CSo19CAPropertyAnimation"
 - "VSC17CGAffineTransform"
-- "CSo7CGColor"
 - "V12CoreGraphics7CGFloat"
 - "VSC7CGPoint"
 - "Ps7CVarArg"
@@ -3375,6 +3276,8 @@ depends-nominal:
 - !private "Ps7Integer"
 - !private "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
+- !private "P10SwiftyJSON17JSONSubscriptType"
+- !private "P10Kingfisher20KingfisherCompatible"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
 - "Ps17MutableCollection"
@@ -3416,8 +3319,7 @@ depends-nominal:
 - "PSo21UIAppearanceContainer"
 - !private "PSo16UIBarPositioning"
 - "CSo12UIBezierPath"
-- "CSo8UIButton"
-- "CSo7UIColor"
+- !private "CSo8UIButton"
 - "PSo18UIContentContainer"
 - !private "PSo30UIContentSizeCategoryAdjusting"
 - !private "CSo9UIControl"
@@ -3468,7 +3370,6 @@ depends-nominal:
 - !private "Ps34_ExpressibleByBuiltinStringLiteral"
 - !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
 - !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
-- !private "Ps26_ExpressibleByColorLiteral"
 - !private "Ps26_ExpressibleByImageLiteral"
 - !private "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
@@ -3491,8 +3392,198 @@ depends-external:
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/IQKeyboardManagerSwift.swiftmodule/x86_64.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-umbrella.h"
-- "/Users/muhammadsalman/Desktop/Projects/My Work/iOS/Slide-Master-master/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/module.modulemap"
-interface-hash: "8b1d459700c1ef503806042904a95aff"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Downloads/Socialyze1-Setup2/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/SwiftyJSON/SwiftyJSON.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCoordinateBounds.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCompatabilityMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GoogleMapsBase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSURLTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSSyncTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSServices.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolyline.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolygon.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaService.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCamera.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanorama.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOrientation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMutablePath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarkerLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarker.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSUISettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView+Animation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapStyle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorDisplay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorBuilding.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGroundOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeometryUtils.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeocoder.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSProjection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCoordinateBounds+GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCircle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraPosition.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCALayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSDeprecationMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSAddress.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Modules/module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Modules/ObjectMapper.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Headers/ObjectMapper-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Headers/ObjectMapper-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/ObjectMapper/ObjectMapper.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSUserAddedPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesClient.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceTypes.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadataList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadata.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihoodList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihood.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteTableDataSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteResultsViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompletePrediction.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteMatchFragment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFilter.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFetcher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAddressComponent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GooglePlaces.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules/FloatRatingView.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/IQKeyboardManagerSwift.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Modules/Kingfisher.swiftmodule/x86_64.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Headers/Kingfisher-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Headers/Kingfisher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Headers/Kingfisher-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/Kingfisher/Kingfisher.framework/Modules/module.modulemap"
+interface-hash: "03c8ff887055a127363dd4b3e2d4fc11"

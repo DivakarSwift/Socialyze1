@@ -377,9 +377,11 @@ extension Kingfisher where Base: Image {
     func resize(to size: CGSize, for contentMode: UIViewContentMode) -> Image {
         switch contentMode {
         case .scaleAspectFit:
-            return resize(to: size, for: .aspectFit)
+            let newSize = self.size.kf.constrained(size)
+            return resize(to: newSize)
         case .scaleAspectFill:
-            return resize(to: size, for: .aspectFill)
+            let newSize = self.size.kf.filling(size)
+            return resize(to: newSize)
         default:
             return resize(to: size)
         }
@@ -387,6 +389,7 @@ extension Kingfisher where Base: Image {
     #endif
     
     // MARK: - Resize
+    
     /// Resize `self` to an image of new size.
     ///
     /// - parameter size: The target size.
@@ -408,25 +411,6 @@ extension Kingfisher where Base: Image {
             #else
                 base.draw(in: rect)
             #endif
-        }
-    }
-    
-    /// Resize `self` to an image of new size, respecting the content mode.
-    ///
-    /// - Parameters:
-    ///   - size: The target size.
-    ///   - contentMode: Content mode of output image should be.
-    /// - Returns: An image with new size.
-    public func resize(to size: CGSize, for contentMode: ContentMode) -> Image {
-        switch contentMode {
-        case .aspectFit:
-            let newSize = self.size.kf.constrained(size)
-            return resize(to: newSize)
-        case .aspectFill:
-            let newSize = self.size.kf.filling(size)
-            return resize(to: newSize)
-        default:
-            return resize(to: size)
         }
     }
     
@@ -453,12 +437,7 @@ extension Kingfisher where Base: Image {
             // if d is odd, use three box-blurs of size 'd', centered on the output pixel.
             let s = Float(max(radius, 2.0))
             // We will do blur on a resized image (*0.5), so the blur radius could be half as well.
-            
-            // Fix the slow compiling time for Swift 3. 
-            // See https://github.com/onevcat/Kingfisher/issues/611
-            let pi2 = 2 * Float.pi
-            let sqrtPi2 = sqrt(pi2)
-            var targetRadius = floor(s * 3.0 * sqrtPi2 / 4.0 + 0.5)
+            var targetRadius = floor(s * 3.0 * sqrt(2 * Float.pi) / 4.0 + 0.5)
             
             if targetRadius.isEven {
                 targetRadius += 1

@@ -1,0 +1,12 @@
+version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
+options: "5f209821bdf884668a26ad285eb0589a"
+build_time: [546082834, 779926000]
+inputs:
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginBehavior.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginButton.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginButton.Tooltip.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginButtonDelegate.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginButtonDelegateBridge.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginDefaultAudience.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginManager.swift": [545981105, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FacebookLogin/Sources/Login/LoginResult.swift": [545981105, 0]

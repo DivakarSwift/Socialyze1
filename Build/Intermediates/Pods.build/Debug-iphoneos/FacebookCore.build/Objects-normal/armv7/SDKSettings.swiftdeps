@@ -1,0 +1,490 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SDKVersion"
+- "SDKSettings"
+provides-nominal:
+- "V12FacebookCore11SDKSettings"
+provides-member:
+- ["V12FacebookCore11SDKSettings", ""]
+- ["V12FacebookCore11SDKSettings", "enabledLoggingBehaviors"]
+- ["V12FacebookCore11SDKSettings", "enableLoggingBehavior"]
+- ["V12FacebookCore11SDKSettings", "disableLoggingBehavior"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "CGFloat"
+- "String"
+- !private "CastingPrecedence"
+- "SDKVersion"
+- "Set"
+- "Bool"
+- "SDKLoggingBehavior"
+- "Double"
+- "FBSDKSettings"
+- "SDKSettings"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
+- !private ["Vs11AnyHashable", "deinit"]
+- !private ["Ps9AnyObject", "appID"]
+- !private ["Ps9AnyObject", "appURLSchemeSuffix"]
+- !private ["Ps9AnyObject", "clientToken"]
+- !private ["Ps9AnyObject", "disableLoggingBehavior"]
+- !private ["Ps9AnyObject", "displayName"]
+- !private ["Ps9AnyObject", "enableLoggingBehavior"]
+- !private ["Ps9AnyObject", "facebookDomainPart"]
+- !private ["Ps9AnyObject", "jpegCompressionQuality"]
+- !private ["Ps9AnyObject", "limitEventAndDataUsage"]
+- !private ["Ps9AnyObject", "loggingBehavior"]
+- ["Ps9AnyObject", "sdkVersion"]
+- !private ["Ps9AnyObject", "setAppID"]
+- !private ["Ps9AnyObject", "setAppURLSchemeSuffix"]
+- !private ["Ps9AnyObject", "setClientToken"]
+- !private ["Ps9AnyObject", "setDisplayName"]
+- !private ["Ps9AnyObject", "setFacebookDomainPart"]
+- !private ["Ps9AnyObject", "setJPEGCompressionQuality"]
+- !private ["Ps9AnyObject", "setLimitEventAndDataUsage"]
+- !private ["Ps9AnyObject", "setLoggingBehavior"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "init"]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Ps19BinaryFloatingPoint", "init"]
+- ["Sb", "deinit"]
+- ["V12CoreGraphics7CGFloat", "deinit"]
+- !private ["V12CoreGraphics7CGFloat", "init"]
+- !private ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "appID"]
+- !private ["Ps7CVarArg", "appURLSchemeSuffix"]
+- !private ["Ps7CVarArg", "clientToken"]
+- !private ["Ps7CVarArg", "disableLoggingBehavior"]
+- !private ["Ps7CVarArg", "displayName"]
+- !private ["Ps7CVarArg", "enableLoggingBehavior"]
+- !private ["Ps7CVarArg", "facebookDomainPart"]
+- !private ["Ps7CVarArg", "flatMap"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "jpegCompressionQuality"]
+- !private ["Ps7CVarArg", "limitEventAndDataUsage"]
+- !private ["Ps7CVarArg", "loggingBehavior"]
+- !private ["Ps7CVarArg", "map"]
+- ["Ps7CVarArg", "sdkVersion"]
+- !private ["Ps7CVarArg", "setAppID"]
+- !private ["Ps7CVarArg", "setAppURLSchemeSuffix"]
+- !private ["Ps7CVarArg", "setClientToken"]
+- !private ["Ps7CVarArg", "setDisplayName"]
+- !private ["Ps7CVarArg", "setFacebookDomainPart"]
+- !private ["Ps7CVarArg", "setJPEGCompressionQuality"]
+- !private ["Ps7CVarArg", "setLimitEventAndDataUsage"]
+- !private ["Ps7CVarArg", "setLoggingBehavior"]
+- !private ["Ps10Collection", "Element"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Collection", "flatMap"]
+- !private ["Ps10Collection", "init"]
+- !private ["Ps10Collection", "map"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "appID"]
+- !private ["Ps28CustomDebugStringConvertible", "appURLSchemeSuffix"]
+- !private ["Ps28CustomDebugStringConvertible", "clientToken"]
+- !private ["Ps28CustomDebugStringConvertible", "disableLoggingBehavior"]
+- !private ["Ps28CustomDebugStringConvertible", "displayName"]
+- !private ["Ps28CustomDebugStringConvertible", "enableLoggingBehavior"]
+- !private ["Ps28CustomDebugStringConvertible", "facebookDomainPart"]
+- !private ["Ps28CustomDebugStringConvertible", "flatMap"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "jpegCompressionQuality"]
+- !private ["Ps28CustomDebugStringConvertible", "limitEventAndDataUsage"]
+- !private ["Ps28CustomDebugStringConvertible", "loggingBehavior"]
+- !private ["Ps28CustomDebugStringConvertible", "map"]
+- ["Ps28CustomDebugStringConvertible", "sdkVersion"]
+- !private ["Ps28CustomDebugStringConvertible", "setAppID"]
+- !private ["Ps28CustomDebugStringConvertible", "setAppURLSchemeSuffix"]
+- !private ["Ps28CustomDebugStringConvertible", "setClientToken"]
+- !private ["Ps28CustomDebugStringConvertible", "setDisplayName"]
+- !private ["Ps28CustomDebugStringConvertible", "setFacebookDomainPart"]
+- !private ["Ps28CustomDebugStringConvertible", "setJPEGCompressionQuality"]
+- !private ["Ps28CustomDebugStringConvertible", "setLimitEventAndDataUsage"]
+- !private ["Ps28CustomDebugStringConvertible", "setLoggingBehavior"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "flatMap"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "map"]
+- !private ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "appID"]
+- !private ["Ps23CustomStringConvertible", "appURLSchemeSuffix"]
+- !private ["Ps23CustomStringConvertible", "clientToken"]
+- !private ["Ps23CustomStringConvertible", "disableLoggingBehavior"]
+- !private ["Ps23CustomStringConvertible", "displayName"]
+- !private ["Ps23CustomStringConvertible", "enableLoggingBehavior"]
+- !private ["Ps23CustomStringConvertible", "facebookDomainPart"]
+- !private ["Ps23CustomStringConvertible", "flatMap"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "jpegCompressionQuality"]
+- !private ["Ps23CustomStringConvertible", "limitEventAndDataUsage"]
+- !private ["Ps23CustomStringConvertible", "loggingBehavior"]
+- !private ["Ps23CustomStringConvertible", "map"]
+- ["Ps23CustomStringConvertible", "sdkVersion"]
+- !private ["Ps23CustomStringConvertible", "setAppID"]
+- !private ["Ps23CustomStringConvertible", "setAppURLSchemeSuffix"]
+- !private ["Ps23CustomStringConvertible", "setClientToken"]
+- !private ["Ps23CustomStringConvertible", "setDisplayName"]
+- !private ["Ps23CustomStringConvertible", "setFacebookDomainPart"]
+- !private ["Ps23CustomStringConvertible", "setJPEGCompressionQuality"]
+- !private ["Ps23CustomStringConvertible", "setLimitEventAndDataUsage"]
+- !private ["Ps23CustomStringConvertible", "setLoggingBehavior"]
+- ["Sd", "deinit"]
+- !private ["Sd", "init"]
+- !private ["Ps9Equatable", "Element"]
+- !private ["Ps9Equatable", "Iterator"]
+- !private ["Ps9Equatable", "appID"]
+- !private ["Ps9Equatable", "appURLSchemeSuffix"]
+- !private ["Ps9Equatable", "clientToken"]
+- !private ["Ps9Equatable", "disableLoggingBehavior"]
+- !private ["Ps9Equatable", "displayName"]
+- !private ["Ps9Equatable", "enableLoggingBehavior"]
+- !private ["Ps9Equatable", "facebookDomainPart"]
+- !private ["Ps9Equatable", "flatMap"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "jpegCompressionQuality"]
+- !private ["Ps9Equatable", "limitEventAndDataUsage"]
+- !private ["Ps9Equatable", "loggingBehavior"]
+- !private ["Ps9Equatable", "map"]
+- !private ["Ps9Equatable", "sdkStringValue"]
+- ["Ps9Equatable", "sdkVersion"]
+- !private ["Ps9Equatable", "setAppID"]
+- !private ["Ps9Equatable", "setAppURLSchemeSuffix"]
+- !private ["Ps9Equatable", "setClientToken"]
+- !private ["Ps9Equatable", "setDisplayName"]
+- !private ["Ps9Equatable", "setFacebookDomainPart"]
+- !private ["Ps9Equatable", "setJPEGCompressionQuality"]
+- !private ["Ps9Equatable", "setLimitEventAndDataUsage"]
+- !private ["Ps9Equatable", "setLoggingBehavior"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "flatMap"]
+- !private ["Ps25ExpressibleByArrayLiteral", "init"]
+- !private ["Ps25ExpressibleByArrayLiteral", "map"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["CSo13FBSDKSettings", "appID"]
+- !private ["CSo13FBSDKSettings", "appURLSchemeSuffix"]
+- !private ["CSo13FBSDKSettings", "clientToken"]
+- !private ["CSo13FBSDKSettings", "disableLoggingBehavior"]
+- !private ["CSo13FBSDKSettings", "displayName"]
+- !private ["CSo13FBSDKSettings", "enableLoggingBehavior"]
+- !private ["CSo13FBSDKSettings", "facebookDomainPart"]
+- !private ["CSo13FBSDKSettings", "jpegCompressionQuality"]
+- !private ["CSo13FBSDKSettings", "limitEventAndDataUsage"]
+- !private ["CSo13FBSDKSettings", "loggingBehavior"]
+- ["CSo13FBSDKSettings", "sdkVersion"]
+- !private ["CSo13FBSDKSettings", "setAppID"]
+- !private ["CSo13FBSDKSettings", "setAppURLSchemeSuffix"]
+- !private ["CSo13FBSDKSettings", "setClientToken"]
+- !private ["CSo13FBSDKSettings", "setDisplayName"]
+- !private ["CSo13FBSDKSettings", "setFacebookDomainPart"]
+- !private ["CSo13FBSDKSettings", "setJPEGCompressionQuality"]
+- !private ["CSo13FBSDKSettings", "setLimitEventAndDataUsage"]
+- !private ["CSo13FBSDKSettings", "setLoggingBehavior"]
+- !private ["Ps13FloatingPoint", "init"]
+- !private ["Ps8Hashable", "Element"]
+- !private ["Ps8Hashable", "Iterator"]
+- !private ["Ps8Hashable", "appID"]
+- !private ["Ps8Hashable", "appURLSchemeSuffix"]
+- !private ["Ps8Hashable", "clientToken"]
+- !private ["Ps8Hashable", "disableLoggingBehavior"]
+- !private ["Ps8Hashable", "displayName"]
+- !private ["Ps8Hashable", "enableLoggingBehavior"]
+- !private ["Ps8Hashable", "facebookDomainPart"]
+- !private ["Ps8Hashable", "flatMap"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "jpegCompressionQuality"]
+- !private ["Ps8Hashable", "limitEventAndDataUsage"]
+- !private ["Ps8Hashable", "loggingBehavior"]
+- !private ["Ps8Hashable", "map"]
+- !private ["Ps8Hashable", "sdkStringValue"]
+- ["Ps8Hashable", "sdkVersion"]
+- !private ["Ps8Hashable", "setAppID"]
+- !private ["Ps8Hashable", "setAppURLSchemeSuffix"]
+- !private ["Ps8Hashable", "setClientToken"]
+- !private ["Ps8Hashable", "setDisplayName"]
+- !private ["Ps8Hashable", "setFacebookDomainPart"]
+- !private ["Ps8Hashable", "setJPEGCompressionQuality"]
+- !private ["Ps8Hashable", "setLimitEventAndDataUsage"]
+- !private ["Ps8Hashable", "setLoggingBehavior"]
+- ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Element"]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps9Indexable", "flatMap"]
+- !private ["Ps9Indexable", "init"]
+- !private ["Ps9Indexable", "map"]
+- !private ["Ps13IndexableBase", "Element"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Ps13IndexableBase", "flatMap"]
+- !private ["Ps13IndexableBase", "init"]
+- !private ["Ps13IndexableBase", "map"]
+- !private ["Vs16IndexingIterator", "Element"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["CSo8NSObject", "appID"]
+- !private ["CSo8NSObject", "appURLSchemeSuffix"]
+- !private ["CSo8NSObject", "clientToken"]
+- !private ["CSo8NSObject", "disableLoggingBehavior"]
+- !private ["CSo8NSObject", "displayName"]
+- !private ["CSo8NSObject", "enableLoggingBehavior"]
+- !private ["CSo8NSObject", "facebookDomainPart"]
+- !private ["CSo8NSObject", "jpegCompressionQuality"]
+- !private ["CSo8NSObject", "limitEventAndDataUsage"]
+- !private ["CSo8NSObject", "loggingBehavior"]
+- ["CSo8NSObject", "sdkVersion"]
+- !private ["CSo8NSObject", "setAppID"]
+- !private ["CSo8NSObject", "setAppURLSchemeSuffix"]
+- !private ["CSo8NSObject", "setClientToken"]
+- !private ["CSo8NSObject", "setDisplayName"]
+- !private ["CSo8NSObject", "setFacebookDomainPart"]
+- !private ["CSo8NSObject", "setJPEGCompressionQuality"]
+- !private ["CSo8NSObject", "setLimitEventAndDataUsage"]
+- !private ["CSo8NSObject", "setLoggingBehavior"]
+- !private ["PSo16NSObjectProtocol", "appID"]
+- !private ["PSo16NSObjectProtocol", "appURLSchemeSuffix"]
+- !private ["PSo16NSObjectProtocol", "clientToken"]
+- !private ["PSo16NSObjectProtocol", "disableLoggingBehavior"]
+- !private ["PSo16NSObjectProtocol", "displayName"]
+- !private ["PSo16NSObjectProtocol", "enableLoggingBehavior"]
+- !private ["PSo16NSObjectProtocol", "facebookDomainPart"]
+- !private ["PSo16NSObjectProtocol", "jpegCompressionQuality"]
+- !private ["PSo16NSObjectProtocol", "limitEventAndDataUsage"]
+- !private ["PSo16NSObjectProtocol", "loggingBehavior"]
+- ["PSo16NSObjectProtocol", "sdkVersion"]
+- !private ["PSo16NSObjectProtocol", "setAppID"]
+- !private ["PSo16NSObjectProtocol", "setAppURLSchemeSuffix"]
+- !private ["PSo16NSObjectProtocol", "setClientToken"]
+- !private ["PSo16NSObjectProtocol", "setDisplayName"]
+- !private ["PSo16NSObjectProtocol", "setFacebookDomainPart"]
+- !private ["PSo16NSObjectProtocol", "setJPEGCompressionQuality"]
+- !private ["PSo16NSObjectProtocol", "setLimitEventAndDataUsage"]
+- !private ["PSo16NSObjectProtocol", "setLoggingBehavior"]
+- ["Sq", "deinit"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- ["O12FacebookCore18SDKLoggingBehavior", "deinit"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "init"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "sdkStringValue"]
+- ["V12FacebookCore11SDKSettings", "Bool"]
+- !private ["V12FacebookCore11SDKSettings", "CGFloat"]
+- ["V12FacebookCore11SDKSettings", "Double"]
+- !private ["V12FacebookCore11SDKSettings", "FBSDKSettings"]
+- ["V12FacebookCore11SDKSettings", "JPEGCompressionQuality"]
+- ["V12FacebookCore11SDKSettings", "SDKLoggingBehavior"]
+- ["V12FacebookCore11SDKSettings", "Set"]
+- ["V12FacebookCore11SDKSettings", "String"]
+- ["V12FacebookCore11SDKSettings", "appId"]
+- ["V12FacebookCore11SDKSettings", "appURLSchemeSuffix"]
+- ["V12FacebookCore11SDKSettings", "clientToken"]
+- ["V12FacebookCore11SDKSettings", "disableLoggingBehavior"]
+- ["V12FacebookCore11SDKSettings", "displayName"]
+- ["V12FacebookCore11SDKSettings", "enableLoggingBehavior"]
+- ["V12FacebookCore11SDKSettings", "enabledLoggingBehaviors"]
+- ["V12FacebookCore11SDKSettings", "facebookSubdomain"]
+- ["V12FacebookCore11SDKSettings", "init"]
+- ["V12FacebookCore11SDKSettings", "limitedEventAndDataUsage"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "_Element"]
+- !private ["Ps8Sequence", "flatMap"]
+- !private ["Ps8Sequence", "init"]
+- !private ["Ps8Sequence", "map"]
+- !private ["Vs3Set", "Element"]
+- !private ["Vs3Set", "Iterator"]
+- ["Vs3Set", "deinit"]
+- !private ["Vs3Set", "flatMap"]
+- !private ["Vs3Set", "init"]
+- !private ["Vs3Set", "map"]
+- !private ["Ps10SetAlgebra", "Element"]
+- !private ["Ps10SetAlgebra", "Iterator"]
+- !private ["Ps10SetAlgebra", "flatMap"]
+- !private ["Ps10SetAlgebra", "init"]
+- !private ["Ps10SetAlgebra", "map"]
+- !private ["Vs11SetIterator", "Element"]
+- !private ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "init"]
+- ["SS", "deinit"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps9_Hashable", "Element"]
+- !private ["Ps9_Hashable", "Iterator"]
+- !private ["Ps9_Hashable", "appID"]
+- !private ["Ps9_Hashable", "appURLSchemeSuffix"]
+- !private ["Ps9_Hashable", "clientToken"]
+- !private ["Ps9_Hashable", "disableLoggingBehavior"]
+- !private ["Ps9_Hashable", "displayName"]
+- !private ["Ps9_Hashable", "enableLoggingBehavior"]
+- !private ["Ps9_Hashable", "facebookDomainPart"]
+- !private ["Ps9_Hashable", "flatMap"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "jpegCompressionQuality"]
+- !private ["Ps9_Hashable", "limitEventAndDataUsage"]
+- !private ["Ps9_Hashable", "loggingBehavior"]
+- !private ["Ps9_Hashable", "map"]
+- !private ["Ps9_Hashable", "sdkStringValue"]
+- ["Ps9_Hashable", "sdkVersion"]
+- !private ["Ps9_Hashable", "setAppID"]
+- !private ["Ps9_Hashable", "setAppURLSchemeSuffix"]
+- !private ["Ps9_Hashable", "setClientToken"]
+- !private ["Ps9_Hashable", "setDisplayName"]
+- !private ["Ps9_Hashable", "setFacebookDomainPart"]
+- !private ["Ps9_Hashable", "setJPEGCompressionQuality"]
+- !private ["Ps9_Hashable", "setLimitEventAndDataUsage"]
+- !private ["Ps9_Hashable", "setLoggingBehavior"]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "flatMap"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "map"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- !private "Vs11AnyHashable"
+- "Ps9AnyObject"
+- !private "P12FacebookCore26AppEventParameterValueType"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- !private "Ps19BinaryFloatingPoint"
+- "Sb"
+- "V12CoreGraphics7CGFloat"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Sd"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "CSo13FBSDKSettings"
+- !private "Ps13FloatingPoint"
+- "Ps8Hashable"
+- "SQ"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- !private "Ps16IteratorProtocol"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- "O12FacebookCore18SDKLoggingBehavior"
+- "V12FacebookCore11SDKSettings"
+- !private "Ps8Sequence"
+- "Vs3Set"
+- !private "Ps10SetAlgebra"
+- !private "Vs11SetIterator"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "SS"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FacebookCore/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FacebookCore.build/unextended-module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/Bolts/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/Bolts.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FBSDKCoreKit/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FBSDKCoreKit.build/module.modulemap"
+interface-hash: "3e7f36a3938cff531441bea438888369"

@@ -15,6 +15,8 @@ struct GlobalConstants {
     
     struct APIKeys {
         static let googleMap = "AIzaSyDSWx1WCz8F_-4z0cjImhFpHEyQrvfIqyg"
+        static let API_KEY = "AIzaSyD05P6m62RzaWfOkMFlKz9hif2zNSi880s"
+        
     }
     
     struct UserDefaultKey {

@@ -1,0 +1,345 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "VideoShareContent"
+- "=="
+provides-nominal:
+- "V13FacebookShare17VideoShareContent"
+provides-member:
+- ["V13FacebookShare17VideoShareContent", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "Video"
+- "Equatable"
+- "ContentProtocol"
+- "VideoShareContent"
+- "String"
+- "PostSharingResult"
+- "=="
+- "Photo"
+- "AssignmentPrecedence"
+- "FBSDKSharingContent"
+- "URL"
+- "SDKBridgedContent"
+- !private "FBSDKShareVideoContent"
+- "Hashtag"
+- "Bool"
+depends-member:
+- !private ["Ps9AnyObject", "contentURL"]
+- !private ["Ps9AnyObject", "hashtag"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "peopleIDs"]
+- !private ["Ps9AnyObject", "placeID"]
+- !private ["Ps9AnyObject", "previewPhoto"]
+- !private ["Ps9AnyObject", "ref"]
+- !private ["Ps9AnyObject", "video"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "contentURL"]
+- !private ["Ps7CVarArg", "hashtag"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "peopleIDs"]
+- !private ["Ps7CVarArg", "placeID"]
+- !private ["Ps7CVarArg", "previewPhoto"]
+- !private ["Ps7CVarArg", "ref"]
+- !private ["Ps7CVarArg", "video"]
+- !private ["P13FacebookShare15ContentProtocol", "FBSDKShareVideoContent"]
+- ["P13FacebookShare15ContentProtocol", "hashtag"]
+- ["P13FacebookShare15ContentProtocol", "placeId"]
+- !private ["P13FacebookShare15ContentProtocol", "previewPhoto"]
+- ["P13FacebookShare15ContentProtocol", "referer"]
+- ["P13FacebookShare15ContentProtocol", "sdkSharingContentRepresentation"]
+- ["P13FacebookShare15ContentProtocol", "taggedPeopleIds"]
+- ["P13FacebookShare15ContentProtocol", "url"]
+- !private ["P13FacebookShare15ContentProtocol", "video"]
+- ["P13FacebookShare15ContentProtocol", ""]
+- !private ["Ps28CustomDebugStringConvertible", "contentURL"]
+- !private ["Ps28CustomDebugStringConvertible", "hashtag"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "peopleIDs"]
+- !private ["Ps28CustomDebugStringConvertible", "placeID"]
+- !private ["Ps28CustomDebugStringConvertible", "previewPhoto"]
+- !private ["Ps28CustomDebugStringConvertible", "ref"]
+- !private ["Ps28CustomDebugStringConvertible", "video"]
+- !private ["Ps23CustomStringConvertible", "contentURL"]
+- !private ["Ps23CustomStringConvertible", "hashtag"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "peopleIDs"]
+- !private ["Ps23CustomStringConvertible", "placeID"]
+- !private ["Ps23CustomStringConvertible", "previewPhoto"]
+- !private ["Ps23CustomStringConvertible", "ref"]
+- !private ["Ps23CustomStringConvertible", "video"]
+- !private ["Ps9Equatable", "FBSDKShareVideoContent"]
+- !private ["Ps9Equatable", "contentURL"]
+- ["Ps9Equatable", "hashtag"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "peopleIDs"]
+- !private ["Ps9Equatable", "placeID"]
+- ["Ps9Equatable", "placeId"]
+- !private ["Ps9Equatable", "previewPhoto"]
+- !private ["Ps9Equatable", "ref"]
+- ["Ps9Equatable", "referer"]
+- !private ["Ps9Equatable", "sdkHashtagRepresentation"]
+- !private ["Ps9Equatable", "sdkPhotoRepresentation"]
+- ["Ps9Equatable", "sdkSharingContentRepresentation"]
+- !private ["Ps9Equatable", "sdkVideoRepresentation"]
+- ["Ps9Equatable", "taggedPeopleIds"]
+- ["Ps9Equatable", "url"]
+- !private ["Ps9Equatable", "video"]
+- ["Ps9Equatable", ""]
+- !private ["PSo12FBSDKCopying", "contentURL"]
+- !private ["PSo12FBSDKCopying", "hashtag"]
+- !private ["PSo12FBSDKCopying", "init"]
+- !private ["PSo12FBSDKCopying", "isEqual"]
+- !private ["PSo12FBSDKCopying", "peopleIDs"]
+- !private ["PSo12FBSDKCopying", "placeID"]
+- !private ["PSo12FBSDKCopying", "previewPhoto"]
+- !private ["PSo12FBSDKCopying", "ref"]
+- !private ["PSo12FBSDKCopying", "video"]
+- ["CSo12FBSDKHashtag", "deinit"]
+- ["CSo15FBSDKSharePhoto", "deinit"]
+- ["CSo15FBSDKShareVideo", "deinit"]
+- !private ["CSo22FBSDKShareVideoContent", "contentURL"]
+- ["CSo22FBSDKShareVideoContent", "deinit"]
+- !private ["CSo22FBSDKShareVideoContent", "hashtag"]
+- !private ["CSo22FBSDKShareVideoContent", "init"]
+- !private ["CSo22FBSDKShareVideoContent", "peopleIDs"]
+- !private ["CSo22FBSDKShareVideoContent", "placeID"]
+- !private ["CSo22FBSDKShareVideoContent", "previewPhoto"]
+- !private ["CSo22FBSDKShareVideoContent", "ref"]
+- !private ["CSo22FBSDKShareVideoContent", "video"]
+- !private ["PSo19FBSDKSharingContent", "contentURL"]
+- ["PSo19FBSDKSharingContent", "deinit"]
+- !private ["PSo19FBSDKSharingContent", "hashtag"]
+- !private ["PSo19FBSDKSharingContent", "init"]
+- !private ["PSo19FBSDKSharingContent", "isEqual"]
+- !private ["PSo19FBSDKSharingContent", "peopleIDs"]
+- !private ["PSo19FBSDKSharingContent", "placeID"]
+- !private ["PSo19FBSDKSharingContent", "previewPhoto"]
+- !private ["PSo19FBSDKSharingContent", "ref"]
+- !private ["PSo19FBSDKSharingContent", "video"]
+- !private ["Ps8Hashable", "contentURL"]
+- !private ["Ps8Hashable", "hashtag"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "peopleIDs"]
+- !private ["Ps8Hashable", "placeID"]
+- !private ["Ps8Hashable", "previewPhoto"]
+- !private ["Ps8Hashable", "ref"]
+- !private ["Ps8Hashable", "sdkHashtagRepresentation"]
+- !private ["Ps8Hashable", "video"]
+- ["V13FacebookShare7Hashtag", "deinit"]
+- !private ["V13FacebookShare7Hashtag", "sdkHashtagRepresentation"]
+- !private ["PSo8NSCoding", "contentURL"]
+- !private ["PSo8NSCoding", "hashtag"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isEqual"]
+- !private ["PSo8NSCoding", "peopleIDs"]
+- !private ["PSo8NSCoding", "placeID"]
+- !private ["PSo8NSCoding", "previewPhoto"]
+- !private ["PSo8NSCoding", "ref"]
+- !private ["PSo8NSCoding", "video"]
+- !private ["PSo9NSCopying", "contentURL"]
+- !private ["PSo9NSCopying", "hashtag"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isEqual"]
+- !private ["PSo9NSCopying", "peopleIDs"]
+- !private ["PSo9NSCopying", "placeID"]
+- !private ["PSo9NSCopying", "previewPhoto"]
+- !private ["PSo9NSCopying", "ref"]
+- !private ["PSo9NSCopying", "video"]
+- !private ["CSo8NSObject", "contentURL"]
+- !private ["CSo8NSObject", "hashtag"]
+- !private ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "peopleIDs"]
+- !private ["CSo8NSObject", "placeID"]
+- !private ["CSo8NSObject", "previewPhoto"]
+- !private ["CSo8NSObject", "ref"]
+- !private ["CSo8NSObject", "video"]
+- !private ["PSo16NSObjectProtocol", "contentURL"]
+- !private ["PSo16NSObjectProtocol", "hashtag"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isEqual"]
+- !private ["PSo16NSObjectProtocol", "peopleIDs"]
+- !private ["PSo16NSObjectProtocol", "placeID"]
+- !private ["PSo16NSObjectProtocol", "previewPhoto"]
+- !private ["PSo16NSObjectProtocol", "ref"]
+- !private ["PSo16NSObjectProtocol", "video"]
+- !private ["PSo14NSSecureCoding", "contentURL"]
+- !private ["PSo14NSSecureCoding", "hashtag"]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "isEqual"]
+- !private ["PSo14NSSecureCoding", "peopleIDs"]
+- !private ["PSo14NSSecureCoding", "placeID"]
+- !private ["PSo14NSSecureCoding", "previewPhoto"]
+- !private ["PSo14NSSecureCoding", "ref"]
+- !private ["PSo14NSSecureCoding", "video"]
+- !private ["P13FacebookShare22OpenGraphPropertyValue", "sdkPhotoRepresentation"]
+- ["Sq", "deinit"]
+- ["V13FacebookShare5Photo", "deinit"]
+- !private ["V13FacebookShare5Photo", "sdkPhotoRepresentation"]
+- ["V13FacebookShare17PostSharingResult", "deinit"]
+- !private ["P13FacebookShare17SDKBridgedContent", "FBSDKShareVideoContent"]
+- ["P13FacebookShare17SDKBridgedContent", "hashtag"]
+- ["P13FacebookShare17SDKBridgedContent", "placeId"]
+- !private ["P13FacebookShare17SDKBridgedContent", "previewPhoto"]
+- ["P13FacebookShare17SDKBridgedContent", "referer"]
+- ["P13FacebookShare17SDKBridgedContent", "sdkSharingContentRepresentation"]
+- ["P13FacebookShare17SDKBridgedContent", "taggedPeopleIds"]
+- ["P13FacebookShare17SDKBridgedContent", "url"]
+- !private ["P13FacebookShare17SDKBridgedContent", "video"]
+- ["P13FacebookShare17SDKBridgedContent", ""]
+- ["V13FacebookShare5Video", "deinit"]
+- !private ["V13FacebookShare5Video", "sdkVideoRepresentation"]
+- ["V13FacebookShare17VideoShareContent", "=="]
+- ["V13FacebookShare17VideoShareContent", "Bool"]
+- !private ["V13FacebookShare17VideoShareContent", "FBSDKShareVideoContent"]
+- ["V13FacebookShare17VideoShareContent", "FBSDKSharingContent"]
+- ["V13FacebookShare17VideoShareContent", "Hashtag"]
+- ["V13FacebookShare17VideoShareContent", "Photo"]
+- ["V13FacebookShare17VideoShareContent", "PostSharingResult"]
+- ["V13FacebookShare17VideoShareContent", "Result"]
+- ["V13FacebookShare17VideoShareContent", "String"]
+- ["V13FacebookShare17VideoShareContent", "URL"]
+- ["V13FacebookShare17VideoShareContent", "Video"]
+- ["V13FacebookShare17VideoShareContent", "VideoShareContent"]
+- ["V13FacebookShare17VideoShareContent", "deinit"]
+- ["V13FacebookShare17VideoShareContent", "hashtag"]
+- ["V13FacebookShare17VideoShareContent", "init"]
+- ["V13FacebookShare17VideoShareContent", "placeId"]
+- ["V13FacebookShare17VideoShareContent", "previewPhoto"]
+- ["V13FacebookShare17VideoShareContent", "referer"]
+- ["V13FacebookShare17VideoShareContent", "sdkSharingContentRepresentation"]
+- ["V13FacebookShare17VideoShareContent", "taggedPeopleIds"]
+- ["V13FacebookShare17VideoShareContent", "url"]
+- ["V13FacebookShare17VideoShareContent", "video"]
+- !private ["Ps9_Hashable", "contentURL"]
+- !private ["Ps9_Hashable", "hashtag"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "peopleIDs"]
+- !private ["Ps9_Hashable", "placeID"]
+- !private ["Ps9_Hashable", "previewPhoto"]
+- !private ["Ps9_Hashable", "ref"]
+- !private ["Ps9_Hashable", "sdkHashtagRepresentation"]
+- !private ["Ps9_Hashable", "video"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- "Sb"
+- !private "Ps7CVarArg"
+- "P13FacebookShare15ContentProtocol"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "PSo12FBSDKCopying"
+- "CSo12FBSDKHashtag"
+- "CSo15FBSDKSharePhoto"
+- "CSo15FBSDKShareVideo"
+- "CSo22FBSDKShareVideoContent"
+- "PSo19FBSDKSharingContent"
+- !private "Ps8Hashable"
+- "V13FacebookShare7Hashtag"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "P13FacebookShare22OpenGraphPropertyValue"
+- "Sq"
+- "V13FacebookShare5Photo"
+- "V13FacebookShare17PostSharingResult"
+- "P13FacebookShare17SDKBridgedContent"
+- "V13FacebookShare5Video"
+- "V13FacebookShare17VideoShareContent"
+- !private "Ps9_Hashable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FacebookShare/FacebookShare-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FacebookShare.build/unextended-module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/Common/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Bolts/Bolts/iOS/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/Bolts/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/Bolts.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FBSDKCoreKit/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FBSDKCoreKit.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareMediaContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareVideoContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareVideo.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKSharePhotoContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKSharePhoto.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareOpenGraphContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareOpenGraphAction.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareLinkContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareDialogMode.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareDialog.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareOpenGraphValueContainer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareOpenGraphObject.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKShareAPI.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKSharingButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKSendButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKSharingContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKSharing.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKMessageDialog.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKLikeControl.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKLiking.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKLikeObjectType.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKLikeButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKHashtag.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKGameRequestDialog.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKGameRequestContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKAppInviteDialog.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKAppInviteContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKAppGroupJoinDialog.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKAppGroupContent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FBSDKShareKit/FBSDKShareKit/FBSDKShareKit/FBSDKAppGroupAddDialog.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FBSDKShareKit/FBSDKShareKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FBSDKShareKit.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FacebookCore/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/FacebookCore.build/module.modulemap"
+interface-hash: "9e7da956b56dd5c0e8cfc352878908ef"

@@ -1,0 +1,248 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SDKLoggingBehavior"
+- "=="
+provides-nominal:
+- "O12FacebookCore18SDKLoggingBehavior"
+provides-member:
+- ["O12FacebookCore18SDKLoggingBehavior", ""]
+- ["O12FacebookCore18SDKLoggingBehavior", "init"]
+- ["O12FacebookCore18SDKLoggingBehavior", "sdkStringValue"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "FBSDKLoggingBehaviorGraphAPIDebugWarning"
+- !private "FBSDKLoggingBehaviorAppEvents"
+- !private "FBSDKLoggingBehaviorCacheErrors"
+- !private "FBSDKLoggingBehaviorNetworkRequests"
+- !private "FBSDKLoggingBehaviorAccessTokens"
+- "String"
+- "SDKLoggingBehavior"
+- !private "FBSDKLoggingBehaviorUIControlErrors"
+- !private "FBSDKLoggingBehaviorPerformanceCharacteristics"
+- !private "FBSDKLoggingBehaviorInformational"
+- !private "FBSDKLoggingBehaviorGraphAPIDebugInfo"
+- "=="
+- !private "~="
+- "AssignmentPrecedence"
+- !private "FBSDKLoggingBehaviorDeveloperErrors"
+depends-member:
+- !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorAccessTokens"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorAppEvents"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorCacheErrors"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorDeveloperErrors"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorGraphAPIDebugInfo"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorGraphAPIDebugWarning"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorInformational"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorNetworkRequests"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorPerformanceCharacteristics"]
+- !private ["Ps9Equatable", "FBSDKLoggingBehaviorUIControlErrors"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "accessTokens"]
+- ["Ps9Equatable", "appEvents"]
+- ["Ps9Equatable", "cacheErrors"]
+- ["Ps9Equatable", "developerErrors"]
+- ["Ps9Equatable", "graphAPIDebugInfo"]
+- ["Ps9Equatable", "graphAPIDebugWarning"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "informational"]
+- ["Ps9Equatable", "networkRequests"]
+- ["Ps9Equatable", "performanceCharacteristics"]
+- ["Ps9Equatable", "uiControlErrors"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorAccessTokens"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorAppEvents"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorCacheErrors"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorDeveloperErrors"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorGraphAPIDebugInfo"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorGraphAPIDebugWarning"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorInformational"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorNetworkRequests"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorPerformanceCharacteristics"]
+- !private ["Ps8Hashable", "FBSDKLoggingBehaviorUIControlErrors"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "accessTokens"]
+- ["Ps8Hashable", "appEvents"]
+- ["Ps8Hashable", "cacheErrors"]
+- ["Ps8Hashable", "developerErrors"]
+- ["Ps8Hashable", "graphAPIDebugInfo"]
+- ["Ps8Hashable", "graphAPIDebugWarning"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "informational"]
+- ["Ps8Hashable", "networkRequests"]
+- ["Ps8Hashable", "performanceCharacteristics"]
+- ["Ps8Hashable", "uiControlErrors"]
+- ["Ps8Hashable", ""]
+- ["Si", "deinit"]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- ["O12FacebookCore18SDKLoggingBehavior", "=="]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorAccessTokens"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorAppEvents"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorCacheErrors"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorDeveloperErrors"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorGraphAPIDebugInfo"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorGraphAPIDebugWarning"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorInformational"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorNetworkRequests"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorPerformanceCharacteristics"]
+- !private ["O12FacebookCore18SDKLoggingBehavior", "FBSDKLoggingBehaviorUIControlErrors"]
+- ["O12FacebookCore18SDKLoggingBehavior", "String"]
+- ["O12FacebookCore18SDKLoggingBehavior", "_toAnyHashable"]
+- ["O12FacebookCore18SDKLoggingBehavior", "accessTokens"]
+- ["O12FacebookCore18SDKLoggingBehavior", "appEvents"]
+- ["O12FacebookCore18SDKLoggingBehavior", "cacheErrors"]
+- ["O12FacebookCore18SDKLoggingBehavior", "deinit"]
+- ["O12FacebookCore18SDKLoggingBehavior", "developerErrors"]
+- ["O12FacebookCore18SDKLoggingBehavior", "graphAPIDebugInfo"]
+- ["O12FacebookCore18SDKLoggingBehavior", "graphAPIDebugWarning"]
+- ["O12FacebookCore18SDKLoggingBehavior", "hashValue"]
+- ["O12FacebookCore18SDKLoggingBehavior", "informational"]
+- ["O12FacebookCore18SDKLoggingBehavior", "init"]
+- ["O12FacebookCore18SDKLoggingBehavior", "networkRequests"]
+- ["O12FacebookCore18SDKLoggingBehavior", "performanceCharacteristics"]
+- ["O12FacebookCore18SDKLoggingBehavior", "sdkStringValue"]
+- ["O12FacebookCore18SDKLoggingBehavior", "uiControlErrors"]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps10Strideable", "hashValue"]
+- ["SS", "deinit"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorAccessTokens"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorAppEvents"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorCacheErrors"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorDeveloperErrors"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorGraphAPIDebugInfo"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorGraphAPIDebugWarning"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorInformational"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorNetworkRequests"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorPerformanceCharacteristics"]
+- !private ["Ps9_Hashable", "FBSDKLoggingBehaviorUIControlErrors"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "accessTokens"]
+- ["Ps9_Hashable", "appEvents"]
+- ["Ps9_Hashable", "cacheErrors"]
+- ["Ps9_Hashable", "developerErrors"]
+- ["Ps9_Hashable", "graphAPIDebugInfo"]
+- ["Ps9_Hashable", "graphAPIDebugWarning"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "informational"]
+- ["Ps9_Hashable", "networkRequests"]
+- ["Ps9_Hashable", "performanceCharacteristics"]
+- ["Ps9_Hashable", "uiControlErrors"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- !private "P12FacebookCore26AppEventParameterValueType"
+- !private "Ps17BitwiseOperations"
+- "Sb"
+- !private "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps8Hashable"
+- "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "O12FacebookCore18SDKLoggingBehavior"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "SS"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/FacebookCore/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/FacebookCore.build/unextended-module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/Bolts/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/Bolts.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/FBSDKCoreKit/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/FBSDKCoreKit.build/module.modulemap"
+interface-hash: "f6466e7a9e47bcd0efc0da0feca2ddb5"

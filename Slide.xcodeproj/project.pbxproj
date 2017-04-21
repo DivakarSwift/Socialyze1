@@ -31,11 +31,13 @@
 		1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */; };
 		1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */; };
 		1FE7876D1E8818A9006B2445 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876C1E8818A9006B2445 /* Event.swift */; };
-		1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E51EA84348001BD4F2 /* ChatService.swift */; };
-		1FEC06E81EA87F81001BD4F2 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */; };
+		704BD8721EA77783002ED45E /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704BD8711EA77783002ED45E /* CoreData.framework */; };
+		704BD8751EA77833002ED45E /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 704BD8731EA77833002ED45E /* Places.xcdatamodeld */; };
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
 		7085EDF51E6EEAC000AD3420 /* bugbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7085EDF41E6EEAC000AD3420 /* bugbutton.png */; };
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
+		70B8DAD91EA9F16600B4D674 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B8DAD81EA9F16600B4D674 /* CustomCell.swift */; };
+		70CA3D281EA8C6D700E86787 /* PDGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CA3D271EA8C6D700E86787 /* PDGradientView.swift */; };
 		FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC19367C1E70FB85009F2912 /* Profile.storyboard */; };
 		FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC19367F1E70FC01009F2912 /* ProfileViewController.swift */; };
 		FC1936821E710463009F2912 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1936811E710463009F2912 /* EditingViewController.swift */; };
@@ -104,13 +106,15 @@
 		1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../UIViewExtension.swift; sourceTree = "<group>"; };
 		1FE7876C1E8818A9006B2445 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		1FEC06E51EA84348001BD4F2 /* ChatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
-		1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.debug.xcconfig"; sourceTree = "<group>"; };
 		6FB78CCFC1102B749DFF93D8 /* Pods-Slide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.release.xcconfig"; sourceTree = "<group>"; };
+		704BD8711EA77783002ED45E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		704BD8741EA77833002ED45E /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		7085EDF41E6EEAC000AD3420 /* bugbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugbutton.png; sourceTree = "<group>"; };
 		7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		70B8DAD81EA9F16600B4D674 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		70CA3D271EA8C6D700E86787 /* PDGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PDGradientView.swift; sourceTree = "<group>"; };
 		FC19367C1E70FB85009F2912 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FC19367F1E70FC01009F2912 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC1936811E710463009F2912 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704BD8721EA77783002ED45E /* CoreData.framework in Frameworks */,
 				7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */,
 				13571740EAF410EA1ADC42F1 /* Pods_Slide.framework in Frameworks */,
 			);
@@ -178,6 +183,7 @@
 				FC7A241E1E695F56004C9E44 /* Main.storyboard */,
 				FC7A241C1E695F56004C9E44 /* ViewController.swift */,
 				1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */,
+				70B8DAD81EA9F16600B4D674 /* CustomCell.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -199,7 +205,6 @@
 				1F6546511EA1C15A00D726E8 /* UserService.swift */,
 				1F6546571EA1C22200D726E8 /* PlaceService.swift */,
 				1F6546591EA1C2E300D726E8 /* FacebookService.swift */,
-				1FEC06E51EA84348001BD4F2 /* ChatService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -242,7 +247,6 @@
 				1FE7876C1E8818A9006B2445 /* Event.swift */,
 				1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */,
 				1F65465D1EA255C800D726E8 /* CheckInModel.swift */,
-				1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -259,10 +263,19 @@
 		7085EDF61E6EEB3700AD3420 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				704BD8711EA77783002ED45E /* CoreData.framework */,
 				7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */,
 				1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70CA3D261EA8C6C700E86787 /* GradientView */ = {
+			isa = PBXGroup;
+			children = (
+				70CA3D271EA8C6D700E86787 /* PDGradientView.swift */,
+			);
+			name = GradientView;
 			sourceTree = "<group>";
 		};
 		FC19367E1E70FB8E009F2912 /* Profile */ = {
@@ -331,6 +344,7 @@
 		FC7A24191E695F56004C9E44 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
+				70CA3D261EA8C6C700E86787 /* GradientView */,
 				1F6546561EA1C1F400D726E8 /* UTILS */,
 				1F6546551EA1C1D000D726E8 /* Resources */,
 				1F6546541EA1C1BC00D726E8 /* Extensions */,
@@ -342,6 +356,7 @@
 				FC52197E1E70100E00EDF19A /* Events */,
 				FC1936831E7104BC009F2912 /* Matches */,
 				FC19367E1E70FB8E009F2912 /* Profile */,
+				704BD8731EA77833002ED45E /* Places.xcdatamodeld */,
 			);
 			path = Slide;
 			sourceTree = "<group>";
@@ -511,7 +526,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8930F92A409D0A851E289616 /* [CP] Embed Pods Frameworks */ = {
@@ -538,8 +553,9 @@
 			files = (
 				1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */,
 				1FE7875E1E876B24006B2445 /* Authenticator.swift in Sources */,
-				1FEC06E81EA87F81001BD4F2 /* ChatModel.swift in Sources */,
+				70B8DAD91EA9F16600B4D674 /* CustomCell.swift in Sources */,
 				FC5219791E6FBD2400EDF19A /* SwipingViewController.swift in Sources */,
+				704BD8751EA77833002ED45E /* Places.xcdatamodeld in Sources */,
 				1FE787691E880D8B006B2445 /* UIViewControllerExtension.swift in Sources */,
 				1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */,
 				1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */,
@@ -548,6 +564,7 @@
 				1FE7876D1E8818A9006B2445 /* Event.swift in Sources */,
 				1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */,
 				FC1936821E710463009F2912 /* EditingViewController.swift in Sources */,
+				70CA3D281EA8C6D700E86787 /* PDGradientView.swift in Sources */,
 				1FE787651E87F0B2006B2445 /* JSONExtension.swift in Sources */,
 				1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
@@ -566,7 +583,6 @@
 				1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */,
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
-				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,
 				FCB6230B1E6EC4B6007DF4AE /* PostedViewController.swift in Sources */,
 				1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */,
 			);
@@ -741,6 +757,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		704BD8731EA77833002ED45E /* Places.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				704BD8741EA77833002ED45E /* Places.xcdatamodel */,
+			);
+			currentVersion = 704BD8741EA77833002ED45E /* Places.xcdatamodel */;
+			path = Places.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FC7A240F1E695F56004C9E44 /* Project object */;
 }

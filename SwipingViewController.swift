@@ -11,9 +11,9 @@ import UIKit
 class SwipingViewController: UIViewController {
     var users: [User] = [] {
         didSet {
-            self.userBio.text = users.first?.profile.bio
-            self.imageView.kf.setImage(with: users.first?.profile.images.first)
-            self.userNameAgeLabel.text = users.first?.profile.name
+            self.userBio.text = users.first?.bio
+            self.imageView.kf.setImage(with: users.first?.images.first)
+            self.userNameAgeLabel.text = users.first?.name
         }
     }
     

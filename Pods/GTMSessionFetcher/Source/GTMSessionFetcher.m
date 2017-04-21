@@ -89,8 +89,7 @@ GTM_ASSUME_NONNULL_END
 @property(atomic, strong, readwrite, GTM_NULLABLE) NSData *downloadResumeData;
 
 #if GTM_BACKGROUND_TASK_FETCHING
-// Should always be accessed within an @synchranized(self).
-@property(assign, nonatomic) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+@property(assign, atomic) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
 #endif
 
 @property(atomic, readwrite, getter=isUsingBackgroundSession) BOOL usingBackgroundSession;
@@ -311,8 +310,6 @@ static GTMSessionFetcherTestBlock GTM_NULLABLE_TYPE gGlobalTestBlock;
     _maxRetryInterval = kUnsetMaxRetryInterval;
 
     _taskPriority = -1.0f;  // Valid values if set are 0.0...1.0.
-
-    _testBlockAccumulateDataChunkCount = 1;
 
 #if !STRIP_GTM_FETCH_LOGGING
     // Encourage developers to set the comment property or use
@@ -838,17 +835,13 @@ static GTMSessionFetcherTestBlock GTM_NULLABLE_TYPE gGlobalTestBlock;
       // Background task expiration callback - this block is always invoked by
       // UIApplication on the main thread.
       if (bgTaskID != UIBackgroundTaskInvalid) {
-        @synchronized(self) {
-          if (bgTaskID == self.backgroundTaskIdentifier) {
-            self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
-          }
+        if (bgTaskID == self.backgroundTaskIdentifier) {
+          self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
         }
         [app endBackgroundTask:bgTaskID];
       }
     }];
-    @synchronized(self) {
-      self.backgroundTaskIdentifier = bgTaskID;
-    }
+    self.backgroundTaskIdentifier = bgTaskID;
   }
 #endif
 
@@ -1064,7 +1057,7 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
     }
 
     // Simulate receipt of an initial response.
-    if (response && didReceiveResponseBlock) {
+    if (didReceiveResponseBlock) {
       [self invokeOnCallbackUnsynchronizedQueueAfterUserStopped:YES
                                                           block:^{
           didReceiveResponseBlock(response, ^(NSURLSessionResponseDisposition desiredDisposition) {
@@ -1107,25 +1100,24 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
       }
     } else {
       // Simulate download to NSData progress.
-      if ((accumulateDataBlock || receivedProgressBlock) && responseData) {
-        [self simulateByteTransferWithData:responseData
-                                     block:^(NSData *data,
-                                             int64_t bytesReceived,
-                                             int64_t totalBytesReceived,
-                                             int64_t totalBytesExpectedToReceive) {
-          // This is invoked on the callback queue unless stopped.
-          if (accumulateDataBlock) {
-            accumulateDataBlock(data);
-          }
-
-          if (receivedProgressBlock) {
-            receivedProgressBlock(bytesReceived, totalBytesReceived);
-          }
-        }];
+      if (accumulateDataBlock) {
+        if (responseData) {
+          [self invokeOnCallbackQueueUnlessStopped:^{
+            accumulateDataBlock(responseData);
+          }];
+        }
+      } else {
+        _downloadedData = [responseData mutableCopy];
       }
 
-      if (!accumulateDataBlock) {
-        _downloadedData = [responseData mutableCopy];
+      if (receivedProgressBlock) {
+        [self simulateByteTransferReportWithDataLength:(int64_t)responseData.length
+                                                 block:^(int64_t bytesReceived,
+                                                         int64_t totalBytesReceived,
+                                                         int64_t totalBytesExpectedToReceive) {
+            // This is invoked on the callback queue unless stopped.
+            receivedProgressBlock(bytesReceived, totalBytesReceived);
+         }];
       }
 
       if (willCacheURLResponseBlock) {
@@ -1161,30 +1153,6 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
       }];
     }
   }];
-}
-
-- (void)simulateByteTransferWithData:(NSData *)responseData
-                               block:(GTMSessionFetcherSimulateByteTransferBlock)transferBlock {
-  // This utility method simulates transfering data to the client. It divides the data into at most
-  // "chunkCount" chunks and then passes each chunk along with a progress update to transferBlock.
-  // This function can be used with accumulateDataBlock or receivedProgressBlock.
-
-  NSUInteger chunkCount = MAX(self.testBlockAccumulateDataChunkCount, (NSUInteger) 1);
-  NSUInteger totalDataLength = responseData.length;
-  NSUInteger sendDataSize = totalDataLength / chunkCount + 1;
-  NSUInteger totalSent = 0;
-  while (totalSent < totalDataLength) {
-    NSUInteger bytesRemaining = totalDataLength - totalSent;
-    sendDataSize = MIN(sendDataSize, bytesRemaining);
-    NSData *chunkData = [responseData subdataWithRange:NSMakeRange(totalSent, sendDataSize)];
-    totalSent += sendDataSize;
-    [self invokeOnCallbackQueueUnlessStopped:^{
-      transferBlock(chunkData,
-                    (int64_t)sendDataSize,
-                    (int64_t)totalSent,
-                    (int64_t)totalDataLength);
-    }];
-  }
 }
 
 #endif  // !GTM_DISABLE_FETCHER_TEST_BLOCK
@@ -1539,15 +1507,14 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
 - (void)endBackgroundTask {
   // Whenever the connection stops or background execution expires,
   // we need to tell UIApplication we're done.
-  UIBackgroundTaskIdentifier bgTaskID;
-  @synchronized(self) {
-    bgTaskID = self.backgroundTaskIdentifier;
-    if (bgTaskID != UIBackgroundTaskInvalid) {
-      self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
-    }
-  }
-
+  //
+  // We'll wait on _callbackGroup to ensure that any callbacks in flight have executed,
+  // and that we access backgroundTaskIdentifier on the main thread, as happens when the
+  // task has expired.
+  UIBackgroundTaskIdentifier bgTaskID = self.backgroundTaskIdentifier;
   if (bgTaskID != UIBackgroundTaskInvalid) {
+    self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+
     id<GTMUIApplicationProtocol> app = [[self class] fetcherUIApplication];
     [app endBackgroundTask:bgTaskID];
   }
@@ -1977,25 +1944,13 @@ static GTM_NULLABLE_TYPE id<GTMUIApplicationProtocol> gSubstituteUIApp;
   id<GTMUIApplicationProtocol> app = gSubstituteUIApp;
   if (app) return app;
 
-  // iOS App extensions should not call [UIApplication sharedApplication], even
-  // if UIApplication responds to it.
-
-  static Class applicationClass = nil;
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    BOOL isAppExtension = [[[NSBundle mainBundle] bundlePath] hasSuffix:@".appex"];
-    if (!isAppExtension) {
-      Class cls = NSClassFromString(@"UIApplication");
-      if (cls && [cls respondsToSelector:NSSelectorFromString(@"sharedApplication")]) {
-        applicationClass = cls;
-      }
-    }
-  });
-
-  if (applicationClass) {
-    app = (id<GTMUIApplicationProtocol>)[applicationClass sharedApplication];
-  }
-  return app;
+  // Some projects use GTM_BACKGROUND_UIAPPLICATION to avoid compile-time references
+  // to UIApplication.
+#if GTM_BACKGROUND_UIAPPLICATION
+  return (id<GTMUIApplicationProtocol>) [UIApplication sharedApplication];
+#else
+  return nil;
+#endif
 }
 #endif //  TARGET_OS_IPHONE
 
@@ -3354,7 +3309,6 @@ static NSMutableDictionary *gSystemCompletionHandlers = nil;
             callbackQueue = _callbackQueue,
             initialBeginFetchDate = _initialBeginFetchDate,
             testBlock = _testBlock,
-            testBlockAccumulateDataChunkCount = _testBlockAccumulateDataChunkCount,
             comment = _comment,
             log = _log;
 
@@ -3400,7 +3354,7 @@ static NSMutableDictionary *gSystemCompletionHandlers = nil;
     GTMSessionMonitorSynchronized(self);
 
     GTMSESSION_LOG_DEBUG(@"[GTMSessionFetcher mutableRequest] is deprecated; use -request or"
-                         @" -setRequestValue:forHTTPHeaderField:");
+                         @" -setRequestVaue:forHTTPHeaderField:");
 
     return _request;
   }  // @synchronized(self)
@@ -3408,7 +3362,7 @@ static NSMutableDictionary *gSystemCompletionHandlers = nil;
 
 - (void)setMutableRequest:(GTM_NULLABLE NSMutableURLRequest *)request {
   GTMSESSION_LOG_DEBUG(@"[GTMSessionFetcher setMutableRequest:] is deprecated; use -request or"
-                       @" -setRequestValue:forHTTPHeaderField:");
+                       @" -setRequestVaue:forHTTPHeaderField:");
 
   GTMSESSION_ASSERT_DEBUG(![self isFetching],
                           @"mutableRequest should not change after beginFetch has been invoked");
