@@ -102,8 +102,8 @@ class ViewController: UIViewController {
     func setupPlaces() {
         places.append(Place.init(nameAddress: "RPAC, Ohio State", mainImage: #imageLiteral(resourceName: "RPAC1-yelp"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJB-ZAQ5SOOIgRM79SReqgWlI"))
         
-        places.append(Place.init(nameAddress: "The Union, Ohio State", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 39.997957, long: -83.0085650,placeID: "ChIJB3St4biOOIgRlGJv79oKtW4"))
-        places.append(Place.init(nameAddress: "18th Ave Library, Ohio State", mainImage: #imageLiteral(resourceName: "18thAvelibrary"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJDRJ-3r2OOIgR-Wmwn25uGc4"))
+        places.append(Place.init(nameAddress: "The Ohio State", mainImage: #imageLiteral(resourceName: "18thAvelibrary"), secondImage: nil, lat: 39.997957, long: -83.0085650,placeID: "ChIJs6fo3Y-OOIgRj4dWIQjYLKs"))
+        places.append(Place.init(nameAddress: "Ohio Union, Ohio State", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJs6fo3Y-OOIgRj4dWIQjYLKs"))
         
         places.append(Place.init(nameAddress: "Thompson Library, Ohio State", mainImage: #imageLiteral(resourceName: "ThompsonLibrary"), secondImage: #imageLiteral(resourceName: "ThompsonLibrary1"), lat: 39.999472, long: -83.014833,placeID: "ChIJP74-z5eOOIgRBVNFuzx7O7U"))
         
@@ -112,14 +112,14 @@ class ViewController: UIViewController {
         places.append(Place.init(nameAddress: "Columbus State CC.", mainImage: #imageLiteral(resourceName: "ColumbusStateCC"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJh6KJCdSIOIgRr6tbp10S-tQ"))
         places.append(Place.init(nameAddress: "Ohio Expo Center", mainImage: #imageLiteral(resourceName: "ohioexpocenter"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJQUwvF0yJOIgRevS5vYDi7bc"))
         places.append(Place.init(nameAddress: "Columbus Convention Center", mainImage: #imageLiteral(resourceName: "GreaterConventionCenter"), secondImage: nil, lat: 39.970323, long: -83.000803,placeID: "ChIJcyJmACmPOIgR7nFss0s9IZo"))
-        places.append(Place.init(nameAddress: "Schottenstein Center", mainImage: #imageLiteral(resourceName: "SchottCenter"), secondImage: nil, lat: 39.999009, long: -83.007331,placeID: "ChIJA1F8r5qOOIgRgs1lAQypqmA"))
-        places.append(Place.init(nameAddress: "Express Live", mainImage: #imageLiteral(resourceName: "ExpressLive!"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJCcOQ6COPOIgRcLEuZixc9Wk"))
+        places.append(Place.init(nameAddress: "Schottenstein Center", mainImage: #imageLiteral(resourceName: "SchottCenter"), secondImage: nil, lat: 39.999009, long: -83.007331,placeID: "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
+        places.append(Place.init(nameAddress: "Express Live!", mainImage: #imageLiteral(resourceName: "ExpressLive!"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJCcOQ6COPOIgRcLEuZixc9Wk"))
         places.append(Place.init(nameAddress: "Ugly Tuna", mainImage: #imageLiteral(resourceName: "UglyTuna "), secondImage: nil, lat: 0, long: 0,placeID: "ChIJOdSeCMeOOIgRmMsYhusrEwM"))
         places.append(Place.init(nameAddress: "Short North Pint House", mainImage: #imageLiteral(resourceName: "Pinthouse"), secondImage: nil, lat: 39.978351, long: -83.003153,placeID: "ChIJV1GKfNeOOIgR4-ZZbcipC8g"))
         places.append(Place.init(nameAddress: "Axis Nightclub", mainImage: #imageLiteral(resourceName: "Axisnightclub"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJG87B09mOOIgRQ55xUsoqKCs"))
         places.append(Place.init(nameAddress: "World of Beer", mainImage: #imageLiteral(resourceName: "WorldofBeer3"), secondImage: #imageLiteral(resourceName: "WorldofBeer1"), lat: 0, long: 0,placeID: "ChIJMx8lCceOOIgRhauV8WVch3M"))
-        places.append(Place.init(nameAddress: "Park street Cantina", mainImage: #imageLiteral(resourceName: "ParkStreetCantina"), secondImage: #imageLiteral(resourceName: "ParkStreetCantina1"), lat: 0, long: 0,placeID: "ChIJRaaWyyePOIgRt2G7Nk7HDAs"))
-        places.append(Place.init(nameAddress: "Char bar", mainImage: #imageLiteral(resourceName: "Charbar"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJXVLuvyiPOIgRaKnaqKcSzCQ"))
+        places.append(Place.init(nameAddress: "Park Street Cantina", mainImage: #imageLiteral(resourceName: "ParkStreetCantina"), secondImage: #imageLiteral(resourceName: "ParkStreetCantina1"), lat: 0, long: 0,placeID: "ChIJRaaWyyePOIgRt2G7Nk7HDAs"))
+        places.append(Place.init(nameAddress: "Char Bar", mainImage: #imageLiteral(resourceName: "Charbar"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJXVLuvyiPOIgRaKnaqKcSzCQ"))
         places.append(Place.init(nameAddress: "Mapfre stadium", mainImage: #imageLiteral(resourceName: "mapfre-stadium"), secondImage: nil, lat: 40.009521, long: -82.991087,placeID: "ChIJk4BJbVOJOIgRn_sPxoazXCs"))
         places.append(Place.init(nameAddress: "Nationwide Arena", mainImage: #imageLiteral(resourceName: "NationwideArena"), secondImage: #imageLiteral(resourceName: "NationWideArena1"), lat: 39.969274, long: -83.005992,placeID: "ChIJ6_-8ziWPOIgRSQzt9UEhOmI"))
         
@@ -130,11 +130,11 @@ class ViewController: UIViewController {
         places.append(Place.init(nameAddress: "Newport Music & Big Bar", mainImage: #imageLiteral(resourceName: "NewportMusicHall-yelp"), secondImage: nil, lat: 39.997719, long: -83.007267,placeID: "ChIJnRvS7biOOIgR8WzprZwSklE"))
         places.append(Place.init(nameAddress: "Polaris Fashion Mall", mainImage: #imageLiteral(resourceName: "PolarisFashionPlace"), secondImage: #imageLiteral(resourceName: "PolarisFashionPlace1-yelp"), lat: 0, long: 0,placeID: "ChIJv15SJGX0OIgRso-ZcKg17K0"))
         places.append(Place.init(nameAddress: "Easton Town Center", mainImage: #imageLiteral(resourceName: "EastonTownCenter"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJG9vehYeKOIgRkLBPTqjudW4"))
-        places.append(Place.init(nameAddress: "Downtown, Columbus", mainImage: #imageLiteral(resourceName: "DowntownColumbus "), secondImage: nil, lat: 0, long: 0,placeID: "ChIJ5baLxS-POIgR8ijJ-dGNvts"))
+        places.append(Place.init(nameAddress: "Downtown", mainImage: #imageLiteral(resourceName: "DowntownColumbus "), secondImage: nil, lat: 0, long: 0,placeID: ""))
         
-        places.append(Place.init(nameAddress: "Short North", mainImage: #imageLiteral(resourceName: "ShortNorth"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJddhE1tmOOIgR1ULAuDDb34w"))
+        places.append(Place.init(nameAddress: "Short North", mainImage: #imageLiteral(resourceName: "ShortNorth"), secondImage: nil, lat: 0, long: 0, placeID: ""))
         
-        places.append(Place.init(nameAddress: "German Village", mainImage: #imageLiteral(resourceName: "germanvillage"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJSZTZKbOIOIgRi4gi7mnhLtM"))
+        places.append(Place.init(nameAddress: "German Village", mainImage: #imageLiteral(resourceName: "germanvillage"), secondImage: nil, lat: 0, long: 0, placeID: ""))
         
         places.append(Place.init(nameAddress: "Fox in the Snow Cafe", mainImage: #imageLiteral(resourceName: "FoxandSnowCafe"), secondImage: nil, lat: 39.984228, long: -82.999388,placeID: "ChIJxfUn7NGOOIgRwf1Z3TIzy64"))
                
