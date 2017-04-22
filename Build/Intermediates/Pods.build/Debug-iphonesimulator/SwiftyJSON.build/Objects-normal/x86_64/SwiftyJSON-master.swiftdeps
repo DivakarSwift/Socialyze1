@@ -1,5 +1,5 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
-options: "24e5000d882166d988134415c9be269c"
-build_time: [546082844, 418216000]
+options: "677139dcdc42e5654c20a6b65d8a18ef"
+build_time: [546003345, 515283000]
 inputs:
-  "/Users/muhammadsalman/Desktop/Socialyze1/Pods/SwiftyJSON/Source/SwiftyJSON.swift": [545981160, 0]
+  "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/SwiftyJSON/Source/SwiftyJSON.swift": [545981160, 0]

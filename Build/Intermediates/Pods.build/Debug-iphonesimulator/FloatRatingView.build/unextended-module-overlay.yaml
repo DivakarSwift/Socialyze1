@@ -3,11 +3,11 @@
   'case-sensitive': 'false',
   'roots': [{
     'type': 'directory',
-    'name': '/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules'
+    'name': '/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules'
     'contents': [{
       'type': 'file',
       'name': 'module.modulemap',
-      'external-contents': '/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphonesimulator/FloatRatingView.build/unextended-module.modulemap',
+      'external-contents': '/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphonesimulator/FloatRatingView.build/unextended-module.modulemap',
     }]
   }]
 }

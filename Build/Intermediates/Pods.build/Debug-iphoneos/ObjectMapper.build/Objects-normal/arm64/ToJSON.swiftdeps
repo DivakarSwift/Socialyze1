@@ -7,28 +7,28 @@ provides-member:
 - ["C12ObjectMapper6ToJSON", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "Map"
+- "Dictionary"
+- "ToJSON"
 - !private "Float"
-- "Set"
-- "Array"
-- !private "||"
-- !private "Double"
 - "Hashable"
-- !private "NSNumber"
 - !private "!"
+- !private "||"
 - !private "Mapper"
 - !private "ArraySlice"
+- !private "Double"
+- !private "NSNumber"
 - !private "Bool"
-- "Dictionary"
-- "String"
-- !private "AssignmentPrecedence"
-- !private "NSNull"
 - !private "Int"
-- !private "=="
-- "ToJSON"
-- "CastingPrecedence"
-- "Map"
 - !private "setValue"
+- !private "NSNull"
+- !private "AssignmentPrecedence"
+- !private "=="
 - "BaseMappable"
+- "CastingPrecedence"
+- "Array"
+- "Set"
+- "String"
 depends-member:
 - !private ["Ps9AnyObject", "JSON"]
 - !private ["Ps9AnyObject", "Mapper"]
@@ -731,8 +731,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Swift.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/ObjectMapper/ObjectMapper-umbrella.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/ObjectMapper.build/unextended-module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/ObjectMapper/ObjectMapper-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphoneos/ObjectMapper.build/unextended-module.modulemap"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/UIKit.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Foundation.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/Darwin.swiftmodule"

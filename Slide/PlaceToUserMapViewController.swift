@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class PlaceToUserMapViewController: UIViewController {
+class PlaceToUserMapViewController: UIViewController,GMSMapViewDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -29,11 +29,14 @@ class PlaceToUserMapViewController: UIViewController {
             //        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
             //        view = mapView
         }
+        self.mapView.delegate = self
         
         if let place = place {
             // Creates a marker in the center of the map.
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2D(latitude: place.lat, longitude: place.long)
+            print(place.lat)
+            print(place.long)
             marker.title = place.nameAddress
             //marker.snippet = "Australia"
             marker.map = mapView
@@ -41,5 +44,17 @@ class PlaceToUserMapViewController: UIViewController {
         
         self.mapView.isMyLocationEnabled = true 
     }
+    public func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker){
+        print(place?.lat as Any)
+        print(place?.long as Any)
+       // if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
+            UIApplication.shared.openURL(NSURL(string:
+                "comgooglemaps://?saddr=&daddr=\(place!.lat),\(place!.long)&directionsmode=driving")! as URL)
+            
+//        } else {
+//            NSLog("Can't use comgooglemaps://");
+//        }
+    }
+    
     
 }

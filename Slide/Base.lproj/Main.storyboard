@@ -42,8 +42,8 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="9SY-0W-esB">
-                                                    <rect key="frame" x="5" y="8" width="129" height="27"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="22"/>
+                                                    <rect key="frame" x="5" y="8" width="129" height="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -70,8 +70,8 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="4" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLm-9m-ijY">
-                                                    <rect key="frame" x="107" y="180" width="30" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="107" y="182" width="30" height="0.0"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -95,7 +95,7 @@
                                             <constraint firstAttribute="trailing" secondItem="oLm-9m-ijY" secondAttribute="trailing" constant="2" id="wS9-0d-N9j"/>
                                             <constraint firstItem="9SY-0W-esB" firstAttribute="leading" secondItem="eZ4-b7-110" secondAttribute="leading" constant="5" id="whl-Yy-RYI"/>
                                             <constraint firstItem="xm4-6r-8aG" firstAttribute="top" secondItem="eZ4-b7-110" secondAttribute="top" id="xll-hg-llG"/>
-                                            <constraint firstItem="oLm-9m-ijY" firstAttribute="centerY" secondItem="dX8-bi-2Bo" secondAttribute="centerY" constant="-2" id="zQY-PM-lvS"/>
+                                            <constraint firstItem="oLm-9m-ijY" firstAttribute="centerY" secondItem="dX8-bi-2Bo" secondAttribute="centerY" id="zQY-PM-lvS"/>
                                         </constraints>
                                         <size key="customSize" width="139" height="200"/>
                                         <connections>
