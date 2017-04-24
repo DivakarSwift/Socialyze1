@@ -15,18 +15,18 @@ provides-member:
 - ["C5Slide15FirebaseManager", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Node"
 - "=="
 - !private "~="
-- "Error"
-- "String"
-- "Bool"
-- "FirebaseManagerError"
-- "FIRDatabase"
-- "Void"
-- "FirebaseManager"
 - "CallBackWithSuccessError"
+- "Bool"
+- "Error"
+- "FirebaseManagerError"
+- "FirebaseManager"
+- "String"
+- "Node"
+- "Void"
 - "StringLiteralType"
+- "FIRDatabase"
 depends-member:
 - ["Ps9AnyObject", "FIRDatabase"]
 - ["Ps9AnyObject", "FirebaseManager"]

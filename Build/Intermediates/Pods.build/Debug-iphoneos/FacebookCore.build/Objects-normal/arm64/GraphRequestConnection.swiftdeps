@@ -13,20 +13,20 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Void"
-- "String"
-- "FBSDKGraphRequestConnection"
 - "GraphRequestConnection"
 - "AssignmentPrecedence"
 - "GraphRequestProtocol"
 - "HTTPURLResponse"
-- "OperationQueue"
 - "GraphRequestResult"
 - "CastingPrecedence"
+- "OperationQueue"
+- "String"
+- "FBSDKGraphRequestConnection"
 - !private "StringLiteralType"
 - "Error"
 - !private "Dictionary"
-- "Int64"
 - "GraphRequestConnectionDelegateBridge"
+- "Int64"
 depends-member:
 - ["Ps9AnyObject", "FBSDKGraphRequestConnection"]
 - ["Ps9AnyObject", "GraphRequestConnectionDelegateBridge"]

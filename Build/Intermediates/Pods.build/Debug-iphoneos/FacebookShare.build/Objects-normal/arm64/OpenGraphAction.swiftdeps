@@ -12,17 +12,17 @@ provides-dynamic-lookup:
 depends-top-level:
 - "Set"
 - "=="
-- "OpenGraphPropertyContaining"
 - "AssignmentPrecedence"
 - "String"
-- "OpenGraphPropertyName"
-- "OpenGraphPropertyValue"
-- "OpenGraphAction"
-- !private "Dictionary"
-- "FBSDKShareOpenGraphAction"
+- "OpenGraphPropertyContaining"
 - "Equatable"
-- !private "OpenGraphPropertyValueConverter"
 - "Bool"
+- "FBSDKShareOpenGraphAction"
+- "OpenGraphAction"
+- "OpenGraphPropertyValue"
+- "OpenGraphPropertyName"
+- !private "Dictionary"
+- !private "OpenGraphPropertyValueConverter"
 depends-member:
 - !private ["Ps9AnyObject", "actionType"]
 - !private ["Ps9AnyObject", "enumerateKeysAndObjects"]

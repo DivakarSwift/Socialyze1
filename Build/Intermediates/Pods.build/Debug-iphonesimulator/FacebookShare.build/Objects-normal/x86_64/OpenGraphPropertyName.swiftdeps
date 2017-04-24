@@ -9,22 +9,22 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "TernaryPrecedence"
-- "OpenGraphPropertyName"
-- "Int"
+- !private "..."
+- !private "StringLiteralType"
+- !private ">="
 - "UnicodeScalarType"
-- "Hashable"
-- !private "+"
 - !private "print"
+- "OpenGraphPropertyName"
+- "ExpressibleByStringLiteral"
 - "Bool"
 - "=="
 - "AssignmentPrecedence"
-- !private ">="
-- "ExpressibleByStringLiteral"
-- !private "StringLiteralType"
-- !private "..."
-- "String"
 - "ExtendedGraphemeClusterType"
+- !private "+"
+- "Hashable"
 - "RawRepresentable"
+- "String"
+- "Int"
 depends-member:
 - !private ["Ps9AnyObject", "characters"]
 - !private ["Ps9AnyObject", "hashValue"]

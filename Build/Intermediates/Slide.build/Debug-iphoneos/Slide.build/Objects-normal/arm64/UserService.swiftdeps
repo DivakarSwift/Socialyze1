@@ -7,21 +7,21 @@ provides-member:
 - ["C5Slide11UserService", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "BooleanLiteralType"
-- "UserService"
-- !private "Node"
+- "CallBackWithSuccessError"
+- "FirebaseManagerError"
+- !private "=="
+- "User"
 - "FirebaseManager"
 - "Void"
-- "User"
-- !private "Dictionary"
-- "FirebaseManagerError"
-- !private "StringLiteralType"
-- "CallBackWithSuccessError"
-- !private "FIRDataEventType"
 - !private "Authenticator"
-- !private "=="
+- "UserService"
+- !private "Node"
+- !private "Dictionary"
+- !private "FIRDataEventType"
+- "BooleanLiteralType"
 - "String"
 - !private "JSON"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Vs11AnyHashable", "deinit"]
 - !private ["Ps9AnyObject", "Authenticator"]

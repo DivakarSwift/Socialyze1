@@ -11,15 +11,15 @@ provides-dynamic-lookup:
 - "loginButton"
 - "setupAsDelegateFor"
 depends-top-level:
-- !private "LoginResult"
-- "LoginButtonDelegateBridge"
-- "FBSDKLoginButton"
-- "AssignmentPrecedence"
-- "FBSDKLoginButtonDelegate"
-- "Error"
-- "FBSDKLoginManagerLoginResult"
 - "NSObject"
+- "AssignmentPrecedence"
+- "FBSDKLoginButton"
+- !private "LoginResult"
+- "FBSDKLoginManagerLoginResult"
+- "LoginButtonDelegateBridge"
+- "FBSDKLoginButtonDelegate"
 - "LoginButton"
+- "Error"
 depends-member:
 - !private ["Ps9AnyObject", "LoginResult"]
 - !private ["Ps9AnyObject", "delegate"]

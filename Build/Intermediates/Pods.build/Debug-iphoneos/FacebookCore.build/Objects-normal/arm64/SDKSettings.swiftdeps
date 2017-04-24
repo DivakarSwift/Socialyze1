@@ -12,14 +12,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "CGFloat"
-- "Double"
-- "Set"
-- "SDKSettings"
-- !private "CastingPrecedence"
-- "String"
-- "SDKLoggingBehavior"
-- "Bool"
 - "SDKVersion"
+- "Double"
+- "SDKLoggingBehavior"
+- !private "CastingPrecedence"
+- "Bool"
+- "SDKSettings"
+- "String"
+- "Set"
 - "FBSDKSettings"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]

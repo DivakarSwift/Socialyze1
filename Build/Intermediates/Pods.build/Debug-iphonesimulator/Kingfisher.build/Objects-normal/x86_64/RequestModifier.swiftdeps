@@ -13,11 +13,11 @@ provides-member:
 - ["V10Kingfisher11AnyModifier", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "NoModifier"
-- "AnyModifier"
-- "URLRequest"
 - "ImageDownloadRequestModifier"
+- "URLRequest"
+- "NoModifier"
 - "AssignmentPrecedence"
+- "AnyModifier"
 depends-member:
 - ["V10Kingfisher11AnyModifier", "URLRequest"]
 - ["V10Kingfisher11AnyModifier", "block"]

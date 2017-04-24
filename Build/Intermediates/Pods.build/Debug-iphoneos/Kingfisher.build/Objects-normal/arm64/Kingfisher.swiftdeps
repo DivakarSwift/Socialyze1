@@ -21,17 +21,17 @@ provides-member:
 - ["P10Kingfisher20KingfisherCompatible", "kf"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Color"
-- "UIImageView"
-- "Image"
-- "UIColor"
-- "Kingfisher"
-- "UIButton"
-- "KingfisherCompatible"
-- "AssignmentPrecedence"
-- "UIImage"
-- "ImageView"
 - "Button"
+- "UIButton"
+- "UIImageView"
+- "ImageView"
+- "KingfisherCompatible"
+- "Color"
+- "UIColor"
+- "UIImage"
+- "Kingfisher"
+- "Image"
+- "AssignmentPrecedence"
 depends-member:
 - ["Ps9AnyObject", "CompatibleType"]
 - !private ["Ps9AnyObject", "base"]

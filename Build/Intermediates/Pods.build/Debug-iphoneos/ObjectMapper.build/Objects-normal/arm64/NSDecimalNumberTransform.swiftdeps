@@ -7,12 +7,12 @@ provides-member:
 - ["C12ObjectMapper24NSDecimalNumberTransform", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "Double"
 - "NSDecimalNumber"
-- "String"
+- !private "Double"
 - "TransformType"
-- "CastingPrecedence"
 - "NSDecimalNumberTransform"
+- "CastingPrecedence"
+- "String"
 depends-member:
 - ["Ps9AnyObject", "JSON"]
 - !private ["Ps9AnyObject", "NSDecimalNumber"]

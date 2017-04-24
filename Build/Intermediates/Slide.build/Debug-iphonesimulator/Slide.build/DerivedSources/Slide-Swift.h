@@ -119,6 +119,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import Foundation;
 @import CoreGraphics;
 @import TTTAttributedLabel;
+@import GoogleMaps;
 @import CoreData;
 @import ObjectiveC;
 @import CoreLocation;
@@ -328,11 +329,13 @@ SWIFT_CLASS("_TtC5Slide25PlaceDetailViewController")
 @end
 
 @class GMSMapView;
+@class GMSMarker;
 
 SWIFT_CLASS("_TtC5Slide28PlaceToUserMapViewController")
-@interface PlaceToUserMapViewController : UIViewController
+@interface PlaceToUserMapViewController : UIViewController <GMSMapViewDelegate>
 @property (nonatomic, weak) IBOutlet GMSMapView * _Null_unspecified mapView;
 - (void)viewDidLoad;
+- (void)mapView:(GMSMapView * _Nonnull)mapView didTapInfoWindowOfMarker:(GMSMarker * _Nonnull)marker;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -366,22 +369,23 @@ SWIFT_CLASS("_TtC5Slide20PostedViewController")
 @end
 
 @class NSTimer;
+@class UITapGestureRecognizer;
 
 SWIFT_CLASS("_TtC5Slide21ProfileViewController")
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bioLabel;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified userImageView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified editButton;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblUserName;
 @property (nonatomic, copy) NSString * _Nullable userId;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull images;
 @property (nonatomic) NSInteger currentImageIndex;
 @property (nonatomic, strong) NSTimer * _Nullable imageTimer;
 - (void)viewDidLoad;
+- (void)handleTap:(UITapGestureRecognizer * _Nonnull)sender;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)loadProfilePicturesFromFacebook;
-- (void)startTimer;
-- (void)stopTimer;
 - (void)changeImage;
 - (IBAction)editProfile:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

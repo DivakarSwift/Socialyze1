@@ -10,11 +10,11 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "UserProfile"
-- !private "NSError"
 - "Error"
-- !private "StringLiteralType"
-- "FBSDKProfile"
 - "AssignmentPrecedence"
+- !private "NSError"
+- "FBSDKProfile"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["P12FacebookCore26AppEventParameterValueType", "init"]

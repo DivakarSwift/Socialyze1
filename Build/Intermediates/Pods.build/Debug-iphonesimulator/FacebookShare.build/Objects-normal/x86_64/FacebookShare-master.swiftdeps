@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "abaa65fc276ee81e04f203eb563ffcdf"
-build_time: [546003340, 779246000]
+build_time: [546343959, 469660000]
 inputs:
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FacebookShare/Sources/Share/Dialogs/AppInvite/AppInvite.DeliveryMethod.swift": [545981105, 0]
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FacebookShare/Sources/Share/Dialogs/AppInvite/AppInvite.Dialog.swift": [545981105, 0]

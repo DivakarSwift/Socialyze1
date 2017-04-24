@@ -8,9 +8,9 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "CastingPrecedence"
-- "TransformType"
 - "EnumTransform"
 - "RawRepresentable"
+- "TransformType"
 depends-member:
 - ["Ps9AnyObject", "JSON"]
 - ["Ps9AnyObject", "Object"]

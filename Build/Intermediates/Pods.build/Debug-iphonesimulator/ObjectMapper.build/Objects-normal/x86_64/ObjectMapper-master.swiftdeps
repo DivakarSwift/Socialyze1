@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "f30c2eb34c511aadfc65b6f9f10c836e"
-build_time: [546003346, 193949000]
+build_time: [546342726, 919219000]
 inputs:
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/ObjectMapper/Sources/CustomDateFormatTransform.swift": [545981160, 0]
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/ObjectMapper/Sources/DataTransform.swift": [545981160, 0]

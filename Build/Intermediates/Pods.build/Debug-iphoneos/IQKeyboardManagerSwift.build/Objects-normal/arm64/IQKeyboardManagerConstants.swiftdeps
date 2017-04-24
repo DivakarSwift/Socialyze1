@@ -12,9 +12,9 @@ provides-dynamic-lookup:
 depends-top-level:
 - "IQPreviousNextDisplayMode"
 - "Int"
+- "IQAutoToolbarManageBehaviour"
 - "=="
 - !private "~="
-- "IQAutoToolbarManageBehaviour"
 depends-member:
 - !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Ps17BitwiseOperations", "hashValue"]

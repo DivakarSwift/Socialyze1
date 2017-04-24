@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myprofile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="12q-Lr-3tK">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myprofile.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="12q-Lr-3tK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="This is where the 100 character bio will go" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-n2-R8B">
@@ -63,10 +61,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-7f-XWW">
-                                <rect key="frame" x="20" y="40" width="67" height="67"/>
+                                <rect key="frame" x="354" y="40" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="3dB-7f-XWW" secondAttribute="height" multiplier="1:1" id="Lzg-cp-KPe"/>
-                                    <constraint firstAttribute="width" constant="67" id="Qh7-Zu-4Bg"/>
+                                    <constraint firstAttribute="height" constant="40" id="MKb-U1-Br8"/>
+                                    <constraint firstAttribute="width" constant="40" id="Myv-ND-DBv"/>
                                 </constraints>
                                 <state key="normal" image="editbutton.png"/>
                                 <connections>
@@ -74,20 +72,28 @@
                                     <segue destination="Xua-vR-Ynp" kind="show" id="RNp-YQ-jzq"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1g-hO-uk6">
+                                <rect key="frame" x="20.000000000000004" y="50" width="43.333333333333343" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="bottom" secondItem="kax-Li-6ri" secondAttribute="top" id="0LB-dj-keI"/>
                             <constraint firstItem="goF-SG-JG0" firstAttribute="centerX" secondItem="P2q-w0-1YG" secondAttribute="centerX" id="202-Lz-dvc"/>
+                            <constraint firstItem="3dB-7f-XWW" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="20" id="25w-YX-BA9"/>
                             <constraint firstAttribute="trailing" secondItem="sYc-n2-R8B" secondAttribute="trailing" id="9A5-lp-kat"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" id="9iY-IX-Wyj"/>
                             <constraint firstItem="sYc-n2-R8B" firstAttribute="centerX" secondItem="P2q-w0-1YG" secondAttribute="centerX" id="AXT-Wf-srD"/>
                             <constraint firstItem="sYc-n2-R8B" firstAttribute="centerY" secondItem="P2q-w0-1YG" secondAttribute="centerY" id="JET-FO-f58"/>
                             <constraint firstItem="kax-Li-6ri" firstAttribute="top" secondItem="goF-SG-JG0" secondAttribute="bottom" constant="20" id="JML-5P-uVW"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="top" secondItem="P2q-w0-1YG" secondAttribute="top" id="Sb5-Mf-NkL"/>
-                            <constraint firstItem="3dB-7f-XWW" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="20" id="bYv-3D-CHJ"/>
-                            <constraint firstItem="3dB-7f-XWW" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leadingMargin" id="dRf-Uj-T2U"/>
+                            <constraint firstItem="o1g-hO-uk6" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" constant="20" id="Xm9-ym-9ui"/>
+                            <constraint firstItem="o1g-hO-uk6" firstAttribute="centerY" secondItem="3dB-7f-XWW" secondAttribute="centerY" id="dD7-P2-odz"/>
                             <constraint firstAttribute="trailing" secondItem="12q-Lr-3tK" secondAttribute="trailing" id="ejg-ia-5Uz"/>
+                            <constraint firstAttribute="trailing" secondItem="3dB-7f-XWW" secondAttribute="trailing" constant="20" id="lQ1-jh-X5u"/>
                             <constraint firstItem="sYc-n2-R8B" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" id="qBd-TF-DdF"/>
                         </constraints>
                     </view>
@@ -95,6 +101,7 @@
                     <connections>
                         <outlet property="bioLabel" destination="sYc-n2-R8B" id="xAa-ka-VfE"/>
                         <outlet property="editButton" destination="3dB-7f-XWW" id="H3Q-87-i5D"/>
+                        <outlet property="lblUserName" destination="o1g-hO-uk6" id="i49-fT-Z6x"/>
                         <outlet property="userImageView" destination="12q-Lr-3tK" id="vi6-GL-zb9"/>
                     </connections>
                 </viewController>

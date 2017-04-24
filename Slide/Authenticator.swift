@@ -10,7 +10,8 @@ import Foundation
 import FirebaseAuth
 import FacebookCore
 import FacebookLogin
-
+import FBSDKCoreKit
+import FBSDKLoginKit
 typealias CompletionBlock = (Void) -> Void
 typealias CallBackWithError = (Error?) -> ()
 
@@ -66,6 +67,7 @@ class Authenticator {
             loginManager.logOut()
             let userPhotos = "user_photos"
             // let taggableFriends = "taggable_friends"
+            
             loginManager.logIn([.publicProfile, .custom(userPhotos), .userFriends], viewController: nil) { loginResult in
                 switch loginResult {
                 case .failed(let error):
@@ -83,6 +85,17 @@ class Authenticator {
                     
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
                     
+                    if (FBSDKAccessToken.current() != nil) {
+                        
+                        FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,gender,birthday,name"]).start(completionHandler: { (connection, result, error) -> Void in
+                            
+                            print(result)
+                            let jsondata = result as? [String: Any]
+                             GlobalConstants.UserDefaultKey.name.set(value: jsondata?["name"] as! String)
+                            print( jsondata?["name"] as! String)
+                          
+                        })
+                    }
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
                         self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
                     }

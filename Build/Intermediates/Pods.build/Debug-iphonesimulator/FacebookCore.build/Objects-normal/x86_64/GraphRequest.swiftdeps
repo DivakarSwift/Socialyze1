@@ -7,15 +7,15 @@ provides-member:
 - ["V12FacebookCore12GraphRequest", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "AssignmentPrecedence"
-- "String"
+- "GraphAPIVersion"
 - "GraphRequest"
 - "Dictionary"
 - "GraphRequestHTTPMethod"
+- "AssignmentPrecedence"
 - "GraphRequestProtocol"
-- "GraphResponse"
 - "AccessToken"
-- "GraphAPIVersion"
+- "GraphResponse"
+- "String"
 depends-member:
 - !private ["V12FacebookCore11AccessToken", "current"]
 - !private ["Ps7CVarArg", "Key"]

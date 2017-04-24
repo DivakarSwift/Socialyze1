@@ -11,17 +11,17 @@ provides-member:
 - ["C5Slide6Places", "place_name"]
 - ["C5Slide6Places", "place_rating"]
 provides-dynamic-lookup:
-- "place_name"
 - "place_image"
+- "place_name"
 - "place_lat"
 - "place_address"
 - "place_rating"
 - "place_long"
 depends-top-level:
-- "String"
-- "NSData"
-- !private "StringLiteralType"
 - "Places"
+- "NSData"
+- "String"
+- !private "StringLiteralType"
 - "NSFetchRequest"
 depends-member:
 - !private ["Ps9AnyObject", "NSFetchRequest"]

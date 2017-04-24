@@ -11,8 +11,8 @@ provides-member:
 - ["OC12FacebookCore15AppEventsLogger13FlushBehavior", "sdkFlushBehavior"]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKAppEventsFlushBehavior"
 - "AppEventsLogger"
+- "FBSDKAppEventsFlushBehavior"
 - "=="
 - "AssignmentPrecedence"
 depends-member:

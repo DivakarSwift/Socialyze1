@@ -12,14 +12,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Void"
-- !private "SDKSettings"
-- "Date"
+- "String"
 - "Permission"
 - "Set"
+- "Date"
+- !private "SDKSettings"
 - "AssignmentPrecedence"
-- "String"
-- "Error"
 - "CastingPrecedence"
+- "Error"
 - "AccessToken"
 - "FBSDKAccessToken"
 depends-member:

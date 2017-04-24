@@ -8,9 +8,9 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Int"
-- "IQLayoutGuidePosition"
-- "=="
 - !private "~="
+- "=="
+- "IQLayoutGuidePosition"
 depends-member:
 - !private ["Ps17BitwiseOperations", "Stride"]
 - !private ["Ps17BitwiseOperations", "hashValue"]

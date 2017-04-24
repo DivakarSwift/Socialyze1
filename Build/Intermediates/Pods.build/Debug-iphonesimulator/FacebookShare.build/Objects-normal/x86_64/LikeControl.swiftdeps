@@ -10,27 +10,27 @@ provides-member:
 - ["C13FacebookShare11LikeControl", "sizeThatFits"]
 - ["C13FacebookShare11LikeControl", "intrinsicContentSize"]
 provides-dynamic-lookup:
-- "isSoundEnabled"
-- "sizeThatFits"
-- "foregroundColor"
 - "sizeToFit"
-- "intrinsicContentSize"
 - "preferredMaxLayoutWidth"
+- "isSoundEnabled"
 - "layoutSubviews"
+- "sizeThatFits"
+- "intrinsicContentSize"
+- "foregroundColor"
 depends-top-level:
-- "CGSize"
-- "CGFloat"
-- "Bool"
-- "UIColor"
-- "AssignmentPrecedence"
-- "LikeControl"
-- "UIView"
-- !private "StringLiteralType"
-- !private "??"
 - "FBSDKLikeControl"
 - "NSCoder"
-- "LikableObject"
+- !private "StringLiteralType"
 - "CGRect"
+- "UIColor"
+- "LikableObject"
+- "Bool"
+- "LikeControl"
+- "AssignmentPrecedence"
+- "UIView"
+- "CGSize"
+- !private "??"
+- "CGFloat"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "AuxilaryStyle"]

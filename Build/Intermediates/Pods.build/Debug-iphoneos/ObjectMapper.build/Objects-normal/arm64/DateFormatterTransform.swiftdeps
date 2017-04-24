@@ -7,13 +7,13 @@ provides-member:
 - ["C12ObjectMapper22DateFormatterTransform", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "Date"
 - "DateFormatter"
 - "DateFormatterTransform"
-- "Date"
 - "TransformType"
-- "CastingPrecedence"
-- "AssignmentPrecedence"
 - "String"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
 depends-member:
 - ["Ps9AnyObject", "JSON"]
 - ["Ps9AnyObject", "Object"]

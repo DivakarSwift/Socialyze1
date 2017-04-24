@@ -7,24 +7,24 @@ provides-member:
 - ["C13FacebookShare24SDKSharingDelegateBridge", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKSharingDelegate"
-- "ContentProtocol"
-- "SDKSharingDelegateBridge"
-- !private "ShareError"
-- !private "NSError"
-- "Error"
-- "AnyHashable"
-- "NSObject"
-- "CastingPrecedence"
-- "AssignmentPrecedence"
 - !private "??"
-- !private "BridgingFailedError"
+- !private "NSError"
+- !private "ShareError"
+- "Error"
+- "FBSDKSharing"
 - !private "objc_setAssociatedObject"
 - "Void"
-- "FBSDKSharing"
+- !private "BridgingFailedError"
 - !private "String"
-- "ContentSharerResult"
+- "AssignmentPrecedence"
 - !private "Unmanaged"
+- "ContentSharerResult"
+- "CastingPrecedence"
+- "ContentProtocol"
+- "SDKSharingDelegateBridge"
+- "NSObject"
+- "FBSDKSharingDelegate"
+- "AnyHashable"
 depends-member:
 - !private ["Vs11AnyHashable", "deinit"]
 - !private ["Ps9AnyObject", "BridgingFailedError"]

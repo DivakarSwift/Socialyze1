@@ -12,21 +12,21 @@ provides-member:
 - ["C12FacebookCore22GraphRequestConnection", "cancel"]
 provides-dynamic-lookup:
 depends-top-level:
-- "GraphRequestResult"
-- "Error"
-- "HTTPURLResponse"
-- "FBSDKGraphRequestConnection"
 - "Void"
-- "GraphRequestConnectionDelegateBridge"
-- "AssignmentPrecedence"
-- "CastingPrecedence"
-- "Int64"
-- !private "StringLiteralType"
-- !private "Dictionary"
-- "String"
-- "OperationQueue"
-- "GraphRequestProtocol"
 - "GraphRequestConnection"
+- "OperationQueue"
+- "GraphRequestResult"
+- "AssignmentPrecedence"
+- "GraphRequestProtocol"
+- "FBSDKGraphRequestConnection"
+- "HTTPURLResponse"
+- "CastingPrecedence"
+- !private "StringLiteralType"
+- "Error"
+- "Int64"
+- !private "Dictionary"
+- "GraphRequestConnectionDelegateBridge"
+- "String"
 depends-member:
 - ["Ps9AnyObject", "FBSDKGraphRequestConnection"]
 - ["Ps9AnyObject", "GraphRequestConnectionDelegateBridge"]

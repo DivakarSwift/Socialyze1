@@ -1,5 +1,5 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "f28eb2add6ad9bb1763732e12f60d8fc"
-build_time: [546003329, 294437000]
+build_time: [546342715, 534565000]
 inputs:
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FloatRatingView/FloatRatingView.swift": [545981082, 0]

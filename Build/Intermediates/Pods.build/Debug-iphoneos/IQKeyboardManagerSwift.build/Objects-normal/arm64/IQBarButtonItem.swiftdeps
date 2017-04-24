@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 - "initialize"
 depends-top-level:
-- !private "UIBarMetrics"
+- "UIBarButtonItem"
+- !private "UIControlState"
+- "AssignmentPrecedence"
 - "IQBarButtonItem"
 - !private "UIOffset"
-- "UIBarButtonItem"
-- "AssignmentPrecedence"
-- !private "UIControlState"
 - !private "UIBarButtonItemStyle"
+- !private "UIBarMetrics"
 depends-member:
 - !private ["Ps9AnyObject", "UIBarButtonItemStyle"]
 - !private ["Ps9AnyObject", "UIBarMetrics"]

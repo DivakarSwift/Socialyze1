@@ -16,15 +16,15 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "NSNotification"
-- "GlobalConstants"
-- "StringLiteralType"
+- "CastingPrecedence"
 - "URL"
 - "AnyHashable"
-- "UIApplicationOpenSettingsURLString"
-- "String"
 - !private "NotificationCenter"
 - "UIApplication"
-- "CastingPrecedence"
+- "GlobalConstants"
+- "UIApplicationOpenSettingsURLString"
+- "StringLiteralType"
+- "String"
 - !private "UserDefaults"
 depends-member:
 - ["VV5Slide15GlobalConstants7APIKeys", "API_KEY"]
@@ -237,6 +237,7 @@ depends-member:
 - ["VV5Slide15GlobalConstants14UserDefaultKey", "firstTimeLogin"]
 - ["VV5Slide15GlobalConstants14UserDefaultKey", "init"]
 - ["VV5Slide15GlobalConstants14UserDefaultKey", "key"]
+- ["VV5Slide15GlobalConstants14UserDefaultKey", "name"]
 - ["VV5Slide15GlobalConstants14UserDefaultKey", "remove"]
 - ["VV5Slide15GlobalConstants14UserDefaultKey", "set"]
 - ["VV5Slide15GlobalConstants14UserDefaultKey", "taggableFriendsPermissionStatusFromFacebook"]
@@ -537,4 +538,4 @@ depends-external:
 - "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Headers/Kingfisher.h"
 - "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Headers/Kingfisher-umbrella.h"
 - "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Modules/module.modulemap"
-interface-hash: "a4699ea966894e01335b58a97563abe9"
+interface-hash: "03d9f33343bb8f1e5437d984203a045d"

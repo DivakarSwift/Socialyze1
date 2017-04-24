@@ -8,10 +8,10 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "PostSharingResult"
-- "String"
-- !private "ShareResultKeys"
-- "AssignmentPrecedence"
 - "ContentSharingResultProtocol"
+- "String"
+- "AssignmentPrecedence"
+- !private "ShareResultKeys"
 depends-member:
 - !private ["Ps7CVarArg", "Index"]
 - !private ["Ps7CVarArg", "SubSequence"]

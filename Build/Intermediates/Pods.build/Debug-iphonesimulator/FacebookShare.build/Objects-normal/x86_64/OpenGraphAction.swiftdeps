@@ -10,19 +10,19 @@ provides-member:
 - ["V13FacebookShare15OpenGraphAction", "init"]
 provides-dynamic-lookup:
 depends-top-level:
+- "OpenGraphPropertyName"
+- "OpenGraphPropertyValue"
 - "FBSDKShareOpenGraphAction"
-- !private "Dictionary"
-- "Set"
-- "OpenGraphAction"
 - "String"
+- !private "Dictionary"
 - "=="
 - "AssignmentPrecedence"
-- !private "OpenGraphPropertyValueConverter"
 - "OpenGraphPropertyContaining"
-- "OpenGraphPropertyName"
+- "OpenGraphAction"
 - "Equatable"
-- "OpenGraphPropertyValue"
 - "Bool"
+- !private "OpenGraphPropertyValueConverter"
+- "Set"
 depends-member:
 - !private ["Ps9AnyObject", "actionType"]
 - !private ["Ps9AnyObject", "enumerateKeysAndObjects"]

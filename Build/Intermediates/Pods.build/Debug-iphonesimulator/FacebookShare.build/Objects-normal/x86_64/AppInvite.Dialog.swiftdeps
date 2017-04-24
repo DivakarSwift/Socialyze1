@@ -9,11 +9,11 @@ provides-member:
 - ["CV13FacebookShare9AppInvite6Dialog", "show"]
 provides-dynamic-lookup:
 depends-top-level:
-- "UIViewController"
-- "AppInvite"
 - "FBSDKAppInviteDialog"
-- "Void"
+- "UIViewController"
 - "AssignmentPrecedence"
+- "Void"
+- "AppInvite"
 - !private "Error"
 depends-member:
 - !private ["Ps9AnyObject", "FBSDKAppInviteDialog"]

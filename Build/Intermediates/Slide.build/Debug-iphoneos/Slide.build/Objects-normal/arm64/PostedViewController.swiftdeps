@@ -6,8 +6,8 @@ provides-nominal:
 provides-member:
 - ["C5Slide20PostedViewController", ""]
 provides-dynamic-lookup:
-- "viewDidLoad"
 - "didReceiveMemoryWarning"
+- "viewDidLoad"
 depends-top-level:
 - "UIViewController"
 - "PostedViewController"

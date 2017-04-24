@@ -7,15 +7,15 @@ provides-member:
 - ["V12FacebookCore15GraphAPIVersion", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "String"
+- "GraphAPIVersion"
+- "StringLiteralType"
 - "FBSDK_TARGET_PLATFORM_VERSION"
-- "FloatLiteralType"
 - "UnicodeScalarType"
 - "AssignmentPrecedence"
 - "ExpressibleByFloatLiteral"
-- "StringLiteralType"
-- "String"
 - "ExpressibleByStringLiteral"
-- "GraphAPIVersion"
+- "FloatLiteralType"
 depends-member:
 - ["Ps9AnyObject", "characters"]
 - ["Ps9AnyObject", "hasPrefix"]

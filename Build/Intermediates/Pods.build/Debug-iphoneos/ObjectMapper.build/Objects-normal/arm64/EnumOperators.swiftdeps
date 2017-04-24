@@ -20,11 +20,11 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "<-"
-- "Map"
 - !private "EnumTransform"
+- "String"
+- "Map"
 - ">>>"
 - "RawRepresentable"
-- "String"
 depends-member:
 - !private ["Ps9AnyObject", "Object"]
 - !private ["Ps9AnyObject", "init"]

@@ -13,10 +13,10 @@ provides-member:
 - ["C13FacebookLogin11LoginButton", "TooltipColorStyle"]
 provides-dynamic-lookup:
 depends-top-level:
-- "=="
-- "FBSDKTooltipColorStyle"
 - "FBSDKLoginButtonTooltipBehavior"
+- "=="
 - "LoginButton"
+- "FBSDKTooltipColorStyle"
 depends-member:
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]
 - !private ["Ps17BitwiseOperations", "hashValue"]

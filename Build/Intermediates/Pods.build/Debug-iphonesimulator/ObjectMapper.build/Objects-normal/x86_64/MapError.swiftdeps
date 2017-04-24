@@ -7,16 +7,16 @@ provides-member:
 - ["V12ObjectMapper8MapError", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "StaticString"
 - "MapError"
-- "CustomStringConvertible"
 - !private "StringLiteralType"
-- "AssignmentPrecedence"
-- "Error"
-- !private "UnicodeScalarType"
-- "UInt"
-- !private "??"
+- "StaticString"
 - "String"
+- !private "UnicodeScalarType"
+- "Error"
+- !private "??"
+- "AssignmentPrecedence"
+- "UInt"
+- "CustomStringConvertible"
 depends-member:
 - !private ["Ps9AnyObject", "components"]
 - !private ["Ps9AnyObject", "init"]

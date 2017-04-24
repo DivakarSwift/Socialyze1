@@ -369,22 +369,23 @@ SWIFT_CLASS("_TtC5Slide20PostedViewController")
 @end
 
 @class NSTimer;
+@class UITapGestureRecognizer;
 
 SWIFT_CLASS("_TtC5Slide21ProfileViewController")
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UIGestureRecognizerDelegate>
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bioLabel;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified userImageView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified editButton;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblUserName;
 @property (nonatomic, copy) NSString * _Nullable userId;
 @property (nonatomic, copy) NSArray<NSString *> * _Nonnull images;
 @property (nonatomic) NSInteger currentImageIndex;
 @property (nonatomic, strong) NSTimer * _Nullable imageTimer;
 - (void)viewDidLoad;
+- (void)handleTap:(UITapGestureRecognizer * _Nonnull)sender;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)loadProfilePicturesFromFacebook;
-- (void)startTimer;
-- (void)stopTimer;
 - (void)changeImage;
 - (IBAction)editProfile:(id _Nonnull)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;

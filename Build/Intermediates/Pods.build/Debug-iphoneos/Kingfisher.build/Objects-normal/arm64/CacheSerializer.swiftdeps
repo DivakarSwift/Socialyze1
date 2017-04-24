@@ -10,15 +10,15 @@ provides-member:
 - ["V10Kingfisher22DefaultCacheSerializer", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "KingfisherOptionsInfo"
 - !private "KingfisherEmptyOptionsInfo"
 - "Data"
-- !private "Kingfisher"
-- "CacheSerializer"
-- "Image"
+- "AssignmentPrecedence"
 - "DefaultCacheSerializer"
 - !private "??"
-- "AssignmentPrecedence"
+- "KingfisherOptionsInfo"
+- "CacheSerializer"
+- !private "Kingfisher"
+- "Image"
 depends-member:
 - !private ["Ps9AnyObject", "gifRepresentation"]
 - !private ["Ps9AnyObject", "image"]

@@ -23,18 +23,18 @@ provides-member:
 provides-dynamic-lookup:
 - "appEventParameterValue"
 depends-top-level:
-- "NSNumber"
-- "IntegerLiteralType"
-- "Double"
-- "AppEventLoggable"
-- "FloatLiteralType"
-- "AppEventName"
-- "AssignmentPrecedence"
-- "String"
-- "CastingPrecedence"
 - "AppEvent"
-- "AppEventParameterValueType"
+- "AppEventLoggable"
+- "AssignmentPrecedence"
+- "NSNumber"
+- "CastingPrecedence"
+- "String"
+- "AppEventName"
+- "IntegerLiteralType"
+- "FloatLiteralType"
 - "AppEventParameterName"
+- "AppEventParameterValueType"
+- "Double"
 - "Dictionary"
 depends-member:
 - ["Ps16AbsoluteValuable", "appEventParameterValue"]

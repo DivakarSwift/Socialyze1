@@ -10,11 +10,11 @@ provides-member:
 - ["O13FacebookShare19ContentSharerResult", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ContentProtocol"
 - "ContentSharingProtocol"
 - "Error"
-- "Void"
 - "Bool"
+- "ContentProtocol"
+- "Void"
 - "ContentSharerResult"
 depends-member:
 - ["P13FacebookShare15ContentProtocol", "Result"]

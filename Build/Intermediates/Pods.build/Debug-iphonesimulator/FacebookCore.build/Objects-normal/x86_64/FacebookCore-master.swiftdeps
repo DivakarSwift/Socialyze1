@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "d976436b4f7535407bdc62d6da4b551c"
-build_time: [546003336, 625121000]
+build_time: [546343953, 739784000]
 inputs:
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FacebookCore/Sources/Core/Common/AccessToken.swift": [545981105, 0]
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FacebookCore/Sources/Core/AppEvents/AppEvent.Builtin.swift": [545981105, 0]

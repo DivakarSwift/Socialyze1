@@ -11,14 +11,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "String"
-- "=="
-- !private "!"
-- "AssignmentPrecedence"
 - "FBSDKHashtag"
-- "Int"
-- "Hashtag"
-- "Bool"
+- !private "!"
 - "Hashable"
+- "Bool"
+- "Int"
+- "=="
+- "Hashtag"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "hashValue"]
 - !private ["Ps9AnyObject", "init"]

@@ -19,15 +19,15 @@ provides-member:
 - ["OC13FacebookShare11LikeControl13AuxilaryStyle", "VerticalAlignment"]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKLikeControlHorizontalAlignment"
-- "FBSDKLikeControlAuxiliaryPosition"
-- "FBSDKLikeControlStyle"
-- "LikeControl"
-- !private "BooleanLiteralType"
 - "Bool"
-- "Equatable"
 - "=="
 - "AssignmentPrecedence"
+- "FBSDKLikeControlStyle"
+- "LikeControl"
+- "Equatable"
+- !private "BooleanLiteralType"
+- "FBSDKLikeControlHorizontalAlignment"
+- "FBSDKLikeControlAuxiliaryPosition"
 depends-member:
 - ["Ps9AnyObject", "AuxilaryStyle"]
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]

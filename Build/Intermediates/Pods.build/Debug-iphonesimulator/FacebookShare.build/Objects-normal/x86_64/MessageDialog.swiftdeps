@@ -8,20 +8,20 @@ provides-member:
 - ["C13FacebookShare13MessageDialog", "show"]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "ContentBridger"
 - "FBSDKMessageDialog"
-- "SDKSharingDelegateBridge"
 - "Void"
-- "AssignmentPrecedence"
-- "ContentSharerResult"
-- !private "Error"
+- !private "fatalError"
 - !private "StringLiteralType"
+- "ContentSharerResult"
+- "MessageDialog"
+- "ContentProtocol"
 - "ContentSharingProtocol"
 - "ContentSharingDialogProtocol"
-- "ContentProtocol"
-- "MessageDialog"
+- !private "Error"
+- "AssignmentPrecedence"
+- "SDKSharingDelegateBridge"
 - "Bool"
-- !private "fatalError"
-- !private "ContentBridger"
 depends-member:
 - ["Ps9AnyObject", "Content"]
 - !private ["Ps9AnyObject", "ContentBridger"]

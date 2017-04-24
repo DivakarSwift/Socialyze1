@@ -19,19 +19,19 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - !private "TernaryPrecedence"
-- "String"
-- "AppEvent"
 - "Bool"
-- !private "NSNumber"
-- !private "FBSDKAppEventParameterValueYes"
 - "Double"
 - !private "AssignmentPrecedence"
-- !private "FBSDKAppEventParameterValueNo"
+- "AppEvent"
+- !private "NSNumber"
 - !private "CastingPrecedence"
+- !private "FBSDKAppEventParameterValueNo"
+- "String"
 - !private "UInt64"
 - "Dictionary"
-- "UnsignedInteger"
+- !private "FBSDKAppEventParameterValueYes"
 - "AppEventParameterValueType"
+- "UnsignedInteger"
 depends-member:
 - !private ["Ps9AnyObject", "achievedLevel"]
 - !private ["Ps9AnyObject", "addedPaymentInfo"]

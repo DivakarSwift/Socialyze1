@@ -10,21 +10,21 @@ provides-member:
 - ["O12FacebookCore18SDKLoggingBehavior", "sdkStringValue"]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "FBSDKLoggingBehaviorGraphAPIDebugInfo"
+- !private "FBSDKLoggingBehaviorUIControlErrors"
+- !private "FBSDKLoggingBehaviorPerformanceCharacteristics"
+- !private "FBSDKLoggingBehaviorInformational"
+- !private "FBSDKLoggingBehaviorDeveloperErrors"
 - !private "FBSDKLoggingBehaviorAccessTokens"
 - "SDKLoggingBehavior"
 - "String"
 - !private "FBSDKLoggingBehaviorGraphAPIDebugWarning"
-- !private "FBSDKLoggingBehaviorAppEvents"
 - !private "FBSDKLoggingBehaviorCacheErrors"
+- !private "FBSDKLoggingBehaviorNetworkRequests"
 - "=="
 - !private "~="
 - "AssignmentPrecedence"
-- !private "FBSDKLoggingBehaviorNetworkRequests"
-- !private "FBSDKLoggingBehaviorUIControlErrors"
-- !private "FBSDKLoggingBehaviorInformational"
-- !private "FBSDKLoggingBehaviorGraphAPIDebugInfo"
-- !private "FBSDKLoggingBehaviorPerformanceCharacteristics"
-- !private "FBSDKLoggingBehaviorDeveloperErrors"
+- !private "FBSDKLoggingBehaviorAppEvents"
 depends-member:
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]
 - !private ["Ps17BitwiseOperations", "hashValue"]

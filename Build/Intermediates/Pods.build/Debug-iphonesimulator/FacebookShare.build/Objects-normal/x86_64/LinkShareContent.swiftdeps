@@ -9,18 +9,18 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "Bool"
-- !private "FBSDKShareLinkContent"
-- "String"
-- "Hashtag"
-- "=="
-- "ContentProtocol"
-- "AssignmentPrecedence"
-- "PostSharingResult"
 - "FBSDKSharingContent"
+- "Hashtag"
+- "ContentProtocol"
 - "Equatable"
 - "LinkShareContent"
-- "SDKBridgedContent"
+- "String"
+- !private "FBSDKShareLinkContent"
+- "=="
 - "URL"
+- "PostSharingResult"
+- "AssignmentPrecedence"
+- "SDKBridgedContent"
 depends-member:
 - !private ["Ps9AnyObject", "contentDescription"]
 - !private ["Ps9AnyObject", "contentTitle"]

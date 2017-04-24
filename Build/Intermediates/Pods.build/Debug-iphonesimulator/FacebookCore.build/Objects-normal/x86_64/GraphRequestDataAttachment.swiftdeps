@@ -8,11 +8,11 @@ provides-member:
 - ["C12FacebookCore26GraphRequestDataAttachment", "sdkDataAttachment"]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKGraphRequestDataAttachment"
 - "Data"
-- "AssignmentPrecedence"
 - "String"
+- "AssignmentPrecedence"
 - "GraphRequestDataAttachment"
+- "FBSDKGraphRequestDataAttachment"
 depends-member:
 - !private ["Ps9AnyObject", "FBSDKGraphRequestDataAttachment"]
 - !private ["Ps9AnyObject", "contentType"]

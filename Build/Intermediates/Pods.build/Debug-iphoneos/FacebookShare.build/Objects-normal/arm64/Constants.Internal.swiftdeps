@@ -10,8 +10,8 @@ depends-top-level:
 - "String"
 - "StringLiteralType"
 - "ShareResultKeys"
-- !private "~="
 - "=="
+- !private "~="
 depends-member:
 - ["Ps9AnyObject", "init"]
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]

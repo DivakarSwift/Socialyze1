@@ -7,11 +7,11 @@ provides-member:
 - ["Sa", "sortedArrayByPosition"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "UIView"
-- "Array"
 - !private "!="
 - !private "CastingPrecedence"
+- !private "UIView"
 - !private "Bool"
+- "Array"
 - !private "<"
 depends-member:
 - !private ["Ps9AnyObject", "frame"]

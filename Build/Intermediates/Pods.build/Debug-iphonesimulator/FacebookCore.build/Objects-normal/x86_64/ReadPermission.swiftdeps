@@ -7,11 +7,11 @@ provides-member:
 - ["O12FacebookCore14ReadPermission", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "ReadPermission"
 - "Permission"
 - "PermissionRepresentable"
 - "String"
 - !private "StringLiteralType"
-- "ReadPermission"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["P12FacebookCore26AppEventParameterValueType", "init"]

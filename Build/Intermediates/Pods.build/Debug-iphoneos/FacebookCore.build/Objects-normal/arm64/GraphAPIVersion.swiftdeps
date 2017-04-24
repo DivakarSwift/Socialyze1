@@ -8,14 +8,14 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "ExpressibleByFloatLiteral"
-- "StringLiteralType"
 - "FBSDK_TARGET_PLATFORM_VERSION"
-- "AssignmentPrecedence"
+- "StringLiteralType"
 - "ExpressibleByStringLiteral"
 - "String"
-- "GraphAPIVersion"
-- "FloatLiteralType"
 - "UnicodeScalarType"
+- "FloatLiteralType"
+- "GraphAPIVersion"
+- "AssignmentPrecedence"
 depends-member:
 - ["Ps9AnyObject", "characters"]
 - ["Ps9AnyObject", "hasPrefix"]

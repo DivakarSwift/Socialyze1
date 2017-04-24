@@ -7,14 +7,14 @@ provides-member:
 - ["O10Kingfisher15ImageTransition", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bool"
-- "UIImageView"
 - "UIImage"
-- "Void"
 - !private "Array"
-- "UIViewAnimationOptions"
 - "TimeInterval"
+- "Void"
+- "UIImageView"
+- "UIViewAnimationOptions"
 - "ImageTransition"
+- "Bool"
 - !private "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "image"]

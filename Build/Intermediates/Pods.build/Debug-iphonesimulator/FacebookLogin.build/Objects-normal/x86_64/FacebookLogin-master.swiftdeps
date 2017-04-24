@@ -1,6 +1,6 @@
 version: "Apple Swift version 3.0.1 (swiftlang-800.0.58.6 clang-800.0.42.1)"
 options: "fc91fca7b01591017d63ce3e533df02d"
-build_time: [546003339, 625799000]
+build_time: [546343958, 84099000]
 inputs:
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FacebookLogin/Sources/Login/LoginBehavior.swift": [545981105, 0]
   "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FacebookLogin/Sources/Login/LoginButton.swift": [545981105, 0]

@@ -7,8 +7,8 @@ provides-member:
 - ["C10Kingfisher3Box", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Box"
 - "AssignmentPrecedence"
+- "Box"
 depends-member:
 - !private ["Ps9AnyObject", "value"]
 - ["Ps9AnyObject", ""]

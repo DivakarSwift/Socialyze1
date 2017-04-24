@@ -9,15 +9,15 @@ provides-member:
 - ["V13FacebookShare11GameRequest", "sdkContentRepresentation"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bool"
-- "FBSDKGameRequestContent"
-- "=="
-- "AssignmentPrecedence"
-- !private "??"
 - "String"
 - "Set"
+- "=="
+- "AssignmentPrecedence"
+- "FBSDKGameRequestContent"
 - "GameRequest"
 - "Equatable"
+- !private "??"
+- "Bool"
 depends-member:
 - ["OV13FacebookShare11GameRequest10ActionType", "deinit"]
 - !private ["OV13FacebookShare11GameRequest10ActionType", "sdkActionRepresentation"]

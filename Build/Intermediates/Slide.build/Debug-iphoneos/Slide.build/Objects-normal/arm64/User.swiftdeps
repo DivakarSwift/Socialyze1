@@ -7,16 +7,16 @@ provides-member:
 - ["V5Slide4User", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "URLTransform"
-- "String"
-- "Double"
 - "Mappable"
-- "URL"
-- "User"
 - "TimeInterval"
+- "Double"
 - !private "<-"
+- "String"
 - "Map"
+- !private "URLTransform"
+- "User"
 - !private "StringLiteralType"
+- "URL"
 depends-member:
 - !private ["Ps9AnyObject", "Object"]
 - !private ["Ps9AnyObject", "init"]

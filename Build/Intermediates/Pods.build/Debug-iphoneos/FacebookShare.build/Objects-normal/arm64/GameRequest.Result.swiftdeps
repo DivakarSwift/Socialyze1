@@ -8,8 +8,8 @@ provides-member:
 - ["V13FacebookShare11GameRequest", "Result"]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
 - "Error"
+- "String"
 - "GameRequest"
 depends-member:
 - ["V13FacebookShare11GameRequest", "Error"]

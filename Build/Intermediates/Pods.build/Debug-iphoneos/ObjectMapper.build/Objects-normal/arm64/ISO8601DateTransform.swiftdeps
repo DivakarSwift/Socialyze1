@@ -7,12 +7,12 @@ provides-member:
 - ["C12ObjectMapper20ISO8601DateTransform", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ISO8601DateTransform"
-- !private "Locale"
 - !private "StringLiteralType"
+- !private "Locale"
+- "ISO8601DateTransform"
+- "DateFormatterTransform"
 - "AssignmentPrecedence"
 - !private "DateFormatter"
-- "DateFormatterTransform"
 depends-member:
 - !private ["Ps9AnyObject", "DateFormatter"]
 - !private ["Ps9AnyObject", "Locale"]

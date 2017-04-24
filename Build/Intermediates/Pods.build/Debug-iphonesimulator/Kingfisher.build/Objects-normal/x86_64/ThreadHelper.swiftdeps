@@ -6,10 +6,10 @@ provides-member:
 - ["CSo13DispatchQueue", "safeAsync"]
 provides-dynamic-lookup:
 depends-top-level:
+- !private "&&"
 - "DispatchQueue"
 - !private "Thread"
 - !private "==="
-- !private "&&"
 depends-member:
 - !private ["Ps9AnyObject", "DispatchQueue"]
 - !private ["Ps9AnyObject", "Thread"]

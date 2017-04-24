@@ -6,24 +6,24 @@ provides-nominal:
 provides-member:
 - ["C5Slide26EditingTableViewController", ""]
 provides-dynamic-lookup:
-- "deleteAccountBtn"
-- "doneNavBtn"
 - "privacyPolicyBtn"
+- "distanceSlider"
+- "deleteAccountBtn"
+- "ageSlider"
 - "viewDidLoad"
 - "logout"
 - "termsAndConditionsBtn"
-- "distanceSlider"
-- "ageSlider"
+- "doneNavBtn"
 depends-top-level:
-- "UITableViewController"
 - "AssignmentPrecedence"
 - !private "UIApplication"
+- "UITableViewController"
 - "EditingTableViewController"
-- !private "appDelegate"
+- !private "URL"
 - !private "Authenticator"
 - !private "BooleanLiteralType"
 - !private "StringLiteralType"
-- !private "URL"
+- !private "appDelegate"
 depends-member:
 - !private ["Ps9AnyObject", "Authenticator"]
 - !private ["Ps9AnyObject", "UIApplication"]

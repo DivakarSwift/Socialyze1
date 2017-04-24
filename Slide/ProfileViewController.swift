@@ -11,11 +11,15 @@ import Kingfisher
 import FacebookCore
 import SwiftyJSON
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController,UIGestureRecognizerDelegate {
     
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
+    
+    @IBOutlet weak var lblUserName: UILabel!
+    
+    
     
     var userId: String?
     let authenticator = Authenticator.shared
@@ -27,7 +31,7 @@ class ProfileViewController: UIViewController {
             if images.count == 1 {
                 changeImage()
             }else if images.count == 2 {
-                startTimer()
+              //  startTimer()
             }
         }
     }
@@ -69,23 +73,34 @@ class ProfileViewController: UIViewController {
             self.authenticator.delegate = self
             self.authenticator.authenticateWith(provider: .facebook)
         }
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        tap.delegate = self
+        userImageView.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
+        print(userService)
+         if(UserDefaults.standard.object(forKey: "name") != nil){
+            lblUserName.text =  (UserDefaults.standard.object(forKey:"name") as! String?)
+        }
+    }
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        print("Hello World")
+             self.changeImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       
         super.viewWillAppear(animated)
         if self.images.count > 1 {
             currentImageIndex = 0
             changeImage()
-            self.startTimer()
+            //self.startTimer()
         }
+         self.navigationController?.navigationBar.isHidden  = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.stopTimer()
-    }
+          }
     
     func loadProfilePicturesFromFacebook() {
         facebookService.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
@@ -97,15 +112,17 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func startTimer() {
-        self.imageTimer?.invalidate()
-        self.imageTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
-    }
     
-    func stopTimer() {
-        self.imageTimer?.invalidate()
-        self.imageTimer = nil
-    }
+   
+//    func startTimer() {
+//        self.imageTimer?.invalidate()
+//        self.imageTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
+//    }
+//    
+//    func stopTimer() {
+//        self.imageTimer?.invalidate()
+//        self.imageTimer = nil
+//    }
     
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
@@ -123,6 +140,8 @@ class ProfileViewController: UIViewController {
     
     @IBAction func editProfile(_ sender: Any) {
     }
+    
+    
     
 }
 

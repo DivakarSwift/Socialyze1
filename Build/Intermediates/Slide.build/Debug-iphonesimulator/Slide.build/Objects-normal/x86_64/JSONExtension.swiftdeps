@@ -7,8 +7,8 @@ provides-member:
 - ["V10SwiftyJSON4JSON", "map"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Mappable"
 - !private "Mapper"
+- "Mappable"
 - "JSON"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
@@ -228,25 +228,6 @@ depends-external:
 - "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
 - "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
 - "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/x86_64.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFExecutor.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFURL.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/BFAppLink.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/Bolts/Bolts.framework/Modules/module.modulemap"
 - "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
 - "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
 - "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Products/Debug-iphonesimulator/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"

@@ -7,19 +7,19 @@ provides-member:
 - ["C13FacebookShare11ShareButton", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKShareButton"
-- !private "StringLiteralType"
-- "CGSize"
-- !private "??"
-- !private "ContentBridger"
-- !private "CGFloat"
-- "ShareButton"
-- "NSCoder"
-- "UIView"
-- "ContentProtocol"
-- !private "fatalError"
-- "CGRect"
 - "AssignmentPrecedence"
+- !private "fatalError"
+- "ContentProtocol"
+- !private "??"
+- !private "CGFloat"
+- !private "ContentBridger"
+- "CGSize"
+- "CGRect"
+- "UIView"
+- "FBSDKShareButton"
+- "NSCoder"
+- !private "StringLiteralType"
+- "ShareButton"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "CGFloat"]

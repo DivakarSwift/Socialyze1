@@ -39,6 +39,7 @@ struct GlobalConstants {
         static let taggableFriendsPermissionStatusFromFacebook = UserDefaultKey(key: "Taggable_Friends_Permission_Status_From_Facebook")
         static let userIdFromFacebook = UserDefaultKey(key: "User_ID_From_Facebook")
         static let firstTimeLogin = UserDefaultKey(key: "FIRST_TIME_APP_LOGIN")
+        static let name = UserDefaultKey(key: "name")
     }
     
     struct Notification {

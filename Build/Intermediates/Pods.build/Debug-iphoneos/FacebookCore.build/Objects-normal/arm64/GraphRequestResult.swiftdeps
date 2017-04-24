@@ -7,9 +7,9 @@ provides-member:
 - ["O12FacebookCore18GraphRequestResult", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "Error"
 - "GraphRequestProtocol"
 - "GraphRequestResult"
-- "Error"
 depends-member:
 - ["P12FacebookCore20GraphRequestProtocol", "Response"]
 - ["O12FacebookCore18GraphRequestResult", "Error"]

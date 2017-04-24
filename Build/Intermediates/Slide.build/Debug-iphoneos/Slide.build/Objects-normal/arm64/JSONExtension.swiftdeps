@@ -7,8 +7,8 @@ provides-member:
 - ["V10SwiftyJSON4JSON", "map"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Mappable"
 - !private "Mapper"
+- "Mappable"
 - "JSON"
 depends-member:
 - !private ["Ps9AnyObject", "init"]

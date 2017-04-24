@@ -10,9 +10,9 @@ provides-member:
 - ["O13FacebookShare15ShareDialogMode", "sdkShareMode"]
 provides-dynamic-lookup:
 depends-top-level:
+- "FBSDKShareDialogMode"
 - "=="
 - "AssignmentPrecedence"
-- "FBSDKShareDialogMode"
 - "ShareDialogMode"
 depends-member:
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]

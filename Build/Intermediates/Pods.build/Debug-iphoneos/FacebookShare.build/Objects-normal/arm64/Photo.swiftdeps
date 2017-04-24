@@ -13,12 +13,12 @@ depends-top-level:
 - "Equatable"
 - "String"
 - "UIImage"
-- "Photo"
+- "FBSDKSharePhoto"
 - "URL"
+- "Photo"
 - "=="
 - "AssignmentPrecedence"
 - "Bool"
-- "FBSDKSharePhoto"
 depends-member:
 - !private ["Ps9AnyObject", "caption"]
 - !private ["Ps9AnyObject", "image"]

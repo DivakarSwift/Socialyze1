@@ -10,14 +10,14 @@ provides-dynamic-lookup:
 - "userId"
 - "setNeedsImageUpdate"
 depends-top-level:
-- "FBSDKProfilePictureView"
+- "NSCoder"
 - "CGRect"
 - "AssignmentPrecedence"
-- "UserProfile"
-- !private "Array"
-- "StringLiteralType"
+- "FBSDKProfilePictureView"
 - "UIView"
-- "NSCoder"
+- "UserProfile"
+- "StringLiteralType"
+- !private "Array"
 depends-member:
 - ["Ps9AnyObject", "FBSDKProfilePictureView"]
 - ["Ps9AnyObject", "UserProfile"]

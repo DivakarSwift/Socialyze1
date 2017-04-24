@@ -9,67 +9,67 @@ provides-member:
 - ["V5Slide5Place", ""]
 - ["C5Slide14ViewController", ""]
 provides-dynamic-lookup:
-- "placeId"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "collectionView"
-- "switchToCategoryFromButton"
-- "viewDidLoad"
-- "heightForSmallMosaicCell"
-- "profileBtn"
 - "setupPlaces"
+- "switchToCategoryFromButton"
 - "eventBtn"
 - "viewWillAppear"
+- "profileBtn"
+- "placeId"
+- "heightForSmallMosaicCell"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "collectionView"
+- "viewDidLoad"
 depends-top-level:
-- !private "Void"
-- !private "UIStoryboard"
-- "UIBarButtonItem"
-- !private "UIImageView"
-- !private "AnyObject"
-- !private "BooleanLiteralType"
-- "IndexPath"
-- !private "UILabel"
-- "UIViewController"
-- !private "StringLiteralType"
-- "Place"
-- !private "UIBarButtonItemStyle"
-- !private "!="
-- "UICollectionViewDataSource"
-- !private "FloatRatingView"
-- !private "%"
-- "TRMosaicLayout"
 - !private "UIFont"
-- !private "ProfileViewController"
-- "TRMosaicCellType"
-- "ViewController"
-- !private "~="
-- "AssignmentPrecedence"
-- !private "CustomCell"
-- "UIImage"
-- "CastingPrecedence"
 - !private "UIScreen"
-- !private "Float"
 - !private "Authenticator"
-- !private "=="
-- "Double"
-- "UICollectionViewCell"
-- !private "GMSPlacesClient"
-- "UIEdgeInsets"
+- !private "FloatRatingView"
+- !private "UIImageView"
+- "Place"
+- "AssignmentPrecedence"
+- !private "~="
+- "CastingPrecedence"
+- "TRMosaicLayoutDelegate"
+- "IndexPath"
 - !private "PlaceDetailViewController"
+- !private "=="
+- !private "Float"
+- "UICollectionViewCell"
+- "TernaryPrecedence"
+- !private "UIBarButtonItemStyle"
+- "TRMosaicLayout"
+- !private "Void"
+- !private "NSDictionary"
+- !private "!="
+- !private "GMSPlacesClient"
+- !private "UILabel"
+- "UIImage"
+- !private "AnyObject"
+- !private "print"
+- !private "UIStoryboard"
+- "TRMosaicCellType"
+- "Double"
+- "Int"
+- "UICollectionViewDataSource"
 - "UICollectionView"
+- !private "BooleanLiteralType"
+- "ViewController"
+- "CGFloat"
+- "UIViewController"
+- "String"
+- !private "_ImageLiteralType"
 - "UICollectionViewDelegate"
 - !private "UserDefaults"
-- !private "print"
-- "Int"
-- !private "_ImageLiteralType"
-- "TernaryPrecedence"
+- !private "CustomCell"
+- "UIBarButtonItem"
 - "Bool"
-- !private "NSDictionary"
-- "String"
-- "CGFloat"
-- "TRMosaicLayoutDelegate"
+- !private "StringLiteralType"
+- "UIEdgeInsets"
+- !private "ProfileViewController"
+- !private "%"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "Authenticator"]
@@ -106,10 +106,12 @@ depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "instantiateInitialViewController"]
 - !private ["Ps9AnyObject", "instantiateViewController"]
+- !private ["Ps9AnyObject", "isHidden"]
 - !private ["Ps9AnyObject", "leftBarButtonItem"]
 - !private ["Ps9AnyObject", "lookUpPlaceID"]
 - !private ["Ps9AnyObject", "main"]
 - !private ["Ps9AnyObject", "name"]
+- !private ["Ps9AnyObject", "navigationBar"]
 - !private ["Ps9AnyObject", "navigationController"]
 - !private ["Ps9AnyObject", "navigationItem"]
 - ["Ps9AnyObject", "numberOfSections"]
@@ -218,6 +220,7 @@ depends-member:
 - !private ["PSo15CALayerDelegate", "floatRatings"]
 - !private ["PSo15CALayerDelegate", "font"]
 - !private ["PSo15CALayerDelegate", "image"]
+- !private ["PSo15CALayerDelegate", "isHidden"]
 - !private ["PSo15CALayerDelegate", "rating"]
 - !private ["PSo15CALayerDelegate", "reloadData"]
 - !private ["PSo15CALayerDelegate", "text"]
@@ -268,10 +271,12 @@ depends-member:
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "instantiateInitialViewController"]
 - !private ["Ps7CVarArg", "instantiateViewController"]
+- !private ["Ps7CVarArg", "isHidden"]
 - !private ["Ps7CVarArg", "leftBarButtonItem"]
 - !private ["Ps7CVarArg", "lookUpPlaceID"]
 - !private ["Ps7CVarArg", "main"]
 - !private ["Ps7CVarArg", "name"]
+- !private ["Ps7CVarArg", "navigationBar"]
 - !private ["Ps7CVarArg", "navigationController"]
 - !private ["Ps7CVarArg", "navigationItem"]
 - ["Ps7CVarArg", "numberOfSections"]
@@ -384,11 +389,13 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "instantiateInitialViewController"]
 - !private ["Ps28CustomDebugStringConvertible", "instantiateViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "isHidden"]
 - !private ["Ps28CustomDebugStringConvertible", "item"]
 - !private ["Ps28CustomDebugStringConvertible", "leftBarButtonItem"]
 - !private ["Ps28CustomDebugStringConvertible", "lookUpPlaceID"]
 - !private ["Ps28CustomDebugStringConvertible", "main"]
 - !private ["Ps28CustomDebugStringConvertible", "name"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationBar"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationController"]
 - !private ["Ps28CustomDebugStringConvertible", "navigationItem"]
 - ["Ps28CustomDebugStringConvertible", "numberOfSections"]
@@ -502,11 +509,13 @@ depends-member:
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "instantiateInitialViewController"]
 - !private ["Ps23CustomStringConvertible", "instantiateViewController"]
+- !private ["Ps23CustomStringConvertible", "isHidden"]
 - !private ["Ps23CustomStringConvertible", "item"]
 - !private ["Ps23CustomStringConvertible", "leftBarButtonItem"]
 - !private ["Ps23CustomStringConvertible", "lookUpPlaceID"]
 - !private ["Ps23CustomStringConvertible", "main"]
 - !private ["Ps23CustomStringConvertible", "name"]
+- !private ["Ps23CustomStringConvertible", "navigationBar"]
 - !private ["Ps23CustomStringConvertible", "navigationController"]
 - !private ["Ps23CustomStringConvertible", "navigationItem"]
 - ["Ps23CustomStringConvertible", "numberOfSections"]
@@ -607,11 +616,13 @@ depends-member:
 - !private ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "instantiateInitialViewController"]
 - !private ["Ps9Equatable", "instantiateViewController"]
+- !private ["Ps9Equatable", "isHidden"]
 - !private ["Ps9Equatable", "item"]
 - !private ["Ps9Equatable", "leftBarButtonItem"]
 - !private ["Ps9Equatable", "lookUpPlaceID"]
 - !private ["Ps9Equatable", "main"]
 - !private ["Ps9Equatable", "name"]
+- !private ["Ps9Equatable", "navigationBar"]
 - !private ["Ps9Equatable", "navigationController"]
 - !private ["Ps9Equatable", "navigationItem"]
 - ["Ps9Equatable", "numberOfSections"]
@@ -741,11 +752,13 @@ depends-member:
 - !private ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "instantiateInitialViewController"]
 - !private ["Ps8Hashable", "instantiateViewController"]
+- !private ["Ps8Hashable", "isHidden"]
 - !private ["Ps8Hashable", "item"]
 - !private ["Ps8Hashable", "leftBarButtonItem"]
 - !private ["Ps8Hashable", "lookUpPlaceID"]
 - !private ["Ps8Hashable", "main"]
 - !private ["Ps8Hashable", "name"]
+- !private ["Ps8Hashable", "navigationBar"]
 - !private ["Ps8Hashable", "navigationController"]
 - !private ["Ps8Hashable", "navigationItem"]
 - ["Ps8Hashable", "numberOfSections"]
@@ -902,7 +915,9 @@ depends-member:
 - ["PSo8NSCoding", "indexPathForPreferredFocusedView"]
 - ["PSo8NSCoding", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isHidden"]
 - !private ["PSo8NSCoding", "leftBarButtonItem"]
+- !private ["PSo8NSCoding", "navigationBar"]
 - !private ["PSo8NSCoding", "navigationController"]
 - !private ["PSo8NSCoding", "navigationItem"]
 - ["PSo8NSCoding", "numberOfSections"]
@@ -968,6 +983,7 @@ depends-member:
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedView"]
 - ["PSo26NSExtensionRequestHandling", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo26NSExtensionRequestHandling", "init"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationBar"]
 - !private ["PSo26NSExtensionRequestHandling", "navigationController"]
 - !private ["PSo26NSExtensionRequestHandling", "navigationItem"]
 - ["PSo26NSExtensionRequestHandling", "numberOfSections"]
@@ -1054,10 +1070,12 @@ depends-member:
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "instantiateInitialViewController"]
 - !private ["CSo8NSObject", "instantiateViewController"]
+- !private ["CSo8NSObject", "isHidden"]
 - !private ["CSo8NSObject", "leftBarButtonItem"]
 - !private ["CSo8NSObject", "lookUpPlaceID"]
 - !private ["CSo8NSObject", "main"]
 - !private ["CSo8NSObject", "name"]
+- !private ["CSo8NSObject", "navigationBar"]
 - !private ["CSo8NSObject", "navigationController"]
 - !private ["CSo8NSObject", "navigationItem"]
 - ["CSo8NSObject", "numberOfSections"]
@@ -1136,10 +1154,12 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "instantiateInitialViewController"]
 - !private ["PSo16NSObjectProtocol", "instantiateViewController"]
+- !private ["PSo16NSObjectProtocol", "isHidden"]
 - !private ["PSo16NSObjectProtocol", "leftBarButtonItem"]
 - !private ["PSo16NSObjectProtocol", "lookUpPlaceID"]
 - !private ["PSo16NSObjectProtocol", "main"]
 - !private ["PSo16NSObjectProtocol", "name"]
+- !private ["PSo16NSObjectProtocol", "navigationBar"]
 - !private ["PSo16NSObjectProtocol", "navigationController"]
 - !private ["PSo16NSObjectProtocol", "navigationItem"]
 - ["PSo16NSObjectProtocol", "numberOfSections"]
@@ -1350,6 +1370,7 @@ depends-member:
 - !private ["PSo29UIAccessibilityIdentification", "font"]
 - !private ["PSo29UIAccessibilityIdentification", "image"]
 - !private ["PSo29UIAccessibilityIdentification", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "isHidden"]
 - !private ["PSo29UIAccessibilityIdentification", "rating"]
 - !private ["PSo29UIAccessibilityIdentification", "reloadData"]
 - !private ["PSo29UIAccessibilityIdentification", "text"]
@@ -1363,6 +1384,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "font"]
 - !private ["PSo12UIAppearance", "image"]
 - !private ["PSo12UIAppearance", "init"]
+- !private ["PSo12UIAppearance", "isHidden"]
 - !private ["PSo12UIAppearance", "rating"]
 - !private ["PSo12UIAppearance", "reloadData"]
 - !private ["PSo12UIAppearance", "text"]
@@ -1395,6 +1417,8 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedView"]
 - ["PSo21UIAppearanceContainer", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo21UIAppearanceContainer", "init"]
+- !private ["PSo21UIAppearanceContainer", "isHidden"]
+- !private ["PSo21UIAppearanceContainer", "navigationBar"]
 - !private ["PSo21UIAppearanceContainer", "navigationController"]
 - !private ["PSo21UIAppearanceContainer", "navigationItem"]
 - ["PSo21UIAppearanceContainer", "numberOfSections"]
@@ -1438,6 +1462,7 @@ depends-member:
 - ["OSC20UIBarButtonItemStyle", "deinit"]
 - !private ["OSC20UIBarButtonItemStyle", "plain"]
 - !private ["CSo9UIBarItem", "init"]
+- !private ["PSo16UIBarPositioning", "isHidden"]
 - !private ["CSo24UICollectionReusableView", "viewWithTag"]
 - !private ["CSo24UICollectionReusableView", "widthLayout"]
 - !private ["CSo16UICollectionView", "collectionViewLayout"]
@@ -1561,6 +1586,7 @@ depends-member:
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedView"]
 - ["PSo18UIContentContainer", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo18UIContentContainer", "init"]
+- !private ["PSo18UIContentContainer", "navigationBar"]
 - !private ["PSo18UIContentContainer", "navigationController"]
 - !private ["PSo18UIContentContainer", "navigationItem"]
 - ["PSo18UIContentContainer", "numberOfSections"]
@@ -1603,6 +1629,7 @@ depends-member:
 - !private ["PSo17UICoordinateSpace", "floatRatings"]
 - !private ["PSo17UICoordinateSpace", "font"]
 - !private ["PSo17UICoordinateSpace", "image"]
+- !private ["PSo17UICoordinateSpace", "isHidden"]
 - !private ["PSo17UICoordinateSpace", "rating"]
 - !private ["PSo17UICoordinateSpace", "reloadData"]
 - !private ["PSo17UICoordinateSpace", "text"]
@@ -1615,6 +1642,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "floatRatings"]
 - !private ["PSo13UIDynamicItem", "font"]
 - !private ["PSo13UIDynamicItem", "image"]
+- !private ["PSo13UIDynamicItem", "isHidden"]
 - !private ["PSo13UIDynamicItem", "rating"]
 - !private ["PSo13UIDynamicItem", "reloadData"]
 - !private ["PSo13UIDynamicItem", "text"]
@@ -1649,6 +1677,8 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedView"]
 - ["PSo18UIFocusEnvironment", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo18UIFocusEnvironment", "init"]
+- !private ["PSo18UIFocusEnvironment", "isHidden"]
+- !private ["PSo18UIFocusEnvironment", "navigationBar"]
 - !private ["PSo18UIFocusEnvironment", "navigationController"]
 - !private ["PSo18UIFocusEnvironment", "navigationItem"]
 - ["PSo18UIFocusEnvironment", "numberOfSections"]
@@ -1694,6 +1724,7 @@ depends-member:
 - !private ["PSo11UIFocusItem", "floatRatings"]
 - !private ["PSo11UIFocusItem", "font"]
 - !private ["PSo11UIFocusItem", "image"]
+- !private ["PSo11UIFocusItem", "isHidden"]
 - !private ["PSo11UIFocusItem", "rating"]
 - !private ["PSo11UIFocusItem", "reloadData"]
 - !private ["PSo11UIFocusItem", "text"]
@@ -1701,13 +1732,17 @@ depends-member:
 - !private ["PSo11UIFocusItem", "widthLayout"]
 - ["CSo6UIFont", "deinit"]
 - !private ["CSo6UIFont", "systemFont"]
+- !private ["PSo27UIGestureRecognizerDelegate", "userId"]
 - ["CSo7UIImage", "deinit"]
 - ["CSo11UIImageView", "deinit"]
 - !private ["CSo11UIImageView", "image"]
 - ["CSo7UILabel", "deinit"]
 - !private ["CSo7UILabel", "font"]
 - !private ["CSo7UILabel", "text"]
+- ["CSo15UINavigationBar", "deinit"]
+- !private ["CSo15UINavigationBar", "isHidden"]
 - ["CSo22UINavigationController", "deinit"]
+- !private ["CSo22UINavigationController", "navigationBar"]
 - !private ["CSo22UINavigationController", "pushViewController"]
 - ["CSo16UINavigationItem", "deinit"]
 - !private ["CSo16UINavigationItem", "leftBarButtonItem"]
@@ -1754,6 +1789,8 @@ depends-member:
 - ["CSo11UIResponder", "indexPathForPreferredFocusedView"]
 - ["CSo11UIResponder", "indexPathForPreferredFocusedViewInCollectionView"]
 - ["CSo11UIResponder", "init"]
+- !private ["CSo11UIResponder", "isHidden"]
+- !private ["CSo11UIResponder", "navigationBar"]
 - !private ["CSo11UIResponder", "navigationController"]
 - !private ["CSo11UIResponder", "navigationItem"]
 - ["CSo11UIResponder", "numberOfSections"]
@@ -1818,6 +1855,8 @@ depends-member:
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedView"]
 - ["PSo30UIResponderStandardEditActions", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo30UIResponderStandardEditActions", "init"]
+- !private ["PSo30UIResponderStandardEditActions", "isHidden"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationBar"]
 - !private ["PSo30UIResponderStandardEditActions", "navigationController"]
 - !private ["PSo30UIResponderStandardEditActions", "navigationItem"]
 - ["PSo30UIResponderStandardEditActions", "numberOfSections"]
@@ -1929,6 +1968,7 @@ depends-member:
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedView"]
 - ["PSo16UIStateRestoring", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo16UIStateRestoring", "init"]
+- !private ["PSo16UIStateRestoring", "navigationBar"]
 - !private ["PSo16UIStateRestoring", "navigationController"]
 - !private ["PSo16UIStateRestoring", "navigationItem"]
 - ["PSo16UIStateRestoring", "numberOfSections"]
@@ -1995,7 +2035,9 @@ depends-member:
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedView"]
 - ["PSo18UITraitEnvironment", "indexPathForPreferredFocusedViewInCollectionView"]
 - !private ["PSo18UITraitEnvironment", "init"]
+- !private ["PSo18UITraitEnvironment", "isHidden"]
 - !private ["PSo18UITraitEnvironment", "main"]
+- !private ["PSo18UITraitEnvironment", "navigationBar"]
 - !private ["PSo18UITraitEnvironment", "navigationController"]
 - !private ["PSo18UITraitEnvironment", "navigationItem"]
 - ["PSo18UITraitEnvironment", "numberOfSections"]
@@ -2041,6 +2083,7 @@ depends-member:
 - !private ["CSo6UIView", "floatRatings"]
 - !private ["CSo6UIView", "font"]
 - !private ["CSo6UIView", "image"]
+- !private ["CSo6UIView", "isHidden"]
 - !private ["CSo6UIView", "rating"]
 - !private ["CSo6UIView", "reloadData"]
 - !private ["CSo6UIView", "text"]
@@ -2083,6 +2126,7 @@ depends-member:
 - ["CSo16UIViewController", "indexPathForPreferredFocusedView"]
 - ["CSo16UIViewController", "indexPathForPreferredFocusedViewInCollectionView"]
 - ["CSo16UIViewController", "init"]
+- !private ["CSo16UIViewController", "navigationBar"]
 - !private ["CSo16UIViewController", "navigationController"]
 - !private ["CSo16UIViewController", "navigationItem"]
 - ["CSo16UIViewController", "numberOfSections"]
@@ -2213,6 +2257,7 @@ depends-member:
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "floatRatings"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "font"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "image"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "isHidden"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "rating"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "reloadData"]
 - !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
@@ -2275,11 +2320,13 @@ depends-member:
 - !private ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "instantiateInitialViewController"]
 - !private ["Ps9_Hashable", "instantiateViewController"]
+- !private ["Ps9_Hashable", "isHidden"]
 - !private ["Ps9_Hashable", "item"]
 - !private ["Ps9_Hashable", "leftBarButtonItem"]
 - !private ["Ps9_Hashable", "lookUpPlaceID"]
 - !private ["Ps9_Hashable", "main"]
 - !private ["Ps9_Hashable", "name"]
+- !private ["Ps9_Hashable", "navigationBar"]
 - !private ["Ps9_Hashable", "navigationController"]
 - !private ["Ps9_Hashable", "navigationItem"]
 - ["Ps9_Hashable", "numberOfSections"]
@@ -2476,6 +2523,7 @@ depends-nominal:
 - "CSo15UIBarButtonItem"
 - "OSC20UIBarButtonItemStyle"
 - !private "CSo9UIBarItem"
+- !private "PSo16UIBarPositioning"
 - !private "CSo24UICollectionReusableView"
 - "CSo16UICollectionView"
 - "CSo20UICollectionViewCell"
@@ -2490,9 +2538,11 @@ depends-nominal:
 - "PSo18UIFocusEnvironment"
 - !private "PSo11UIFocusItem"
 - "CSo6UIFont"
+- !private "PSo27UIGestureRecognizerDelegate"
 - "CSo7UIImage"
 - "CSo11UIImageView"
 - "CSo7UILabel"
+- "CSo15UINavigationBar"
 - "CSo22UINavigationController"
 - "CSo16UINavigationItem"
 - "CSo11UIResponder"

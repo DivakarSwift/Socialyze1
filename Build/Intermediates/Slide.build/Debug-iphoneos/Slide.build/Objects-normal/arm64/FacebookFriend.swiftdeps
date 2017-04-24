@@ -8,11 +8,11 @@ provides-member:
 - ["V5Slide14FacebookFriend", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bool"
 - "=="
-- "Equatable"
-- "String"
 - "FacebookFriend"
+- "Equatable"
+- "Bool"
+- "String"
 depends-member:
 - ["Sb", "deinit"]
 - !private ["Ps9Equatable", "id"]

@@ -8,15 +8,15 @@ provides-member:
 provides-dynamic-lookup:
 - "keyboardDistanceFromTextField"
 depends-top-level:
+- !private "objc_setAssociatedObject"
 - "CGFloat"
-- !private "objc_AssociationPolicy"
-- "UIView"
-- !private "objc_getAssociatedObject"
 - "CastingPrecedence"
+- "UIView"
+- "StringLiteralType"
+- !private "objc_AssociationPolicy"
+- !private "objc_getAssociatedObject"
 - !private "kIQKeyboardDistanceFromTextField"
 - "kIQUseDefaultKeyboardDistance"
-- "StringLiteralType"
-- !private "objc_setAssociatedObject"
 depends-member:
 - ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - ["Ps9AnyObject", "init"]

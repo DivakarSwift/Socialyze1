@@ -9,13 +9,13 @@ provides-dynamic-lookup:
 - "topMostController"
 - "currentViewController"
 depends-top-level:
+- "UIWindow"
+- !private "!="
+- "CastingPrecedence"
+- !private "UINavigationController"
+- "AssignmentPrecedence"
 - "UIViewController"
 - !private "&&"
-- "UIWindow"
-- "CastingPrecedence"
-- "AssignmentPrecedence"
-- !private "UINavigationController"
-- !private "!="
 depends-member:
 - ["Ps9AnyObject", "currentViewController"]
 - !private ["Ps9AnyObject", "presentedViewController"]

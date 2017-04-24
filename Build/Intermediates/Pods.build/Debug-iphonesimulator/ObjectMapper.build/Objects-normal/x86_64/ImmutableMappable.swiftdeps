@@ -36,25 +36,25 @@ provides-member:
 - ["C12ObjectMapper6Mapper", "mapOrFail"]
 provides-dynamic-lookup:
 depends-top-level:
-- "StringLiteralType"
-- "Bool"
-- "Mapper"
-- "StaticString"
-- !private "MapError"
-- "RawRepresentable"
 - "MapContext"
 - "String"
 - "BaseMappable"
-- "UnicodeScalarType"
-- "ImmutableMappable"
-- !private "EnumTransform"
+- "UInt"
 - !private "Dictionary"
-- "AssignmentPrecedence"
 - !private "??"
 - "CastingPrecedence"
+- "AssignmentPrecedence"
 - "TransformType"
-- "UInt"
+- "RawRepresentable"
+- "ImmutableMappable"
 - "Map"
+- !private "MapError"
+- "Mapper"
+- "UnicodeScalarType"
+- "Bool"
+- !private "EnumTransform"
+- "StaticString"
+- "StringLiteralType"
 depends-member:
 - ["Ps9AnyObject", "BaseMappable"]
 - !private ["Ps9AnyObject", "EnumTransform"]

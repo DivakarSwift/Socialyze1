@@ -7,11 +7,11 @@ provides-member:
 - ["C12ObjectMapper13DataTransform", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "DataTransform"
 - "Data"
 - "TransformType"
-- "DataTransform"
-- "String"
 - "CastingPrecedence"
+- "String"
 depends-member:
 - !private ["Ps9AnyObject", "Data"]
 - ["Ps9AnyObject", "JSON"]

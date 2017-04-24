@@ -6,23 +6,23 @@ provides-nominal:
 provides-member:
 - ["C13FacebookShare10LikeButton", ""]
 provides-dynamic-lookup:
-- "sizeThatFits"
 - "intrinsicContentSize"
-- "isSoundEnabled"
+- "sizeThatFits"
 - "layoutSubviews"
+- "isSoundEnabled"
 - "sizeToFit"
 depends-top-level:
-- "LikeButton"
+- "CGSize"
 - "LikableObject"
 - "CGRect"
-- "CGSize"
+- !private "??"
+- "LikeButton"
+- !private "StringLiteralType"
 - "FBSDKLikeButton"
-- "AssignmentPrecedence"
+- "NSCoder"
 - !private "CGFloat"
 - "Bool"
-- "NSCoder"
-- !private "??"
-- !private "StringLiteralType"
+- "AssignmentPrecedence"
 - "UIView"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]

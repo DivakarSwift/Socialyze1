@@ -7,10 +7,10 @@ provides-member:
 - ["O12FacebookCore17PublishPermission", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
+- "Permission"
 - "PublishPermission"
 - "PermissionRepresentable"
-- "Permission"
+- "String"
 - !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "init"]

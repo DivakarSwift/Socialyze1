@@ -7,8 +7,8 @@ provides-member:
 - ["P13FacebookShare28ContentSharingResultProtocol", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ContentSharingResultProtocol"
 - "String"
+- "ContentSharingResultProtocol"
 depends-member:
 - ["P13FacebookShare28ContentSharingResultProtocol", "String"]
 - ["P13FacebookShare28ContentSharingResultProtocol", "init"]

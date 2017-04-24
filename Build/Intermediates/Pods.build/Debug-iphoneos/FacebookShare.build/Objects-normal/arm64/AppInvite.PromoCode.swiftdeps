@@ -9,23 +9,23 @@ provides-member:
 - ["V13FacebookShare9AppInvite", "PromoCode"]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "print"
-- "Hashable"
-- "String"
 - !private "StringLiteralType"
-- !private "UnicodeScalar"
+- "AppInvite"
 - "Int"
-- !private "!="
-- "ExpressibleByStringLiteral"
-- "=="
-- "AssignmentPrecedence"
-- !private "Character"
+- !private "UnicodeScalar"
+- "String"
+- !private "..<"
 - !private "CharacterSet"
 - !private "UInt16"
 - "Bool"
-- !private "..<"
-- "AppInvite"
+- "Hashable"
 - !private "min"
+- "ExpressibleByStringLiteral"
+- "=="
+- "AssignmentPrecedence"
+- !private "!="
+- !private "print"
+- !private "Character"
 depends-member:
 - !private ["Ps9AnyObject", "hashValue"]
 - !private ["Ps9AnyObject", "init"]

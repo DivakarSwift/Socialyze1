@@ -7,17 +7,17 @@ provides-member:
 - ["CV12FacebookCore11UserProfile11PictureView", ""]
 - ["V12FacebookCore11UserProfile", "PictureView"]
 provides-dynamic-lookup:
-- "userId"
 - "setNeedsImageUpdate"
+- "userId"
 depends-top-level:
-- "UIView"
-- "CGRect"
-- "AssignmentPrecedence"
 - "UserProfile"
-- "FBSDKProfilePictureView"
+- "CGRect"
 - "NSCoder"
 - "StringLiteralType"
 - !private "Array"
+- "UIView"
+- "FBSDKProfilePictureView"
+- "AssignmentPrecedence"
 depends-member:
 - ["Ps9AnyObject", "FBSDKProfilePictureView"]
 - ["Ps9AnyObject", "UserProfile"]

@@ -9,14 +9,14 @@ provides-member:
 - ["V13FacebookShare9AppInvite", "sdkInviteRepresentation"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bool"
-- "AppInvite"
-- "FBSDKAppInviteContent"
-- "URL"
 - "=="
 - "AssignmentPrecedence"
+- "Bool"
 - "String"
+- "FBSDKAppInviteContent"
 - "Equatable"
+- "AppInvite"
+- "URL"
 depends-member:
 - !private ["Ps9AnyObject", "appInvitePreviewImageURL"]
 - !private ["Ps9AnyObject", "appLinkURL"]

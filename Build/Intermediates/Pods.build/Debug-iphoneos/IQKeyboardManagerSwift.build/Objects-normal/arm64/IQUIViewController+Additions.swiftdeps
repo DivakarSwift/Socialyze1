@@ -7,14 +7,14 @@ provides-member:
 provides-dynamic-lookup:
 - "IQLayoutGuideConstraint"
 depends-top-level:
-- !private "kIQLayoutGuideConstraint"
-- "CastingPrecedence"
-- !private "objc_AssociationPolicy"
-- !private "objc_getAssociatedObject"
-- "StringLiteralType"
-- "NSLayoutConstraint"
-- !private "objc_setAssociatedObject"
 - "UIViewController"
+- !private "objc_AssociationPolicy"
+- "CastingPrecedence"
+- !private "kIQLayoutGuideConstraint"
+- !private "objc_getAssociatedObject"
+- "NSLayoutConstraint"
+- "StringLiteralType"
+- !private "objc_setAssociatedObject"
 depends-member:
 - ["Ps9AnyObject", "IQLayoutGuideConstraint"]
 - ["Ps9AnyObject", "init"]

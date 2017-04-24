@@ -10,15 +10,15 @@ provides-member:
 - ["V13FacebookShare7Hashtag", "sdkHashtagRepresentation"]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKHashtag"
-- "Int"
-- "Hashable"
-- "Hashtag"
-- "String"
-- "Bool"
 - "=="
 - "AssignmentPrecedence"
+- "FBSDKHashtag"
+- "Int"
+- "Hashtag"
+- "String"
+- "Hashable"
 - !private "!"
+- "Bool"
 depends-member:
 - !private ["Ps9AnyObject", "hashValue"]
 - !private ["Ps9AnyObject", "init"]

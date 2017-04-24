@@ -8,18 +8,18 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "SendButton"
-- "AssignmentPrecedence"
-- "NSCoder"
-- "FBSDKSendButton"
-- !private "CGFloat"
-- !private "fatalError"
-- "ContentProtocol"
-- "CGRect"
-- "CGSize"
-- !private "StringLiteralType"
-- !private "??"
 - !private "ContentBridger"
+- "CGRect"
+- !private "fatalError"
+- !private "StringLiteralType"
+- "CGSize"
+- "FBSDKSendButton"
+- "ContentProtocol"
+- !private "??"
+- !private "CGFloat"
 - "UIView"
+- "NSCoder"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "CGFloat"]

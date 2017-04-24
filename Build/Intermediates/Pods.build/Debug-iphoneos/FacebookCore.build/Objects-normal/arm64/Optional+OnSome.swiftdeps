@@ -6,9 +6,9 @@ provides-member:
 - ["Sq", "onSome"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Void"
-- "AssignmentPrecedence"
 - "Optional"
+- "AssignmentPrecedence"
+- "Void"
 depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "map"]
 - !private ["Ps17CustomReflectable", "map"]

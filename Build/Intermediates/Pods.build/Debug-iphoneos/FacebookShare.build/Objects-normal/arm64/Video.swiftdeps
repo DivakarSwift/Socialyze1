@@ -10,13 +10,13 @@ provides-member:
 - ["V13FacebookShare5Video", "init"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bool"
-- "FBSDKShareVideo"
+- "Equatable"
 - "URL"
 - "Video"
 - "=="
+- "FBSDKShareVideo"
 - "AssignmentPrecedence"
-- "Equatable"
+- "Bool"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "videoURL"]

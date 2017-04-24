@@ -9,11 +9,11 @@ provides-dynamic-lookup:
 depends-top-level:
 - !private "objc_setAssociatedObject"
 - !private "objc_getAssociatedObject"
+- !private "kIQShouldRestoreScrollViewContentOffset"
+- "Bool"
 - "CastingPrecedence"
 - "StringLiteralType"
 - !private "objc_AssociationPolicy"
-- "Bool"
-- !private "kIQShouldRestoreScrollViewContentOffset"
 - !private "BooleanLiteralType"
 - "UIScrollView"
 depends-member:

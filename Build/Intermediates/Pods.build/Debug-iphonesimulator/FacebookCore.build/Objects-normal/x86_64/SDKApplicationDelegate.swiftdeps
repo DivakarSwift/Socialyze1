@@ -7,16 +7,16 @@ provides-member:
 - ["C12FacebookCore22SDKApplicationDelegate", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "SDKApplicationDelegate"
-- "CastingPrecedence"
-- "String"
-- "Dictionary"
-- "UIApplicationOpenURLOptionsKey"
 - "Bool"
+- "Dictionary"
+- "SDKApplicationDelegate"
+- "URL"
+- "UIApplicationOpenURLOptionsKey"
+- "String"
+- "CastingPrecedence"
 - "UIApplication"
 - "FBSDKApplicationDelegate"
 - "UIApplicationLaunchOptionsKey"
-- "URL"
 depends-member:
 - ["Ps9AnyObject", "FBSDKApplicationDelegate"]
 - ["Ps9AnyObject", "SDKApplicationDelegate"]

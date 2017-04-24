@@ -36,25 +36,25 @@ provides-member:
 - ["C12ObjectMapper6Mapper", "mapOrFail"]
 provides-dynamic-lookup:
 depends-top-level:
-- "CastingPrecedence"
-- "AssignmentPrecedence"
-- !private "Dictionary"
-- "Bool"
-- !private "MapError"
-- "Mapper"
+- "StringLiteralType"
 - "UnicodeScalarType"
-- "RawRepresentable"
+- !private "MapError"
+- !private "EnumTransform"
+- "Map"
 - "TransformType"
+- "Bool"
+- "BaseMappable"
+- "RawRepresentable"
+- !private "Dictionary"
+- "UInt"
 - !private "??"
 - "MapContext"
 - "StaticString"
-- "Map"
+- "CastingPrecedence"
 - "ImmutableMappable"
-- "UInt"
-- "StringLiteralType"
-- !private "EnumTransform"
-- "BaseMappable"
 - "String"
+- "AssignmentPrecedence"
+- "Mapper"
 depends-member:
 - ["Ps9AnyObject", "BaseMappable"]
 - !private ["Ps9AnyObject", "EnumTransform"]
@@ -484,8 +484,8 @@ depends-nominal:
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/ObjectMapper/ObjectMapper-umbrella.h"
-- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/Pods.build/Debug-iphoneos/ObjectMapper.build/unextended-module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/ObjectMapper/ObjectMapper-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphoneos/ObjectMapper.build/unextended-module.modulemap"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
 - "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"

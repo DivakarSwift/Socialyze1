@@ -95,6 +95,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Explore Columbus"
+         self.navigationController?.navigationBar.isHidden  = false
     }
     
     var places = [Place]()

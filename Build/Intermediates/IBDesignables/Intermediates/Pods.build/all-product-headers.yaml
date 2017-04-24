@@ -4,28 +4,33 @@
   'roots': [
     {
       'type': 'directory',
-      'name': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Headers",
+      'name': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Headers",
       'contents': [
         {
           'type': 'file',
-          'name': "FloatRatingView-Swift.h",
-          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-Swift.h"
+          'name': "TTTAttributedLabel-Swift.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel-Swift.h"
         },
         {
           'type': 'file',
-          'name': "FloatRatingView-umbrella.h",
-          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/FloatRatingView/FloatRatingView-umbrella.h"
+          'name': "TTTAttributedLabel-umbrella.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Target Support Files/TTTAttributedLabel/TTTAttributedLabel-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "TTTAttributedLabel.h",
+          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/TTTAttributedLabel/TTTAttributedLabel/TTTAttributedLabel.h"
         }
       ]
     },
     {
       'type': 'directory',
-      'name': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/FloatRatingView/FloatRatingView.framework/Modules",
+      'name': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Products/Debug-iphonesimulator/TTTAttributedLabel/TTTAttributedLabel.framework/Modules",
       'contents': [
         {
           'type': 'file',
           'name': "module.modulemap",
-          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Intermediates/Pods.build/Debug-iphonesimulator/FloatRatingView.build/module.modulemap"
+          'external-contents': "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Build/Intermediates/IBDesignables/Intermediates/Pods.build/Debug-iphonesimulator/TTTAttributedLabel.build/module.modulemap"
         }
       ]
     }

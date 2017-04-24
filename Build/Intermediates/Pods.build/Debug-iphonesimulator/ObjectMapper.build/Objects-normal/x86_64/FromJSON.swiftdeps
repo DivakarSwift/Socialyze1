@@ -7,17 +7,17 @@ provides-member:
 - ["C12ObjectMapper8FromJSON", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "FromJSON"
+- "String"
+- !private "!="
+- !private "Mapper"
+- !private "&&"
 - "Dictionary"
 - "Map"
-- !private "Mapper"
-- "String"
-- !private "&&"
-- "FromJSON"
-- "AssignmentPrecedence"
-- !private "!="
-- "Set"
 - "BaseMappable"
 - "Array"
+- "Set"
+- "AssignmentPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "Mapper"]
 - !private ["Ps9AnyObject", "context"]

@@ -8,9 +8,9 @@ provides-member:
 - ["V13FacebookShare9AppInvite", "Result"]
 provides-dynamic-lookup:
 depends-top-level:
+- "String"
 - "Error"
 - "AppInvite"
-- "String"
 depends-member:
 - ["V13FacebookShare9AppInvite", "Error"]
 - ["V13FacebookShare9AppInvite", "Result"]

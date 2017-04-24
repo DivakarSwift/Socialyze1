@@ -8,15 +8,15 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "URLTransform"
-- "AssignmentPrecedence"
 - !private "!"
-- "CastingPrecedence"
-- "Bool"
 - "BooleanLiteralType"
-- "TransformType"
-- !private "CharacterSet"
 - "URL"
+- !private "CharacterSet"
+- "TransformType"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
 - "String"
+- "Bool"
 depends-member:
 - !private ["Ps9AnyObject", "CharacterSet"]
 - ["Ps9AnyObject", "JSON"]

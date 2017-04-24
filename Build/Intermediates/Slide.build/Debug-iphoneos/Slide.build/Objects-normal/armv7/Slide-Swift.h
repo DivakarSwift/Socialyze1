@@ -116,34 +116,504 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import Foundation;
+@import CoreGraphics;
+@import TTTAttributedLabel;
+@import GoogleMaps;
+@import CoreData;
+@import ObjectiveC;
+@import CoreLocation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
 @class UIWindow;
 @class UIApplication;
+@class NSPersistentContainer;
 
 SWIFT_CLASS("_TtC5Slide11AppDelegate")
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (nonatomic, strong) UIWindow * _Nullable window;
 - (BOOL)application:(UIApplication * _Nonnull)application didFinishLaunchingWithOptions:(NSDictionary<UIApplicationLaunchOptionsKey, id> * _Nullable)launchOptions;
-- (void)applicationWillResignActive:(UIApplication * _Nonnull)application;
-- (void)applicationDidEnterBackground:(UIApplication * _Nonnull)application;
-- (void)applicationWillEnterForeground:(UIApplication * _Nonnull)application;
+- (void)checkForLogin;
 - (void)applicationDidBecomeActive:(UIApplication * _Nonnull)application;
+- (BOOL)application:(UIApplication * _Nonnull)app openURL:(NSURL * _Nonnull)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> * _Nonnull)options;
 - (void)applicationWillTerminate:(UIApplication * _Nonnull)application;
+@property (nonatomic, strong) NSPersistentContainer * _Nonnull persistentContainer;
+- (void)saveContext;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSUserDefaults;
+@class UIImageView;
+@class UILabel;
+@class UIPanGestureRecognizer;
+@class UIButton;
 @class NSBundle;
 @class NSCoder;
 
-SWIFT_CLASS("_TtC5Slide14ViewController")
-@interface ViewController : UIViewController
+SWIFT_CLASS("_TtC5Slide24CategoriesViewController")
+@interface CategoriesViewController : UIViewController
+@property (nonatomic, readonly, strong) NSUserDefaults * _Nonnull categoryDefaults;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified actionImageView;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified infoButton;
+@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified imageView;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified eventDescription;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified userName;
+- (IBAction)reportUser:(id _Nonnull)sender;
+- (void)wasDraggedWithGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)addLoadingIndicator;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UIImage;
+@class CALayer;
+
+SWIFT_CLASS("_TtC5Slide27CustomActivityIndicatorView")
+@interface CustomActivityIndicatorView : UIView
+@property (nonatomic) BOOL isAnimating;
+@property (nonatomic) BOOL hidesWhenStopped;
+- (nonnull instancetype)initWithImage:(UIImage * _Nonnull)image OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)addRotationForLayer:(CALayer * _Nonnull)layer;
+- (void)pauseWithLayer:(CALayer * _Nonnull)layer;
+- (void)resumeWithLayer:(CALayer * _Nonnull)layer;
+- (void)startAnimating;
+- (void)stopAnimating;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+@class NSLayoutConstraint;
+
+SWIFT_CLASS("_TtC5Slide10CustomCell")
+@interface CustomCell : UICollectionViewCell
+@property (nonatomic, strong) IBOutlet NSLayoutConstraint * _Null_unspecified widthLayout;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC5Slide26EditingTableViewController")
+@interface EditingTableViewController : UITableViewController
+- (void)viewDidLoad;
+- (IBAction)doneNavBtn:(id _Nonnull)sender;
+- (IBAction)ageSlider:(id _Nonnull)sender;
+- (IBAction)distanceSlider:(id _Nonnull)sender;
+- (IBAction)deleteAccountBtn:(id _Nonnull)sender;
+- (IBAction)logout:(id _Nonnull)sender;
+- (IBAction)privacyPolicyBtn:(id _Nonnull)sender;
+- (IBAction)termsAndConditionsBtn:(id _Nonnull)sender;
+- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class TTTAttributedLabel;
+
+SWIFT_CLASS("_TtC5Slide19LoginViewController")
+@interface LoginViewController : UIViewController <TTTAttributedLabelDelegate>
+@property (nonatomic, strong) IBOutlet TTTAttributedLabel * _Null_unspecified lbl;
+- (void)viewDidLoad;
+- (void)attributedLabel:(TTTAttributedLabel * _Null_unspecified)label didSelectLinkWithURL:(NSURL * _Null_unspecified)url;
+- (IBAction)login:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface LoginViewController (SWIFT_EXTENSION(Slide))
+- (BOOL)shouldUserSignInIntoFirebase;
+- (void)didLogoutUser;
+- (void)didSignInUser;
+@end
+
+
+SWIFT_CLASS("_TtC5Slide25MatchesCollectionViewCell")
+@interface MatchesCollectionViewCell : UICollectionViewCell
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UICollectionView;
+
+SWIFT_CLASS("_TtC5Slide20MatchesTableViewCell")
+@interface MatchesTableViewCell : UITableViewCell
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified titleLabel;
+@property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified noMatchesLabel;
+@property (nonatomic, copy) NSArray<UIImage *> * _Nonnull images;
+- (void)awakeFromNib;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface MatchesTableViewCell (SWIFT_EXTENSION(Slide)) <UICollectionViewDelegate, UIScrollViewDelegate>
+@end
+
+
+@interface MatchesTableViewCell (SWIFT_EXTENSION(Slide)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+@class UITableView;
+
+SWIFT_CLASS("_TtC5Slide21MatchesViewController")
+@interface MatchesViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified tableView;
+- (void)viewDidLoad;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface MatchesViewController (SWIFT_EXTENSION(Slide)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface MatchesViewController (SWIFT_EXTENSION(Slide)) <UITableViewDelegate, UIScrollViewDelegate>
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+SWIFT_CLASS("_TtC5Slide14PDGradientView")
+@interface PDGradientView : UIView
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) Class _Nonnull layerClass;)
++ (Class _Nonnull)layerClass;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+@class UIStoryboardSegue;
+
+SWIFT_CLASS("_TtC5Slide25PlaceDetailViewController")
+@interface PlaceDetailViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified placeNameAddressLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified placeDetailLbl;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified checkInStatusLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified placeImageView;
+@property (nonatomic, weak) IBOutlet UITableView * _Null_unspecified friendsTableView;
+@property (nonatomic, readonly) double thresholdRadius;
+@property (nonatomic, readonly) NSTimeInterval checkInThreshold;
+- (void)viewDidLoad;
+- (IBAction)checkIn:(UIButton * _Nonnull)sender;
+- (void)recheckin;
+- (void)locationUpdated;
+- (void)getUserFriends;
+- (void)changeStatus;
+- (void)getCheckedinUsers;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface PlaceDetailViewController (SWIFT_EXTENSION(Slide)) <UITableViewDataSource>
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface PlaceDetailViewController (SWIFT_EXTENSION(Slide))
+- (void)didSignInUser;
+- (void)didLogoutUser;
+- (BOOL)shouldUserSignInIntoFirebase;
+@end
+
+@class GMSMapView;
+@class GMSMarker;
+
+SWIFT_CLASS("_TtC5Slide28PlaceToUserMapViewController")
+@interface PlaceToUserMapViewController : UIViewController <GMSMapViewDelegate>
+@property (nonatomic, weak) IBOutlet GMSMapView * _Null_unspecified mapView;
+- (void)viewDidLoad;
+- (void)mapView:(GMSMapView * _Nonnull)mapView didTapInfoWindowOfMarker:(GMSMarker * _Nonnull)marker;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSEntityDescription;
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("Places")
+@interface Places : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSData;
+
+@interface Places (SWIFT_EXTENSION(Slide))
+@property (nonatomic, copy) NSString * _Nullable place_address;
+@property (nonatomic, strong) NSData * _Nullable place_image;
+@property (nonatomic, copy) NSString * _Nullable place_lat;
+@property (nonatomic, copy) NSString * _Nullable place_long;
+@property (nonatomic, copy) NSString * _Nullable place_name;
+@property (nonatomic, copy) NSString * _Nullable place_rating;
+@end
+
+
+SWIFT_CLASS("_TtC5Slide20PostedViewController")
+@interface PostedViewController : UIViewController
 - (void)viewDidLoad;
 - (void)didReceiveMemoryWarning;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSTimer;
+@class UITapGestureRecognizer;
+
+SWIFT_CLASS("_TtC5Slide21ProfileViewController")
+@interface ProfileViewController : UIViewController <UIGestureRecognizerDelegate>
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bioLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified userImageView;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified editButton;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblUserName;
+@property (nonatomic, copy) NSString * _Nullable userId;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull images;
+@property (nonatomic) NSInteger currentImageIndex;
+@property (nonatomic, strong) NSTimer * _Nullable imageTimer;
+- (void)viewDidLoad;
+- (void)handleTap:(UITapGestureRecognizer * _Nonnull)sender;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillDisappear:(BOOL)animated;
+- (void)loadProfilePicturesFromFacebook;
+- (void)changeImage;
+- (IBAction)editProfile:(id _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface ProfileViewController (SWIFT_EXTENSION(Slide))
+- (void)didSignInUser;
+- (void)didLogoutUser;
+- (BOOL)shouldUserSignInIntoFirebase;
+@end
+
+@class UIImagePickerController;
+@class UIPickerView;
+@class UITextView;
+
+SWIFT_CLASS("_TtC5Slide23SelectionViewController")
+@interface SelectionViewController : UIViewController <UIPickerViewDataSource, UINavigationControllerDelegate, UIPickerViewDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UITextViewDelegate, UIScrollViewDelegate>
+@property (nonatomic, strong) UIImagePickerController * _Nonnull picker;
+@property (nonatomic, copy) NSArray<NSString *> * _Nonnull eventsArray;
+@property (nonatomic, weak) IBOutlet UIView * _Null_unspecified objectToMove;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified userImg;
+@property (nonatomic, strong) IBOutlet UIPickerView * _Null_unspecified pickerView;
+@property (nonatomic, strong) IBOutlet UITextView * _Null_unspecified txtDescription;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified lblCharacterLft;
+@property (nonatomic, copy) NSString * _Null_unspecified val;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified lblBioCharactersLeft;
+@property (nonatomic, weak) IBOutlet UITextView * _Null_unspecified txtUserBio;
+@property (nonatomic, strong) IBOutlet UIButton * _Null_unspecified btnPost;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)didReceiveMemoryWarning;
+- (IBAction)btnPost:(id _Nonnull)sender;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView * _Nonnull)pickerView;
+- (NSInteger)pickerView:(UIPickerView * _Nonnull)pickerView numberOfRowsInComponent:(NSInteger)component;
+- (NSString * _Nullable)pickerView:(UIPickerView * _Nonnull)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+- (void)pickerView:(UIPickerView * _Nonnull)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+- (BOOL)textView:(UITextView * _Nonnull)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString * _Nonnull)text;
+- (void)moveImageInCircile;
+- (IBAction)btnImage:(id _Nonnull)sender;
+- (void)openCamera;
+- (void)openGallary;
+- (void)imagePickerController:(UIImagePickerController * _Nonnull)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> * _Nonnull)info;
+- (void)imagePickerControllerDidCancel:(UIImagePickerController * _Nonnull)picker;
+- (void)addLoadingIndicator;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class CLLocationManager;
+@class CLLocation;
+
+SWIFT_CLASS("_TtC5Slide20SlydeLocationManager")
+@interface SlydeLocationManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) SlydeLocationManager * _Nonnull shared;)
++ (SlydeLocationManager * _Nonnull)shared;
+@property (nonatomic, readonly, strong) CLLocationManager * _Nonnull manager;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (CLLocation * _Nullable)getLocation;
+- (void)requestLocation;
+- (void)startUpdatingLocation;
+- (void)stopUpdatingLocation;
+@property (nonatomic, readonly) BOOL isAuthorized;
+@property (nonatomic, readonly) BOOL isNotDetermined;
+@property (nonatomic, readonly) BOOL isDenied;
+@end
+
+
+@interface SlydeLocationManager (SWIFT_EXTENSION(Slide)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
+@end
+
+
+SWIFT_CLASS("_TtC5Slide21SwipingViewController")
+@interface SwipingViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified userNameAgeLabel;
+@property (nonatomic, strong) IBOutlet UIImageView * _Null_unspecified imageView;
+@property (nonatomic, strong) IBOutlet UILabel * _Null_unspecified userBio;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified infoButton;
+- (IBAction)reportUser:(id _Nonnull)sender;
+- (void)wasDraggedWithGestureRecognizer:(UIPanGestureRecognizer * _Nonnull)gestureRecognizer;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)addLoadingIndicator;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UICollectionViewLayoutAttributes;
+
+SWIFT_CLASS("_TtC5Slide14TRMosaicLayout")
+@interface TRMosaicLayout : UICollectionViewLayout
+@property (nonatomic, copy) NSDictionary<NSIndexPath *, UICollectionViewLayoutAttributes *> * _Nonnull cachedCellLayoutAttributes;
+@property (nonatomic, readonly) NSInteger numberOfColumnsInSection;
+@property (nonatomic, readonly) CGFloat contentWidth;
+- (void)prepareLayout;
+/**
+  Iterates throught all items in section and
+  creates new layouts for each item as a mosaic cell
+*/
+- (void)configureMosaicLayout;
+/**
+  Creates new layout for the big cell at specified index path
+
+  returns:
+  returns new cell side
+*/
+- (BOOL)createBigCellLayoutWithIndexPath:(NSIndexPath * _Nonnull)indexPath cellSide:(BOOL)cellSide;
+/**
+  Creates new layout for the small cell at specified index path
+
+  returns:
+  returns new cell buffer
+*/
+- (NSArray<NSIndexPath *> * _Nonnull)createSmallCellLayoutWithIndexPath:(NSIndexPath * _Nonnull)indexPath buffer:(NSArray<NSIndexPath *> * _Nonnull)buffer;
+/**
+  Returns the entire content view of the collection view
+*/
+@property (nonatomic, readonly) CGSize collectionViewContentSize;
+/**
+  Returns all layout attributes within the given rectangle
+*/
+- (NSArray<UICollectionViewLayoutAttributes *> * _Nullable)layoutAttributesForElementsInRect:(CGRect)rect;
+/**
+  Returns all layout attributes for the current indexPath
+*/
+- (UICollectionViewLayoutAttributes * _Nullable)layoutAttributesForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+/**
+  Configures the layout for cell type: Big
+  Adds the new layout to cache
+  Updates the column heights for each effected column
+*/
+- (void)addBigCellLayoutAtIndexPath:(NSIndexPath * _Nonnull)indexPath atColumn:(NSInteger)column;
+/**
+  Configures the layout for cell type: Small
+  Adds the new layout to cache
+  Updates the column heights for each effected column
+*/
+- (void)addSmallCellLayoutAtIndexPath:(NSIndexPath * _Nonnull)indexPath atColumn:(NSInteger)column;
+/**
+  Determines if a layout update is needed when the bounds have been changed
+
+  returns:
+  True if layout needs update
+*/
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds;
+/**
+
+  returns:
+  Returns the UIEdgeInsets that will be used for every cell as a border
+*/
+- (UIEdgeInsets)insetForMosaicCell;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface TRMosaicLayout (SWIFT_EXTENSION(Slide))
+/**
+
+  returns:
+  The index of the column with the smallest height
+*/
+- (NSInteger)indexOfShortestColumn;
+/**
+  Resets the layout cache and the heights array
+*/
+- (void)resetLayoutState;
+@end
+
+
+@interface UIAlertController (SWIFT_EXTENSION(Slide))
+- (void)addActionWithTitle:(NSString * _Nullable)title style:(UIAlertActionStyle)style handler:(void (^ _Nullable)(void))handler;
+@end
+
+@class UIColor;
+
+@interface UIView (SWIFT_EXTENSION(Slide))
+- (void)setWithCornerRadius:(CGFloat)radius;
+- (void)setWithBorder:(UIColor * _Nonnull)border;
+- (void)setWithBorderWidth:(CGFloat)borderWidth;
+- (void)setWithBorderWidth:(CGFloat)width of:(UIColor * _Nonnull)color;
+- (void)rounded;
+- (void)showWithValue:(BOOL)value;
+- (void)roundedImage;
+@end
+
+
+@interface UIViewController (SWIFT_EXTENSION(Slide))
+- (void)alertWithMessage:(NSString * _Nullable)message title:(NSString * _Nullable)title okAction:(void (^ _Nullable)(void))okAction;
+- (void)alertWithOkCancelWithMessage:(NSString * _Nullable)message title:(NSString * _Nullable)title okTitle:(NSString * _Nullable)okTitle cancelTitle:(NSString * _Nullable)cancelTitle okAction:(void (^ _Nullable)(void))okAction cancelAction:(void (^ _Nullable)(void))cancelAction;
+- (void)alertLocationDenied;
+@end
+
+@class UIBarButtonItem;
+
+SWIFT_CLASS("_TtC5Slide14ViewController")
+@interface ViewController : UIViewController
+@property (nonatomic, weak) IBOutlet UICollectionView * _Null_unspecified collectionView;
+- (IBAction)switchToCategoryFromButton:(id _Nonnull)sender;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)setupPlaces;
+- (void)eventBtn:(UIBarButtonItem * _Nonnull)sender;
+- (void)profileBtn:(UIBarButtonItem * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface ViewController (SWIFT_EXTENSION(Slide)) <UICollectionViewDelegate, UIScrollViewDelegate>
+- (void)collectionView:(UICollectionView * _Nonnull)collectionView didSelectItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface ViewController (SWIFT_EXTENSION(Slide)) <UICollectionViewDataSource>
+- (NSInteger)collectionView:(UICollectionView * _Nonnull)collectionView numberOfItemsInSection:(NSInteger)section;
+- (UICollectionViewCell * _Nonnull)collectionView:(UICollectionView * _Nonnull)collectionView cellForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+@end
+
+
+@interface ViewController (SWIFT_EXTENSION(Slide))
+- (UIEdgeInsets)collectionView:(UICollectionView * _Nonnull)collectionView layout:(TRMosaicLayout * _Nonnull)collectionViewLayout insetAtSection:(NSInteger)insetAtSection;
+- (CGFloat)heightForSmallMosaicCell;
+- (void)placeIdWithNmbr:(NSInteger)nmbr;
 @end
 
 #pragma clang diagnostic pop

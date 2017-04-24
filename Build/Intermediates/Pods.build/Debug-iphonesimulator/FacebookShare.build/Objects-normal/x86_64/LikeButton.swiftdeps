@@ -8,22 +8,22 @@ provides-member:
 provides-dynamic-lookup:
 - "sizeToFit"
 - "sizeThatFits"
-- "layoutSubviews"
 - "isSoundEnabled"
+- "layoutSubviews"
 - "intrinsicContentSize"
 depends-top-level:
 - "LikableObject"
-- !private "CGFloat"
-- !private "??"
-- "FBSDKLikeButton"
-- "CGSize"
 - "CGRect"
-- "AssignmentPrecedence"
 - "NSCoder"
 - !private "StringLiteralType"
-- "Bool"
+- "CGSize"
 - "UIView"
+- !private "??"
+- "Bool"
+- "FBSDKLikeButton"
 - "LikeButton"
+- "AssignmentPrecedence"
+- !private "CGFloat"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "CGFloat"]

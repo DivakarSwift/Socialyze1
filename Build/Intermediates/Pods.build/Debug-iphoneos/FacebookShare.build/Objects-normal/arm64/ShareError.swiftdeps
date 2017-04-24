@@ -9,13 +9,13 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "NSError"
-- !private "FBSDKShareErrorCode"
 - "ShareError"
-- "Error"
 - !private "!="
 - !private "FBSDKShareErrorDomain"
+- "Error"
 - "=="
 - "AssignmentPrecedence"
+- !private "FBSDKShareErrorCode"
 depends-member:
 - !private ["Ps9AnyObject", "code"]
 - !private ["Ps9AnyObject", "domain"]
