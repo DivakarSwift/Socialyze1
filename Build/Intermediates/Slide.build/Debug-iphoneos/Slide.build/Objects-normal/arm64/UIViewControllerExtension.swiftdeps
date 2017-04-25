@@ -11,21 +11,21 @@ provides-member:
 - ["CSo16UIViewController", "alertLocationDenied"]
 - ["CSo17UIAlertController", "addAction"]
 provides-dynamic-lookup:
-- "alertWithOkCancel"
 - "alertLocationDenied"
 - "alert"
 - "addAction"
+- "alertWithOkCancel"
 depends-top-level:
-- "UIViewController"
-- !private "BooleanLiteralType"
-- !private "UIAlertAction"
-- "GlobalConstants"
-- "UIAlertController"
-- "StringLiteralType"
-- "Selector"
 - !private "=="
-- "String"
+- !private "UIAlertAction"
+- "UIViewController"
 - !private "NotificationCenter"
+- "UIAlertController"
+- "GlobalConstants"
+- !private "BooleanLiteralType"
+- "Selector"
+- "StringLiteralType"
+- "String"
 - "UIAlertActionStyle"
 depends-member:
 - !private ["Ps9AnyObject", "GlobalConstants"]

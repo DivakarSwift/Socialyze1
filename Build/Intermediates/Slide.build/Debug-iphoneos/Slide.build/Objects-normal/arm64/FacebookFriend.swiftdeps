@@ -8,10 +8,10 @@ provides-member:
 - ["V5Slide14FacebookFriend", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "=="
 - "FacebookFriend"
-- "Equatable"
 - "Bool"
+- "=="
+- "Equatable"
 - "String"
 depends-member:
 - ["Sb", "deinit"]

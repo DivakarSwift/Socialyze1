@@ -7,8 +7,8 @@ provides-member:
 - ["P13FacebookShare28ContentSharingDialogProtocol", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "ContentSharingDialogProtocol"
 - "ContentSharingProtocol"
+- "ContentSharingDialogProtocol"
 depends-member:
 - ["P13FacebookShare28ContentSharingDialogProtocol", "show"]
 - ["P13FacebookShare22ContentSharingProtocol", "show"]

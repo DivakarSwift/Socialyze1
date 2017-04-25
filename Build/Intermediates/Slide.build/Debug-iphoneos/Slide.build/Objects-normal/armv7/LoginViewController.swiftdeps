@@ -1,0 +1,1026 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LoginViewController"
+provides-nominal:
+- "C5Slide19LoginViewController"
+provides-member:
+- ["C5Slide19LoginViewController", ""]
+provides-dynamic-lookup:
+- "viewDidLoad"
+- "didLogoutUser"
+- "didSignInUser"
+- "login"
+- "attributedLabel"
+- "shouldUserSignInIntoFirebase"
+- "lbl"
+depends-top-level:
+- "UIViewController"
+- !private "UIApplication"
+- "AuthenticationError"
+- !private "StringLiteralType"
+- !private "print"
+- !private "String"
+- "TTTAttributedLabel"
+- !private "BooleanLiteralType"
+- "LoginViewController"
+- !private "UIAlertAction"
+- "AuthenticatorDelegate"
+- "URL"
+- !private "UIAlertController"
+- "Bool"
+- !private "appDelegate"
+- "Authenticator"
+- !private "NSString"
+- "TTTAttributedLabelDelegate"
+- !private "NSRange"
+- !private "NSURL"
+- "AssignmentPrecedence"
+- !private "=="
+- "CastingPrecedence"
+depends-member:
+- ["Ps9AnyObject", "Authenticator"]
+- !private ["Ps9AnyObject", "NSURL"]
+- !private ["Ps9AnyObject", "String"]
+- !private ["Ps9AnyObject", "UIAlertAction"]
+- !private ["Ps9AnyObject", "UIAlertController"]
+- !private ["Ps9AnyObject", "UIApplication"]
+- !private ["Ps9AnyObject", "addAction"]
+- !private ["Ps9AnyObject", "addLink"]
+- !private ["Ps9AnyObject", "appDelegate"]
+- ["Ps9AnyObject", "attributedLabel"]
+- !private ["Ps9AnyObject", "authenticateWith"]
+- ["Ps9AnyObject", "authenticator"]
+- !private ["Ps9AnyObject", "checkForLogin"]
+- !private ["Ps9AnyObject", "delegate"]
+- ["Ps9AnyObject", "didLogoutUser"]
+- ["Ps9AnyObject", "didOccurAuthentication"]
+- ["Ps9AnyObject", "didSignInUser"]
+- !private ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "lbl"]
+- ["Ps9AnyObject", "login"]
+- !private ["Ps9AnyObject", "openURL"]
+- !private ["Ps9AnyObject", "present"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "range"]
+- ["Ps9AnyObject", "shared"]
+- ["Ps9AnyObject", "shouldUserSignInIntoFirebase"]
+- !private ["Ps9AnyObject", "text"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", ""]
+- !private ["C5Slide11AppDelegate", "checkForLogin"]
+- ["C5Slide11AppDelegate", "deinit"]
+- !private ["P12FacebookCore26AppEventParameterValueType", "init"]
+- ["O5Slide19AuthenticationError", "deinit"]
+- !private ["O5Slide19AuthenticationError", "localizedDescription"]
+- !private ["C5Slide13Authenticator", "authenticateWith"]
+- ["C5Slide13Authenticator", "deinit"]
+- !private ["C5Slide13Authenticator", "delegate"]
+- ["C5Slide13Authenticator", "shared"]
+- ["P5Slide21AuthenticatorDelegate", "Authenticator"]
+- !private ["P5Slide21AuthenticatorDelegate", "NSURL"]
+- !private ["P5Slide21AuthenticatorDelegate", "String"]
+- !private ["P5Slide21AuthenticatorDelegate", "UIAlertAction"]
+- !private ["P5Slide21AuthenticatorDelegate", "UIAlertController"]
+- !private ["P5Slide21AuthenticatorDelegate", "UIApplication"]
+- !private ["P5Slide21AuthenticatorDelegate", "appDelegate"]
+- ["P5Slide21AuthenticatorDelegate", "attributedLabel"]
+- !private ["P5Slide21AuthenticatorDelegate", "authenticator"]
+- ["P5Slide21AuthenticatorDelegate", "didLogoutUser"]
+- ["P5Slide21AuthenticatorDelegate", "didOccurAuthentication"]
+- ["P5Slide21AuthenticatorDelegate", "didSignInUser"]
+- !private ["P5Slide21AuthenticatorDelegate", "lbl"]
+- !private ["P5Slide21AuthenticatorDelegate", "present"]
+- !private ["P5Slide21AuthenticatorDelegate", "print"]
+- ["P5Slide21AuthenticatorDelegate", "shouldUserSignInIntoFirebase"]
+- ["P5Slide21AuthenticatorDelegate", ""]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["PSo15CALayerDelegate", "addLink"]
+- !private ["PSo15CALayerDelegate", "delegate"]
+- !private ["PSo15CALayerDelegate", "text"]
+- ["Ps7CVarArg", "Authenticator"]
+- !private ["Ps7CVarArg", "NSURL"]
+- !private ["Ps7CVarArg", "String"]
+- !private ["Ps7CVarArg", "UIAlertAction"]
+- !private ["Ps7CVarArg", "UIAlertController"]
+- !private ["Ps7CVarArg", "UIApplication"]
+- !private ["Ps7CVarArg", "addAction"]
+- !private ["Ps7CVarArg", "addLink"]
+- !private ["Ps7CVarArg", "appDelegate"]
+- ["Ps7CVarArg", "attributedLabel"]
+- ["Ps7CVarArg", "authenticator"]
+- !private ["Ps7CVarArg", "checkForLogin"]
+- !private ["Ps7CVarArg", "delegate"]
+- ["Ps7CVarArg", "didLogoutUser"]
+- ["Ps7CVarArg", "didOccurAuthentication"]
+- ["Ps7CVarArg", "didSignInUser"]
+- !private ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "lbl"]
+- ["Ps7CVarArg", "login"]
+- !private ["Ps7CVarArg", "openURL"]
+- !private ["Ps7CVarArg", "present"]
+- !private ["Ps7CVarArg", "print"]
+- !private ["Ps7CVarArg", "range"]
+- !private ["Ps7CVarArg", "shared"]
+- ["Ps7CVarArg", "shouldUserSignInIntoFirebase"]
+- !private ["Ps7CVarArg", "text"]
+- ["Ps7CVarArg", "viewDidLoad"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "Authenticator"]
+- !private ["Ps28CustomDebugStringConvertible", "NSURL"]
+- !private ["Ps28CustomDebugStringConvertible", "String"]
+- !private ["Ps28CustomDebugStringConvertible", "UIAlertAction"]
+- !private ["Ps28CustomDebugStringConvertible", "UIAlertController"]
+- !private ["Ps28CustomDebugStringConvertible", "UIApplication"]
+- !private ["Ps28CustomDebugStringConvertible", "addAction"]
+- !private ["Ps28CustomDebugStringConvertible", "addLink"]
+- !private ["Ps28CustomDebugStringConvertible", "appDelegate"]
+- ["Ps28CustomDebugStringConvertible", "attributedLabel"]
+- ["Ps28CustomDebugStringConvertible", "authenticator"]
+- !private ["Ps28CustomDebugStringConvertible", "checkForLogin"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- ["Ps28CustomDebugStringConvertible", "didLogoutUser"]
+- ["Ps28CustomDebugStringConvertible", "didOccurAuthentication"]
+- ["Ps28CustomDebugStringConvertible", "didSignInUser"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "lbl"]
+- ["Ps28CustomDebugStringConvertible", "login"]
+- !private ["Ps28CustomDebugStringConvertible", "openURL"]
+- !private ["Ps28CustomDebugStringConvertible", "present"]
+- !private ["Ps28CustomDebugStringConvertible", "print"]
+- !private ["Ps28CustomDebugStringConvertible", "range"]
+- !private ["Ps28CustomDebugStringConvertible", "shared"]
+- ["Ps28CustomDebugStringConvertible", "shouldUserSignInIntoFirebase"]
+- !private ["Ps28CustomDebugStringConvertible", "text"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "range"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- ["Ps23CustomStringConvertible", "Authenticator"]
+- !private ["Ps23CustomStringConvertible", "NSURL"]
+- !private ["Ps23CustomStringConvertible", "String"]
+- !private ["Ps23CustomStringConvertible", "UIAlertAction"]
+- !private ["Ps23CustomStringConvertible", "UIAlertController"]
+- !private ["Ps23CustomStringConvertible", "UIApplication"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "addAction"]
+- !private ["Ps23CustomStringConvertible", "addLink"]
+- !private ["Ps23CustomStringConvertible", "appDelegate"]
+- ["Ps23CustomStringConvertible", "attributedLabel"]
+- ["Ps23CustomStringConvertible", "authenticator"]
+- !private ["Ps23CustomStringConvertible", "checkForLogin"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- ["Ps23CustomStringConvertible", "didLogoutUser"]
+- ["Ps23CustomStringConvertible", "didOccurAuthentication"]
+- ["Ps23CustomStringConvertible", "didSignInUser"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "lbl"]
+- ["Ps23CustomStringConvertible", "login"]
+- !private ["Ps23CustomStringConvertible", "openURL"]
+- !private ["Ps23CustomStringConvertible", "present"]
+- !private ["Ps23CustomStringConvertible", "print"]
+- !private ["Ps23CustomStringConvertible", "range"]
+- !private ["Ps23CustomStringConvertible", "shared"]
+- ["Ps23CustomStringConvertible", "shouldUserSignInIntoFirebase"]
+- !private ["Ps23CustomStringConvertible", "text"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "Authenticator"]
+- !private ["Ps9Equatable", "NSURL"]
+- !private ["Ps9Equatable", "String"]
+- !private ["Ps9Equatable", "UIAlertAction"]
+- !private ["Ps9Equatable", "UIAlertController"]
+- !private ["Ps9Equatable", "UIApplication"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "addAction"]
+- !private ["Ps9Equatable", "addLink"]
+- !private ["Ps9Equatable", "alert"]
+- !private ["Ps9Equatable", "appDelegate"]
+- ["Ps9Equatable", "attributedLabel"]
+- ["Ps9Equatable", "authenticator"]
+- !private ["Ps9Equatable", "checkForLogin"]
+- !private ["Ps9Equatable", "default"]
+- !private ["Ps9Equatable", "delegate"]
+- ["Ps9Equatable", "didLogoutUser"]
+- ["Ps9Equatable", "didOccurAuthentication"]
+- ["Ps9Equatable", "didSignInUser"]
+- !private ["Ps9Equatable", "facebook"]
+- !private ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "lbl"]
+- ["Ps9Equatable", "login"]
+- !private ["Ps9Equatable", "openURL"]
+- !private ["Ps9Equatable", "present"]
+- !private ["Ps9Equatable", "print"]
+- !private ["Ps9Equatable", "range"]
+- !private ["Ps9Equatable", "shared"]
+- ["Ps9Equatable", "shouldUserSignInIntoFirebase"]
+- !private ["Ps9Equatable", "text"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", ""]
+- !private ["Ps5Error", "localizedDescription"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "range"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "range"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "range"]
+- ["Ps8Hashable", "Authenticator"]
+- !private ["Ps8Hashable", "NSURL"]
+- !private ["Ps8Hashable", "String"]
+- !private ["Ps8Hashable", "UIAlertAction"]
+- !private ["Ps8Hashable", "UIAlertController"]
+- !private ["Ps8Hashable", "UIApplication"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "addAction"]
+- !private ["Ps8Hashable", "addLink"]
+- !private ["Ps8Hashable", "alert"]
+- !private ["Ps8Hashable", "appDelegate"]
+- ["Ps8Hashable", "attributedLabel"]
+- ["Ps8Hashable", "authenticator"]
+- !private ["Ps8Hashable", "checkForLogin"]
+- !private ["Ps8Hashable", "default"]
+- !private ["Ps8Hashable", "delegate"]
+- ["Ps8Hashable", "didLogoutUser"]
+- ["Ps8Hashable", "didOccurAuthentication"]
+- ["Ps8Hashable", "didSignInUser"]
+- !private ["Ps8Hashable", "facebook"]
+- !private ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "lbl"]
+- ["Ps8Hashable", "login"]
+- !private ["Ps8Hashable", "openURL"]
+- !private ["Ps8Hashable", "present"]
+- !private ["Ps8Hashable", "print"]
+- !private ["Ps8Hashable", "range"]
+- !private ["Ps8Hashable", "shared"]
+- ["Ps8Hashable", "shouldUserSignInIntoFirebase"]
+- !private ["Ps8Hashable", "text"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", ""]
+- ["SQ", "deinit"]
+- !private ["P10SwiftyJSON17JSONSubscriptType", "init"]
+- !private ["P10Kingfisher20KingfisherCompatible", "init"]
+- !private ["P10Kingfisher20KingfisherCompatible", "openURL"]
+- !private ["P10Kingfisher20KingfisherCompatible", "shared"]
+- ["C5Slide19LoginViewController", "AuthenticationError"]
+- ["C5Slide19LoginViewController", "Authenticator"]
+- ["C5Slide19LoginViewController", "Bool"]
+- !private ["C5Slide19LoginViewController", "NSRange"]
+- !private ["C5Slide19LoginViewController", "NSString"]
+- !private ["C5Slide19LoginViewController", "NSURL"]
+- !private ["C5Slide19LoginViewController", "String"]
+- ["C5Slide19LoginViewController", "TTTAttributedLabel"]
+- !private ["C5Slide19LoginViewController", "UIAlertAction"]
+- !private ["C5Slide19LoginViewController", "UIAlertController"]
+- !private ["C5Slide19LoginViewController", "UIApplication"]
+- ["C5Slide19LoginViewController", "URL"]
+- !private ["C5Slide19LoginViewController", "appDelegate"]
+- ["C5Slide19LoginViewController", "attributedLabel"]
+- ["C5Slide19LoginViewController", "authenticator"]
+- ["C5Slide19LoginViewController", "deinit"]
+- ["C5Slide19LoginViewController", "didLogoutUser"]
+- ["C5Slide19LoginViewController", "didOccurAuthentication"]
+- ["C5Slide19LoginViewController", "didSignInUser"]
+- ["C5Slide19LoginViewController", "init"]
+- ["C5Slide19LoginViewController", "lbl"]
+- ["C5Slide19LoginViewController", "login"]
+- !private ["C5Slide19LoginViewController", "present"]
+- !private ["C5Slide19LoginViewController", "print"]
+- ["C5Slide19LoginViewController", "shouldUserSignInIntoFirebase"]
+- ["C5Slide19LoginViewController", "viewDidLoad"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- ["CSo7NSCoder", "deinit"]
+- ["PSo8NSCoding", "Authenticator"]
+- !private ["PSo8NSCoding", "NSURL"]
+- !private ["PSo8NSCoding", "String"]
+- !private ["PSo8NSCoding", "UIAlertAction"]
+- !private ["PSo8NSCoding", "UIAlertController"]
+- !private ["PSo8NSCoding", "UIApplication"]
+- !private ["PSo8NSCoding", "addAction"]
+- !private ["PSo8NSCoding", "addLink"]
+- !private ["PSo8NSCoding", "appDelegate"]
+- ["PSo8NSCoding", "attributedLabel"]
+- ["PSo8NSCoding", "authenticator"]
+- !private ["PSo8NSCoding", "delegate"]
+- ["PSo8NSCoding", "didLogoutUser"]
+- ["PSo8NSCoding", "didOccurAuthentication"]
+- ["PSo8NSCoding", "didSignInUser"]
+- !private ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "lbl"]
+- ["PSo8NSCoding", "login"]
+- !private ["PSo8NSCoding", "present"]
+- !private ["PSo8NSCoding", "print"]
+- !private ["PSo8NSCoding", "range"]
+- ["PSo8NSCoding", "shouldUserSignInIntoFirebase"]
+- !private ["PSo8NSCoding", "text"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", ""]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "range"]
+- ["PSo26NSExtensionRequestHandling", "Authenticator"]
+- !private ["PSo26NSExtensionRequestHandling", "NSURL"]
+- !private ["PSo26NSExtensionRequestHandling", "String"]
+- !private ["PSo26NSExtensionRequestHandling", "UIAlertAction"]
+- !private ["PSo26NSExtensionRequestHandling", "UIAlertController"]
+- !private ["PSo26NSExtensionRequestHandling", "UIApplication"]
+- !private ["PSo26NSExtensionRequestHandling", "addAction"]
+- !private ["PSo26NSExtensionRequestHandling", "appDelegate"]
+- ["PSo26NSExtensionRequestHandling", "attributedLabel"]
+- ["PSo26NSExtensionRequestHandling", "authenticator"]
+- ["PSo26NSExtensionRequestHandling", "didLogoutUser"]
+- ["PSo26NSExtensionRequestHandling", "didOccurAuthentication"]
+- ["PSo26NSExtensionRequestHandling", "didSignInUser"]
+- !private ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "lbl"]
+- ["PSo26NSExtensionRequestHandling", "login"]
+- !private ["PSo26NSExtensionRequestHandling", "present"]
+- !private ["PSo26NSExtensionRequestHandling", "print"]
+- ["PSo26NSExtensionRequestHandling", "shouldUserSignInIntoFirebase"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- !private ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "range"]
+- ["CSo8NSObject", "AuthenticationError"]
+- ["CSo8NSObject", "Authenticator"]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "NSRange"]
+- !private ["CSo8NSObject", "NSString"]
+- !private ["CSo8NSObject", "NSURL"]
+- !private ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "TTTAttributedLabel"]
+- !private ["CSo8NSObject", "UIAlertAction"]
+- !private ["CSo8NSObject", "UIAlertController"]
+- !private ["CSo8NSObject", "UIApplication"]
+- ["CSo8NSObject", "URL"]
+- !private ["CSo8NSObject", "addAction"]
+- !private ["CSo8NSObject", "addLink"]
+- !private ["CSo8NSObject", "appDelegate"]
+- ["CSo8NSObject", "attributedLabel"]
+- ["CSo8NSObject", "authenticator"]
+- !private ["CSo8NSObject", "checkForLogin"]
+- !private ["CSo8NSObject", "delegate"]
+- ["CSo8NSObject", "didLogoutUser"]
+- ["CSo8NSObject", "didOccurAuthentication"]
+- ["CSo8NSObject", "didSignInUser"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "lbl"]
+- ["CSo8NSObject", "login"]
+- !private ["CSo8NSObject", "openURL"]
+- !private ["CSo8NSObject", "present"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "range"]
+- !private ["CSo8NSObject", "shared"]
+- ["CSo8NSObject", "shouldUserSignInIntoFirebase"]
+- !private ["CSo8NSObject", "text"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", "Authenticator"]
+- !private ["PSo16NSObjectProtocol", "NSURL"]
+- !private ["PSo16NSObjectProtocol", "String"]
+- !private ["PSo16NSObjectProtocol", "UIAlertAction"]
+- !private ["PSo16NSObjectProtocol", "UIAlertController"]
+- !private ["PSo16NSObjectProtocol", "UIApplication"]
+- !private ["PSo16NSObjectProtocol", "addAction"]
+- !private ["PSo16NSObjectProtocol", "addLink"]
+- !private ["PSo16NSObjectProtocol", "appDelegate"]
+- ["PSo16NSObjectProtocol", "attributedLabel"]
+- ["PSo16NSObjectProtocol", "authenticator"]
+- !private ["PSo16NSObjectProtocol", "checkForLogin"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- ["PSo16NSObjectProtocol", "didLogoutUser"]
+- ["PSo16NSObjectProtocol", "didOccurAuthentication"]
+- ["PSo16NSObjectProtocol", "didSignInUser"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "lbl"]
+- ["PSo16NSObjectProtocol", "login"]
+- !private ["PSo16NSObjectProtocol", "openURL"]
+- !private ["PSo16NSObjectProtocol", "present"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "range"]
+- !private ["PSo16NSObjectProtocol", "shared"]
+- ["PSo16NSObjectProtocol", "shouldUserSignInIntoFirebase"]
+- !private ["PSo16NSObjectProtocol", "text"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "range"]
+- ["CSo8NSString", "deinit"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "range"]
+- ["CSo5NSURL", "deinit"]
+- !private ["CSo5NSURL", "init"]
+- ["Sq", "deinit"]
+- ["O5Slide8Provider", "deinit"]
+- !private ["O5Slide8Provider", "facebook"]
+- !private ["Ps16RawRepresentable", "alert"]
+- !private ["Ps16RawRepresentable", "default"]
+- !private ["Ps16RawRepresentable", "facebook"]
+- !private ["Vs12StaticString", "init"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["CSo18TTTAttributedLabel", "addLink"]
+- !private ["CSo18TTTAttributedLabel", "delegate"]
+- !private ["CSo18TTTAttributedLabel", "text"]
+- ["PSo26TTTAttributedLabelDelegate", "Authenticator"]
+- !private ["PSo26TTTAttributedLabelDelegate", "NSURL"]
+- !private ["PSo26TTTAttributedLabelDelegate", "String"]
+- !private ["PSo26TTTAttributedLabelDelegate", "UIAlertAction"]
+- !private ["PSo26TTTAttributedLabelDelegate", "UIAlertController"]
+- !private ["PSo26TTTAttributedLabelDelegate", "UIApplication"]
+- !private ["PSo26TTTAttributedLabelDelegate", "appDelegate"]
+- ["PSo26TTTAttributedLabelDelegate", "attributedLabel"]
+- !private ["PSo26TTTAttributedLabelDelegate", "authenticator"]
+- ["PSo26TTTAttributedLabelDelegate", "didLogoutUser"]
+- ["PSo26TTTAttributedLabelDelegate", "didOccurAuthentication"]
+- ["PSo26TTTAttributedLabelDelegate", "didSignInUser"]
+- !private ["PSo26TTTAttributedLabelDelegate", "lbl"]
+- !private ["PSo26TTTAttributedLabelDelegate", "present"]
+- !private ["PSo26TTTAttributedLabelDelegate", "print"]
+- ["PSo26TTTAttributedLabelDelegate", "shouldUserSignInIntoFirebase"]
+- ["PSo26TTTAttributedLabelDelegate", ""]
+- !private ["PSo26TTTAttributedLabelProtocol", "addLink"]
+- !private ["PSo26TTTAttributedLabelProtocol", "delegate"]
+- !private ["PSo26TTTAttributedLabelProtocol", "text"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "addLink"]
+- !private ["PSo29UIAccessibilityIdentification", "delegate"]
+- !private ["PSo29UIAccessibilityIdentification", "text"]
+- ["CSo13UIAlertAction", "deinit"]
+- !private ["CSo13UIAlertAction", "init"]
+- !private ["OSC18UIAlertActionStyle", "default"]
+- ["OSC18UIAlertActionStyle", "deinit"]
+- !private ["CSo17UIAlertController", "addAction"]
+- ["CSo17UIAlertController", "deinit"]
+- !private ["CSo17UIAlertController", "init"]
+- !private ["OSC22UIAlertControllerStyle", "alert"]
+- ["OSC22UIAlertControllerStyle", "deinit"]
+- !private ["PSo12UIAppearance", "addLink"]
+- !private ["PSo12UIAppearance", "delegate"]
+- !private ["PSo12UIAppearance", "text"]
+- ["PSo21UIAppearanceContainer", "Authenticator"]
+- !private ["PSo21UIAppearanceContainer", "NSURL"]
+- !private ["PSo21UIAppearanceContainer", "String"]
+- !private ["PSo21UIAppearanceContainer", "UIAlertAction"]
+- !private ["PSo21UIAppearanceContainer", "UIAlertController"]
+- !private ["PSo21UIAppearanceContainer", "UIApplication"]
+- !private ["PSo21UIAppearanceContainer", "addAction"]
+- !private ["PSo21UIAppearanceContainer", "addLink"]
+- !private ["PSo21UIAppearanceContainer", "appDelegate"]
+- ["PSo21UIAppearanceContainer", "attributedLabel"]
+- ["PSo21UIAppearanceContainer", "authenticator"]
+- !private ["PSo21UIAppearanceContainer", "delegate"]
+- ["PSo21UIAppearanceContainer", "didLogoutUser"]
+- ["PSo21UIAppearanceContainer", "didOccurAuthentication"]
+- ["PSo21UIAppearanceContainer", "didSignInUser"]
+- !private ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "lbl"]
+- ["PSo21UIAppearanceContainer", "login"]
+- !private ["PSo21UIAppearanceContainer", "present"]
+- !private ["PSo21UIAppearanceContainer", "print"]
+- ["PSo21UIAppearanceContainer", "shouldUserSignInIntoFirebase"]
+- !private ["PSo21UIAppearanceContainer", "text"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["CSo13UIApplication", "deinit"]
+- !private ["CSo13UIApplication", "openURL"]
+- !private ["CSo13UIApplication", "shared"]
+- !private ["PSo21UIApplicationDelegate", "checkForLogin"]
+- ["PSo18UIContentContainer", "Authenticator"]
+- !private ["PSo18UIContentContainer", "NSURL"]
+- !private ["PSo18UIContentContainer", "String"]
+- !private ["PSo18UIContentContainer", "UIAlertAction"]
+- !private ["PSo18UIContentContainer", "UIAlertController"]
+- !private ["PSo18UIContentContainer", "UIApplication"]
+- !private ["PSo18UIContentContainer", "addAction"]
+- !private ["PSo18UIContentContainer", "appDelegate"]
+- ["PSo18UIContentContainer", "attributedLabel"]
+- ["PSo18UIContentContainer", "authenticator"]
+- ["PSo18UIContentContainer", "didLogoutUser"]
+- ["PSo18UIContentContainer", "didOccurAuthentication"]
+- ["PSo18UIContentContainer", "didSignInUser"]
+- !private ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "lbl"]
+- ["PSo18UIContentContainer", "login"]
+- !private ["PSo18UIContentContainer", "present"]
+- !private ["PSo18UIContentContainer", "print"]
+- ["PSo18UIContentContainer", "shouldUserSignInIntoFirebase"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", ""]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "addLink"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "delegate"]
+- !private ["PSo30UIContentSizeCategoryAdjusting", "text"]
+- !private ["PSo17UICoordinateSpace", "addLink"]
+- !private ["PSo17UICoordinateSpace", "delegate"]
+- !private ["PSo17UICoordinateSpace", "text"]
+- !private ["PSo13UIDynamicItem", "addLink"]
+- !private ["PSo13UIDynamicItem", "delegate"]
+- !private ["PSo13UIDynamicItem", "text"]
+- ["PSo18UIFocusEnvironment", "Authenticator"]
+- !private ["PSo18UIFocusEnvironment", "NSURL"]
+- !private ["PSo18UIFocusEnvironment", "String"]
+- !private ["PSo18UIFocusEnvironment", "UIAlertAction"]
+- !private ["PSo18UIFocusEnvironment", "UIAlertController"]
+- !private ["PSo18UIFocusEnvironment", "UIApplication"]
+- !private ["PSo18UIFocusEnvironment", "addAction"]
+- !private ["PSo18UIFocusEnvironment", "addLink"]
+- !private ["PSo18UIFocusEnvironment", "appDelegate"]
+- ["PSo18UIFocusEnvironment", "attributedLabel"]
+- ["PSo18UIFocusEnvironment", "authenticator"]
+- !private ["PSo18UIFocusEnvironment", "delegate"]
+- ["PSo18UIFocusEnvironment", "didLogoutUser"]
+- ["PSo18UIFocusEnvironment", "didOccurAuthentication"]
+- ["PSo18UIFocusEnvironment", "didSignInUser"]
+- !private ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "lbl"]
+- ["PSo18UIFocusEnvironment", "login"]
+- !private ["PSo18UIFocusEnvironment", "present"]
+- !private ["PSo18UIFocusEnvironment", "print"]
+- ["PSo18UIFocusEnvironment", "shouldUserSignInIntoFirebase"]
+- !private ["PSo18UIFocusEnvironment", "text"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", ""]
+- !private ["PSo11UIFocusItem", "addLink"]
+- !private ["PSo11UIFocusItem", "delegate"]
+- !private ["PSo11UIFocusItem", "text"]
+- !private ["PSo27UIGestureRecognizerDelegate", "addLink"]
+- !private ["PSo27UIGestureRecognizerDelegate", "delegate"]
+- !private ["PSo27UIGestureRecognizerDelegate", "text"]
+- !private ["CSo7UILabel", "addLink"]
+- !private ["CSo7UILabel", "delegate"]
+- !private ["CSo7UILabel", "text"]
+- ["CSo11UIResponder", "AuthenticationError"]
+- ["CSo11UIResponder", "Authenticator"]
+- ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "NSRange"]
+- !private ["CSo11UIResponder", "NSString"]
+- !private ["CSo11UIResponder", "NSURL"]
+- !private ["CSo11UIResponder", "String"]
+- ["CSo11UIResponder", "TTTAttributedLabel"]
+- !private ["CSo11UIResponder", "UIAlertAction"]
+- !private ["CSo11UIResponder", "UIAlertController"]
+- !private ["CSo11UIResponder", "UIApplication"]
+- ["CSo11UIResponder", "URL"]
+- !private ["CSo11UIResponder", "addAction"]
+- !private ["CSo11UIResponder", "addLink"]
+- !private ["CSo11UIResponder", "appDelegate"]
+- ["CSo11UIResponder", "attributedLabel"]
+- ["CSo11UIResponder", "authenticator"]
+- !private ["CSo11UIResponder", "checkForLogin"]
+- !private ["CSo11UIResponder", "delegate"]
+- ["CSo11UIResponder", "didLogoutUser"]
+- ["CSo11UIResponder", "didOccurAuthentication"]
+- ["CSo11UIResponder", "didSignInUser"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "lbl"]
+- ["CSo11UIResponder", "login"]
+- !private ["CSo11UIResponder", "openURL"]
+- !private ["CSo11UIResponder", "present"]
+- !private ["CSo11UIResponder", "print"]
+- !private ["CSo11UIResponder", "shared"]
+- ["CSo11UIResponder", "shouldUserSignInIntoFirebase"]
+- !private ["CSo11UIResponder", "text"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", "Authenticator"]
+- !private ["PSo30UIResponderStandardEditActions", "NSURL"]
+- !private ["PSo30UIResponderStandardEditActions", "String"]
+- !private ["PSo30UIResponderStandardEditActions", "UIAlertAction"]
+- !private ["PSo30UIResponderStandardEditActions", "UIAlertController"]
+- !private ["PSo30UIResponderStandardEditActions", "UIApplication"]
+- !private ["PSo30UIResponderStandardEditActions", "addAction"]
+- !private ["PSo30UIResponderStandardEditActions", "addLink"]
+- !private ["PSo30UIResponderStandardEditActions", "appDelegate"]
+- ["PSo30UIResponderStandardEditActions", "attributedLabel"]
+- ["PSo30UIResponderStandardEditActions", "authenticator"]
+- !private ["PSo30UIResponderStandardEditActions", "checkForLogin"]
+- !private ["PSo30UIResponderStandardEditActions", "delegate"]
+- ["PSo30UIResponderStandardEditActions", "didLogoutUser"]
+- ["PSo30UIResponderStandardEditActions", "didOccurAuthentication"]
+- ["PSo30UIResponderStandardEditActions", "didSignInUser"]
+- !private ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "lbl"]
+- ["PSo30UIResponderStandardEditActions", "login"]
+- !private ["PSo30UIResponderStandardEditActions", "openURL"]
+- !private ["PSo30UIResponderStandardEditActions", "present"]
+- !private ["PSo30UIResponderStandardEditActions", "print"]
+- !private ["PSo30UIResponderStandardEditActions", "shared"]
+- ["PSo30UIResponderStandardEditActions", "shouldUserSignInIntoFirebase"]
+- !private ["PSo30UIResponderStandardEditActions", "text"]
+- ["PSo30UIResponderStandardEditActions", "viewDidLoad"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["PSo16UIStateRestoring", "Authenticator"]
+- !private ["PSo16UIStateRestoring", "NSURL"]
+- !private ["PSo16UIStateRestoring", "String"]
+- !private ["PSo16UIStateRestoring", "UIAlertAction"]
+- !private ["PSo16UIStateRestoring", "UIAlertController"]
+- !private ["PSo16UIStateRestoring", "UIApplication"]
+- !private ["PSo16UIStateRestoring", "addAction"]
+- !private ["PSo16UIStateRestoring", "appDelegate"]
+- ["PSo16UIStateRestoring", "attributedLabel"]
+- ["PSo16UIStateRestoring", "authenticator"]
+- ["PSo16UIStateRestoring", "didLogoutUser"]
+- ["PSo16UIStateRestoring", "didOccurAuthentication"]
+- ["PSo16UIStateRestoring", "didSignInUser"]
+- !private ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "lbl"]
+- ["PSo16UIStateRestoring", "login"]
+- !private ["PSo16UIStateRestoring", "present"]
+- !private ["PSo16UIStateRestoring", "print"]
+- ["PSo16UIStateRestoring", "shouldUserSignInIntoFirebase"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", ""]
+- ["PSo18UITraitEnvironment", "Authenticator"]
+- !private ["PSo18UITraitEnvironment", "NSURL"]
+- !private ["PSo18UITraitEnvironment", "String"]
+- !private ["PSo18UITraitEnvironment", "UIAlertAction"]
+- !private ["PSo18UITraitEnvironment", "UIAlertController"]
+- !private ["PSo18UITraitEnvironment", "UIApplication"]
+- !private ["PSo18UITraitEnvironment", "addAction"]
+- !private ["PSo18UITraitEnvironment", "addLink"]
+- !private ["PSo18UITraitEnvironment", "appDelegate"]
+- ["PSo18UITraitEnvironment", "attributedLabel"]
+- ["PSo18UITraitEnvironment", "authenticator"]
+- !private ["PSo18UITraitEnvironment", "delegate"]
+- ["PSo18UITraitEnvironment", "didLogoutUser"]
+- ["PSo18UITraitEnvironment", "didOccurAuthentication"]
+- ["PSo18UITraitEnvironment", "didSignInUser"]
+- !private ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "lbl"]
+- ["PSo18UITraitEnvironment", "login"]
+- !private ["PSo18UITraitEnvironment", "present"]
+- !private ["PSo18UITraitEnvironment", "print"]
+- ["PSo18UITraitEnvironment", "shouldUserSignInIntoFirebase"]
+- !private ["PSo18UITraitEnvironment", "text"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "addLink"]
+- !private ["CSo6UIView", "delegate"]
+- !private ["CSo6UIView", "text"]
+- ["CSo16UIViewController", "AuthenticationError"]
+- ["CSo16UIViewController", "Authenticator"]
+- ["CSo16UIViewController", "Bool"]
+- !private ["CSo16UIViewController", "NSRange"]
+- !private ["CSo16UIViewController", "NSString"]
+- !private ["CSo16UIViewController", "NSURL"]
+- !private ["CSo16UIViewController", "String"]
+- ["CSo16UIViewController", "TTTAttributedLabel"]
+- !private ["CSo16UIViewController", "UIAlertAction"]
+- !private ["CSo16UIViewController", "UIAlertController"]
+- !private ["CSo16UIViewController", "UIApplication"]
+- ["CSo16UIViewController", "URL"]
+- !private ["CSo16UIViewController", "addAction"]
+- !private ["CSo16UIViewController", "appDelegate"]
+- ["CSo16UIViewController", "attributedLabel"]
+- ["CSo16UIViewController", "authenticator"]
+- ["CSo16UIViewController", "deinit"]
+- ["CSo16UIViewController", "didLogoutUser"]
+- ["CSo16UIViewController", "didOccurAuthentication"]
+- ["CSo16UIViewController", "didSignInUser"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "lbl"]
+- ["CSo16UIViewController", "login"]
+- !private ["CSo16UIViewController", "present"]
+- !private ["CSo16UIViewController", "print"]
+- ["CSo16UIViewController", "shouldUserSignInIntoFirebase"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addLink"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "delegate"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "text"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "range"]
+- ["Ps9_Hashable", "Authenticator"]
+- !private ["Ps9_Hashable", "NSURL"]
+- !private ["Ps9_Hashable", "String"]
+- !private ["Ps9_Hashable", "UIAlertAction"]
+- !private ["Ps9_Hashable", "UIAlertController"]
+- !private ["Ps9_Hashable", "UIApplication"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "addAction"]
+- !private ["Ps9_Hashable", "addLink"]
+- !private ["Ps9_Hashable", "alert"]
+- !private ["Ps9_Hashable", "appDelegate"]
+- ["Ps9_Hashable", "attributedLabel"]
+- ["Ps9_Hashable", "authenticator"]
+- !private ["Ps9_Hashable", "checkForLogin"]
+- !private ["Ps9_Hashable", "default"]
+- !private ["Ps9_Hashable", "delegate"]
+- ["Ps9_Hashable", "didLogoutUser"]
+- ["Ps9_Hashable", "didOccurAuthentication"]
+- ["Ps9_Hashable", "didSignInUser"]
+- !private ["Ps9_Hashable", "facebook"]
+- !private ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "lbl"]
+- ["Ps9_Hashable", "login"]
+- !private ["Ps9_Hashable", "openURL"]
+- !private ["Ps9_Hashable", "present"]
+- !private ["Ps9_Hashable", "print"]
+- !private ["Ps9_Hashable", "range"]
+- !private ["Ps9_Hashable", "shared"]
+- ["Ps9_Hashable", "shouldUserSignInIntoFirebase"]
+- !private ["Ps9_Hashable", "text"]
+- ["Ps9_Hashable", "viewDidLoad"]
+- ["Ps9_Hashable", ""]
+- ["VSC8_NSRange", "deinit"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "C5Slide11AppDelegate"
+- !private "P12FacebookCore26AppEventParameterValueType"
+- "O5Slide19AuthenticationError"
+- "C5Slide13Authenticator"
+- "P5Slide21AuthenticatorDelegate"
+- "Sb"
+- !private "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps5Error"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- "SQ"
+- !private "P10SwiftyJSON17JSONSubscriptType"
+- !private "P10Kingfisher20KingfisherCompatible"
+- "C5Slide19LoginViewController"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- "PSo26NSExtensionRequestHandling"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "CSo5NSURL"
+- "Sq"
+- "O5Slide8Provider"
+- !private "Ps16RawRepresentable"
+- !private "Vs12StaticString"
+- "SS"
+- !private "CSo18TTTAttributedLabel"
+- "PSo26TTTAttributedLabelDelegate"
+- !private "PSo26TTTAttributedLabelProtocol"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "PSo29UIAccessibilityIdentification"
+- "CSo13UIAlertAction"
+- "OSC18UIAlertActionStyle"
+- "CSo17UIAlertController"
+- "OSC22UIAlertControllerStyle"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "CSo13UIApplication"
+- !private "PSo21UIApplicationDelegate"
+- "PSo18UIContentContainer"
+- !private "PSo30UIContentSizeCategoryAdjusting"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "PSo27UIGestureRecognizerDelegate"
+- !private "CSo7UILabel"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo16UIStateRestoring"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "VSC8_NSRange"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Modules/FacebookCore.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Headers/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Bolts/Bolts.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Headers/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKCoreKit/FBSDKCoreKit.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Headers/FacebookCore-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Headers/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookCore/FacebookCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookLogin/FacebookLogin.framework/Modules/FacebookLogin.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1-Setup2/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginTooltipView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManagerLoginResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKTooltipView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Headers/FBSDKLoginKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FBSDKLoginKit/FBSDKLoginKit.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookLogin/FacebookLogin.framework/Headers/FacebookLogin-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FacebookLogin/FacebookLogin.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules/SwiftyJSON.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Headers/SwiftyJSON-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/SwiftyJSON/SwiftyJSON.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCoordinateBounds.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GMSCompatabilityMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Headers/GoogleMapsBase.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Base/Frameworks/GoogleMapsBase.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSURLTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSSyncTileLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSServices.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolyline.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPolygon.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaService.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanoramaCamera.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPanorama.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOrientation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMutablePath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarkerLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMarker.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSUISettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapView+Animation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapStyle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSMapLayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorDisplay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSIndoorBuilding.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGroundOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSPath.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeometryUtils.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSGeocoder.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSProjection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCoordinateBounds+GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSOverlay.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCircle.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraUpdate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCameraPosition.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSCALayer.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSDeprecationMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GMSAddress.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Headers/GoogleMaps.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Modules/module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreLocation.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/ObjectMapper/ObjectMapper.framework/Modules/ObjectMapper.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/ObjectMapper/ObjectMapper.framework/Headers/ObjectMapper-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/ObjectMapper/ObjectMapper.framework/Headers/ObjectMapper-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/ObjectMapper/ObjectMapper.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSUserAddedPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesErrors.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacesClient.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceTypes.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadataList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlacePhotoMetadata.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihoodList.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlaceLikelihood.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteTableDataSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSPlace.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteResultsViewController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompletePrediction.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteMatchFragment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFilter.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAutocompleteFetcher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GMSAddressComponent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Headers/GooglePlaces.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/GooglePlaces/Frameworks/GooglePlaces.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FloatRatingView/FloatRatingView.framework/Modules/FloatRatingView.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FloatRatingView/FloatRatingView.framework/Headers/FloatRatingView-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/FloatRatingView/FloatRatingView.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/IQKeyboardManagerSwift.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers/IQKeyboardManagerSwift-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreData.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Headers/TTTAttributedLabel-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/TTTAttributedLabel/TTTAttributedLabel.framework/Modules/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Modules/Kingfisher.swiftmodule/arm.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Headers/Kingfisher-Swift.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Headers/Kingfisher.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Headers/Kingfisher-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Products/Debug-iphoneos/Kingfisher/Kingfisher.framework/Modules/module.modulemap"
+interface-hash: "62334940349ef9df5429f464ebcf51cb"

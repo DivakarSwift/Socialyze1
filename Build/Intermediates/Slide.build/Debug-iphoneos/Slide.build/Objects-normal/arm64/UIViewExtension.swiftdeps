@@ -11,22 +11,22 @@ provides-member:
 - ["CSo6UIView", "show"]
 - ["CSo6UIView", "roundedImage"]
 provides-dynamic-lookup:
-- "rounded"
 - "roundedImage"
 - "show"
 - "set"
 - "set"
 - "set"
 - "set"
+- "rounded"
 depends-top-level:
 - "AssignmentPrecedence"
 - "Bool"
 - "UIView"
 - "UIColor"
-- !private "!"
 - "CGFloat"
 - !private "BooleanLiteralType"
 - !private "/"
+- !private "!"
 depends-member:
 - !private ["Ps9AnyObject", "borderColor"]
 - !private ["Ps9AnyObject", "borderWidth"]

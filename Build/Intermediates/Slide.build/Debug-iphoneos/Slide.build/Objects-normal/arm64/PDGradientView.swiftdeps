@@ -8,17 +8,17 @@ provides-member:
 provides-dynamic-lookup:
 - "layerClass"
 depends-top-level:
+- !private "UIColor"
 - "AssignmentPrecedence"
 - "CastingPrecedence"
-- "AnyClass"
-- !private "Array"
-- "UIView"
-- !private "StringLiteralType"
-- "NSCoder"
-- "PDGradientView"
-- !private "UIColor"
-- !private "CGColor"
 - !private "CAGradientLayer"
+- "AnyClass"
+- "UIView"
+- "PDGradientView"
+- !private "Array"
+- "NSCoder"
+- !private "CGColor"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "CAGradientLayer"]
 - !private ["Ps9AnyObject", "UIColor"]

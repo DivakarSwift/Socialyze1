@@ -17,16 +17,16 @@ provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - !private "~="
-- "CallBackWithSuccessError"
-- "Bool"
 - "Error"
-- "FirebaseManagerError"
-- "FirebaseManager"
+- "Void"
 - "String"
 - "Node"
-- "Void"
-- "StringLiteralType"
+- "FirebaseManager"
+- "CallBackWithSuccessError"
 - "FIRDatabase"
+- "StringLiteralType"
+- "Bool"
+- "FirebaseManagerError"
 depends-member:
 - ["Ps9AnyObject", "FIRDatabase"]
 - ["Ps9AnyObject", "FirebaseManager"]

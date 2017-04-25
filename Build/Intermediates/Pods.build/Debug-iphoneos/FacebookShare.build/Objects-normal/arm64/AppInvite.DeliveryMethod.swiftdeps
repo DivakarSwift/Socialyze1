@@ -13,8 +13,8 @@ provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - "AssignmentPrecedence"
-- "AppInvite"
 - "FBSDKAppInviteDestination"
+- "AppInvite"
 depends-member:
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]
 - ["V13FacebookShare9AppInvite", "DeliveryMethod"]

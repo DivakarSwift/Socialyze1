@@ -8,13 +8,13 @@ provides-member:
 provides-dynamic-lookup:
 depends-top-level:
 - "AssignmentPrecedence"
-- "Map"
-- !private "<-"
-- "Mappable"
-- "Double"
 - "Checkin"
+- !private "<-"
 - "String"
+- "Double"
 - !private "StringLiteralType"
+- "Mappable"
+- "Map"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "subscript"]
