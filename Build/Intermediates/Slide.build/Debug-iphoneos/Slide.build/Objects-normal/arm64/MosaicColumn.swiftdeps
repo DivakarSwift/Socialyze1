@@ -15,20 +15,20 @@ provides-member:
 - ["V5Slide14TRMosaicColumn", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "=="
+- "Comparable"
+- "TRMosaicColumn"
+- "AssignmentPrecedence"
+- "Bool"
+- ">="
+- "CGFloat"
+- "<"
+- !private "+="
+- "Equatable"
+- "<="
+- "TRMosaicColumns"
 - ">"
 - "Int"
-- "TRMosaicColumns"
-- !private "+="
-- "<="
-- ">="
-- "Equatable"
-- "TRMosaicColumn"
-- "<"
-- "Bool"
-- "=="
-- "AssignmentPrecedence"
-- "CGFloat"
-- "Comparable"
 depends-member:
 - !private ["P12FacebookCore26AppEventParameterValueType", "IntegerLiteralType"]
 - !private ["P12FacebookCore26AppEventParameterValueType", "Stride"]

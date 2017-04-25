@@ -10,19 +10,19 @@ provides-member:
 - ["V13FacebookShare14ContentBridger", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- !private "StringLiteralType"
-- "ContentBridger"
-- "ContentProtocol"
-- "FBSDKSharingContent"
-- "UInt8"
-- !private "objc_setAssociatedObject"
-- "UnsafeMutablePointer"
 - !private "objc_getAssociatedObject"
-- !private "SwiftContentHolder"
-- !private "NSObject"
-- "CastingPrecedence"
+- !private "StringLiteralType"
+- !private "objc_setAssociatedObject"
 - "SDKBridgedContent"
+- "UnsafeMutablePointer"
+- !private "SwiftContentHolder"
+- "UInt8"
+- "FBSDKSharingContent"
+- "ContentProtocol"
+- !private "NSObject"
+- "ContentBridger"
 - !private "AssignmentPrecedence"
+- "CastingPrecedence"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "swiftContent"]

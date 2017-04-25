@@ -7,8 +7,8 @@ provides-member:
 - ["C5Slide6Places", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Places"
 - "NSManagedObject"
+- "Places"
 depends-member:
 - !private ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", ""]

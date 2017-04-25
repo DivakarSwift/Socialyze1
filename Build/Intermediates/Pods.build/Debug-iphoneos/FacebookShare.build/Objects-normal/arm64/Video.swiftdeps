@@ -13,8 +13,8 @@ depends-top-level:
 - "Equatable"
 - "URL"
 - "Video"
-- "=="
 - "FBSDKShareVideo"
+- "=="
 - "AssignmentPrecedence"
 - "Bool"
 depends-member:

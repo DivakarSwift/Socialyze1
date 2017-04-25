@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C13FacebookLogin25LoginButtonDelegateBridge", ""]
 provides-dynamic-lookup:
-- "loginButton"
-- "loginButton"
 - "setupAsDelegateFor"
+- "loginButton"
+- "loginButton"
 - "loginButtonDidLogOut"
 depends-top-level:
-- "FBSDKLoginManagerLoginResult"
-- "NSObject"
 - "LoginButton"
-- "LoginButtonDelegateBridge"
 - !private "LoginResult"
-- "Error"
 - "AssignmentPrecedence"
+- "FBSDKLoginManagerLoginResult"
+- "Error"
+- "NSObject"
 - "FBSDKLoginButtonDelegate"
+- "LoginButtonDelegateBridge"
 - "FBSDKLoginButton"
 depends-member:
 - !private ["Ps9AnyObject", "LoginResult"]

@@ -15,17 +15,17 @@ provides-member:
 - ["VV5Slide15GlobalConstants7Message", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "NSNotification"
+- "String"
 - "CastingPrecedence"
+- !private "UserDefaults"
 - "URL"
+- "UIApplication"
 - "AnyHashable"
 - !private "NotificationCenter"
-- "UIApplication"
-- "GlobalConstants"
-- "UIApplicationOpenSettingsURLString"
 - "StringLiteralType"
-- "String"
-- !private "UserDefaults"
+- "NSNotification"
+- "UIApplicationOpenSettingsURLString"
+- "GlobalConstants"
 depends-member:
 - ["VV5Slide15GlobalConstants7APIKeys", "API_KEY"]
 - ["VV5Slide15GlobalConstants7APIKeys", "googleMap"]

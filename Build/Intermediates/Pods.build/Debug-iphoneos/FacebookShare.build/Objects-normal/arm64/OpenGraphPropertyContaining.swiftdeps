@@ -12,14 +12,14 @@ provides-member:
 - ["P13FacebookShare27OpenGraphPropertyContaining", "subscript"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Set"
-- "URL"
-- "OpenGraphPropertyValue"
-- "OpenGraphPropertyName"
 - "NSNumber"
+- "OpenGraphPropertyName"
 - "Photo"
 - "OpenGraphPropertyContaining"
+- "Set"
+- "URL"
 - "String"
+- "OpenGraphPropertyValue"
 - "CastingPrecedence"
 depends-member:
 - ["Sa", "deinit"]

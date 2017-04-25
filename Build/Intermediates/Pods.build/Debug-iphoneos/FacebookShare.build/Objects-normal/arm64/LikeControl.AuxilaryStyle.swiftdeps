@@ -19,13 +19,13 @@ provides-member:
 - ["OC13FacebookShare11LikeControl13AuxilaryStyle", "VerticalAlignment"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Bool"
-- "LikeControl"
-- "Equatable"
 - "FBSDKLikeControlAuxiliaryPosition"
-- "FBSDKLikeControlHorizontalAlignment"
-- !private "BooleanLiteralType"
+- "Equatable"
 - "FBSDKLikeControlStyle"
+- !private "BooleanLiteralType"
+- "FBSDKLikeControlHorizontalAlignment"
+- "LikeControl"
+- "Bool"
 - "=="
 - "AssignmentPrecedence"
 depends-member:

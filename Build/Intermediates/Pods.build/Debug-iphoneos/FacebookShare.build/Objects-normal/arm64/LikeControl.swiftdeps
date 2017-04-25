@@ -12,25 +12,25 @@ provides-member:
 provides-dynamic-lookup:
 - "sizeToFit"
 - "preferredMaxLayoutWidth"
-- "layoutSubviews"
+- "sizeThatFits"
 - "intrinsicContentSize"
 - "foregroundColor"
-- "sizeThatFits"
 - "isSoundEnabled"
+- "layoutSubviews"
 depends-top-level:
-- "UIColor"
 - !private "StringLiteralType"
-- "FBSDKLikeControl"
-- "LikableObject"
-- "UIView"
-- "Bool"
+- "NSCoder"
+- "UIColor"
 - "CGFloat"
 - "LikeControl"
+- "LikableObject"
 - "CGRect"
 - "CGSize"
-- "NSCoder"
+- "UIView"
+- "FBSDKLikeControl"
 - !private "??"
 - "AssignmentPrecedence"
+- "Bool"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "AuxilaryStyle"]

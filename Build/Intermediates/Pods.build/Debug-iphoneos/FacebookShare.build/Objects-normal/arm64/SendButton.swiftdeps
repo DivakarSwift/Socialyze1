@@ -7,19 +7,19 @@ provides-member:
 - ["C13FacebookShare10SendButton", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "SendButton"
-- !private "ContentBridger"
 - "CGRect"
-- !private "fatalError"
-- !private "StringLiteralType"
-- "CGSize"
-- "FBSDKSendButton"
-- "ContentProtocol"
-- !private "??"
-- !private "CGFloat"
-- "UIView"
 - "NSCoder"
+- "SendButton"
+- !private "StringLiteralType"
+- "FBSDKSendButton"
+- "UIView"
+- "CGSize"
+- !private "CGFloat"
+- !private "ContentBridger"
+- !private "??"
+- "ContentProtocol"
 - "AssignmentPrecedence"
+- !private "fatalError"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "greatestFiniteMagnitude"]
 - !private ["Ps9AnyObject", "CGFloat"]

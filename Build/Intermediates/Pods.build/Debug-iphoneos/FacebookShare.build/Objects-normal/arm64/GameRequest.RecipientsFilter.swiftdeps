@@ -8,13 +8,13 @@ provides-member:
 - ["V13FacebookShare11GameRequest", "RecipientsFilter"]
 provides-dynamic-lookup:
 depends-top-level:
+- "FBSDKGameRequestFilter"
 - "Int"
+- "GameRequest"
+- "<<"
+- "Array"
 - "=="
 - "AssignmentPrecedence"
-- "Array"
-- "<<"
-- "GameRequest"
-- "FBSDKGameRequestFilter"
 - "OptionSet"
 depends-member:
 - !private ["Sb", "_getBuiltinLogicValue"]

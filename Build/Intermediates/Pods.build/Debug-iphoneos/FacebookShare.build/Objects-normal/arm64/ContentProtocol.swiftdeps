@@ -7,11 +7,11 @@ provides-member:
 - ["P13FacebookShare15ContentProtocol", ""]
 provides-dynamic-lookup:
 depends-top-level:
+- "Hashtag"
+- "String"
+- "URL"
 - "ContentProtocol"
 - "ContentSharingResultProtocol"
-- "String"
-- "Hashtag"
-- "URL"
 depends-member:
 - ["P13FacebookShare15ContentProtocol", "ContentSharingResultProtocol"]
 - ["P13FacebookShare15ContentProtocol", "Hashtag"]

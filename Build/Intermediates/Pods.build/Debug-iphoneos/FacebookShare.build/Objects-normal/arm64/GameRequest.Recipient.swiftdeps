@@ -9,13 +9,13 @@ provides-member:
 - ["V13FacebookShare11GameRequest", "Recipient"]
 provides-dynamic-lookup:
 depends-top-level:
-- "String"
 - "Bool"
+- "Hashable"
 - !private "BooleanLiteralType"
 - "Int"
-- "GameRequest"
-- "Hashable"
+- "String"
 - "=="
+- "GameRequest"
 depends-member:
 - !private ["Ps9AnyObject", "hashValue"]
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]

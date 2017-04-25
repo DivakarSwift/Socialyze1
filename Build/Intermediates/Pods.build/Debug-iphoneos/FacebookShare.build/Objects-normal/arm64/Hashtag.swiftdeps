@@ -12,13 +12,13 @@ provides-dynamic-lookup:
 depends-top-level:
 - "=="
 - "AssignmentPrecedence"
-- "FBSDKHashtag"
-- "Int"
-- "Hashtag"
 - "String"
 - "Hashable"
+- "Int"
+- "Hashtag"
 - !private "!"
 - "Bool"
+- "FBSDKHashtag"
 depends-member:
 - !private ["Ps9AnyObject", "hashValue"]
 - !private ["Ps9AnyObject", "init"]

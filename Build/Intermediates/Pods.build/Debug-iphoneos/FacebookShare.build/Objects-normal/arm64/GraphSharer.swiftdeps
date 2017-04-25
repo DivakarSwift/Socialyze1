@@ -9,22 +9,22 @@ provides-member:
 - ["C13FacebookShare11GraphSharer", "share"]
 provides-dynamic-lookup:
 depends-top-level:
-- "Void"
-- "SDKSharingDelegateBridge"
-- !private "StringLiteralType"
-- "ContentProtocol"
 - "FBSDKShareAPI"
 - "ContentSharerResult"
-- !private "Error"
-- !private "FBSDKAccessToken"
-- "String"
-- "ContentSharingProtocol"
-- "AccessToken"
-- !private "fatalError"
+- !private "StringLiteralType"
 - "Bool"
-- "GraphSharer"
-- "AssignmentPrecedence"
+- !private "FBSDKAccessToken"
+- "SDKSharingDelegateBridge"
+- !private "Error"
+- "AccessToken"
+- "Void"
 - !private "ContentBridger"
+- "String"
+- "GraphSharer"
+- !private "fatalError"
+- "ContentProtocol"
+- "AssignmentPrecedence"
+- "ContentSharingProtocol"
 depends-member:
 - !private ["V12FacebookCore11AccessToken", "deinit"]
 - !private ["V12FacebookCore11AccessToken", "init"]

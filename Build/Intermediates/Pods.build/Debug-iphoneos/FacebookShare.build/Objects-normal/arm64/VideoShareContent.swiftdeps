@@ -8,21 +8,21 @@ provides-member:
 - ["V13FacebookShare17VideoShareContent", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "Video"
-- "String"
-- "SDKBridgedContent"
-- "Equatable"
-- "Bool"
-- "VideoShareContent"
-- "Photo"
 - "Hashtag"
-- "PostSharingResult"
-- "FBSDKSharingContent"
-- !private "FBSDKShareVideoContent"
-- "ContentProtocol"
-- "URL"
 - "=="
 - "AssignmentPrecedence"
+- "Video"
+- "SDKBridgedContent"
+- "Photo"
+- "String"
+- "VideoShareContent"
+- "Bool"
+- "ContentProtocol"
+- "URL"
+- "FBSDKSharingContent"
+- !private "FBSDKShareVideoContent"
+- "PostSharingResult"
+- "Equatable"
 depends-member:
 - !private ["Ps9AnyObject", "contentURL"]
 - !private ["Ps9AnyObject", "hashtag"]

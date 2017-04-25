@@ -10,8 +10,8 @@ provides-member:
 - ["O13FacebookShare15ShareDialogMode", "sdkShareMode"]
 provides-dynamic-lookup:
 depends-top-level:
-- "FBSDKShareDialogMode"
 - "ShareDialogMode"
+- "FBSDKShareDialogMode"
 - "=="
 - "AssignmentPrecedence"
 depends-member:

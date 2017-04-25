@@ -9,9 +9,9 @@ provides-member:
 - ["O13FacebookLogin20LoginDefaultAudience", "sdkAudience"]
 provides-dynamic-lookup:
 depends-top-level:
-- "LoginDefaultAudience"
 - "FBSDKDefaultAudience"
 - "=="
+- "LoginDefaultAudience"
 depends-member:
 - !private ["P12FacebookCore26AppEventParameterValueType", "hashValue"]
 - !private ["Ps17BitwiseOperations", "hashValue"]
