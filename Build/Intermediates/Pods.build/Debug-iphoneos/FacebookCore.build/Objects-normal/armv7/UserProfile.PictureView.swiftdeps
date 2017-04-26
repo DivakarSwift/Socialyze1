@@ -1,0 +1,585 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "CV12FacebookCore11UserProfile11PictureView"
+provides-member:
+- ["V12FacebookCore11UserProfile", ""]
+- ["CV12FacebookCore11UserProfile11PictureView", ""]
+- ["V12FacebookCore11UserProfile", "PictureView"]
+provides-dynamic-lookup:
+- "userId"
+- "setNeedsImageUpdate"
+depends-top-level:
+- "UIView"
+- "NSCoder"
+- "CGRect"
+- "AssignmentPrecedence"
+- "UserProfile"
+- "StringLiteralType"
+- "FBSDKProfilePictureView"
+- !private "Array"
+depends-member:
+- ["Ps9AnyObject", "FBSDKProfilePictureView"]
+- ["Ps9AnyObject", "UserProfile"]
+- !private ["Ps9AnyObject", "addSubview"]
+- !private ["Ps9AnyObject", "autoresizingMask"]
+- !private ["Ps9AnyObject", "bounds"]
+- !private ["Ps9AnyObject", "frame"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "pictureAspectRatio"]
+- !private ["Ps9AnyObject", "pictureMode"]
+- !private ["Ps9AnyObject", "profileID"]
+- ["Ps9AnyObject", "sdkProfilePictureView"]
+- ["Ps9AnyObject", "setNeedsImageUpdate"]
+- ["Ps9AnyObject", "setupSDKProfilePictureView"]
+- ["Ps9AnyObject", "userId"]
+- ["Ps9AnyObject", ""]
+- ["P12FacebookCore26AppEventParameterValueType", "init"]
+- ["PSo15CALayerDelegate", "FBSDKProfilePictureView"]
+- ["PSo15CALayerDelegate", "UserProfile"]
+- !private ["PSo15CALayerDelegate", "addSubview"]
+- !private ["PSo15CALayerDelegate", "autoresizingMask"]
+- !private ["PSo15CALayerDelegate", "bounds"]
+- !private ["PSo15CALayerDelegate", "frame"]
+- ["PSo15CALayerDelegate", "init"]
+- ["PSo15CALayerDelegate", "pictureAspectRatio"]
+- !private ["PSo15CALayerDelegate", "pictureMode"]
+- !private ["PSo15CALayerDelegate", "profileID"]
+- ["PSo15CALayerDelegate", "sdkProfilePictureView"]
+- ["PSo15CALayerDelegate", "setNeedsImageUpdate"]
+- ["PSo15CALayerDelegate", "setupSDKProfilePictureView"]
+- ["PSo15CALayerDelegate", "userId"]
+- ["PSo15CALayerDelegate", ""]
+- ["VSC6CGRect", "deinit"]
+- ["VSC6CGRect", "zero"]
+- ["Ps7CVarArg", "FBSDKProfilePictureView"]
+- ["Ps7CVarArg", "UserProfile"]
+- !private ["Ps7CVarArg", "addSubview"]
+- !private ["Ps7CVarArg", "autoresizingMask"]
+- !private ["Ps7CVarArg", "bounds"]
+- !private ["Ps7CVarArg", "frame"]
+- ["Ps7CVarArg", "init"]
+- ["Ps7CVarArg", "pictureAspectRatio"]
+- !private ["Ps7CVarArg", "pictureMode"]
+- !private ["Ps7CVarArg", "profileID"]
+- ["Ps7CVarArg", "sdkProfilePictureView"]
+- ["Ps7CVarArg", "setNeedsImageUpdate"]
+- ["Ps7CVarArg", "setupSDKProfilePictureView"]
+- ["Ps7CVarArg", "userId"]
+- ["Ps7CVarArg", ""]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "FBSDKProfilePictureView"]
+- ["Ps28CustomDebugStringConvertible", "UserProfile"]
+- !private ["Ps28CustomDebugStringConvertible", "addSubview"]
+- !private ["Ps28CustomDebugStringConvertible", "autoresizingMask"]
+- !private ["Ps28CustomDebugStringConvertible", "bounds"]
+- !private ["Ps28CustomDebugStringConvertible", "frame"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "pictureAspectRatio"]
+- !private ["Ps28CustomDebugStringConvertible", "pictureMode"]
+- !private ["Ps28CustomDebugStringConvertible", "profileID"]
+- ["Ps28CustomDebugStringConvertible", "sdkProfilePictureView"]
+- ["Ps28CustomDebugStringConvertible", "setNeedsImageUpdate"]
+- ["Ps28CustomDebugStringConvertible", "setupSDKProfilePictureView"]
+- ["Ps28CustomDebugStringConvertible", "userId"]
+- ["Ps28CustomDebugStringConvertible", "zero"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- ["Ps29CustomPlaygroundQuickLookable", "zero"]
+- ["Ps17CustomReflectable", "init"]
+- ["Ps17CustomReflectable", "zero"]
+- ["Ps23CustomStringConvertible", "FBSDKProfilePictureView"]
+- ["Ps23CustomStringConvertible", "UserProfile"]
+- !private ["Ps23CustomStringConvertible", "addSubview"]
+- !private ["Ps23CustomStringConvertible", "autoresizingMask"]
+- !private ["Ps23CustomStringConvertible", "bounds"]
+- !private ["Ps23CustomStringConvertible", "frame"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "pictureAspectRatio"]
+- !private ["Ps23CustomStringConvertible", "pictureMode"]
+- !private ["Ps23CustomStringConvertible", "profileID"]
+- ["Ps23CustomStringConvertible", "sdkProfilePictureView"]
+- ["Ps23CustomStringConvertible", "setNeedsImageUpdate"]
+- ["Ps23CustomStringConvertible", "setupSDKProfilePictureView"]
+- ["Ps23CustomStringConvertible", "userId"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "Element"]
+- ["Ps9Equatable", "FBSDKProfilePictureView"]
+- ["Ps9Equatable", "UserProfile"]
+- !private ["Ps9Equatable", "addSubview"]
+- !private ["Ps9Equatable", "autoresizingMask"]
+- !private ["Ps9Equatable", "bounds"]
+- !private ["Ps9Equatable", "flexibleHeight"]
+- !private ["Ps9Equatable", "flexibleWidth"]
+- !private ["Ps9Equatable", "frame"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "pictureAspectRatio"]
+- !private ["Ps9Equatable", "pictureMode"]
+- !private ["Ps9Equatable", "profileID"]
+- !private ["Ps9Equatable", "sdkPictureMode"]
+- ["Ps9Equatable", "sdkProfilePictureView"]
+- ["Ps9Equatable", "setNeedsImageUpdate"]
+- ["Ps9Equatable", "setupSDKProfilePictureView"]
+- ["Ps9Equatable", "square"]
+- ["Ps9Equatable", "userId"]
+- ["Ps9Equatable", "zero"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps25ExpressibleByArrayLiteral", "flexibleHeight"]
+- !private ["Ps25ExpressibleByArrayLiteral", "flexibleWidth"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- ["Ps32ExpressibleByStringInterpolation", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- ["OSC23FBSDKProfilePictureMode", "deinit"]
+- !private ["CSo23FBSDKProfilePictureView", "autoresizingMask"]
+- ["CSo23FBSDKProfilePictureView", "deinit"]
+- !private ["CSo23FBSDKProfilePictureView", "frame"]
+- ["CSo23FBSDKProfilePictureView", "init"]
+- !private ["CSo23FBSDKProfilePictureView", "pictureMode"]
+- !private ["CSo23FBSDKProfilePictureView", "profileID"]
+- !private ["CSo23FBSDKProfilePictureView", "setNeedsImageUpdate"]
+- ["Ps8Hashable", "FBSDKProfilePictureView"]
+- ["Ps8Hashable", "UserProfile"]
+- !private ["Ps8Hashable", "addSubview"]
+- !private ["Ps8Hashable", "autoresizingMask"]
+- !private ["Ps8Hashable", "bounds"]
+- !private ["Ps8Hashable", "frame"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "pictureAspectRatio"]
+- !private ["Ps8Hashable", "pictureMode"]
+- !private ["Ps8Hashable", "profileID"]
+- !private ["Ps8Hashable", "sdkPictureMode"]
+- ["Ps8Hashable", "sdkProfilePictureView"]
+- ["Ps8Hashable", "setNeedsImageUpdate"]
+- ["Ps8Hashable", "setupSDKProfilePictureView"]
+- ["Ps8Hashable", "square"]
+- ["Ps8Hashable", "userId"]
+- ["Ps8Hashable", ""]
+- ["Ps25LosslessStringConvertible", "init"]
+- ["Ps10MirrorPath", "init"]
+- ["CSo7NSCoder", "deinit"]
+- ["PSo8NSCoding", "FBSDKProfilePictureView"]
+- ["PSo8NSCoding", "UserProfile"]
+- !private ["PSo8NSCoding", "addSubview"]
+- !private ["PSo8NSCoding", "autoresizingMask"]
+- !private ["PSo8NSCoding", "bounds"]
+- !private ["PSo8NSCoding", "frame"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "pictureAspectRatio"]
+- !private ["PSo8NSCoding", "pictureMode"]
+- !private ["PSo8NSCoding", "profileID"]
+- ["PSo8NSCoding", "sdkProfilePictureView"]
+- ["PSo8NSCoding", "setNeedsImageUpdate"]
+- ["PSo8NSCoding", "setupSDKProfilePictureView"]
+- ["PSo8NSCoding", "userId"]
+- ["PSo8NSCoding", ""]
+- ["PSo9NSCopying", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "CGRect"]
+- ["CSo8NSObject", "FBSDKProfilePictureView"]
+- ["CSo8NSObject", "NSCoder"]
+- ["CSo8NSObject", "UserProfile"]
+- !private ["CSo8NSObject", "addSubview"]
+- !private ["CSo8NSObject", "autoresizingMask"]
+- !private ["CSo8NSObject", "bounds"]
+- !private ["CSo8NSObject", "frame"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "pictureAspectRatio"]
+- !private ["CSo8NSObject", "pictureMode"]
+- !private ["CSo8NSObject", "profileID"]
+- ["CSo8NSObject", "sdkProfilePictureView"]
+- ["CSo8NSObject", "setNeedsImageUpdate"]
+- ["CSo8NSObject", "setupSDKProfilePictureView"]
+- ["CSo8NSObject", "userId"]
+- ["PSo16NSObjectProtocol", "FBSDKProfilePictureView"]
+- ["PSo16NSObjectProtocol", "UserProfile"]
+- !private ["PSo16NSObjectProtocol", "addSubview"]
+- !private ["PSo16NSObjectProtocol", "autoresizingMask"]
+- !private ["PSo16NSObjectProtocol", "bounds"]
+- !private ["PSo16NSObjectProtocol", "frame"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "pictureAspectRatio"]
+- !private ["PSo16NSObjectProtocol", "pictureMode"]
+- !private ["PSo16NSObjectProtocol", "profileID"]
+- ["PSo16NSObjectProtocol", "sdkProfilePictureView"]
+- ["PSo16NSObjectProtocol", "setNeedsImageUpdate"]
+- ["PSo16NSObjectProtocol", "setupSDKProfilePictureView"]
+- ["PSo16NSObjectProtocol", "userId"]
+- ["PSo16NSObjectProtocol", ""]
+- ["PSo14NSSecureCoding", "init"]
+- ["CSo8NSString", "init"]
+- ["Os5Never", "deinit"]
+- !private ["Ps9OptionSet", "Element"]
+- !private ["Ps9OptionSet", "flexibleHeight"]
+- !private ["Ps9OptionSet", "flexibleWidth"]
+- ["Sq", "deinit"]
+- ["OV12FacebookCore11UserProfile18PictureAspectRatio", "deinit"]
+- !private ["OV12FacebookCore11UserProfile18PictureAspectRatio", "sdkPictureMode"]
+- ["OV12FacebookCore11UserProfile18PictureAspectRatio", "square"]
+- ["CV12FacebookCore11UserProfile11PictureView", "CGRect"]
+- ["CV12FacebookCore11UserProfile11PictureView", "FBSDKProfilePictureView"]
+- ["CV12FacebookCore11UserProfile11PictureView", "NSCoder"]
+- ["CV12FacebookCore11UserProfile11PictureView", "UserProfile"]
+- !private ["CV12FacebookCore11UserProfile11PictureView", "addSubview"]
+- !private ["CV12FacebookCore11UserProfile11PictureView", "bounds"]
+- ["CV12FacebookCore11UserProfile11PictureView", "deinit"]
+- ["CV12FacebookCore11UserProfile11PictureView", "init"]
+- ["CV12FacebookCore11UserProfile11PictureView", "pictureAspectRatio"]
+- !private ["CV12FacebookCore11UserProfile11PictureView", "sdkProfilePictureView"]
+- ["CV12FacebookCore11UserProfile11PictureView", "setNeedsImageUpdate"]
+- !private ["CV12FacebookCore11UserProfile11PictureView", "setupSDKProfilePictureView"]
+- ["CV12FacebookCore11UserProfile11PictureView", "userId"]
+- !private ["Ps16RawRepresentable", "Element"]
+- !private ["Ps16RawRepresentable", "flexibleHeight"]
+- !private ["Ps16RawRepresentable", "flexibleWidth"]
+- !private ["Ps10SetAlgebra", "Element"]
+- !private ["Ps10SetAlgebra", "flexibleHeight"]
+- !private ["Ps10SetAlgebra", "flexibleWidth"]
+- ["Vs12StaticString", "deinit"]
+- !private ["Vs12StaticString", "init"]
+- ["SS", "deinit"]
+- ["SS", "init"]
+- ["Ps16TextOutputStream", "init"]
+- ["Ps20TextOutputStreamable", "init"]
+- ["PSo29UIAccessibilityIdentification", "FBSDKProfilePictureView"]
+- ["PSo29UIAccessibilityIdentification", "UserProfile"]
+- !private ["PSo29UIAccessibilityIdentification", "addSubview"]
+- !private ["PSo29UIAccessibilityIdentification", "autoresizingMask"]
+- !private ["PSo29UIAccessibilityIdentification", "bounds"]
+- !private ["PSo29UIAccessibilityIdentification", "frame"]
+- ["PSo29UIAccessibilityIdentification", "init"]
+- ["PSo29UIAccessibilityIdentification", "pictureAspectRatio"]
+- !private ["PSo29UIAccessibilityIdentification", "pictureMode"]
+- !private ["PSo29UIAccessibilityIdentification", "profileID"]
+- ["PSo29UIAccessibilityIdentification", "sdkProfilePictureView"]
+- ["PSo29UIAccessibilityIdentification", "setNeedsImageUpdate"]
+- ["PSo29UIAccessibilityIdentification", "setupSDKProfilePictureView"]
+- ["PSo29UIAccessibilityIdentification", "userId"]
+- ["PSo29UIAccessibilityIdentification", ""]
+- ["PSo12UIAppearance", "FBSDKProfilePictureView"]
+- ["PSo12UIAppearance", "UserProfile"]
+- !private ["PSo12UIAppearance", "addSubview"]
+- !private ["PSo12UIAppearance", "autoresizingMask"]
+- !private ["PSo12UIAppearance", "bounds"]
+- !private ["PSo12UIAppearance", "frame"]
+- ["PSo12UIAppearance", "init"]
+- ["PSo12UIAppearance", "pictureAspectRatio"]
+- !private ["PSo12UIAppearance", "pictureMode"]
+- !private ["PSo12UIAppearance", "profileID"]
+- ["PSo12UIAppearance", "sdkProfilePictureView"]
+- ["PSo12UIAppearance", "setNeedsImageUpdate"]
+- ["PSo12UIAppearance", "setupSDKProfilePictureView"]
+- ["PSo12UIAppearance", "userId"]
+- ["PSo12UIAppearance", ""]
+- ["PSo21UIAppearanceContainer", "FBSDKProfilePictureView"]
+- ["PSo21UIAppearanceContainer", "UserProfile"]
+- !private ["PSo21UIAppearanceContainer", "addSubview"]
+- !private ["PSo21UIAppearanceContainer", "autoresizingMask"]
+- !private ["PSo21UIAppearanceContainer", "bounds"]
+- !private ["PSo21UIAppearanceContainer", "frame"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "pictureAspectRatio"]
+- !private ["PSo21UIAppearanceContainer", "pictureMode"]
+- !private ["PSo21UIAppearanceContainer", "profileID"]
+- ["PSo21UIAppearanceContainer", "sdkProfilePictureView"]
+- ["PSo21UIAppearanceContainer", "setNeedsImageUpdate"]
+- ["PSo21UIAppearanceContainer", "setupSDKProfilePictureView"]
+- ["PSo21UIAppearanceContainer", "userId"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["PSo17UICoordinateSpace", "FBSDKProfilePictureView"]
+- ["PSo17UICoordinateSpace", "UserProfile"]
+- !private ["PSo17UICoordinateSpace", "addSubview"]
+- !private ["PSo17UICoordinateSpace", "autoresizingMask"]
+- !private ["PSo17UICoordinateSpace", "bounds"]
+- !private ["PSo17UICoordinateSpace", "frame"]
+- ["PSo17UICoordinateSpace", "init"]
+- ["PSo17UICoordinateSpace", "pictureAspectRatio"]
+- !private ["PSo17UICoordinateSpace", "pictureMode"]
+- !private ["PSo17UICoordinateSpace", "profileID"]
+- ["PSo17UICoordinateSpace", "sdkProfilePictureView"]
+- ["PSo17UICoordinateSpace", "setNeedsImageUpdate"]
+- ["PSo17UICoordinateSpace", "setupSDKProfilePictureView"]
+- ["PSo17UICoordinateSpace", "userId"]
+- ["PSo17UICoordinateSpace", ""]
+- ["PSo13UIDynamicItem", "FBSDKProfilePictureView"]
+- ["PSo13UIDynamicItem", "UserProfile"]
+- !private ["PSo13UIDynamicItem", "addSubview"]
+- !private ["PSo13UIDynamicItem", "autoresizingMask"]
+- !private ["PSo13UIDynamicItem", "bounds"]
+- !private ["PSo13UIDynamicItem", "frame"]
+- ["PSo13UIDynamicItem", "init"]
+- ["PSo13UIDynamicItem", "pictureAspectRatio"]
+- !private ["PSo13UIDynamicItem", "pictureMode"]
+- !private ["PSo13UIDynamicItem", "profileID"]
+- ["PSo13UIDynamicItem", "sdkProfilePictureView"]
+- ["PSo13UIDynamicItem", "setNeedsImageUpdate"]
+- ["PSo13UIDynamicItem", "setupSDKProfilePictureView"]
+- ["PSo13UIDynamicItem", "userId"]
+- ["PSo13UIDynamicItem", ""]
+- ["PSo18UIFocusEnvironment", "FBSDKProfilePictureView"]
+- ["PSo18UIFocusEnvironment", "UserProfile"]
+- !private ["PSo18UIFocusEnvironment", "addSubview"]
+- !private ["PSo18UIFocusEnvironment", "autoresizingMask"]
+- !private ["PSo18UIFocusEnvironment", "bounds"]
+- !private ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "pictureAspectRatio"]
+- !private ["PSo18UIFocusEnvironment", "pictureMode"]
+- !private ["PSo18UIFocusEnvironment", "profileID"]
+- ["PSo18UIFocusEnvironment", "sdkProfilePictureView"]
+- ["PSo18UIFocusEnvironment", "setNeedsImageUpdate"]
+- ["PSo18UIFocusEnvironment", "setupSDKProfilePictureView"]
+- ["PSo18UIFocusEnvironment", "userId"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["PSo11UIFocusItem", "FBSDKProfilePictureView"]
+- ["PSo11UIFocusItem", "UserProfile"]
+- !private ["PSo11UIFocusItem", "addSubview"]
+- !private ["PSo11UIFocusItem", "autoresizingMask"]
+- !private ["PSo11UIFocusItem", "bounds"]
+- !private ["PSo11UIFocusItem", "frame"]
+- ["PSo11UIFocusItem", "init"]
+- ["PSo11UIFocusItem", "pictureAspectRatio"]
+- !private ["PSo11UIFocusItem", "pictureMode"]
+- !private ["PSo11UIFocusItem", "profileID"]
+- ["PSo11UIFocusItem", "sdkProfilePictureView"]
+- ["PSo11UIFocusItem", "setNeedsImageUpdate"]
+- ["PSo11UIFocusItem", "setupSDKProfilePictureView"]
+- ["PSo11UIFocusItem", "userId"]
+- ["PSo11UIFocusItem", ""]
+- ["CSo11UIResponder", "CGRect"]
+- ["CSo11UIResponder", "FBSDKProfilePictureView"]
+- ["CSo11UIResponder", "NSCoder"]
+- ["CSo11UIResponder", "UserProfile"]
+- !private ["CSo11UIResponder", "addSubview"]
+- !private ["CSo11UIResponder", "autoresizingMask"]
+- !private ["CSo11UIResponder", "bounds"]
+- !private ["CSo11UIResponder", "frame"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "pictureAspectRatio"]
+- !private ["CSo11UIResponder", "pictureMode"]
+- !private ["CSo11UIResponder", "profileID"]
+- ["CSo11UIResponder", "sdkProfilePictureView"]
+- ["CSo11UIResponder", "setNeedsImageUpdate"]
+- ["CSo11UIResponder", "setupSDKProfilePictureView"]
+- ["CSo11UIResponder", "userId"]
+- ["PSo30UIResponderStandardEditActions", "FBSDKProfilePictureView"]
+- ["PSo30UIResponderStandardEditActions", "UserProfile"]
+- !private ["PSo30UIResponderStandardEditActions", "addSubview"]
+- !private ["PSo30UIResponderStandardEditActions", "autoresizingMask"]
+- !private ["PSo30UIResponderStandardEditActions", "bounds"]
+- !private ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "init"]
+- ["PSo30UIResponderStandardEditActions", "pictureAspectRatio"]
+- !private ["PSo30UIResponderStandardEditActions", "pictureMode"]
+- !private ["PSo30UIResponderStandardEditActions", "profileID"]
+- ["PSo30UIResponderStandardEditActions", "sdkProfilePictureView"]
+- ["PSo30UIResponderStandardEditActions", "setNeedsImageUpdate"]
+- ["PSo30UIResponderStandardEditActions", "setupSDKProfilePictureView"]
+- ["PSo30UIResponderStandardEditActions", "userId"]
+- ["PSo30UIResponderStandardEditActions", ""]
+- ["PSo18UITraitEnvironment", "FBSDKProfilePictureView"]
+- ["PSo18UITraitEnvironment", "UserProfile"]
+- !private ["PSo18UITraitEnvironment", "addSubview"]
+- !private ["PSo18UITraitEnvironment", "autoresizingMask"]
+- !private ["PSo18UITraitEnvironment", "bounds"]
+- !private ["PSo18UITraitEnvironment", "frame"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "pictureAspectRatio"]
+- !private ["PSo18UITraitEnvironment", "pictureMode"]
+- !private ["PSo18UITraitEnvironment", "profileID"]
+- ["PSo18UITraitEnvironment", "sdkProfilePictureView"]
+- ["PSo18UITraitEnvironment", "setNeedsImageUpdate"]
+- ["PSo18UITraitEnvironment", "setupSDKProfilePictureView"]
+- ["PSo18UITraitEnvironment", "userId"]
+- ["PSo18UITraitEnvironment", ""]
+- ["CSo6UIView", "CGRect"]
+- ["CSo6UIView", "FBSDKProfilePictureView"]
+- ["CSo6UIView", "NSCoder"]
+- ["CSo6UIView", "UserProfile"]
+- !private ["CSo6UIView", "addSubview"]
+- !private ["CSo6UIView", "autoresizingMask"]
+- !private ["CSo6UIView", "bounds"]
+- ["CSo6UIView", "deinit"]
+- !private ["CSo6UIView", "frame"]
+- ["CSo6UIView", "init"]
+- ["CSo6UIView", "pictureAspectRatio"]
+- !private ["CSo6UIView", "pictureMode"]
+- !private ["CSo6UIView", "profileID"]
+- ["CSo6UIView", "sdkProfilePictureView"]
+- ["CSo6UIView", "setNeedsImageUpdate"]
+- ["CSo6UIView", "setupSDKProfilePictureView"]
+- ["CSo6UIView", "userId"]
+- ["CSo6UIView", ""]
+- !private ["VSC18UIViewAutoresizing", "Element"]
+- !private ["VSC18UIViewAutoresizing", "deinit"]
+- !private ["VSC18UIViewAutoresizing", "flexibleHeight"]
+- !private ["VSC18UIViewAutoresizing", "flexibleWidth"]
+- ["Su", "deinit"]
+- ["V12FacebookCore11UserProfile", "CGRect"]
+- ["V12FacebookCore11UserProfile", "FBSDKProfilePictureView"]
+- ["V12FacebookCore11UserProfile", "NSCoder"]
+- ["V12FacebookCore11UserProfile", "PictureAspectRatio"]
+- ["V12FacebookCore11UserProfile", "PictureView"]
+- ["V12FacebookCore11UserProfile", "UIView"]
+- ["V12FacebookCore11UserProfile", "UserProfile"]
+- ["V12FacebookCore11UserProfile", "deinit"]
+- !private ["V12FacebookCore11UserProfile", "userId"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "FBSDKProfilePictureView"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "UserProfile"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "addSubview"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "autoresizingMask"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "bounds"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "frame"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "init"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "pictureAspectRatio"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "pictureMode"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "profileID"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "sdkProfilePictureView"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "setNeedsImageUpdate"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "setupSDKProfilePictureView"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "userId"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", ""]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- ["Ps9_Hashable", "FBSDKProfilePictureView"]
+- ["Ps9_Hashable", "UserProfile"]
+- !private ["Ps9_Hashable", "addSubview"]
+- !private ["Ps9_Hashable", "autoresizingMask"]
+- !private ["Ps9_Hashable", "bounds"]
+- !private ["Ps9_Hashable", "frame"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "pictureAspectRatio"]
+- !private ["Ps9_Hashable", "pictureMode"]
+- !private ["Ps9_Hashable", "profileID"]
+- !private ["Ps9_Hashable", "sdkPictureMode"]
+- ["Ps9_Hashable", "sdkProfilePictureView"]
+- ["Ps9_Hashable", "setNeedsImageUpdate"]
+- ["Ps9_Hashable", "setupSDKProfilePictureView"]
+- ["Ps9_Hashable", "square"]
+- ["Ps9_Hashable", "userId"]
+- ["Ps9_Hashable", ""]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- ["Ps21_ObjectiveCBridgeable", "zero"]
+depends-nominal:
+- "Ps9AnyObject"
+- "P12FacebookCore26AppEventParameterValueType"
+- "PSo15CALayerDelegate"
+- "VSC6CGRect"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- "Ps32ExpressibleByStringInterpolation"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- "OSC23FBSDKProfilePictureMode"
+- "CSo23FBSDKProfilePictureView"
+- "Ps8Hashable"
+- "Ps25LosslessStringConvertible"
+- "Ps10MirrorPath"
+- "CSo7NSCoder"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "Os5Never"
+- !private "Ps9OptionSet"
+- "Sq"
+- "OV12FacebookCore11UserProfile18PictureAspectRatio"
+- "CV12FacebookCore11UserProfile11PictureView"
+- !private "Ps16RawRepresentable"
+- !private "Ps10SetAlgebra"
+- "Vs12StaticString"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "VSC18UIViewAutoresizing"
+- "Su"
+- "V12FacebookCore11UserProfile"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Swift.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/FacebookCore/FacebookCore-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphoneos/FacebookCore.build/unextended-module.modulemap"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/UIKit.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Foundation.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Darwin.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/Dispatch.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/ObjectiveC.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreGraphics.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/QuartzCore.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/CoreImage.swiftmodule"
+- "/Applications/Xcode 8.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/armv7/SwiftOnoneSupport.swiftmodule"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/Bolts.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTaskCompletionSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTask.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFTask+Exceptions.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFExecutor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationTokenSource.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationTokenRegistration.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/Common/BFCancellationToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFWebViewAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFURL.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFMeasurementEvent.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkTarget.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkReturnToRefererController.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkResolving.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLinkNavigation.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Bolts/Bolts/iOS/BFAppLink.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/Bolts/Bolts-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphoneos/Bolts.build/module.modulemap"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKButton.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Pods/Target Support Files/FBSDKCoreKit/FBSDKCoreKit-umbrella.h"
+- "/Users/muhammadsalman/Desktop/Socialyze1/Build/Intermediates/Pods.build/Debug-iphoneos/FBSDKCoreKit.build/module.modulemap"
+interface-hash: "55e53a2ca1fdd5f886a50c94ebc61bc6"
