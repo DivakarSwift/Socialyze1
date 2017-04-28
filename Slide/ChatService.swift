@@ -65,4 +65,14 @@ class ChatService: FirebaseManager {
             reference.removeObserver(withHandle: value)
         }
     }
+    
+    func send(message: ChatData, chat: ChatItem, completion: @escaping CallBackWithSuccessError) {
+        let ref = reference.child(Node.chat.rawValue).child(chat.chatId!).childByAutoId()
+        var message = message
+        message.id = ref.key
+        
+        ref.updateChildValues(message.toJSON(), withCompletionBlock: { error, _ in
+            completion(error == nil, error)
+        })
+    }
 }
