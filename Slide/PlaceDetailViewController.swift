@@ -17,7 +17,8 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     
-    @IBOutlet weak var friendsTableView: UITableView!
+    //    @IBOutlet weak var friendsTableView: UITableView!
+    @IBOutlet weak var friendsCollectionView: UICollectionView!
     
     var place: Place?
     
@@ -58,7 +59,8 @@ class PlaceDetailViewController: UIViewController {
         }
         
         getCheckedinUsers()
-        friendsTableView.tableFooterView = UIView()
+        //        friendsTableView.tableFooterView = UIView()
+        self.setupCollectionView()
     }
     
     deinit {
@@ -167,7 +169,7 @@ class PlaceDetailViewController: UIViewController {
         }else {
             self.checkInStatusLabel.text = ""
         }
-        self.friendsTableView.reloadData()
+        self.friendsCollectionView.reloadData()
     }
     
     func getCheckedinUsers() {
@@ -228,21 +230,41 @@ extension PlaceDetailViewController: AuthenticatorDelegate {
     }
 }
 
-extension PlaceDetailViewController: UITableViewDataSource {
+extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.getCheckedInFriends().count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20 // self.getCheckedInFriends().count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let friend = self.getCheckedInFriends()[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        //        let friend = self.getCheckedInFriends()[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
+        
         let label = cell.viewWithTag(2) as! UILabel
-        label.text = friend.name
+        label.text = "Dari"
+        //        label.text = friend.name
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
-        imageView.kf.setImage(with: URL(string: friend.profileURLString))
+        imageView.image = UIImage(named: "profile.png")
+        //        imageView.kf.setImage(with: URL(string: friend.profileURLString))
+        
         return cell
+    }
+    func setupCollectionView() {
+        let numberOfColumn:CGFloat = 4
+        let collectionViewCellSpacing:CGFloat = 10
+        let numberOfRow:CGFloat = 1
+        
+        if let layout = friendsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout{
+            let cellWidth:CGFloat = ( self.view.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
+//            let cellHeight:CGFloat = self.friendsCollectionView.frame.size.height - 2*collectionViewCellSpacing
+                        let cellHeight:CGFloat = 80
+            layout.itemSize = CGSize(width: cellWidth, height:cellHeight)
+            layout.minimumLineSpacing = collectionViewCellSpacing
+            layout.minimumInteritemSpacing = collectionViewCellSpacing
+        }
     }
 }

@@ -435,7 +435,7 @@
 				TargetAttributes = {
 					FC7A24161E695F56004C9E44 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8MPPDA5P84;
+						DevelopmentTeam = G7RL549555;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -715,11 +715,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8MPPDA5P84;
+				DEVELOPMENT_TEAM = G7RL549555;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyzee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -732,11 +732,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8MPPDA5P84;
+				DEVELOPMENT_TEAM = G7RL549555;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.Socialyzee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
