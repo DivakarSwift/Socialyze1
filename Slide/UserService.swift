@@ -32,7 +32,7 @@ class UserService: FirebaseManager {
     }
     
     func getUser(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
-        reference.child(Node.user.rawValue).child(Node.profile.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+        reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])
             if let user: User = json.map() {
                 completion(user, nil)
@@ -55,16 +55,21 @@ class UserService: FirebaseManager {
         // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
         
         reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).observeSingleEvent(of: .value, with: {(snapshot) in
-            let json = JSON(snapshot.value ?? [])
-            let matched = json["matched"].boolValue
-            let time = json["time"].doubleValue
             
-            let isMatching = matched && (Date().timeIntervalSince1970 - time) < checkInThreshold
+            var isMatching = false
+            if let val = snapshot.value {
+                let json = JSON(val)
+                print(json)
+                let match = true // json["matched"].boolValue
+                let time = json["time"].doubleValue
+                let timeValid = (Date().timeIntervalSince1970 - time) < checkInThreshold
+                isMatching = match && timeValid
+            }
+            
             let value = [
-                "matched": isMatching,
+//                "matched": isMatching,
                 "time": Date().timeIntervalSince1970
-            ] as [String : Any]
-            
+                ] as [String : Any]
             self.reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(user.id!).updateChildValues(value) { (error, _) in
                 completion(error == nil, isMatching)
             }

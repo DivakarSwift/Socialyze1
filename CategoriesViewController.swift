@@ -184,13 +184,26 @@ class CategoriesViewController: UIViewController {
     }
     
     func acceptUser() {
-        let acceptedUser = removeTopUser()
         
-        if let acceptedUser = acceptedUser, let myId = Authenticator.shared.user?.id {
+        if let acceptedUser = self.users.first, let myId = Authenticator.shared.user?.id {
             self.userService.accept(user: acceptedUser, myId: myId, completion: { [weak self] (success, isMatching) in
                 if isMatching {
-                    self?.alert(message: "This somebody likes you too.")
+                    self?.alertWithOkCancel(message: "This somebody is match and available. Do you like to chat", title: "Found Someone", okTitle: "Ok", cancelTitle: "Cancel", okAction: { _ in
+                        
+                        
+                        // open chat
+                        
+                        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
+                        self?.present(vc, animated: true, completion: { _ in
+                            
+                        })
+                    }, cancelAction: { _ in
+                        self?.removeTopUser()
+                    })
                 }
+                
+                _ = self?.removeTopUser()
+                return
             })
         }
     }
@@ -230,10 +243,12 @@ class CategoriesViewController: UIViewController {
     
     func changeUser() {
         if let user = users.first {
-            self.imageView.kf.setImage(with: user.profile.images.first)
-            self.userName.text = user.profile.name
-            self.eventDescription.text = user.profile.bio
+            self.imageView.kf.setImage(with: user.profile.images.first, placeholder: #imageLiteral(resourceName: "testprofile2.JPG"), options: nil, progressBlock: nil, completionHandler: nil)
+//            self.imageView.kf.setImage(with: user.profile.images.first)
+            self.userName.text = user.profile.name ?? "Facebook User Name"
+            self.eventDescription.text = user.profile.bio ?? "eg. Current Status Feed"
         }else {
+            
             self.alert(message: "No result found. Try again later.", okAction: {
                 self.navigationController?.popToRootViewController(animated: true)
             })

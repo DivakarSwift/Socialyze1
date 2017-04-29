@@ -199,7 +199,8 @@ class PlaceDetailViewController: UIViewController {
             destinationVC.place = self.place
         }else if segue.identifier == "Categories" {
             let destinationVC = segue.destination as! CategoriesViewController
-            destinationVC.checkinUserIds = Set(self.checkinData.flatMap({$0.userId}))
+            let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
+            destinationVC.checkinUserIds = userIdsSet
         }
         return super.prepare(for: segue, sender: sender)
     }
@@ -233,35 +234,33 @@ extension PlaceDetailViewController: AuthenticatorDelegate {
 extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20 // self.getCheckedInFriends().count
+        return  self.getCheckedInFriends().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        //        let friend = self.getCheckedInFriends()[indexPath.row]
+        let friend = self.getCheckedInFriends()[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         
         let label = cell.viewWithTag(2) as! UILabel
-        label.text = "Dari"
-        //        label.text = friend.name
+//        label.text = "Dari"
+        label.text = friend.name
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
-        imageView.image = UIImage(named: "profile.png")
-        //        imageView.kf.setImage(with: URL(string: friend.profileURLString))
+//        imageView.image = UIImage(named: "profile.png")
+        imageView.kf.setImage(with: URL(string: friend.profileURLString))
         
         return cell
     }
     func setupCollectionView() {
-        let numberOfColumn:CGFloat = 4
+        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
         let collectionViewCellSpacing:CGFloat = 10
-        let numberOfRow:CGFloat = 1
         
         if let layout = friendsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout{
             let cellWidth:CGFloat = ( self.view.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
-//            let cellHeight:CGFloat = self.friendsCollectionView.frame.size.height - 2*collectionViewCellSpacing
-                        let cellHeight:CGFloat = 80
+            let cellHeight:CGFloat = self.friendsCollectionView.frame.size.height - 2*collectionViewCellSpacing
             layout.itemSize = CGSize(width: cellWidth, height:cellHeight)
             layout.minimumLineSpacing = collectionViewCellSpacing
             layout.minimumInteritemSpacing = collectionViewCellSpacing
