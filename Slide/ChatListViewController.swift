@@ -27,12 +27,16 @@ class ChatListViewController: UIViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.tableFooterView = UIView()
         fetchChatList()
     }
     
     func fetchChatList() {
         if let user = Authenticator.shared.user {
             chatService.getChatListAndObserve(of: user, completion: {[weak self] (chatItem, error) in
+                if let item = chatItem {
+                    self?.chatList.append(item)
+                }
                 if let chatUserId = chatItem?.userId {
                     self?.userService.getUser(withId: chatUserId, completion: { [weak self](user, error) in
                         if let user = user {
@@ -54,12 +58,41 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         return chatList.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let chatItem = chatList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
         
-        let label = cell.viewWithTag(2)
-        let imageView = cell.viewWithTag(1)
+        let label = cell.viewWithTag(2) as! UILabel
+        label.text = chatUsers[indexPath.row].profile.name ?? "somebody"
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        imageView.rounded()
+        imageView.kf.setImage(with: chatUsers[indexPath.row].profile.images.first, placeholder: #imageLiteral(resourceName: "profile.png"), options: nil, progressBlock: nil, completionHandler: nil)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        if let nav =  self.navigationController {
+            vc.chatItem = self.chatList[indexPath.row]
+            vc.chatUserName = self.chatUsers[indexPath.row].profile.name ?? ""
+            vc.chatOppentId = self.chatUsers[indexPath.row].id
+            nav.pushViewController(vc, animated: true)
+        } else {
+            self.present(vc, animated: true, completion: {
+                
+            })
+        }
+    }
+    
 }

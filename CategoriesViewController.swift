@@ -184,28 +184,40 @@ class CategoriesViewController: UIViewController {
     }
     
     func acceptUser() {
-        
         if let acceptedUser = self.users.first, let myId = Authenticator.shared.user?.id {
             self.userService.accept(user: acceptedUser, myId: myId, completion: { [weak self] (success, isMatching) in
-                if isMatching {
-                    self?.alertWithOkCancel(message: "This somebody is match and available. Do you like to chat", title: "Found Someone", okTitle: "Ok", cancelTitle: "Cancel", okAction: { _ in
-                        
-                        
-                        // open chat
-                        
-                        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
-                        self?.present(vc, animated: true, completion: { _ in
-                            
-                        })
-                    }, cancelAction: { _ in
-                        self?.removeTopUser()
-                    })
-                }
                 
-                _ = self?.removeTopUser()
+                if isMatching {
+                    self?.addChatList(opponent: acceptedUser, myId: myId)
+                } else {
+                    _ = self?.removeTopUser()
+                }
                 return
             })
         }
+    }
+    
+    func addChatList(opponent user: User, myId: String) {
+        ChatService.shared.addChatList(for: user.id!, withMe: myId, completion: { [weak self] (success, error) in
+            
+            if success {
+                self?.alertWithOkCancel(message: "This somebody is match and available. Do you like to chat", title: "Found Someone", okTitle: "Ok", cancelTitle: "Cancel", okAction: { _ in
+                    
+                    // open chat
+                    let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
+                    if let nav =  self?.navigationController {
+                        nav.pushViewController(vc, animated: true)
+                    } else {
+                        self?.present(vc, animated: true, completion: {
+                            
+                        })
+                    }
+                }, cancelAction: nil)
+            } else {
+                self?.alert(message: GlobalConstants.Message.oops)
+            }
+            
+        })
     }
     
     func addLoadingIndicator () {

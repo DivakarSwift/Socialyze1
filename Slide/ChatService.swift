@@ -35,6 +35,51 @@ class ChatService: FirebaseManager {
         })
     }
     
+    func addChatList(for friend:String, withMe me :String,  completion : @escaping CallBackWithSuccessError) {
+        
+        
+        let chatId =  friend > me ? friend+me : me+friend
+        
+        let ref = self.reference.child(Node.chat.rawValue).child(chatId)
+        
+        let value = [
+            "time" : Date().timeIntervalSince1970
+        ]
+        ref.updateChildValues(value, withCompletionBlock: { error, _ in
+            if error == nil {
+            let refMe = self.reference.child(Node.user.rawValue).child(me).child(Node.chatList.rawValue).child(friend)
+            let refFriend = self.reference.child(Node.user.rawValue).child(friend).child(Node.chatList.rawValue).child(me)
+            
+            
+            let friendValue = [
+                "userId" : friend,
+                "chatId" : chatId
+                ] as [String : Any]
+            let meValue = [
+                "userId" : me,
+                "chatId" : chatId
+                ] as [String : Any]
+            
+            var parameter = [me: [friend: friendValue]]
+            parameter[friend]  = [me: meValue]
+            
+            refFriend.updateChildValues(meValue, withCompletionBlock: { error, _ in
+                if error == nil {
+                    refMe.updateChildValues(friendValue, withCompletionBlock: { error, _ in
+                        completion(error == nil, error)
+                    })
+                } else {
+                    completion(error == nil, error)
+                }
+            })
+            } else {
+                completion(error == nil, error)
+            }
+        })
+        
+        
+    }
+    
     func getDataAndObserve(of chat: ChatItem, completion: @escaping (ChatData?, FirebaseManagerError?) -> ()) {
         let refId = reference.child(Node.chat.rawValue).child(chat.chatId!).queryLimited(toLast: 25).observe(.childAdded, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])

@@ -212,7 +212,7 @@
         <!--Chat List View Controller-->
         <scene sceneID="O53-nF-3X4">
             <objects>
-                <viewController storyboardIdentifier="ChatListViewController" id="rRd-G6-574" customClass="ChatListViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatListViewController" automaticallyAdjustsScrollViewInsets="NO" id="rRd-G6-574" customClass="ChatListViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ft-wy-eaM"/>
                         <viewControllerLayoutGuide type="bottom" id="sJc-Wd-0LT"/>

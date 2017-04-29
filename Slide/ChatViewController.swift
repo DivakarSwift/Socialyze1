@@ -15,6 +15,7 @@ class ChatViewController: UIViewController {
     var chatItem: ChatItem?
     var chatData = [ChatData]()
     var chatUserName: String = ""
+    var chatOppentId:String?
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     var chatService = ChatService.shared
@@ -50,19 +51,42 @@ class ChatViewController: UIViewController {
     }
     
     func loadMore() {
-        if let lastChatData = self.chatData.last {
+        if var lastChatData = self.chatData.last {
+            lastChatData.id = lastChatData.id ?? "\(self.chatData.count - 1)"
             self.tableView.tableHeaderView = activityIndicator
-            chatService.loadMoreData(of: chatItem!, lastChatData: lastChatData, completion: { [weak self] (chatData, error) in
-                self?.activityIndicator.stopAnimating()
-                guard let me = self, let newChatData = chatData else {return}
-                me.chatData = newChatData + me.chatData
-                me.tableView.reloadData()
-            })
+            if let item = self.chatItem {
+                chatService.loadMoreData(of: item, lastChatData: lastChatData, completion: { [weak self] (chatData, error) in
+                    self?.activityIndicator.stopAnimating()
+                    guard let me = self, let newChatData = chatData else {return}
+                    me.chatData = newChatData + me.chatData
+                    me.tableView.reloadData()
+                })
+            }
         }
     }
     
     @IBAction func send(_ sender: Any) {
-        
+        if messageTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
+            
+            var chatData = ChatData()
+            chatData.fromUser = chatItem?.userId
+            chatData.toUser = chatOppentId
+            chatData.time = Date().timeIntervalSince1970
+            chatData.message = messageTextView.text
+            chatData.id = self.chatData.first?.id ?? "\(self.chatData.count)"
+                
+                self.chatService.send(message: chatData, chat: chatItem!, completion: { (success, error) in
+                    
+                    if error == nil {
+                        self.messageTextView.text = ""
+                        self.tableView.reloadData()
+                        
+                        let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
+                        self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+                    }
+                    
+                })
+        }
     }
 }
 
@@ -82,6 +106,7 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = chatData[indexPath.row]
         
+    
         let isFriend = data.toUser == chatItem?.userId
         
         let cell = tableView.dequeueReusableCell(withIdentifier: isFriend ? "friend": "me", for: indexPath)

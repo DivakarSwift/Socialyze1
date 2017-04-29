@@ -25,6 +25,7 @@ struct ChatItem: Mappable {
         lastMessage <- map["lastMessage"]
         isSeenByOtherUser <- map["isSeenByOtherUser"]
         newMessageCount <- map["newMessageCount"]
+        chatId <- map["chatId"]
     }
 }
 
@@ -37,6 +38,10 @@ struct ChatData: Mappable {
     
     init?(map: Map) {
         self.mapping(map: map)
+    }
+    
+    init () {
+        
     }
     
     mutating func mapping(map: Map) {
