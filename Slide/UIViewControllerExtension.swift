@@ -9,13 +9,13 @@
 import UIKit
 
 extension UIViewController {
-    func alert(message: String?, title: String? = "Error", okAction: (()->())? = nil ) {
+    func alert(message: String?, title: String? = "Sweet", okAction: (()->())? = nil ) {
         let alertController = getAlert(message: message, title: title)
         alertController.addAction(title: "Ok", handler: okAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func alertWithOkCancel(message: String?, title: String? = "Error", okTitle: String? = "Ok", cancelTitle: String? = "Cancel", okAction: (()->())? = nil, cancelAction: (()->())? = nil) {
+    func alertWithOkCancel(message: String?, title: String? = "Oops", okTitle: String? = "Ok", cancelTitle: String? = "Cancel", okAction: (()->())? = nil, cancelAction: (()->())? = nil) {
         let alertController = getAlert(message: message, title: title)
         alertController.addAction(title: okTitle, handler: okAction)
         alertController.addAction(title: cancelTitle, style: .default, handler: cancelAction)

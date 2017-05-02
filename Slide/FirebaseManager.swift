@@ -25,7 +25,7 @@ enum FirebaseManagerError: Error {
     case noDataFound
     var localizedDescription: String {
         switch self {
-        case .noUserFound: return "User not found."
+        case .noUserFound: return "No more users."
         case .noDataFound: return "No data found."
         }
     }

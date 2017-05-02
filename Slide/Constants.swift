@@ -64,10 +64,10 @@ struct GlobalConstants {
         var cancelAction: (()->())?
         
         static let oops = Message(title: error, message: "Oops! Something went wrong.", okTitle: ok, cancelTitle: nil, okAction: nil, cancelAction: nil)
-        static let locationDenied = Message(title: "Warning", message: "Location is turned off for Slyde app. Please enable permission in settings.", okTitle: ok, cancelTitle: nil, okAction: {
+        static let locationDenied = Message(title: "Warning", message: "Location is turned off for the app. Please enable permission in settings.", okTitle: ok, cancelTitle: nil, okAction: {
             let url = URL(string: UIApplicationOpenSettingsURLString)!
             UIApplication.shared.openURL(url)
         }, cancelAction: nil)
-        static let userNotInPerimeter = Message(title: "Error", message: "You need to be in the premises to perform checkin.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+        static let userNotInPerimeter = Message(title: "Sorry", message: "You need to be at this place to check in.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
     }
 }

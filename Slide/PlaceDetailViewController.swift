@@ -73,7 +73,7 @@ class PlaceDetailViewController: UIViewController {
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
                 }else {
-                    self?.alert(message: "Only you are checked in to the place. Please try again later so that other people also gets checked in into the place.")
+                    self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
         }else {
