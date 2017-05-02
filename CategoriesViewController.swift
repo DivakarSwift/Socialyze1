@@ -262,7 +262,9 @@ class CategoriesViewController: UIViewController {
         }else {
             
             self.alert(message: "No result found. Try again later.", okAction: {
-                self.navigationController?.popToRootViewController(animated: true)
+                if let nav = self.navigationController {
+                    nav.popToRootViewController(animated: true)
+                }
             })
         }
     }

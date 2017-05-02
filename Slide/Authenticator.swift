@@ -90,7 +90,6 @@ class Authenticator {
                     doLog("Logged in! \(grantedPermissions) \(declinedPermissions) \(accessToken)")
                 }
             }
-        default: break
         }
     }
     

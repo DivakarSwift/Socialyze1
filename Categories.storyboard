@@ -36,20 +36,20 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="thehomebutton.png"/>
                                         <connections>
-                                            <segue destination="sBn-x1-vpJ" kind="show" id="DK4-OY-Xuz"/>
+                                            <segue destination="sBn-x1-vpJ" kind="show" identifier="openMain" id="DK4-OY-Xuz"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-Rb-cf3">
                                         <rect key="frame" x="60" y="0.0" width="60" height="60"/>
                                         <state key="normal" image="ladybird.png"/>
                                         <connections>
-                                            <segue destination="Q5v-td-E0K" kind="show" id="vGy-V4-hxx"/>
+                                            <segue destination="Q5v-td-E0K" kind="show" identifier="openMatches" id="vGy-V4-hxx"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="This is where the 100 character Event description will go from the previous screen.. e.g getting coffee" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF5-2E-WGr">
-                                <rect key="frame" x="0.0" y="255" width="320" height="58"/>
+                                <rect key="frame" x="0.0" y="255.5" width="320" height="57.5"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nora, 21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lk2-Pl-G83">
-                                <rect key="frame" x="16" y="20" width="72" height="22"/>
+                                <rect key="frame" x="16" y="20" width="72" height="21.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.6368377221" green="0.048687425069999998" blue="0.13850137730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
