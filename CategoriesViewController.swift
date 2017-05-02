@@ -257,11 +257,11 @@ class CategoriesViewController: UIViewController {
         if let user = users.first {
             self.imageView.kf.setImage(with: user.profile.images.first, placeholder: #imageLiteral(resourceName: "testprofile2.JPG"), options: nil, progressBlock: nil, completionHandler: nil)
 //            self.imageView.kf.setImage(with: user.profile.images.first)
-            self.userName.text = user.profile.name ?? "Facebook User Name"
-            self.eventDescription.text = user.profile.bio ?? "eg. Current Status Feed"
+            self.userName.text = user.profile.name ?? "Username"
+            self.eventDescription.text = user.profile.bio ?? "User Bio"
         }else {
             
-            self.alert(message: "No result found. Try again later.", okAction: {
+            self.alert(message: "Come back later for more", okAction: {
                 self.navigationController?.popToRootViewController(animated: true)
             })
         }
