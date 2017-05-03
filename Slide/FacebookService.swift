@@ -43,6 +43,41 @@ class FacebookService {
         }
     }
     
+    func isUserDOBPermissionGiven() -> Bool {
+        if let userDOBPermission: Bool = GlobalConstants.UserDefaultKey.userDOBPermissionStatusFromFacebook.value(), userDOBPermission == true {
+            return true
+        }else {
+            return false
+        }
+    }
+    
+    func getUserDetails(success: @escaping ([FacebookFriend]) -> (), failure: @escaping (GlobalConstants.Message)->()) {
+        self.getUserFriends(nextPageCursor: nil, complete: {
+            success(self.friends)
+        }) { (error) in
+            failure(error)
+            success(self.friends)
+        }
+    }
+    
+    func getUserDetails(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
+        let param = ["fields": "id, name, email, picture.width(480).height(480), gender, user_birthday"]
+        let path = "me"
+        
+        self.createGraphRequestAndStart(forPath: path, params: param, httpMethod: .GET, success: { response in
+            
+            print(response.dictionaryValue ?? [:])
+            guard let responseDict = response.dictionaryValue else {
+                return
+            }
+            let json = JSON(responseDict)
+            print(json)
+        }, failure: { errer in
+            
+            
+        })
+    }
+    
     private func createGraphRequestAndStart(forPath path: String, params: [String : Any] = [:], httpMethod: GraphRequestHTTPMethod = .GET, success: @escaping (GraphResponse) -> (), failure: @escaping (GlobalConstants.Message)->()) {
         let accesstoken = AccessToken.current
         
@@ -68,7 +103,7 @@ class FacebookService {
     }
     
     private func getUserFriends(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
-        var params = ["fields": "id, name, picture", "limit" : 200] as [String : Any]
+        var params = ["fields": "id,first_name, last_name, name, picture", "limit" : 200] as [String : Any]
         if let nextPageCursor = nextPageCursor {
             params["after"] = nextPageCursor
         }

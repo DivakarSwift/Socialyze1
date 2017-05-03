@@ -34,6 +34,7 @@ struct GlobalConstants {
         
         static let userPhotosPermissionStatusFromFacebook = UserDefaultKey(key: "User_Photos_Permission_Status_From_Facebook")
         static let userFriendsPermissionStatusFromFacebook = UserDefaultKey(key: "User_Friends_Permission_Status_From_Facebook")
+        static let userDOBPermissionStatusFromFacebook = UserDefaultKey(key: "User_Date_Of_Birth_Permission_Status_From_Facebook")
         static let taggableFriendsPermissionStatusFromFacebook = UserDefaultKey(key: "Taggable_Friends_Permission_Status_From_Facebook")
         static let userIdFromFacebook = UserDefaultKey(key: "User_ID_From_Facebook")
         static let firstTimeLogin = UserDefaultKey(key: "FIRST_TIME_APP_LOGIN")

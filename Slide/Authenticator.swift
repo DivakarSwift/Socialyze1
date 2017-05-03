@@ -65,8 +65,9 @@ class Authenticator {
             let loginManager = LoginManager()
             loginManager.logOut()
             let userPhotos = "user_photos"
+            let userBirthDay = "user_birthday"
             // let taggableFriends = "taggable_friends"
-            loginManager.logIn([.publicProfile, .custom(userPhotos), .userFriends], viewController: nil) { loginResult in
+            loginManager.logIn([.publicProfile, .custom(userPhotos), .custom(userBirthDay), .userFriends], viewController: nil) { loginResult in
                 switch loginResult {
                 case .failed(let error):
                     self.delegate?.didOccurAuthentication(error: .facebookLoginFailed(with: error))
@@ -79,16 +80,34 @@ class Authenticator {
                     
                     GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: userPhotos)))
                     GlobalConstants.UserDefaultKey.userFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: "user_friends"))) //"user_friends"
+                    GlobalConstants.UserDefaultKey.userDOBPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: "user_birthday"))) //"user_birthday"
                     // GlobalConstants.UserDefaultKey.taggableFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: taggableFriends)))
                     
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
-                    
+                                       
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
                         self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                    } else {
+                        print("Cant sign to firebase")
                     }
                     
                     doLog("Logged in! \(grantedPermissions) \(declinedPermissions) \(accessToken)")
                 }
+            }
+        }
+    }
+    
+    func createGraphRequestAndStart(forPath path: String, params: [String : Any] = [:], httpMethod: GraphRequestHTTPMethod = .GET, success: @escaping (GraphResponse) -> (), failure: @escaping (GlobalConstants.Message)->()) {
+        let accesstoken = AccessToken.current
+        
+        let graphRequest = GraphRequest.init(graphPath: path, parameters: params, accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)
+        graphRequest.start { (response, result) in
+            switch result {
+            case .failed(let error):
+                failure(GlobalConstants.Message.oops)
+                print(error)
+            case .success(response: let response):
+                success(response)
             }
         }
     }
