@@ -13,9 +13,22 @@ class SwipingViewController: UIViewController {
         didSet {
             self.userBio.text = users.first?.profile.bio
             self.imageView.kf.setImage(with: users.first?.profile.images.first)
+            self.images = (users.first?.profile.images)!
+            self.currentImageIndex = 0
             self.userNameAgeLabel.text = users.first?.profile.name
         }
     }
+    
+    var images = [URL]() {
+        didSet {
+            if images.count == 1 {
+                changeImage()
+            }else if images.count == 2 {
+                //  startTimer()
+            }
+        }
+    }
+    var currentImageIndex = 0
     
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
@@ -142,6 +155,8 @@ class SwipingViewController: UIViewController {
         
         imageView.addGestureRecognizer(gesture)
         
+        self.addTapGesture(toView: imageView)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,6 +167,27 @@ class SwipingViewController: UIViewController {
     func addLoadingIndicator () {
         self.view.addSubview(activityIndicator)
         activityIndicator.center = self.view.center
+    }
+    
+    func addTapGesture(toView view: UIView) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        self.changeImage()
+    }
+    
+    func changeImage() {
+        if currentImageIndex < images.count && currentImageIndex >= 0 {
+            let imageURL = images[currentImageIndex]
+                self.imageView.kf.setImage(with: imageURL, placeholder: self.imageView.image)
+        }
+        if currentImageIndex == images.count - 1 {
+            currentImageIndex = 0
+        }else {
+            currentImageIndex += 1
+        }
     }
     
 }

@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var lblUserName: UILabel!
     
     var userId: String?
     let authenticator = Authenticator.shared
@@ -26,8 +27,8 @@ class ProfileViewController: UIViewController {
         didSet {
             if images.count == 1 {
                 changeImage()
-            }else if images.count == 2 {
-                startTimer()
+            } else if images.count == 2 {
+//                startTimer()
             }
         }
     }
@@ -69,21 +70,48 @@ class ProfileViewController: UIViewController {
             })
         }
         
+        self.adddTapGesture(toView: self.userImageView)
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.images.count > 1 {
-            currentImageIndex = 0
-            changeImage()
-            self.startTimer()
-        }
+//        if self.images.count > 1 {
+//            currentImageIndex = 0
+//            changeImage()
+//            self.startTimer()
+//        }
+        
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.stopTimer()
+    }
+    
+    func adddTapGesture(toView view: UIView) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        self.changeImage()
+    }
+    
+    func changeImage() {
+        if currentImageIndex < images.count && currentImageIndex >= 0 {
+            let imageURLString = images[currentImageIndex]
+            if let url = URL(string: imageURLString) {
+                self.userImageView.kf.setImage(with: url, placeholder: self.userImageView.image)
+            }
+        }
+        if currentImageIndex == images.count - 1 {
+            currentImageIndex = 0
+        }else {
+            currentImageIndex += 1
+        }
     }
     
     func loadProfilePicturesFromFacebook() {
@@ -113,19 +141,7 @@ class ProfileViewController: UIViewController {
         self.imageTimer = nil
     }
     
-    func changeImage() {
-        if currentImageIndex < images.count && currentImageIndex >= 0 {
-            let imageURLString = images[currentImageIndex]
-            if let url = URL(string: imageURLString) {
-                self.userImageView.kf.setImage(with: url, placeholder: self.userImageView.image)
-            }
-        }
-        if currentImageIndex == images.count - 1 {
-            currentImageIndex = 0
-        }else {
-            currentImageIndex += 1
-        }
-    }
+
     
     @IBAction func editProfile(_ sender: Any) {
     }

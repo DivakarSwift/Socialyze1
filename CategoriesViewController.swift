@@ -12,11 +12,25 @@ class CategoriesViewController: UIViewController {
     
     var users: [User] = [] {
         didSet {
+            if let images = users.first?.profile.images {
+                self.images = images
+            }
             if oldValue.count == 0 && users.count == 1 {
                 changeUser()
             }
         }
     }
+    
+    var images = [URL]() {
+        didSet {
+            if images.count == 1 {
+                changeImage()
+            }else if images.count == 2 {
+                //  startTimer()
+            }
+        }
+    }
+    var currentImageIndex = 0
     
     var events: [Event] = [] {
         didSet {
@@ -56,13 +70,37 @@ class CategoriesViewController: UIViewController {
         imageView.addGestureRecognizer(gesture)
         actionImageView.isHidden = true
         
+        self.addTapGesture(toView: self.imageView)
+        
         self.activityIndicator.startAnimating()
         self.getAllCheckedInUsers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
         self.activityIndicator.stopAnimating()
+    }
+    
+    func addTapGesture(toView view: UIView) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        self.changeImage()
+    }
+    
+    func changeImage() {
+        if currentImageIndex < images.count && currentImageIndex >= 0 {
+            let imageURL = images[currentImageIndex]
+            self.imageView.kf.setImage(with: imageURL, placeholder: self.imageView.image)
+        }
+        if currentImageIndex == images.count - 1 {
+            currentImageIndex = 0
+        }else {
+            currentImageIndex += 1
+        }
     }
     
     @IBAction func reportUser(_ sender: Any) {
@@ -258,6 +296,11 @@ class CategoriesViewController: UIViewController {
             self.imageView.kf.setImage(with: user.profile.images.first, placeholder: #imageLiteral(resourceName: "testprofile2.JPG"), options: nil, progressBlock: nil, completionHandler: nil)
 //            self.imageView.kf.setImage(with: user.profile.images.first)
             self.userName.text = user.profile.name ?? "Username"
+            if let dob = user.profile.dateOfBirth {
+                let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
+                
+                self.userName.text = (user.profile.name  ?? "Username" ) + ",\(age!)"
+            }
             self.eventDescription.text = user.profile.bio ?? "User Bio"
         }else {
             

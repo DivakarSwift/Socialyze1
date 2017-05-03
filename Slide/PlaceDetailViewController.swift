@@ -63,6 +63,11 @@ class PlaceDetailViewController: UIViewController {
         self.setupCollectionView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     deinit {
         SlydeLocationManager.shared.stopUpdatingLocation()
     }
