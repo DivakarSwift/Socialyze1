@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
         authenticator.delegate = self
     }
 
-    @IBAction func login(_ sender: Any) {
+    @IBAction func login(_ sender: UIButton) {
         authenticator.authenticateWith(provider: .facebook)
     }
 }
@@ -25,8 +25,8 @@ class LoginViewController: UIViewController {
 extension LoginViewController: AuthenticatorDelegate {
     
     func shouldUserSignInIntoFirebase() -> Bool {
-    
-        return false
+      
+        return true
     }
 
     func didLogoutUser() {

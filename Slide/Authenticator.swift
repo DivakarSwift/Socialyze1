@@ -31,12 +31,14 @@ protocol AuthenticatorDelegate {
 enum AuthenticationError: Error {
     case facebookLoginFailed(with: Error)
     case facebookLoginCancelled
+    case facebookLoginDenied
     case firebaseAuthenticationFailed(with: Error)
     case logoutFailed(with: Error)
     
     var localizedDescription: String {
         switch self {
         case .facebookLoginCancelled: return "Facebook Login cancelled."
+        case .facebookLoginDenied: return "Facebook Login Denied due to age restriction. Your age must be greater than 17 to log in."
         case .facebookLoginFailed(with: let error): return error.localizedDescription
         case .firebaseAuthenticationFailed(with: let error): return error.localizedDescription
         case .logoutFailed(with: let error): return error.localizedDescription
@@ -86,7 +88,24 @@ class Authenticator {
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
                                        
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
-                        self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                        
+                        FacebookService.shared.getUserDetails(success: { (fbUser) in
+                            var user = User()
+                            user.profile.dateOfBirth = fbUser.dateOfBirth
+                            user.profile.name = fbUser.name
+                            self.user = user
+                            if let dob = fbUser.dateOfBirth {
+                                print(dob)
+                                if let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy"), age > 17 {
+                                    self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                                } else {
+                                    self.delegate?.didOccurAuthentication(error: .facebookLoginDenied)
+                                    doLog("User login denied due to age restriction.")
+                                }
+                            }
+                        }, failure: { error in
+                            print(error)
+                        })
                     } else {
                         print("Cant sign to firebase")
                     }
@@ -96,33 +115,22 @@ class Authenticator {
             }
         }
     }
-    
-    func createGraphRequestAndStart(forPath path: String, params: [String : Any] = [:], httpMethod: GraphRequestHTTPMethod = .GET, success: @escaping (GraphResponse) -> (), failure: @escaping (GlobalConstants.Message)->()) {
-        let accesstoken = AccessToken.current
-        
-        let graphRequest = GraphRequest.init(graphPath: path, parameters: params, accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)
-        graphRequest.start { (response, result) in
-            switch result {
-            case .failed(let error):
-                failure(GlobalConstants.Message.oops)
-                print(error)
-            case .success(response: let response):
-                success(response)
-            }
-        }
-    }
+
     
     func signInWithFirebase(credential: FIRAuthCredential, provider: Provider, email: String?) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) -> Void in
             if let error = error {
                 self.delegate?.didOccurAuthentication(error: .firebaseAuthenticationFailed(with: error))
             }else {
-                var user = User()
-                user.id = Authenticator.currentFIRUser?.uid
-                user.profile.fbId = AccessToken.current?.userId
+                var userValue = User()
+                if let fbUser = self.user {
+                    userValue = fbUser
+                }
+                userValue.id = Authenticator.currentFIRUser?.uid
+                userValue.profile.fbId = AccessToken.current?.userId
                 
                 GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
-                UserService().saveUser(user: user, completion: { (success, error) in
+                UserService().saveUser(user: userValue, completion: { (success, error) in
                     if let error = error {
                         self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
                     }else {

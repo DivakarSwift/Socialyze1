@@ -19,6 +19,7 @@ class FacebookService {
     
     private var images = [String]()
     private var hasImageCount = -1
+    private var facebookUser:FacebookFriend?
     private var friends = [FacebookFriend]()
     
     func logout() {
@@ -51,20 +52,19 @@ class FacebookService {
         }
     }
     
-    func getUserDetails(success: @escaping ([FacebookFriend]) -> (), failure: @escaping (GlobalConstants.Message)->()) {
-        self.getUserFriends(nextPageCursor: nil, complete: {
-            success(self.friends)
+    func getUserDetails(success: @escaping (FacebookFriend) -> (), failure: @escaping (GlobalConstants.Message)->()) {
+        self.getUserDetails(nextPageCursor: nil, complete: {
+            success(self.facebookUser!)
         }) { (error) in
             failure(error)
-            success(self.friends)
         }
     }
     
-    func getUserDetails(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
-        let param = ["fields": "id, name, email, picture.width(480).height(480), gender, user_birthday"]
+    private func getUserDetails(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
+        let param = ["fields": "id, name, email, picture.width(480).height(480), gender, birthday"]
         let path = "me"
         
-        self.createGraphRequestAndStart(forPath: path, params: param, httpMethod: .GET, success: { response in
+        self.createGraphRequestAndStart(forPath: path, params: param, httpMethod: .GET, success: { (response) in
             
             print(response.dictionaryValue ?? [:])
             guard let responseDict = response.dictionaryValue else {
@@ -72,8 +72,18 @@ class FacebookService {
             }
             let json = JSON(responseDict)
             print(json)
-        }, failure: { errer in
-            
+            if let id = response.dictionaryValue?["id"] as? String, let name = response.dictionaryValue?["name"] as? String, let dob = response.dictionaryValue?["birthday"] as? String {
+                
+                if let picture = response.dictionaryValue?["picture"] as? [String: Any], let data = picture["data"] as? [String: Any], let pict = data["url"] as? String {
+                    
+                    
+                    let user = FacebookFriend(id: id, name: name, profileURLString: pict, dateOfBirth: dob)
+                    self.facebookUser = user
+                    complete()
+                }
+            }
+        }, failure: { (error) in
+            print(error)
             
         })
     }
@@ -116,7 +126,7 @@ class FacebookService {
             let json = JSON(responseDict)
             json["data"].arrayValue.forEach({
                 if let id = $0["id"].string, let name = $0["name"].string, let profileImageURL = $0["picture","data", "url"].string {
-                    let friend = FacebookFriend(id: id, name: name, profileURLString: profileImageURL)
+                    let friend = FacebookFriend(id: id, name: name, profileURLString: profileImageURL, dateOfBirth: nil)
                     if !self.friends.contains(friend) {
                         self.friends.append(friend)
                     }

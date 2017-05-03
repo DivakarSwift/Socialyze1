@@ -40,6 +40,7 @@
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
 		7085EDF51E6EEAC000AD3420 /* bugbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7085EDF41E6EEAC000AD3420 /* bugbutton.png */; };
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
+		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
 		FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC19367C1E70FB85009F2912 /* Profile.storyboard */; };
 		FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC19367F1E70FC01009F2912 /* ProfileViewController.swift */; };
 		FC1936821E710463009F2912 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1936811E710463009F2912 /* EditingViewController.swift */; };
@@ -119,6 +120,7 @@
 		7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		7085EDF41E6EEAC000AD3420 /* bugbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugbutton.png; sourceTree = "<group>"; };
 		7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FC19367C1E70FB85009F2912 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FC19367F1E70FC01009F2912 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC1936811E710463009F2912 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */,
 				1F9F02DE1E9CA5AF004B12FC /* Constants.swift */,
 				1F9F02DC1E9CA584004B12FC /* LocationManager.swift */,
+				F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */,
 			);
 			name = UTILS;
 			sourceTree = "<group>";
@@ -435,7 +438,7 @@
 				TargetAttributes = {
 					FC7A24161E695F56004C9E44 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8MPPDA5P84;
+						DevelopmentTeam = G7RL549555;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -573,6 +576,7 @@
 				1FE787651E87F0B2006B2445 /* JSONExtension.swift in Sources */,
 				1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
+				F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
 				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,
@@ -715,7 +719,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8MPPDA5P84;
+				DEVELOPMENT_TEAM = G7RL549555;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -732,7 +736,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8MPPDA5P84;
+				DEVELOPMENT_TEAM = G7RL549555;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -12,6 +12,7 @@ struct FacebookFriend: Equatable {
     var id: String
     var name: String
     var profileURLString: String
+    var dateOfBirth:String?
 }
 
 func ==(lhs: FacebookFriend, rhs: FacebookFriend) -> Bool {

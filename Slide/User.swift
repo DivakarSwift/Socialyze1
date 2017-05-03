@@ -36,7 +36,7 @@ struct User: Mappable, Equatable {
 
 struct Profile: Mappable {
     var fbId: String?
-    var dateOfBirth: TimeInterval?
+    var dateOfBirth: String?
     var name: String?
     var bio: String?
     var images: [URL] = []
