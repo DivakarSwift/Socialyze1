@@ -25,7 +25,8 @@ class LoginViewController: UIViewController {
 extension LoginViewController: AuthenticatorDelegate {
     
     func shouldUserSignInIntoFirebase() -> Bool {
-        return true
+    
+        return false
     }
 
     func didLogoutUser() {

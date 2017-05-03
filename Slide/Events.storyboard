@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BRo-XB-kAA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BRo-XB-kAA">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -72,7 +72,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnPost:" destination="ujX-dW-eJB" eventType="touchUpInside" id="PD3-Ia-xR0"/>
-                                    <segue destination="q1R-Uq-Cjd" kind="show" id="2ct-lZ-lne"/>
+                                    <segue destination="q1R-Uq-Cjd" kind="show" identifier="openPostedVC" id="2ct-lZ-lne"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 Characters Left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecL-Ph-vIe">
@@ -138,7 +138,7 @@
                         <outlet property="pickerView" destination="FuY-Bp-86q" id="VzM-HB-Xzq"/>
                         <outlet property="txtDescription" destination="agC-49-AWF" id="Jpd-aP-CeM"/>
                         <outlet property="txtUserBio" destination="dav-hd-Usd" id="Mn1-ep-OaQ"/>
-                        <segue destination="q1R-Uq-Cjd" kind="show" id="Dtw-5B-cgj"/>
+                        <segue destination="q1R-Uq-Cjd" kind="show" identifier="openPostedVC" id="Dtw-5B-cgj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLX-cl-z5a" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,7 +183,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnPost:" destination="ujX-dW-eJB" eventType="touchUpInside" id="C8p-SU-8Ng"/>
-                                    <segue destination="vDK-dG-DfW" kind="show" id="sjm-p0-xIj"/>
+                                    <segue destination="vDK-dG-DfW" kind="show" identifier="openSwipeVC" id="sjm-p0-xIj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is where the 100 character Event description will go from the previous screen.. e.g Trying a new bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddA-Pm-bFS">
@@ -230,14 +230,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BRo-XB-kAA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Lh-ud-8BX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Lh-ud-8BX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="ujX-dW-eJB" kind="relationship" relationship="rootViewController" id="j4V-mR-WSH"/>
-                        <segue destination="4fC-TM-GVC" kind="show" id="fiv-6f-0cJ"/>
+                        <segue destination="4fC-TM-GVC" kind="show" identifier="openMain" id="fiv-6f-0cJ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lcn-Sg-qBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,14 +278,14 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="thehomebutton.png"/>
                                         <connections>
-                                            <segue destination="4fC-TM-GVC" kind="show" id="YZE-PN-Jf0"/>
+                                            <segue destination="4fC-TM-GVC" kind="show" identifier="openMain" id="YZE-PN-Jf0"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1k-rB-mhS">
                                         <rect key="frame" x="60" y="0.0" width="60" height="60"/>
                                         <state key="normal" image="ladybird.png"/>
                                         <connections>
-                                            <segue destination="Dmy-ci-ay1" kind="show" id="ROr-mQ-dYF"/>
+                                            <segue destination="Dmy-ci-ay1" kind="show" identifier="openMatches" id="ROr-mQ-dYF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -363,7 +363,7 @@
         <image name="thehomebutton.png" width="267" height="267"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dtw-5B-cgj"/>
-        <segue reference="YZE-PN-Jf0"/>
+        <segue reference="2ct-lZ-lne"/>
+        <segue reference="fiv-6f-0cJ"/>
     </inferredMetricsTieBreakers>
 </document>

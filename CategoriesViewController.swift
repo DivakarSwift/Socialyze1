@@ -261,8 +261,12 @@ class CategoriesViewController: UIViewController {
             self.eventDescription.text = user.profile.bio ?? "User Bio"
         }else {
             
-            self.alert(message: "Come back later for more", okAction: {
-                self.navigationController?.popToRootViewController(animated: true)
+
+            self.alert(message: "No result found. Try again later.", okAction: {
+                if let nav = self.navigationController {
+                    nav.popToRootViewController(animated: true)
+                }
+
             })
         }
     }

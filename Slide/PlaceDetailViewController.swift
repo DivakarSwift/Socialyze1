@@ -89,7 +89,7 @@ class PlaceDetailViewController: UIViewController {
     private func checkout() {
         self.placeService.user(authenticator.user!, checkOutFrom: self.place!) {[weak self] (success, error) in
             self?.isCheckedIn = !success
-            print(error)
+            print(error ?? "Error")
             print("CHECKED OUT")
         }
     }
@@ -108,7 +108,7 @@ class PlaceDetailViewController: UIViewController {
                 }
             }
             
-            print(error)
+            print(error ?? "Error")
             print("CHECKED IN")
         })
     }
