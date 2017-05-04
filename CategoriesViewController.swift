@@ -234,6 +234,7 @@ class CategoriesViewController: UIViewController {
             })
         }
     }
+
     
     func addChatList(opponent user: User, myId: String) {
         ChatService.shared.addChatList(for: user.id!, withMe: myId, completion: { [weak self] (success, error) in
