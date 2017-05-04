@@ -92,7 +92,18 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
-        }else {
+        } else if (place?.early)! > 0 {
+            // Unsure of exactly what should happen for early check in
+            // Can you swipe with only other early check-ins, or all people? How long does it last? Is there ticket verification? Do you need to enter the radius eventually?
+            // Until further notice, copy-pasted code from standard check-in
+            self.checkIn {[weak self] in
+                if self?.checkinData.count != 0 {
+                    self?.performSegue(withIdentifier: "Categories", sender: self)
+                }else {
+                    self?.alert(message: "You're first to check in. Please wait for others to check in")
+                }
+            }
+        } else {
             self.alert(message: GlobalConstants.Message.userNotInPerimeter)
         }
         
