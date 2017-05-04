@@ -239,18 +239,17 @@ class CategoriesViewController: UIViewController {
         ChatService.shared.addChatList(for: user.id!, withMe: myId, completion: { [weak self] (success, error) in
             
             if success {
-                self?.alertWithOkCancel(message: "This somebody is match and available. Do you like to chat", title: "Found Someone", okTitle: "Ok", cancelTitle: "Cancel", okAction: { _ in
-                    
-                    // open chat
-                    let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
-                    if let nav =  self?.navigationController {
-                        nav.pushViewController(vc, animated: true)
-                    } else {
-                        self?.present(vc, animated: true, completion: {
-                            
-                        })
-                    }
-                }, cancelAction: nil)
+                
+                let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "MatchedViewController") as! MatchedViewController
+                vc.friend = user
+                if let nav =  self?.navigationController {
+                    nav.pushViewController(vc, animated: true)
+                } else {
+                    self?.present(vc, animated: true, completion: {
+                        
+                    })
+                }
+                
             } else {
                 self?.alert(message: GlobalConstants.Message.oops)
             }

@@ -122,6 +122,77 @@
             </objects>
             <point key="canvasLocation" x="553" y="-325"/>
         </scene>
+        <!--Matched View Controller-->
+        <scene sceneID="z3S-dJ-9Ow">
+            <objects>
+                <viewController storyboardIdentifier="MatchedViewController" id="5dI-vG-FMI" customClass="MatchedViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zX8-Ev-azD"/>
+                        <viewControllerLayoutGuide type="bottom" id="dJP-Ap-xvQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2vF-U7-aUQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="testprofile2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="uf0-2A-25n">
+                                <rect key="frame" x="40" y="114" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="cv7-BM-AsS"/>
+                                    <constraint firstAttribute="width" secondItem="uf0-2A-25n" secondAttribute="height" multiplier="1:1" id="uSd-Nu-eC0"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-07-ncQ">
+                                <rect key="frame" x="26" y="501" width="268" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eee-5a-cHA">
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="30"/>
+                                        <color key="backgroundColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Resume Swipping">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resumeSwiping:" destination="5dI-vG-FMI" eventType="touchUpInside" id="UIN-XF-vjA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgD-Qu-Hkl">
+                                        <rect key="frame" x="139" y="0.0" width="129" height="30"/>
+                                        <color key="backgroundColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Chat">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startChat:" destination="5dI-vG-FMI" eventType="touchUpInside" id="HOK-NF-zWA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ice broken! Time to meet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-xt-yNc">
+                                <rect key="frame" x="26" y="58.5" width="268" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.705322265625" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fah-07-ncQ" secondAttribute="trailing" constant="10" id="7o3-cB-Zhb"/>
+                            <constraint firstItem="uf0-2A-25n" firstAttribute="top" secondItem="Zhb-xt-yNc" secondAttribute="bottom" constant="30" id="E2A-nW-fIW"/>
+                            <constraint firstItem="Zhb-xt-yNc" firstAttribute="leading" secondItem="2vF-U7-aUQ" secondAttribute="leadingMargin" constant="10" id="NyY-aH-Stu"/>
+                            <constraint firstItem="Fah-07-ncQ" firstAttribute="leading" secondItem="2vF-U7-aUQ" secondAttribute="leadingMargin" constant="10" id="QWl-cf-G2b"/>
+                            <constraint firstItem="dJP-Ap-xvQ" firstAttribute="top" secondItem="Fah-07-ncQ" secondAttribute="bottom" constant="37" id="Qh1-MV-b5p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zhb-xt-yNc" secondAttribute="trailing" constant="10" id="ija-1Z-cks"/>
+                            <constraint firstItem="uf0-2A-25n" firstAttribute="centerX" secondItem="2vF-U7-aUQ" secondAttribute="centerX" id="oCP-3w-HZ9"/>
+                            <constraint firstItem="uf0-2A-25n" firstAttribute="centerY" secondItem="2vF-U7-aUQ" secondAttribute="centerY" constant="-50" id="sh4-de-4rh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="uf0-2A-25n" id="cLG-AI-3hk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JmS-ds-jqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="-275"/>
+        </scene>
         <!--Matches-->
         <scene sceneID="GmS-Ji-opl">
             <objects>

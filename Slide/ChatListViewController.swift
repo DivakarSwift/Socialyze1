@@ -34,19 +34,24 @@ class ChatListViewController: UIViewController {
     func fetchChatList() {
         if let user = Authenticator.shared.user {
             chatService.getChatListAndObserve(of: user, completion: {[weak self] (chatItem, error) in
-                if let item = chatItem {
-                    self?.chatList.append(item)
-                }
-                if let chatUserId = chatItem?.userId {
-                    self?.userService.getUser(withId: chatUserId, completion: { [weak self](user, error) in
-                        if let user = user {
-                            if let index = self?.chatUsers.index(of: user) {
-                                self?.chatUsers[index] = user
-                            }else {
-                                self?.chatUsers.append(user)
+                if error == nil {
+                    if let item = chatItem {
+                        self?.chatList.append(item)
+                    }
+                    if let chatUserId = chatItem?.userId {
+                        self?.userService.getUser(withId: chatUserId, completion: { [weak self](user, error) in
+                            if let user = user {
+                                if let index = self?.chatUsers.index(of: user) {
+                                    self?.chatUsers[index] = user
+                                }else {
+                                    self?.chatUsers.append(user)
+                                }
                             }
-                        }
-                    })
+                        })
+                    }
+                } else {
+                    print(error?.localizedDescription ?? "Firebase Fetch error")
+                    
                 }
             })
         }
