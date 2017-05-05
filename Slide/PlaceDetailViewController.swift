@@ -22,7 +22,10 @@ class PlaceDetailViewController: UIViewController {
     
     var place: Place?
     
-    let thresholdRadius = 30.48 //100ft
+    let smallRadius = 15.24 // 50ft, probably
+    let mediumRadius = 30.48 // 100ft
+    let largeRadius = 304.8 // 1000ft, probably
+    var thresholdRadius = 30.48 //100ft
     
     private var isCheckedIn = false
     
@@ -73,6 +76,14 @@ class PlaceDetailViewController: UIViewController {
     }
     
     @IBAction func checkIn(_ sender: UIButton) {
+        if place?.size == 1 {
+            thresholdRadius = smallRadius
+        } else if place?.size == 2{
+            thresholdRadius = mediumRadius
+        } else if place?.size == 3 {
+            thresholdRadius = largeRadius
+        }
+        
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
@@ -81,7 +92,15 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
-        }else {
+        } else if (place?.early)! > 0 {
+            self.checkIn {[weak self] in
+                if self?.checkinData.count != 0 {
+                    self?.performSegue(withIdentifier: "Categories", sender: self)
+                }else {
+                    self?.alert(message: "You're first to check in. Please wait for others to check in")
+                }
+            }
+        } else {
             self.alert(message: GlobalConstants.Message.userNotInPerimeter)
         }
         
