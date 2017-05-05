@@ -48,7 +48,9 @@ class MatchedViewController : UIViewController {
     }
     
     @IBAction func resumeSwiping(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        }
     }
     
     

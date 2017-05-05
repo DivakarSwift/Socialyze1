@@ -38,6 +38,8 @@ struct Profile: Mappable {
     var fbId: String?
     var dateOfBirth: String?
     var name: String?
+    var firstName:String?
+    var lastName:String?
     var bio: String?
     var images: [URL] = []
     var distanceLowerBound: Double?
@@ -57,6 +59,8 @@ struct Profile: Mappable {
         fbId <- map["fbId"]
         dateOfBirth <- map["dateOfBirth"]
         name <- map["name"]
+        firstName <- map["firstName"]
+        lastName <- map["lastName"]
         bio <- map["bio"]
         images <- (map["images"], URLTransform())
         distanceLowerBound <- map["distanceLowerBound"]

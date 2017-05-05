@@ -86,18 +86,29 @@ class Authenticator {
                     // GlobalConstants.UserDefaultKey.taggableFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: taggableFriends)))
                     
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
-                                       
+                    
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
                         
-                        FacebookService.shared.getUserDetails(success: { (fbUser) in
-                            var user = User()
-                            user.profile.dateOfBirth = fbUser.dateOfBirth
-                            user.profile.name = fbUser.name
+                        FacebookService.shared.getUserDetails(success: { (user) in
                             self.user = user
-                            if let dob = fbUser.dateOfBirth {
+                            if let dob = self.user?.profile.dateOfBirth {
                                 print(dob)
                                 if let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy"), age > 17 {
-                                    self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                                    
+                                    // load and save facebook profile images
+                                    FacebookService.shared.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
+                                        self?.user?.profile.images.append(URL(fileURLWithPath: photoUrlString))
+                                        }, completion: { [weak self] in
+                                            if let me = self, let _ = me.user {
+                                                    me.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                                            }
+                                        }, failure: { error in
+                                            
+                                            self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                                    })
+                                    
+                                    
+                                    
                                 } else {
                                     self.delegate?.didOccurAuthentication(error: .facebookLoginDenied)
                                     doLog("User login denied due to age restriction.")
@@ -106,6 +117,7 @@ class Authenticator {
                         }, failure: { error in
                             print(error)
                         })
+                        
                     } else {
                         print("Cant sign to firebase")
                     }
@@ -115,7 +127,7 @@ class Authenticator {
             }
         }
     }
-
+    
     
     func signInWithFirebase(credential: FIRAuthCredential, provider: Provider, email: String?) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) -> Void in

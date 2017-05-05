@@ -94,7 +94,17 @@ class CategoriesViewController: UIViewController {
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
             let imageURL = images[currentImageIndex]
-            self.imageView.kf.setImage(with: imageURL, placeholder: self.imageView.image)
+//            let orginalXPosition = self.imageView.frame.origin.x
+//            self.imageView.frame.origin.x = self.view.frame.width
+            UIView.transition(with: imageView,
+                              duration: 0.5,
+                              options: .showHideTransitionViews,
+                              animations: {
+//                                self.imageView.frame.origin.x = orginalXPosition
+                                self.imageView.kf.setImage(with: imageURL, placeholder: self.imageView.image)
+            },
+                              completion: nil)
+            
         }
         if currentImageIndex == images.count - 1 {
             currentImageIndex = 0
@@ -295,11 +305,11 @@ class CategoriesViewController: UIViewController {
         if let user = users.first {
             self.imageView.kf.setImage(with: user.profile.images.first, placeholder: #imageLiteral(resourceName: "testprofile2.JPG"), options: nil, progressBlock: nil, completionHandler: nil)
 //            self.imageView.kf.setImage(with: user.profile.images.first)
-            self.userName.text = user.profile.name ?? "Username"
+            self.userName.text = user.profile.firstName ?? "Username"
             if let dob = user.profile.dateOfBirth {
                 let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
                 
-                self.userName.text = (user.profile.name  ?? "Username" ) + ",\(age!)"
+                self.userName.text = (user.profile.firstName  ?? "Username" ) + ",\(age!)"
             }
             self.eventDescription.text = user.profile.bio ?? "User Bio"
         }else {

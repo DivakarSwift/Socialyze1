@@ -19,7 +19,7 @@ class FacebookService {
     
     private var images = [String]()
     private var hasImageCount = -1
-    private var facebookUser:FacebookFriend?
+    private var user:User?
     private var friends = [FacebookFriend]()
     
     func logout() {
@@ -52,16 +52,16 @@ class FacebookService {
         }
     }
     
-    func getUserDetails(success: @escaping (FacebookFriend) -> (), failure: @escaping (GlobalConstants.Message)->()) {
+    func getUserDetails(success: @escaping (User) -> (), failure: @escaping (GlobalConstants.Message)->()) {
         self.getUserDetails(nextPageCursor: nil, complete: {
-            success(self.facebookUser!)
+            success(self.user!)
         }) { (error) in
             failure(error)
         }
     }
     
     private func getUserDetails(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
-        let param = ["fields": "id, name, email, picture.width(480).height(480), gender, birthday"]
+        let param = ["fields": "id, first_name, last_name, name, email, picture, gender, birthday"]
         let path = "me"
         
         self.createGraphRequestAndStart(forPath: path, params: param, httpMethod: .GET, success: { (response) in
@@ -72,16 +72,21 @@ class FacebookService {
             }
             let json = JSON(responseDict)
             print(json)
-            if let id = response.dictionaryValue?["id"] as? String, let name = response.dictionaryValue?["name"] as? String, let dob = response.dictionaryValue?["birthday"] as? String {
+            if let id = json["id"].string, let firstName = json["first_name"].string, let lastName = json["last_name"].string, let dob = json["birthday"].string {
                 
-                if let picture = response.dictionaryValue?["picture"] as? [String: Any], let data = picture["data"] as? [String: Any], let pict = data["url"] as? String {
+                    var user = User()
+                    user.profile.fbId = id
+                    user.profile.firstName = firstName
+                    user.profile.lastName = lastName
+                    user.profile.name = firstName + " " + lastName
+                    user.profile.dateOfBirth = dob
+                if let pic = json["picture","data", "url"].string {
+                    user.profile.images.append(URL(string: pic)!)
+                }
                     
-                    
-                    let user = FacebookFriend(id: id, name: name, profileURLString: pict, dateOfBirth: dob)
-                    self.facebookUser = user
+                    self.user = user
                     complete()
                 }
-            }
         }, failure: { (error) in
             print(error)
             
@@ -113,7 +118,7 @@ class FacebookService {
     }
     
     private func getUserFriends(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
-        var params = ["fields": "id,first_name, last_name, name, picture", "limit" : 200] as [String : Any]
+        var params = ["fields": "id, name, picture, birthday", "limit" : 200] as [String : Any]
         if let nextPageCursor = nextPageCursor {
             params["after"] = nextPageCursor
         }
@@ -126,7 +131,7 @@ class FacebookService {
             let json = JSON(responseDict)
             json["data"].arrayValue.forEach({
                 if let id = $0["id"].string, let name = $0["name"].string, let profileImageURL = $0["picture","data", "url"].string {
-                    let friend = FacebookFriend(id: id, name: name, profileURLString: profileImageURL, dateOfBirth: nil)
+                    let friend = FacebookFriend(id: id, name: name, profileURLString: profileImageURL)
                     if !self.friends.contains(friend) {
                         self.friends.append(friend)
                     }
