@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Explore Columbus"
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     var places = [Place]()
@@ -137,10 +138,15 @@ class ViewController: UIViewController {
     }
     
     func profileBtn(_ sender: UIBarButtonItem) {
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        /*let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
         controller.userId = Authenticator.currentFIRUser?.uid
         self.navigationController?.pushViewController(controller, animated: true)
+        */
+        
+        performSegue(withIdentifier: "profileSegue", sender: self)
+        
+        
     }
     
 }
