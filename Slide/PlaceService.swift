@@ -47,7 +47,7 @@ class PlaceService: FirebaseManager {
                 }
             }
             failure(FirebaseManagerError.noDataFound)
-            print(snapshot.value ?? "Error")
+            print(snapshot.value ?? "Error get check in user")
         })
     }
 }

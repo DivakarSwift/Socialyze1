@@ -67,6 +67,7 @@ class Authenticator {
             let loginManager = LoginManager()
             loginManager.logOut()
             let userPhotos = "user_photos"
+            let userFriends = "user_friends"
             let userBirthDay = "user_birthday"
             // let taggableFriends = "taggable_friends"
             loginManager.logIn([.publicProfile, .custom(userPhotos), .custom(userBirthDay), .userFriends], viewController: nil) { loginResult in
@@ -81,8 +82,8 @@ class Authenticator {
                     let credential = FIRFacebookAuthProvider.credential(withAccessToken: accessToken.authenticationToken)
                     
                     GlobalConstants.UserDefaultKey.userPhotosPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: userPhotos)))
-                    GlobalConstants.UserDefaultKey.userFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: "user_friends"))) //"user_friends"
-                    GlobalConstants.UserDefaultKey.userDOBPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: "user_birthday"))) //"user_birthday"
+                    GlobalConstants.UserDefaultKey.userFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: userFriends))) //"user_friends"
+                    GlobalConstants.UserDefaultKey.userDOBPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: userBirthDay))) //"user_birthday"
                     // GlobalConstants.UserDefaultKey.taggableFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: taggableFriends)))
                     
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
@@ -97,7 +98,7 @@ class Authenticator {
                                     
                                     // load and save facebook profile images
                                     FacebookService.shared.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
-                                        self?.user?.profile.images.append(URL(fileURLWithPath: photoUrlString))
+                                        self?.user?.profile.images.append(URL(string: photoUrlString)!)
                                         }, completion: { [weak self] in
                                             if let me = self, let _ = me.user {
                                                     me.signInWithFirebase(credential: credential, provider: .facebook, email: nil)

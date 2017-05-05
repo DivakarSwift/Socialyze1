@@ -101,7 +101,9 @@ class CategoriesViewController: UIViewController {
                               options: .showHideTransitionViews,
                               animations: {
 //                                self.imageView.frame.origin.x = orginalXPosition
-                                self.imageView.kf.setImage(with: imageURL, placeholder: self.imageView.image)
+                                
+                                self.imageView.kf.indicatorType = .activity
+                                self.imageView.kf.setImage(with: imageURL)
             },
                               completion: nil)
             

@@ -23,15 +23,7 @@ class ProfileViewController: UIViewController {
     let facebookService = FacebookService.shared
     let userService = UserService()
     
-    var images = [String]() {
-        didSet {
-            if images.count == 1 {
-                changeImage()
-            } else if images.count == 2 {
-//                startTimer()
-            }
-        }
-    }
+    var images = [String]()
     
     var currentImageIndex = 0
     
@@ -42,6 +34,8 @@ class ProfileViewController: UIViewController {
             self.editButton.isHidden = false
             self.bioLabel.isHidden = false
             self.bioLabel.text = user?.profile.bio
+            
+            self.userImageView.kf.indicatorType = .activity
             self.userImageView.kf.setImage(with: user?.profile.images.first)
         }
     }
@@ -104,7 +98,8 @@ class ProfileViewController: UIViewController {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
             let imageURLString = images[currentImageIndex]
             if let url = URL(string: imageURLString) {
-                self.userImageView.kf.setImage(with: url, placeholder: self.userImageView.image)
+                self.userImageView.kf.indicatorType = .activity
+                self.userImageView.kf.setImage(with: url)
             }
         }
         if currentImageIndex == images.count - 1 {
@@ -116,6 +111,7 @@ class ProfileViewController: UIViewController {
     
     func loadProfilePicturesFromFacebook() {
         facebookService.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
+            
             self?.images.append(photoUrlString)
             }, completion: { [weak self] in
                 if let me = self, let _ = me.user {
@@ -127,6 +123,14 @@ class ProfileViewController: UIViewController {
                     })
                 }
         }) {[weak self] (error) in
+            
+            if let images = self?.user?.profile.images {
+                self?.images = []
+                for image in images {
+                    let img = image.path
+                    self?.images.append(img)
+                }
+            }
             self?.alert(message: error)
         }
     }

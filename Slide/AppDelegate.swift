@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let userId = Authenticator.currentFIRUser?.uid
             
             UserService().getMe(withId: userId!, completion: { (user, error) in
-                print(error ?? "Error")
+                print(error ?? "Success get user detail")
                 Authenticator.shared.user = user
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
                 self.window?.rootViewController = vc
