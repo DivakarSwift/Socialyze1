@@ -13,6 +13,12 @@ class EditingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.isHidden = false
+    }
 
     @IBAction func doneNavBtn(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
