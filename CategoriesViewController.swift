@@ -268,18 +268,9 @@ class CategoriesViewController: UIViewController {
         ChatService.shared.addChatList(for: user.id!, withMe: myId, completion: { [weak self] (success, error) in
             
             if success {
-                let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "MatchedViewController") as! MatchedViewController
-                vc.backToCheckIn = {
-                    self?.rejectUser()
-                }
-                vc.friend = user
-                if let nav =  self?.navigationController {
-                    nav.pushViewController(vc, animated: true)
-                } else {
-                    self?.present(vc, animated: true, completion: {
-                        
-                    })
-                }
+                
+                self?.showMatchedPopover(opponent: user, myId: myId)
+                
             } else {
                 self?.alert(message: GlobalConstants.Message.oops)
             }
@@ -342,5 +333,51 @@ class CategoriesViewController: UIViewController {
                 
             })
         }
+    }
+    
+    private func showMatchedPopover(opponent user: User, myId: String) {
+        
+        let popoverVC = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "MatchedViewController") as! MatchedViewController
+        
+        popoverVC.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+        let popoverController = popoverVC.popoverPresentationController
+        
+        popoverController?.delegate = self
+        popoverController?.sourceView = self.view
+        popoverController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY,width: 0, height: 0)
+        
+        popoverController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        popoverVC.friend = user
+        
+        popoverVC.backToCheckIn = { chatItem in
+            if let item = chatItem {
+                let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+                if let nav =  self.navigationController {
+                    vc.chatItem = item
+                    vc.chatUserName = user.profile.firstName!
+                    vc.chatOppentId = user.id
+                    nav.pushViewController(vc, animated: true)
+                } else {
+                    self.present(vc, animated: true, completion: {
+                        
+                    })
+                }
+            } else {
+                self.rejectUser()
+            }
+        }
+        self.present(popoverVC,animated: true,completion: nil)
+    }
+}
+
+
+extension CategoriesViewController: UIPopoverControllerDelegate, UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
+        self.view.alpha = 1.0
     }
 }

@@ -25,7 +25,7 @@ class MatchedViewController : UIViewController {
     
     let chatService = ChatService.shared
     
-    var backToCheckIn:(() -> ())?
+    var backToCheckIn:((ChatItem?) -> ())?
     
     override func viewDidLoad() {
         
@@ -34,43 +34,30 @@ class MatchedViewController : UIViewController {
         }
         self.fetchChatItem()
     }
-    
+        
     func fetchChatItem() {
         if let user = Authenticator.shared.user {
-        chatService.getLastMessage(of: user, forUserId: (self.friend?.id)!, completion: { (chatItem, error) in
-            if error == nil {
-                self.chatItem = chatItem
-            } else {
-                print(error?.localizedDescription ?? "Firebase Authentication error!")
-            }
-        })
-        
-        
+            chatService.getLastMessage(of: user, forUserId: (self.friend?.id)!, completion: { (chatItem, error) in
+                if error == nil {
+                    self.chatItem = chatItem
+                } else {
+                    print(error?.localizedDescription ?? "Firebase Authentication error!")
+                }
+            })
         }
     }
     
     @IBAction func resumeSwiping(_ sender: Any) {
-        if let nav = self.navigationController {
-            self.backToCheckIn?()
-            nav.popViewController(animated: true)
-        }
+        self.dismiss(animated: true, completion: {
+            self.backToCheckIn?(nil)
+        })
     }
     
     
     @IBAction func startChat(_ sender: Any) {
-        if let chatItem = self.chatItem {
-            let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-            if let nav =  self.navigationController {
-                vc.chatItem = chatItem
-                vc.chatUserName = self.friend?.profile.name ?? ""
-                vc.chatOppentId = self.friend?.id
-                nav.pushViewController(vc, animated: true)
-            } else {
-                self.present(vc, animated: true, completion: {
-                    
-                })
-            }
-        }
+        self.dismiss(animated: true, completion: {
+            self.backToCheckIn?(self.chatItem)
+        })
     }
     
 }
