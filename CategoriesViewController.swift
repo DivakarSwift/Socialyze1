@@ -16,6 +16,7 @@ class CategoriesViewController: UIViewController {
                 self.images = images
             }
             if oldValue.count == 0 && users.count == 1 {
+                self.activityIndicator.stopAnimating()
                 changeUser()
             }
         }
@@ -54,7 +55,8 @@ class CategoriesViewController: UIViewController {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet var userName: UILabel!
-    
+        
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,9 +81,10 @@ class CategoriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        self.activityIndicator.stopAnimating()
     }
     
+    
+    // MARK: - Gestures Action
     func addTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
@@ -91,16 +94,17 @@ class CategoriesViewController: UIViewController {
         self.changeImage()
     }
     
+    
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
             let imageURL = images[currentImageIndex]
-//            let orginalXPosition = self.imageView.frame.origin.x
-//            self.imageView.frame.origin.x = self.view.frame.width
+            //            let orginalXPosition = self.imageView.frame.origin.x
+            //            self.imageView.frame.origin.x = self.view.frame.width
             UIView.transition(with: imageView,
                               duration: 0.5,
                               options: .showHideTransitionViews,
                               animations: {
-//                                self.imageView.frame.origin.x = orginalXPosition
+                                //                                self.imageView.frame.origin.x = orginalXPosition
                                 
                                 self.imageView.kf.indicatorType = .activity
                                 self.imageView.kf.setImage(with: imageURL)
@@ -115,6 +119,7 @@ class CategoriesViewController: UIViewController {
         }
     }
     
+    // MARK: - User Actions
     @IBAction func reportUser(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let block = UIAlertAction(title: "Block", style: .default) { (_) in
@@ -203,7 +208,7 @@ class CategoriesViewController: UIViewController {
         if gestureRecognizer.state == UIGestureRecognizerState.ended {
             
             if label.center.x < 100 {
-               rejectUser()
+                rejectUser()
             } else if label.center.x > self.view.bounds.width - 100 {
                 acceptUser()
             }
@@ -246,14 +251,16 @@ class CategoriesViewController: UIViewController {
             })
         }
     }
-
+    
     
     func addChatList(opponent user: User, myId: String) {
         ChatService.shared.addChatList(for: user.id!, withMe: myId, completion: { [weak self] (success, error) in
             
             if success {
-                
                 let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "MatchedViewController") as! MatchedViewController
+                vc.backToCheckIn = {
+                    self?.rejectUser()
+                }
                 vc.friend = user
                 if let nav =  self?.navigationController {
                     nav.pushViewController(vc, animated: true)
@@ -262,16 +269,15 @@ class CategoriesViewController: UIViewController {
                         
                     })
                 }
-                
             } else {
                 self?.alert(message: GlobalConstants.Message.oops)
             }
-            
         })
     }
     
     func addLoadingIndicator () {
         self.view.addSubview(activityIndicator)
+        self.view.bringSubview(toFront: activityIndicator)
         activityIndicator.center = self.view.center
     }
     
@@ -300,13 +306,14 @@ class CategoriesViewController: UIViewController {
                     }
                 }
             })
+            acknowledgedCount += 1
         }
     }
     
     func changeUser() {
         if let user = users.first {
             self.imageView.kf.setImage(with: user.profile.images.first, placeholder: #imageLiteral(resourceName: "testprofile2.JPG"), options: nil, progressBlock: nil, completionHandler: nil)
-//            self.imageView.kf.setImage(with: user.profile.images.first)
+            //            self.imageView.kf.setImage(with: user.profile.images.first)
             self.userName.text = user.profile.firstName ?? "Username"
             if let dob = user.profile.dateOfBirth {
                 let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
@@ -316,12 +323,12 @@ class CategoriesViewController: UIViewController {
             self.eventDescription.text = user.profile.bio ?? "User Bio"
         }else {
             
-
+            
             self.alert(message: "No result found. Try again later.", okAction: {
                 if let nav = self.navigationController {
                     nav.popToRootViewController(animated: true)
                 }
-
+                
             })
         }
     }

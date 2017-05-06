@@ -25,6 +25,8 @@ class MatchedViewController : UIViewController {
     
     let chatService = ChatService.shared
     
+    var backToCheckIn:(() -> ())?
+    
     override func viewDidLoad() {
         
         self.profileImageView.rounded()
@@ -49,6 +51,7 @@ class MatchedViewController : UIViewController {
     
     @IBAction func resumeSwiping(_ sender: Any) {
         if let nav = self.navigationController {
+            self.backToCheckIn?()
             nav.popViewController(animated: true)
         }
     }

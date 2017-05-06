@@ -34,6 +34,10 @@ class ProfileViewController: UIViewController {
             self.editButton.isHidden = false
             self.bioLabel.isHidden = false
             self.bioLabel.text = user?.profile.bio
+            if let dob = user?.profile.dateOfBirth {
+                let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
+                self.lblUserName.text = (user?.profile.firstName  ?? "Username" ) + ",\(age!)"
+            }
             
             self.userImageView.kf.indicatorType = .activity
             self.userImageView.kf.setImage(with: user?.profile.images.first)
@@ -82,7 +86,6 @@ class ProfileViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.stopTimer()
     }
     
     func adddTapGesture(toView view: UIView) {

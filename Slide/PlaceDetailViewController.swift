@@ -36,12 +36,18 @@ class PlaceDetailViewController: UIViewController {
     }
     private var checkinData = [Checkin]() {
         didSet {
+            self.activityIndicator.stopAnimating()
             self.changeStatus()
         }
     }
     
     private var checkInKey: String?
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        return CustomActivityIndicatorView(image: image)
+    }()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
@@ -177,6 +183,7 @@ class PlaceDetailViewController: UIViewController {
     }
     
     func getCheckedinUsers() {
+        self.activityIndicator.startAnimating()
         placeService.getCheckInUsers(at: self.place!, completion: {[weak self] (checkin) in
             self?.checkinData = checkin.filter({(checkin) -> Bool in
                 if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
@@ -186,6 +193,7 @@ class PlaceDetailViewController: UIViewController {
                 return false
             })
             }, failure: {[weak self] error in
+                self?.activityIndicator.stopAnimating()
                 self?.alert(message: error.localizedDescription)
         })
     }
