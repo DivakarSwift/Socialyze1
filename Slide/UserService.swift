@@ -51,6 +51,53 @@ class UserService: FirebaseManager {
         })
     }
     
+    func getAcceptListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print(value)
+                let acceptList = JSON(value)
+                var users:[User] = []
+                for (key,_) in acceptList {
+                    self.getUser(withId: key, completion: { (user, error) in
+                        if error == nil {
+                            if let user = user {
+                                users.append(user)
+                                completion(users,nil)
+                            }
+                        } else {
+                            completion(nil, error)
+                            return
+                        }
+                    })
+                }
+            }
+            else {
+                completion(nil, FirebaseManagerError.noDataFound)
+            }
+        })
+    }
+    
+    func getChatListAndObserve(of user: User, completion: @escaping ([ChatItem]?, FirebaseManagerError?) -> ()) {
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observe(.value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print(value)
+                let chatList = JSON(value)
+                var chatItems:[ChatItem] = []
+                for (_,data) in chatList {
+                    if let chatItem: ChatItem = data.map() {
+                        chatItems.append(chatItem)
+                    } else {
+                        completion(nil, FirebaseManagerError.noDataFound)
+                    }
+                }
+                completion(chatItems, nil)
+            }
+            else {
+                completion(nil, FirebaseManagerError.noDataFound)
+            }
+        })
+    }
+    
     func accept(user: User, myId: String, completion: @escaping(_ success: Bool, _ isMatching: Bool) -> Void) {
         // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
         

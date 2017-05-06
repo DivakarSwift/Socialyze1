@@ -31,6 +31,11 @@ class ChatListViewController: UIViewController {
         fetchChatList()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+    
     func fetchChatList() {
         if let user = Authenticator.shared.user {
             chatService.getChatListAndObserve(of: user, completion: {[weak self] (chatItem, error) in
@@ -88,10 +93,10 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        vc.chatItem = self.chatList[indexPath.row]
+        vc.chatUserName = self.chatUsers[indexPath.row].profile.name ?? ""
+        vc.chatOppentId = self.chatUsers[indexPath.row].id
         if let nav =  self.navigationController {
-            vc.chatItem = self.chatList[indexPath.row]
-            vc.chatUserName = self.chatUsers[indexPath.row].profile.name ?? ""
-            vc.chatOppentId = self.chatUsers[indexPath.row].id
             nav.pushViewController(vc, animated: true)
         } else {
             self.present(vc, animated: true, completion: {
