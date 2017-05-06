@@ -81,6 +81,12 @@
                                     <constraint firstAttribute="width" secondItem="SjA-zs-owl" secondAttribute="height" multiplier="1:1" id="upI-T0-IXw"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryM-5y-Ypt">
+                                <rect key="frame" x="20" y="451" width="280" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -99,7 +105,10 @@
                             <constraint firstAttribute="trailingMargin" secondItem="fmo-QB-gAY" secondAttribute="trailing" id="ezz-h3-WIn"/>
                             <constraint firstItem="SjA-zs-owl" firstAttribute="centerX" secondItem="wbe-1n-hP3" secondAttribute="centerX" id="idl-cs-53g"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="fmo-QB-gAY" secondAttribute="bottom" constant="20" id="mfu-xG-6ey"/>
+                            <constraint firstAttribute="trailing" secondItem="ryM-5y-Ypt" secondAttribute="trailing" constant="20" id="nA9-tf-Aza"/>
+                            <constraint firstItem="ryM-5y-Ypt" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leading" constant="20" id="qot-Va-pGZ"/>
                             <constraint firstItem="Suk-AW-li8" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" id="sPu-kQ-TOf"/>
+                            <constraint firstItem="Mzx-XG-7I6" firstAttribute="top" secondItem="ryM-5y-Ypt" secondAttribute="bottom" constant="20" id="zMs-ra-a9x"/>
                         </constraints>
                     </view>
                     <connections>

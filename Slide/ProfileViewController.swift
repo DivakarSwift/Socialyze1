@@ -33,7 +33,17 @@ class ProfileViewController: UIViewController {
         didSet {
             self.editButton.isHidden = false
             self.bioLabel.isHidden = false
-            self.bioLabel.text = user?.profile.bio
+            
+            let maxLength = 150 //char length
+            if let orgText = user?.profile.bio {
+                if orgText.characters.count > maxLength {
+                    let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
+                    let tmpValue = orgText.substring(with: range).appending("...")
+                    self.bioLabel.text = tmpValue
+                }
+            }
+            
+            
             if let dob = user?.profile.dateOfBirth {
                 let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
                 self.lblUserName.text = (user?.profile.firstName  ?? "Username" ) + ",\(age!)"

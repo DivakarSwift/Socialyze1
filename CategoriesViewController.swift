@@ -15,6 +15,16 @@ class CategoriesViewController: UIViewController {
             if let images = users.first?.profile.images {
                 self.images = images
             }
+            
+            let maxLength = 150 //char length
+            if let orgText = users.first?.profile.bio {
+                if orgText.characters.count > maxLength {
+                    let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
+                    let tmpValue = orgText.substring(with: range).appending("...")
+                    self.bioLabel.text = tmpValue
+                }
+            }
+            
             if oldValue.count == 0 && users.count == 1 {
                 self.activityIndicator.stopAnimating()
                 changeUser()
@@ -54,6 +64,7 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var infoButton: UIButton!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet var userName: UILabel!
         
     // MARK: - View Life Cycle
