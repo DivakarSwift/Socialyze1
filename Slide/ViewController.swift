@@ -14,8 +14,8 @@ struct Place {
     let secondImage: UIImage?
     let lat: Double
     let long: Double
-    let size: Int // 0 - custom, 1 - small, 2 - medium, 3 - larg
-    let early: Int // early dehck-in, 0 for no, 1 for yes
+    let size: Int // custom = 0, small = 1, medium = 2, large = 3
+    let early: Int // early check-in, 0 for no, 1 for yes
 }
 
 class ViewController: UIViewController {
