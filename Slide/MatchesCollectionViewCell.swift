@@ -10,4 +10,8 @@ import UIKit
 
 class MatchesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    
+    override func awakeFromNib() {
+        self.imageView.rounded()
+    }
 }

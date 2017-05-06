@@ -29,6 +29,10 @@ class ChatViewController: UIViewController {
         activityIndicator.startAnimating()
         fetchData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     
     func fetchData() {
         chatService.getDataAndObserve(of: self.chatItem!) {[weak self] (data, error) in

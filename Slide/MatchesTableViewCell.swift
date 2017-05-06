@@ -14,10 +14,10 @@ class MatchesTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noMatchesLabel: UILabel!
     
-    var images = [UIImage]() {
+    var users = [User]() {
         didSet {
-            self.noMatchesLabel.isHidden = images.count > 0
-            self.collectionView.isHidden = images.count == 0
+            self.noMatchesLabel.isHidden = users.count > 0
+            self.collectionView.isHidden = users.count == 0
             self.collectionView.reloadData()
         }
     }
@@ -32,12 +32,15 @@ class MatchesTableViewCell: UITableViewCell {
 
 extension MatchesTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return users.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MatchesCollectionViewCell", for: indexPath) as! MatchesCollectionViewCell
-        cell.imageView.image = images[indexPath.row]
+        if let image = self.users[indexPath.row].profile.images.first {
+            cell.imageView.kf.indicatorType = .activity
+            cell.imageView.kf.setImage(with: image)
+        }
         return cell
     }
 }
