@@ -24,7 +24,8 @@ class PlaceDetailViewController: UIViewController {
     
     let smallRadius = 15.24 // 50ft, probably
     let mediumRadius = 30.48 // 100ft
-    let largeRadius = 304.8 // 1000ft, probably
+    let largeRadius = 152.4 // 500ft, probably
+    let hugeRadius = 304.8 // 1000ft, probably
     var thresholdRadius = 30.48 //100ft
     
     private var isCheckedIn = false
@@ -88,6 +89,10 @@ class PlaceDetailViewController: UIViewController {
             thresholdRadius = mediumRadius
         } else if place?.size == 3 {
             thresholdRadius = largeRadius
+        } else if place?.size == 4{
+            thresholdRadius = hugeRadius
+        } else if place?.size == 0 {
+            thresholdRadius = 0
         }
         
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
@@ -98,7 +103,9 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
-        } else if (place?.early)! > 0 {
+        } /*else if thresholdRadius == 0 {
+            
+        }*/ else if (place?.early)! > 0 {
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)

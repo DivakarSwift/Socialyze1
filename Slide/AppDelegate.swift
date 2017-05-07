@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         GMSServices.provideAPIKey(GlobalConstants.APIKeys.googleMap)
         
-        SlydeLocationManager.shared.requestLocation()
+        //SlydeLocationManager.shared.requestLocation()
         
         UINavigationBar.appearance().barTintColor = UIColor(red: 18.0/255.0, green: 18.0/255.0, blue: 18.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
