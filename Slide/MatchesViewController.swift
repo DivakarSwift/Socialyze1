@@ -152,7 +152,7 @@ extension MatchesViewController: UITableViewDataSource {
             let currentUser = self.fetchUserForChatSelected(chatItem: chatItems[indexPath.row])
             
             let label = cell.viewWithTag(2) as! UILabel
-            label.text = currentUser?.profile.name ?? "somebody"
+            label.text = currentUser?.profile.firstName ?? "somebody"
             
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.rounded()
@@ -168,7 +168,7 @@ extension MatchesViewController: UITableViewDataSource {
             let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
             vc.chatItem = self.chatItems[indexPath.row]
             let currentUser = self.fetchUserForChatSelected(chatItem: chatItems[indexPath.row])
-            vc.chatUserName = currentUser?.profile.name ?? ""
+            vc.chatUserName = currentUser?.profile.firstName ?? ""
             vc.chatOppentId = currentUser?.id
             
             if let nav =  self.navigationController {
