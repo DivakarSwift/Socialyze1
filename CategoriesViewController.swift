@@ -59,6 +59,7 @@ class CategoriesViewController: UIViewController {
     }()
     
     let userService = UserService()
+    var fromFBFriends:FacebookFriend?
     
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
@@ -76,26 +77,48 @@ class CategoriesViewController: UIViewController {
         
         addLoadingIndicator()
         
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
-        
         imageView.isUserInteractionEnabled = true
         
-        imageView.addGestureRecognizer(gesture)
         actionImageView.isHidden = true
         
         self.addTapGesture(toView: self.imageView)
         
         self.activityIndicator.startAnimating()
-        self.getAllCheckedInUsers()
+        if let friend = self.fromFBFriends {
+            var user = User()
+            user.profile.firstName = friend.firstName
+            user.profile.images.append(URL(string: friend.profileURLString)!)
+            user.profile.fbId = friend.id
+            user.profile.name = friend.name
+            user.profile.dateOfBirth = friend.dataOfBirth
+            
+            self.users = []
+            self.users.append(user)
+        } else {
+            self.getAllCheckedInUsers()
+            self.addSwipeGesture(toView: self.imageView)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        if let  friend = self.fromFBFriends {
+           self.navigationController?.navigationBar.isHidden = false
+            self.navigationController?.navigationItem.title  = friend.firstName
+        } else {
+            self.navigationController?.navigationBar.isHidden = true
+        }
+        
     }
     
     
     // MARK: - Gestures Action
+    
+    func addSwipeGesture(toView view: UIView) {
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
+        view.addGestureRecognizer(gesture)
+    }
+    
     func addTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)
@@ -190,50 +213,53 @@ class CategoriesViewController: UIViewController {
     
     func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
         
-        let translation = gestureRecognizer.translation(in: view)
-        
-        let label = gestureRecognizer.view!
-        
-        label.center = CGPoint(x: self.view.bounds.width / 2 + translation.x, y: self.view.bounds.height / 2 + translation.y)
-        
-        let xFromCenter = label.center.x - self.view.bounds.width / 2
-        
-        var rotation = CGAffineTransform(rotationAngle: xFromCenter / 200)
-        
-        let scale = min(abs(100 / xFromCenter), 1)
-        
-        var stretchAndRotation = rotation.scaledBy(x: scale, y: scale) // rotation.scaleBy(x: scale, y: scale) is now rotation.scaledBy(x: scale, y: scale)
-        
-        label.transform = stretchAndRotation
-        
-        if label.center.x < 150 {
-            actionImageView.image = #imageLiteral(resourceName: "crossmark")
-            actionImageView.isHidden = false
-        }else if label.center.x > self.view.bounds.width - 150 {
-            actionImageView.image = #imageLiteral(resourceName: "checkmark")
-            actionImageView.isHidden = false
-        }else {
-            actionImageView.isHidden = true
-        }
-        
-        if gestureRecognizer.state == UIGestureRecognizerState.ended {
+        if let _ =  self.fromFBFriends {} else {
             
-            if label.center.x < 100 {
-                rejectUser()
-            } else if label.center.x > self.view.bounds.width - 100 {
-                acceptUser()
-            }
+            let translation = gestureRecognizer.translation(in: view)
             
-            rotation = CGAffineTransform(rotationAngle: 0)
+            let label = gestureRecognizer.view!
             
-            stretchAndRotation = rotation.scaledBy(x: 1, y: 1) // rotation.scaleBy(x: scale, y: scale) is now rotation.scaledBy(x: scale, y: scale)
+            label.center = CGPoint(x: self.view.bounds.width / 2 + translation.x, y: self.view.bounds.height / 2 + translation.y)
             
+            let xFromCenter = label.center.x - self.view.bounds.width / 2
+            
+            var rotation = CGAffineTransform(rotationAngle: xFromCenter / 200)
+            
+            let scale = min(abs(100 / xFromCenter), 1)
+            
+            var stretchAndRotation = rotation.scaledBy(x: scale, y: scale) // rotation.scaleBy(x: scale, y: scale) is now rotation.scaledBy(x: scale, y: scale)
             
             label.transform = stretchAndRotation
             
-            label.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
+            if label.center.x < 150 {
+                actionImageView.image = #imageLiteral(resourceName: "crossmark")
+                actionImageView.isHidden = false
+            }else if label.center.x > self.view.bounds.width - 150 {
+                actionImageView.image = #imageLiteral(resourceName: "checkmark")
+                actionImageView.isHidden = false
+            }else {
+                actionImageView.isHidden = true
+            }
             
-            actionImageView.isHidden = true
+            if gestureRecognizer.state == UIGestureRecognizerState.ended {
+                
+                if label.center.x < 100 {
+                    rejectUser()
+                } else if label.center.x > self.view.bounds.width - 100 {
+                    acceptUser()
+                }
+                
+                rotation = CGAffineTransform(rotationAngle: 0)
+                
+                stretchAndRotation = rotation.scaledBy(x: 1, y: 1) // rotation.scaleBy(x: scale, y: scale) is now rotation.scaledBy(x: scale, y: scale)
+                
+                
+                label.transform = stretchAndRotation
+                
+                label.center = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
+                
+                actionImageView.isHidden = true
+            }
         }
         
     }
@@ -314,7 +340,7 @@ class CategoriesViewController: UIViewController {
     
     func changeUser() {
         if let user = users.first {
-            self.imageView.kf.setImage(with: user.profile.images.first, placeholder: #imageLiteral(resourceName: "testprofile2.JPG"), options: nil, progressBlock: nil, completionHandler: nil)
+            self.imageView.kf.setImage(with: user.profile.images.first)
             //            self.imageView.kf.setImage(with: user.profile.images.first)
             self.userName.text = user.profile.firstName ?? "Username"
             if let dob = user.profile.dateOfBirth {

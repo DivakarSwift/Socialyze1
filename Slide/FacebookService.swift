@@ -118,7 +118,7 @@ class FacebookService {
     }
     
     private func getUserFriends(nextPageCursor: String?, complete: @escaping ()->(), failure: @escaping (GlobalConstants.Message)->()) {
-        var params = ["fields": "id, name, picture, birthday", "limit" : 200] as [String : Any]
+        var params = ["fields": "id, first_name, last_name, name, picture, birthday", "limit" : 200] as [String : Any]
         if let nextPageCursor = nextPageCursor {
             params["after"] = nextPageCursor
         }
@@ -130,8 +130,11 @@ class FacebookService {
             }
             let json = JSON(responseDict)
             json["data"].arrayValue.forEach({
-                if let id = $0["id"].string, let name = $0["name"].string, let profileImageURL = $0["picture","data", "url"].string {
-                    let friend = FacebookFriend(id: id, name: name, profileURLString: profileImageURL)
+                if let id = $0["id"].string, let name = $0["name"].string, let firstName = $0["first_name"].string, let profileImageURL = $0["picture","data", "url"].string {
+                    var friend = FacebookFriend(id: id, firstName: firstName, name: name, profileURLString: profileImageURL, dataOfBirth: nil)
+                    if let dob = $0["birthday"].string {
+                        friend.dataOfBirth = dob
+                    }
                     if !self.friends.contains(friend) {
                         self.friends.append(friend)
                     }

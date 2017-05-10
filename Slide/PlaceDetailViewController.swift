@@ -283,7 +283,7 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
         
         let label = cell.viewWithTag(2) as! UILabel
 //        label.text = "Dari"
-        label.text = friend.name
+        label.text = friend.firstName
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
@@ -292,6 +292,15 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+        vc.fromFBFriends = self.getCheckedInFriends()[indexPath.row]
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        }
+    }
+    
     func setupCollectionView() {
         let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
         let collectionViewCellSpacing:CGFloat = 10

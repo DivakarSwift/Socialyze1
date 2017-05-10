@@ -33,6 +33,9 @@ PODS:
   - Firebase/Database (3.15.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.2)
+  - Firebase/Storage (3.15.0):
+    - Firebase/Core
+    - FirebaseStorage (= 1.1.0)
   - FirebaseAnalytics (3.7.0):
     - FirebaseCore (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
@@ -46,6 +49,9 @@ PODS:
   - FirebaseDatabase (3.1.2):
     - FirebaseAnalytics (~> 3.7)
   - FirebaseInstanceID (1.0.9)
+  - FirebaseStorage (1.1.0):
+    - FirebaseAnalytics (~> 3.7)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleMaps (2.2.0):
     - GoogleMaps/Maps (= 2.2.0)
   - GoogleMaps/Base (2.2.0)
@@ -76,6 +82,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - Firebase/Storage
   - GoogleMaps
   - GooglePlaces
   - IQKeyboardManagerSwift
@@ -97,6 +104,7 @@ SPEC CHECKSUMS:
   FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
@@ -106,6 +114,6 @@ SPEC CHECKSUMS:
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: f7b056e505067ad4b2d06ee1e021399ce7d5952b
+PODFILE CHECKSUM: 23033958c5c1e015bfaf85b8842bd6ff905fd067
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

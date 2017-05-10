@@ -10,8 +10,10 @@ import Foundation
 
 struct FacebookFriend: Equatable {
     var id: String
+    var firstName:String
     var name: String
     var profileURLString:String
+    var dataOfBirth:String?
 }
 
 func ==(lhs: FacebookFriend, rhs: FacebookFriend) -> Bool {

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 
 typealias CallBackWithSuccessError = (_: Bool, _: Error?) -> Void
 
@@ -36,7 +37,9 @@ class FirebaseManager {
     init() {}
     
     private static let _reference = FIRDatabase.database().reference()
+    private static let _storageReference = FIRStorage.storage().reference()
     
     let reference = FirebaseManager._reference
+    let storageReference = FirebaseManager._storageReference
     
 }
