@@ -59,7 +59,7 @@ class CategoriesViewController: UIViewController {
     }()
     
     let userService = UserService()
-    var fromFBFriends:FacebookFriend?
+    var fromFBFriends:User?
     
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
@@ -85,15 +85,8 @@ class CategoriesViewController: UIViewController {
         
         self.activityIndicator.startAnimating()
         if let friend = self.fromFBFriends {
-            var user = User()
-            user.profile.firstName = friend.firstName
-            user.profile.images.append(URL(string: friend.profileURLString)!)
-            user.profile.fbId = friend.id
-            user.profile.name = friend.name
-            user.profile.dateOfBirth = friend.dataOfBirth
-            
             self.users = []
-            self.users.append(user)
+            self.users.append(friend)
         } else {
             self.getAllCheckedInUsers()
             self.addSwipeGesture(toView: self.imageView)
@@ -104,7 +97,7 @@ class CategoriesViewController: UIViewController {
         super.viewWillAppear(animated)
         if let  friend = self.fromFBFriends {
            self.navigationController?.navigationBar.isHidden = false
-            self.navigationController?.navigationItem.title  = friend.firstName
+            self.navigationController?.navigationItem.title  = friend.profile.firstName
         } else {
             self.navigationController?.navigationBar.isHidden = true
         }

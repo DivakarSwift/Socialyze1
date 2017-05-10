@@ -45,6 +45,13 @@ class PlaceDetailViewController: UIViewController {
         }
     }
     
+    var checkinUsers: [User] = [] {
+        didSet {
+            self.activityIndicator.stopAnimating()
+            self.changeStatus()
+        }
+    }
+    
     private var checkInKey: String?
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
@@ -211,6 +218,8 @@ class PlaceDetailViewController: UIViewController {
     func getCheckedinUsers() {
         self.activityIndicator.startAnimating()
         placeService.getCheckInUsers(at: self.place!, completion: {[weak self] (checkin) in
+            
+            self?.getAllCheckedInUsers(data : checkin)
             self?.checkinData = checkin.filter({(checkin) -> Bool in
                 if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
                     // return true
@@ -223,6 +232,39 @@ class PlaceDetailViewController: UIViewController {
                 self?.alert(message: error.localizedDescription)
         })
     }
+    
+    func getAllCheckedInUsers(data : [Checkin]) {
+        var acknowledgedCount = 0 {
+            didSet {
+                if acknowledgedCount == self.checkinData.count {
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
+        acknowledgedCount = 0
+        
+        let userIdsSet = Set(data.flatMap({$0.userId}))
+        userIdsSet.forEach { (userId) in
+            
+            UserService().getUser(withId: userId, completion: { [weak self] (user, error) in
+                
+                if let error = error {
+                    self?.alert(message: error.localizedDescription)
+                    return
+                }
+                
+                if let user = user {
+                    if let index = self?.checkinUsers.index(of: user) {
+                        self?.checkinUsers[index] = user
+                    }else {
+                        self?.checkinUsers.append(user)
+                    }
+                }
+            })
+            acknowledgedCount += 1
+        }
+    }
+
     
     func getDistanceToUser() -> Double? {
         if let place = self.place, let distance = SlydeLocationManager.shared.distanceFromUser(lat: place.lat, long: place.long) {
@@ -272,30 +314,30 @@ extension PlaceDetailViewController: AuthenticatorDelegate {
 extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.getCheckedInFriends().count
+        return  self.checkinUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        let friend = self.getCheckedInFriends()[indexPath.row]
+        let user = self.checkinUsers[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         
         let label = cell.viewWithTag(2) as! UILabel
 //        label.text = "Dari"
-        label.text = friend.firstName
+        label.text = user.profile.firstName
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
 //        imageView.image = UIImage(named: "profile.png")
-        imageView.kf.setImage(with: URL(string: friend.profileURLString))
+        imageView.kf.setImage(with: user.profile.images.first)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
-        vc.fromFBFriends = self.getCheckedInFriends()[indexPath.row]
+        vc.fromFBFriends = self.checkinUsers[indexPath.row]
         if let nav = self.navigationController {
             nav.pushViewController(vc, animated: true)
         }
