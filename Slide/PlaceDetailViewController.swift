@@ -28,6 +28,13 @@ class PlaceDetailViewController: UIViewController {
     let hugeRadius = 304.8 // 1000ft, probably
     var thresholdRadius = 30.48 //100ft
     
+    /*let SNlat1 = 39.984467
+    let SNlong1 = -83.004969
+    let SNlat2 = 39.979144
+    let SNlong2 = -83.003942
+    let SNlat3 = 39.973620
+    let SNlong3 = -83.003916*/
+    
     private var isCheckedIn = false
     
     let facebookService = FacebookService.shared
@@ -110,8 +117,14 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
-        } /*else if thresholdRadius == 0 {
-            
+        } /*else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
+            self.checkIn {[weak self] in
+                if self?.checkinData.count != 0 {
+                    self?.performSegue(withIdentifier: "Categories", sender: self)
+                }else {
+                    self?.alert(message: "You're first to check in. Please wait for others to check in")
+                }
+            }
         }*/ else if (place?.early)! > 0 {
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
