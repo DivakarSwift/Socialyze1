@@ -340,7 +340,7 @@ class CategoriesViewController: UIViewController {
             if let dob = user.profile.dateOfBirth {
                 let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
                 
-                self.userName.text = (user.profile.firstName  ?? "Username" ) + ",\(age!)"
+                self.userName.text = (user.profile.firstName  ?? "Username" ) + ", \(age!)"
             }
             self.eventDescription.text = user.profile.bio ?? "User Bio"
         }else {

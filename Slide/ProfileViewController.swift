@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
             
             if let dob = user?.profile.dateOfBirth {
                 let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
-                self.lblUserName.text = (user?.profile.firstName  ?? "Username" ) + ",\(age!)"
+                self.lblUserName.text = (user?.profile.firstName  ?? "Username" ) + ", \(age!)"
             }
             
             self.userImageView.kf.indicatorType = .activity
