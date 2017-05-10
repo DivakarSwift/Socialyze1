@@ -51,24 +51,28 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getAcceptListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
+    func getMatchListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value {
                 print(value)
                 let acceptList = JSON(value)
                 var users:[User] = []
-                for (key,_) in acceptList {
-                    self.getUser(withId: key, completion: { (user, error) in
-                        if error == nil {
-                            if let user = user {
-                                users.append(user)
-                                completion(users,nil)
+                for (key,data) in acceptList {
+                    if data["match"].boolValue {
+                        self.getUser(withId: key, completion: { (user, error) in
+                            if error == nil {
+                                if let user = user {
+                                    users.append(user)
+                                    completion(users,nil)
+                                }
+                            } else {
+                                completion(nil, error)
+                                return
                             }
-                        } else {
-                            completion(nil, error)
-                            return
-                        }
-                    })
+                        })
+                    } else {
+                        completion(users,nil)
+                    }
                 }
             }
             else {
@@ -101,24 +105,39 @@ class UserService: FirebaseManager {
     func accept(user: User, myId: String, completion: @escaping(_ success: Bool, _ isMatching: Bool) -> Void) {
         // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
         
+        print("OpponentId: \(user.id!)")
+        print("MyId: \(myId)")
         reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).observeSingleEvent(of: .value, with: {(snapshot) in
             
             var isMatching = false
+            var match = false
             if let val = snapshot.value {
                 let json = JSON(val)
-                print(json)
-                let match = true // json["matched"].boolValue
+                if let matchValue = json["match"].bool {
+                    print(matchValue)
+                    match = true
+                }
                 let time = json["time"].doubleValue
                 let timeValid = (Date().timeIntervalSince1970 - time) < checkInThreshold
                 isMatching = match && timeValid
             }
             
             let value = [
-//                "matched": isMatching,
+                "match": match,
                 "time": Date().timeIntervalSince1970
                 ] as [String : Any]
             self.reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(user.id!).updateChildValues(value) { (error, _) in
-                completion(error == nil, isMatching)
+                if match {
+                    let value = [
+                        "match": match
+                        ] as [String : Any]
+                    self.reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).updateChildValues(value) { (error, _) in
+                        completion(error == nil, isMatching)
+                    }
+                } else {
+                    completion(error == nil, isMatching)
+                }
+                
             }
         })
     }

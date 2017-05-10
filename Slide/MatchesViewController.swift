@@ -12,12 +12,12 @@ class MatchesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
-    var chatItems:[ChatItem] =  [ChatItem]() {
+    var chatItems:[ChatItem] =  [] {
         didSet {
             self.tableView.reloadData()
         }
     }
-    var acceptList:[User] =  [User]() {
+    var acceptList:[User] =  [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -35,6 +35,7 @@ class MatchesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        self.fetchAcceptList()
     }
     
     func fetchChatList() {
@@ -74,7 +75,7 @@ class MatchesViewController: UIViewController {
     
     func fetchAcceptList() {
         if let user = Authenticator.shared.user {
-            userService.getAcceptListUsers(of: user, completion: {[weak self] (user, error) in
+            userService.getMatchListUsers(of: user, completion: {[weak self] (user, error) in
                 if error == nil {
                     self?.acceptList = user!
                     self?.fetchChatList()
@@ -144,6 +145,9 @@ extension MatchesViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MatchesTableViewCell", for: indexPath) as! MatchesTableViewCell
             cell.users = acceptList
+            cell.itemSelected = { user in
+                self.openChat(forUser: user)
+            }
             return cell
         }
         else {
@@ -153,6 +157,11 @@ extension MatchesViewController: UITableViewDataSource {
             
             let label = cell.viewWithTag(2) as! UILabel
             label.text = currentUser?.profile.firstName ?? "somebody"
+            
+            let messageLabel = cell.viewWithTag(3) as! UILabel
+            if let message = self.chatItems[indexPath.row].lastMessage {
+                messageLabel.text = message
+            }
             
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.rounded()
@@ -165,19 +174,35 @@ extension MatchesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
-            let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-            vc.chatItem = self.chatItems[indexPath.row]
             let currentUser = self.fetchUserForChatSelected(chatItem: chatItems[indexPath.row])
-            vc.chatUserName = currentUser?.profile.firstName ?? ""
-            vc.chatOppentId = currentUser?.id
-            
-            if let nav =  self.navigationController {
-                nav.pushViewController(vc, animated: true)
-            } else {
-                self.present(vc, animated: true, completion: {
-                    
-                })
+            let chatItem = self.chatItems[indexPath.row]
+            self.openChat(forUser: currentUser!, chatItem: chatItem )
+        }
+    }
+    
+    func openChat(forUser user: User, chatItem: ChatItem? = nil) {
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        vc.chatItem = chatItem
+        
+        if chatItem == nil {
+            var val = ChatItem()
+            if let friend = user.id, let me = Authenticator.shared.user?.id {
+                let chatId =  friend > me ? friend+me : me+friend
+                val.chatId = chatId
+                val.userId = me
             }
+            vc.chatItem = val
+        }
+        
+        vc.chatUserName = user.profile.firstName ?? ""
+        vc.chatOppentId = user.id
+        
+        if let nav =  self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        } else {
+            self.present(vc, animated: true, completion: {
+                
+            })
         }
     }
 }

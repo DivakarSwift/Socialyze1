@@ -35,7 +35,11 @@ class ChatViewController: UIViewController {
     }
     
     func fetchData() {
-        chatService.getDataAndObserve(of: self.chatItem!) {[weak self] (data, error) in
+        guard let item = self.chatItem  else {
+            return
+        }
+        
+        chatService.getDataAndObserve(of: item) {[weak self] (data, error) in
             guard let me = self else {
                 return
             }
@@ -71,26 +75,39 @@ class ChatViewController: UIViewController {
     
     @IBAction func send(_ sender: Any) {
         if messageTextView.text.trimmingCharacters(in: .whitespacesAndNewlines) != "" {
+            guard let opponetId = chatOppentId, let myId = Authenticator.shared.user?.id else {
+                return
+            }
             
-            var chatData = ChatData()
-            chatData.fromUser = chatItem?.userId
-            chatData.toUser = chatOppentId
-            chatData.time = Date().timeIntervalSince1970
-            chatData.message = messageTextView.text
-            chatData.id = self.chatData.first?.id ?? "\(self.chatData.count)"
-                
-                self.chatService.send(message: chatData, chat: chatItem!, completion: { (success, error) in
+            // Create chatlist or update chatlist
+            self.chatService.addChatList(for: opponetId, withMe: myId, message: messageTextView.text, completion: { chatId, error in
+                if error == nil {
+                    var chatData = ChatData()
+                    chatData.fromUser = myId
+                    chatData.toUser = opponetId
+                    chatData.time = Date().timeIntervalSince1970
+                    chatData.message = self.messageTextView.text
+                    chatData.id = chatId
                     
-                    if error == nil {
-                        self.messageTextView.text = ""
-                        self.tableView.reloadData()
-                        
-                        let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
-                        self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-                    }
-                    
-                })
+                    // Send Message
+                    self.sendChatData(message: chatData, chatId: chatId)
+                }
+            })
         }
+    }
+    
+    private func sendChatData(message:ChatData, chatId: String){
+        self.chatService.send(message: message, chatId: chatId, completion: { (success, error) in
+            
+            if error == nil {
+                self.messageTextView.text = ""
+                self.tableView.reloadData()
+                
+//                let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
+//                self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+            }
+            
+        })
     }
 }
 
@@ -110,10 +127,8 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = chatData[indexPath.row]
         
-    
-        let isFriend = data.toUser == chatItem?.userId
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: isFriend ? "friend": "me", for: indexPath)
+        let isMe = data.fromUser == self.chatItem?.userId
+        let cell = tableView.dequeueReusableCell(withIdentifier: isMe ? "me" : "friend", for: indexPath)
         //        let userImage = cell.viewWithTag(1)
         let label = cell.viewWithTag(2) as! UILabel
         label.text = data.message

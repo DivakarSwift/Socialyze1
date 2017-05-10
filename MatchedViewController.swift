@@ -41,7 +41,7 @@ class MatchedViewController : UIViewController {
                 if error == nil {
                     self.chatItem = chatItem
                 } else {
-                    print(error?.localizedDescription ?? "Firebase Authentication error!")
+                    print(error?.localizedDescription ?? FirebaseManagerError.noDataFound)
                 }
             })
         }

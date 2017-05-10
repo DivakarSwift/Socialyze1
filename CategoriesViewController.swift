@@ -274,27 +274,13 @@ class CategoriesViewController: UIViewController {
             self.userService.accept(user: acceptedUser, myId: myId, completion: { [weak self] (success, isMatching) in
                 
                 if isMatching {
-                    self?.addChatList(opponent: acceptedUser, myId: myId)
+                    self?.showMatchedPopover(opponent: acceptedUser, myId: myId)
                 } else {
                     _ = self?.removeTopUser()
                 }
                 return
             })
         }
-    }
-    
-    
-    func addChatList(opponent user: User, myId: String) {
-        ChatService.shared.addChatList(for: user.id!, withMe: myId, completion: { [weak self] (success, error) in
-            
-            if success {
-                
-                self?.showMatchedPopover(opponent: user, myId: myId)
-                
-            } else {
-                self?.alert(message: GlobalConstants.Message.oops)
-            }
-        })
     }
     
     func addLoadingIndicator () {
