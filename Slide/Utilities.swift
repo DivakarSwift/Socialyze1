@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 
 class Utilities: NSObject {
@@ -26,4 +27,17 @@ class Utilities: NSObject {
     }
     
 }
+
+struct MyIndicator: Indicator {
+    let view: UIView = CustomActivityIndicatorView(image: #imageLiteral(resourceName: "ladybird.png"))
+    let indicatorView = CustomActivityIndicatorView(image: #imageLiteral(resourceName: "ladybird.png"))
+    func startAnimatingView() { indicatorView.startAnimating() }
+    func stopAnimatingView() { indicatorView.stopAnimating() }
+    
+    init() {
+        view.backgroundColor = .red
+        view.addSubview(indicatorView)
+    }
+}
+
 

@@ -125,20 +125,21 @@ class CategoriesViewController: UIViewController {
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
             let imageURL = images[currentImageIndex]
-            //            let orginalXPosition = self.imageView.frame.origin.x
-            //            self.imageView.frame.origin.x = self.view.frame.width
-            UIView.transition(with: imageView,
-                              duration: 0.5,
-                              options: .showHideTransitionViews,
-                              animations: {
-                                //                                self.imageView.frame.origin.x = orginalXPosition
-                                
-                                self.imageView.kf.indicatorType = .activity
-                                self.imageView.kf.setImage(with: imageURL)
-            },
-                              completion: nil)
             
+            self.activityIndicator.startAnimating()
+            self.imageView.kf.setImage(with: imageURL, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: { receivedSize, totalSize in
+                let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
+                print("downloading progress: \(percentage)%")
+                if percentage == 100.0 {
+                    self.activityIndicator.isAnimating = false
+                    self.activityIndicator.stopAnimating()
+                }
+            },completionHandler: { _ in
+                self.activityIndicator.isAnimating = false
+                self.activityIndicator.stopAnimating()
+            })
         }
+        
         if currentImageIndex == images.count - 1 {
             currentImageIndex = 0
         }else {
