@@ -14,6 +14,8 @@ class MatchesTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noMatchesLabel: UILabel!
     
+    var itemSelected:((User) -> ())?
+    
     var users = [User]() {
         didSet {
             self.noMatchesLabel.isHidden = users.count > 0
@@ -26,6 +28,11 @@ class MatchesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        
+        
     }
     
 }
@@ -42,6 +49,11 @@ extension MatchesTableViewCell: UICollectionViewDataSource {
             cell.imageView.kf.setImage(with: image)
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let user = self.users[indexPath.row]
+        self.itemSelected?(user)
     }
 }
 

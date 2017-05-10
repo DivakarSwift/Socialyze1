@@ -16,6 +16,7 @@ enum Node: String {
     case user
     case report
     case acceptList
+    case connections
     case profile
     case chatList
     case chat

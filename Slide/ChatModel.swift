@@ -20,6 +20,10 @@ struct ChatItem: Mappable {
         self.mapping(map: map)
     }
     
+    init () {
+        
+    }
+        
     mutating func mapping(map: Map) {
         userId <- map["userId"]
         lastMessage <- map["lastMessage"]

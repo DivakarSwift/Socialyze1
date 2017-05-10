@@ -212,7 +212,7 @@
         <!--Chat List View Controller-->
         <scene sceneID="O53-nF-3X4">
             <objects>
-                <viewController storyboardIdentifier="ChatListViewController" automaticallyAdjustsScrollViewInsets="NO" id="rRd-G6-574" customClass="ChatListViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatListViewController" id="rRd-G6-574" customClass="ChatListViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Ft-wy-eaM"/>
                         <viewControllerLayoutGuide type="bottom" id="sJc-Wd-0LT"/>
@@ -229,7 +229,7 @@
                                         <rect key="frame" x="0.0" y="28" width="1024" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="57n-CN-I8y" id="6P5-e5-BKi">
-                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XbF-ZE-250">

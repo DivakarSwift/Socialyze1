@@ -46,7 +46,7 @@ class ChatService: FirebaseManager {
         })
     }
     
-    func addChatList(for friend:String, withMe me :String,  completion : @escaping CallBackWithSuccessError) {
+    func addChatList(for friend:String, withMe me :String, message: String,  completion : @escaping (_ chatId : String, _ error : Error?) -> Void) {
         
         
         let chatId =  friend > me ? friend+me : me+friend
@@ -60,31 +60,34 @@ class ChatService: FirebaseManager {
             if error == nil {
             let refMe = self.reference.child(Node.user.rawValue).child(me).child(Node.chatList.rawValue).child(friend)
             let refFriend = self.reference.child(Node.user.rawValue).child(friend).child(Node.chatList.rawValue).child(me)
-            
+               
             
             let friendValue = [
                 "userId" : friend,
-                "chatId" : chatId
+                "chatId" : chatId,
+                "lastMessage" : message
                 ] as [String : Any]
             let meValue = [
                 "userId" : me,
-                "chatId" : chatId
+                "chatId" : chatId,
+                "lastMessage" : message
                 ] as [String : Any]
             
             var parameter = [me: [friend: friendValue]]
             parameter[friend]  = [me: meValue]
+                
             
             refFriend.updateChildValues(meValue, withCompletionBlock: { error, _ in
                 if error == nil {
                     refMe.updateChildValues(friendValue, withCompletionBlock: { error, _ in
-                        completion(error == nil, error)
+                        completion(chatId, error)
                     })
                 } else {
-                    completion(error == nil, error)
+                    completion(chatId, error)
                 }
             })
             } else {
-                completion(error == nil, error)
+                completion(chatId, error)
             }
         })
         
@@ -122,8 +125,8 @@ class ChatService: FirebaseManager {
         }
     }
     
-    func send(message: ChatData, chat: ChatItem, completion: @escaping CallBackWithSuccessError) {
-        let ref = reference.child(Node.chat.rawValue).child(chat.chatId!).childByAutoId()
+    func send(message: ChatData, chatId: String, completion: @escaping CallBackWithSuccessError) {
+        let ref = reference.child(Node.chat.rawValue).child(chatId).childByAutoId()
         var message = message
         message.id = ref.key
         
