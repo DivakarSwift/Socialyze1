@@ -100,8 +100,10 @@ class Authenticator {
                                     FacebookService.shared.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
                                         self?.user?.profile.images.append(URL(string: photoUrlString)!)
                                         }, completion: { [weak self] in
-                                            if let me = self, let _ = me.user {
+                                            if let me = self, let user = me.user {
                                                     me.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                                                
+                                                
                                             }
                                         }, failure: { error in
                                             

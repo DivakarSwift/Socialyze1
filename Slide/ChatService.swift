@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseDatabase
 import SwiftyJSON
+import UserNotifications
 
 class ChatService: FirebaseManager {
     private var chatRefIds = [String: UInt]()
@@ -25,7 +26,7 @@ class ChatService: FirebaseManager {
     }
     
     func getChatListAndObserve(of user: User, completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
-        reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observe(.childAdded, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])
             if let chatItem: ChatItem = json.map() {
                 completion(chatItem, nil)
@@ -34,6 +35,37 @@ class ChatService: FirebaseManager {
             }
         })
     }
+    
+    func observeChatList(completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
+        if let userId = Authenticator.shared.user?.id {
+            reference.child(Node.user.rawValue).child(userId).child(Node.chatList.rawValue).observe(.childChanged, with: { (snapshot) in
+                let json = JSON(snapshot.value ?? [])
+                print(json)
+                print(JSON(json))
+                if let chatItem: ChatItem = json.map() {
+                        completion(chatItem, nil)
+                }else {
+                    completion(nil, FirebaseManagerError.noDataFound)
+                }
+            })
+        }
+    }
+    
+    
+    func observeMatchList(completion: @escaping (String?, FirebaseManagerError?) -> ()) {
+        if let userId = Authenticator.shared.user?.id {
+            reference.child(Node.user.rawValue).child(userId).child(Node.matchList.rawValue).observe(.childChanged, with: { (snapshot) in
+                let json = JSON(snapshot.value ?? [])
+                print(json)
+                if let id = json["userId"].string {
+                        completion(id, nil)
+                }else {
+                    completion(nil, FirebaseManagerError.noDataFound)
+                }
+            })
+        }
+    }
+
     
     func getLastMessage(of user: User, forUserId: String,  completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).child(forUserId).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -134,4 +166,6 @@ class ChatService: FirebaseManager {
             completion(error == nil, error)
         })
     }
+
 }
+

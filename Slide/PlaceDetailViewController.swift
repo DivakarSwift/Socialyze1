@@ -85,6 +85,8 @@ class PlaceDetailViewController: UIViewController {
         getCheckedinUsers()
         //        friendsTableView.tableFooterView = UIView()
         self.setupCollectionView()
+        
+        //
     }
     
     override func viewWillAppear(_ animated: Bool) {
