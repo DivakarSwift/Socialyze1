@@ -219,7 +219,7 @@ class PlaceDetailViewController: UIViewController {
         self.activityIndicator.startAnimating()
         placeService.getCheckInUsers(at: self.place!, completion: {[weak self] (checkin) in
             
-            self?.getAllCheckedInUsers(data : checkin)
+            
             self?.checkinData = checkin.filter({(checkin) -> Bool in
                 if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
                     // return true
@@ -227,6 +227,10 @@ class PlaceDetailViewController: UIViewController {
                 }
                 return false
             })
+            if let data = self?.checkinData {
+                self?.getAllCheckedInUsers(data : data)
+            }
+            
             }, failure: {[weak self] error in
                 self?.activityIndicator.stopAnimating()
                 self?.alert(message: error.localizedDescription)
