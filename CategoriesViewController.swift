@@ -358,17 +358,16 @@ class CategoriesViewController: UIViewController {
         popoverVC.backToCheckIn = { chatItem in
             if let item = chatItem {
                 let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+                vc.chatItem = item
+                vc.chatUserName = user.profile.firstName!
+                vc.chatOppentId = user.id
                 if let nav =  self.navigationController {
-                    vc.chatItem = item
-                    vc.chatUserName = user.profile.firstName!
-                    vc.chatOppentId = user.id
                     nav.pushViewController(vc, animated: true)
                 } else {
-                    self.present(vc, animated: true, completion: {
-                        
-                    })
+                    self.present(vc, animated: true, completion: nil)
                 }
-            } else {
+            }
+            else {
                 self.rejectUser()
             }
         }

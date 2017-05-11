@@ -36,31 +36,27 @@ class ChatService: FirebaseManager {
         })
     }
     
-    func observeChatList(completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
+    func observeChatList() {
         if let userId = Authenticator.shared.user?.id {
             reference.child(Node.user.rawValue).child(userId).child(Node.chatList.rawValue).observe(.childChanged, with: { (snapshot) in
                 let json = JSON(snapshot.value ?? [])
                 print(json)
                 print(JSON(json))
                 if let chatItem: ChatItem = json.map() {
-                        completion(chatItem, nil)
-                }else {
-                    completion(nil, FirebaseManagerError.noDataFound)
+                        Utilities.fireChatNotification(chatItem: chatItem)
                 }
             })
         }
     }
     
     
-    func observeMatchList(completion: @escaping (String?, FirebaseManagerError?) -> ()) {
+    func observeMatchList() {
         if let userId = Authenticator.shared.user?.id {
             reference.child(Node.user.rawValue).child(userId).child(Node.matchList.rawValue).observe(.childChanged, with: { (snapshot) in
                 let json = JSON(snapshot.value ?? [])
                 print(json)
                 if let id = json["userId"].string {
-                        completion(id, nil)
-                }else {
-                    completion(nil, FirebaseManagerError.noDataFound)
+                       Utilities.fireMatchedNotification(userId: id)
                 }
             })
         }

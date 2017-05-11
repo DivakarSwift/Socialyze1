@@ -33,11 +33,20 @@ class MatchedViewController : UIViewController {
     override func viewDidLoad() {
         
         self.profileImageView.rounded()
-        if let user = self.friend {self.profileImageView.kf.setImage(with: user.profile.images.first)
+        if let user = self.friend {
+            self.profileImageView.kf.setImage(with: user.profile.images.first)
         }
         self.fetchChatItem()
     }
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let user = self.friend {
+            self.profileImageView.kf.setImage(with: user.profile.images.first)
+            self.nameLabel.text = user.profile.firstName
+        }
+    }
+    
     func fetchChatItem() {
         if let user = Authenticator.shared.user {
             chatService.getLastMessage(of: user, forUserId: (self.friend?.id)!, completion: { (chatItem, error) in
@@ -59,6 +68,16 @@ class MatchedViewController : UIViewController {
     
     @IBAction func startChat(_ sender: Any) {
         self.dismiss(animated: true, completion: {
+            
+            if self.chatItem == nil {
+                var val = ChatItem()
+                if let friend = self.friend?.id, let me = Authenticator.shared.user?.id {
+                    let chatId =  friend > me ? friend+me : me+friend
+                    val.chatId = chatId
+                    val.userId = me
+                }
+                self.chatItem = val
+            }
             self.backToCheckIn?(self.chatItem)
         })
     }

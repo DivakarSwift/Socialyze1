@@ -42,13 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Requesting Authorization for User Interactions
         if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
                 // Enable or disable features based on authorization.
+                if !granted {
+                    print("Something went wrong")
+                }
             }
+            center.delegate = self
+            center.getNotificationSettings(completionHandler: { (setting) in
+                if setting.authorizationStatus != .authorized {
+                    // Notifications not allowed
+                    print("Notification not allowed")
+                }
+            })
         } else {
             // Fallback on earlier versions
-            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
-            
+            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
         }
         
         
@@ -88,6 +98,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
     
+
+    
     
 }
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        
+        
+    }
+    
+    @available(iOS 10.0, *)
+    private func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: () -> Void) {
+        print("Tapped in notification")
+        
+        // Must be called when finished
+        completionHandler();
+    }
+    
+    
+    
+    @available(iOS 10.0, *)
+    private func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: (UNNotificationPresentationOptions) -> Void) {
+        print("Notification being triggered")
+        
+        if notification.request.identifier == Node.chatList.rawValue{
+            
+            completionHandler( [.alert,.sound,.badge])
+            
+        } else if notification.request.identifier == Node.matchList.rawValue{
+            
+            completionHandler( [.alert,.sound,.badge])
+            
+        }
+    }
+}
+
 
