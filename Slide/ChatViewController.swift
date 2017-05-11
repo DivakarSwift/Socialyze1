@@ -127,7 +127,7 @@ extension ChatViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = chatData[indexPath.row]
         
-        let isMe = data.fromUser == self.chatItem?.userId
+        let isMe = data.fromUser == Authenticator.shared.user?.id
         let cell = tableView.dequeueReusableCell(withIdentifier: isMe ? "me" : "friend", for: indexPath)
         //        let userImage = cell.viewWithTag(1)
         let label = cell.viewWithTag(2) as! UILabel

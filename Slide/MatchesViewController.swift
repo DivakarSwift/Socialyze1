@@ -189,7 +189,7 @@ extension MatchesViewController: UITableViewDataSource {
             if let friend = user.id, let me = Authenticator.shared.user?.id {
                 let chatId =  friend > me ? friend+me : me+friend
                 val.chatId = chatId
-                val.userId = me
+                val.userId = friend
             }
             vc.chatItem = val
         }
