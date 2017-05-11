@@ -10,6 +10,7 @@ import UIKit
 
 class MatchesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         self.imageView.rounded()

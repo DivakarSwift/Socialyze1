@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import FacebookCore
 import GoogleMaps
+import UserNotifications
 
 func doLog(_ items: Any...) {
     print(items)
@@ -38,6 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor(red: 18.0/255.0, green: 18.0/255.0, blue: 18.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        
+        //Requesting Authorization for User Interactions
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+            }
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
+            
+        }
+        
         
         checkForLogin()
         

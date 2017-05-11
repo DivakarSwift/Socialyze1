@@ -13,12 +13,15 @@ import Foundation
 class MatchedViewController : UIViewController {
     
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     
     var friend: User?
     var chatItem :ChatItem? {
         didSet {
             if let user = self.friend {
                 self.profileImageView.kf.setImage(with: user.profile.images.first)
+                self.nameLabel.text = user.profile.firstName
             }
         }
     }

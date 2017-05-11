@@ -48,6 +48,7 @@ extension MatchesTableViewCell: UICollectionViewDataSource {
             cell.imageView.kf.indicatorType = .activity
             cell.imageView.kf.setImage(with: image)
         }
+        cell.nameLabel.text = self.users[indexPath.row].profile.firstName
         return cell
     }
     
