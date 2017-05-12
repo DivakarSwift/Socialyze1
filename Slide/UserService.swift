@@ -128,8 +128,6 @@ class UserService: FirebaseManager {
                 "time": Date().timeIntervalSince1970
                 ] as [String : Any]
             
-            
-            
             self.reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(user.id!).updateChildValues(value) { (error, _) in
                 
                 if match {
@@ -139,16 +137,16 @@ class UserService: FirebaseManager {
                         ] as [String : Any]
                     
                     self.reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).updateChildValues(value) { (error, _) in
-                        completion(error == nil, isMatching)
+                        completion(error == nil, match)
                         
                         self.reference.child(Node.user.rawValue).child(myId).child(Node.matchList.rawValue).child(user.id!).updateChildValues(["time" : Date().timeIntervalSince1970, "userId":user.id!], withCompletionBlock: { (_, _) in
                             self.reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).child(myId).updateChildValues(["time" : Date().timeIntervalSince1970, "userId":myId], withCompletionBlock: { (_, _) in
-                                completion(error == nil, isMatching)
+                                completion(error == nil, match)
                             })
                         })
                     }
                 } else {
-                    completion(error == nil, isMatching)
+                    completion(error == nil, match)
                 }
                 
             }
