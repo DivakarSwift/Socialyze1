@@ -41,7 +41,6 @@ class ChatService: FirebaseManager {
             reference.child(Node.user.rawValue).child(userId).child(Node.chatList.rawValue).observe(.childChanged, with: { (snapshot) in
                 let json = JSON(snapshot.value ?? [])
                 print(json)
-                print(JSON(json))
                 if let chatItem: ChatItem = json.map() {
                         Utilities.fireChatNotification(chatItem: chatItem)
                 }

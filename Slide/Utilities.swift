@@ -37,19 +37,8 @@ class Utilities: NSObject {
                 content.body = chatItem.lastMessage ?? "check conversation"
                 content.categoryIdentifier = "alarm"
                 content.sound = UNNotificationSound.default()
-                
-                if let path = Bundle.main.path(forResource: "ladybird", ofType: "png") {
-                    let url = URL(fileURLWithPath: path)
-                    
-                    do {
-                        let attachment = try UNNotificationAttachment(identifier: "Socialize", url: url, options: nil)
-                        content.attachments = [attachment]
-                    } catch {
-                        print("attachment not found.")
-                    }
-                }
-                
-                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+                               
+                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
                 let request = UNNotificationRequest(identifier: Node.chatList.rawValue, content: content, trigger: trigger)
                 
                 UNUserNotificationCenter.current().add(request){(error) in
@@ -86,28 +75,15 @@ class Utilities: NSObject {
                 content.categoryIdentifier = "alarm"
                 content.sound = UNNotificationSound.default()
                 content.badge = (UIApplication.shared.applicationIconBadgeNumber + 1 ) as NSNumber?
-                if let path = Bundle.main.path(forResource: "ladybird", ofType: "png") {
-                    let url = URL(fileURLWithPath: path)
-                    
-                    do {
-                        let attachment = try UNNotificationAttachment(identifier: "Socialize", url: url, options: nil)
-                        content.attachments = [attachment]
-                    } catch {
-                        print("attachment not found.")
-                    }
-                }
                 
-                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1.0, repeats: false)
+                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
                 let request = UNNotificationRequest(identifier: Node.matchList.rawValue, content: content, trigger: trigger)
                 
                 UNUserNotificationCenter.current().add(request){(error) in
-                    
                     if (error != nil){
-                        
                         print(error?.localizedDescription ?? "")
                     }
                 }
-                
             } else {
                 
                 // ios 9

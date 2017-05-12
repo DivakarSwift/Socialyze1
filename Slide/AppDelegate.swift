@@ -49,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("Something went wrong")
                 }
             }
-            center.delegate = self
             center.getNotificationSettings(completionHandler: { (setting) in
                 if setting.authorizationStatus != .authorized {
                     // Notifications not allowed
