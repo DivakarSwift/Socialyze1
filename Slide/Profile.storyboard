@@ -157,6 +157,12 @@
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-vB-l9I">
                                                                     <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="139"/>
                                                                     <subviews>
+                                                                        <button opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-Pk-t5N">
+                                                                            <rect key="frame" x="-0.3333333333333357" y="0.0" width="75.666666666666686" height="139"/>
+                                                                            <connections>
+                                                                                <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="1Rc-T1-ybS"/>
+                                                                            </connections>
+                                                                        </button>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="211" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRO-GX-ZRt">
                                                                             <rect key="frame" x="43.666666666666664" y="107" width="29.999999999999993" height="30"/>
                                                                             <constraints>
@@ -166,12 +172,6 @@
                                                                             <state key="normal" image="crossmark"/>
                                                                             <connections>
                                                                                 <action selector="removeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="6oR-Rb-AoI"/>
-                                                                            </connections>
-                                                                        </button>
-                                                                        <button opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-Pk-t5N">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="139"/>
-                                                                            <connections>
-                                                                                <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="1Rc-T1-ybS"/>
                                                                             </connections>
                                                                         </button>
                                                                     </subviews>

@@ -34,10 +34,19 @@ class EditingTableViewController: UITableViewController {
     }
     
     func assignImages() {
+        // set Image
         for (index,val) in self.images.enumerated() {
             let tag = 100 + (index+1)*10 + 1
             let imageButton = view.viewWithTag(tag) as! UIButton
             imageButton.setImage(val, for: .normal)
+        }
+        //remove Images
+        if images.count+1 <= 5 {
+            for index in (images.count+1)...5 {
+                let tag = 101 + index*10
+                let imageButton = view.viewWithTag(tag) as! UIButton
+                imageButton.setImage(nil, for: .normal)
+            }
         }
     }
 
@@ -72,8 +81,12 @@ class EditingTableViewController: UITableViewController {
     
     @IBAction func removeImage(_ sender: UIButton) {
         let index = (sender.tag - 201)/10 - 1
-        if self.images.count >= index {
-            self.images.remove(at: index)
+        
+        if images.count != 0 {
+            if self.images.count-1 >= index {
+                self.images.remove(at: index)
+            }
+//            self.assignImages()
         }
     }
     
