@@ -184,15 +184,15 @@ extension EditingTableViewController {
         }
         
             // Logout row 8
-        else if indexPath.row == 6 {
-            self.alertWithOkCancel(message: "Alert", title: "Are you sure?", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+        else if indexPath.row == 8 {
+            self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
                 Authenticator.shared.logout()
             }, cancelAction: nil)
         }
         
             // Delete Accont row 9
-        else if indexPath.row == 6 {
-            self.alertWithOkCancel(message: "Alert", title: "Are you sure?", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+        else if indexPath.row == 9 {
+            self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
                 Authenticator.shared.logout()
             }, cancelAction: nil)
         }
