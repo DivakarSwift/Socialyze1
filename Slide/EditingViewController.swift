@@ -161,3 +161,64 @@ extension EditingTableViewController: UIImagePickerControllerDelegate, UINavigat
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension EditingTableViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 5 {
+            // Policy row 5
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: "http://socialyzeapp.com/privacy")!, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/privacy")!)
+            }
+        }
+            // Terms and condition row 6
+        else if indexPath.row == 6 {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: "http://socialyzeapp.com/terms-and-conditions")!, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/terms-and-conditions")!)
+            }
+        }
+        
+            // Logout row 8
+        else if indexPath.row == 6 {
+            self.alertWithOkCancel(message: "Alert", title: "Are you sure?", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+                Authenticator.shared.logout()
+            }, cancelAction: nil)
+        }
+        
+            // Delete Accont row 9
+        else if indexPath.row == 6 {
+            self.alertWithOkCancel(message: "Alert", title: "Are you sure?", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+                Authenticator.shared.logout()
+            }, cancelAction: nil)
+        }
+        
+    }
+}
+
+extension EditingTableViewController: AuthenticatorDelegate {
+    
+    func shouldUserSignInIntoFirebase() -> Bool {
+        
+        return true
+    }
+    
+    func didLogoutUser() {
+        appDelegate.checkForLogin()
+    }
+    
+    func didSignInUser() {
+    }
+    
+    func didOccurAuthentication(error: AuthenticationError) {
+        let alert = UIAlertController(title:"Error", message: error.localizedDescription , preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default , handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+}

@@ -41,6 +41,7 @@ class CategoriesViewController: UIViewController {
             }
         }
     }
+    var place:Place?
     var currentImageIndex = 0
     
     var events: [Event] = [] {
@@ -329,15 +330,16 @@ class CategoriesViewController: UIViewController {
                 self.userName.text = (user.profile.firstName  ?? "Username" ) + ", \(age!)"
             }
             self.eventDescription.text = user.profile.bio ?? "User Bio"
-        }else {
-            
-            
-            self.alert(message: "No result found. Try again later.", okAction: {
-                if let nav = self.navigationController {
+        } else {
+            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
+                self.alert(message: "No result found. Try again later.", okAction: {
+                    if let nav = self.navigationController {
+                        nav.popToRootViewController(animated: true)
+                    }
+                })     
+            } else if let nav = self.navigationController {
                     nav.popToRootViewController(animated: true)
-                }
-                
-            })
+            }
         }
     }
     

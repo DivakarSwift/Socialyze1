@@ -299,6 +299,7 @@ class PlaceDetailViewController: UIViewController {
         }else if segue.identifier == "Categories" {
             let destinationVC = segue.destination as! CategoriesViewController
             let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
+            destinationVC.place = self.place
             destinationVC.checkinUserIds = userIdsSet
         }
         return super.prepare(for: segue, sender: sender)
