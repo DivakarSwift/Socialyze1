@@ -11,6 +11,7 @@ import Kingfisher
 import FacebookCore
 import SwiftyJSON
 
+
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var bioLabel: UILabel!
@@ -33,15 +34,22 @@ class ProfileViewController: UIViewController {
         didSet {
             self.editButton.isHidden = false
             self.bioLabel.isHidden = false
+            updateBio()//self.bioLabel.text = (user?.profile.firstName)! + ", tell us what you're up to."
             
-            let maxLength = 150 //char length
+            /*let maxLength = 150 //char length
             if let orgText = user?.profile.bio {
                 if orgText.characters.count > maxLength {
                     let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
                     let tmpValue = orgText.substring(with: range).appending("...")
-                    self.bioLabel.text = tmpValue
+                    //self.bioLabel.text = tmpValue
+                    updateBio(bio: tmpValue)
+                } else {
+                    //self.bioLabel.text = user?.profile.bio
+                    updateBio(bio: (user?.profile.bio)!)
                 }
-            }
+            } else {
+                self.bioLabel.text = (user?.profile.firstName)! + ", tell us what you're up to."
+            }*/
             
             
             if let dob = user?.profile.dateOfBirth {
@@ -85,6 +93,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //updateBio()
 //        if self.images.count > 1 {
 //            currentImageIndex = 0
 //            changeImage()
@@ -156,6 +165,25 @@ class ProfileViewController: UIViewController {
     func stopTimer() {
         self.imageTimer?.invalidate()
         self.imageTimer = nil
+    }
+    
+    func updateBio() {
+        //self.bioLabel.text = user?.profile.bio
+        print("updateBio called")
+        let maxLength = 150 //char length
+        if let orgText = user?.profile.bio {
+            if orgText.characters.count > maxLength {
+                let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
+                let tmpValue = orgText.substring(with: range).appending("...")
+                self.bioLabel.text = tmpValue
+                //updateBio(bio: tmpValue)
+            } else {
+                self.bioLabel.text = user?.profile.bio
+                //updateBio(bio: (user?.profile.bio)!)
+            }
+        } else {
+            //self.bioLabel.text = (user?.profile.firstName)! + ", tell us what you're up to."
+        }
     }
     
 

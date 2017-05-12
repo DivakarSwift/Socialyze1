@@ -201,6 +201,8 @@ extension ViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         (cell.viewWithTag(1) as! UIImageView).image = places[indexPath.row].mainImage
         (cell.viewWithTag(2) as! UILabel).text = places[indexPath.row].nameAddress
+        cell.set(border: UIColor.white)
+        cell.set(borderWidth: 0.5)
         return cell
     }
 }

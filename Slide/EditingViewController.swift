@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Kingfisher
+import FacebookCore
+import SwiftyJSON
+import Firebase
 
 class EditingTableViewController: UITableViewController {
 
@@ -20,9 +24,15 @@ class EditingTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
 
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
+        FIRDatabase.database().reference().child("user/\(FIRAuth.auth()!.currentUser!.uid)/profile/bio").setValue(bioText.text)
+    }
+    
     @IBAction func doneNavBtn(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBOutlet weak var bioText: UITextField!
     
     @IBAction func ageSlider(_ sender: Any) {
     }
