@@ -67,6 +67,10 @@ class ProfileViewController: UIViewController {
         self.editButton.isHidden = true
         self.bioLabel.isHidden = true
         
+        lblUserName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        lblUserName.layer.shadowRadius = 3
+        lblUserName.layer.shadowOpacity = 1
+        
         if let userId = userId {
             userService.getMe(withId: userId, completion: {[weak self] (user, error) in
                 if let error = error {

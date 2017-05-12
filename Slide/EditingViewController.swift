@@ -194,6 +194,7 @@ extension EditingTableViewController {
         else if indexPath.row == 9 {
             self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
                 Authenticator.shared.logout()
+                // this has to actually delete the account
             }, cancelAction: nil)
         }
         

@@ -36,7 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //SlydeLocationManager.shared.requestLocation()
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 18.0/255.0, green: 18.0/255.0, blue: 18.0/255.0, alpha: 1.0)
+        //UINavigationBar.appearance().barTintColor = UIColor(red: 18.0/255.0, green: 18.0/255.0, blue: 18.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 162.0/255.0, green: 11.0/255.0, blue: 20.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
