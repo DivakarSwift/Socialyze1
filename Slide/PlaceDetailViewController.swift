@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 let checkInThreshold: TimeInterval = 3*60*60 //3hr
 
@@ -152,7 +154,18 @@ class PlaceDetailViewController: UIViewController {
     
     @IBAction func checkOut(_ sender: Any) {
         // IF user is checked in
-        _ = self.navigationController?.popViewController(animated: true)
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("Places").child((place?.nameAddress)!).child("checkIn").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            if let uid = snapshotValue?["userID!"] as? String {
+                print(uid)
+                _ = self.navigationController?.popViewController(animated: true)
+            } else {
+                print("It's probably nil, dumbass")
+            }
+            //_ = self.navigationController?.popViewController(animated: true)
+            })
     }
     
     private func checkout() {
