@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 let checkInThreshold: TimeInterval = 3*60*60 //3hr
 
@@ -16,6 +18,7 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var placeDetailLbl: UILabel!
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
+    @IBOutlet weak var checkInButton: UIButton!
     
     //    @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
@@ -28,12 +31,12 @@ class PlaceDetailViewController: UIViewController {
     let hugeRadius = 304.8 // 1000ft, probably
     var thresholdRadius = 30.48 //100ft
     
-    /*let SNlat1 = 39.984467
+    let SNlat1 = 39.984467
     let SNlong1 = -83.004969
     let SNlat2 = 39.979144
     let SNlong2 = -83.003942
     let SNlat3 = 39.973620
-    let SNlong3 = -83.003916*/
+    let SNlong3 = -83.003916
     
     private var isCheckedIn = false
     
@@ -87,11 +90,15 @@ class PlaceDetailViewController: UIViewController {
         self.setupCollectionView()
         
         //
+        if (place?.early)! > 0 {
+            checkInButton.setTitle("Join", for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        self.title = place?.nameAddress
     }
     
     deinit {
@@ -119,7 +126,7 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
-        } /*else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
+        } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
@@ -127,7 +134,7 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "You're first to check in. Please wait for others to check in")
                 }
             }
-        }*/ else if (place?.early)! > 0 {
+        } else if (place?.early)! > 0 {
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
@@ -143,6 +150,22 @@ class PlaceDetailViewController: UIViewController {
         //        self.checkIn {[weak self] in
         //            self?.performSegue(withIdentifier: "Categories", sender: self)
         //        }
+    }
+    
+    @IBAction func checkOut(_ sender: Any) {
+        // IF user is checked in
+        let ref = FIRDatabase.database().reference()
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        ref.child("Places").child((place?.nameAddress)!).child("checkIn").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapshotValue = snapshot.value as? NSDictionary
+            if let uid = snapshotValue?["userID!"] as? String {
+                print(uid)
+                _ = self.navigationController?.popViewController(animated: true)
+            } else {
+                print("It's probably nil, dumbass")
+            }
+            //_ = self.navigationController?.popViewController(animated: true)
+            })
     }
     
     private func checkout() {
@@ -190,16 +213,19 @@ class PlaceDetailViewController: UIViewController {
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
-                    text = "at \(Int(ft / 5280))mi"
+                    text = "\(Int(ft / 5280))mi away."
                 }else {
-                    text = "at \(Int(distance * 3.28084))ft"
+                    text = "\(Int(distance * 3.28084))ft away."
                 }
                 
                 if self.isCheckedIn {
                     self.checkout()
                 }
             }
-            self.placeNameAddressLbl.text = self.place!.nameAddress + " (\(text))"
+            self.placeNameAddressLbl.text = /*self.place!.nameAddress + */" \(text)"
+            self.placeNameAddressLbl.layer.shadowOpacity = 1.0
+            self.placeNameAddressLbl.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+            self.placeNameAddressLbl.layer.shadowRadius = 3.0
         }
     }
     
