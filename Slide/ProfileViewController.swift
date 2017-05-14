@@ -57,9 +57,9 @@ class ProfileViewController: UIViewController {
                 self.lblUserName.text = (user?.profile.firstName  ?? "Username" ) + ", \(age!)"
             }
             
-            self.userImageView.kf.indicatorType = .activity
-            self.userImageView.kf.setImage(with: user?.profile.images.first)
             if let images = self.user?.profile.images {
+                self.userImageView.kf.indicatorType = .activity
+                self.userImageView.kf.setImage(with: images.first, placeholder: nil)
                 self.images = images
             }
         }

@@ -110,7 +110,7 @@ class EditingTableViewController: UITableViewController {
     func uploadImage(index: Int) {
         UserService().updateUserProfileImage(user: Authenticator.shared.user!, image: self.images[index],index: "\(index)", completion: { [weak self] (data, error) in
             if let me = self {
-                if error != nil {
+                if data.0 == nil && error != nil{
                     me.activityIndicator.stopAnimating()
                     print(error?.localizedDescription ?? "Upload error!!")
                     self?.alert(message: error?.localizedDescription)
