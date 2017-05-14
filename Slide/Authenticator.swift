@@ -92,25 +92,12 @@ class Authenticator {
                         
                         FacebookService.shared.getUserDetails(success: { (user) in
                             self.user = user
+                            
                             if let dob = self.user?.profile.dateOfBirth {
                                 print(dob)
                                 if let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy"), age > 17 {
                                     
-                                    // load and save facebook profile images
-                                    FacebookService.shared.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
-                                        self?.user?.profile.images.append(URL(string: photoUrlString)!)
-                                        }, completion: { [weak self] in
-                                            if let me = self, let user = me.user {
-                                                    me.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
-                                                
-                                                
-                                            }
-                                        }, failure: { error in
-                                            
-                                            self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
-                                    })
-                                    
-                                    
+                                    self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
                                     
                                 } else {
                                     self.delegate?.didOccurAuthentication(error: .facebookLoginDenied)
@@ -131,7 +118,7 @@ class Authenticator {
         }
     }
     
-    
+   
     func signInWithFirebase(credential: FIRAuthCredential, provider: Provider, email: String?) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) -> Void in
             if let error = error {

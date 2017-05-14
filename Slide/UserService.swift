@@ -8,9 +8,12 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 import SwiftyJSON
 
 class UserService: FirebaseManager {
+    
+    var user:User?
     
     func saveUser(user: User, completion: @escaping CallBackWithSuccessError) {
         let userDict = user.toJSON()
@@ -18,6 +21,77 @@ class UserService: FirebaseManager {
         reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
             completion(error == nil, error)
         }
+    }
+    
+    func updateUserProfileImage(user: User, image: (URL?,UIImage?), index: String, completion: @escaping (((URL?,UIImage?), Error?) -> Void)) {
+        
+        if let img = image.1 {
+            let data = UIImageJPEGRepresentation(img, 0.7)
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            let ref = storageRef.child("images/\(user.id!)/photo\(index).jpg")
+            let uploadAction = ref.put(data!, metadata: metaData)
+            uploadAction.observe(.progress, handler: { (snapshot) in
+                let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                    / Double(snapshot.progress!.totalUnitCount)
+                print(percentComplete)
+            })
+            uploadAction.observe(.failure, handler: { (snapshot) in
+                completion((image.0,image.1), snapshot.error)
+                return
+            })
+            uploadAction.observe(.success, handler: { (snapshot) in
+                
+                ref.downloadURL(completion: { (url, error) in
+                    if error == nil {
+                        completion((url,nil), snapshot.error)
+                    }
+                    else {
+                        completion((image.0,image.1), error)
+                    }
+                })
+                
+            })
+        } else if let _ = image.0 {
+            completion((image.0,nil), FirebaseManagerError.noDataFound)
+        } else {
+            completion((image.0,image.1), FirebaseManagerError.noDataFound)
+        }
+    }
+    
+    func removeFirebaseImage(image:URL , completion: @escaping CallBackWithError) {
+        print(image)
+        let ref = FIRStorage.storage().reference(forURL: image.absoluteString)
+        ref.delete { (error) in
+            completion(error)
+        }
+    }
+
+    func downloadProfileImage(userId: String, index:String, completion : @escaping (URL?,FirebaseManagerError?) -> Void) {
+        
+        let ref = storageRef.child("images/\(userId)/photo\(index).jpg")
+        print(ref.fullPath)
+        ref.downloadURL(completion: { (url, error) in
+            
+            if error == nil {
+                completion(url,nil)
+            } else {
+                guard let errorCode = (error as? NSError)?.code else {
+                    return
+                }
+                guard let error = FIRStorageErrorCode(rawValue: errorCode) else {
+                    return
+                }
+                switch (error) {
+                case .objectNotFound:
+                    completion(nil,FirebaseManagerError.noDataFound)
+                default:
+                    completion(nil,FirebaseManagerError.noUserFound)
+                    break
+                }
+            }
+        })
     }
     
     func getMe(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
@@ -51,6 +125,40 @@ class UserService: FirebaseManager {
             }
         })
     }
+    
+    func checkFirebaseImages(ofUser user: User) {
+        self.user = user
+        self.user?.profile.images = []
+        self.downloadImages(0)
+    }
+    
+    func downloadImages(_ index: Int) {
+        UserService().downloadProfileImage(userId: (Authenticator.shared.user?.id)!, index: "\(index)", completion: { (url, error) in
+            if error == nil {
+                self.user?.profile.images.append(url!)
+                self.downloadImages(index+1)
+            } else {
+                if error == FirebaseManagerError.noDataFound {
+                    if self.user?.profile.images.count == 0 {
+                        FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
+                            self.user?.profile.images.append(URL(string: photoUrlString)!)
+                        }, completion: { [weak self] in
+                            self?.saveUser(user: (self?.user)!, completion: { (succes, error) in
+                                
+                            })
+                            }, failure: { error in
+                                
+                        })
+                    } else {
+                        self.saveUser(user: self.user!, completion: { (_, _) in
+                            
+                        })
+                    }
+                }
+            }
+        })
+    }
+    
     
     func getMatchListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in

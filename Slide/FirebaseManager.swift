@@ -41,6 +41,6 @@ class FirebaseManager {
     private static let _storageReference = FIRStorage.storage().reference()
     
     let reference = FirebaseManager._reference
-    let storageReference = FirebaseManager._storageReference
+    let storageRef = FirebaseManager._storageReference
     
 }

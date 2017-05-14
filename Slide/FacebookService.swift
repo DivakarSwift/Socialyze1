@@ -74,19 +74,19 @@ class FacebookService {
             print(json)
             if let id = json["id"].string, let firstName = json["first_name"].string, let lastName = json["last_name"].string, let dob = json["birthday"].string {
                 
-                    var user = User()
-                    user.profile.fbId = id
-                    user.profile.firstName = firstName
-                    user.profile.lastName = lastName
-                    user.profile.name = firstName + " " + lastName
-                    user.profile.dateOfBirth = dob
-                if let pic = json["picture","data", "url"].string {
+                var user = User()
+                user.profile.fbId = id
+                user.profile.firstName = firstName
+                user.profile.lastName = lastName
+                user.profile.name = firstName + " " + lastName
+                user.profile.dateOfBirth = dob
+                
+                if let pic = json["picture", "data", "url"].string {
                     user.profile.images.append(URL(string: pic)!)
                 }
-                    
-                    self.user = user
-                    complete()
-                }
+                self.user = user
+                complete()
+            }
         }, failure: { (error) in
             print(error)
             

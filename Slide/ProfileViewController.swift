@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     let facebookService = FacebookService.shared
     let userService = UserService()
     
-    var images = [String]()
+    var images = [URL]()
     
     var currentImageIndex = 0
     
@@ -59,6 +59,9 @@ class ProfileViewController: UIViewController {
             
             self.userImageView.kf.indicatorType = .activity
             self.userImageView.kf.setImage(with: user?.profile.images.first)
+            if let images = self.user?.profile.images {
+                self.images = images
+            }
         }
     }
     
@@ -74,14 +77,8 @@ class ProfileViewController: UIViewController {
                         _ = self?.navigationController?.popViewController(animated: true)
                         self?.dismiss(animated: true, completion: nil)
                     })
-                }else {
+                } else {
                     self?.user = user
-                    if self?.facebookService.isPhotoPermissionGiven() ?? false {
-                        self?.loadProfilePicturesFromFacebook()
-                    }else {
-                        self?.authenticator.delegate = self
-                        self?.authenticator.authenticateWith(provider: .facebook)
-                    }
                 }
             })
         }
@@ -93,13 +90,6 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //updateBio()
-//        if self.images.count > 1 {
-//            currentImageIndex = 0
-//            changeImage()
-//            self.startTimer()
-//        }
-        
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -118,11 +108,9 @@ class ProfileViewController: UIViewController {
     
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
-            let imageURLString = images[currentImageIndex]
-            if let url = URL(string: imageURLString) {
-                self.userImageView.kf.indicatorType = .activity
-                self.userImageView.kf.setImage(with: url)
-            }
+            let url = images[currentImageIndex]
+            self.userImageView.kf.indicatorType = .activity
+            self.userImageView.kf.setImage(with: url)
         }
         if currentImageIndex == images.count - 1 {
             currentImageIndex = 0
@@ -133,11 +121,12 @@ class ProfileViewController: UIViewController {
     
     func loadProfilePicturesFromFacebook() {
         facebookService.loadUserProfilePhotos(value: { [weak self] (photoUrlString) in
-            
-            self?.images.append(photoUrlString)
+            if let url = URL(string: photoUrlString) {
+                self?.images.append(url)
+            }
             }, completion: { [weak self] in
                 if let me = self, let _ = me.user {
-                    me.user?.profile.images = me.images.flatMap({URL(string: $0)})
+                    me.user?.profile.images = me.images.flatMap({ $0 })
                     me.userService.saveUser(user: me.user!, completion: {[weak self] (success, error) in
                         if let error = error {
                             self?.alert(message: error.localizedDescription)
@@ -149,8 +138,7 @@ class ProfileViewController: UIViewController {
             if let images = self?.user?.profile.images {
                 self?.images = []
                 for image in images {
-                    let img = image.path
-                    self?.images.append(img)
+                    self?.images.append(image)
                 }
             }
             self?.alert(message: error)
@@ -189,6 +177,16 @@ class ProfileViewController: UIViewController {
 
     
     @IBAction func editProfile(_ sender: Any) {
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "editProfile" {
+            let destinationVC = segue.destination as! EditingTableViewController
+            destinationVC.user = self.user
+        }
     }
     
 }

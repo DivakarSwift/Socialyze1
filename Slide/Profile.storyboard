@@ -72,7 +72,7 @@
                                 <state key="normal" image="editbutton.png"/>
                                 <connections>
                                     <action selector="editProfile:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="0Ir-5q-kQ2"/>
-                                    <segue destination="Xua-vR-Ynp" kind="show" id="RNp-YQ-jzq"/>
+                                    <segue destination="Xua-vR-Ynp" kind="show" identifier="editProfile" id="RNp-YQ-jzq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">
@@ -149,22 +149,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="x4x-fF-2Wr">
-                                                    <rect key="frame" x="8.3333333333333428" y="20" width="398.33333333333337" height="139"/>
+                                                    <rect key="frame" x="8" y="20" width="399" height="139"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nu9-ig-OIa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="398.33333333333337" height="139"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="399" height="139"/>
                                                             <subviews>
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-vB-l9I">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="139"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="76" height="139"/>
                                                                     <subviews>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-Pk-t5N">
-                                                                            <rect key="frame" x="-0.3333333333333357" y="0.0" width="75.666666666666686" height="139"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="1Rc-T1-ybS"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="211" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRO-GX-ZRt">
-                                                                            <rect key="frame" x="43.666666666666664" y="107" width="29.999999999999993" height="30"/>
+                                                                            <rect key="frame" x="44" y="107" width="30" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="4Rt-Pd-FM9"/>
                                                                                 <constraint firstAttribute="width" constant="30" id="aa8-GW-Web"/>
@@ -186,16 +186,16 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01x-cF-jpI">
-                                                                    <rect key="frame" x="80.666666666666671" y="0.0" width="75.666666666666643" height="139"/>
+                                                                    <rect key="frame" x="81" y="0.0" width="76" height="139"/>
                                                                     <subviews>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="121" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vV-n3-CDK">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666657" height="139"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="FdH-EC-kcq"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="221" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y01-fK-z7t">
-                                                                            <rect key="frame" x="43.666666666666657" y="107" width="30" height="30"/>
+                                                                            <rect key="frame" x="44" y="107" width="30" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="CNQ-fn-VJQ"/>
                                                                                 <constraint firstAttribute="width" constant="30" id="o0w-UQ-BJE"/>
@@ -217,16 +217,16 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sp-9o-1Xq">
-                                                                    <rect key="frame" x="161.33333333333331" y="0.0" width="75.666666666666686" height="139"/>
+                                                                    <rect key="frame" x="162" y="0.0" width="75" height="139"/>
                                                                     <subviews>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="131" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-U1-jPT">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666686" height="139"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="o8f-B3-ptK"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="231" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qa7-5r-nqk">
-                                                                            <rect key="frame" x="43.666666666666686" y="107" width="30" height="30"/>
+                                                                            <rect key="frame" x="43" y="107" width="30" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="dBD-mQ-zoC"/>
                                                                                 <constraint firstAttribute="height" constant="30" id="rV6-bo-91M"/>
@@ -248,16 +248,16 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-Hs-foy">
-                                                                    <rect key="frame" x="242" y="0.0" width="75.666666666666629" height="139"/>
+                                                                    <rect key="frame" x="242" y="0.0" width="76" height="139"/>
                                                                     <subviews>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="141" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiF-7c-wLh">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666657" height="139"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="hW8-4W-w26"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="241" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnA-qG-aMw">
-                                                                            <rect key="frame" x="43.666666666666657" y="107" width="30" height="30"/>
+                                                                            <rect key="frame" x="44" y="107" width="30" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="30" id="NrW-3D-qzR"/>
                                                                                 <constraint firstAttribute="height" constant="30" id="jSJ-Zu-hPB"/>
@@ -279,16 +279,16 @@
                                                                     </constraints>
                                                                 </view>
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLW-pS-5g5">
-                                                                    <rect key="frame" x="322.66666666666663" y="0.0" width="75.666666666666686" height="139"/>
+                                                                    <rect key="frame" x="323" y="0.0" width="76" height="139"/>
                                                                     <subviews>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="151" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXE-7Z-vKr">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="75.666666666666686" height="139"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="76" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="1Ic-8w-xIA"/>
                                                                             </connections>
                                                                         </button>
                                                                         <button opaque="NO" clipsSubviews="YES" tag="251" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wy6-Cn-gGG">
-                                                                            <rect key="frame" x="43.666666666666686" y="107" width="30" height="30"/>
+                                                                            <rect key="frame" x="44" y="107" width="30" height="30"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="30" id="8LU-Vx-939"/>
                                                                                 <constraint firstAttribute="width" constant="30" id="xAQ-rZ-gJg"/>
@@ -362,6 +362,7 @@
                                                             <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                             <connections>
                                                                 <action selector="textFieldDidChange:" destination="Xua-vR-Ynp" eventType="editingDidEnd" id="6dA-Nu-cc8"/>
+                                                                <outlet property="delegate" destination="Xua-vR-Ynp" id="GWb-2V-j56"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -388,7 +389,7 @@
                                                     <rect key="frame" x="20" y="8" width="353" height="28"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOk-rE-cQS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="28"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="66" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -565,8 +566,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit" id="QW3-qO-nRD">
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="LKI-b5-7ZV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LKI-b5-7ZV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancelButtonTouched:" destination="Xua-vR-Ynp" id="XjV-lB-cfA"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="kzO-SU-BVB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

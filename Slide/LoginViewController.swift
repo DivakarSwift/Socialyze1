@@ -34,6 +34,7 @@ extension LoginViewController: AuthenticatorDelegate {
     }
     
     func didSignInUser() {
+        
         appDelegate.checkForLogin()
     }
     
