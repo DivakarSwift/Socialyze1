@@ -21,7 +21,7 @@ class EditingTableViewController: UITableViewController {
         }
     }
     var imageToRemove:[URL] = []
-    
+    @IBOutlet weak var bioTextView: UITextView!
     var pickerTag:Int = 111
     var user:User?
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
@@ -31,6 +31,8 @@ class EditingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        self.user = Authenticator.shared.user
         imagePicker.delegate = self
         self.downloadImages(index: 0)
     }
@@ -54,6 +56,24 @@ class EditingTableViewController: UITableViewController {
                 let imageButton = view.viewWithTag(tag) as! UIButton
                 imageButton.kf.setImage(with: nil, for: .normal, placeholder: nil)
             }
+        }
+        // update bio
+        self.updateBio()
+    }
+    
+    func updateBio() {
+        let maxLength = 200 //char length
+        if let orgText = user?.profile.bio {
+            if orgText.characters.count > maxLength {
+                let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
+                let tmpValue = orgText.substring(with: range).appending("...")
+                self.bioTextView.text = tmpValue
+                //updateBio(bio: tmpValue)
+            } else {
+                self.bioTextView.text = user?.profile.bio
+            }
+        } else {
+            self.bioTextView.text = (user?.profile.firstName)! + ", tell us what you're up to."
         }
     }
     
@@ -138,13 +158,12 @@ class EditingTableViewController: UITableViewController {
             return $0.0
         })
         
-        self.user?.profile.images = imagess 
-        
-        self.user?.profile.bio  = self.bioText.text
+        self.user?.profile.images = imagess
         
         UserService().saveUser(user: self.user!, completion: { (success, error) in
             if error != nil {
                 self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
+                    Authenticator.shared.user = self.user
                     _ = self.navigationController?.popViewController(animated: true)
                 })
             } else {
@@ -323,25 +342,32 @@ extension EditingTableViewController: AuthenticatorDelegate {
     }
 }
 
-extension EditingTableViewController: UITextFieldDelegate {
+extension EditingTableViewController: UITextViewDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textViewDidBeginEditing(_ textView: UITextView) {
         
     }
     
     // For checking whether enter text can be taken or not.
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        if textField == bioText && string != ""{
-            let x = (textField.text ?? "").characters.count
-            return x <= 9
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView == bioTextView && text != ""{
+            let x = (textView.text ?? "").characters.count
+            return x <= 199
         }
         return true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
         return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let id = Authenticator.shared.user?.id {
+            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(textView.text)
+            self.user?.profile.bio = textView.text
+            Authenticator.shared.user = self.user
+        }
     }
     
 }

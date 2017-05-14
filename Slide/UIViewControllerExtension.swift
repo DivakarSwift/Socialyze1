@@ -41,6 +41,16 @@ extension UIViewController {
     func alertLocationDenied() {
         self.alert(message: GlobalConstants.Message.locationDenied)
     }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 

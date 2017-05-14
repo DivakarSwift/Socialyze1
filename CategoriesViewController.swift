@@ -21,7 +21,7 @@ class CategoriesViewController: UIViewController {
                 if orgText.characters.count > maxLength {
                     let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
                     let tmpValue = orgText.substring(with: range).appending("...")
-                    self.bioLabel.text = tmpValue
+                    self.bioTextView.text = tmpValue
                 }
             }
             
@@ -31,7 +31,7 @@ class CategoriesViewController: UIViewController {
             }
         }
     }
-    
+    var me:User?
     var images = [URL]() {
         didSet {
             if images.count == 1 {
@@ -64,6 +64,7 @@ class CategoriesViewController: UIViewController {
     
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
+    @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var eventDescription: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
@@ -102,6 +103,8 @@ class CategoriesViewController: UIViewController {
         } else {
             self.navigationController?.navigationBar.isHidden = true
         }
+        self.me = Authenticator.shared.user
+        self.updateBio()
         
     }
     
@@ -120,6 +123,23 @@ class CategoriesViewController: UIViewController {
     
     func handleTap(_ sender: UITapGestureRecognizer) {
         self.changeImage()
+    }
+    
+    
+    func updateBio() {
+        let maxLength = 200 //char length
+        if let orgText = me?.profile.bio {
+            if orgText.characters.count > maxLength {
+                let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
+                let tmpValue = orgText.substring(with: range).appending("...")
+                self.bioTextView.text = tmpValue
+                //updateBio(bio: tmpValue)
+            } else {
+                self.bioTextView.text = me?.profile.bio
+            }
+        } else {
+            self.bioTextView.text = (me?.profile.firstName)! + ", tell us what you're up to."
+        }
     }
     
     
@@ -229,11 +249,14 @@ class CategoriesViewController: UIViewController {
             if label.center.x < 150 {
                 actionImageView.image = #imageLiteral(resourceName: "crossmark")
                 actionImageView.isHidden = false
+                self.bioTextView.isHidden = true
             }else if label.center.x > self.view.bounds.width - 150 {
                 actionImageView.image = #imageLiteral(resourceName: "checkmark")
                 actionImageView.isHidden = false
+                self.bioTextView.isHidden = true
             }else {
                 actionImageView.isHidden = true
+                self.bioTextView.isHidden = false
             }
             
             if gestureRecognizer.state == UIGestureRecognizerState.ended {
@@ -320,6 +343,7 @@ class CategoriesViewController: UIViewController {
     }
     
     func changeUser() {
+        self.bioTextView.isHidden = false
         if let user = users.first {
             self.imageView.kf.setImage(with: user.profile.images.first)
             //            self.imageView.kf.setImage(with: user.profile.images.first)
@@ -387,4 +411,35 @@ extension CategoriesViewController: UIPopoverControllerDelegate, UIPopoverPresen
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         self.view.alpha = 1.0
     }
+}
+
+extension CategoriesViewController: UITextViewDelegate {
+    
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+    }
+    
+    // For checking whether enter text can be taken or not.
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView == bioTextView && text != ""{
+            let x = (textView.text ?? "").characters.count
+            return x <= 199
+        }
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let id = Authenticator.shared.user?.id {
+            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(textView.text)
+            self.me?.profile.bio = textView.text
+            Authenticator.shared.user = self.me
+        }
+    }
+    
 }

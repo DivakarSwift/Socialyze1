@@ -14,7 +14,7 @@ import SwiftyJSON
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var lblUserName: UILabel!
@@ -30,28 +30,10 @@ class ProfileViewController: UIViewController {
     
     var imageTimer: Timer?
     
-    private var user: User? {
+    fileprivate var user: User? {
         didSet {
             self.editButton.isHidden = false
-            self.bioLabel.isHidden = false
-            updateBio()//self.bioLabel.text = (user?.profile.firstName)! + ", tell us what you're up to."
-            
-            /*let maxLength = 150 //char length
-            if let orgText = user?.profile.bio {
-                if orgText.characters.count > maxLength {
-                    let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
-                    let tmpValue = orgText.substring(with: range).appending("...")
-                    //self.bioLabel.text = tmpValue
-                    updateBio(bio: tmpValue)
-                } else {
-                    //self.bioLabel.text = user?.profile.bio
-                    updateBio(bio: (user?.profile.bio)!)
-                }
-            } else {
-                self.bioLabel.text = (user?.profile.firstName)! + ", tell us what you're up to."
-            }*/
-            
-            
+            self.updateBio()
             if let dob = user?.profile.dateOfBirth {
                 let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy")
                 self.lblUserName.text = (user?.profile.firstName  ?? "Username" ) + ", \(age!)"
@@ -68,24 +50,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.editButton.isHidden = true
-        self.bioLabel.isHidden = true
-        
+        self.hideKeyboardWhenTappedAround()
         lblUserName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         lblUserName.layer.shadowRadius = 3
         lblUserName.layer.shadowOpacity = 1
-        
-        if let userId = userId {
-            userService.getMe(withId: userId, completion: {[weak self] (user, error) in
-                if let error = error {
-                    self?.alert(message: error.localizedDescription, okAction: {
-                        _ = self?.navigationController?.popViewController(animated: true)
-                        self?.dismiss(animated: true, completion: nil)
-                    })
-                } else {
-                    self?.user = user
-                }
-            })
-        }
+        self.user = Authenticator.shared.user
         
         self.adddTapGesture(toView: self.userImageView)
         
@@ -94,6 +63,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.user = Authenticator.shared.user
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -113,7 +83,6 @@ class ProfileViewController: UIViewController {
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
             let url = images[currentImageIndex]
-            self.userImageView.kf.indicatorType = .activity
             self.userImageView.kf.setImage(with: url)
         }
         if currentImageIndex == images.count - 1 {
@@ -160,39 +129,27 @@ class ProfileViewController: UIViewController {
     }
     
     func updateBio() {
-        //self.bioLabel.text = user?.profile.bio
-        print("updateBio called")
-        let maxLength = 150 //char length
+        let maxLength = 200 //char length
         if let orgText = user?.profile.bio {
             if orgText.characters.count > maxLength {
                 let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
                 let tmpValue = orgText.substring(with: range).appending("...")
-                self.bioLabel.text = tmpValue
+                self.bioTextView.text = tmpValue
                 //updateBio(bio: tmpValue)
             } else {
-                self.bioLabel.text = user?.profile.bio
-                //updateBio(bio: (user?.profile.bio)!)
+                self.bioTextView.text = user?.profile.bio
             }
         } else {
-            //self.bioLabel.text = (user?.profile.firstName)! + ", tell us what you're up to."
+            self.bioTextView.text = (user?.profile.firstName)! + ", tell us what you're up to."
         }
     }
     
-
     
     @IBAction func editProfile(_ sender: Any) {
         
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "editProfile" {
-            let destinationVC = segue.destination as! EditingTableViewController
-            destinationVC.user = self.user
-        }
-    }
-    
 }
 
 extension ProfileViewController: AuthenticatorDelegate {
@@ -218,4 +175,34 @@ extension ProfileViewController: AuthenticatorDelegate {
         }
         return false
     }
+}
+
+extension ProfileViewController: UITextViewDelegate {
+   
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+    }
+    
+    // For checking whether enter text can be taken or not.
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if textView == bioTextView && text != ""{
+            let x = (textView.text ?? "").characters.count
+            return x <= 199
+        }
+        return true
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if let id = Authenticator.shared.user?.id {
+            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(textView.text)
+            self.user?.profile.bio = textView.text
+        }
+    }
+    
 }
