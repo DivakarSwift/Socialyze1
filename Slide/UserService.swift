@@ -30,7 +30,7 @@ class UserService: FirebaseManager {
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpeg"
             
-            let ref = storageRef.child("images/\(user.id!)/photo\(index).jpg")
+            let ref = storageRef.child("image_\(user.id!)_photo\(index).jpg")
             let uploadAction = ref.put(data!, metadata: metaData)
             uploadAction.observe(.progress, handler: { (snapshot) in
                 let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
@@ -60,16 +60,20 @@ class UserService: FirebaseManager {
     
     func removeFirebaseImage(image:URL , completion: @escaping CallBackWithError) {
         print(image)
-        let ref = storagee.reference(forURL: image.absoluteString)
-        ref.delete { (error) in
-            print(error?.localizedDescription ?? "No error")
-            completion(error)
+        let imageString = image.absoluteString
+        if imageString.range(of: "firebasestorage.googleapis.com") != nil {
+            let ref = storagee.reference(forURL: imageString)
+            ref.delete { (error) in
+                completion(error)
+            }
+        } else {
+            completion(nil)
         }
     }
 
     func downloadProfileImage(userId: String, index:String, completion : @escaping (URL?,FirebaseManagerError?) -> Void) {
         
-        let ref = storageRef.child("images/\(userId)/photo\(index).jpg")
+        let ref = storageRef.child("images_\(userId)_photo\(index).jpg")
         print(ref.fullPath)
         ref.downloadURL(completion: { (url, error) in
             
