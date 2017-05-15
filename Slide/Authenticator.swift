@@ -94,15 +94,15 @@ class Authenticator {
                             self.user = user
                             
                             if let dob = self.user?.profile.dateOfBirth {
-                                print(dob)
                                 if let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy"), age > 17 {
-                                    
-                                    self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
-                                    
+                                   self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
                                 } else {
                                     self.delegate?.didOccurAuthentication(error: .facebookLoginDenied)
-                                    doLog("User login denied due to age restriction.")
+                                    doLog("User login denied! Age restriction.")
                                 }
+                            } else {
+                                self.delegate?.didOccurAuthentication(error: .facebookLoginDenied)
+                                doLog("User login denied! Set birthday in your profile.")
                             }
                         }, failure: { error in
                             print(error)
@@ -124,21 +124,33 @@ class Authenticator {
             if let error = error {
                 self.delegate?.didOccurAuthentication(error: .firebaseAuthenticationFailed(with: error))
             }else {
-                var userValue = User()
-                if let fbUser = self.user {
-                    userValue = fbUser
+                if let id = Authenticator.currentFIRUser?.uid {
+                    UserService().getMe(withId: id, completion: { (user, error) in
+                        if let _ = error {
+                            var userValue = User()
+                            if let fbUser = self.user {
+                                userValue = fbUser
+                            }
+                            userValue.id = Authenticator.currentFIRUser?.uid
+                            userValue.profile.fbId = AccessToken.current?.userId
+                            
+                            GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
+                            UserService().saveUser(user: userValue, completion: { (success, error) in
+                                if let error = error {
+                                    self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
+                                } else {
+                                    self.delegate?.didSignInUser()
+                                }
+                            })
+                        } else {
+                            Authenticator.shared.user = user
+                            GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
+                            self.delegate?.didSignInUser()
+                        }
+                    })
+                } else {
+                    self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: FirebaseManagerError.noUserFound))
                 }
-                userValue.id = Authenticator.currentFIRUser?.uid
-                userValue.profile.fbId = AccessToken.current?.userId
-                
-                GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
-                UserService().saveUser(user: userValue, completion: { (success, error) in
-                    if let error = error {
-                        self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
-                    }else {
-                        self.delegate?.didSignInUser()
-                    }
-                })
             }
         })
     }

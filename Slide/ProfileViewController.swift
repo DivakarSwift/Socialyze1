@@ -15,6 +15,7 @@ import SwiftyJSON
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var bioTextView: UITextView!
+    @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var lblUserName: UILabel!
@@ -135,12 +136,15 @@ class ProfileViewController: UIViewController {
                 let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
                 let tmpValue = orgText.substring(with: range).appending("...")
                 self.bioTextView.text = tmpValue
+                self.bioLabel.text = self.bioTextView.text
                 //updateBio(bio: tmpValue)
             } else {
                 self.bioTextView.text = user?.profile.bio
+                self.bioLabel.text = self.bioTextView.text
             }
         } else {
             self.bioTextView.text = (user?.profile.firstName)! + ", tell us what you're up to."
+            self.bioLabel.text = self.bioTextView.text
         }
     }
     
@@ -149,7 +153,7 @@ class ProfileViewController: UIViewController {
         
         
     }
-        
+    
 }
 
 extension ProfileViewController: AuthenticatorDelegate {
@@ -202,6 +206,7 @@ extension ProfileViewController: UITextViewDelegate {
         if let id = Authenticator.shared.user?.id {
             FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(textView.text)
             self.user?.profile.bio = textView.text
+            Authenticator.shared.user = self.user
         }
     }
     

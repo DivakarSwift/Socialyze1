@@ -27,14 +27,18 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1w-x1-StJ">
-                                <rect key="frame" x="0.0" y="536" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="656" width="414" height="0.0"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yAZ-ls-no2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuj-Ql-vUP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="uxX-oL-Jy9"/>
-                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yAZ-ls-no2">
+                                        <rect key="frame" x="0.0" y="-5" width="414" height="10"/>
+                                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <connections>
@@ -45,8 +49,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yAZ-ls-no2" secondAttribute="trailing" id="5my-Wf-35o"/>
-                                    <constraint firstAttribute="bottom" secondItem="yAZ-ls-no2" secondAttribute="bottom" id="Kum-9w-W66"/>
-                                    <constraint firstItem="yAZ-ls-no2" firstAttribute="top" secondItem="d1w-x1-StJ" secondAttribute="top" id="Rys-Ap-60x"/>
+                                    <constraint firstItem="yuj-Ql-vUP" firstAttribute="top" secondItem="d1w-x1-StJ" secondAttribute="top" id="BAO-CH-FRc"/>
+                                    <constraint firstAttribute="bottom" secondItem="yAZ-ls-no2" secondAttribute="bottom" constant="-5" id="Kum-9w-W66"/>
+                                    <constraint firstItem="yAZ-ls-no2" firstAttribute="top" secondItem="d1w-x1-StJ" secondAttribute="top" constant="-5" id="Rys-Ap-60x"/>
+                                    <constraint firstAttribute="trailing" secondItem="yuj-Ql-vUP" secondAttribute="trailing" id="SPH-RP-dtD"/>
+                                    <constraint firstAttribute="bottom" secondItem="yuj-Ql-vUP" secondAttribute="bottom" id="cLJ-Hn-3Fo"/>
+                                    <constraint firstItem="yuj-Ql-vUP" firstAttribute="leading" secondItem="d1w-x1-StJ" secondAttribute="leading" id="nEe-5Z-6o9"/>
                                     <constraint firstItem="yAZ-ls-no2" firstAttribute="leading" secondItem="d1w-x1-StJ" secondAttribute="leading" id="oqe-Mf-aX2"/>
                                 </constraints>
                             </view>
@@ -89,7 +97,7 @@
                                     <segue destination="Xua-vR-Ynp" kind="show" identifier="editProfile" id="RNp-YQ-jzq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">
                                 <rect key="frame" x="40" y="40" width="267" height="67"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="0.7053222656" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -117,6 +125,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CO1-Ia-K0p"/>
                     <connections>
+                        <outlet property="bioLabel" destination="yuj-Ql-vUP" id="adk-6r-1dG"/>
                         <outlet property="bioTextView" destination="yAZ-ls-no2" id="Cwg-WU-oAr"/>
                         <outlet property="editButton" destination="3dB-7f-XWW" id="H3Q-87-i5D"/>
                         <outlet property="lblUserName" destination="BYg-Jd-xdB" id="hgv-xf-x0p"/>

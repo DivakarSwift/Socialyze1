@@ -72,9 +72,7 @@ class EditingTableViewController: UITableViewController {
             } else {
                 self.bioTextView.text = user?.profile.bio
             }
-        } else {
-            self.bioTextView.text = (user?.profile.firstName)! + ", tell us what you're up to."
-        }
+        } 
     }
     
     func downloadImages(index: Int) {
@@ -161,7 +159,7 @@ class EditingTableViewController: UITableViewController {
         self.user?.profile.images = imagess
         
         UserService().saveUser(user: self.user!, completion: { (success, error) in
-            if error != nil {
+            if error == nil {
                 self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
                     Authenticator.shared.user = self.user
                     _ = self.navigationController?.popViewController(animated: true)
@@ -350,10 +348,10 @@ extension EditingTableViewController: UITextViewDelegate {
     
     // For checking whether enter text can be taken or not.
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if textView == bioTextView && text != ""{
-            let x = (textView.text ?? "").characters.count
-            return x <= 199
-        }
+//        if textView == bioTextView && text != ""{
+//            let x = (textView.text ?? "").characters.count
+//            return x <= 199
+//        }
         return true
     }
     
