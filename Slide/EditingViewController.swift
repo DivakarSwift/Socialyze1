@@ -15,15 +15,21 @@ import Firebase
 class EditingTableViewController: UITableViewController {
         
     var imagePicker: UIImagePickerController = UIImagePickerController()
-    var images:[(URL?,UIImage?)] = [] {
-        didSet {
-            self.assignImages()
-        }
-    }
+    var images:[(URL?,UIImage?)] = [] 
     var imageToRemove:[URL] = []
     @IBOutlet weak var bioTextView: UITextView!
     var pickerTag:Int = 111
-    var user:User?
+    var user:User? {
+        didSet {
+            if let images = self.user?.profile.images{
+                self.images = []
+                images.forEach({ (url) in
+                    self.images.append((url,nil))
+                })
+            }
+            self.updateBio()
+        }
+    }
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
         return CustomActivityIndicatorView(image: image)
@@ -32,14 +38,20 @@ class EditingTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        Authenticator.shared.delegate = self
         self.user = Authenticator.shared.user
         imagePicker.delegate = self
-        self.downloadImages(index: 0)
+        view.addSubview(activityIndicator)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.assignImages()
     }
     
     func assignImages() {
@@ -57,8 +69,6 @@ class EditingTableViewController: UITableViewController {
                 imageButton.kf.setImage(with: nil, for: .normal, placeholder: nil)
             }
         }
-        // update bio
-        self.updateBio()
     }
     
     func updateBio() {
@@ -75,24 +85,6 @@ class EditingTableViewController: UITableViewController {
         } 
     }
     
-    func downloadImages(index: Int) {
-        UserService().downloadProfileImage(userId: (Authenticator.shared.user?.id)!, index: "\(index)", completion: { (url, error) in
-            if error == nil {
-                self.images.append((url, nil))
-                self.downloadImages(index: index+1)
-            } else {
-                if error == FirebaseManagerError.noDataFound {
-                    if self.images.count == 0 {
-                        if let images = self.user?.profile.images {
-                            images.forEach { self.images.append(($0,nil)) }
-                        }
-                    }
-                    return
-                }
-            }
-        })
-    }
-
     @IBAction func textFieldDidChange(_ sender: UITextField) {
         FIRDatabase.database().reference().child("user/\(FIRAuth.auth()!.currentUser!.uid)/profile/bio").setValue(bioText.text)
     }
@@ -155,9 +147,8 @@ class EditingTableViewController: UITableViewController {
         let imagess = self.images.flatMap({
             return $0.0
         })
-        
         self.user?.profile.images = imagess
-        
+        self.assignImages()
         UserService().saveUser(user: self.user!, completion: { (success, error) in
             if error == nil {
                 self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
@@ -201,6 +192,7 @@ class EditingTableViewController: UITableViewController {
                 }
                 self.images.remove(at: index)
             }
+            self.assignImages()
         }
     }
     
@@ -269,19 +261,22 @@ extension EditingTableViewController: UIImagePickerControllerDelegate, UINavigat
         } else {
             self.images.append((nil,image))
         }
-        
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.assignImages()
+        })
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            self.assignImages()
+        })
     }
 }
 
 extension EditingTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 5 {
-            // Policy row 5
+        if indexPath.row == 4 {
+            // Policy row 4
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(URL(string: "http://socialyzeapp.com/privacy")!, options: [:], completionHandler: nil)
             } else {
@@ -289,8 +284,8 @@ extension EditingTableViewController {
                 UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/privacy")!)
             }
         }
-            // Terms and condition row 6
-        else if indexPath.row == 6 {
+            // Terms and condition row 5
+        else if indexPath.row == 5 {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(URL(string: "http://socialyzeapp.com/terms-and-conditions")!, options: [:], completionHandler: nil)
             } else {
@@ -299,15 +294,15 @@ extension EditingTableViewController {
             }
         }
         
-            // Logout row 8
-        else if indexPath.row == 8 {
+            // Logout row 6
+        else if indexPath.row == 6 {
             self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
                 Authenticator.shared.logout()
             }, cancelAction: nil)
         }
         
-            // Delete Accont row 9
-        else if indexPath.row == 9 {
+            // Delete Accont row 7
+        else if indexPath.row == 7 {
             self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
                 Authenticator.shared.logout()
                 // this has to actually delete the account
@@ -325,18 +320,18 @@ extension EditingTableViewController: AuthenticatorDelegate {
     }
     
     func didLogoutUser() {
-        appDelegate.checkForLogin()
+        let identifier = "LoginViewController"
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        appDelegate.window?.rootViewController = vc
     }
     
     func didSignInUser() {
     }
     
     func didOccurAuthentication(error: AuthenticationError) {
-        let alert = UIAlertController(title:"Error", message: error.localizedDescription , preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Ok", style: .default , handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
+        self.alert(message: error.localizedDescription, title: "Error", okAction: {
+            appDelegate.checkForLogin()
+        })
     }
 }
 

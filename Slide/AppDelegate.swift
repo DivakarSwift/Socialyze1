@@ -79,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserService().getMe(withId: userId!, completion: { (user, error) in
                 print(error ?? "Success get user detail")
                 Authenticator.shared.user = user
-                UserService().checkFirebaseImages(ofUser: user!)
                 
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
                 self.window?.rootViewController = vc

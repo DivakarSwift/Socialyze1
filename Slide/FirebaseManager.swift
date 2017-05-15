@@ -39,8 +39,10 @@ class FirebaseManager {
     
     private static let _reference = FIRDatabase.database().reference()
     private static let _storageReference = FIRStorage.storage().reference()
+    private static let _storagee = FIRStorage.storage()
     
     let reference = FirebaseManager._reference
     let storageRef = FirebaseManager._storageReference
+    let storagee = FirebaseManager._storagee
     
 }

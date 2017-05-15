@@ -50,6 +50,7 @@ class Authenticator {
     static let shared = Authenticator()
     
     var user: User?
+    var facebookProfileImages:[URL] = []
     
     typealias ShouldSignIn = Bool
     
@@ -89,7 +90,6 @@ class Authenticator {
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
                     
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
-                        
                         FacebookService.shared.getUserDetails(success: { (user) in
                             self.user = user
                             
@@ -118,7 +118,6 @@ class Authenticator {
         }
     }
     
-   
     func signInWithFirebase(credential: FIRAuthCredential, provider: Provider, email: String?) {
         FIRAuth.auth()?.signIn(with: credential, completion: { (user: FIRUser?, error: Error?) -> Void in
             if let error = error {
@@ -133,14 +132,16 @@ class Authenticator {
                             }
                             userValue.id = Authenticator.currentFIRUser?.uid
                             userValue.profile.fbId = AccessToken.current?.userId
-                            
-                            GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
-                            UserService().saveUser(user: userValue, completion: { (success, error) in
-                                if let error = error {
-                                    self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
-                                } else {
-                                    self.delegate?.didSignInUser()
+                            FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
+                                self.facebookProfileImages.append(URL(string: photoUrlString)!)
+                            }, completion: { _ in
+                                userValue.profile.images = self.facebookProfileImages
+                                self.saveUser(user: userValue)
+                            }, failure: { _ in
+                                if self.facebookProfileImages.count > 0 {
+                                    userValue.profile.images = self.facebookProfileImages
                                 }
+                                self.saveUser(user: userValue)
                             })
                         } else {
                             Authenticator.shared.user = user
@@ -151,6 +152,17 @@ class Authenticator {
                 } else {
                     self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: FirebaseManagerError.noUserFound))
                 }
+            }
+        })
+    }
+    
+    private func saveUser(user:User){
+        GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
+        UserService().saveUser(user: user, completion: { (success, error) in
+            if let error = error {
+                self.delegate?.didOccurAuthentication(error: AuthenticationError.firebaseAuthenticationFailed(with: error))
+            } else {
+                self.delegate?.didSignInUser()
             }
         })
     }

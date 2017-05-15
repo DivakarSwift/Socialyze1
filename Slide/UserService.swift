@@ -42,7 +42,6 @@ class UserService: FirebaseManager {
                 return
             })
             uploadAction.observe(.success, handler: { (snapshot) in
-                
                 ref.downloadURL(completion: { (url, error) in
                     if error == nil {
                         completion((url,nil), snapshot.error)
@@ -51,7 +50,6 @@ class UserService: FirebaseManager {
                         completion((image.0,image.1), error)
                     }
                 })
-                
             })
         } else if let _ = image.0 {
             completion((image.0,nil), FirebaseManagerError.noDataFound)
@@ -62,8 +60,9 @@ class UserService: FirebaseManager {
     
     func removeFirebaseImage(image:URL , completion: @escaping CallBackWithError) {
         print(image)
-        let ref = FIRStorage.storage().reference(forURL: image.absoluteString)
+        let ref = storagee.reference(forURL: image.absoluteString)
         ref.delete { (error) in
+            print(error?.localizedDescription ?? "No error")
             completion(error)
         }
     }
@@ -125,40 +124,6 @@ class UserService: FirebaseManager {
             }
         })
     }
-    
-    func checkFirebaseImages(ofUser user: User) {
-        self.user = user
-        self.user?.profile.images = []
-        self.downloadImages(0)
-    }
-    
-    func downloadImages(_ index: Int) {
-        UserService().downloadProfileImage(userId: (Authenticator.shared.user?.id)!, index: "\(index)", completion: { (url, error) in
-            if error == nil {
-                self.user?.profile.images.append(url!)
-                self.downloadImages(index+1)
-            } else {
-                if error == FirebaseManagerError.noDataFound {
-                    if self.user?.profile.images.count == 0 {
-                        FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
-                            self.user?.profile.images.append(URL(string: photoUrlString)!)
-                        }, completion: { [weak self] in
-                            self?.saveUser(user: (self?.user)!, completion: { (succes, error) in
-                                
-                            })
-                            }, failure: { error in
-                                
-                        })
-                    } else {
-                        self.saveUser(user: self.user!, completion: { (_, _) in
-                            
-                        })
-                    }
-                }
-            }
-        })
-    }
-    
     
     func getMatchListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -229,6 +194,7 @@ class UserService: FirebaseManager {
                 let time = json["time"].doubleValue
                 let timeValid = (Date().timeIntervalSince1970 - time) < checkInThreshold
                 isMatching = match && timeValid
+                print(isMatching)
             }
             
             let value = [

@@ -48,6 +48,11 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        return CustomActivityIndicatorView(image: image)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.editButton.isHidden = true
@@ -58,6 +63,8 @@ class ProfileViewController: UIViewController {
         self.user = Authenticator.shared.user
         
         self.adddTapGesture(toView: self.userImageView)
+        
+        view.addSubview(activityIndicator)
         
         // Do any additional setup after loading the view.
     }
