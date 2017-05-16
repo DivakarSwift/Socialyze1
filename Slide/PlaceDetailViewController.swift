@@ -126,7 +126,7 @@ class PlaceDetailViewController: UIViewController {
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
                 }else {
-                    self?.alert(message: "You're first to check in. Please wait for others to check in")
+                    self?.alert(message: "No new users at this time. Check back later")
                 }
             }
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
@@ -134,7 +134,7 @@ class PlaceDetailViewController: UIViewController {
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
                 }else {
-                    self?.alert(message: "You're first to check in. Please wait for others to check in")
+                    self?.alert(message: "No new users at this time. Check back later")
                 }
             }
         } else if (place?.early)! > 0 {
@@ -142,7 +142,7 @@ class PlaceDetailViewController: UIViewController {
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
                 }else {
-                    self?.alert(message: "You're first to check in. Please wait for others to check in")
+                    self?.alert(message: "No new users at this time. Check back later")
                 }
             }
         } else {
@@ -157,18 +157,7 @@ class PlaceDetailViewController: UIViewController {
     
     @IBAction func checkOut(_ sender: Any) {
         // IF user is checked in
-        let ref = FIRDatabase.database().reference()
-        let userID = FIRAuth.auth()?.currentUser?.uid
-        ref.child("Places").child((place?.nameAddress)!).child("checkIn").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let snapshotValue = snapshot.value as? NSDictionary
-            if let uid = snapshotValue?["userID!"] as? String {
-                print(uid)
-                _ = self.navigationController?.popViewController(animated: true)
-            } else {
-                print("It's probably nil, dumbass")
-            }
-            //_ = self.navigationController?.popViewController(animated: true)
-            })
+        self.checkout()
     }
     
     private func checkout() {

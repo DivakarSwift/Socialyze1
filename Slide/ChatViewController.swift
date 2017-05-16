@@ -22,7 +22,6 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = chatUserName
         self.tableView.dataSource = self
         self.tableView.delegate = self
         activityIndicator.hidesWhenStopped = true
@@ -32,6 +31,18 @@ class ChatViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
+        
+        let titleButton = UIButton()
+        titleButton.setTitle(chatUserName, for: .normal)
+        titleButton.backgroundColor = UIColor.clear
+        titleButton.tintColor = UIColor.white
+        titleButton.addTarget(self, action:#selector(titleTouched), for: .touchUpInside)
+        self.navigationController?.navigationItem.titleView = titleButton
+        
+    }
+    
+    func titleTouched() {
+        
     }
     
     func fetchData() {
