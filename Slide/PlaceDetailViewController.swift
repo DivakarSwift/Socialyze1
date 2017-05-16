@@ -240,7 +240,11 @@ class PlaceDetailViewController: UIViewController {
             let fbIds = self.faceBookFriends.map({$0.id})
             let friendCheckins = checkinData.filter({fbIds.contains($0.fbId!)})
             var text = "\(checkinData.count) checked in "
-            text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friend(s). " : "")
+            if friendCheckins.count > 1 {
+                text = text + (friendCheckins.count > 1 ? "including your \(friendCheckins.count) friends. " : "")
+            } else {
+                text = text + (friendCheckins.count > 0 ? "including your /(friendCheckins.count) friend. " : "")
+            }
             self.checkInStatusLabel.text = text
         }else {
             self.checkInStatusLabel.text = ""
