@@ -30,6 +30,25 @@ class ViewController: UIViewController {
         
         SlydeLocationManager.shared.requestLocation()
         
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                // Enable or disable features based on authorization.
+                if !granted {
+                    print("Something went wrong")
+                }
+            }
+            center.getNotificationSettings(completionHandler: { (setting) in
+                if setting.authorizationStatus != .authorized {
+                    // Notifications not allowed
+                    print("Notification not allowed")
+                }
+            })
+        } else {
+            // Fallback on earlier versions
+//            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
+        }
+        
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
         mosaicLayout.delegate = self
