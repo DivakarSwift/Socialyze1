@@ -165,6 +165,8 @@ class PlaceDetailViewController: UIViewController {
             self?.isCheckedIn = !success
             print(error ?? "Success user authenticator places")
             print("CHECKED OUT")
+            // pop view controller only IF user was originally checked in
+            //_ = self?.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -243,7 +245,7 @@ class PlaceDetailViewController: UIViewController {
             if friendCheckins.count > 1 {
                 text = text + (friendCheckins.count > 1 ? "including your \(friendCheckins.count) friends. " : "")
             } else {
-                text = text + (friendCheckins.count > 0 ? "including your /(friendCheckins.count) friend. " : "")
+                text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friend. " : "")
             }
             self.checkInStatusLabel.text = text
         }else {
