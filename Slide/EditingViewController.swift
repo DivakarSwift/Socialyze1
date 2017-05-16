@@ -41,7 +41,8 @@ class EditingTableViewController: UITableViewController {
         Authenticator.shared.delegate = self
         self.user = Authenticator.shared.user
         imagePicker.delegate = self
-        view.addSubview(activityIndicator)
+        self.view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
     }
     
     override func viewWillAppear(_ animated: Bool) {
