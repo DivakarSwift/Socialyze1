@@ -363,6 +363,7 @@ class CategoriesViewController: UIViewController {
                 vc.chatItem = item
                 vc.chatUserName = user.profile.firstName!
                 vc.chatOppentId = user.id
+                vc.chatUser = user
                 if let nav =  self.navigationController {
                     nav.pushViewController(vc, animated: true)
                 } else {

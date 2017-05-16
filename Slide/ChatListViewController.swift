@@ -96,6 +96,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         vc.chatItem = self.chatList[indexPath.row]
         vc.chatUserName = self.chatUsers[indexPath.row].profile.name ?? ""
         vc.chatOppentId = self.chatUsers[indexPath.row].id
+        vc.chatUser = self.chatUsers[indexPath.row]
         if let nav =  self.navigationController {
             nav.pushViewController(vc, animated: true)
         } else {

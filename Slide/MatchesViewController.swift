@@ -183,6 +183,7 @@ extension MatchesViewController: UITableViewDataSource {
     func openChat(forUser user: User, chatItem: ChatItem? = nil) {
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         vc.chatItem = chatItem
+        vc.chatUser = user
         
         if chatItem == nil {
             var val = ChatItem()

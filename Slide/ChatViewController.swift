@@ -16,6 +16,7 @@ class ChatViewController: UIViewController {
     var chatData = [ChatData]()
     var chatUserName: String = ""
     var chatOppentId:String?
+    var chatUser:User?
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     var chatService = ChatService.shared
@@ -32,17 +33,22 @@ class ChatViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         
-        let titleButton = UIButton()
+        let titleButton = UIButton(type: .custom)
         titleButton.setTitle(chatUserName, for: .normal)
+        titleButton.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         titleButton.backgroundColor = UIColor.clear
         titleButton.tintColor = UIColor.white
         titleButton.addTarget(self, action:#selector(titleTouched), for: .touchUpInside)
-        self.navigationController?.navigationItem.titleView = titleButton
+        self.navigationItem.titleView = titleButton
         
     }
     
     func titleTouched() {
-        
+        if let user = self.chatUser {
+            let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+            vc.fromFBFriends = user
+            _ = self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func fetchData() {
