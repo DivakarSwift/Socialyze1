@@ -343,10 +343,10 @@ extension EditingTableViewController: UITextViewDelegate {
     
     // For checking whether enter text can be taken or not.
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        if textView == bioTextView && text != ""{
-//            let x = (textView.text ?? "").characters.count
-//            return x <= 199
-//        }
+        if textView == bioTextView && text != ""{
+            let x = (textView.text ?? "").characters.count
+            return x <= 199
+        }
         return true
     }
     
