@@ -277,6 +277,10 @@ class UserService: FirebaseManager {
                 let chatList = JSON(value)
                 var chatItems:[ChatItem] = []
                 var refs:[FIRDatabaseReference] = []
+                if chatList.count == 0 {
+                    completion(refs,nil)
+                    return
+                }
                 for (_,data) in chatList {
                     if let chatItem: ChatItem = data.map(), let chatId =  chatItem.chatId, let chatUser =  chatItem.userId {
                         chatItems.append(chatItem)
@@ -303,6 +307,10 @@ class UserService: FirebaseManager {
                 let acceptList = JSON(value)
                 var acceptedUser:[String] = []
                 var refs:[FIRDatabaseReference] = []
+                if acceptList.count == 0 {
+                    completion(refs,nil)
+                    return
+                }
                 for (key,_) in acceptList {
                     acceptedUser.append(key)
                     let ref = self.reference.child(Node.user.rawValue).child(key).child(Node.acceptList.rawValue).child(userId)
