@@ -35,19 +35,17 @@ class PlaceService: FirebaseManager {
         })
     }
     
-    func getCheckInUsers(at place: Place, completion: @escaping ([Checkin])->(), failure: @escaping (Error)->()) {
+    func getCheckInUsers(at place: Place, completion: @escaping ([Checkin])->(), failure: @escaping (FirebaseManagerError)->()) {
         self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
             if let snapshotValue = snapshot.value {
                 if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
                     return json.map()
                 }) {
                     completion(json)
-                    print(json)
                     return
                 }
             }
             failure(FirebaseManagerError.noDataFound)
-            print(snapshot.value ?? "Error get check in user")
         })
     }
 }

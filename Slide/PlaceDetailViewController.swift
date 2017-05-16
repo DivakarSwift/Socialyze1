@@ -65,13 +65,16 @@ class PlaceDetailViewController: UIViewController {
     private var checkInKey: String?
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
-        return CustomActivityIndicatorView(image: image)
+        let activityIndicator = CustomActivityIndicatorView(image: image)
+        return activityIndicator
     }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator.center = view.center
         self.placeImageView.image = place?.secondImage ?? place?.mainImage
         self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
