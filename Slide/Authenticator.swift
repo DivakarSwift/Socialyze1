@@ -140,6 +140,11 @@ class Authenticator {
                                 self.saveUser(user: userValue)
                             }, failure: { _ in
                                 if self.facebookProfileImages.count > 0 {
+                                    if self.facebookProfileImages.count > 5 {
+                                        for index in 5...self.facebookProfileImages.count {
+                                            self.facebookProfileImages.remove(at: index)
+                                        }
+                                    }
                                     userValue.profile.images = self.facebookProfileImages
                                 }
                                 self.saveUser(user: userValue)

@@ -58,6 +58,9 @@ class EditingTableViewController: UITableViewController {
     func assignImages() {
         // set Image
         for (index,val) in self.images.enumerated() {
+            if index >= 5 {
+                return
+            }
             let tag = 100 + (index+1)*10 + 1
             let imageButton = view.viewWithTag(tag) as! UIButton
             imageButton.kf.setImage(with: val.0, for: .normal, placeholder: val.1)
