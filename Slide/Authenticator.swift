@@ -51,6 +51,7 @@ class Authenticator {
     
     var user: User?
     var facebookProfileImages:[URL] = []
+    var places:[Place]?
     
     typealias ShouldSignIn = Bool
     

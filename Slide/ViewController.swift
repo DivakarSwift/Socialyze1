@@ -156,6 +156,7 @@ class ViewController: UIViewController {
         
         places.append(Place.init(nameAddress: "Easton Town Center", mainImage: #imageLiteral(resourceName: "EastonTownCenter"), secondImage: nil, lat: 40.050716, long: -82.915363, size: 0, early: 0, bio: "")) // polygon
         
+        Authenticator.shared.places = self.places
         
         self.collectionView.reloadData()
     

@@ -268,4 +268,122 @@ class UserService: FirebaseManager {
             completion(error == nil, error)
         }
     }
+    
+    private func deleteChat(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
+        // Delete ChatList
+        let ref = reference.child(Node.user.rawValue).child(userId).child(Node.chatList.rawValue)
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value {
+                let chatList = JSON(value)
+                var chatItems:[ChatItem] = []
+                var refs:[FIRDatabaseReference] = []
+                for (_,data) in chatList {
+                    if let chatItem: ChatItem = data.map(), let chatId =  chatItem.chatId, let chatUser =  chatItem.userId {
+                        chatItems.append(chatItem)
+                        let ref = self.reference.child(Node.user.rawValue).child(chatUser).child(Node.chatList.rawValue).child(userId)
+                        let ref2 = self.reference.child(Node.chat.rawValue).child(chatId)
+                        refs.append(ref)
+                        refs.append(ref2)
+                        if refs.count == chatList.count*2 {
+                            completion(refs,nil)
+                        }
+                    }
+                }
+            } else {
+                completion(nil,DeleteError.chat)
+            }
+        })
+    }
+    
+    private func deleteAcceptAndMatchList(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
+        // Delete MatchList and Accept List
+        let refAccept = reference.child(Node.user.rawValue).child(userId).child(Node.acceptList.rawValue)
+        refAccept.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value {
+                let acceptList = JSON(value)
+                var acceptedUser:[String] = []
+                var refs:[FIRDatabaseReference] = []
+                for (key,_) in acceptList {
+                    acceptedUser.append(key)
+                    let ref = self.reference.child(Node.user.rawValue).child(key).child(Node.acceptList.rawValue).child(userId)
+                    let ref2 = self.reference.child(Node.user.rawValue).child(key).child(Node.matchList.rawValue).child(userId)
+                    refs.append(ref)
+                    refs.append(ref2)
+                    if refs.count == acceptedUser.count*2 {
+                        completion(refs,nil)
+                    }
+                }
+            } else {
+                completion(nil, DeleteError.acceptList)
+            }
+        })
+    }
+    
+    private func deleteCheckIns(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
+        // Delete MatchList and Accept List
+        var PlacesRefs:[FIRDatabaseReference] = []
+        if let places = Authenticator.shared.places {
+            places.forEach({ (place) in
+                let ref = self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(userId)
+                PlacesRefs.append(ref)
+                if place.nameAddress == places.last?.nameAddress {
+                    completion(PlacesRefs, nil)
+                }
+            })
+        } else {
+            completion(nil, DeleteError.checkIn)
+        }
+    }
+    
+    func deleteUser(userId:String , completion: @escaping CallBackWithSuccessError)  {
+        var firebaseRefereces:[FIRDatabaseReference] = []
+        self.deleteChat(userId: userId, completion: { (chatRefs,error) in
+            if let error = error {
+                completion(false, error)
+            } else {
+                chatRefs?.forEach({ (ref) in
+                    firebaseRefereces.append(ref)
+                })
+                
+                self.deleteAcceptAndMatchList(userId: userId, completion: { (acceptRefs,error) in
+                    if let err = error {
+                        completion(false, err)
+                    } else {
+                        acceptRefs?.forEach({ (ref) in
+                            firebaseRefereces.append(ref)
+                        })
+                        
+                        // get checkIn Refs
+                        self.deleteCheckIns(userId: userId, completion: { (checkInRefs, error) in
+                            if let error = error {
+                                completion(false, error)
+                            } else {
+                                checkInRefs?.forEach({ (ref) in
+                                    firebaseRefereces.append(ref)
+                                })
+                                
+                                // finally remove user
+                                firebaseRefereces.forEach({ (ref) in
+                                    ref.removeValue()
+                                })
+                                self.reference.child(Node.user.rawValue).child(userId).removeValue { (error, _) in
+                                    if let error = error {
+                                        completion(false, error)
+                                    } else {
+                                        completion(true, nil)
+                                    }
+                                }
+                            }
+                        })
+                        
+                    }
+                })
+            }
+        })
+    }
+    
+    
+    
+   
+    
 }

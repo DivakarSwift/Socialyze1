@@ -33,6 +33,19 @@ enum FirebaseManagerError: Error {
     }
 }
 
+enum DeleteError: Error {
+    case chat
+    case checkIn
+    case acceptList
+    var localizedDescription: String {
+        switch self {
+        case .chat: return "Server error in deleting ChatList"
+        case .checkIn: return "Server error in deleting checkIns"
+        case .acceptList: return "Server error in deleting checkIns"
+        }
+    }
+}
+
 class FirebaseManager {
     
     init() {}

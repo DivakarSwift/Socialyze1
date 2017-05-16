@@ -304,7 +304,19 @@ extension EditingTableViewController {
             // Delete Accont row 7
         else if indexPath.row == 7 {
             self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
-                Authenticator.shared.logout()
+                
+                UserService().deleteUser(userId: (Authenticator.shared.user?.id)!, completion: { (success, error) in
+                    if let err = error {
+                        self.alert(message: err.localizedDescription, title: "Alert", okAction: { 
+                            Authenticator.shared.logout()
+                        })
+                    }
+                    else {
+                        self.alert(message: "Your account has been Deleted Successfully!", title: "Success", okAction: {
+                            Authenticator.shared.logout()
+                        })
+                    }
+                })
                 // this has to actually delete the account
             }, cancelAction: nil)
         }
