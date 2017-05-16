@@ -250,24 +250,34 @@ class PlaceDetailViewController: UIViewController {
     
     func getCheckedinUsers() {
         self.activityIndicator.startAnimating()
-        placeService.getCheckInUsers(at: self.place!, completion: {[weak self] (checkin) in
-            
-            
-            self?.checkinData = checkin.filter({(checkin) -> Bool in
-                if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
-                    // return true
-                    return checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
-                }
-                return false
+        if let authUserId = self.authenticator.user?.id {
+            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
+                
+                self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkin) in
+                    
+                    self?.checkinData = checkin.filter({(checkin) -> Bool in
+                        if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
+                            // return true
+                            if userIds.contains(checkInUserId) {
+                                return false
+                            }
+                            let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
+                            return checkTimeValid
+                        }
+                        return false
+                    })
+                    
+                    if let data = self?.checkinData {
+                        self?.getAllCheckedInUsers(data : data)
+                    }
+                    
+                    }, failure: {[weak self] error in
+                        self?.activityIndicator.stopAnimating()
+                        self?.alert(message: error.localizedDescription)
+                })
+                
             })
-            if let data = self?.checkinData {
-                self?.getAllCheckedInUsers(data : data)
-            }
-            
-            }, failure: {[weak self] error in
-                self?.activityIndicator.stopAnimating()
-                self?.alert(message: error.localizedDescription)
-        })
+        }
     }
     
     func getAllCheckedInUsers(data : [Checkin]) {

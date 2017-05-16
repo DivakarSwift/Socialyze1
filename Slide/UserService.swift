@@ -231,6 +231,46 @@ class UserService: FirebaseManager {
         })
     }
     
+    func reject(user: User, myId: String, completion: @escaping() -> Void) {
+        // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
+        
+        print("OpponentId: \(user.id!)")
+        print("MyId: \(myId)")
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            var match:Bool?
+            let value = [
+                "time": Date().timeIntervalSince1970
+                ] as [String : Any]
+            if let val = snapshot.value {
+                let json = JSON(val)
+                if let _ = json["match"].bool {
+                    match = false
+                }
+            }
+            self.reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(user.id!).updateChildValues(value) { (error, _) in
+                
+                if let match = match {
+                    
+                    let value = [
+                        "match": match
+                        ] as [String : Any]
+                    self.reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).child(myId).updateChildValues(value) { (error, _) in
+                        completion()
+                        
+                        // If asked for remove from match list then uncomment below code
+                        /* self.reference.child(Node.user.rawValue).child(myId).child(Node.matchList.rawValue).child(user.id!).removeValue()
+                         self.reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).child(myId).removeValue()
+                         */
+                    }
+                } else {
+                    completion()
+                }
+                
+            }
+        })
+    }
+    
     func getReportedAndBlockedUsers(completion: @escaping ([User]) -> Void) {
         
     }
@@ -267,6 +307,35 @@ class UserService: FirebaseManager {
         reference.child(Node.report.rawValue).childByAutoId().updateChildValues(dict) { (error, _) in
             completion(error == nil, error)
         }
+    }
+    
+    func expectUserIdsOfacceptList(userId:String , completion: @escaping (_ users : [String]) -> Void) {
+        let refAccept = reference.child(Node.user.rawValue).child(userId).child(Node.acceptList.rawValue)
+        var usersIds:[String] = []
+        refAccept.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let value = snapshot.value {
+                let acceptList = JSON(value)
+                if acceptList.count == 0 {
+                    completion(usersIds)
+                    return
+                }
+                var i = 0
+                for (key,list) in acceptList {
+                    i += 1
+                    let acceptTime = list["time"].doubleValue
+                    let timeValid = (Date().timeIntervalSince1970 - acceptTime) < checkInThreshold
+                    if timeValid {
+                        usersIds.append(key)
+                    }
+                    if acceptList.count == i {
+                        completion(usersIds)
+                    }
+                }
+            } else {
+                completion(usersIds)
+            }
+            
+        })
     }
     
     private func deleteChat(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {

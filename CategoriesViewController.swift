@@ -266,7 +266,11 @@ class CategoriesViewController: UIViewController {
     }
     
     func rejectUser() {
-        _ = removeTopUser()
+        if let rejectedUser = self.users.first, let myId = Authenticator.shared.user?.id {
+            self.userService.reject(user: rejectedUser, myId: myId, completion: { [weak self] _ in
+                _ = self?.removeTopUser()
+            })
+        }
     }
     
     func acceptUser() {
