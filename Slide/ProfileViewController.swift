@@ -149,9 +149,6 @@ class ProfileViewController: UIViewController {
                 self.bioTextView.text = user?.profile.bio
                 self.bioLabel.text = self.bioTextView.text
             }
-        } else {
-            self.bioTextView.text = (user?.profile.firstName)! + ", tell us what you're up to."
-            self.bioLabel.text = self.bioTextView.text
         }
     }
     
