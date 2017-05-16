@@ -136,12 +136,17 @@ class Authenticator {
                             FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
                                 self.facebookProfileImages.append(URL(string: photoUrlString)!)
                             }, completion: { _ in
+                                if self.facebookProfileImages.count > 5 {
+                                    for index in 5...self.facebookProfileImages.count-1 {
+                                        self.facebookProfileImages.remove(at: index)
+                                    }
+                                }
                                 userValue.profile.images = self.facebookProfileImages
                                 self.saveUser(user: userValue)
                             }, failure: { _ in
                                 if self.facebookProfileImages.count > 0 {
                                     if self.facebookProfileImages.count > 5 {
-                                        for index in 5...self.facebookProfileImages.count {
+                                        for index in 5...self.facebookProfileImages.count-1 {
                                             self.facebookProfileImages.remove(at: index)
                                         }
                                     }
