@@ -48,9 +48,25 @@ class PlaceDetailViewController: UIViewController {
             self.changeStatus()
         }
     }
-    private var checkinData = [Checkin]() {
+    private var checkinData = [Checkin]()
+    private var exceptedUsers:[String] = []
+    private var checkinWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
+            self.checkinData = checkinWithExpectUser.filter({(checkin) -> Bool in
+                if let checkInUserId = checkin.userId, let authUserId = self.authenticator.user?.id, let checkinTime = checkin.time {
+                    // return true
+                    if exceptedUsers.contains(checkInUserId) {
+                        return false
+                    }
+                    let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
+                    return checkTimeValid
+                }
+                return false
+            })
+            
+           self.getAllCheckedInUsers(data : checkinWithExpectUser)
+            
             self.changeStatus()
         }
     }
@@ -225,22 +241,23 @@ class PlaceDetailViewController: UIViewController {
     func getUserFriends() {
         facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
             self?.faceBookFriends = friends
-            }, failure: { [weak self] (error) in
-                self?.alert(message: error)
+            }, failure: { (error) in
+//                self?.alert(message: error)
+                print(error)
         })
     }
     
     func getCheckedInFriends() -> [FacebookFriend] {
-        let fbIds = self.checkinData.flatMap({$0.fbId})
+        let fbIds = self.checkinWithExpectUser.flatMap({$0.fbId})
         let friendCheckins = self.faceBookFriends.filter({fbIds.contains($0.id)})
         return friendCheckins
     }
     
     func changeStatus() {
-        if self.checkinData.count > 0 {
+        if self.checkinWithExpectUser.count > 0 {
             let fbIds = self.faceBookFriends.map({$0.id})
-            let friendCheckins = checkinData.filter({fbIds.contains($0.fbId!)})
-            var text = "\(checkinData.count) checked in "
+            let friendCheckins = checkinWithExpectUser.filter({fbIds.contains($0.fbId!)})
+            var text = "\(checkinWithExpectUser.count) checked in "
             if friendCheckins.count > 1 {
                 text = text + (friendCheckins.count > 1 ? "including your \(friendCheckins.count) friends. " : "")
             } else {
@@ -257,25 +274,11 @@ class PlaceDetailViewController: UIViewController {
         self.activityIndicator.startAnimating()
         if let authUserId = self.authenticator.user?.id {
             UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
-                
+                self?.exceptedUsers = userIds
                 self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkin) in
                     self?.activityIndicator.stopAnimating()
-                    self?.checkinData = checkin.filter({(checkin) -> Bool in
-                        if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
-                            // return true
-                            if userIds.contains(checkInUserId) {
-                                return false
-                            }
-                            let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
-                            return checkTimeValid
-                        }
-                        return false
-                    })
-                    
-                    if let data = self?.checkinData {
-                        self?.getAllCheckedInUsers(data : data)
-                    }
-                    
+                    self?.checkinWithExpectUser = checkin
+                   
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
 //                        self?.alert(message: error.localizedDescription)
