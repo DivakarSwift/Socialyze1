@@ -79,6 +79,10 @@ class ProfileViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
+    @IBAction func swipeHome(_ sender: Any) {
+        performSegue(withIdentifier: "unwindFromProfile", sender: nil)
+    }
+    
     func adddTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
         view.addGestureRecognizer(tap)

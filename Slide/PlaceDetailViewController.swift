@@ -259,9 +259,9 @@ class PlaceDetailViewController: UIViewController {
             let friendCheckins = checkinWithExpectUser.filter({fbIds.contains($0.fbId!)})
             var text = "\(checkinWithExpectUser.count) checked in "
             if friendCheckins.count > 1 {
-                text = text + (friendCheckins.count > 1 ? "including your \(friendCheckins.count) friends. " : "")
+                text = text + (friendCheckins.count > 1 ? "including \(friendCheckins.count) friends. " : "")
             } else {
-                text = text + (friendCheckins.count > 0 ? "including your \(friendCheckins.count) friend. " : "")
+                text = text + (friendCheckins.count > 0 ? "including \(friendCheckins.count) friend. " : "")
             }
             self.checkInStatusLabel.text = text
         }else {

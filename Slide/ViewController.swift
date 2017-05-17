@@ -27,6 +27,19 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
+        if sender.direction == UISwipeGestureRecognizerDirection.right {
+            performSegue(withIdentifier: "swipeToProfile", sender: nil)
+        }
+        if sender.direction == UISwipeGestureRecognizerDirection.left {
+            
+        }
+    }
+    
+    @IBAction func returnFromSegueActions(sender: UIStoryboardSegue) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,6 +65,8 @@ class ViewController: UIViewController {
             // Fallback on earlier versions
 //            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
         }
+        
+        
         
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
@@ -189,7 +204,8 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
         controller.userId = Authenticator.currentFIRUser?.uid
-        self.navigationController?.pushViewController(controller, animated: true)
+        performSegue(withIdentifier: "swipeToProfile", sender: nil)
+        //self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {

@@ -110,12 +110,17 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="0.050000000000000003" height="0.29999999999999999"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="P4a-Jm-eDM" secondAttribute="bottom" id="fTJ-OJ-iLb"/>
                             <constraint firstItem="P4a-Jm-eDM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="lDt-MZ-8bJ"/>
                             <constraint firstAttribute="trailing" secondItem="P4a-Jm-eDM" secondAttribute="trailing" id="rxa-by-gH8"/>
                             <constraint firstItem="P4a-Jm-eDM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xtq-dC-V2N"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bx8-uX-766" appends="YES" id="hma-hz-pUf"/>
+                            <outletCollection property="gestureRecognizers" destination="6gS-XI-1Qj" appends="YES" id="QhP-zL-E2n"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="4nA-Tf-uLl"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -123,9 +128,20 @@
                     <connections>
                         <outlet property="collectionView" destination="P4a-Jm-eDM" id="shI-Di-AAs"/>
                         <segue destination="dSg-os-irL" kind="show" identifier="openEvent" id="uZi-SU-WhH"/>
+                        <segue destination="XXN-We-PSS" kind="custom" identifier="swipeToProfile" customClass="CustomSwipeSegue" customModule="Slide" customModuleProvider="target" id="w6K-JS-41H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="bx8-uX-766">
+                    <connections>
+                        <action selector="didSwipe:" destination="BYZ-38-t0r" id="Hca-db-ToC"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="6gS-XI-1Qj">
+                    <connections>
+                        <action selector="didSwipe:" destination="BYZ-38-t0r" id="w4Q-R2-s7s"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="918.84057971014499" y="138.58695652173915"/>
         </scene>
@@ -244,6 +260,14 @@
             </objects>
             <point key="canvasLocation" x="2775" y="-401"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="7Da-uP-KQm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="XXN-We-PSS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tni-mL-ssK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1489" y="-283"/>
+        </scene>
         <!--Place Detail View Controller-->
         <scene sceneID="6tY-WQ-smv">
             <objects>
@@ -260,24 +284,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5V-6x-JJM">
-                                <rect key="frame" x="0.0" y="349" width="414" height="38.333333333333314"/>
+                                <rect key="frame" x="0.0" y="349" width="414" height="39"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V1k-db-Ndc" userLabel="Detail Stack View">
-                                <rect key="frame" x="0.0" y="387.33333333333326" width="414" height="38.666666666666686"/>
+                                <rect key="frame" x="0.0" y="388" width="414" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="   " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sy-mz-Ve2">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="19.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWC-ZF-jWY">
-                                        <rect key="frame" x="0.0" y="19.333333333333371" width="414" height="19.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="20"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -334,7 +358,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Axf-Ag-CCA">
-                                <rect key="frame" x="0.0" y="426" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="428" width="414" height="214"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Fi5-ul-5Ld">
                                         <rect key="frame" x="20" y="10" width="374" height="100"/>
