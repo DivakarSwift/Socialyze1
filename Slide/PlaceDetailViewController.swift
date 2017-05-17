@@ -259,7 +259,7 @@ class PlaceDetailViewController: UIViewController {
             UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
                 
                 self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkin) in
-                    
+                    self?.activityIndicator.stopAnimating()
                     self?.checkinData = checkin.filter({(checkin) -> Bool in
                         if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
                             // return true
@@ -278,7 +278,7 @@ class PlaceDetailViewController: UIViewController {
                     
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
-                        self?.alert(message: error.localizedDescription)
+//                        self?.alert(message: error.localizedDescription)
                 })
                 
             })
@@ -300,8 +300,8 @@ class PlaceDetailViewController: UIViewController {
             
             UserService().getUser(withId: userId, completion: { [weak self] (user, error) in
                 
-                if let error = error {
-                    self?.alert(message: error.localizedDescription)
+                if let _ = error {
+//                    self?.alert(message: error.localizedDescription)
                     return
                 }
                 
