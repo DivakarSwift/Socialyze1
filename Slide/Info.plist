@@ -50,7 +50,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>${PRODUCT_NAME} Camera Usage</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>track user&apos;s location</string>
+	<string>For connecting you with your friends and new connections</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>${PRODUCT_NAME} PhotoLibrary Usage</string>
 	<key>UILaunchStoryboardName</key>
