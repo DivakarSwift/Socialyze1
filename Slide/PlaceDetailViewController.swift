@@ -96,6 +96,7 @@ class PlaceDetailViewController: UIViewController {
         if (place?.early)! > 0 {
             checkInButton.setTitle("Join", for: .normal)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import UserNotifications
 
-extension UIViewController {
+extension UIViewController: UNUserNotificationCenterDelegate {
     func alert(message: String?, title: String? = "That's all folks!", okAction: (()->())? = nil ) {
         let alertController = getAlert(message: message, title: title)
         alertController.addAction(title: "Ok", handler: okAction)
@@ -62,3 +63,7 @@ extension UIAlertController {
         self.addAction(action)
     }
 }
+
+
+
+

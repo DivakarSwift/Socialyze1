@@ -136,4 +136,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 }
 
+extension UIApplication {
+    class func openAppSettings() {
+        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+    }
+}
+
 

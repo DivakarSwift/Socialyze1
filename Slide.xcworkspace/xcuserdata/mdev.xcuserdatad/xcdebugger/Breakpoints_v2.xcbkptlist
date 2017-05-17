@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/PlaceDetailViewController.swift"
-            timestampString = "516627815.661984"
+            timestampString = "516692682.676551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "342"
-            endingLineNumber = "342"
-            landmarkName = "didSignInUser()"
-            landmarkType = "7">
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "PlaceDetailViewController"
+            landmarkType = "4">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/PlaceDetailViewController.swift"
-            timestampString = "516627815.661984"
+            timestampString = "516692682.676551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "357"
-            endingLineNumber = "357"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
             landmarkName = "shouldUserSignInIntoFirebase()"
             landmarkType = "7">
          </BreakpointContent>

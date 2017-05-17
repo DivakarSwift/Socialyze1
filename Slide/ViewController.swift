@@ -42,6 +42,7 @@ class ViewController: UIViewController {
                 if setting.authorizationStatus != .authorized {
                     // Notifications not allowed
                     print("Notification not allowed")
+                    UIApplication.openAppSettings()
                 }
             })
         } else {
@@ -66,8 +67,8 @@ class ViewController: UIViewController {
         
         setupPlaces()
                 
-        ChatService.shared.observeChatList()
-        ChatService.shared.observeMatchList()
+        ChatService.shared.observeChatList(self)
+        ChatService.shared.observeMatchList(self)
         
     }
     
@@ -253,3 +254,31 @@ extension ViewController : TRMosaicLayoutDelegate {
         return 200
     }
 }
+
+
+extension ViewController {
+    
+    
+    @available(iOS 10.0, *)
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("Tapped in notification")
+    }
+    
+    //This is key callback to present notification while the app is in foreground
+    @available(iOS 10.0, *)
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("Notification being triggered")
+        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
+        //to distinguish between notifications
+        if notification.request.identifier == Node.chatList.rawValue {
+            completionHandler( [.alert,.sound,.badge])
+            
+        }
+        else if  notification.request.identifier ==  Node.matchList.rawValue {
+            completionHandler( [.alert,.sound,.badge])
+        }
+    }
+}
+

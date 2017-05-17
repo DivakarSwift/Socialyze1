@@ -27,76 +27,71 @@ class Utilities: NSObject {
         return age
     }
     
-    class func fireChatNotification(chatItem :ChatItem) {
+    class func fireChatNotification(_ viewController: UIViewController, chatItem :ChatItem) {
         
         UserService().getMe(withId: chatItem.userId!, completion: { user, error in
-            
-            if #available(iOS 10.0, *) {
-                let content = UNMutableNotificationContent()
-                content.title = "New Message from \(user?.profile.firstName)"
-                content.body = chatItem.lastMessage ?? "check conversation"
-                content.categoryIdentifier = "alarm"
-                content.sound = UNNotificationSound.default()
-                               
-                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
-                let request = UNNotificationRequest(identifier: Node.chatList.rawValue, content: content, trigger: trigger)
-                
-                UNUserNotificationCenter.current().add(request){(error) in
-                    
-                    if (error != nil){
-                        
-                        print(error?.localizedDescription ?? "")
-                    }
-                }
-                
-            } else {
-                
-                // ios 9
-                let notification = UILocalNotification()
-                notification.fireDate = NSDate(timeIntervalSinceNow: 0) as Date
-                notification.alertBody = chatItem.lastMessage ?? "check conversation"
-                notification.alertAction = "New Message from \(user?.profile.firstName)"
-                notification.soundName = UILocalNotificationDefaultSoundName
-                UIApplication.shared.scheduleLocalNotification(notification)
-                
+            var title = "New Message"
+            if let name = user?.profile.firstName {
+                title = name
             }
+            let body = chatItem.lastMessage ?? "Check conversation"
+            localNotif(withTitle: title, body: body, viewController: viewController)
         })
         
     }
     
-    class func fireMatchedNotification(userId :String) {
+    class func fireMatchedNotification(_ viewController: UIViewController, userId :String) {
         
         UserService().getMe(withId: userId, completion: { user, error in
-            
-            if #available(iOS 10.0, *) {
-                let content = UNMutableNotificationContent()
-                content.title = "New match"
-                content.body = "New Match for \(user?.profile.firstName)"
-                content.categoryIdentifier = "alarm"
-                content.sound = UNNotificationSound.default()
-                content.badge = (UIApplication.shared.applicationIconBadgeNumber + 1 ) as NSNumber?
-                
-                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
-                let request = UNNotificationRequest(identifier: Node.matchList.rawValue, content: content, trigger: trigger)
-                
-                UNUserNotificationCenter.current().add(request){(error) in
-                    if (error != nil){
-                        print(error?.localizedDescription ?? "")
-                    }
-                }
-            } else {
-                
-                // ios 9
-                let notification = UILocalNotification()
-                notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
-                notification.alertBody = "New Match for \(user?.profile.firstName)"
-                notification.alertAction = "New Match"
-                notification.soundName = UILocalNotificationDefaultSoundName
-                UIApplication.shared.scheduleLocalNotification(notification)
-                
+            let title = "New match"
+            var body = "New Match. Check Connections"
+            if let name = user?.profile.firstName {
+                body = "New Match form \(name)"
             }
+            localNotif(withTitle: title, body: body, viewController: viewController)
         })
         
+    }
+    
+    class func localNotif(withTitle title: String, body:String, viewController: UIViewController) {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = title
+            content.body = body
+            content.categoryIdentifier = "alarm"
+            content.sound = UNNotificationSound.default()
+            
+            //                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
+            
+            //Setting time for notification trigger
+            let date = Date(timeIntervalSinceNow: 5)
+            let dateCompenents = Calendar.current.dateComponents([.year,.month,.day ,.hour,.minute,.second], from: date)
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateCompenents, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: Node.chatList.rawValue, content: content, trigger: trigger)
+            
+            center.delegate = viewController
+            center.add(request){(error) in
+                
+                if (error != nil){
+                    
+                    print(error?.localizedDescription ?? "")
+                }
+            }
+            
+        } else {
+            
+            // ios 9
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: 0) as Date
+            notification.alertBody = body
+            notification.alertAction = title
+            notification.soundName = UILocalNotificationDefaultSoundName
+            UIApplication.shared.scheduleLocalNotification(notification)
+            
+        }
     }
     
 }

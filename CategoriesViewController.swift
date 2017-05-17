@@ -90,6 +90,7 @@ class CategoriesViewController: UIViewController {
             self.getAllCheckedInUsers()
             self.addSwipeGesture(toView: self.imageView)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -393,4 +394,5 @@ extension CategoriesViewController: UIPopoverControllerDelegate, UIPopoverPresen
         self.view.alpha = 1.0
     }
 }
+
 
