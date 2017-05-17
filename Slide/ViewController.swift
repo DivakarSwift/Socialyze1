@@ -106,8 +106,6 @@ class ViewController: UIViewController {
         places.append(Place.init(nameAddress: "The Ohio State", mainImage: #imageLiteral(resourceName: "18thAvelibrary"), secondImage: nil, lat: 39.997957, long: -83.0085650,placeID: "ChIJs6fo3Y-OOIgRj4dWIQjYLKs"))
         places.append(Place.init(nameAddress: "Ohio Union, Ohio State", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJs6fo3Y-OOIgRj4dWIQjYLKs"))
         
-        places.append(Place.init(nameAddress: "Thompson Library, Ohio State", mainImage: #imageLiteral(resourceName: "ThompsonLibrary"), secondImage: #imageLiteral(resourceName: "ThompsonLibrary1"), lat: 39.999472, long: -83.014833,placeID: "ChIJP74-z5eOOIgRBVNFuzx7O7U"))
-        
         places.append(Place.init(nameAddress: "Capital University", mainImage: #imageLiteral(resourceName: "CapitalUni"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJY8M8bEOIOIgRZYLL8jWPXNw"))
         
         places.append(Place.init(nameAddress: "Columbus State CC.", mainImage: #imageLiteral(resourceName: "ColumbusStateCC"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJh6KJCdSIOIgRr6tbp10S-tQ"))
@@ -131,11 +129,11 @@ class ViewController: UIViewController {
         places.append(Place.init(nameAddress: "Newport Music & Big Bar", mainImage: #imageLiteral(resourceName: "NewportMusicHall-yelp"), secondImage: nil, lat: 39.997719, long: -83.007267,placeID: "ChIJnRvS7biOOIgR8WzprZwSklE"))
         places.append(Place.init(nameAddress: "Polaris Fashion Mall", mainImage: #imageLiteral(resourceName: "PolarisFashionPlace"), secondImage: #imageLiteral(resourceName: "PolarisFashionPlace1-yelp"), lat: 0, long: 0,placeID: "ChIJv15SJGX0OIgRso-ZcKg17K0"))
         places.append(Place.init(nameAddress: "Easton Town Center", mainImage: #imageLiteral(resourceName: "EastonTownCenter"), secondImage: nil, lat: 0, long: 0,placeID: "ChIJG9vehYeKOIgRkLBPTqjudW4"))
-        places.append(Place.init(nameAddress: "Downtown", mainImage: #imageLiteral(resourceName: "DowntownColumbus "), secondImage: nil, lat: 0, long: 0,placeID: ""))
+        //places.append(Place.init(nameAddress: "Downtown", mainImage: #imageLiteral(resourceName: "DowntownColumbus "), secondImage: nil, lat: 0, long: 0,placeID: ""))
         
         places.append(Place.init(nameAddress: "Short North", mainImage: #imageLiteral(resourceName: "ShortNorth"), secondImage: nil, lat: 0, long: 0, placeID: ""))
         
-        places.append(Place.init(nameAddress: "German Village", mainImage: #imageLiteral(resourceName: "germanvillage"), secondImage: nil, lat: 0, long: 0, placeID: ""))
+        //places.append(Place.init(nameAddress: "German Village", mainImage: #imageLiteral(resourceName: "germanvillage"), secondImage: nil, lat: 0, long: 0, placeID: ""))
         
         places.append(Place.init(nameAddress: "Fox in the Snow Cafe", mainImage: #imageLiteral(resourceName: "FoxandSnowCafe"), secondImage: nil, lat: 39.984228, long: -82.999388,placeID: "ChIJxfUn7NGOOIgRwf1Z3TIzy64"))
                
