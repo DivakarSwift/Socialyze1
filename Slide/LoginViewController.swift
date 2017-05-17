@@ -15,8 +15,18 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticator.delegate = self
+        
     }
 
+    @IBAction func linkButton(_ sender: Any) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: "http://socialyzeapp.com")!, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com")!)
+        }
+    }
+    
     @IBAction func login(_ sender: UIButton) {
         authenticator.authenticateWith(provider: .facebook)
     }

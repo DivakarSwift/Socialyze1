@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -184,48 +185,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1g-XB-6Kt" customClass="TTTAttributedLabel">
-                                <rect key="frame" x="10" y="645" width="394" height="61"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Socialyze does not post on Facebook. By continuing you agree to our ">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Terms of Service">
-                                        <attributes>
-                                            <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" and ">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Privacy Policy.">
-                                        <attributes>
-                                            <color key="NSColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" metaFont="system" size="17"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UoS-li-AWh">
+                                <rect key="frame" x="10" y="645" width="384" height="61"/>
+                                <state key="normal" title="Socialyze does not post on Facebook. By continuing you agree to our Terms of Service and Privacy Policy.">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="linkButton:" destination="Z2Y-N2-6bc" eventType="touchUpInside" id="rxo-cG-ygz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="W1g-XB-6Kt" secondAttribute="trailing" constant="10" id="FJU-CS-RVr"/>
+                            <constraint firstItem="7Kc-1z-W4n" firstAttribute="top" secondItem="UoS-li-AWh" secondAttribute="bottom" constant="30" id="9gG-39-ZWz"/>
+                            <constraint firstItem="UoS-li-AWh" firstAttribute="trailing" secondItem="iP7-aP-hHQ" secondAttribute="trailingMargin" id="BdC-XS-d3n"/>
                             <constraint firstItem="z6w-Wz-mKu" firstAttribute="centerY" secondItem="iP7-aP-hHQ" secondAttribute="centerY" constant="-30" id="Ifa-LD-Fmu"/>
-                            <constraint firstItem="7Kc-1z-W4n" firstAttribute="top" secondItem="W1g-XB-6Kt" secondAttribute="bottom" constant="30" id="KAq-lQ-DAx"/>
                             <constraint firstItem="z6w-Wz-mKu" firstAttribute="width" secondItem="iP7-aP-hHQ" secondAttribute="width" multiplier="0.7" id="Q6h-te-6es"/>
-                            <constraint firstItem="W1g-XB-6Kt" firstAttribute="top" secondItem="nOh-j5-owQ" secondAttribute="bottom" constant="15" id="TA9-nq-nq7"/>
                             <constraint firstItem="gbd-db-21d" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="TDM-rA-AaK"/>
-                            <constraint firstItem="W1g-XB-6Kt" firstAttribute="leading" secondItem="iP7-aP-hHQ" secondAttribute="leading" constant="10" id="TMW-Bi-gav"/>
                             <constraint firstItem="bvb-Tf-rtf" firstAttribute="top" secondItem="gbd-db-21d" secondAttribute="bottom" constant="30" id="ZfM-da-d81"/>
+                            <constraint firstAttribute="bottom" secondItem="nOh-j5-owQ" secondAttribute="bottom" constant="106" id="czo-n2-WxT"/>
                             <constraint firstItem="z6w-Wz-mKu" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="d98-Hb-DFe"/>
+                            <constraint firstItem="UoS-li-AWh" firstAttribute="top" secondItem="nOh-j5-owQ" secondAttribute="bottom" constant="15" id="giQ-NF-AfX"/>
+                            <constraint firstItem="UoS-li-AWh" firstAttribute="leading" secondItem="iP7-aP-hHQ" secondAttribute="leadingMargin" constant="-10" id="iOZ-hQ-Yn5"/>
+                            <constraint firstItem="nOh-j5-owQ" firstAttribute="leading" secondItem="bvb-Tf-rtf" secondAttribute="leading" id="krY-Cw-d2L"/>
                             <constraint firstItem="nOh-j5-owQ" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="pII-UL-Z4r"/>
                             <constraint firstItem="bvb-Tf-rtf" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="rFB-yg-niR"/>
                             <constraint firstItem="gbd-db-21d" firstAttribute="top" secondItem="z6w-Wz-mKu" secondAttribute="bottom" constant="-10" id="wWG-mJ-yDg"/>
@@ -234,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDM-PT-Zgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-803" y="139"/>
+            <point key="canvasLocation" x="-804.34782608695662" y="138.58695652173915"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ah0-jK-Ici">
