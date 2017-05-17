@@ -41,6 +41,7 @@
 		7085EDF51E6EEAC000AD3420 /* bugbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7085EDF41E6EEAC000AD3420 /* bugbutton.png */; };
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
 		F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */; };
+		F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */; };
 		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
 		F676B09F1EBE22FD001CBF3E /* NHRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676B09D1EBE22FD001CBF3E /* NHRangeSlider.swift */; };
 		F676B0A01EBE22FD001CBF3E /* NHRangeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676B09E1EBE22FD001CBF3E /* NHRangeSliderView.swift */; };
@@ -124,6 +125,7 @@
 		7085EDF41E6EEAC000AD3420 /* bugbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bugbutton.png; sourceTree = "<group>"; };
 		7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedViewController.swift; sourceTree = "<group>"; };
+		F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F676B09D1EBE22FD001CBF3E /* NHRangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHRangeSlider.swift; sourceTree = "<group>"; };
 		F676B09E1EBE22FD001CBF3E /* NHRangeSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHRangeSliderView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				FC7A241E1E695F56004C9E44 /* Main.storyboard */,
 				FC7A241C1E695F56004C9E44 /* ViewController.swift */,
 				1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */,
+				F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -605,6 +608,7 @@
 				1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */,
 				1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */,
 				FC5219811E70114700EDF19A /* CategoriesViewController.swift in Sources */,
+				F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */,
 				1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */,
 				1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */,
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,
