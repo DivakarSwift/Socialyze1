@@ -30,8 +30,15 @@ class PlaceService: FirebaseManager {
     
     func user(_ user: User, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
         
-        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(user.id!).removeValue(completionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
-            completion(error == nil, error)
+        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(user.id!).observeSingleEvent(of: .value, with:{ (snapshot) in
+            if let val = snapshot.value{
+                let json = JSON(val)
+                let time = json["time"].doubleValue
+                let timeValid = (Date().timeIntervalSince1970 - time) < checkInThreshold
+                completion(timeValid,nil)
+            } else {
+                completion(false,nil)
+            }
         })
     }
     

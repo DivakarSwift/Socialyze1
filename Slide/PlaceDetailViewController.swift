@@ -163,11 +163,9 @@ class PlaceDetailViewController: UIViewController {
     
     private func checkout() {
         self.placeService.user(authenticator.user!, checkOutFrom: self.place!) {[weak self] (success, error) in
-            self?.isCheckedIn = !success
-            print(error ?? "Success user authenticator places")
-            print("CHECKED OUT")
-            // pop view controller only IF user was originally checked in
-            //_ = self?.navigationController?.popViewController(animated: true)
+            if success {
+                _ = self?.navigationController?.popViewController(animated: true)
+            }
         }
     }
     
