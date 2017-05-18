@@ -176,7 +176,9 @@ extension MatchesViewController: UITableViewDataSource {
         if indexPath.section == 1 {
             let currentUser = self.fetchUserForChatSelected(chatItem: chatItems[indexPath.row])
             let chatItem = self.chatItems[indexPath.row]
-            self.openChat(forUser: currentUser!, chatItem: chatItem )
+            if let user = currentUser {
+                self.openChat(forUser: user, chatItem: chatItem )
+            }
         }
     }
     
