@@ -141,6 +141,13 @@ extension MatchesViewController: UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = UIColor.black
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor(colorLiteralRed: 162, green: 11, blue: 35, alpha: 1.0)
+        header.textLabel?.textColor = UIColor(red: 162.0/255.0, green: 11.0/255.0, blue: 35.0/255.0, alpha: 1.0)
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
