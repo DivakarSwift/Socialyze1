@@ -12,8 +12,8 @@ class CustomSwipeSegue: UIStoryboardSegue {
     
     override func perform() {
         // Assign the source and destination views
-        var homeVC = self.source.view
-        var profVC = self.destination.view
+        let homeVC = self.source.view
+        let profVC = self.destination.view
         
         // Get screen width and height
         let screenWidth = UIScreen.main.bounds.size.width
@@ -34,7 +34,11 @@ class CustomSwipeSegue: UIStoryboardSegue {
             profVC?.frame = profVC!.frame.offsetBy(dx: screenWidth, dy: 0.0)
             
         }) { (Finished) -> Void in
-            self.source.present(self.destination as UIViewController, animated: false, completion: nil)
+            if let nav = self.source.navigationController {
+                nav.pushViewController(self.destination as UIViewController, animated: false)
+            } else {
+                self.source.present(self.destination as UIViewController, animated: false, completion: nil)
+            }
         }
     }
 

@@ -11,8 +11,8 @@ import UIKit
 class CustomSwipeUnwindSegue: UIStoryboardSegue {
     override func perform() {
         // Assign the source and destination views
-        var profVC = self.source.view
-        var homeVC = self.destination.view
+        let profVC = self.source.view
+        let homeVC = self.destination.view
         
         let screenWidth = UIScreen.main.bounds.size.width
         //let screenHeight = UIScreen.main.bounds.size.height
@@ -31,6 +31,7 @@ class CustomSwipeUnwindSegue: UIStoryboardSegue {
             profVC?.frame = profVC!.frame.offsetBy(dx: -screenWidth, dy: 0.0)
             
         }) { (Finished) -> Void in
+            _ = self.source.navigationController?.popViewController(animated: false)
             self.source.dismiss(animated: false, completion: nil)
         }
     }

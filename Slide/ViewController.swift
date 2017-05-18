@@ -204,8 +204,9 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
         controller.userId = Authenticator.currentFIRUser?.uid
-        performSegue(withIdentifier: "swipeToProfile", sender: nil)
-        //self.navigationController?.pushViewController(controller, animated: true)
+//        performSegue(withIdentifier: "swipeToProfile", sender: nil)
+        
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {
@@ -213,6 +214,7 @@ class ViewController: UIViewController {
         self.navigationController?.pushViewController(settingsViewController, animated: true)
         
     }
+    
 
 }
 

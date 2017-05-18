@@ -65,7 +65,7 @@ class Utilities: NSObject {
             //                let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 5.0, repeats: false)
             
             //Setting time for notification trigger
-            let date = Date(timeIntervalSinceNow: 5)
+            let date = Date(timeIntervalSinceNow: 1)
             let dateCompenents = Calendar.current.dateComponents([.year,.month,.day ,.hour,.minute,.second], from: date)
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateCompenents, repeats: false)
