@@ -204,17 +204,17 @@
                                 <rect key="frame" x="10" y="393" width="300" height="57"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Socialyze does not post on Facebook. By continuing you agree to our" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egx-d0-nco">
-                                        <rect key="frame" x="0.0" y="1" width="300" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBR-PH-eSE" userLabel="Link View">
-                                        <rect key="frame" x="8" y="37" width="284" height="21"/>
+                                        <rect key="frame" x="8" y="36" width="284" height="21"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="UoS-li-AWh">
-                                                <rect key="frame" x="20" y="-3" width="116" height="30"/>
+                                                <rect key="frame" x="20" y="-4" width="116" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Terms of Service">
                                                     <color key="titleColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -230,7 +230,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="NQg-ue-y5C">
-                                                <rect key="frame" x="166" y="-3" width="98" height="30"/>
+                                                <rect key="frame" x="166" y="-4" width="98" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Privacy Policy.">
                                                     <color key="titleColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

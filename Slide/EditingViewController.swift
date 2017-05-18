@@ -43,6 +43,7 @@ class EditingTableViewController: UITableViewController {
         imagePicker.delegate = self
         self.view.addSubview(activityIndicator)
         activityIndicator.center = view.center
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,10 +156,10 @@ class EditingTableViewController: UITableViewController {
         self.assignImages()
         UserService().saveUser(user: self.user!, completion: { (success, error) in
             if error == nil {
-                self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
+                //self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
                     Authenticator.shared.user = self.user
                     _ = self.navigationController?.popViewController(animated: true)
-                })
+                //})
             } else {
                 _ = self.navigationController?.popViewController(animated: true)
             }

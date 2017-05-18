@@ -148,21 +148,21 @@ class CategoriesViewController: UIViewController {
     // MARK: - User Actions
     @IBAction func reportUser(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let block = UIAlertAction(title: "Block", style: .default) { (_) in
-            if let user = self.users.first {
-                self.activityIndicator.startAnimating()
-                self.userService.block(user: user, completion: {[weak self] (success, error) in
-                    self?.activityIndicator.stopAnimating()
-                    if success {
-                        self?.alert(message: "User blocked.")
-                        self?.users.remove(at: 0)
-//                        self?.events.remove(at: 0)
-                    }else {
-                        self?.alert(message: "Can't unblock the user. Try again!")
-                    }
-                })
-            }
-        }
+//        let block = UIAlertAction(title: "Block", style: .default) { (_) in
+//            if let user = self.users.first {
+//                self.activityIndicator.startAnimating()
+//                self.userService.block(user: user, completion: {[weak self] (success, error) in
+//                    self?.activityIndicator.stopAnimating()
+//                    if success {
+//                        self?.alert(message: "User blocked.")
+//                        self?.users.remove(at: 0)
+////                        self?.events.remove(at: 0)
+//                    }else {
+//                        self?.alert(message: "Can't unblock the user. Try again!")
+//                    }
+//                })
+//            }
+//        }
         
         let reportAndBlock = UIAlertAction(title: "Report", style: .default) { (_) in
             if let user = self.users.first {
@@ -195,7 +195,7 @@ class CategoriesViewController: UIViewController {
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        alert.addAction(block)
+        //alert.addAction(block)
         alert.addAction(reportAndBlock)
         alert.addAction(cancel)
         
