@@ -134,6 +134,14 @@ extension ChatViewController: UITableViewDelegate {
             loadMore()
         }
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
 
 extension ChatViewController: UITableViewDataSource {
@@ -147,8 +155,21 @@ extension ChatViewController: UITableViewDataSource {
         let isMe = data.fromUser == Authenticator.shared.user?.id
         let cell = tableView.dequeueReusableCell(withIdentifier: isMe ? "me" : "friend", for: indexPath)
         //        let userImage = cell.viewWithTag(1)
-        let label = cell.viewWithTag(2) as! UILabel
-        label.text = data.message
+        let messageLabel = cell.viewWithTag(2) as! UILabel
+        messageLabel.text = data.message
+        
+        let messageView = cell.viewWithTag(100)
+        messageView?.layer.cornerRadius = 3.0
+        messageView?.layer.masksToBounds = true
+        
+        let timeLabel = cell.viewWithTag(3) as! UILabel
+        if let timeStamp = data.time {
+            timeLabel.isHidden = false
+            let date = Date(timeIntervalSince1970: timeStamp)
+            timeLabel.text = Utilities.timeAgoSince(date)
+        } else {
+            timeLabel.isHidden = true
+        }
         return cell
     }
 }

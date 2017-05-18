@@ -42,9 +42,9 @@ class ChatService: FirebaseManager {
                 let json = JSON(snapshot.value ?? [])
                 print(json)
                 if let chatItem: ChatItem = json.map() {
-                    if chatItem.userId !=  userId {
+//                    if chatItem.userId ==  userId {
                         Utilities.fireChatNotification(viewController,chatItem: chatItem)
-                    }
+//                    }
                 }
             })
         }
@@ -92,12 +92,12 @@ class ChatService: FirebaseManager {
                
             
             let friendValue = [
-                "userId" : friend,
+                "userId" : me,
                 "chatId" : chatId,
                 "lastMessage" : message
                 ] as [String : Any]
             let meValue = [
-                "userId" : me,
+                "userId" : friend,
                 "chatId" : chatId,
                 "lastMessage" : message
                 ] as [String : Any]

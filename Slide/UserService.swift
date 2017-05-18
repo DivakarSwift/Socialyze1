@@ -266,7 +266,6 @@ class UserService: FirebaseManager {
                 } else {
                     completion()
                 }
-                
             }
         })
     }
