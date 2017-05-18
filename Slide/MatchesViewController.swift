@@ -66,6 +66,7 @@ class MatchesViewController: UIViewController {
                 self.userService.getUser(withId: chatUserId, completion: { (user, error) in
                     if let val = user {
                         chatUser = val
+                        self.tableView.reloadData()
                     }
                 })
             }

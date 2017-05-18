@@ -130,13 +130,12 @@ class UserService: FirebaseManager {
     }
     
     func getMatchListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
-        reference.child(Node.user.rawValue).child(user.id!).child(Node.acceptList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value {
                 print(value)
-                let acceptList = JSON(value)
+                let matchList = JSON(value)
                 var users:[User] = []
-                for (key,data) in acceptList {
-                    if data["match"].boolValue {
+                for (key,_) in matchList {
                         self.getUser(withId: key, completion: { (user, error) in
                             if error == nil {
                                 if let user = user {
@@ -148,9 +147,6 @@ class UserService: FirebaseManager {
                                 return
                             }
                         })
-                    } else {
-                        completion(users,nil)
-                    }
                 }
             }
             else {
