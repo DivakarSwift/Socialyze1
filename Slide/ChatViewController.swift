@@ -159,7 +159,7 @@ extension ChatViewController: UITableViewDataSource {
         messageLabel.text = data.message
         
         let messageView = cell.viewWithTag(100)
-        messageView?.layer.cornerRadius = 3.0
+        messageView?.layer.cornerRadius = 5.0
         messageView?.layer.masksToBounds = true
         
         let timeLabel = cell.viewWithTag(3) as! UILabel

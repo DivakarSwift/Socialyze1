@@ -42,9 +42,9 @@ class ChatService: FirebaseManager {
                 let json = JSON(snapshot.value ?? [])
                 print(json)
                 if let chatItem: ChatItem = json.map() {
-//                    if chatItem.userId ==  userId {
+                    if chatItem.userId !=  userId {
                         Utilities.fireChatNotification(viewController,chatItem: chatItem)
-//                    }
+                    }
                 }
             })
         }
@@ -89,26 +89,16 @@ class ChatService: FirebaseManager {
             if error == nil {
             let refMe = self.reference.child(Node.user.rawValue).child(me).child(Node.chatList.rawValue).child(friend)
             let refFriend = self.reference.child(Node.user.rawValue).child(friend).child(Node.chatList.rawValue).child(me)
-               
-            
-            let friendValue = [
+                
+            let value = [
                 "userId" : me,
                 "chatId" : chatId,
                 "lastMessage" : message
                 ] as [String : Any]
-            let meValue = [
-                "userId" : friend,
-                "chatId" : chatId,
-                "lastMessage" : message
-                ] as [String : Any]
-            
-            var parameter = [me: [friend: friendValue]]
-            parameter[friend]  = [me: meValue]
                 
-            
-            refFriend.updateChildValues(meValue, withCompletionBlock: { error, _ in
+            refFriend.updateChildValues(value, withCompletionBlock: { error, _ in
                 if error == nil {
-                    refMe.updateChildValues(friendValue, withCompletionBlock: { error, _ in
+                    refMe.updateChildValues(value, withCompletionBlock: { error, _ in
                         completion(chatId, error)
                     })
                 } else {
@@ -119,8 +109,6 @@ class ChatService: FirebaseManager {
                 completion(chatId, error)
             }
         })
-        
-        
     }
     
     func getDataAndObserve(of chat: ChatItem, completion: @escaping (ChatData?, FirebaseManagerError?) -> ()) {
