@@ -26,7 +26,7 @@ class PlaceDetailViewController: UIViewController {
     var place: Place?
     
     let smallRadius = 22.86 // 75ft, probably
-    let mediumRadius = 60.96 // 200ft
+    let mediumRadius = 60.96 // 200ft probably 
     let largeRadius = 152.4 // 500ft, probably
     let hugeRadius = 304.8 // 1000ft, probably
     var thresholdRadius = 30.48 //100ft

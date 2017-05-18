@@ -104,7 +104,7 @@ class ViewController: UIViewController {
         
         places.append(Place.init(nameAddress: "RPAC", mainImage: #imageLiteral(resourceName: "RPAC1-yelp"), secondImage: nil, lat: 39.999643, long: -83.018489, size: 3, early: 0, bio: "",placeID: "ChIJB-ZAQ5SOOIgRM79SReqgWlI"))
         
-        places.append(Place.init(nameAddress: "Ohio Union", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 39.997957, long: -83.0085650, size: 3, early: 0, bio: "",placeID: "ChIJB3St4biOOIgRlGJv79oKtW4"))
+        places.append(Place.init(nameAddress: "Ohio Union", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 39.997957, long: -83.0085650, size: 3, early: 0, bio: "",placeID: "ChIJQXKDxbiOOIgRI9TvX8VM4ik"))
         
         //places.append(Place.init(nameAddress: "18th Ave Library, Ohio State", mainImage: #imageLiteral(resourceName: "18thAvelibrary"), secondImage: nil, lat: 0, long: 0, size: 2, early: 0, bio: ""))
         
