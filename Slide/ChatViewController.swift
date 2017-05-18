@@ -153,7 +153,7 @@ extension ChatViewController: UITableViewDataSource {
         let data = chatData[indexPath.row]
         
         let isMe = data.fromUser == Authenticator.shared.user?.id
-        let cell = tableView.dequeueReusableCell(withIdentifier: isMe ? "me" : "friend", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: isMe ? "friend" : "me", for: indexPath)
         //        let userImage = cell.viewWithTag(1)
         let messageLabel = cell.viewWithTag(2) as! UILabel
         messageLabel.text = data.message
