@@ -18,12 +18,21 @@ class LoginViewController: UIViewController {
         
     }
 
-    @IBAction func linkButton(_ sender: Any) {
+    @IBAction func termsButton(_ sender: UIButton) {
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(URL(string: "http://socialyzeapp.com")!, options: [:], completionHandler: nil)
+            UIApplication.shared.open(URL(string: "http://socialyzeapp.com/terms-and-conditions")!, options: [:], completionHandler: nil)
         } else {
             // Fallback on earlier versions
-            UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com")!)
+            UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/terms-and-conditions")!)
+        }
+    }
+    
+    @IBAction func privacyButton(_ sender: UIButton) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(URL(string: "http://socialyzeapp.com/privacy")!, options: [:], completionHandler: nil)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/privacy")!)
         }
     }
     

@@ -241,11 +241,11 @@ class EditingTableViewController: UITableViewController {
     }
      
     @IBAction func privacyPolicyBtn(_ sender: Any) {
-        UIApplication.shared.openURL(URL(string: "https://www.google.com")!)
+        UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/privacy")!)
     }
     
     @IBAction func termsAndConditionsBtn(_ sender: Any) {
-        UIApplication.shared.openURL(URL(string: "https://www.google.com")!)
+        UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/terms-and-conditions")!)
     }
 }
 
