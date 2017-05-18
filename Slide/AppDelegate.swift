@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import Firebase
 import FacebookCore
 import GoogleMaps
+import GooglePlaces
 import UserNotifications
 
 func doLog(_ items: Any...) {
@@ -33,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         IQKeyboardManager.sharedManager().enable = true
         GMSServices.provideAPIKey(GlobalConstants.APIKeys.googleMap)
+        GMSPlacesClient.provideAPIKey(GlobalConstants.APIKeys.googlePlace)
+        GMSServices.provideAPIKey(GlobalConstants.APIKeys.googlePlace)
         
         //SlydeLocationManager.shared.requestLocation()
         

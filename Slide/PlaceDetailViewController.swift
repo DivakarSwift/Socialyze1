@@ -54,13 +54,12 @@ class PlaceDetailViewController: UIViewController {
         didSet {
             self.activityIndicator.stopAnimating()
             self.checkinData = checkinWithExpectUser.filter({(checkin) -> Bool in
-                if let checkInUserId = checkin.userId, let authUserId = self.authenticator.user?.id, let checkinTime = checkin.time {
+                if let checkInUserId = checkin.userId {
                     // return true
                     if exceptedUsers.contains(checkInUserId) {
                         return false
                     }
-                    let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
-                    return checkTimeValid
+                    return true
                 }
                 return false
             })
@@ -275,10 +274,18 @@ class PlaceDetailViewController: UIViewController {
         if let authUserId = self.authenticator.user?.id {
             UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
                 self?.exceptedUsers = userIds
-                self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkin) in
+                self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
                     self?.activityIndicator.stopAnimating()
-                    self?.checkinWithExpectUser = checkin
-                   
+                    
+                    self?.checkinWithExpectUser = checkins.filter({(checkin) -> Bool in
+                        if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
+                            // return true
+                            
+                            let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
+                            return checkTimeValid
+                        }
+                        return false
+                    })
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
 //                        self?.alert(message: error.localizedDescription)
