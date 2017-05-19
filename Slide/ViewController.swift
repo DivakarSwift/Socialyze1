@@ -87,6 +87,8 @@ class ViewController: UIViewController {
             action: #selector(profileBtn)
         )
         
+        
+        
         setupPlaces()
                 
         ChatService.shared.observeChatList(self)
@@ -208,8 +210,15 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
         controller.userId = Authenticator.currentFIRUser?.uid
-//        performSegue(withIdentifier: "swipeToProfile", sender: nil)
+        performSegue(withIdentifier: "swipeToProfile", sender: nil)
         
+//        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func chatBtn(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "swipeToChat", sender: nil)
+        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

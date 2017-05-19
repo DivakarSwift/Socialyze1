@@ -478,7 +478,7 @@ class UserService: FirebaseManager {
         _ = reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(opponentId).removeValue()
         
         // 5
-        let ref = reference.child(Node.user.rawValue).child(opponentId).child(Node.chatList.rawValue).child(myId)
+        let ref = reference.child(Node.user.rawValue).child(opponentId).child(Node.acceptList.rawValue).child(myId)
         let value = [
             "match": false
             ] as [String : Any]

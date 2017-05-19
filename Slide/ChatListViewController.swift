@@ -71,14 +71,21 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
         
-        let label = cell.viewWithTag(2) as! UILabel
-        label.text = chatUsers[indexPath.row].profile.name ?? "somebody"
+        let nameLabel = cell.viewWithTag(2) as! UILabel
+        nameLabel.text = currentUser?.profile.firstName ?? "somebody"
+        
+        let checkInLabel = cell.viewWithTag(3) as! UILabel
+            checkInLabel.text = "Check in at ..."
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
-        imageView.kf.setImage(with: chatUsers[indexPath.row].profile.images.first, placeholder: #imageLiteral(resourceName: "profile.png"), options: nil, progressBlock: nil, completionHandler: nil)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(with: chatUsers[indexPath.row].profile.images.first)
+        
         return cell
     }
     
