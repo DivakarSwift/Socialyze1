@@ -16,6 +16,7 @@ func ==(lhs: User, rhs: User) -> Bool {
 struct User: Mappable, Equatable {
     var id: String?
     var profile = Profile()
+    var checkIn : UserCheckIn?
     var blockedUsers: [String] = []
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
@@ -29,8 +30,25 @@ struct User: Mappable, Equatable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         profile <- map["profile"]
+        checkIn <- map[Node.checkIn.rawValue]
         blockedUsers <- map["blockedUsers"]
         userWhoBlockedMe <- map["blockedByUsers"]
+    }
+}
+
+struct UserCheckIn: Mappable {
+    var place: String?
+    var placeID: String?
+    var time: Double?
+    
+    init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    mutating func mapping(map: Map) {
+        place <- map["place"]
+        placeID <- map["placeID"]
+        time <- map["time"]
     }
 }
 

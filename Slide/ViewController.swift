@@ -81,13 +81,18 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = self
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(
-            title: "Profile",
+            image: #imageLiteral(resourceName: "profileicon"),
             style: UIBarButtonItemStyle.plain,
             target: self,
             action: #selector(profileBtn)
         )
         
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: #imageLiteral(resourceName: "chaticon"),
+            style: UIBarButtonItemStyle.plain,
+            target: self,
+            action: #selector(chatBtn)
+        )
         
         setupPlaces()
                 
@@ -217,9 +222,9 @@ class ViewController: UIViewController {
     
     func chatBtn(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "swipeToChat", sender: nil)
-        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
-        self.navigationController?.pushViewController(controller, animated: true)
+//        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {

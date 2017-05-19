@@ -13,17 +13,26 @@ import  SwiftyJSON
 class PlaceService: FirebaseManager {
     func user(_ user: User, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
         
-        let ref = self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(user.id!)
+        let ref1 = self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!)
         
-        let values = [
+        let ref2 = self.reference.child(Node.user.rawValue).child(user.id!).child(Node.checkIn.rawValue)
+       
+        var values:[String : Any] = [
             "userId": user.id!,
             "time": Date().timeIntervalSince1970,
-            "fbId": user.profile.fbId!,
-            
-            ] as [String : Any]
+            "fbId": user.profile.fbId!
+            ]
         
-        ref.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
-            completion(error == nil, error)
+        ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+            
+            values = [
+                "place" : place.nameAddress,
+                "placeID" : place.placeID,
+                "time" : Date().timeIntervalSince1970
+            ]
+            ref2.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+                completion(error == nil, error)
+            })
         })
     }
     

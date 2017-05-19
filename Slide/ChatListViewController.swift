@@ -12,15 +12,12 @@ class ChatListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var chatList = [ChatItem]()
-    
     var chatUsers = [User]() {
         didSet {
             self.tableView.reloadData()
         }
     }
     
-    let chatService = ChatService.shared
     let userService = UserService()
     
     override func viewDidLoad() {
@@ -28,7 +25,22 @@ class ChatListViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
-        fetchChatList()
+        fetchMatchList()
+        
+        /*
+         Fine part:
+         here get matched list usersID
+         
+         Diffult part:
+         then check get checkin places of every userId with time of checkin
+         filter the most recent check in place and get checkin place name.
+         popualte table view
+         
+         fine part:
+         get chatId and populate table with info "fetching lastest check in place"
+         select to chat with that user
+ 
+         */
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,27 +48,18 @@ class ChatListViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
-    func fetchChatList() {
+    func fetchMatchList() {
         if let user = Authenticator.shared.user {
-            chatService.getChatListAndObserve(of: user, completion: {[weak self] (chatItem, error) in
-                if error == nil {
-                    if let item = chatItem {
-                        self?.chatList.append(item)
-                    }
-                    if let chatUserId = chatItem?.userId {
-                        self?.userService.getUser(withId: chatUserId, completion: { [weak self](user, error) in
-                            if let user = user {
-                                if let index = self?.chatUsers.index(of: user) {
-                                    self?.chatUsers[index] = user
-                                }else {
-                                    self?.chatUsers.append(user)
-                                }
-                            }
-                        })
-                    }
+            userService.getMatchListUsers(of: user, completion: { (users, error) in
+                if let users = users {
+                    self.chatUsers = users
                 } else {
-                    print(error?.localizedDescription ?? "Firebase Fetch error")
-                    
+                    self.fetchMatchList()
+                }
+                if error != nil {
+                    self.alert(message: "Unable to fetch data.", title: "Error", okAction: { 
+                        _ = self.navigationController?.popViewController(animated: true)
+                    })
                 }
             })
         }
@@ -65,7 +68,7 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatList.count
+        return chatUsers.count
     }
     
     
@@ -76,15 +79,16 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
         
         let nameLabel = cell.viewWithTag(2) as! UILabel
-        nameLabel.text = currentUser?.profile.firstName ?? "somebody"
+        nameLabel.text = self.chatUsers[indexPath.row].profile.firstName ?? "somebody"
         
         let checkInLabel = cell.viewWithTag(3) as! UILabel
-            checkInLabel.text = "Check in at ..."
+        let userlastPlace = self.chatUsers[indexPath.row].checkIn?.place ?? ""
+            checkInLabel.text = "Check in at ... \(userlastPlace)"
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
         imageView.kf.indicatorType = .activity
-//        imageView.kf.setImage(with: chatUsers[indexPath.row].profile.images.first)
+        imageView.kf.setImage(with: self.chatUsers[indexPath.row].profile.images.first)
         return cell
     }
     
@@ -97,12 +101,19 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-        vc.chatItem = self.chatList[indexPath.row]
-        vc.chatUserName = self.chatUsers[indexPath.row].profile.name ?? ""
+        
+        var val = ChatItem()
+        if let friend = self.chatUsers[indexPath.row].id, let me = Authenticator.shared.user?.id {
+            let chatId =  friend > me ? friend+me : me+friend
+            val.chatId = chatId
+            val.userId = friend
+        }
+        vc.chatItem = val
+        
+        vc.chatUserName = self.chatUsers[indexPath.row].profile.firstName ?? ""
         vc.chatOppentId = self.chatUsers[indexPath.row].id
-        vc.chatUser = self.chatUsers[indexPath.row]
+        
         if let nav =  self.navigationController {
             nav.pushViewController(vc, animated: true)
         } else {
