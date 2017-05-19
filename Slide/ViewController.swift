@@ -179,7 +179,7 @@ class ViewController: UIViewController {
         
         places.append(Place.init(nameAddress: "The Big Bar & Grill", mainImage: #imageLiteral(resourceName: "OriginalBug"), secondImage: nil, lat: 39.997343, long: -83.007020, size: 2, early: 0, bio: "Campus watering hole with a dancefloor, giant TVs, and rooftop patio.", placeID: "ChIJfZ9D7LiOOIgR3yngaYcmMms"))
         
-        places.append(Place.init(nameAddress: "The O Patio & Pub", mainImage: #imageLiteral(resourceName: "OriginalBug"), secondImage: nil, lat: 40.000295, long: -83.007737, size: 2, early: 0, bio: "", placeID: "ChIJJ8q0brmOOIgRR_SqfUOKtbM"))
+        places.append(Place.init(nameAddress: "The O Patio & Pub", mainImage: #imageLiteral(resourceName: "OriginalBug"), secondImage: nil, lat: 40.000295, long: -83.007737, size: 2, early: 0, bio: "Let's go to the O and sit around the firepit.", placeID: "ChIJJ8q0brmOOIgRR_SqfUOKtbM"))
         
         //places.append(Place.init(nameAddress: "The Library", mainImage: #imageLiteral(resourceName: "OriginalBug"), secondImage: nil, lat: 40.006640, long: -83.009561, size: 1, early: 0, bio: "", placeID: defaultPlaceID))
         

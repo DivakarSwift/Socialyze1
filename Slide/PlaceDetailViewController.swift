@@ -91,6 +91,7 @@ class PlaceDetailViewController: UIViewController {
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
         self.placeImageView.image = place?.secondImage ?? place?.mainImage
+        self.placeDetailLbl.text = place?.bio
         self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
         
