@@ -315,8 +315,8 @@ class CategoriesViewController: UIViewController {
         self.checkinUserIds.forEach { (userId) in
             userService.getUser(withId: userId, completion: { [weak self] (user, error) in
                 
-                if let error = error {
-                    self?.alert(message: error.localizedDescription)
+                if let _ = error {
+//                    self?.alert(message: error.localizedDescription)
                     return
                 }
                 
@@ -346,7 +346,7 @@ class CategoriesViewController: UIViewController {
             self.bioLabel.text = user.profile.bio
         } else {
             if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
-                self.alert(message: "No result found. Try again later.", okAction: {
+                self.alert(message: "No new users at this time. Check back later", okAction: {
                     if let nav = self.navigationController {
                         nav.popToRootViewController(animated: true)
                     }
