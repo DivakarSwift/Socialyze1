@@ -49,6 +49,38 @@
             endingLineNumber = "158"
             landmarkName = "reportUser(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.CategoriesViewController.reportUser (Any) -&gt; ()"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/CategoriesViewController.swift"
+                  timestampString = "516863020.25659"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "167"
+                  endingLineNumber = "167"
+                  offsetFromSymbolStart = "222">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.CategoriesViewController.(reportUser (Any) -&gt; ()).(closure #1)"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/CategoriesViewController.swift"
+                  timestampString = "516863020.259899"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "168"
+                  endingLineNumber = "168"
+                  offsetFromSymbolStart = "54">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

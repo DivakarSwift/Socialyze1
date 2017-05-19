@@ -23,6 +23,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rLH-jT-WY4">
+                                <rect key="frame" x="0.0" y="20" width="320" height="0.0"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="XKu-kw-Fdz"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SLu-SY-xog">
                                 <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -211,7 +219,7 @@
                                     <constraint firstAttribute="width" constant="50" id="Lcb-hm-x3a"/>
                                     <constraint firstAttribute="height" constant="30" id="e5l-eb-D9u"/>
                                 </constraints>
-                                <state key="normal" image="reply"/>
+                                <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="send:" destination="6Cc-8j-Et5" eventType="touchUpInside" id="WQX-mh-mWm"/>
                                 </connections>
@@ -221,12 +229,15 @@
                         <constraints>
                             <constraint firstItem="Tyw-F9-9nP" firstAttribute="leading" secondItem="EUB-39-02C" secondAttribute="leading" id="2qU-yb-XmW"/>
                             <constraint firstItem="SLu-SY-xog" firstAttribute="leading" secondItem="EUB-39-02C" secondAttribute="leading" id="8lu-s8-MGB"/>
+                            <constraint firstItem="rLH-jT-WY4" firstAttribute="bottom" secondItem="SLu-SY-xog" secondAttribute="top" id="9QD-PI-iw0"/>
                             <constraint firstItem="MeL-Ar-EDH" firstAttribute="centerY" secondItem="Tyw-F9-9nP" secondAttribute="centerY" id="KCd-pQ-1Uf"/>
+                            <constraint firstItem="rLH-jT-WY4" firstAttribute="top" secondItem="dQD-Ek-xqv" secondAttribute="bottom" id="YWX-Dr-LmQ"/>
                             <constraint firstAttribute="trailing" secondItem="SLu-SY-xog" secondAttribute="trailing" id="b3q-E5-3Pr"/>
-                            <constraint firstItem="SLu-SY-xog" firstAttribute="top" secondItem="dQD-Ek-xqv" secondAttribute="bottom" id="g9C-Oz-cYJ"/>
+                            <constraint firstItem="rLH-jT-WY4" firstAttribute="leading" secondItem="EUB-39-02C" secondAttribute="leading" id="bk6-yI-3uv"/>
                             <constraint firstAttribute="bottom" secondItem="Tyw-F9-9nP" secondAttribute="bottom" id="jsJ-jS-Fc7"/>
                             <constraint firstItem="MeL-Ar-EDH" firstAttribute="leading" secondItem="Tyw-F9-9nP" secondAttribute="trailing" constant="8" id="rEA-H1-0uj"/>
                             <constraint firstItem="Tyw-F9-9nP" firstAttribute="top" secondItem="SLu-SY-xog" secondAttribute="bottom" id="xZu-kh-SMq"/>
+                            <constraint firstAttribute="trailing" secondItem="rLH-jT-WY4" secondAttribute="trailing" id="xdE-by-Kae"/>
                             <constraint firstAttribute="trailing" secondItem="MeL-Ar-EDH" secondAttribute="trailing" id="yKp-Zd-j8Y"/>
                         </constraints>
                     </view>
@@ -308,7 +319,6 @@
     </scenes>
     <resources>
         <image name="left" width="118" height="128"/>
-        <image name="reply" width="24" height="24"/>
         <image name="right" width="118" height="128"/>
     </resources>
 </document>
