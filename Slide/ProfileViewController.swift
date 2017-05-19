@@ -73,10 +73,13 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         self.user = Authenticator.shared.user
         self.navigationController?.navigationBar.isHidden = true
+        UIApplication.shared.isStatusBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        UIApplication.shared.isStatusBarHidden = false
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func swipeHome(_ sender: Any) {

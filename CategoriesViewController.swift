@@ -66,7 +66,11 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userName: UILabel!
-        
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,11 +100,16 @@ class CategoriesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let  friend = self.fromFBFriends {
-           self.navigationController?.navigationBar.isHidden = false
             self.navigationController?.navigationItem.title  = friend.profile.firstName
-        } else {
-            self.navigationController?.navigationBar.isHidden = true
         }
+        self.navigationController?.navigationBar.isHidden = true
+        UIApplication.shared.isStatusBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+        UIApplication.shared.isStatusBarHidden = false
     }
     
     

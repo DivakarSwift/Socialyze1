@@ -45,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
+        application.isStatusBarHidden = false
+        
         //Requesting Authorization for User Interactions
         if #available(iOS 10.0, *) {
 //            let center = UNUserNotificationCenter.current()
