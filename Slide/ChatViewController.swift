@@ -136,15 +136,15 @@ class ChatViewController: UIViewController {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if let name = user.profile.firstName {
-                let report = UIAlertAction(title: "REPORT \(name.uppercased())", style: .default) { [weak self] (_) in
+                let report = UIAlertAction(title: "Report)", style: .default) { [weak self] (_) in
                     self?.report(forUser: user)
                 }
                 alert.addAction(report)
             }
             
-            let unmatch = UIAlertAction(title: "UNMATCH", style: .default) { [weak self] (_) in
+            let unmatch = UIAlertAction(title: "Unmatch", style: .default) { [weak self] (_) in
                 if let name = user.profile.firstName {
-                    self?.alert(message: "Are you sure to unmatch \(name)", title: "Alert", okAction: {
+                    self?.alert(message: "Are you sure to unmatch \(name)?", title: "Alert", okAction: {
                         self?.unMatch(name : name)
                     })
                 }
@@ -188,13 +188,13 @@ class ChatViewController: UIViewController {
         self.activityIndicator.startAnimating()
         guard let opponetId = chatOppentId, let myId = Authenticator.shared.user?.id, let chatId = self.chatItem?.chatId else {
             self.activityIndicator.stopAnimating()
-            self.alert(message: "Something went wrong. Please try again later.", title: "Opps", okAction: nil)
+            self.alert(message: "Something went wrong. Please try again later.", title: "Oops", okAction: nil)
             return
         }
         UserService().unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
             self.activityIndicator.stopAnimating()
             if success {
-                self.alert(message: "You have successfully unMatched with \(name).", title: "Success", okAction: {
+                self.alert(message: "You successfully unmatched with \(name).", title: "Success", okAction: {
                     _ = self.navigationController?.popViewController(animated: true)
                 })
             } else {
