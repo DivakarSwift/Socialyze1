@@ -161,8 +161,9 @@ class UserService: FirebaseManager {
                 print(value)
                 let chatList = JSON(value)
                 var chatItems:[ChatItem] = []
-                for (_,data) in chatList {
-                    if let chatItem: ChatItem = data.map() {
+                for (key,data) in chatList {
+                    if var chatItem: ChatItem = data.map() {
+                        chatItem.inUser = key
                         chatItems.append(chatItem)
                     } else {
                         completion(nil, FirebaseManagerError.noDataFound)

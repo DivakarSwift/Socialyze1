@@ -57,12 +57,12 @@ class MatchesViewController: UIViewController {
     func fetchUserForChatSelected(chatItem : ChatItem) -> User?{
         var chatUser:User?
         for data in self.acceptList {
-            if chatItem.userId == data.id {
+            if chatItem.inUser == data.id {
                 chatUser = data
             }
         }
         if chatUser == nil {
-            if let chatUserId = chatItem.userId {
+            if let chatUserId = chatItem.inUser {
                 self.userService.getUser(withId: chatUserId, completion: { (user, error) in
                     if let val = user {
                         chatUser = val
@@ -168,6 +168,14 @@ extension MatchesViewController: UITableViewDataSource {
             imageView.rounded()
             imageView.kf.indicatorType = .activity
             imageView.kf.setImage(with: currentUser?.profile.images.first)
+            
+            let replyImageView = cell.viewWithTag(4) as! UIImageView
+            replyImageView.isHidden = true
+            if let user1 = chatItems[indexPath.row].userId, let user2 = chatItems[indexPath.row].inUser {
+                if user1 != user2 {
+                    replyImageView.isHidden = false
+                }
+            }
             return cell
         }
         

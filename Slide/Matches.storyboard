@@ -245,6 +245,13 @@
                                                         <constraint firstAttribute="width" constant="50" id="rDk-Vd-Kqi"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reply" translatesAutoresizingMaskIntoConstraints="NO" id="hcP-xz-u0Q">
+                                                    <rect key="frame" x="52" y="114" width="14" height="14"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="hcP-xz-u0Q" secondAttribute="height" multiplier="1:1" id="eIg-R7-h5v"/>
+                                                        <constraint firstAttribute="width" constant="14" id="ze2-pw-rCi"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="xky-bd-6cJ">
                                                     <rect key="frame" x="82" y="83.5" width="942" height="40"/>
                                                     <subviews>
@@ -267,8 +274,10 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="xky-bd-6cJ" secondAttribute="trailing" id="1lV-Fw-oJF"/>
                                                 <constraint firstItem="Zx3-fe-eih" firstAttribute="leading" secondItem="chN-Gu-iyM" secondAttribute="leading" constant="16" id="3CJ-Au-xKY"/>
+                                                <constraint firstItem="hcP-xz-u0Q" firstAttribute="trailing" secondItem="Zx3-fe-eih" secondAttribute="trailing" id="FjB-l5-Tb7"/>
                                                 <constraint firstItem="xky-bd-6cJ" firstAttribute="leading" secondItem="Zx3-fe-eih" secondAttribute="trailing" constant="16" id="RJO-f2-kJ4"/>
                                                 <constraint firstItem="xky-bd-6cJ" firstAttribute="centerY" secondItem="chN-Gu-iyM" secondAttribute="centerY" id="TpM-wg-oSZ"/>
+                                                <constraint firstItem="hcP-xz-u0Q" firstAttribute="bottom" secondItem="Zx3-fe-eih" secondAttribute="bottom" id="fPc-m5-foE"/>
                                                 <constraint firstItem="Zx3-fe-eih" firstAttribute="centerY" secondItem="chN-Gu-iyM" secondAttribute="centerY" id="tLa-89-cdk"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -578,6 +587,7 @@
         <image name="IQButtonBarArrowRight.png" width="12" height="21"/>
         <image name="coldcoffee.png" width="128" height="128"/>
         <image name="fitness2.png" width="128" height="128"/>
+        <image name="reply" width="24" height="24"/>
         <image name="stockpicround.png" width="975" height="975"/>
         <image name="stockpicround1.png" width="650" height="650"/>
         <image name="testuserbutton.png" width="815" height="769"/>

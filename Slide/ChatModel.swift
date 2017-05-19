@@ -15,6 +15,7 @@ struct ChatItem: Mappable {
     var isSeenByOtherUser: Bool?
     var newMessageCount: Int?
     var chatId: String?
+    var inUser:String?
     
     init?(map: Map) {
         self.mapping(map: map)
