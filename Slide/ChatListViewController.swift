@@ -84,17 +84,16 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
         imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(with: chatUsers[indexPath.row].profile.images.first)
-        
+//        imageView.kf.setImage(with: chatUsers[indexPath.row].profile.images.first)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 60
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 60
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

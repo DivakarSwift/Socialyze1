@@ -32,7 +32,7 @@ class ViewController: UIViewController {
             performSegue(withIdentifier: "swipeToProfile", sender: nil)
         }
         if sender.direction == UISwipeGestureRecognizerDirection.left {
-            
+            performSegue(withIdentifier: "swipeToChat", sender: nil)
         }
     }
     

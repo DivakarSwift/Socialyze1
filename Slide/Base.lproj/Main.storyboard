@@ -128,8 +128,8 @@
                     <connections>
                         <outlet property="collectionView" destination="P4a-Jm-eDM" id="shI-Di-AAs"/>
                         <segue destination="dSg-os-irL" kind="show" identifier="openEvent" id="uZi-SU-WhH"/>
-                        <segue destination="XXN-We-PSS" kind="custom" identifier="swipeToProfile" customClass="CustomSwipeSegue" customModule="Slide" customModuleProvider="target" id="w6K-JS-41H"/>
-                        <segue destination="fy9-0Q-du6" kind="custom" identifier="swipeToChat" customClass="CustomSwipeSegue" customModule="Slide" customModuleProvider="target" id="XMJ-FO-bEm"/>
+                        <segue destination="XXN-We-PSS" kind="custom" identifier="swipeToProfile" customClass="CustomRightSwipeSegue" customModule="Slide" customModuleProvider="target" id="w6K-JS-41H"/>
+                        <segue destination="fy9-0Q-du6" kind="custom" identifier="swipeToChat" customClass="CustomLeftSwipeSegue" customModule="Slide" customModuleProvider="target" id="XMJ-FO-bEm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

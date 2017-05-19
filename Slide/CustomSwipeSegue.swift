@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomSwipeSegue: UIStoryboardSegue {
+class CustomRightSwipeSegue: UIStoryboardSegue {
     
     override func perform() {
         // Assign the source and destination views
@@ -42,4 +42,38 @@ class CustomSwipeSegue: UIStoryboardSegue {
         }
     }
 
+}
+
+class CustomLeftSwipeSegue: UIStoryboardSegue {
+    
+    override func perform() {
+        // Assign the source and destination views
+        let profVC = self.source.view
+        let homeVC = self.destination.view
+        
+        let screenWidth = UIScreen.main.bounds.size.width
+        //let screenHeight = UIScreen.main.bounds.size.height
+        
+        // Specifiy init position
+        //homeVC?.frame = CGRect(x: screenWidth, y: 0.0, width: screenWidth, height: screenHeight)
+        
+        // Access the app's key window and insert the views next to each other.
+        let window = UIApplication.shared.keyWindow
+        window?.insertSubview(homeVC!, at: 0)
+        window?.insertSubview(profVC!, at: 1)
+        
+        // Animate
+        UIView.animate(withDuration: 0.25, animations: { () -> Void in
+            homeVC?.frame = homeVC!.frame.offsetBy(dx: -screenWidth, dy: 0.0)
+            profVC?.frame = profVC!.frame.offsetBy(dx: -screenWidth, dy: 0.0)
+            
+        }) { (Finished) -> Void in
+            if let nav = self.source.navigationController {
+                nav.pushViewController(self.destination as UIViewController, animated: false)
+            } else {
+                self.source.present(self.destination as UIViewController, animated: false, completion: nil)
+            }
+        }
+    }
+    
 }
