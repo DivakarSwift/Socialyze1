@@ -136,7 +136,7 @@ class ChatViewController: UIViewController {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if let name = user.profile.firstName {
-                let report = UIAlertAction(title: "Report)", style: .default) { [weak self] (_) in
+                let report = UIAlertAction(title: "Report", style: .default) { [weak self] (_) in
                     self?.report(forUser: user)
                 }
                 alert.addAction(report)
@@ -144,7 +144,7 @@ class ChatViewController: UIViewController {
             
             let unmatch = UIAlertAction(title: "Unmatch", style: .default) { [weak self] (_) in
                 if let name = user.profile.firstName {
-                    self?.alert(message: "Are you sure to unmatch \(name)?", title: "Alert", okAction: {
+                    self?.alert(message: "Are you sure?", title: "Alert", okAction: {
                         self?.unMatch(name : name)
                     })
                 }

@@ -83,7 +83,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let checkInLabel = cell.viewWithTag(3) as! UILabel
         let userlastPlace = self.chatUsers[indexPath.row].checkIn?.place ?? ""
-            checkInLabel.text = "Check in at ... \(userlastPlace)"
+            checkInLabel.text = "@ \(userlastPlace)"
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
