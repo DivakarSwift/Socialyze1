@@ -12,6 +12,7 @@ import FacebookCore
 import FacebookLogin
 
 typealias CompletionBlock = (Void) -> Void
+typealias CallBackWithSuccessError = (_: Bool, _: Error?) -> Void
 typealias CallBackWithError = (Error?) -> ()
 
 enum Provider: String {

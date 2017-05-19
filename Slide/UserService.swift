@@ -17,7 +17,6 @@ class UserService: FirebaseManager {
     
     func saveUser(user: User, completion: @escaping CallBackWithSuccessError) {
         let userDict = user.toJSON()
-        
         reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
             completion(error == nil, error)
         }
@@ -455,8 +454,42 @@ class UserService: FirebaseManager {
         })
     }
     
-    
-    
-   
-    
+    func unMatch(opponent opponentId: String, withMe myId: String, chatId: String, completion: @escaping CallBackWithSuccessError) {
+        /* This will
+         1. remove my matchlist for opponent, opponent matchlist for me
+         2. remove chat for chatId
+         3. remove my chatlist for opponent, opponent chatlist for me
+         4. remove acceptlist for opponet
+         5. update accept list match to false in opponent
+         */
+        
+        // 1
+        _ = reference.child(Node.user.rawValue).child(myId).child(Node.matchList.rawValue).child(opponentId).removeValue()
+        _ = reference.child(Node.user.rawValue).child(opponentId).child(Node.matchList.rawValue).child(myId).removeValue()
+        
+        // 2
+        _ = reference.child(Node.chat.rawValue).child(chatId).removeValue()
+        
+        // 3
+        _ = reference.child(Node.user.rawValue).child(myId).child(Node.chatList.rawValue).child(opponentId).removeValue()
+        _ = reference.child(Node.user.rawValue).child(opponentId).child(Node.chatList.rawValue).child(myId).removeValue()
+        
+        // 4
+        _ = reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(opponentId).removeValue()
+        
+        // 5
+        let ref = reference.child(Node.user.rawValue).child(opponentId).child(Node.chatList.rawValue).child(myId)
+        let value = [
+            "match": false
+            ] as [String : Any]
+        ref.updateChildValues(value, withCompletionBlock: { (error, _) in
+            if error == nil {
+                completion(true, nil)
+            } else {
+                completion(false, error)
+            }
+        })
+        
+    }
+
 }

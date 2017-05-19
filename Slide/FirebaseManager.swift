@@ -10,8 +10,6 @@ import Foundation
 import FirebaseDatabase
 import FirebaseStorage
 
-typealias CallBackWithSuccessError = (_: Bool, _: Error?) -> Void
-
 enum Node: String {
     case user
     case report

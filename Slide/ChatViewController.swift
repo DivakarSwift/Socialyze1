@@ -42,6 +42,10 @@ class ChatViewController: UIViewController {
         self.navigationItem.titleView = titleButton
         
     }
+    @IBAction func moreButton(_ sender: UIBarButtonItem) {
+        print("more button Touched")
+        showMoreOption()
+    }
     
     func titleTouched() {
         if let user = self.chatUser {
@@ -124,6 +128,78 @@ class ChatViewController: UIViewController {
 //                self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
             }
             
+        })
+    }
+    
+    private func showMoreOption() {
+        if let user = self.chatUser {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            if let name = user.profile.firstName {
+                let report = UIAlertAction(title: "REPORT \(name.uppercased())", style: .default) { [weak self] (_) in
+                    self?.report(forUser: user)
+                }
+                alert.addAction(report)
+            }
+            
+            let unmatch = UIAlertAction(title: "UNMATCH", style: .default) { [weak self] (_) in
+                if let name = user.profile.firstName {
+                    self?.alert(message: "Are you sure to unmatch \(name)", title: "Alert", okAction: {
+                        self?.unMatch(name : name)
+                    })
+                }
+            }
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            alert.addAction(unmatch)
+            alert.addAction(cancel)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    private func report(forUser opponent: User) {
+            let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
+            reportAlert.addTextField(configurationHandler: { (textField) in
+                textField.placeholder = "Remarks"
+            })
+            
+            let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
+                self.activityIndicator.startAnimating()
+                UserService().report(user: opponent, remark: reportAlert.textFields?.first?.text ?? "", completion: { [weak self] (success, error) in
+                    self?.activityIndicator.stopAnimating()
+                    if success {
+                        self?.alert(message: "Reported on user.")
+                    }else {
+                        self?.alert(message: "Can't report the user. Try again!")
+                    }
+                })
+            })
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            reportAlert.addAction(ok)
+            reportAlert.addAction(cancel)
+            
+            self.present(reportAlert, animated: true, completion: nil)
+    }
+    
+    private func unMatch(name: String) {
+        
+        self.activityIndicator.startAnimating()
+        guard let opponetId = chatOppentId, let myId = Authenticator.shared.user?.id, let chatId = self.chatItem?.chatId else {
+            self.activityIndicator.stopAnimating()
+            self.alert(message: "Something went wrong. Please try again later.", title: "Opps", okAction: nil)
+            return
+        }
+        UserService().unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
+            self.activityIndicator.stopAnimating()
+            if success {
+                self.alert(message: "You have successfully unMatched with \(name).", title: "Success", okAction: {
+                    _ = self.navigationController?.popViewController(animated: true)
+                })
+            } else {
+                
+            }
         })
     }
 }
