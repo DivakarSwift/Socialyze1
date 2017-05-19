@@ -46,7 +46,7 @@ class Utilities: NSObject {
             let title = "New match"
             var body = "New Match. Check Connections"
             if let name = user?.profile.firstName {
-                body = "New Match form \(name)"
+                body = "New Match from \(name)"
             }
             localNotif(withTitle: title, body: body, viewController: viewController)
         })
