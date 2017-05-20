@@ -278,6 +278,8 @@ extension ViewController: UICollectionViewDataSource {
         
         let floatRatingView = cell.viewWithTag(3) as! FloatRatingView
         let starLabel = cell.viewWithTag(4) as! UILabel
+        floatRatingView.isHidden = false
+        starLabel.isHidden = false
         
         floatRatingView.rating = 0
         floatRatingView.floatRatings = true
