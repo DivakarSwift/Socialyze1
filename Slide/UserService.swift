@@ -79,7 +79,7 @@ class UserService: FirebaseManager {
             if error == nil {
                 completion(url,nil)
             } else {
-                guard let errorCode = (error as? NSError)?.code else {
+                guard let errorCode = (error as NSError?)?.code else {
                     return
                 }
                 guard let error = FIRStorageErrorCode(rawValue: errorCode) else {
@@ -121,9 +121,19 @@ class UserService: FirebaseManager {
     
     func getAllUser(completion: @escaping ([User]) -> Void) {
         reference.child(Node.user.rawValue).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
-            let json = JSON(snapshot)
-            if let users: [User] = json.map() {
-                completion(users)
+            if let val = snapshot.value {
+                let json = JSON(val)
+                if let users:[User] = json.map() {
+                    completion(users)
+                } else {
+                    var users:[User] = []
+                    for (_,data) in json {
+                        if let user:User = data.map() {
+                            users.append(user)
+                        }
+                    }
+                    completion(users)
+                }
             }
         })
     }

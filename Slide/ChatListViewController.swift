@@ -12,25 +12,36 @@ class ChatListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let userService = UserService()
+    let facebookService = FacebookService.shared
+    private let authenticator = Authenticator.shared.user
+    private var faceBookFriends = [FacebookFriend]() {
+        didSet {
+            self.getAllUsers()
+        }
+    }
+    
     var chatUsers = [User]() {
         didSet {
             self.tableView.reloadData()
         }
     }
     
-    let userService = UserService()
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        return CustomActivityIndicatorView(image: image)
+    }()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.tableFooterView = UIView()
-        fetchMatchList()
-        
-        /*
-         fetchFBFirendsListWithUser()
-         
-         */
+        self.activityIndicator.center = self.view.center
+        self.view.addSubview(self.activityIndicator)
+        getUserFriends()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +50,7 @@ class ChatListViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
     
+    // MARK: Methods
     func fetchMatchList() {
         if let user = Authenticator.shared.user {
             userService.getMatchListUsers(of: user, completion: { (users, error) in
@@ -48,12 +60,41 @@ class ChatListViewController: UIViewController {
                     self.fetchMatchList()
                 }
                 if error != nil {
-                    self.alert(message: "Unable to fetch data.", title: "Error", okAction: { 
+                    self.alert(message: "Unable to fetch data.", title: "Error", okAction: {
                         _ = self.navigationController?.popViewController(animated: true)
                     })
                 }
             })
         }
+    }
+    
+    func getAllUsers() {
+        self.activityIndicator.startAnimating()
+        userService.getAllUser { (users) in
+            self.activityIndicator.stopAnimating()
+            print("Total number of user :\(users.count)")
+            let fbIds = self.faceBookFriends.flatMap({$0.id})
+            self.chatUsers = users.filter({(user) -> Bool in
+                if let fbId = user.profile.fbId {
+                    return fbIds.contains(fbId)
+                }
+                return false
+            })
+        }
+    }
+    
+    func getUserFriends() {
+        self.activityIndicator.startAnimating()
+        facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
+            self?.activityIndicator.stopAnimating()
+            self?.faceBookFriends = friends
+            let friendsCount = self?.faceBookFriends.count
+            print("Total number of facebook friends :\(String(describing: friendsCount))")
+            }, failure: { (error) in
+                self.activityIndicator.stopAnimating()
+                self.alert(message: error)
+                print(error)
+        })
     }
 }
 
@@ -62,10 +103,8 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         return chatUsers.count
     }
     
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
         
@@ -74,7 +113,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let checkInLabel = cell.viewWithTag(3) as! UILabel
         let userlastPlace = self.chatUsers[indexPath.row].checkIn?.place ?? ""
-            checkInLabel.text = "@ \(userlastPlace)"
+        checkInLabel.text = "@ \(userlastPlace)"
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
@@ -112,6 +151,19 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
                 
             })
         }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if let time = self.chatUsers[indexPath.row].checkIn?.time {
+            let check = (Date().timeIntervalSince1970 - time) > checkInThreshold
+            return check
+        } else {
+            return true
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
     }
     
 }
