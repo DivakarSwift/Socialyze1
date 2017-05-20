@@ -19,6 +19,7 @@ enum Node: String {
     case chatList
     case chat
     case checkIn
+    case blockedUsers
 }
 
 enum FirebaseManagerError: Error {

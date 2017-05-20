@@ -17,7 +17,6 @@ struct User: Mappable, Equatable {
     var id: String?
     var profile = Profile()
     var checkIn : UserCheckIn?
-    var blockedUsers: [String] = []
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
     
@@ -31,7 +30,6 @@ struct User: Mappable, Equatable {
         id <- map["id"]
         profile <- map["profile"]
         checkIn <- map[Node.checkIn.rawValue]
-        blockedUsers <- map["blockedUsers"]
         userWhoBlockedMe <- map["blockedByUsers"]
     }
 }
@@ -48,6 +46,22 @@ struct UserCheckIn: Mappable {
     mutating func mapping(map: Map) {
         place <- map["place"]
         placeID <- map["placeID"]
+        time <- map["time"]
+    }
+}
+
+struct BlockedUser: Mappable {
+    var userId: String?
+    var fbId: String?
+    var time: Double?
+    
+    init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    mutating func mapping(map: Map) {
+        userId <- map["userId"]
+        fbId <- map["fbId"]
         time <- map["time"]
     }
 }

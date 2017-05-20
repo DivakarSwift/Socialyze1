@@ -14,10 +14,19 @@ class ChatListViewController: UIViewController {
     
     let userService = UserService()
     let facebookService = FacebookService.shared
-    private let authenticator = Authenticator.shared.user
+    fileprivate var me = Authenticator.shared.user
     private var faceBookFriends = [FacebookFriend]() {
         didSet {
             self.getAllUsers()
+        }
+    }
+    var blockedUserIds:[String]? {
+        didSet {
+            if let ids = blockedUserIds, ids.count > 0 {
+                self.chatUsers = self.chatUsers.filter({ (user) -> Bool in
+                    return !ids.contains(user.id!)
+                })
+            }
         }
     }
     
@@ -26,7 +35,6 @@ class ChatListViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = UIImage(named: "ladybird.png")!
         return CustomActivityIndicatorView(image: image)
@@ -48,6 +56,7 @@ class ChatListViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationItem.title = "Where's my squad?"
         self.navigationController?.navigationBar.isHidden = false
+        self.getBlockIds()
     }
     
     // MARK: Methods
@@ -74,12 +83,28 @@ class ChatListViewController: UIViewController {
             self.activityIndicator.stopAnimating()
             print("Total number of user :\(users.count)")
             let fbIds = self.faceBookFriends.flatMap({$0.id})
-            self.chatUsers = users.filter({(user) -> Bool in
+            let chatuserss = users.filter({(user) -> Bool in
                 if let fbId = user.profile.fbId {
                     return fbIds.contains(fbId)
                 }
                 return false
             })
+            self.chatUsers = chatuserss.filter({(user) -> Bool in
+                if let userID = user.id, let blockedIds = self.blockedUserIds {
+                    return !blockedIds.contains(userID)
+                }
+                return true
+            })
+            self.getBlockIds()
+        }
+    }
+    
+    func getBlockIds() {
+        userService.getBlockedIds(of: me!) { (ids, error) in
+                self.blockedUserIds = ids
+            if error != nil {
+                self.alert(message: GlobalConstants.Message.oops)
+            }
         }
     }
     
@@ -96,6 +121,7 @@ class ChatListViewController: UIViewController {
                 print(error)
         })
     }
+    
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -144,13 +170,13 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
         var val = ChatItem()
-        if let friend = self.chatUsers[indexPath.row].id, let me = Authenticator.shared.user?.id {
+        if let friend = self.chatUsers[indexPath.row].id, let me = self.me?.id {
             let chatId =  friend > me ? friend+me : me+friend
             val.chatId = chatId
             val.userId = friend
         }
         vc.chatItem = val
-        
+        vc.chatUser = self.chatUsers[indexPath.row]
         vc.chatUserName = self.chatUsers[indexPath.row].profile.firstName ?? ""
         vc.chatOppentId = self.chatUsers[indexPath.row].id
         
@@ -187,25 +213,48 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func unMatch(user: User) {
         self.activityIndicator.startAnimating()
         var val = ChatItem()
-        if let friend = user.id, let me = Authenticator.shared.user?.id {
+        if let friend = user.id, let me = self.me?.id {
             let chatId =  friend > me ? friend+me : me+friend
             val.chatId = chatId
             val.userId = friend
         }
         
-        guard let opponetId = val.userId, let myId = Authenticator.shared.user?.id, let chatId = val.chatId else {
+        guard let opponetId = val.userId, let myId = self.me?.id, let chatId = val.chatId else {
             self.activityIndicator.stopAnimating()
             self.alert(message: "Something went wrong. Please try again later.", title: "Oops", okAction: nil)
             return
         }
-        UserService().unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
-            self.activityIndicator.stopAnimating()
+        
+        userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
             if success {
-                self.alert(message: "You successfully removed \(user.profile.firstName ?? "").", title: "Success", okAction: {
-                    self.tableView.reloadData()
+                self.userService.block(user: user, myId: myId, completion: { (success, error) in
+                    if success {
+                        self.userService.getBlockedIds(of: self.me!, completion: { (ids, error) in
+                            self.activityIndicator.stopAnimating()
+                            if error != nil {
+                                self.alert(message: GlobalConstants.Message.oops)
+                            } else {
+                                self.blockedUserIds = ids
+                            }
+                        })
+                        var message = "Successfully removed user"
+                        if let name = user.profile.firstName {
+                            message = message + " " + name
+                         }
+                        self.alert(message: message, title: "Success", okAction: {
+                            self.tableView.reloadData()
+                        })
+                        
+                    } else {
+                        self.activityIndicator.stopAnimating()
+                        self.alert(message: GlobalConstants.Message.oops)
+                    }
+                    
                 })
-            } else {
                 
+            } else {
+                self.activityIndicator.stopAnimating()
+                self.alert(message: GlobalConstants.Message.oops)
             }
         })
     }

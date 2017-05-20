@@ -164,6 +164,23 @@ class UserService: FirebaseManager {
         })
     }
     
+    func getBlockedIds(of user: User, completion: @escaping ([String]?, FirebaseManagerError?) -> ()) {
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.blockedUsers.rawValue).observe(.value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print(value)
+                let json = JSON(value)
+                var blockedIds:[String] = []
+                for (key,_) in json {
+                    blockedIds.append(key)
+                }
+                completion(blockedIds, nil)
+            }
+            else {
+                completion(nil, FirebaseManagerError.noDataFound)
+            }
+        })
+    }
+    
     func getChatListAndObserve(of user: User, completion: @escaping ([ChatItem]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
@@ -280,20 +297,34 @@ class UserService: FirebaseManager {
         
     }
     
-    func block(user: User, completion: @escaping CallBackWithSuccessError) {
-        reference.child(Node.user.rawValue).child(user.id!).updateChildValues(["blockedByUsers" : Authenticator.currentFIRUser!.uid]) { (error, _) in
+    func block(user: User, myId: String, completion: @escaping CallBackWithSuccessError) {
+        
+        guard let opponetId = user.id, let fbID = user.profile.fbId else {
+            completion(false,nil)
+            return
+        }
+        
+        let values:[String: Any] = [
+            "userId" : opponetId,
+            "fbId" : fbID,
+            "time" : Date().timeIntervalSince1970
+        ]
+        
+        reference.child(Node.user.rawValue).child(myId).child(Node.blockedUsers.rawValue).child(opponetId).updateChildValues(values) { (error, _) in
             if let error = error {
                 completion(false, error)
             }else {
-                self.reference.child(Node.user.rawValue).child(Authenticator.currentFIRUser!.uid).updateChildValues(["blockedUsers" : user.id!], withCompletionBlock: { (error, _) in
-                    completion(error == nil, error)
-                })
+                completion(true, nil)
             }
         }
     }
     
     func blockAndReport(user: User, remark: String, completion: @escaping CallBackWithSuccessError) {
-        self.block(user: user) { (success, error) in
+        guard let me = Authenticator.shared.user?.id else {
+            completion(false, FirebaseManagerError.noUserFound)
+            return
+        }
+        self.block(user: user, myId: me) { (success, error) in
             if success {
                 self.report(user: user, remark: remark, completion: completion)
             }else {
@@ -308,7 +339,6 @@ class UserService: FirebaseManager {
             "remarks": remark,
             "reportedOn": user.id!
         ]
-        
         reference.child(Node.report.rawValue).childByAutoId().updateChildValues(dict) { (error, _) in
             completion(error == nil, error)
         }

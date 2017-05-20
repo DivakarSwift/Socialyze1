@@ -47,7 +47,7 @@ class SwipingViewController: UIViewController {
         let block = UIAlertAction(title: "Block", style: .default) { (_) in
             if let user = self.users.first {
                 self.activityIndicator.startAnimating()
-                self.userService.block(user: user, completion: {[weak self] (success, error) in
+                self.userService.block(user: user, myId: (Authenticator.shared.user?.id)!, completion: {[weak self] (success, error) in
                     self?.activityIndicator.stopAnimating()
                     if success {
                         self?.alert(message: "User blocked.")
