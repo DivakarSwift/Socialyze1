@@ -46,7 +46,7 @@ class ChatListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Where's my squad?"
+        self.navigationItem.title = "Chat"
         self.navigationController?.navigationBar.isHidden = false
     }
     
@@ -118,7 +118,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         if let time = self.chatUsers[indexPath.row].checkIn?.time, (Date().timeIntervalSince1970 - time) < checkInThreshold, let val = self.chatUsers[indexPath.row].checkIn?.place {
             checkInLabel.text = "@ \(val)"
         } else {
-            checkInLabel.text = "Your squad hasn't checked in"
+            checkInLabel.text = ""
         }
         
         
