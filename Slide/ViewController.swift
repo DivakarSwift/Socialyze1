@@ -87,6 +87,15 @@ class ViewController: UIViewController {
             action: #selector(profileBtn)
         )
         
+        //create a new button
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+
+        leftButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
+        leftButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
+        leftButton.rounded()
+        let leftBarButton = UIBarButtonItem(customView: leftButton)
+        navigationItem.leftBarButtonItem = leftBarButton
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "chaticon"),
             style: UIBarButtonItemStyle.plain,
@@ -131,7 +140,7 @@ class ViewController: UIViewController {
         
         //places.append(Place.init(nameAddress: "Downtown Columbus", mainImage: #imageLiteral(resourceName: "DowntownColumbus "), secondImage: nil, lat: 0, long: 0, size: 2, early: 0, bio: "", placeID: defaultPlaceID)) // polygon
         
-        places.append(Place.init(nameAddress: "Short North", mainImage: #imageLiteral(resourceName: "ShortNorth"), secondImage: nil, lat: 39.987237, long: -83.008599, size: 0, early: 0, bio: "Centered on the main strip of High Street, it is the Art and Soul of Columbus.",placeID: "ChIJV1GKfNeOOIgR4-ZZbcipC8g")) // polygon
+        places.append(Place.init(nameAddress: "Short North", mainImage: #imageLiteral(resourceName: "ShortNorth"), secondImage: nil, lat: 39.987237, long: -83.008599, size: 0, early: 0, bio: "Centered on the main strip of High Street, it is the Art and Soul of Columbus.",placeID: "")) // polygon
         
         //places.append(Place.init(nameAddress: "German Village", mainImage: #imageLiteral(resourceName: "germanvillage"), secondImage: nil, lat: 39.952666, long: -82.997876, size: 0, early: 0, bio: "", placeID: defaultPlaceID)) // polygon
         
@@ -211,7 +220,7 @@ class ViewController: UIViewController {
     
     }
     
-    func profileBtn(_ sender: UIBarButtonItem) {
+    func profileBtn(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Profile", bundle: nil)
         let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
         controller.userId = Authenticator.currentFIRUser?.uid
@@ -267,31 +276,36 @@ extension ViewController: UICollectionViewDataSource {
 //        placeName.layer.shadowOpacity = 1
 //        placeName.layer.masksToBounds = false
         
-        let floatRatingView: FloatRatingView!
-        floatRatingView = cell.viewWithTag(3) as! FloatRatingView
+        let floatRatingView = cell.viewWithTag(3) as! FloatRatingView
+        let starLabel = cell.viewWithTag(4) as! UILabel
+        
         floatRatingView.rating = 0
         floatRatingView.floatRatings = true
+        
         let screenSize = UIScreen.main.bounds
         let screenHeight = screenSize.height
         if screenHeight == 568{
             cell.widthLayout.constant = 70
         }else{
             cell.widthLayout.constant = 100
-            
         }
-        (cell.viewWithTag(4) as! UILabel).text = "0.0"
+        
+        (cell.viewWithTag(4) as! UILabel).text = ""
         if(UserDefaults.standard.object(forKey: places[indexPath.row].placeID) != nil){
             let starData = UserDefaults.standard.object(forKey: places[indexPath.row].placeID) as! NSDictionary
             print(starData)
             floatRatingView.rating = Float(starData["rating"] as! String)!
-            (cell.viewWithTag(4) as! UILabel).text = starData["rating"] as? String
+            starLabel.text = starData["rating"] as? String
             
-        }else{
+        } else {
             if places[indexPath.row].placeID != "" {
                 self.placeId( nmbr: indexPath.row)
+            } else {
+                floatRatingView.isHidden = true
+                starLabel.isHidden = true
             }
-            
         }
+        
         if(indexPath.item % 6 == 0){
             (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 14)
             (cell.viewWithTag(4) as! UILabel).font = UIFont.systemFont(ofSize: 11)

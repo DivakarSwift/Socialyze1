@@ -28,23 +28,14 @@ class ChatListViewController: UIViewController {
         fetchMatchList()
         
         /*
-         Fine part:
-         here get matched list usersID
+         fetchFBFirendsListWithUser()
          
-         Diffult part:
-         then check get checkin places of every userId with time of checkin
-         filter the most recent check in place and get checkin place name.
-         popualte table view
-         
-         fine part:
-         get chatId and populate table with info "fetching lastest check in place"
-         select to chat with that user
- 
          */
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationItem.title = "Where's my squad?"
         self.navigationController?.navigationBar.isHidden = false
     }
     
