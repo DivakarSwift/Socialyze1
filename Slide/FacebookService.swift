@@ -94,11 +94,10 @@ class FacebookService {
     }
     
     private func createGraphRequestAndStart(forPath path: String, params: [String : Any] = [:], httpMethod: GraphRequestHTTPMethod = .GET, success: @escaping (GraphResponse) -> (), failure: @escaping (GlobalConstants.Message)->()) {
-        var accesstoken = AccessToken.current
+        let accesstoken = AccessToken.current
         if let _ = AccessToken.current?.authenticationToken {
             print("Facebook Access-token available")
         } else {
-            accesstoken = GlobalConstants.UserDefaultKey.fbAccessToken.value()
             print("Facebook Access-token not found")
         }
         

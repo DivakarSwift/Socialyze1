@@ -100,20 +100,27 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatUsers.count
+        return chatUsers.count <= 0 ? 1 :chatUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
+        if chatUsers.count <= 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
         
         let nameLabel = cell.viewWithTag(2) as! UILabel
-        nameLabel.text = self.chatUsers[indexPath.row].profile.firstName ?? "somebody"
+        nameLabel.text = self.chatUsers[indexPath.row].profile.name ?? "Facebook User"
         
         let checkInLabel = cell.viewWithTag(3) as! UILabel
-        let userlastPlace = self.chatUsers[indexPath.row].checkIn?.place ?? ""
-        checkInLabel.text = "@ \(userlastPlace)"
+        if let time = self.chatUsers[indexPath.row].checkIn?.time, (Date().timeIntervalSince1970 - time) < checkInThreshold, let val = self.chatUsers[indexPath.row].checkIn?.place {
+            checkInLabel.text = "@ \(val)"
+        } else {
+            checkInLabel.text = "Your squad hasn't checked in"
+        }
+        
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
@@ -131,6 +138,9 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if chatUsers.count <= 0 {
+            return
+        }
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         
         var val = ChatItem()
@@ -153,17 +163,51 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // MARK: Remove cell option and action
+//    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+//        return "Unmatch"
+//    }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if chatUsers.count <= 0 {
+            return false
+        }
         if let time = self.chatUsers[indexPath.row].checkIn?.time {
             let check = (Date().timeIntervalSince1970 - time) > checkInThreshold
             return check
-        } else {
-            return true
         }
+        
+        return false
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        unMatch(user: self.chatUsers[indexPath.row])
+    }
+    
+    func unMatch(user: User) {
+        self.activityIndicator.startAnimating()
+        var val = ChatItem()
+        if let friend = user.id, let me = Authenticator.shared.user?.id {
+            let chatId =  friend > me ? friend+me : me+friend
+            val.chatId = chatId
+            val.userId = friend
+        }
         
+        guard let opponetId = val.userId, let myId = Authenticator.shared.user?.id, let chatId = val.chatId else {
+            self.activityIndicator.stopAnimating()
+            self.alert(message: "Something went wrong. Please try again later.", title: "Oops", okAction: nil)
+            return
+        }
+        UserService().unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
+            self.activityIndicator.stopAnimating()
+            if success {
+                self.alert(message: "You successfully removed \(user.profile.firstName ?? "").", title: "Success", okAction: {
+                    self.tableView.reloadData()
+                })
+            } else {
+                
+            }
+        })
     }
     
 }

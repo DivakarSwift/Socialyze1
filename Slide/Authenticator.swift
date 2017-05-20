@@ -90,7 +90,6 @@ class Authenticator {
                     // GlobalConstants.UserDefaultKey.taggableFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: taggableFriends)))
                     
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
-                    GlobalConstants.UserDefaultKey.fbAccessToken.set(value: accessToken)
                     
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {
                         FacebookService.shared.getUserDetails(success: { (user) in
