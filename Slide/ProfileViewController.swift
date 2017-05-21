@@ -57,6 +57,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         self.editButton.isHidden = true
         self.hideKeyboardWhenTappedAround()
+        self.navigationItem.setHidesBackButton(true, animated: true)
         lblUserName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         lblUserName.layer.shadowRadius = 3
         lblUserName.layer.shadowOpacity = 1
