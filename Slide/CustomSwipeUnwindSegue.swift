@@ -29,6 +29,8 @@ class CustomSwipeUnwindSegue: UIStoryboardSegue {
         UIView.animate(withDuration: 0.25, animations: { () -> Void in
             homeVC?.frame = homeVC!.frame.offsetBy(dx: -screenWidth, dy: 0.0)
             profVC?.frame = profVC!.frame.offsetBy(dx: -screenWidth, dy: 0.0)
+            self.destination.navigationController?.setNavigationBarHidden(false, animated: true)
+            //self.destination.navigationController?.setToolbarHidden(false, animated: true)
             
         }) { (Finished) -> Void in
             _ = self.source.navigationController?.popViewController(animated: false)

@@ -32,6 +32,8 @@ class CustomRightSwipeSegue: UIStoryboardSegue {
         UIView.animate(withDuration: 0.25, animations: { () -> Void in
             homeVC?.frame = homeVC!.frame.offsetBy(dx: screenWidth, dy: 0.0)
             profVC?.frame = profVC!.frame.offsetBy(dx: screenWidth, dy: 0.0)
+            self.source.navigationController?.setNavigationBarHidden(true, animated: true)
+            //self.source.navigationController?.setToolbarHidden(true, animated: true)
             
         }) { (Finished) -> Void in
             if let nav = self.source.navigationController {

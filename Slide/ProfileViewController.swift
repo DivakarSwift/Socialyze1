@@ -20,6 +20,10 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var lblUserName: UILabel!
     
+    @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
+        performSegue(withIdentifier: "editProfile", sender: nil)
+    }
+    
     var userId: String?
     let authenticator = Authenticator.shared
     let facebookService = FacebookService.shared
@@ -73,14 +77,16 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.user = Authenticator.shared.user
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        //self.navigationController?.navigationBar.isHidden = true
         UIApplication.shared.isStatusBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         UIApplication.shared.isStatusBarHidden = false
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        //self.navigationController?.navigationBar.isHidden = false
     }
     
     @IBAction func swipeHome(_ sender: Any) {

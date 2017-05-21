@@ -118,6 +118,7 @@ class EditingTableViewController: UITableViewController {
                 self.uploadImage(index: 0)
             } else {
                 _ = self.navigationController?.popViewController(animated: true)
+                //performSegue(withIdentifier: "unwindToProfile", sender: self)
             }
         }
     }
@@ -158,10 +159,12 @@ class EditingTableViewController: UITableViewController {
             if error == nil {
                 //self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
                     Authenticator.shared.user = self.user
-                    _ = self.navigationController?.popViewController(animated: true)
+                _ = self.navigationController?.popViewController(animated: true)
+                //self.performSegue(withIdentifier: "unwindToProfile", sender: self)
                 //})
             } else {
                 _ = self.navigationController?.popViewController(animated: true)
+                //self.performSegue(withIdentifier: "unwindToProfile", sender: self)
             }
             
         })
