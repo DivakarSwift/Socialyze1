@@ -15,6 +15,12 @@ class CustomRightSwipeSegue: UIStoryboardSegue {
         let homeVC = self.source.view
         let profVC = self.destination.view
         
+        
+//        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer: )))
+//        homeVC?.addGestureRecognizer(gesture)
+        
+        
+        
         // Get screen width and height
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
@@ -29,10 +35,13 @@ class CustomRightSwipeSegue: UIStoryboardSegue {
         //window?.insertSubview(profVC!, aboveSubview: homeVC!)
         
         // Animate the transition
+        
         UIView.animate(withDuration: 0.25, animations: { () -> Void in
             homeVC?.frame = homeVC!.frame.offsetBy(dx: screenWidth, dy: 0.0)
             profVC?.frame = profVC!.frame.offsetBy(dx: screenWidth, dy: 0.0)
-            self.source.navigationController?.setNavigationBarHidden(true, animated: true)
+            if self.source.navigationController?.isNavigationBarHidden == false {
+                self.source.navigationController?.setNavigationBarHidden(true, animated: true)
+            }
             //self.source.navigationController?.setToolbarHidden(true, animated: true)
             
             
@@ -45,6 +54,14 @@ class CustomRightSwipeSegue: UIStoryboardSegue {
             }
         }
     }
+    
+//    func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
+//        let translation = gestureRecognizer.translation(in: self.source.view)
+//        let label = gestureRecognizer.view!
+//        label.center = CGPoint(x: self.source.view.bounds.width / 2 + translation.x, y: self.source.view.bounds.height / 2 + translation.y)
+//        
+//        
+//    }
 
 }
 
