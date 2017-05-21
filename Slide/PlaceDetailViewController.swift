@@ -38,6 +38,11 @@ class PlaceDetailViewController: UIViewController {
     let SNlat3 = 39.973620
     let SNlong3 = -83.003916
     
+    let CSlat1 = 39.969603
+    let CSlong1 = -82.986968
+    let CSlat2 = 39.969660
+    let CSlong2 = -82.990433
+    
     private var isCheckedIn = false
     
     let facebookService = FacebookService.shared
@@ -154,7 +159,15 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "No new users at this time. Check back later")
                 }
             }
-        } else if (place?.early)! > 0 {
+        } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < largeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < largeRadius){
+            self.checkIn {[weak self] in
+                if self?.checkinData.count != 0 {
+                    self?.performSegue(withIdentifier: "Categories", sender: self)
+                }else {
+                    self?.alert(message: "No new users at this time. Check back later")
+                }
+            }
+        }else if (place?.early)! > 0 {
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
