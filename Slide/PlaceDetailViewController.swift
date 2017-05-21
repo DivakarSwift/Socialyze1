@@ -43,6 +43,15 @@ class PlaceDetailViewController: UIViewController {
     let CSlat2 = 39.969660
     let CSlong2 = -82.990433
     
+    let Elat1 = 40.050414
+    let Elong1 = -82.915127
+    let Elat2 = 40.052936
+    let Elong2 = -82.914870
+    let Elat3 = 40.051383
+    let Elong3 = -82.923034
+    let Elat4 = 40.054964
+    let Elong4 = -82.906963
+    
     private var isCheckedIn = false
     
     let facebookService = FacebookService.shared
@@ -159,7 +168,7 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "No new users at this time. Check back later")
                 }
             }
-        } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < largeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < largeRadius){
+        } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
@@ -167,7 +176,15 @@ class PlaceDetailViewController: UIViewController {
                     self?.alert(message: "No new users at this time. Check back later")
                 }
             }
-        }else if (place?.early)! > 0 {
+        } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
+                self.checkIn {[weak self] in
+                    if self?.checkinData.count != 0 {
+                        self?.performSegue(withIdentifier: "Categories", sender: self)
+                    }else {
+                        self?.alert(message: "No new users at this time. Check back later")
+                    }
+                }
+        } else if (place?.early)! > 0 {
             self.checkIn {[weak self] in
                 if self?.checkinData.count != 0 {
                     self?.performSegue(withIdentifier: "Categories", sender: self)
