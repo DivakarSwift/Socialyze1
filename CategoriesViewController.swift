@@ -78,6 +78,11 @@ class CategoriesViewController: UIViewController {
         self.infoButton.rounded()
         self.infoButton.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
         
+        
+        userName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        userName.layer.shadowRadius = 3
+        userName.layer.shadowOpacity = 1
+        
         addLoadingIndicator()
         
         imageView.isUserInteractionEnabled = true

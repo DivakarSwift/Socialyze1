@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,7 +63,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lk2-Pl-G83">
                                 <rect key="frame" x="16" y="20" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" red="0.6368377221" green="0.048687425069999998" blue="0.13850137730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -107,6 +107,7 @@
                             <constraint firstItem="lk2-Pl-G83" firstAttribute="top" secondItem="QQh-oy-w7f" secondAttribute="bottom" id="SnG-5I-XDU"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="Mzx-XG-7I6" secondAttribute="bottom" constant="37" id="csZ-7w-rYG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fmo-QB-gAY" secondAttribute="trailing" id="ezz-h3-WIn"/>
+                            <constraint firstItem="lk2-Pl-G83" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" constant="60" id="fp1-RM-Psf"/>
                             <constraint firstItem="SjA-zs-owl" firstAttribute="centerX" secondItem="wbe-1n-hP3" secondAttribute="centerX" id="idl-cs-53g"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="fmo-QB-gAY" secondAttribute="bottom" constant="20" id="mfu-xG-6ey"/>
                             <constraint firstItem="Suk-AW-li8" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" id="sPu-kQ-TOf"/>
