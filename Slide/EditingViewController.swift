@@ -174,7 +174,7 @@ class EditingTableViewController: UITableViewController {
         let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in
             self.openCamera()
         })
-        let photoLibraryAction = UIAlertAction(title: "PhotoLibrary", style: .default, handler: { action in
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in
             self.openGallary()
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
