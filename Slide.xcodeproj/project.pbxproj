@@ -43,6 +43,8 @@
 		DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */; };
 		DA0B5F611ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */; };
 		F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */; };
+		F6475F5C1ED2F012004C8D90 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6475F5A1ED2F012004C8D90 /* MessageUI.framework */; };
+		F6475F5E1ED2F1E9004C8D90 /* TextMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */; };
 		F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F64ED4CF1ECD66DF0064FB74 /* Places.xcdatamodeld */; };
 		F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */; };
 		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
@@ -130,6 +132,9 @@
 		DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeSegue.swift; sourceTree = "<group>"; };
 		DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeUnwindSegue.swift; sourceTree = "<group>"; };
 		F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedViewController.swift; sourceTree = "<group>"; };
+		F6475F591ED2F012004C8D90 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		F6475F5A1ED2F012004C8D90 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessageViewController.swift; sourceTree = "<group>"; };
 		F64ED4D01ECD66DF0064FB74 /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -185,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6475F5C1ED2F012004C8D90 /* MessageUI.framework in Frameworks */,
 				7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */,
 				13571740EAF410EA1ADC42F1 /* Pods_Slide.framework in Frameworks */,
 			);
@@ -205,6 +211,7 @@
 				F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */,
 				DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */,
 				DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */,
+				F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -299,6 +306,8 @@
 		7085EDF61E6EEB3700AD3420 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6475F591ED2F012004C8D90 /* Messages.framework */,
+				F6475F5A1ED2F012004C8D90 /* MessageUI.framework */,
 				7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */,
 				1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */,
 			);
@@ -605,6 +614,7 @@
 				FC1936821E710463009F2912 /* EditingViewController.swift in Sources */,
 				1FE787651E87F0B2006B2445 /* JSONExtension.swift in Sources */,
 				1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */,
+				F6475F5E1ED2F1E9004C8D90 /* TextMessageViewController.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
 				F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
