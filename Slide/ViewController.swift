@@ -122,17 +122,17 @@ class ViewController: UIViewController {
         
         // Ohio State University
         
-        places.append(Place.init(nameAddress: "RPAC", mainImage: #imageLiteral(resourceName: "RPAC"), secondImage: #imageLiteral(resourceName: "RPAC1-yelp"), lat: 39.999643, long: -83.018489, size: 3, early: 0, bio: "The Ohio State student HUB of working out and cheap condoms.",placeID: "ChIJB-ZAQ5SOOIgRM79SReqgWlI"))
+        places.append(Place.init(nameAddress: "RPAC", mainImage: #imageLiteral(resourceName: "RPAC"), secondImage: nil, lat: 39.999643, long: -83.018489, size: 3, early: 0, bio: "Best place to find a workout buddy.",placeID: "ChIJB-ZAQ5SOOIgRM79SReqgWlI"))
         
-        places.append(Place.init(nameAddress: "Ohio Union", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 39.997957, long: -83.0085650, size: 3, early: 0, bio: "The student activity center at The Ohio State University.",placeID: "ChIJQXKDxbiOOIgRI9TvX8VM4ik"))
+        places.append(Place.init(nameAddress: "Ohio Union", mainImage: #imageLiteral(resourceName: "Union"), secondImage: nil, lat: 39.997957, long: -83.0085650, size: 3, early: 0, bio: "Connect with friends and student orgs over food and study.",placeID: "ChIJQXKDxbiOOIgRI9TvX8VM4ik"))
         
         //places.append(Place.init(nameAddress: "18th Ave Library, Ohio State", mainImage: #imageLiteral(resourceName: "18thAvelibrary"), secondImage: nil, lat: 0, long: 0, size: 2, early: 0, bio: ""))
         
-        places.append(Place.init(nameAddress: "Thompson Library", mainImage: #imageLiteral(resourceName: "ThompsonLibrary"), secondImage: #imageLiteral(resourceName: "ThompsonLibrary1"), lat: 39.999346, long: -83.014863, size: 2, early: 0, bio: "The largest library at the University with beautiful modern architecture.", placeID: "ChIJP74-z5eOOIgRBVNFuzx7O7U"))
+        places.append(Place.init(nameAddress: "Thompson Library", mainImage: #imageLiteral(resourceName: "ThompsonLibrary1"), secondImage: nil, lat: 39.999346, long: -83.014863, size: 2, early: 0, bio: "The go-to place for group studying.", placeID: "ChIJP74-z5eOOIgRBVNFuzx7O7U"))
         
         // Other Universities
         
-        places.append(Place.init(nameAddress: "Columbus State", mainImage: #imageLiteral(resourceName: "ColumbusStateCC"), secondImage: nil, lat:39.969207, long: -82.987190, size: 0, early: 0, bio: "A large and beautiful community college.",placeID: "ChIJh6KJCdSIOIgRr6tbp10S-tQ"))//polygon
+        places.append(Place.init(nameAddress: "Columbus State", mainImage: #imageLiteral(resourceName: "ColumbusStateCC"), secondImage: nil, lat:39.969207, long: -82.987190, size: 0, early: 0, bio: "Connect with friends and students downtown.",placeID: "ChIJh6KJCdSIOIgRr6tbp10S-tQ"))//polygon
         
         //places.append(Place.init(nameAddress: "Capital University", mainImage: #imageLiteral(resourceName: "CapitalUni"), secondImage: nil, lat: 39.955322, long: -82.938515, size: 0, early: 0, bio: "", placeID: defaultPlaceID)) // polygon
 
@@ -148,9 +148,9 @@ class ViewController: UIViewController {
         
         //places.append(Place.init(nameAddress: "Ohio Expo Center", mainImage: #imageLiteral(resourceName: "ohioexpocenter"), secondImage: nil, lat: 40.002574, long: -82.990648 ,size: 4, early: 0, bio: "", placeID: defaultPlaceID))
         
-        places.append(Place.init(nameAddress: "Huntington Park", mainImage: #imageLiteral(resourceName: "HuntingtonPark.jpg"), secondImage: nil, lat: 39.968675, long: -83.010920, size: 4, early: 0, bio: "A large and beautiful park that serves as home to the Clippers!", placeID: "ChIJ63GhnCOPOIgR8rcdYWnemkw"))
+        places.append(Place.init(nameAddress: "Huntington Park", mainImage: #imageLiteral(resourceName: "HuntingtonPark.jpg"), secondImage: nil, lat: 39.968675, long: -83.010920, size: 4, early: 0, bio: "A large and beautiful park that serves as home to the Columbus Clippers!", placeID: "ChIJ63GhnCOPOIgR8rcdYWnemkw"))
        
-        places.append(Place.init(nameAddress: "Mapfre stadium", mainImage: #imageLiteral(resourceName: "mapfre-stadium"), secondImage: nil, lat: 40.009521, long: -82.991087, size: 4, early: 0, bio: "The place to watch the Columbus Crew!", placeID: "ChIJk4BJbVOJOIgRn_sPxoazXCs"))
+        places.append(Place.init(nameAddress: "Mapfre stadium", mainImage: #imageLiteral(resourceName: "mapfre-stadium"), secondImage: nil, lat: 40.009521, long: -82.991087, size: 4, early: 0, bio: "The place to cheer on the Columbus Crew!", placeID: "ChIJk4BJbVOJOIgRn_sPxoazXCs"))
         
         places.append(Place.init(nameAddress: "Nationwide Arena", mainImage: #imageLiteral(resourceName: "NationWideArena1"), secondImage: #imageLiteral(resourceName: "Nationwide"), lat: 39.969274, long: -83.005992, size: 4, early: 1, bio: "The heart of the Arena District and the venue of the Blue Jackets and great shows and concerts!", placeID: "ChIJ6_-8ziWPOIgRSQzt9UEhOmI"))
         
@@ -160,7 +160,7 @@ class ViewController: UIViewController {
         
         places.append(Place.init(nameAddress: "Express Live!", mainImage: #imageLiteral(resourceName: "ExpressLive!"), secondImage: nil, lat: 39.969865, long: -83.009947, size: 2, early: 1, bio: "A fantastic indoor and outdoor music venue!", placeID: "ChIJCcOQ6COPOIgRcLEuZixc9Wk"))
         
-        places.append(Place.init(nameAddress: "Schottenstein Music Center", mainImage: #imageLiteral(resourceName: "Schottenstein"), secondImage: nil, lat: 40.007549, long: -83.025020, size: 4, early: 1, bio: "This major arena is the home of the Buckeye's basketball!", placeID: "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
+        places.append(Place.init(nameAddress: "Schottenstein Music Center", mainImage: #imageLiteral(resourceName: "Schottenstein"), secondImage: nil, lat: 40.007549, long: -83.025020, size: 4, early: 1, bio: "Connect with people going to Tom Petty on June 4th!", placeID: "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
         
         // Bars & Clubs
         
@@ -172,13 +172,13 @@ class ViewController: UIViewController {
         
         //places.append(Place.init(nameAddress: "World of Beer", mainImage: #imageLiteral(resourceName: "WorldofBeer3"), secondImage: #imageLiteral(resourceName: "WorldofBeer1"), lat: 0, long: 0, size: 1, early: 0, bio: "", placeID: defaultPlaceID))
         
-        places.append(Place.init(nameAddress: "Park Street Cantina", mainImage: #imageLiteral(resourceName: "ParkStreetCantina"), secondImage: #imageLiteral(resourceName: "ParkStreetCantina1"), lat: 39.972233, long: -83.005100, size: 2, early: 0, bio: "Tacos and tequila make for a good time.", placeID: "ChIJRaaWyyePOIgRt2G7Nk7HDAs"))
+        places.append(Place.init(nameAddress: "Park Street Cantina", mainImage: #imageLiteral(resourceName: "ParkStreetCantina1"), secondImage: nil, lat: 39.972233, long: -83.005100, size: 2, early: 0, bio: "Tacos, tequila, and friends make for a good time.", placeID: "ChIJRaaWyyePOIgRt2G7Nk7HDAs"))
         
         //places.append(Place.init(nameAddress: "Char Bar", mainImage: #imageLiteral(resourceName: "Charbar"), secondImage: nil, lat: 39.971304, long: -83.002569, size: 2, early: 0, bio: "", placeID: defaultPlaceID))
         
-        places.append(Place.init(nameAddress: "Out R Inn", mainImage: #imageLiteral(resourceName: "OutRInn"), secondImage: nil, lat: 40.005088, long: -83.008432, size: 2, early: 0, bio: "An indoor and outdoor campus bar with weekly deals and billiards.", placeID: "ChIJRX1tQ7uOOIgRO9wNKF-naaE"))
+        places.append(Place.init(nameAddress: "Out R Inn", mainImage: #imageLiteral(resourceName: "OutRInn"), secondImage: nil, lat: 40.005088, long: -83.008432, size: 2, early: 0, bio: "The oldest campus bar is the place to play billiards with some friends.", placeID: "ChIJRX1tQ7uOOIgRO9wNKF-naaE"))
         
-        places.append(Place.init(nameAddress: "Midway on High", mainImage: #imageLiteral(resourceName: "Midwayonhigh"), secondImage: nil, lat: 39.997669, long: -83.007395, size: 2, early: 0, bio: "Proudly the loudest club on High Street.", placeID: "ChIJ73Ok77iOOIgR_EQyWdpUgxE"))
+        places.append(Place.init(nameAddress: "Midway on High", mainImage: #imageLiteral(resourceName: "Midwayonhigh"), secondImage: nil, lat: 39.997669, long: -83.007395, size: 2, early: 0, bio: "Proudly the loudest club on High Street and the best place to dance together.", placeID: "ChIJ73Ok77iOOIgR_EQyWdpUgxE"))
         
         places.append(Place.init(nameAddress: "Bakersfield Short North", mainImage: #imageLiteral(resourceName: "BakersfieldShortNorth"), secondImage: nil, lat: 39.977321, long: -83.003828, size: 1, early: 0, bio: "Quirky food choices and a long list of beers and cocktails.", placeID: "ChIJu1T6hteOOIgRHLqMIL76xGI"))
         
@@ -206,7 +206,7 @@ class ViewController: UIViewController {
         
         // Coffee Shops
         
-        places.append(Place.init(nameAddress: "Fox in the Snow Cafe", mainImage: #imageLiteral(resourceName: "FoxandSnowCafe"), secondImage: #imageLiteral(resourceName: "FoxintheSnow"), lat: 39.984228, long: -82.999388, size: 2, early: 0, bio: "A chic cafe featuring java drinks and baked goods.", placeID: "ChIJxfUn7NGOOIgRwf1Z3TIzy64"))
+        places.append(Place.init(nameAddress: "Fox in the Snow Cafe", mainImage: #imageLiteral(resourceName: "FoxintheSnow"), secondImage: nil, lat: 39.984228, long: -82.999388, size: 2, early: 0, bio: "A chic cafe featuring java drinks and baked goods.", placeID: "ChIJxfUn7NGOOIgRwf1Z3TIzy64"))
         
         // Shopping Malls
         
