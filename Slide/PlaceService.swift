@@ -13,7 +13,7 @@ import  SwiftyJSON
 class PlaceService: FirebaseManager {
     func user(_ user: User, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
         
-        let ref1 = self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!)
+        let ref1 = self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!)
         
         let ref2 = self.reference.child(Node.user.rawValue).child(user.id!).child(Node.checkIn.rawValue)
        
@@ -39,7 +39,7 @@ class PlaceService: FirebaseManager {
     
     func user(_ user: User, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
         
-        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(user.id!).observeSingleEvent(of: .value, with:{ (snapshot) in
+        self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!).observeSingleEvent(of: .value, with:{ (snapshot) in
             if let val = snapshot.value{
                 let json = JSON(val)
                 let time = json["time"].doubleValue
@@ -52,7 +52,7 @@ class PlaceService: FirebaseManager {
     }
     
     func getCheckInUsers(at place: Place, completion: @escaping ([Checkin])->(), failure: @escaping (FirebaseManagerError)->()) {
-        self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+        self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
             if let snapshotValue = snapshot.value {
                 if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
                     return json.map()

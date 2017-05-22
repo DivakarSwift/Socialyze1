@@ -453,7 +453,7 @@ class UserService: FirebaseManager {
         var PlacesRefs:[FIRDatabaseReference] = []
         if let places = Authenticator.shared.places {
             places.forEach({ (place) in
-                let ref = self.reference.child("Places").child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child("checkIn").child(userId)
+                let ref = self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(userId)
                 PlacesRefs.append(ref)
                 if place.nameAddress == places.last?.nameAddress {
                     completion(PlacesRefs, nil)
@@ -523,13 +523,6 @@ class UserService: FirebaseManager {
         // 1
         _ = reference.child(Node.user.rawValue).child(myId).child(Node.matchList.rawValue).child(opponentId).removeValue()
         _ = reference.child(Node.user.rawValue).child(opponentId).child(Node.matchList.rawValue).child(myId).removeValue()
-        
-        // 2
-        _ = reference.child(Node.chat.rawValue).child(chatId).removeValue()
-        
-        // 3
-        _ = reference.child(Node.user.rawValue).child(myId).child(Node.chatList.rawValue).child(opponentId).removeValue()
-        _ = reference.child(Node.user.rawValue).child(opponentId).child(Node.chatList.rawValue).child(myId).removeValue()
         
         // 4
         _ = reference.child(Node.user.rawValue).child(myId).child(Node.acceptList.rawValue).child(opponentId).removeValue()
