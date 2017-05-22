@@ -149,6 +149,7 @@ class PlaceDetailViewController: UIViewController {
         
         let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
             self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
         }
         alert.addAction(facebook)
         
@@ -156,6 +157,7 @@ class PlaceDetailViewController: UIViewController {
             self?.openMessage()
         }
         alert.addAction(textMessage)
+        
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(cancel)
