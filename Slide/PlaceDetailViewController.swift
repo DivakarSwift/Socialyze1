@@ -153,7 +153,7 @@ class PlaceDetailViewController: UIViewController {
         }
         alert.addAction(facebook)
         
-        let textMessage = UIAlertAction(title: "Text Messages", style: .default) { [weak self] (_) in
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
             self?.openMessage()
         }
         alert.addAction(textMessage)

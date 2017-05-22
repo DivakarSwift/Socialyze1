@@ -22,7 +22,7 @@ class ChatListViewController: UIViewController {
         }
         alert.addAction(facebook)
         
-        let textMessage = UIAlertAction(title: "Text Messages", style: .default) { [weak self] (_) in
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
             self?.alert(message: "Coming Soon!")
 //            let text = "Hey! Make new connections with Socialyzeapp.com!"
 //            
