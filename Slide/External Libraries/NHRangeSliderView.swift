@@ -2,8 +2,8 @@
 //  NHRangeSliderView.swift
 //  NHRangeSlider
 //
-//  Created by Hung on 17/12/16.
-//  Copyright © 2016 Hung. All rights reserved.
+//  Created by Salem Khan on 05/04/17.
+//  Copyright © 2017 Salem Khan. All rights reserved.
 //
 import UIKit
 

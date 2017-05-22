@@ -3,7 +3,7 @@
 //  veda
 //
 //  Created by bibek on 1/21/17.
-//  Copyright © 2017 veda. All rights reserved.
+//  Copyright © 2017 Salem Khan. All rights reserved.
 //
 
 import CoreLocation
