@@ -85,7 +85,7 @@
                                         </constraints>
                                         <state key="normal" image="ladybird.png"/>
                                         <connections>
-                                            <segue destination="p51-Pr-NjO" kind="show" id="bBy-PX-GFn"/>
+                                            <segue destination="p51-Pr-NjO" kind="custom" identifier="matches" customClass="CustomRightSwipeSegue" customModule="Slide" customModuleProvider="target" id="bBy-PX-GFn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -99,7 +99,7 @@
                                 <state key="normal" image="editbutton.png"/>
                                 <connections>
                                     <action selector="editProfile:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="0Ir-5q-kQ2"/>
-                                    <segue destination="Xua-vR-Ynp" kind="custom" identifier="editProfile" customClass="CustomRightSwipeSegue" customModule="Slide" customModuleProvider="target" id="RNp-YQ-jzq"/>
+                                    <segue destination="Xua-vR-Ynp" kind="show" identifier="editProfile" id="RNp-YQ-jzq"/>
                                 </connections>
                             </button>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">

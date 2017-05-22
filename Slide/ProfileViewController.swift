@@ -21,7 +21,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lblUserName: UILabel!
     
     @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
-        performSegue(withIdentifier: "editProfile", sender: nil)
+        performSegue(withIdentifier: "matches", sender: nil)
     }
     
     var userId: String?
