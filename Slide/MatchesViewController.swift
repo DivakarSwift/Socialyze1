@@ -31,10 +31,17 @@ class MatchesViewController: UIViewController {
     
     let chatService = ChatService.shared
     let userService = UserService()
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        let activityIndicator = CustomActivityIndicatorView(image: image)
+        return activityIndicator
+    }()
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = view.center
         self.fetchMatchUserIds()
     }
     
@@ -46,7 +53,9 @@ class MatchesViewController: UIViewController {
     
     func fetchChatList() {
         if let user = Authenticator.shared.user {
+            self.activityIndicator.startAnimating()
             userService.getChatListAndObserve(of: user, completion: {[weak self] (chatItems, error) in
+                self?.activityIndicator.stopAnimating()
                 if error == nil {
                     self?.chatItems = []
                     if let item = chatItems {
@@ -85,7 +94,9 @@ class MatchesViewController: UIViewController {
     
     func fetchMatchUserIds() {
         if let user = Authenticator.shared.user {
+            self.activityIndicator.startAnimating()
             userService.getMatchedIds(of: user, completion: { [weak self] (ids, error) in
+                self?.activityIndicator.stopAnimating()
                 self?.matchListUserIds = ids
                 self?.fetchMatchList()
             })
@@ -94,7 +105,9 @@ class MatchesViewController: UIViewController {
     
     func fetchMatchList() {
         if let user = Authenticator.shared.user {
+            self.activityIndicator.startAnimating()
             userService.getMatchListUsers(of: user, completion: {[weak self] (user, error) in
+                self?.activityIndicator.stopAnimating()
                 if error == nil {
                     self?.matchList = user!
                     self?.fetchChatList()

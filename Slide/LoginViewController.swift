@@ -11,11 +11,17 @@ import UIKit
 class LoginViewController: UIViewController {
     
     let authenticator = Authenticator.shared
+    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+        let image : UIImage = UIImage(named: "ladybird.png")!
+        let activityIndicator = CustomActivityIndicatorView(image: image)
+        return activityIndicator
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticator.delegate = self
-        
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.center = view.center
     }
 
     @IBAction func termsButton(_ sender: UIButton) {
@@ -37,6 +43,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: UIButton) {
+        self.activityIndicator.startAnimating()
         authenticator.authenticateWith(provider: .facebook)
     }
 }
@@ -53,11 +60,12 @@ extension LoginViewController: AuthenticatorDelegate {
     }
     
     func didSignInUser() {
-        
+        self.activityIndicator.stopAnimating()
         appDelegate.checkForLogin()
     }
     
     func didOccurAuthentication(error: AuthenticationError) {
+        self.activityIndicator.stopAnimating()
         let alert = UIAlertController(title:"Error", message: error.localizedDescription , preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default , handler: nil))

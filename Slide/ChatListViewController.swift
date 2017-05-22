@@ -89,7 +89,9 @@ class ChatListViewController: UIViewController {
     }
     
     func getBlockIds() {
+        self.activityIndicator.startAnimating()
         userService.getBlockedIds(of: me!) { (ids, error) in
+            self.activityIndicator.stopAnimating()
                 self.blockedUserIds = ids
             if error != nil {
                 self.alert(message: GlobalConstants.Message.oops)
@@ -98,7 +100,9 @@ class ChatListViewController: UIViewController {
     }
     
     func fetchMatchIds() {
+        self.activityIndicator.startAnimating()
         userService.getMatchedIds(of: me!) { (ids, error) in
+            self.activityIndicator.stopAnimating()
             self.matchedUserIds = ids
         }
     }
@@ -220,8 +224,8 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         self.userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
+            self.activityIndicator.stopAnimating()
             if success {
-                self.activityIndicator.stopAnimating()
                 var message = "Successfully unmatched my squad."
                 if let name = user.profile.firstName {
                     message = message + " " + name
@@ -229,9 +233,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
                 self.alert(message: message, title: "Success", okAction: {
                     _ = self.navigationController?.popViewController(animated: true)
                 })
-                
             } else {
-                self.activityIndicator.stopAnimating()
                 self.alert(message: GlobalConstants.Message.oops)
             }
         })

@@ -216,7 +216,7 @@ class ChatViewController: UIViewController {
         })
     }
     
-    func delete(user: User) {
+    private func delete(user: User) {
         self.activityIndicator.startAnimating()
         var val = ChatItem()
         if let friend = user.id, let me = Authenticator.shared.user?.id {
@@ -234,6 +234,7 @@ class ChatViewController: UIViewController {
         self.userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
             if success {
                 self.userService.block(user: user, myId: myId, completion: { (success, error) in
+                    self.activityIndicator.stopAnimating()
                     if success {
                         var message = "Successfully removed user"
                         if let name = user.profile.firstName {
@@ -244,7 +245,6 @@ class ChatViewController: UIViewController {
                         })
                         
                     } else {
-                        self.activityIndicator.stopAnimating()
                         self.alert(message: GlobalConstants.Message.oops)
                     }
                 })
