@@ -163,7 +163,7 @@ class PlaceDetailViewController: UIViewController {
     }
     
     private func openMessage() {
-        let text = "Hey! Check out this app. Use google.com link as placeholder."
+        let text = "Hey! Meet me at \((place?.nameAddress)!) with Socialyzeapp.com!"
 
 
         if !MFMessageComposeViewController.canSendText() {
