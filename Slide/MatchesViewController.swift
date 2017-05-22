@@ -17,7 +17,13 @@ class MatchesViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    var acceptList:[User] =  [] {
+    var matchList:[User] =  [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
+    var matchListUserIds:[String] = [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -29,13 +35,13 @@ class MatchesViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchAcceptList()
+        self.fetchMatchUserIds()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
-        self.fetchAcceptList()
+        self.fetchMatchUserIds()
     }
     
     func fetchChatList() {
@@ -44,7 +50,10 @@ class MatchesViewController: UIViewController {
                 if error == nil {
                     self?.chatItems = []
                     if let item = chatItems {
-                        self?.chatItems = item
+                        let x = item.filter({ (item) -> Bool in
+                            return self?.matchListUserIds.contains(item.inUser!) ?? false
+                        })
+                        self?.chatItems = x
                     }
                 } else {
                     print(error?.localizedDescription ?? "Firebase Fetch error")
@@ -56,7 +65,7 @@ class MatchesViewController: UIViewController {
     
     func fetchUserForChatSelected(chatItem : ChatItem) -> User?{
         var chatUser:User?
-        for data in self.acceptList {
+        for data in self.matchList {
             if chatItem.inUser == data.id {
                 chatUser = data
             }
@@ -74,11 +83,20 @@ class MatchesViewController: UIViewController {
         return chatUser
     }
     
-    func fetchAcceptList() {
+    func fetchMatchUserIds() {
+        if let user = Authenticator.shared.user {
+            userService.getMatchedIds(of: user, completion: { [weak self] (ids, error) in
+                self?.matchListUserIds = ids
+                self?.fetchMatchList()
+            })
+        }
+    }
+    
+    func fetchMatchList() {
         if let user = Authenticator.shared.user {
             userService.getMatchListUsers(of: user, completion: {[weak self] (user, error) in
                 if error == nil {
-                    self?.acceptList = user!
+                    self?.matchList = user!
                     self?.fetchChatList()
                 } else {
                     print(error?.localizedDescription ?? "Firebase Fetch error")
@@ -102,7 +120,7 @@ extension MatchesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return acceptList.count > 0 ? 147 : 70
+            return matchList.count > 0 ? 147 : 70
         } else {
             return 60
         }
@@ -111,7 +129,7 @@ extension MatchesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return acceptList.count > 0 ? 147 : 70
+            return matchList.count > 0 ? 147 : 70
         } else {
             return 60
         }
@@ -152,7 +170,7 @@ extension MatchesViewController: UITableViewDataSource {
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MatchesTableViewCell", for: indexPath) as! MatchesTableViewCell
-            cell.users = acceptList
+            cell.users = matchList
             cell.itemSelected = { user in
                 self.openChat(forUser: user)
             }

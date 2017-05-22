@@ -181,6 +181,23 @@ class UserService: FirebaseManager {
         })
     }
     
+    func getMatchedIds(of user: User, completion: @escaping ([String], FirebaseManagerError?) -> ()) {
+        reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).observe(.value, with: { (snapshot) in
+            if let value = snapshot.value {
+                print(value)
+                let json = JSON(value)
+                var matchedIds:[String] = []
+                for (key,_) in json {
+                    matchedIds.append(key)
+                }
+                completion(matchedIds, nil)
+            }
+            else {
+                completion([], FirebaseManagerError.noDataFound)
+            }
+        })
+    }
+    
     func getChatListAndObserve(of user: User, completion: @escaping ([ChatItem]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observe(.value, with: { (snapshot) in
             if let value = snapshot.value {

@@ -17,22 +17,102 @@
             endingLineNumber = "190"
             landmarkName = "reportUser(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.CategoriesViewController.(reportUser (Any) -&gt; ()).(closure #1).(closure #2)"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/CategoriesViewController.swift"
+                  timestampString = "517124366.1009"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "190"
+                  endingLineNumber = "190"
+                  offsetFromSymbolStart = "1012">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.CategoriesViewController.(reportUser (Any) -&gt; ()).(closure #1).(closure #2).(closure #1)"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/CategoriesViewController.swift"
+                  timestampString = "517124366.103328"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "190"
+                  endingLineNumber = "190"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/MatchesViewController.swift"
-            timestampString = "516861636.282832"
+            filePath = "Slide/ChatListViewController.swift"
+            timestampString = "517124719.564561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "ChatListViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.ChatListViewController.blockedUserIds.didset : Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/ChatListViewController.swift"
+                  timestampString = "517124719.791229"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.ChatListViewController.(blockedUserIds.didset : Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;).(closure #1)"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/ChatListViewController.swift"
+                  timestampString = "517124719.79425"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "724">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/ChatListViewController.swift"
+            timestampString = "517124784.264111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "ChatListViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

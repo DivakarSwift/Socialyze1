@@ -17,9 +17,11 @@ class ChatViewController: UIViewController {
     var chatUserName: String = ""
     var chatOppentId:String?
     var chatUser:User?
+    var fromSquad:Bool?
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     var chatService = ChatService.shared
+    var userService = UserService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,6 +137,17 @@ class ChatViewController: UIViewController {
         if let user = self.chatUser {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
+            if let _ = fromSquad {
+                let delete = UIAlertAction(title: "Delete", style: .default) { [weak self] (_) in
+                    if let name = user.profile.firstName {
+                        self?.alert(message: "Are you sure?", title: "Alert", okAction: {
+                            self?.unMatch(name : name)
+                        })
+                    }
+                }
+                alert.addAction(delete)
+            }
+            
             let report = UIAlertAction(title: "Report", style: .default) { [weak self] (_) in
                 self?.report(forUser: user)
             }
@@ -150,6 +163,8 @@ class ChatViewController: UIViewController {
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
+
+            
             alert.addAction(unmatch)
             alert.addAction(cancel)
             self.present(alert, animated: true, completion: nil)
@@ -164,7 +179,7 @@ class ChatViewController: UIViewController {
             
             let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
                 self.activityIndicator.startAnimating()
-                UserService().report(user: opponent, remark: reportAlert.textFields?.first?.text ?? "", completion: { [weak self] (success, error) in
+                self.userService.report(user: opponent, remark: reportAlert.textFields?.first?.text ?? "", completion: { [weak self] (success, error) in
                     self?.activityIndicator.stopAnimating()
                     if success {
                         self?.alert(message: "Reported on user.")
@@ -197,6 +212,46 @@ class ChatViewController: UIViewController {
                 })
             } else {
                 
+            }
+        })
+    }
+    
+    func delete(user: User) {
+        self.activityIndicator.startAnimating()
+        var val = ChatItem()
+        if let friend = user.id, let me = Authenticator.shared.user?.id {
+            let chatId =  friend > me ? friend+me : me+friend
+            val.chatId = chatId
+            val.userId = friend
+        }
+        
+        guard let opponetId = val.userId, let myId = Authenticator.shared.user?.id, let chatId = val.chatId else {
+            self.activityIndicator.stopAnimating()
+            self.alert(message: "Something went wrong. Please try again later.", title: "Oops", okAction: nil)
+            return
+        }
+        
+        self.userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
+            if success {
+                self.userService.block(user: user, myId: myId, completion: { (success, error) in
+                    if success {
+                        var message = "Successfully removed user"
+                        if let name = user.profile.firstName {
+                            message = message + " " + name
+                        }
+                        self.alert(message: message, title: "Success", okAction: {
+                            _ = self.navigationController?.popViewController(animated: true)
+                        })
+                        
+                    } else {
+                        self.activityIndicator.stopAnimating()
+                        self.alert(message: GlobalConstants.Message.oops)
+                    }
+                })
+                
+            } else {
+                self.activityIndicator.stopAnimating()
+                self.alert(message: GlobalConstants.Message.oops)
             }
         })
     }

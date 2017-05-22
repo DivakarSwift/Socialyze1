@@ -30,6 +30,12 @@ class ChatListViewController: UIViewController {
         }
     }
     
+    var matchedUserIds:[String] = [] {
+        didSet {
+            self.getBlockIds()
+        }
+    }
+    
     var chatUsers = [User]() {
         didSet {
             self.tableView.reloadData()
@@ -49,33 +55,16 @@ class ChatListViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         self.view.addSubview(self.activityIndicator)
         getUserFriends()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.title = "My Squad"
         self.navigationController?.navigationBar.isHidden = false
-        self.getBlockIds()
+        self.fetchMatchIds()
     }
     
     // MARK: Methods
-    func fetchMatchList() {
-        if let user = Authenticator.shared.user {
-            userService.getMatchListUsers(of: user, completion: { (users, error) in
-                if let users = users {
-                    self.chatUsers = users
-                } else {
-                    self.fetchMatchList()
-                }
-                if error != nil {
-                    self.alert(message: "Unable to fetch data.", title: "Error", okAction: {
-                        _ = self.navigationController?.popViewController(animated: true)
-                    })
-                }
-            })
-        }
-    }
     
     func getAllUsers() {
         self.activityIndicator.startAnimating()
@@ -95,7 +84,7 @@ class ChatListViewController: UIViewController {
                 }
                 return true
             })
-            self.getBlockIds()
+            self.fetchMatchIds()
         }
     }
     
@@ -105,6 +94,12 @@ class ChatListViewController: UIViewController {
             if error != nil {
                 self.alert(message: GlobalConstants.Message.oops)
             }
+        }
+    }
+    
+    func fetchMatchIds() {
+        userService.getMatchedIds(of: me!) { (ids, error) in
+            self.matchedUserIds = ids
         }
     }
     
@@ -175,6 +170,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
             val.chatId = chatId
             val.userId = friend
         }
+        vc.fromSquad = true
         vc.chatItem = val
         vc.chatUser = self.chatUsers[indexPath.row]
         vc.chatUserName = self.chatUsers[indexPath.row].profile.firstName ?? ""
@@ -190,19 +186,17 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: Remove cell option and action
-//    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
-//        return "Unmatch"
-//    }
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Unmatch"
+    }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if chatUsers.count <= 0 {
             return false
         }
-        if let time = self.chatUsers[indexPath.row].checkIn?.time {
-            let check = (Date().timeIntervalSince1970 - time) > checkInThreshold
-            return check
+        else if let id = self.chatUsers[indexPath.row].id, (self.matchedUserIds.contains(id)) {
+            return true
         }
-        
         return false
     }
     
@@ -213,43 +207,27 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func unMatch(user: User) {
         self.activityIndicator.startAnimating()
         var val = ChatItem()
-        if let friend = user.id, let me = self.me?.id {
+        if let friend = user.id, let me = Authenticator.shared.user?.id {
             let chatId =  friend > me ? friend+me : me+friend
             val.chatId = chatId
             val.userId = friend
         }
         
-        guard let opponetId = val.userId, let myId = self.me?.id, let chatId = val.chatId else {
+        guard let opponetId = val.userId, let myId = Authenticator.shared.user?.id, let chatId = val.chatId else {
             self.activityIndicator.stopAnimating()
             self.alert(message: "Something went wrong. Please try again later.", title: "Oops", okAction: nil)
             return
         }
         
-        userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
+        self.userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
             if success {
-                self.userService.block(user: user, myId: myId, completion: { (success, error) in
-                    if success {
-                        self.userService.getBlockedIds(of: self.me!, completion: { (ids, error) in
-                            self.activityIndicator.stopAnimating()
-                            if error != nil {
-                                self.alert(message: GlobalConstants.Message.oops)
-                            } else {
-                                self.blockedUserIds = ids
-                            }
-                        })
-                        var message = "Successfully removed user"
-                        if let name = user.profile.firstName {
-                            message = message + " " + name
-                         }
-                        self.alert(message: message, title: "Success", okAction: {
-                            self.tableView.reloadData()
-                        })
-                        
-                    } else {
-                        self.activityIndicator.stopAnimating()
-                        self.alert(message: GlobalConstants.Message.oops)
-                    }
-                    
+                self.activityIndicator.stopAnimating()
+                var message = "Successfully unmatched my squad."
+                if let name = user.profile.firstName {
+                    message = message + " " + name
+                }
+                self.alert(message: message, title: "Success", okAction: {
+                    _ = self.navigationController?.popViewController(animated: true)
                 })
                 
             } else {
@@ -258,5 +236,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         })
     }
+    
+
     
 }
