@@ -139,33 +139,33 @@ class ChatViewController: UIViewController {
             
             if let _ = fromSquad {
                 let delete = UIAlertAction(title: "Delete", style: .default) { [weak self] (_) in
+                    if let _ = user.profile.firstName {
+                        self?.alert(message: "Are you sure?", title: "Alert", okAction: {
+                            self?.delete(user: user)
+                        })
+                    }
+                }
+                alert.addAction(delete)
+            } else {
+                
+                let report = UIAlertAction(title: "Report", style: .default) { [weak self] (_) in
+                    self?.report(forUser: user)
+                }
+                alert.addAction(report)
+                
+                let unmatch = UIAlertAction(title: "Unmatch", style: .default) { [weak self] (_) in
                     if let name = user.profile.firstName {
                         self?.alert(message: "Are you sure?", title: "Alert", okAction: {
                             self?.unMatch(name : name)
                         })
                     }
                 }
-                alert.addAction(delete)
-            }
-            
-            let report = UIAlertAction(title: "Report", style: .default) { [weak self] (_) in
-                self?.report(forUser: user)
-            }
-            alert.addAction(report)
-            
-            let unmatch = UIAlertAction(title: "Unmatch", style: .default) { [weak self] (_) in
-                if let name = user.profile.firstName {
-                    self?.alert(message: "Are you sure?", title: "Alert", okAction: {
-                        self?.unMatch(name : name)
-                    })
-                }
+                
+                alert.addAction(unmatch)
             }
             
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
-
-            
-            alert.addAction(unmatch)
             alert.addAction(cancel)
             self.present(alert, animated: true, completion: nil)
         }
