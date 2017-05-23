@@ -160,7 +160,7 @@ class ViewController: UIViewController {
         
         places.append(Place.init(nameAddress: "Express Live!", mainImage: #imageLiteral(resourceName: "ExpressLive!"), secondImage: nil, lat: 39.969865, long: -83.009947, size: 2, early: 1, bio: "A fantastic indoor and outdoor music venue!", placeID: "ChIJCcOQ6COPOIgRcLEuZixc9Wk"))
         
-        places.append(Place.init(nameAddress: "Schottenstein Music Center", mainImage: #imageLiteral(resourceName: "Schottenstein"), secondImage: nil, lat: 40.007549, long: -83.025020, size: 4, early: 1, bio: "Connect with people going to Tom Petty on June 4th!", placeID: "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
+        places.append(Place.init(nameAddress: "Schottenstein Music Center", mainImage: #imageLiteral(resourceName: "SchottTomPetty2"), secondImage: nil, lat: 40.007549, long: -83.025020, size: 4, early: 1, bio: "Connect with people going to Tom Petty on June 4th!", placeID: "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
         
         // Bars & Clubs
         
