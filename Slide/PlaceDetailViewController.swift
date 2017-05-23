@@ -148,13 +148,15 @@ class PlaceDetailViewController: UIViewController {
         
         let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
             self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
         }
         alert.addAction(facebook)
         
-        let textMessage = UIAlertAction(title: "Text Messages", style: .default) { [weak self] (_) in
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
             self?.openMessage()
         }
         alert.addAction(textMessage)
+        
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addAction(cancel)
@@ -162,7 +164,7 @@ class PlaceDetailViewController: UIViewController {
     }
     
     private func openMessage() {
-        let text = "Hey! Check out this app. Use google.com link as placeholder."
+        let text = "Hey! Meet me at \((place?.nameAddress)!) with Socialyzeapp.com!"
 
 
         if !MFMessageComposeViewController.canSendText() {

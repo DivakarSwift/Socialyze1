@@ -138,7 +138,7 @@ class ChatViewController: UIViewController {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if let _ = fromSquad {
-                let delete = UIAlertAction(title: "Delete", style: .default) { [weak self] (_) in
+                let delete = UIAlertAction(title: "Remove Friend", style: .default) { [weak self] (_) in
                     if let _ = user.profile.firstName {
                         self?.alert(message: "Are you sure?", title: "Alert", okAction: {
                             self?.delete(user: user)

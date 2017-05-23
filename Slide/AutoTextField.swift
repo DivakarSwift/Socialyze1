@@ -2,8 +2,8 @@
 //  TextViewAutoHeight.swift
 //  TextViewAutoHeightDemo
 //
-//  Created by pc-laptp on 12/3/14.
-//  Copyright (c) 2014 StreetCoding. All rights reserved.
+//  Created by Salem Khan on 5/3/17.
+//  Copyright (c) 2017 Salem Khan. All rights reserved.
 //
 import UIKit
 

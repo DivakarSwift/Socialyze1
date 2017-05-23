@@ -7,10 +7,53 @@
 //
 
 import UIKit
+import MessageUI
 
 class ChatListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBAction func inviteButton(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
+            //self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
+        }
+        alert.addAction(facebook)
+        
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
+            self?.alert(message: "Coming Soon!")
+//            let text = "Hey! Make new connections with Socialyzeapp.com!"
+//            
+//            
+//            if !MFMessageComposeViewController.canSendText() {
+//                // For simulator only.
+//                let messageURL = URL(string: "sms:body=\(text)")
+//                guard let url = messageURL else {
+//                    return
+//                }
+//                
+//                if UIApplication.shared.canOpenURL(url) {
+//                    if #available(iOS 10.0, *) {
+//                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                    } else {
+//                        UIApplication.shared.openURL(url)
+//                    }
+//                }
+//            } else {
+//                let controller = MFMessageComposeViewController()
+//                controller.messageComposeDelegate = self as! MFMessageComposeViewControllerDelegate?
+//                controller.body = text
+//                self?.present(controller, animated: true, completion: nil)
+//            }
+        }
+        alert.addAction(textMessage)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     let userService = UserService()
     let facebookService = FacebookService.shared
@@ -125,12 +168,12 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatUsers.count <= 0 ? 1 :chatUsers.count
+        return chatUsers.count <= 0 ? 1 :(chatUsers.count+1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if chatUsers.count <= 0 {
+        if chatUsers.count <= 0 || (indexPath.row >= chatUsers.count){
             let cell = tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath)
             return cell
         }
@@ -145,7 +188,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             checkInLabel.text = ""
         }
-        
+        print("\(indexPath.count) and \(indexPath.row) and \(chatUsers.count)")
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
@@ -163,7 +206,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if chatUsers.count <= 0 {
+        if chatUsers.count <= 0 || (indexPath.row >= chatUsers.count){
             return
         }
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
@@ -195,7 +238,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if chatUsers.count <= 0 {
+        if chatUsers.count <= 0 || (indexPath.row >= chatUsers.count) {
             return false
         }
         else if let id = self.chatUsers[indexPath.row].id, (self.matchedUserIds.contains(id)) {

@@ -2,7 +2,7 @@
 //  TRMosaicLayout.swift
 //  Pods
 //
-//  Created by Vincent Le on 7/1/16.
+//  Created by Salem Khan on 7/12/16.
 //
 //
 import UIKit

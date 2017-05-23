@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -332,17 +332,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No friends yet! " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5y-Ot-WLl" userLabel="no matches yet!">
-                                                    <rect key="frame" x="20" y="5" width="115" height="20"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="0.6368377221" green="0.048687425069999998" blue="0.13850137730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgO-MW-1Jz">
+                                                    <rect key="frame" x="8" y="6" width="304" height="30"/>
+                                                    <state key="normal" title="Invite Friends!">
+                                                        <color key="titleColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="inviteButton:" destination="rRd-G6-574" eventType="touchUpInside" id="LF8-Ju-vMV"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="p5y-Ot-WLl" firstAttribute="leading" secondItem="ALR-yp-0Fw" secondAttribute="leading" constant="20" id="69F-aw-AoP"/>
-                                                <constraint firstItem="p5y-Ot-WLl" firstAttribute="top" secondItem="ALR-yp-0Fw" secondAttribute="top" constant="5" id="oSt-DL-NIC"/>
+                                                <constraint firstItem="AgO-MW-1Jz" firstAttribute="centerY" secondItem="ALR-yp-0Fw" secondAttribute="centerY" id="nJd-pe-KXi"/>
+                                                <constraint firstItem="AgO-MW-1Jz" firstAttribute="centerX" secondItem="ALR-yp-0Fw" secondAttribute="centerX" id="nyq-1U-Iz5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

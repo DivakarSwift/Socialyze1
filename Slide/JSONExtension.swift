@@ -2,8 +2,8 @@
 //  JSONExtension.swift
 //  EKTracking
 //
-//  Created by Debashree on 1/2/17.
-//  Copyright © 2017 Debashree. All rights reserved.
+//  Created by Salem Khan on 1/2/17.
+//  Copyright © 2017 Salem Khan. All rights reserved.
 //
 
 import Foundation
