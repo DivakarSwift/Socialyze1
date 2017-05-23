@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="12q-Lr-3tK">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="12q-Lr-3tK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -196,7 +196,7 @@
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-vB-l9I">
                                                                     <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="139"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-Pk-t5N">
+                                                                        <button opaque="NO" clipsSubviews="YES" tag="111" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z3-Pk-t5N">
                                                                             <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="1Rc-T1-ybS"/>
@@ -227,7 +227,7 @@
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01x-cF-jpI">
                                                                     <rect key="frame" x="80.666666666666657" y="0.0" width="75.666666666666657" height="139"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" clipsSubviews="YES" tag="121" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vV-n3-CDK">
+                                                                        <button opaque="NO" clipsSubviews="YES" tag="121" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3vV-n3-CDK">
                                                                             <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="FdH-EC-kcq"/>
@@ -258,7 +258,7 @@
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Sp-9o-1Xq">
                                                                     <rect key="frame" x="161.33333333333334" y="0.0" width="75.333333333333314" height="139"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" clipsSubviews="YES" tag="131" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-U1-jPT">
+                                                                        <button opaque="NO" clipsSubviews="YES" tag="131" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kb1-U1-jPT">
                                                                             <rect key="frame" x="0.0" y="0.0" width="75.333333333333314" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="o8f-B3-ptK"/>
@@ -289,7 +289,7 @@
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-Hs-foy">
                                                                     <rect key="frame" x="241.66666666666669" y="0.0" width="75.666666666666686" height="139"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" clipsSubviews="YES" tag="141" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiF-7c-wLh">
+                                                                        <button opaque="NO" clipsSubviews="YES" tag="141" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiF-7c-wLh">
                                                                             <rect key="frame" x="0.0" y="0.0" width="75.666666666666657" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="hW8-4W-w26"/>
@@ -320,7 +320,7 @@
                                                                 <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLW-pS-5g5">
                                                                     <rect key="frame" x="322.33333333333326" y="0.0" width="75.666666666666686" height="139"/>
                                                                     <subviews>
-                                                                        <button opaque="NO" clipsSubviews="YES" tag="151" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXE-7Z-vKr">
+                                                                        <button opaque="NO" clipsSubviews="YES" tag="151" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXE-7Z-vKr">
                                                                             <rect key="frame" x="0.0" y="0.0" width="75.666666666666686" height="139"/>
                                                                             <connections>
                                                                                 <action selector="changeImage:" destination="Xua-vR-Ynp" eventType="touchUpInside" id="1Ic-8w-xIA"/>
