@@ -308,13 +308,13 @@ extension ViewController: UICollectionViewDataSource {
             }
         }
         
-        if(indexPath.item % 6 == 0){
-            (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 14)
-            (cell.viewWithTag(4) as! UILabel).font = UIFont.systemFont(ofSize: 11)
-        }else{
-            (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 11)
-            (cell.viewWithTag(4) as! UILabel).font = UIFont.systemFont(ofSize: 11)
-        }
+        
+        (cell.viewWithTag(4) as! UILabel).font = UIFont.systemFont(ofSize: 11)
+//        if(indexPath.item % 6 == 0){
+//            (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 22)
+//        }else{
+//            (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 18)
+//        }
         
         return cell
     }
