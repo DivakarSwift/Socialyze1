@@ -327,13 +327,13 @@
                                                     <rect key="frame" x="8" y="8" width="1008" height="51"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="71" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rh-Z3-2hQ" userLabel="minLabel">
-                                                            <rect key="frame" x="0.0" y="0.0" width="18.5" height="51"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="18" height="51"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view tag="72" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="hZW-wH-UZV" customClass="NHRangeSlider" customModule="Slide" customModuleProvider="target">
-                                                            <rect key="frame" x="20.5" y="0.0" width="965" height="51"/>
+                                                            <rect key="frame" x="20" y="0.0" width="965" height="51"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="E1e-FY-F1q">
@@ -356,7 +356,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="73" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvR-kg-Jxw" userLabel="maxLabel">
-                                                            <rect key="frame" x="987.5" y="0.0" width="20.5" height="51"/>
+                                                            <rect key="frame" x="987" y="0.0" width="21" height="51"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -457,13 +457,13 @@
                                                     <rect key="frame" x="8" y="8" width="1008" height="51"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="91" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgd-iS-zZq" userLabel="minLabel">
-                                                            <rect key="frame" x="0.0" y="0.0" width="18.5" height="51"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="19" height="51"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view tag="92" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="lkR-e9-gtq" customClass="NHRangeSlider" customModule="Slide" customModuleProvider="target">
-                                                            <rect key="frame" x="20.5" y="0.0" width="964.5" height="51"/>
+                                                            <rect key="frame" x="21" y="0.0" width="964" height="51"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="3ma-PI-Y0X">
