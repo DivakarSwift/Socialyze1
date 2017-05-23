@@ -177,6 +177,7 @@
 		FC7A24371E696810004C9E44 /* study group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "study group.png"; sourceTree = "<group>"; };
 		FC7A24471E6970D8004C9E44 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		FC7A24491E6970E3004C9E44 /* createevent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = createevent.png; sourceTree = "<group>"; };
+		FCA5ED991ED4CC9800E0A4BF /* Slide.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Slide.entitlements; sourceTree = "<group>"; };
 		FCB623041E6EC2ED007DF4AE /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Events.storyboard; path = Slide/Events.storyboard; sourceTree = "<group>"; };
 		FCB623061E6EC323007DF4AE /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionViewController.swift; path = Slide/SelectionViewController.swift; sourceTree = "<group>"; };
 		FCB623081E6EC44C007DF4AE /* myprofile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = myprofile.jpg; sourceTree = "<group>"; };
@@ -390,6 +391,7 @@
 		FC7A24191E695F56004C9E44 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
+				FCA5ED991ED4CC9800E0A4BF /* Slide.entitlements */,
 				F676B09C1EBE22BC001CBF3E /* External Libraries */,
 				1F1E55381EA8A16100748894 /* Chat */,
 				1F6546561EA1C1F400D726E8 /* UTILS */,
@@ -478,6 +480,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 8MPPDA5P84;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -764,12 +771,13 @@
 			baseConfigurationReference = 4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Slide/Slide.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8MPPDA5P84;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyzee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -781,12 +789,13 @@
 			baseConfigurationReference = 6FB78CCFC1102B749DFF93D8 /* Pods-Slide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Slide/Slide.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 8MPPDA5P84;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyzee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
