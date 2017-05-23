@@ -20,6 +20,7 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var checkInButton: UIButton!
+    @IBOutlet weak var checkOutButton: UIButton!
     
     //    @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
@@ -110,6 +111,9 @@ class PlaceDetailViewController: UIViewController {
         self.locationUpdated()
         
         SlydeLocationManager.shared.startUpdatingLocation()
+        
+        self.checkInButton.layer.cornerRadius = 5
+        self.checkOutButton.layer.cornerRadius = 5
         
         if facebookService.isUserFriendsPermissionGiven() {
             getUserFriends()

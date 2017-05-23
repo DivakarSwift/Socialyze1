@@ -175,6 +175,9 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if chatUsers.count <= 0 || (indexPath.row >= chatUsers.count){
             let cell = tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath)
+            let invite = cell.viewWithTag(5) as! UIButton
+            invite.backgroundColor = UIColor.white
+            invite.layer.cornerRadius = 5
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
