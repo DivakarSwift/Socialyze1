@@ -134,15 +134,22 @@ class Authenticator {
                             }
                             userValue.id = Authenticator.currentFIRUser?.uid
                             userValue.profile.fbId = AccessToken.current?.userId
+                            print("The list of photo urls are:")
                             FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
+                                print(photoUrlString)
                                 self.facebookProfileImages.append(URL(string: photoUrlString)!)
-                            }, completion: { _ in
+                            }, completion: { images in
+                                self.facebookProfileImages = images.flatMap({ (image) -> URL? in
+                                    return URL(string: image)
+                                })
+                                print(self.facebookProfileImages)
                                 if self.facebookProfileImages.count > 5 {
                                     for index in 5...self.facebookProfileImages.count-1 {
                                         self.facebookProfileImages.remove(at: index)
                                     }
                                 }
                                 userValue.profile.images = self.facebookProfileImages
+                                print(userValue.profile.images)
                                 self.saveUser(user: userValue)
                             }, failure: { _ in
                                 if self.facebookProfileImages.count > 0 {

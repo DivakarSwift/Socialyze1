@@ -119,9 +119,11 @@ class ProfileViewController: UIViewController {
             if let url = URL(string: photoUrlString) {
                 self?.images.append(url)
             }
-            }, completion: { [weak self] in
+            }, completion: { [weak self] images in
                 if let me = self, let _ = me.user {
-                    me.user?.profile.images = me.images.flatMap({ $0 })
+                    me.user?.profile.images = images.flatMap({ (image) -> URL? in
+                        return URL(string: image)
+                    })
                     me.userService.saveUser(user: me.user!, completion: {[weak self] (success, error) in
                         if let error = error {
                             self?.alert(message: error.localizedDescription)

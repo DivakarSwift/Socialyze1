@@ -80,7 +80,6 @@ class PlaceDetailViewController: UIViewController {
             })
             
            self.getAllCheckedInUsers(data : checkinWithExpectUser)
-            
             self.changeStatus()
         }
     }

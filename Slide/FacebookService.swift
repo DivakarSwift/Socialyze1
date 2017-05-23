@@ -17,7 +17,7 @@ class FacebookService {
     
     static let shared = FacebookService()
     
-    private var images = [String]()
+    private var images:[String] = []
     private var hasImageCount = -1
     private var user:User?
     private var friends = [FacebookFriend]()
@@ -154,12 +154,7 @@ class FacebookService {
     }
     
     
-    func loadUserProfilePhotos(value: @escaping (String) -> (), completion: @escaping () -> (), failure: @escaping (GlobalConstants.Message)->()) {
-        if images.count == min(5, hasImageCount) {
-            images.forEach(value)
-            completion()
-            return
-        }
+    func loadUserProfilePhotos(value: @escaping (String) -> (), completion: @escaping ([String]) -> (), failure: @escaping (GlobalConstants.Message)->()) {
         
         let accesstoken = AccessToken.current
         if let fbUserId: String = accesstoken?.userId {
@@ -196,41 +191,93 @@ class FacebookService {
                     }
                     print(firstFive)
                     
-                    if let me = self {
-                        firstFive.enumerated().forEach({ (index, photoId) in
-                            // GET PHOTO FROM ID
-                            me.createGraphRequestAndStart(forPath: "/\(photoId)", params: ["fields": "images"], success: { (response) in
-                                guard let responseDict = response.dictionaryValue else {
-                                    return
-                                }
-                                let imageJsons = JSON(responseDict)["images"].arrayValue
-                                if imageJsons.count == 0 {
-                                    failure(GlobalConstants.Message.oops)
-                                    return
-                                }
-                                if let imageURLString = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
-                                    let jsonHeight = json["height"].intValue
-                                    let resultHeight = result["height"].intValue
-                                    if jsonHeight > resultHeight {
-                                        return json
-                                    }
-                                    return result
-                                })["source"].string {
-                                    if !me.images.contains(imageURLString) {
-                                        value(imageURLString)
-                                        me.images.append(imageURLString)
-                                        if firstFive.count - 1 == index {
-                                            completion()
-                                        }
-                                    }
-                                }
-                            }, failure: failure)
-                        })
-                    }
+                    self?.getImage(photoIds: firstFive, index: 0, completion: { _ in
+                        if let images = self?.images {
+                            completion(images)
+                        }
+                    }, failure: failure)
+                    
+//                    if let me = self {
+//                        
+//                        firstFive.enumerated().forEach({ (index, photoId) in
+//                            // GET PHOTO FROM ID
+//                            me.createGraphRequestAndStart(forPath: "/\(photoId)", params: ["fields": "images"], success: { (response) in
+//                                //                                print(response)
+//                                guard let responseDict = response.dictionaryValue else {
+//                                    return
+//                                }
+//                                let imageJsons = JSON(responseDict)["images"].arrayValue
+//                                if imageJsons.count == 0 {
+//                                    failure(GlobalConstants.Message.oops)
+//                                    return
+//                                }
+//                                let imagereducedJsons = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
+//                                    let jsonHeight = json["height"].intValue
+//                                    let resultHeight = result["height"].intValue
+//                                    if jsonHeight > resultHeight {
+//                                        return json
+//                                    }
+//                                    return result
+//                                })
+//                                print()
+//                                if let imageURLString = imagereducedJsons["source"].string {
+//                                    print("\(index). \(imageURLString)")
+//                                    if !me.images.contains(imageURLString) {
+//                                        value(imageURLString)
+//                                        me.images.append(imageURLString)
+//                                    }
+//                                }
+//                                else {
+//                                    print("\(index). \(imagereducedJsons)")
+//                                }
+//                                if firstFive.count - 1 == index {
+//                                    print(index)
+//                                    completion()
+//                                }
+//                            }, failure: failure)
+//                        })
+//                    }
                     
                     }, failure: failure)
                 
                 }, failure: failure)
+        }
+    }
+    
+    func getImage(photoIds: [String], index : Int, completion: @escaping () -> (), failure: @escaping (GlobalConstants.Message)->()) {
+        if index < photoIds.count {
+            let photoId = photoIds[index]
+            self.createGraphRequestAndStart(forPath: "/\(photoId)", params: ["fields": "images"], success: { (response) in
+                
+                guard let responseDict = response.dictionaryValue else {
+                    return
+                }
+                let imageJsons = JSON(responseDict)["images"].arrayValue
+                if imageJsons.count == 0 {
+                    failure(GlobalConstants.Message.oops)
+                    return
+                }
+                let imagereducedJsons = JSON(responseDict)["images"].arrayValue.reduce(imageJsons[0], { (result, json) -> JSON in
+                    let jsonHeight = json["height"].intValue
+                    let resultHeight = result["height"].intValue
+                    if jsonHeight > resultHeight {
+                        return json
+                    }
+                    return result
+                })
+                
+                if let imageURLString = imagereducedJsons["source"].string {
+                    print("\(index). \(imageURLString)")
+                    if !self.images.contains(imageURLString) {
+                        self.images.append(imageURLString)
+                        self.getImage(photoIds: photoIds, index: index+1, completion: completion, failure: failure)
+                    }
+                }
+            }, failure: { _ in
+                
+            })
+        } else {
+            completion()
         }
     }
 }
