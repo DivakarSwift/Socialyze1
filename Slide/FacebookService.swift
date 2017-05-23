@@ -72,14 +72,16 @@ class FacebookService {
             }
             let json = JSON(responseDict)
             print(json)
-            if let id = json["id"].string, let firstName = json["first_name"].string, let lastName = json["last_name"].string, let dob = json["birthday"].string {
+            if let id = json["id"].string, let firstName = json["first_name"].string, let lastName = json["last_name"].string {
                 
                 var user = User()
                 user.profile.fbId = id
                 user.profile.firstName = firstName
                 user.profile.lastName = lastName
                 user.profile.name = firstName + " " + lastName
+                if let dob = json["birthday"].string {
                 user.profile.dateOfBirth = dob
+                }
                 
                 if let pic = json["picture", "data", "url"].string {
                     user.profile.images.append(URL(string: pic)!)

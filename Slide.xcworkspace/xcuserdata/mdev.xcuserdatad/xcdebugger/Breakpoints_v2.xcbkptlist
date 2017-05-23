@@ -25,22 +25,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/FacebookService.swift"
-            timestampString = "517213269.414857"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "192"
-            endingLineNumber = "192"
-            landmarkName = "loadUserProfilePhotos(value:completion:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Slide/Authenticator.swift"
             timestampString = "517218275.641251"
             startingColumnNumber = "9223372036854775807"
@@ -49,38 +33,6 @@
             endingLineNumber = "142"
             landmarkName = "signInWithFirebase(credential:provider:email:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.Authenticator.(signInWithFirebase (credential : __ObjC.FIRAuthCredential, provider : Slide.Provider, email : Swift.Optional&lt;Swift.String&gt;) -&gt; ()).(closure #1).(closure #1).(closure #2)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517229513.016392"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "74">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.Authenticator.(signInWithFirebase (credential : __ObjC.FIRAuthCredential, provider : Slide.Provider, email : Swift.Optional&lt;Swift.String&gt;) -&gt; ()).(closure #1).(closure #1).(closure #2).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517229513.020114"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -105,54 +57,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/FacebookService.swift"
-            timestampString = "517218275.641251"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
-            landmarkName = "loadUserProfilePhotos(value:completion:failure:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.FacebookService.(loadUserProfilePhotos (value : (Swift.String) -&gt; (), completion : (Swift.Array&lt;Swift.String&gt;) -&gt; (), failure : (Slide.GlobalConstants.Message) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/FacebookService.swift"
-                  timestampString = "517229513.031967"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "241"
-                  endingLineNumber = "241"
-                  offsetFromSymbolStart = "2614">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.FacebookService.(loadUserProfilePhotos (value : (Swift.String) -&gt; (), completion : (Swift.Array&lt;Swift.String&gt;) -&gt; (), failure : (Slide.GlobalConstants.Message) -&gt; ()) -&gt; ()).(closure #1).(closure #2)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/FacebookService.swift"
-                  timestampString = "517229513.03468"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "241"
-                  endingLineNumber = "241"
-                  offsetFromSymbolStart = "4041">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Slide/Authenticator.swift"
             timestampString = "517218275.641251"
             startingColumnNumber = "9223372036854775807"
@@ -160,38 +64,6 @@
             startingLineNumber = "155"
             endingLineNumber = "155"
             landmarkName = "signInWithFirebase(credential:provider:email:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/LoginViewController.swift"
-            timestampString = "517225875.65136"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "didOccurAuthentication(error:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/LoginViewController.swift"
-            timestampString = "517225885.759086"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "didSignInUser()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -218,7 +90,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517229513.052105"
+                  timestampString = "517231085.797249"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "129"
@@ -233,7 +105,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517229513.054452"
+                  timestampString = "517231085.800072"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "130"
@@ -282,140 +154,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/Authenticator.swift"
-            timestampString = "517226057.926306"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "authenticateWith(provider:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/Authenticator.swift"
-            timestampString = "517226129.909609"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "authenticateWith(provider:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/Authenticator.swift"
-            timestampString = "517226216.289618"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "authenticateWith(provider:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.Authenticator.(authenticateWith (provider : Slide.Provider) -&gt; ()).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517229513.077332"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "95"
-                  endingLineNumber = "95"
-                  offsetFromSymbolStart = "4481">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.Authenticator.(authenticateWith (provider : Slide.Provider) -&gt; ()).(closure #1).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517229513.08045"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "96"
-                  endingLineNumber = "96"
-                  offsetFromSymbolStart = "1183">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/Authenticator.swift"
-            timestampString = "517226232.490212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "authenticateWith(provider:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/Authenticator.swift"
             timestampString = "517226239.426618"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "authenticateWith(provider:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/FacebookService.swift"
-            timestampString = "517226299.419366"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "getUserDetails(nextPageCursor:complete:failure:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/FacebookService.swift"
-            timestampString = "517226301.407233"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "getUserDetails(nextPageCursor:complete:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class LoginViewController: UIViewController {
     
@@ -19,6 +20,11 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let loginView = self.view.viewWithTag(111)!
+//        let fbButton = LoginButton(readPermissions: [.publicProfile, .userFriends, .custom("user_picture"), .custom("user_birthday")])
+//        fbButton.center = loginView.center
+//        loginView.addSubview(fbButton)
+//        fbButton.sendSubview(toBack: loginView)
         authenticator.delegate = self
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = view.center
