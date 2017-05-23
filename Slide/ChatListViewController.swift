@@ -248,9 +248,11 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        unMatch(user: self.chatUsers[indexPath.row])
+        self.alertWithOkCancel(message: "Are you Sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: { _ in
+            self.unMatch(user: self.chatUsers[indexPath.row])
+        }, cancelAction: nil)
     }
-    
+
     func unMatch(user: User) {
         self.activityIndicator.startAnimating()
         var val = ChatItem()

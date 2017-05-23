@@ -140,9 +140,9 @@ class ChatViewController: UIViewController {
             if let _ = fromSquad {
                 let delete = UIAlertAction(title: "Remove Friend", style: .default) { [weak self] (_) in
                     if let _ = user.profile.firstName {
-                        self?.alert(message: "Are you sure?", title: "Alert", okAction: {
+                        self?.alertWithOkCancel(message: "Are you Sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: { _ in
                             self?.delete(user: user)
-                        })
+                        }, cancelAction: nil)
                     }
                 }
                 alert.addAction(delete)
