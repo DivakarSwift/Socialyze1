@@ -436,6 +436,7 @@ class PlaceDetailViewController: UIViewController {
         }
         return super.prepare(for: segue, sender: sender)
     }
+
 }
 
 extension PlaceDetailViewController: AuthenticatorDelegate {
@@ -490,8 +491,10 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
         vc.fromFBFriends = self.checkinUsers[indexPath.row]
+        vc.transitioningDelegate = self
+//        self.present(vc, animated: true, completion: nil)
         if let nav = self.navigationController {
-            nav.pushViewController(vc, animated: true)
+            nav.present(vc, animated: true, completion: nil)
         }
     }
     
@@ -517,3 +520,10 @@ extension PlaceDetailViewController : MFMessageComposeViewControllerDelegate, UI
         controller.dismiss(animated: true, completion: nil)
     }
 }
+
+extension PlaceDetailViewController: UIViewControllerTransitioningDelegate {
+        func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            return DismissAnimator()
+        }
+}
+

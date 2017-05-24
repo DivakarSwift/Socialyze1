@@ -141,8 +141,11 @@ class UserService: FirebaseManager {
     func getMatchListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value {
-                print(value)
                 let matchList = JSON(value)
+                if matchList.isEmpty {
+                    completion(nil, FirebaseManagerError.noDataFound)
+                    return
+                }
                 var users:[User] = []
                 for (key,_) in matchList {
                         self.getUser(withId: key, completion: { (user, error) in

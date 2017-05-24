@@ -45,6 +45,7 @@
 		F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */; };
 		F6475F5C1ED2F012004C8D90 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6475F5A1ED2F012004C8D90 /* MessageUI.framework */; };
 		F6475F5E1ED2F1E9004C8D90 /* TextMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */; };
+		F64B2B531ED56AB800FE2BF6 /* DismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64B2B521ED56AB800FE2BF6 /* DismissAnimator.swift */; };
 		F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F64ED4CF1ECD66DF0064FB74 /* Places.xcdatamodeld */; };
 		F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */; };
 		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
@@ -135,6 +136,7 @@
 		F6475F591ED2F012004C8D90 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
 		F6475F5A1ED2F012004C8D90 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMessageViewController.swift; sourceTree = "<group>"; };
+		F64B2B521ED56AB800FE2BF6 /* DismissAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimator.swift; sourceTree = "<group>"; };
 		F64ED4D01ECD66DF0064FB74 /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */,
 				DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */,
 				F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */,
+				F64B2B521ED56AB800FE2BF6 /* DismissAnimator.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */,
 				FC5219811E70114700EDF19A /* CategoriesViewController.swift in Sources */,
 				F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */,
+				F64B2B531ED56AB800FE2BF6 /* DismissAnimator.swift in Sources */,
 				1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */,
 				1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */,
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,

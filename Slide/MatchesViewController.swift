@@ -43,12 +43,23 @@ class MatchesViewController: UIViewController {
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = view.center
         self.fetchMatchUserIds()
+        self.addSwipeGesture(toView: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.fetchMatchUserIds()
+    }
+    
+    func addSwipeGesture(toView view: UIView) {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe))
+        gesture.direction = .left
+        view.addGestureRecognizer(gesture)
+    }
+    
+    @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
+        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
     }
     
     func fetchChatList() {
@@ -96,6 +107,7 @@ class MatchesViewController: UIViewController {
         if let user = Authenticator.shared.user {
             self.activityIndicator.startAnimating()
             userService.getMatchedIds(of: user, completion: { [weak self] (ids, error) in
+                
                 self?.activityIndicator.stopAnimating()
                 self?.matchListUserIds = ids
                 self?.fetchMatchList()
