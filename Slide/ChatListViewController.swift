@@ -12,48 +12,9 @@ import MessageUI
 class ChatListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var inviteButton: UIButton!
     
-    @IBAction func inviteButton(_ sender: Any) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
-            //self?.openFacebookInvite()
-            self?.alert(message: "Coming Soon!")
-        }
-        alert.addAction(facebook)
-        
-        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
-            self?.alert(message: "Coming Soon!")
-//            let text = "Hey! Make new connections with Socialyzeapp.com!"
-//            
-//            
-//            if !MFMessageComposeViewController.canSendText() {
-//                // For simulator only.
-//                let messageURL = URL(string: "sms:body=\(text)")
-//                guard let url = messageURL else {
-//                    return
-//                }
-//                
-//                if UIApplication.shared.canOpenURL(url) {
-//                    if #available(iOS 10.0, *) {
-//                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                    } else {
-//                        UIApplication.shared.openURL(url)
-//                    }
-//                }
-//            } else {
-//                let controller = MFMessageComposeViewController()
-//                controller.messageComposeDelegate = self as! MFMessageComposeViewControllerDelegate?
-//                controller.body = text
-//                self?.present(controller, animated: true, completion: nil)
-//            }
-        }
-        alert.addAction(textMessage)
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
-    }
+    @IBOutlet weak var squadfooterView: UIView!
     
     let userService = UserService()
     let facebookService = FacebookService.shared
@@ -92,9 +53,10 @@ class ChatListViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.inviteButton.rounded()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.tableFooterView = UIView()
+//        self.tableView.tableFooterView = squadfooterView
         self.activityIndicator.center = self.view.center
         self.view.addSubview(self.activityIndicator)
         getUserFriends()
@@ -164,6 +126,62 @@ class ChatListViewController: UIViewController {
         })
     }
     
+    // MARK: - Invite Action
+    @IBAction func inviteButton(_ sender: UIButton) {
+        self.showMoreOption()
+    }
+
+    // More option
+    private func showMoreOption() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
+            self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
+        }
+        alert.addAction(facebook)
+        
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
+            self?.openMessage()
+        }
+        alert.addAction(textMessage)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openMessage() {
+        let text = "Hey! Meet me with Socialyzeapp.com!"
+        
+        
+        if !MFMessageComposeViewController.canSendText() {
+            // For simulator only.
+            let messageURL = URL(string: "sms:body=\(text)")
+            guard let url = messageURL else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        } else {
+            let controller = MFMessageComposeViewController()
+            controller.messageComposeDelegate = self
+            controller.body = text
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    private func openFacebookInvite() {
+        
+    }
+    
 }
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
@@ -175,9 +193,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         
         if chatUsers.count <= 0 || (indexPath.row >= chatUsers.count){
             let cell = tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath)
-            let invite = cell.viewWithTag(5) as! UIButton
-            invite.backgroundColor = UIColor.white
-            invite.layer.cornerRadius = 5
+//            let noFriendLabel = cell.viewWithTag(1) as! UILabel
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
@@ -286,7 +302,12 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         })
     }
-    
+}
 
+extension ChatListViewController : MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
     
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
 }

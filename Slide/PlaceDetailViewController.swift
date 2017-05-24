@@ -142,60 +142,7 @@ class PlaceDetailViewController: UIViewController {
     deinit {
         SlydeLocationManager.shared.stopUpdatingLocation()
     }
-    
-    @IBAction func inviteFriends(_ sender: UIButton) {
-        self.showMoreOption()
-    }
-    
-    private func showMoreOption() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
-            self?.openFacebookInvite()
-            self?.alert(message: "Coming Soon!")
-        }
-        alert.addAction(facebook)
-        
-        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
-            self?.openMessage()
-        }
-        alert.addAction(textMessage)
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    private func openMessage() {
-        let text = "Hey! Meet me at \((place?.nameAddress)!) with Socialyzeapp.com!"
 
-
-        if !MFMessageComposeViewController.canSendText() {
-            // For simulator only.
-            let messageURL = URL(string: "sms:body=\(text)")
-            guard let url = messageURL else {
-                    return
-            }
-            
-            if UIApplication.shared.canOpenURL(url) {
-                if #available(iOS 10.0, *) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                } else {
-                    UIApplication.shared.openURL(url)
-                }
-            }
-        } else {
-            let controller = MFMessageComposeViewController()
-            controller.messageComposeDelegate = self
-            controller.body = text
-            self.present(controller, animated: true, completion: nil)
-        }
-    }
-    
-    private func openFacebookInvite() {
-        
-    }
     
     @IBAction func checkIn(_ sender: UIButton) {
         if place?.size == 1 {
