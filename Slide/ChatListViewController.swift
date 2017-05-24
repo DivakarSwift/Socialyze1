@@ -8,6 +8,8 @@
 
 import UIKit
 import MessageUI
+import FacebookCore
+import FacebookShare
 
 class ChatListViewController: UIViewController {
     
@@ -136,7 +138,7 @@ class ChatListViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
-            self?.openFacebookInvite()
+            self?.inviteButtonTapped()
             self?.alert(message: "Coming Soon!")
         }
         alert.addAction(facebook)
@@ -178,11 +180,49 @@ class ChatListViewController: UIViewController {
         }
     }
     
-    private func openFacebookInvite() {
-        
+    func inviteButtonTapped() {
+//        print("Invite button tapped")
+//        
+//        let inviteDialog:ShareDialog = ShareDialog()
+//        if(inviteDialog.canShow()){
+//            
+//            let appLinkUrl:NSURL = NSURL(string: "http://yourwebpage.com")!
+//            let previewImageUrl:NSURL = NSURL(string: "http://yourwebpage.com/preview-image.png")!
+//            
+//            let inviteContent:AppInvite = AppInvite()
+//            inviteContent.appLinkURL = appLinkUrl
+//            inviteContent.appInvitePreviewImageURL = previewImageUrl
+//            
+//            inviteDialog.content = inviteContent
+//            inviteDialog.delegate = self
+//            inviteDialog.show()
+//        }
     }
     
+
+    
 }
+
+//extension ChatListViewController: FBSDKAppInviteDialogDelegate {
+//    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [NSObject : AnyObject]!) {
+//        
+//        let resultObject = NSDictionary(dictionary: results)
+//        
+//        if let didCancel = resultObject.valueForKey("completionGesture")
+//        {
+//            if didCancel.caseInsensitiveCompare("Cancel") == NSComparisonResult.OrderedSame
+//            {
+//                print("User Canceled invitation dialog")
+//            }
+//        }
+//        
+//    }
+//    
+//    func appInviteDialog(appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: NSError!) {
+//        print("Error tool place in appInviteDialog \(error)")
+//    }
+//
+//}
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
