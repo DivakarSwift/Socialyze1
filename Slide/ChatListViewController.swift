@@ -138,7 +138,7 @@ class ChatListViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
-            self?.inviteButtonTapped()
+            self?.openFacebookInvite()
             self?.alert(message: "Coming Soon!")
         }
         alert.addAction(facebook)
@@ -180,27 +180,25 @@ class ChatListViewController: UIViewController {
         }
     }
     
-    func inviteButtonTapped() {
-//        print("Invite button tapped")
-//        
-//        let inviteDialog:ShareDialog = ShareDialog()
-//        if(inviteDialog.canShow()){
-//            
-//            let appLinkUrl:NSURL = NSURL(string: "http://yourwebpage.com")!
-//            let previewImageUrl:NSURL = NSURL(string: "http://yourwebpage.com/preview-image.png")!
-//            
-//            let inviteContent:AppInvite = AppInvite()
-//            inviteContent.appLinkURL = appLinkUrl
-//            inviteContent.appInvitePreviewImageURL = previewImageUrl
-//            
-//            inviteDialog.content = inviteContent
-//            inviteDialog.delegate = self
-//            inviteDialog.show()
-//        }
+    func openFacebookInvite() {
+        
+        
+        // Please change this two urls accordingly
+        let appLinkUrl:URL = URL(string: "http://yourwebpage.com")!
+        let previewImageUrl:URL = URL(string: "http://yourwebpage.com/preview-image.png")!
+        
+        var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)
+        inviteContent.appLink = appLinkUrl
+        inviteContent.previewImageURL = previewImageUrl
+        
+        
+        let inviteDialog = AppInvite.Dialog(invite: inviteContent)
+        do {
+            try inviteDialog.show()
+        } catch  (let error) {
+            print(error.localizedDescription)
+        }
     }
-    
-
-    
 }
 
 //extension ChatListViewController: FBSDKAppInviteDialogDelegate {
@@ -226,14 +224,13 @@ class ChatListViewController: UIViewController {
 
 extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return chatUsers.count <= 0 ? 1 :(chatUsers.count+1)
+        return chatUsers.count <= 0 ? 1 : chatUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if chatUsers.count <= 0 || (indexPath.row >= chatUsers.count){
+        if chatUsers.count <= 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath)
-//            let noFriendLabel = cell.viewWithTag(1) as! UILabel
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatList", for: indexPath)
