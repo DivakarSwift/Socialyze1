@@ -402,7 +402,7 @@ class CategoriesViewController: UIViewController {
                 }
             }
             else {
-                self.rejectUser()
+                _ = self.removeTopUser()
             }
         }
         self.present(popoverVC,animated: true,completion: nil)
