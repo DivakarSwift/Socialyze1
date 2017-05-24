@@ -17,38 +17,6 @@
             endingLineNumber = "190"
             landmarkName = "reportUser(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.CategoriesViewController.(reportUser (Any) -&gt; ()).(closure #1).(closure #2)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/CategoriesViewController.swift"
-                  timestampString = "517234152.416053"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "1012">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.CategoriesViewController.(reportUser (Any) -&gt; ()).(closure #1).(closure #2).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/CategoriesViewController.swift"
-                  timestampString = "517234152.418406"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "190"
-                  endingLineNumber = "190"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -65,38 +33,6 @@
             endingLineNumber = "142"
             landmarkName = "signInWithFirebase(credential:provider:email:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.Authenticator.(signInWithFirebase (credential : __ObjC.FIRAuthCredential, provider : Slide.Provider, email : Swift.Optional&lt;Swift.String&gt;) -&gt; ()).(closure #1).(closure #1).(closure #2)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517234152.422983"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.Authenticator.(signInWithFirebase (credential : __ObjC.FIRAuthCredential, provider : Slide.Provider, email : Swift.Optional&lt;Swift.String&gt;) -&gt; ()).(closure #1).(closure #1).(closure #2).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/mDev%20Project%20files/raj%20Prjs/chickenpotpie8/Socialyze1/Slide/Authenticator.swift"
-                  timestampString = "517234152.425333"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "143"
-                  endingLineNumber = "143"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
