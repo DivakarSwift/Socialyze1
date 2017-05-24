@@ -93,11 +93,12 @@ class CategoriesViewController: UIViewController {
         
         self.activityIndicator.startAnimating()
         if let friend = self.fromFBFriends {
+            self.addSwipeGesture(toView: self.imageView)
             self.users = []
             self.users.append(friend)
         } else {
             self.getAllCheckedInUsers()
-            self.addSwipeGesture(toView: self.imageView)
+            self.addPanGesture(toView: self.imageView)
         }
         
     }
@@ -118,15 +119,22 @@ class CategoriesViewController: UIViewController {
     }
     
     
+    
     // MARK: - Gestures Action
     
+    func addPanGesture(toView view: UIView) {
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged))
+        view.addGestureRecognizer(gesture)
+    }
+    
     func addSwipeGesture(toView view: UIView) {
-        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gestureRecognizer:)))
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
+        gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
     
     func addTapGesture(toView view: UIView) {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         view.addGestureRecognizer(tap)
     }
     
@@ -216,8 +224,12 @@ class CategoriesViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
+            dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: false)
+    }
     
-    func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
+    func wasDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
         
         if let _ =  self.fromFBFriends {} else {
             
@@ -390,7 +402,7 @@ class CategoriesViewController: UIViewController {
                 }
             }
             else {
-                self.rejectUser()
+                _ = self.removeTopUser()
             }
         }
         self.present(popoverVC,animated: true,completion: nil)
