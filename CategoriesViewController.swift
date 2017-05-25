@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import MessageUI
+import FacebookCore
+import FacebookShare
 
 class CategoriesViewController: UIViewController {
     
