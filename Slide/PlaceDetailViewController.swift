@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookShare
 import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
@@ -220,6 +222,11 @@ class PlaceDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func invite(_ sender: UIButton) {
+        self.showMoreOption()
+        
+    }
+    
     private func checkIn(onSuccess: @escaping () -> ()) {
         self.placeService.user(authenticator.user!, checkInAt: self.place!, completion: {[weak self] (success, error) in
             success ?
@@ -386,6 +393,84 @@ class PlaceDetailViewController: UIViewController {
 
 }
 
+
+// MARK: - INVITE ACTION
+extension PlaceDetailViewController : MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
+    
+    // More option
+    fileprivate func showMoreOption() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
+            self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
+        }
+        alert.addAction(facebook)
+        
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
+            self?.openMessage()
+        }
+        alert.addAction(textMessage)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openMessage() {
+        let text = "Hey! Meet me with Socialyzeapp.com!"
+        
+        
+        if !MFMessageComposeViewController.canSendText() {
+            // For simulator only.
+            let messageURL = URL(string: "sms:body=\(text)")
+            guard let url = messageURL else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        } else {
+            let controller = MFMessageComposeViewController()
+            controller.messageComposeDelegate = self
+            controller.body = text
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    private func openFacebookInvite() {
+        
+        
+        // Please change this two urls accordingly
+        let appLinkUrl:URL = URL(string: "http://yourwebpage.com")!
+        let previewImageUrl:URL = URL(string: "http://yourwebpage.com/preview-image.png")!
+        
+        var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)
+        inviteContent.appLink = appLinkUrl
+        inviteContent.previewImageURL = previewImageUrl
+        
+        
+        let inviteDialog = AppInvite.Dialog(invite: inviteContent)
+        do {
+            try inviteDialog.show()
+        } catch  (let error) {
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
+
 extension PlaceDetailViewController: AuthenticatorDelegate {
     func didOccurAuthentication(error: AuthenticationError) {
         self.alert(message: error.localizedDescription)
@@ -456,15 +541,6 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
             layout.minimumLineSpacing = collectionViewCellSpacing
             layout.minimumInteritemSpacing = collectionViewCellSpacing
         }
-    }
-}
-
-
-extension PlaceDetailViewController : MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
-    
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        
-        controller.dismiss(animated: true, completion: nil)
     }
 }
 
