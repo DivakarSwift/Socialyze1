@@ -45,13 +45,7 @@ class CategoriesViewController: UIViewController {
     }
     var place:Place?
     var currentImageIndex = 0
-    
-    var events: [Event] = [] {
-        didSet {
-            //            self.eventDescription.text = events.first
-        }
-    }
-    
+
     var checkinUserIds = Set<String>()
     
     let categoryDefaults = UserDefaults.standard
