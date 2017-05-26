@@ -10,7 +10,7 @@ import UIKit
 import FacebookCore
 
 struct GlobalConstants {
-    static private let ok = "Ok"
+    static private let ok = "Okay"
     static private let cancel = "Cancel"
     static private let error = "Error"
     
@@ -72,6 +72,6 @@ struct GlobalConstants {
             let url = URL(string: UIApplicationOpenSettingsURLString)!
             UIApplication.shared.openURL(url)
         }, cancelAction: nil)
-        static let userNotInPerimeter = Message(title: "Sorry", message: "You need to be at this place to check in.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
+        static let userNotInPerimeter = Message(title: "Sorry", message: "You need to be at this place to check in.", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
     }
 }

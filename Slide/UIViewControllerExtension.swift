@@ -10,13 +10,13 @@ import UIKit
 import UserNotifications
 
 extension UIViewController: UNUserNotificationCenterDelegate {
-    func alert(message: String?, title: String? = "That's all folks!", okAction: (()->())? = nil ) {
+    func alert(message: String?, title: String? = "Alert", okAction: (()->())? = nil ) {
         let alertController = getAlert(message: message, title: title)
-        alertController.addAction(title: "Ok", handler: okAction)
+        alertController.addAction(title: "Okay", handler: okAction)
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func alertWithOkCancel(message: String?, title: String? = "Oops", okTitle: String? = "Ok", cancelTitle: String? = "Cancel", okAction: (()->())? = nil, cancelAction: (()->())? = nil) {
+    func alertWithOkCancel(message: String?, title: String? = "Oops", okTitle: String? = "Okay", cancelTitle: String? = "Cancel", okAction: (()->())? = nil, cancelAction: (()->())? = nil) {
         let alertController = getAlert(message: message, title: title)
         alertController.addAction(title: okTitle, handler: okAction)
         alertController.addAction(title: cancelTitle, style: .default, handler: cancelAction)

@@ -74,7 +74,7 @@ extension LoginViewController: AuthenticatorDelegate {
         self.activityIndicator.stopAnimating()
         let alert = UIAlertController(title:"Error", message: error.localizedDescription , preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Ok", style: .default , handler: nil))
+        alert.addAction(UIAlertAction(title: "Okay", style: .default , handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }

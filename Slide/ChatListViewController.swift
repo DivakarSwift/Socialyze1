@@ -327,7 +327,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         self.userService.unMatch(opponent: opponetId, withMe: myId, chatId: chatId, completion: { (success, error) in
             self.activityIndicator.stopAnimating()
             if success {
-                var message = "Successfully unmatched my squad."
+                var message = "Unmatched"
                 if let name = user.profile.firstName {
                     message = message + " " + name
                 }

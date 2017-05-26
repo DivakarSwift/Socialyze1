@@ -39,7 +39,7 @@ enum AuthenticationError: Error {
     var localizedDescription: String {
         switch self {
         case .facebookLoginCancelled: return "Facebook Login cancelled."
-        case .facebookLoginDenied: return "Facebook Login Denied due to age restriction. Your age must be greater than 17 to log in."
+        case .facebookLoginDenied: return "Facebook Login Denied due to age restriction. Your age must be 17+ to log in."
         case .facebookLoginFailed(with: let error): return error.localizedDescription
         case .firebaseAuthenticationFailed(with: let error): return error.localizedDescription
         case .logoutFailed(with: let error): return error.localizedDescription
