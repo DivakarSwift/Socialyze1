@@ -21,6 +21,7 @@ enum Node: String {
     case checkIn
     case blockedUsers
     case Places
+    case PlacesList
 }
 
 enum FirebaseManagerError: Error {

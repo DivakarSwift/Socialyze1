@@ -365,15 +365,15 @@ class CategoriesViewController: UIViewController {
             }
             self.bioLabel.text = user.profile.bio
         } else {
-            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
+//            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
                 self.alert(message: "No new users at this time. Check back later", okAction: {
                     if let nav = self.navigationController {
                         nav.popToRootViewController(animated: true)
                     }
                 })     
-            } else if let nav = self.navigationController {
-                    nav.popToRootViewController(animated: true)
-            }
+//            } else if let nav = self.navigationController {
+//                    nav.popToRootViewController(animated: true)
+//            }
         }
     }
     

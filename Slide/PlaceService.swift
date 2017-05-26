@@ -11,9 +11,20 @@ import FirebaseDatabase
 import  SwiftyJSON
 
 class PlaceService: FirebaseManager {
+    
+    func getPlaces( completion: @escaping ([Place])->(), failure: @escaping (FirebaseManagerError)->()) {
+        self.reference.child(Node.PlacesList.rawValue).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+            if let snapshotValue = snapshot.value, let places:[Place] = JSON(snapshotValue).map() {
+                completion(places)
+        } else {
+            failure(FirebaseManagerError.noDataFound)
+        }
+        })
+    }
+    
     func user(_ user: User, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
         
-        let ref1 = self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!)
+        let ref1 = self.reference.child(Node.Places.rawValue).child((place.nameAddress?.replacingOccurrences(of: " ", with: ""))!).child(Node.checkIn.rawValue).child(user.id!)
         
         let ref2 = self.reference.child(Node.user.rawValue).child(user.id!).child(Node.checkIn.rawValue)
        
@@ -26,8 +37,8 @@ class PlaceService: FirebaseManager {
         ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
             
             values = [
-                "place" : place.nameAddress,
-                "placeID" : place.placeID,
+                "place" : place.nameAddress ?? "",
+                "placeID" : place.placeId ?? "",
                 "time" : Date().timeIntervalSince1970
             ]
             ref2.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
@@ -38,8 +49,22 @@ class PlaceService: FirebaseManager {
     
     
     func user(_ user: User, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
+        guard let placeName = place.nameAddress else {
+            completion(false,nil)
+            return
+        }
+        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!).observeSingleEvent(of: .value, with:{ (snapshot) in
+            if let val = snapshot.value{
+                let json = JSON(val)
+                let time = json["time"].doubleValue
+                let timeValid = (Date().timeIntervalSince1970 - time) < checkInThreshold
+                completion(timeValid,nil)
+            } else {
+                completion(false,nil)
+            }
+        })
         
-        self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!).observeSingleEvent(of: .value, with:{ (snapshot) in
+        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(user.id!).observeSingleEvent(of: .value, with:{ (snapshot) in
             if let val = snapshot.value{
                 let json = JSON(val)
                 let time = json["time"].doubleValue
@@ -52,7 +77,11 @@ class PlaceService: FirebaseManager {
     }
     
     func getCheckInUsers(at place: Place, completion: @escaping ([Checkin])->(), failure: @escaping (FirebaseManagerError)->()) {
-        self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+        guard let placeName = place.nameAddress else {
+            failure(FirebaseManagerError.noUserFound)
+            return
+        }
+        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
             if let snapshotValue = snapshot.value {
                 if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
                     return json.map()

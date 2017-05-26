@@ -107,7 +107,9 @@ class PlaceDetailViewController: UIViewController {
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
-        self.placeImageView.image = place?.secondImage ?? place?.mainImage
+        
+        let image = place?.secondImage ?? place?.mainImage ?? ""
+        self.placeImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         self.placeDetailLbl.text = place?.bio
         self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
@@ -372,7 +374,7 @@ class PlaceDetailViewController: UIViewController {
 
     
     func getDistanceToUser() -> Double? {
-        if let place = self.place, let distance = SlydeLocationManager.shared.distanceFromUser(lat: place.lat, long: place.long) {
+        if let lat = self.place?.lat, let lon = place?.long, let distance = SlydeLocationManager.shared.distanceFromUser(lat: lat, long: lon) {
             return distance
         }
         return nil

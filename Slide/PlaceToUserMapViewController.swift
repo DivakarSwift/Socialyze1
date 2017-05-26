@@ -30,11 +30,11 @@ class PlaceToUserMapViewController: UIViewController {
             //        view = mapView
         }
         
-        if let place = place {
+        if let lat = place?.lat, let long = place?.long {
             // Creates a marker in the center of the map.
             let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: place.lat, longitude: place.long)
-            marker.title = place.nameAddress
+            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            marker.title = place?.nameAddress ?? ""
             //marker.snippet = "Australia"
             marker.map = mapView
         }

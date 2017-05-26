@@ -453,11 +453,14 @@ class UserService: FirebaseManager {
     
     private func deleteCheckIns(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
         // Delete MatchList and Accept List
+        
         var PlacesRefs:[FIRDatabaseReference] = []
         if let places = Authenticator.shared.places {
             places.forEach({ (place) in
-                let ref = self.reference.child(Node.Places.rawValue).child(place.nameAddress.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(userId)
-                PlacesRefs.append(ref)
+                if let placeName = place.nameAddress {
+                    let ref = self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).child(userId)
+                    PlacesRefs.append(ref)
+                }
                 if place.nameAddress == places.last?.nameAddress {
                     completion(PlacesRefs, nil)
                 }
