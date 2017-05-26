@@ -49,8 +49,6 @@
 		F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F64ED4CF1ECD66DF0064FB74 /* Places.xcdatamodeld */; };
 		F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */; };
 		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
-		F676B09F1EBE22FD001CBF3E /* NHRangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676B09D1EBE22FD001CBF3E /* NHRangeSlider.swift */; };
-		F676B0A01EBE22FD001CBF3E /* NHRangeSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F676B09E1EBE22FD001CBF3E /* NHRangeSliderView.swift */; };
 		FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC19367C1E70FB85009F2912 /* Profile.storyboard */; };
 		FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC19367F1E70FC01009F2912 /* ProfileViewController.swift */; };
 		FC1936821E710463009F2912 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1936811E710463009F2912 /* EditingViewController.swift */; };
@@ -115,8 +113,6 @@
 		F64ED4D01ECD66DF0064FB74 /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		F676B09D1EBE22FD001CBF3E /* NHRangeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHRangeSlider.swift; sourceTree = "<group>"; };
-		F676B09E1EBE22FD001CBF3E /* NHRangeSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NHRangeSliderView.swift; sourceTree = "<group>"; };
 		FC19367C1E70FB85009F2912 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FC19367F1E70FC01009F2912 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC1936811E710463009F2912 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
@@ -269,15 +265,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F676B09C1EBE22BC001CBF3E /* External Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				F676B09D1EBE22FD001CBF3E /* NHRangeSlider.swift */,
-				F676B09E1EBE22FD001CBF3E /* NHRangeSliderView.swift */,
-			);
-			path = "External Libraries";
-			sourceTree = "<group>";
-		};
 		FC19367E1E70FB8E009F2912 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				FCA5ED991ED4CC9800E0A4BF /* Slide.entitlements */,
-				F676B09C1EBE22BC001CBF3E /* External Libraries */,
 				1F1E55381EA8A16100748894 /* Chat */,
 				1F6546561EA1C1F400D726E8 /* UTILS */,
 				1F6546551EA1C1D000D726E8 /* Resources */,
@@ -538,9 +524,7 @@
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,
 				1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */,
 				1F1E553C1EA8A6FB00748894 /* ChatViewController.swift in Sources */,
-				F676B09F1EBE22FD001CBF3E /* NHRangeSlider.swift in Sources */,
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
-				F676B0A01EBE22FD001CBF3E /* NHRangeSliderView.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
 				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,
 				FCB6230B1E6EC4B6007DF4AE /* PostedViewController.swift in Sources */,
