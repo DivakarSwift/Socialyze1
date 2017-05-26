@@ -132,10 +132,20 @@ class ChatViewController: UIViewController {
             
         })
     }
-    
+    // MARK: - More Options
     private func showMoreOption() {
         if let user = self.chatUser {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            let block = UIAlertAction(title: "Block", style: .default) { [weak self] (_) in
+                self?.block(forUser: user)
+            }
+            alert.addAction(block)
+            
+            let report = UIAlertAction(title: "Report", style: .default) { [weak self] (_) in
+                self?.report(forUser: user)
+            }
+            alert.addAction(report)
             
             if let _ = fromSquad {
                 let delete = UIAlertAction(title: "Remove Friend", style: .default) { [weak self] (_) in
@@ -147,11 +157,6 @@ class ChatViewController: UIViewController {
                 }
                 alert.addAction(delete)
             } else {
-                
-                let report = UIAlertAction(title: "Report", style: .default) { [weak self] (_) in
-                    self?.report(forUser: user)
-                }
-                alert.addAction(report)
                 
                 let unmatch = UIAlertAction(title: "Unmatch", style: .default) { [weak self] (_) in
                     if let name = user.profile.firstName {
@@ -169,6 +174,28 @@ class ChatViewController: UIViewController {
             alert.addAction(cancel)
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    private func block(forUser opponent:User) {
+        guard let myId = Authenticator.shared.user?.id else {
+            self.alert(message: GlobalConstants.Message.oops)
+            return
+        }
+        self.activityIndicator.startAnimating()
+        self.userService.block(user: opponent, myId: myId, completion: { [weak self] (success, error) in
+            self?.activityIndicator.stopAnimating()
+            if success {
+                var message = "Successfully blocked user"
+                if let name = opponent.profile.firstName {
+                    message = message + " " + name
+                }
+                self?.alert(message: message, title: "Success", okAction: {
+                    _ = self?.navigationController?.popViewController(animated: true)
+                })
+            }else {
+                self?.alert(message: "Can't report the user. Try again!")
+            }
+        })
     }
     
     private func report(forUser opponent: User) {

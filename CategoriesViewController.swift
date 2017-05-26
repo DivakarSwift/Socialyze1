@@ -167,48 +167,17 @@ class CategoriesViewController: UIViewController {
     // MARK: - User Actions
     @IBAction func reportUser(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//        let block = UIAlertAction(title: "Block", style: .default) { (_) in
-//            if let user = self.users.first {
-//                self.activityIndicator.startAnimating()
-//                self.userService.block(user: user, completion: {[weak self] (success, error) in
-//                    self?.activityIndicator.stopAnimating()
-//                    if success {
-//                        self?.alert(message: "User blocked.")
-//                        self?.users.remove(at: 0)
-////                        self?.events.remove(at: 0)
-//                    }else {
-//                        self?.alert(message: "Can't unblock the user. Try again!")
-//                    }
-//                })
-//            }
-//        }
+        let block = UIAlertAction(title: "Block", style: .default) { (_) in
+            if let user = self.users.first {
+               self.block(forUser: user)
+            }
+        }
+        alert.addAction(block)
         
         let reportAndBlock = UIAlertAction(title: "Report", style: .default) { (_) in
+            
             if let user = self.users.first {
-                let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
-                reportAlert.addTextField(configurationHandler: { (textField) in
-                    textField.placeholder = "Remarks"
-                })
-                
-                let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
-                    self.activityIndicator.startAnimating()
-                    self.userService.blockAndReport(user: user, remark: "", completion: { [weak self] (success, error) in
-                        self?.activityIndicator.stopAnimating()
-                        if success {
-                            self?.alert(message: "Reported on user.")
-                            self?.users.remove(at: 0)
-//                            self?.events.remove(at: 0)
-                        }else {
-                            self?.alert(message: "Can't report the user. Try again!")
-                        }
-                    })
-                })
-                
-                let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                reportAlert.addAction(ok)
-                reportAlert.addAction(cancel)
-                
-                self.present(reportAlert, animated: true, completion: nil)
+                self.report(forUser: user)
             }
         }
         
@@ -219,6 +188,54 @@ class CategoriesViewController: UIViewController {
         alert.addAction(cancel)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func report(forUser opponent: User) {
+        let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
+        reportAlert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Remarks"
+        })
+        
+        let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
+            self.activityIndicator.startAnimating()
+            self.userService.report(user: opponent, remark: reportAlert.textFields?.first?.text ?? "", completion: { [weak self] (success, error) in
+                self?.activityIndicator.stopAnimating()
+                if success {
+                    self?.alert(message: "Reported on user.")
+                }else {
+                    self?.alert(message: "Can't report the user. Try again!")
+                }
+            })
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        reportAlert.addAction(ok)
+        reportAlert.addAction(cancel)
+        
+        self.present(reportAlert, animated: true, completion: nil)
+    }
+    
+    private func block(forUser opponent:User) {
+        guard let myId = Authenticator.shared.user?.id else {
+            self.alert(message: GlobalConstants.Message.oops)
+            return
+        }
+        self.activityIndicator.startAnimating()
+        self.userService.block(user: opponent, myId: myId, completion: { [weak self] (success, error) in
+            self?.activityIndicator.stopAnimating()
+            if success {
+                var message = "Successfully blocked user"
+                if let name = opponent.profile.firstName {
+                    message = message + " " + name
+                }
+                self?.alert(message: message, title: "Success", okAction: {
+                    self?.dismiss(animated: true, completion: nil)
+                    _ = self?.navigationController?.popViewController(animated: true)
+                })
+            }else {
+                self?.alert(message: "Can't report the user. Try again!")
+            }
+        })
     }
     
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
