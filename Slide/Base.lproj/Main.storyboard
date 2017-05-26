@@ -129,7 +129,6 @@
                     <size key="freeformSize" width="414" height="850"/>
                     <connections>
                         <outlet property="collectionView" destination="P4a-Jm-eDM" id="shI-Di-AAs"/>
-                        <segue destination="dSg-os-irL" kind="show" identifier="openEvent" id="uZi-SU-WhH"/>
                         <segue destination="XXN-We-PSS" kind="custom" identifier="swipeToProfile" customClass="CustomRightSwipeSegue" customModule="Slide" customModuleProvider="target" id="w6K-JS-41H"/>
                         <segue destination="fy9-0Q-du6" kind="custom" identifier="swipeToChat" customClass="CustomLeftSwipeSegue" customModule="Slide" customModuleProvider="target" id="XMJ-FO-bEm"/>
                     </connections>
@@ -147,14 +146,6 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="919" y="139"/>
-        </scene>
-        <!--Events-->
-        <scene sceneID="BP5-XC-PIg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Events" id="dSg-os-irL" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qLP-AU-Mm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1709" y="138"/>
         </scene>
         <!--ChatListViewController-->
         <scene sceneID="cRB-jf-lA6">
@@ -338,7 +329,7 @@
             <objects>
                 <navigationController storyboardIdentifier="mainNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ddF-1J-eb0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apb-Db-fU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apb-Db-fU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
