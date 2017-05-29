@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                 // Enable or disable features based on authorization.
                 if !granted {
                     print("Something went wrong")

@@ -128,8 +128,8 @@ class ChatViewController: UIViewController {
                 self.messageTextView.text = ""
                 self.tableView.reloadData()
                 
-//                let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
-//                self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+                let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
+                self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
             }
             
         })
@@ -293,6 +293,13 @@ extension ChatViewController: UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if self.chatData.count > 0 {
+//            let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
+//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+//        }
+    }
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
@@ -329,5 +336,15 @@ extension ChatViewController: UITableViewDataSource {
             timeLabel.isHidden = true
         }
         return cell
+    }
+}
+
+extension ChatViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+//        if self.chatData.count > 0 {
+//            let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
+//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+//        }
+        
     }
 }
