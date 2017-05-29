@@ -316,8 +316,8 @@ extension EditingTableViewController {
                 self.activityIndicator.startAnimating()
                 UserService().deleteUser(userId: (Authenticator.shared.user?.id)!, completion: { (success, error) in
                     self.activityIndicator.stopAnimating()
-                    if let err = error {
-                        self.alert(message: err.localizedDescription, title: "Alert", okAction: { 
+                    if let _ = error {
+                        self.alert(message: "Delete process incomplete. Please try delete again.", title: "Server Error", okAction: {
                             Authenticator.shared.logout()
                         })
                     }
