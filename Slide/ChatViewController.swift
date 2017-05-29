@@ -26,11 +26,13 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
+        self.hideKeyboardWhenTappedAround()
         self.tableView.delegate = self
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         fetchData()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
@@ -42,8 +44,8 @@ class ChatViewController: UIViewController {
         titleButton.tintColor = UIColor.white
         titleButton.addTarget(self, action:#selector(titleTouched), for: .touchUpInside)
         self.navigationItem.titleView = titleButton
-        
     }
+    
     @IBAction func moreButton(_ sender: UIBarButtonItem) {
         print("more button Touched")
         showMoreOption()

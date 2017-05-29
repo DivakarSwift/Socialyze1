@@ -240,7 +240,19 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let checkInLabel = cell.viewWithTag(3) as! UILabel
         if let time = self.chatUsers[indexPath.row].checkIn?.time, (Date().timeIntervalSince1970 - time) < checkInThreshold, let val = self.chatUsers[indexPath.row].checkIn?.place {
-            checkInLabel.text = "@ \(val)"
+            
+            // By palceID
+            if let placeID = self.chatUsers[indexPath.row].checkIn?.placeID {
+                let checkId = ((placeID == "ChIJ6_-8ziWPOIgRSQzt9UEhOmI") || (placeID == "ChIJnRvS7biOOIgR8WzprZwSklE") || (placeID == "ChIJCcOQ6COPOIgRcLEuZixc9Wk") || (placeID == "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
+                checkInLabel.text = checkId ? "Joined \(val)" : "@ \(val)"
+            }
+            
+            // By Name
+            else {
+                let check = ((val == "Nationwide Arena") || (val == "Newport Music Hall") || (val == "Express Live!") || (val == "Schottenstein Center"))
+                checkInLabel.text = check ? "Joined \(val)" : "@ \(val)"
+            }
+            
         } else {
             checkInLabel.text = ""
         }
