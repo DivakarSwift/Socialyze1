@@ -20,6 +20,7 @@ struct Place:Mappable {
     var early: Int? // early check-in, 0 for no, 1 for yes
     var bio: String? // locations description
     var placeId: String?
+    var ads:[Ads]?
     
     init?(map: Map) {
         self.mapping(map: map)
@@ -35,6 +36,21 @@ struct Place:Mappable {
         self.early <- map["early"]
         self.bio <- map["bio"]
         self.placeId <- map["placeId"]
+        self.ads <- map["ads"]
+    }
+}
+
+struct Ads: Mappable {
+    var title: String?
+    var image: String?
+    
+    init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    mutating func mapping(map: Map) {
+        self.title <- map["title"]
+        self.image <- map["image"]
     }
 }
 

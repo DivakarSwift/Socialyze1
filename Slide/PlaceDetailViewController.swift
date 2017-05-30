@@ -55,6 +55,7 @@ class PlaceDetailViewController: UIViewController {
     let Elong3 = -82.923034
     let Elat4 = 40.054964
     let Elong4 = -82.906963
+    var adsIndex:Int = 0
     
     private var isCheckedIn = false
     
@@ -109,8 +110,7 @@ class PlaceDetailViewController: UIViewController {
         self.activityIndicator.center = view.center
         
         let image = place?.secondImage ?? place?.mainImage ?? ""
-        self.placeImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
-        self.placeDetailLbl.text = place?.bio
+        self.hideControls(value: false, image: image, label: place?.bio)
         self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
         
@@ -139,14 +139,71 @@ class PlaceDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = true
+        UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
+        self.addSwipeGesture(toView: self.view)
+        self.addTapGesture(toView: self.view)
+        if place?.ads == nil {
+            self.view.viewWithTag(6)?.isHidden = true
+        }
     }
     
     deinit {
         SlydeLocationManager.shared.stopUpdatingLocation()
     }
+    
+    func addTapGesture(toView view: UIView) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    func handleTap(_ gesture: UITapGestureRecognizer) {
+        self.changeView()
+    }
+    
+    func addSwipeGesture(toView view: UIView) {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
+        gesture.direction = .down
+        view.addGestureRecognizer(gesture)
+    }
+    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
+        //        dismiss(animated: true, completion: nil)
+        UIApplication.shared.isStatusBarHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        _ = self.navigationController?.popViewController(animated: false)
+    }
+    
 
+    @IBAction func next(_ sender: UIButton) {
+        self.changeView()
+    }
+    
+    func changeView() {
+        if let ads = place?.ads{
+            if adsIndex <= ads.count-1 {
+                let ad = ads[adsIndex]
+                self.hideControls(value: true, image: ad.image , label: ad.title)
+                adsIndex = adsIndex + 1
+            } else if adsIndex > ads.count-1{
+                let image = place?.secondImage ?? place?.mainImage ?? ""
+                self.hideControls(value: false, image: image, label: place?.bio)
+                adsIndex = 0
+            }
+        }
+    }
+    
+    func hideControls(value: Bool, image:String?, label:String?) {
+        if let img = image {
+            self.placeImageView.kf.setImage(with: URL(string: img), placeholder: #imageLiteral(resourceName: "OriginalBug") )
+        }
+        self.placeDetailLbl.text = label
+        
+        self.view.viewWithTag(1)?.isHidden = value
+        self.view.viewWithTag(2)?.isHidden = value
+        self.view.viewWithTag(3)?.isHidden = value
+        self.view.viewWithTag(4)?.isHidden = value
+        self.view.viewWithTag(5)?.isHidden = value
+    }
     
     @IBAction func checkIn(_ sender: UIButton) {
         if place?.size == 1 {

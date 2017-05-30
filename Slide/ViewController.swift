@@ -148,10 +148,7 @@ class ViewController: UIViewController {
     func settingsBtn(_ sender: UIBarButtonItem) {
         let settingsViewController = UIViewController()
         self.navigationController?.pushViewController(settingsViewController, animated: true)
-        
     }
-    
-
 }
 
 
@@ -162,6 +159,11 @@ extension ViewController: UICollectionViewDelegate {
         vc.place = place
         self.navigationController?.pushViewController(vc, animated: true)
         // self.performSegue(withIdentifier: "categoryDetail", sender: self)
+        
+//        if let nav = self.navigationController {
+//            nav.present(vc, animated: true, completion: nil)
+//        }
+        vc.navigationController?.isNavigationBarHidden = true
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem

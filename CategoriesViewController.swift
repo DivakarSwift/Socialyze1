@@ -129,6 +129,10 @@ class CategoriesViewController: UIViewController {
         gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
+    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: false)
+    }
     
     func addTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
@@ -238,10 +242,7 @@ class CategoriesViewController: UIViewController {
         })
     }
     
-    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-            dismiss(animated: true, completion: nil)
-        _ = self.navigationController?.popViewController(animated: false)
-    }
+
     
     func wasDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
         
