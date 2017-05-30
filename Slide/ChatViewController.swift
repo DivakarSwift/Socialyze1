@@ -134,6 +134,19 @@ class ChatViewController: UIViewController {
             
         })
     }
+    
+    func updateTableContentInset() {
+        let numRows = tableView(tableView, numberOfRowsInSection: 0)
+        var contentInsetTop = self.tableView.bounds.size.height
+        for i in 0..<numRows {
+            contentInsetTop -= tableView(tableView, heightForRowAt: IndexPath(item: i, section: 0))
+            if contentInsetTop <= 0 {
+                contentInsetTop = 0
+            }
+        }
+        tableView.contentInset = UIEdgeInsetsMake(contentInsetTop, 0, 0, 0)
+    }
+    
     // MARK: - More Options
     private func showMoreOption() {
         if let user = self.chatUser {
@@ -294,10 +307,6 @@ extension ChatViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if self.chatData.count > 0 {
-//            let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
-//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-//        }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -341,10 +350,10 @@ extension ChatViewController: UITableViewDataSource {
 
 extension ChatViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-//        if self.chatData.count > 0 {
-//            let lastIndexPath = IndexPath(row: self.chatData.count - 1, section: 0)
-//            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
-//        }
-        
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        self.updateTableContentInset()
     }
 }

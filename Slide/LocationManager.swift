@@ -9,7 +9,7 @@
 import CoreLocation
 import UIKit
 
-protocol VedaLocationManagerDelegate: class {
+protocol SlydeLocationManagerDelegate: class {
     func locationPermissionChanged()
     func locationObtained()
     func locationObtainError()
@@ -19,7 +19,7 @@ class SlydeLocationManager: NSObject {
     static let shared: SlydeLocationManager = SlydeLocationManager()
     
     let manager = CLLocationManager()
-    weak var delegate: VedaLocationManagerDelegate?
+    weak var delegate: SlydeLocationManagerDelegate?
     // 40.00313,-83.00782
     fileprivate var location: CLLocation? = CLLocation(latitude: 39.997957, longitude: -83.0085650)
     //lat: 39.997957, long: -83.0085650))
