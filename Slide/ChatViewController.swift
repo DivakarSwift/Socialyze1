@@ -36,7 +36,9 @@ class ChatViewController: UIViewController {
     }
     
     func backButtonClicked(_ button:UIBarButtonItem!){
-        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
+//        self.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: true)
+//        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
