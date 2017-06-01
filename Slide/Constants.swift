@@ -72,6 +72,6 @@ struct GlobalConstants {
             let url = URL(string: UIApplicationOpenSettingsURLString)!
             UIApplication.shared.openURL(url)
         }, cancelAction: nil)
-        static let userNotInPerimeter = Message(title: "Sorry", message: "You need to be at this place to check in.", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
+        static let userNotInPerimeter = Message(title: "Sorry", message: "Arrive at this place to start swiping", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
     }
 }
