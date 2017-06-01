@@ -56,7 +56,8 @@ class MatchesViewController: UIViewController {
     }
     
     func backButtonClicked(_ button:UIBarButtonItem!){
-        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+//        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
     }
     
     func addSwipeGesture(toView view: UIView) {

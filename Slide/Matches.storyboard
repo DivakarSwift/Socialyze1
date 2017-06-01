@@ -579,7 +579,7 @@
                     <navigationItem key="navigationItem" title="Matches" id="Nwy-Ui-Hwd"/>
                     <connections>
                         <outlet property="tableView" destination="7Rf-dx-KeF" id="vxa-Jx-bv4"/>
-                        <segue destination="U8d-dE-tri" kind="unwind" identifier="unwindFromMatch" customClass="CustomSwipeUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="Bxn-ex-HMa"/>
+                        <segue destination="U8d-dE-tri" kind="unwind" identifier="unwindFromMatch" customClass="CustomSwipeLeftUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="Bxn-ex-HMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHJ-zx-CoI" userLabel="First Responder" sceneMemberID="firstResponder"/>
