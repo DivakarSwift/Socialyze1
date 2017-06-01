@@ -43,7 +43,6 @@ class MatchesViewController: UIViewController {
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = view.center
         self.fetchMatchUserIds()
-        self.addSwipeGesture(toView: self.view)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +76,6 @@ class MatchesViewController: UIViewController {
                     }
                 } else {
                     print(error?.localizedDescription ?? "Firebase Fetch error")
-                    
                 }
             })
         }

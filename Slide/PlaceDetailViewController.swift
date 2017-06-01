@@ -213,8 +213,7 @@ class PlaceDetailViewController: UIViewController {
         if let _ = self.place?.ads {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "AdsViewController") as! AdsViewController
             vc.place = self.place
-            self.navigationController?.pushViewController(vc, animated: true)
-            vc.navigationController?.isNavigationBarHidden = true
+            self.present(vc, animated: true, completion: nil)
         }
     }
     

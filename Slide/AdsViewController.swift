@@ -31,9 +31,7 @@ class AdsViewController: UIViewController {
     }
     
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-        //        dismiss(animated: true, completion: nil)
+                dismiss(animated: true, completion: nil)
         UIApplication.shared.isStatusBarHidden = false
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        _ = self.navigationController?.popViewController(animated: false)
     }
 }
