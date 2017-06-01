@@ -194,10 +194,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view tag="111" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjR-Z4-c4n">
-                                <rect key="frame" x="107" y="598" width="200" height="32"/>
+                                <rect key="frame" x="107" y="598.33333333333348" width="200" height="31.666666666666629"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOh-j5-owQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="31.666666666666629"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="7c4-zG-Awc"/>
@@ -329,7 +329,7 @@
             <objects>
                 <navigationController storyboardIdentifier="mainNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ddF-1J-eb0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apb-Db-fU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apb-Db-fU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -614,7 +614,7 @@
                                             <constraint firstAttribute="width" constant="100" id="ff0-Kc-WAk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="INVITE">
+                                        <state key="normal" title="Swiping">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>

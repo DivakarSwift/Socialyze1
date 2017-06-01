@@ -288,7 +288,7 @@ class PlaceDetailViewController: UIViewController {
     }
     
     @IBAction func invite(_ sender: UIButton) {
-        self.showMoreOption()
+//        self.showMoreOption()
         
     }
     
