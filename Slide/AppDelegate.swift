@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FIRApp.configure()
         IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+//        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+//        IQKeyboardManager.sharedManager().shouldHidePreviousNext = false
+        
         GMSServices.provideAPIKey(GlobalConstants.APIKeys.googleMap)
         GMSPlacesClient.provideAPIKey(GlobalConstants.APIKeys.googlePlace)
         GMSServices.provideAPIKey(GlobalConstants.APIKeys.googlePlace)

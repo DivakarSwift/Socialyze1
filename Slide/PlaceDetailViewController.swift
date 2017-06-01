@@ -175,7 +175,15 @@ class PlaceDetailViewController: UIViewController {
     
 
     @IBAction func next(_ sender: UIButton) {
-        self.changeView()
+        if let adsUrl = place?.ads?.first?.link {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: adsUrl)!, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                UIApplication.shared.openURL(URL(string: adsUrl)!)
+            }
+        }
+        
     }
     
     func changeView() {
@@ -196,13 +204,22 @@ class PlaceDetailViewController: UIViewController {
         if let img = image {
             self.placeImageView.kf.setImage(with: URL(string: img), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         }
+        if let img = self.place?.ads?.first?.headerImage {
+            let button = self.view.viewWithTag(6) as! UIButton!
+            button?.kf.setImage(with: URL(string: img), for: .normal)
+        }
         self.placeDetailLbl.text = label
         
-        self.view.viewWithTag(1)?.isHidden = value
-        self.view.viewWithTag(2)?.isHidden = value
-        self.view.viewWithTag(3)?.isHidden = value
-        self.view.viewWithTag(4)?.isHidden = value
-        self.view.viewWithTag(5)?.isHidden = value
+        self.view.viewWithTag(7)?.isHidden = value
+    }
+    
+    @IBAction func detail(_ sender: UIButton) {
+        if let _ = self.place?.ads {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AdsViewController") as! AdsViewController
+            vc.place = self.place
+            self.navigationController?.pushViewController(vc, animated: true)
+            vc.navigationController?.isNavigationBarHidden = true
+        }
     }
     
     @IBAction func checkIn(_ sender: UIButton) {

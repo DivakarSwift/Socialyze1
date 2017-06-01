@@ -43,6 +43,8 @@ struct Place:Mappable {
 struct Ads: Mappable {
     var title: String?
     var image: String?
+    var link: String?
+    var headerImage:String?
     
     init?(map: Map) {
         self.mapping(map: map)
@@ -51,6 +53,8 @@ struct Ads: Mappable {
     mutating func mapping(map: Map) {
         self.title <- map["title"]
         self.image <- map["image"]
+        self.link <- map["link"]
+        self.headerImage <- map["headerImage"]
     }
 }
 

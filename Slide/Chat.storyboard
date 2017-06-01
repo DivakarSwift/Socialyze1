@@ -214,7 +214,7 @@
                                     <constraint firstAttribute="height" constant="44" id="42v-xJ-Vyo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="6Cc-8j-Et5" id="8ob-I1-IRl"/>
                                 </connections>

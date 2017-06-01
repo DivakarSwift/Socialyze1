@@ -48,6 +48,7 @@
 		F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F64ED4CF1ECD66DF0064FB74 /* Places.xcdatamodeld */; };
 		F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */; };
 		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
+		F68AB57A1EDFCB9100D4AB96 /* AdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */; };
 		FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC19367C1E70FB85009F2912 /* Profile.storyboard */; };
 		FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC19367F1E70FC01009F2912 /* ProfileViewController.swift */; };
 		FC1936821E710463009F2912 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1936811E710463009F2912 /* EditingViewController.swift */; };
@@ -107,6 +108,7 @@
 		F64ED4D01ECD66DF0064FB74 /* Places.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Places.xcdatamodel; sourceTree = "<group>"; };
 		F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsViewController.swift; sourceTree = "<group>"; };
 		FC19367C1E70FB85009F2912 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FC19367F1E70FC01009F2912 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC1936811E710463009F2912 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */,
 				F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */,
 				F64B2B521ED56AB800FE2BF6 /* DismissAnimator.swift */,
+				F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,
 				1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */,
 				1F1E553C1EA8A6FB00748894 /* ChatViewController.swift in Sources */,
+				F68AB57A1EDFCB9100D4AB96 /* AdsViewController.swift in Sources */,
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
 				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,
