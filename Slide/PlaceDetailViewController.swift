@@ -22,7 +22,6 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var checkInButton: UIButton!
-    @IBOutlet weak var checkOutButton: UIButton!
     
     //    @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
@@ -117,7 +116,7 @@ class PlaceDetailViewController: UIViewController {
         SlydeLocationManager.shared.startUpdatingLocation()
         
         self.checkInButton.layer.cornerRadius = 5
-        self.checkOutButton.layer.cornerRadius = 5
+//        self.checkOutButton.layer.cornerRadius = 5
         
         if facebookService.isUserFriendsPermissionGiven() {
             getUserFriends()
@@ -132,7 +131,7 @@ class PlaceDetailViewController: UIViewController {
         
         //
         if (place?.early)! > 0 {
-            checkInButton.setTitle("Join", for: .normal)
+//            checkInButton.setTitle("Join", for: .normal)
         }
         
     }
@@ -278,11 +277,6 @@ class PlaceDetailViewController: UIViewController {
         //        self.checkIn {[weak self] in
         //            self?.performSegue(withIdentifier: "Categories", sender: self)
         //        }
-    }
-    
-    @IBAction func checkOut(_ sender: Any) {
-        // IF user is checked in
-        self.checkout()
     }
     
     private func checkout() {
