@@ -22,7 +22,6 @@ class AdsViewController: UIViewController {
             imageView.kf.indicatorType = .activity
             self.imageView.kf.setImage(with: imageUrl)
         }
-        
     }
     
     func addSwipeGesture(toView view: UIView) {
@@ -30,6 +29,7 @@ class AdsViewController: UIViewController {
         gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
+    
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
         //        dismiss(animated: true, completion: nil)
         UIApplication.shared.isStatusBarHidden = false

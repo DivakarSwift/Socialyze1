@@ -177,7 +177,8 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        (cell.viewWithTag(1) as! UIImageView).kf.setImage(with: URL(string: places[indexPath.row].mainImage ?? "" ) , placeholder: #imageLiteral(resourceName: "OriginalBug"))
+        (cell.viewWithTag(1) as! UIImageView).kf.indicatorType = .activity
+        (cell.viewWithTag(1) as! UIImageView).kf.setImage(with: URL(string: places[indexPath.row].mainImage ?? "" ))
         (cell.viewWithTag(2) as! UILabel).text = places[indexPath.row].nameAddress
         
         // the shadow does not seem to be working

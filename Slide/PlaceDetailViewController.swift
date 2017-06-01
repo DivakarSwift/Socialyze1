@@ -110,7 +110,7 @@ class PlaceDetailViewController: UIViewController {
         self.activityIndicator.center = view.center
         
         let image = place?.secondImage ?? place?.mainImage ?? ""
-        self.hideControls(value: false, image: image, label: place?.bio)
+        self.hideControls(image: image, label: place?.bio)
         self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
         
@@ -158,7 +158,7 @@ class PlaceDetailViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     func handleTap(_ gesture: UITapGestureRecognizer) {
-        self.changeView()
+//        self.viewDetail()
     }
     
     func addSwipeGesture(toView view: UIView) {
@@ -185,35 +185,31 @@ class PlaceDetailViewController: UIViewController {
         }
         
     }
-    
-    func changeView() {
-        if let ads = place?.ads{
-            if adsIndex <= ads.count-1 {
-                let ad = ads[adsIndex]
-                self.hideControls(value: true, image: ad.image , label: ad.title)
-                adsIndex = adsIndex + 1
-            } else if adsIndex > ads.count-1{
-                let image = place?.secondImage ?? place?.mainImage ?? ""
-                self.hideControls(value: false, image: image, label: place?.bio)
-                adsIndex = 0
-            }
-        }
-    }
-    
-    func hideControls(value: Bool, image:String?, label:String?) {
+        
+    func hideControls(image:String?, label:String?) {
         if let img = image {
             self.placeImageView.kf.setImage(with: URL(string: img), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         }
         if let img = self.place?.ads?.first?.headerImage {
+            self.view.viewWithTag(7)?.isHidden = false
             let button = self.view.viewWithTag(6) as! UIButton!
             button?.kf.setImage(with: URL(string: img), for: .normal)
         }
+        else {
+            if let headerView = self.view.viewWithTag(7), let mapView = self.view.viewWithTag(1){
+                headerView.isHidden = true
+                self.view.addConstraint(NSLayoutConstraint(item: mapView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 20))
+            }
+        }
         self.placeDetailLbl.text = label
-        
-        self.view.viewWithTag(7)?.isHidden = value
+        view.layoutIfNeeded()
     }
     
     @IBAction func detail(_ sender: UIButton) {
+        self.viewDetail()
+    }
+    
+    func  viewDetail(){
         if let _ = self.place?.ads {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "AdsViewController") as! AdsViewController
             vc.place = self.place
