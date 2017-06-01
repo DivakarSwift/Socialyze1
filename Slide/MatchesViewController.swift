@@ -43,12 +43,20 @@ class MatchesViewController: UIViewController {
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = view.center
         self.fetchMatchUserIds()
+        self.navigationItem.setHidesBackButton(false, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = false
         self.fetchMatchUserIds()
+        
+        let rightButton: UIBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonClicked))
+        self.navigationItem.leftBarButtonItem = rightButton
+    }
+    
+    func backButtonClicked(_ button:UIBarButtonItem!){
+        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
     }
     
     func addSwipeGesture(toView view: UIView) {

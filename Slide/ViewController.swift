@@ -55,18 +55,7 @@ class ViewController: UIViewController {
                     print("Something went wrong")
                 }
             }
-            center.getNotificationSettings(completionHandler: { (setting) in
-                if setting.authorizationStatus != .authorized {
-                    // Notifications not allowed
-                    print("Notification not allowed")
-                    UIApplication.openAppSettings()
-                }
-            })
-        } else {
-            // Fallback on earlier versions
-//            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
         }
-        
         
         
         let mosaicLayout = TRMosaicLayout()
@@ -157,16 +146,17 @@ extension ViewController: UICollectionViewDelegate {
         let place = places[indexPath.row]
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
         vc.place = place
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(vc, animated: true)
         // self.performSegue(withIdentifier: "categoryDetail", sender: self)
         
 //        if let nav = self.navigationController {
 //            nav.present(vc, animated: true, completion: nil)
 //        }
-        vc.navigationController?.isNavigationBarHidden = true
-        let backItem = UIBarButtonItem()
-        backItem.title = "Back"
-        navigationItem.backBarButtonItem = backItem
+//        vc.navigationController?.isNavigationBarHidden = true
+//        let backItem = UIBarButtonItem()
+//        backItem.title = "Back"
+//        navigationItem.backBarButtonItem = backItem
     }
 }
 
@@ -279,6 +269,31 @@ extension ViewController : TRMosaicLayoutDelegate {
     }
 }
 
+
+extension ViewController: SlydeLocationManagerDelegate {
+    func locationObtained() {
+        
+        
+    }
+    
+    func locationPermissionChanged() {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings(completionHandler: { (setting) in
+                if setting.authorizationStatus != .authorized {
+                    // Notifications not allowed
+                    print("Notification not allowed")
+                    UIApplication.openAppSettings()
+                }
+            })
+        }
+    }
+    
+    func locationObtainError() {
+        
+        
+    }
+}
 
 extension ViewController {
     

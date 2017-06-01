@@ -55,7 +55,9 @@ class ChatViewController: UIViewController {
         if let user = self.chatUser {
             let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
             vc.fromFBFriends = user
-            _ = self.navigationController?.pushViewController(vc, animated: true)
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+//            _ = self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
