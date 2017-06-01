@@ -22,6 +22,7 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var checkInButton: UIButton!
+    @IBOutlet weak var checkMarkImageView: UIImageView!
     
     //    @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
@@ -104,6 +105,8 @@ class PlaceDetailViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.checkMarkImageView.isHidden = true
+        self.placeNameAddressLbl.isHidden = true
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
@@ -130,9 +133,7 @@ class PlaceDetailViewController: UIViewController {
         self.setupCollectionView()
         
         //
-        if (place?.early)! > 0 {
-//            checkInButton.setTitle("Join", for: .normal)
-        }
+        
         
     }
     
@@ -319,6 +320,8 @@ class PlaceDetailViewController: UIViewController {
             let text: String
             if distance <= thresholdRadius { // 100 ft
                 text = "less than 100ft"
+                self.placeNameAddressLbl.isHidden = true
+                self.checkMarkImageView.isHidden = false
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -326,6 +329,8 @@ class PlaceDetailViewController: UIViewController {
                     }
                 }
             }else {
+                self.placeNameAddressLbl.isHidden = false
+                self.checkMarkImageView.isHidden = true
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
@@ -342,6 +347,11 @@ class PlaceDetailViewController: UIViewController {
             self.placeNameAddressLbl.layer.shadowOpacity = 1.0
             self.placeNameAddressLbl.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
             self.placeNameAddressLbl.layer.shadowRadius = 3.0
+            
+            if (place?.early)! > 0 {
+                self.placeNameAddressLbl.isHidden = true
+                self.checkMarkImageView.isHidden = false
+            }
         }
     }
     

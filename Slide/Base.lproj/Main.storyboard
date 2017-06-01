@@ -543,7 +543,7 @@
                                 <rect key="frame" x="0.0" y="120" width="414" height="66"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndz-om-fH0">
-                                        <rect key="frame" x="0.0" y="0.0" width="214" height="66"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="66"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="    " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0X-va-SrW">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="66"/>
@@ -570,8 +570,18 @@
                                                     <segue destination="N3A-lP-WFd" kind="show" identifier="openMap" id="JdW-Ww-yGH"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="    " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tu6-Yk-7yz">
+                                                <rect key="frame" x="64" y="0.0" width="20" height="66"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="7Ka-vD-b5F"/>
+                                                    <constraint firstAttribute="height" constant="66" id="rLO-3C-MzR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="... away." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cMk-Hz-1UU">
-                                                <rect key="frame" x="64" y="0.0" width="150" height="66"/>
+                                                <rect key="frame" x="84" y="0.0" width="150" height="66"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="66" id="QuB-nd-V4J"/>
                                                     <constraint firstAttribute="width" constant="150" id="dyM-3j-JXo"/>
@@ -580,9 +590,23 @@
                                                 <color key="textColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark1" translatesAutoresizingMaskIntoConstraints="NO" id="bXX-Mb-Eo5">
-                                                <rect key="frame" x="214" y="0.0" width="0.0" height="66"/>
-                                            </imageView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOs-tA-aHU">
+                                                <rect key="frame" x="234" y="0.0" width="0.0" height="66"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark1" translatesAutoresizingMaskIntoConstraints="NO" id="bXX-Mb-Eo5">
+                                                        <rect key="frame" x="-20" y="13" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="bXX-Mb-Eo5" secondAttribute="height" id="F7q-H8-QHL"/>
+                                                            <constraint firstAttribute="height" constant="40" id="WeA-F6-Xj7"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="bXX-Mb-Eo5" firstAttribute="centerX" secondItem="VOs-tA-aHU" secondAttribute="centerX" id="NXp-DP-ioy"/>
+                                                    <constraint firstItem="bXX-Mb-Eo5" firstAttribute="centerY" secondItem="VOs-tA-aHU" secondAttribute="centerY" id="oPd-TR-jxy"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -675,6 +699,7 @@
                     <connections>
                         <outlet property="checkInButton" destination="aqG-X1-r1X" id="KiP-2k-Lcd"/>
                         <outlet property="checkInStatusLabel" destination="gWC-ZF-jWY" id="dI7-Pu-eId"/>
+                        <outlet property="checkMarkImageView" destination="bXX-Mb-Eo5" id="PBb-OL-0JS"/>
                         <outlet property="friendsCollectionView" destination="Fi5-ul-5Ld" id="n1e-hR-SeW"/>
                         <outlet property="placeDetailLbl" destination="l5V-6x-JJM" id="Hka-5V-MRk"/>
                         <outlet property="placeImageView" destination="HtE-1a-ofZ" id="3L7-F4-GEm"/>
