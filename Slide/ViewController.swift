@@ -237,7 +237,7 @@ extension ViewController : TRMosaicLayoutDelegate {
     func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
         
         // I recommend setting every third cell as .Big to get the best layout
-        return indexPath.item % 6 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
+        return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
