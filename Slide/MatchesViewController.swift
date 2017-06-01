@@ -66,7 +66,8 @@ class MatchesViewController: UIViewController {
     }
     
     @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
-        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
+        self.dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: false)
     }
     
     func fetchChatList() {

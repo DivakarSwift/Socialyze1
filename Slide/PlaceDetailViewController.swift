@@ -143,7 +143,7 @@ class PlaceDetailViewController: UIViewController {
         UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
         self.addSwipeGesture(toView: self.view)
-        self.addTapGesture(toView: self.view)
+//        self.addTapGesture(toView: self.view)
         if place?.ads == nil {
             self.view.viewWithTag(6)?.isHidden = true
         }
@@ -595,10 +595,10 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
         vc.fromFBFriends = self.checkinUsers[indexPath.row]
         vc.transitioningDelegate = self
-//        self.present(vc, animated: true, completion: nil)
-        if let nav = self.navigationController {
-            nav.present(vc, animated: true, completion: nil)
-        }
+        self.present(vc, animated: true, completion: nil)
+//        if let nav = self.navigationController {
+//            nav.present(vc, animated: true, completion: nil)
+//        }
     }
     
     func setupCollectionView() {

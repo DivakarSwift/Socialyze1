@@ -379,9 +379,7 @@ class CategoriesViewController: UIViewController {
         } else {
 //            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
                 self.alert(message: "No new users at this time. Check back later", okAction: {
-                    if let nav = self.navigationController {
-                        nav.popToRootViewController(animated: true)
-                    }
+                    self.dismiss(animated: true, completion: nil)
                 })     
 //            } else if let nav = self.navigationController {
 //                    nav.popToRootViewController(animated: true)
@@ -410,11 +408,8 @@ class CategoriesViewController: UIViewController {
                 vc.chatUserName = user.profile.firstName!
                 vc.chatOppentId = user.id
                 vc.chatUser = user
-                if let nav =  self.navigationController {
-                    nav.pushViewController(vc, animated: true)
-                } else {
-                    self.present(vc, animated: true, completion: nil)
-                }
+                let nav = UINavigationController(rootViewController: vc)
+                self.present(nav, animated: true, completion: nil)
             }
             else {
                 _ = self.removeTopUser()

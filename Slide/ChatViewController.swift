@@ -31,6 +31,12 @@ class ChatViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.startAnimating()
         fetchData()
+        let rightButton: UIBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonClicked))
+        self.navigationItem.leftBarButtonItem = rightButton
+    }
+    
+    func backButtonClicked(_ button:UIBarButtonItem!){
+        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
