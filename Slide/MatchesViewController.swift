@@ -56,7 +56,9 @@ class MatchesViewController: UIViewController {
     }
     
     func backButtonClicked(_ button:UIBarButtonItem!){
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            
+        })
 //        performSegue(withIdentifier: "unwindFromMatch", sender: nil)
     }
     

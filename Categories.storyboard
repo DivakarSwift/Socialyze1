@@ -178,7 +178,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ice broken! Time to meet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhb-xt-yNc">
-                                <rect key="frame" x="26" y="58" width="268" height="26"/>
+                                <rect key="frame" x="26" y="58.5" width="268" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <color key="textColor" red="0.705322265625" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -227,6 +227,6 @@
         <image name="checkmark" width="204" height="204"/>
         <image name="exclamation.png" width="64" height="64"/>
         <image name="ladybird.png" width="149" height="149"/>
-        <image name="thehomebutton.png" width="267" height="267"/>
+        <image name="thehomebutton.png" width="45" height="45"/>
     </resources>
 </document>

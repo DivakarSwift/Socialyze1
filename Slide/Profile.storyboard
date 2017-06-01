@@ -84,7 +84,7 @@
                                         </constraints>
                                         <state key="normal" image="ladybird.png"/>
                                         <connections>
-                                            <segue destination="p51-Pr-NjO" kind="custom" identifier="matches" customClass="CustomUpSwipeSegue" customModule="Slide" customModuleProvider="target" id="bBy-PX-GFn"/>
+                                            <action selector="matchTouched:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="ttY-BU-MU2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -154,14 +154,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZF-sC-ogW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24" y="490"/>
-        </scene>
-        <!--Matches-->
-        <scene sceneID="kqD-ss-ygF">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Matches" id="p51-Pr-NjO" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JYr-41-p7B" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="269" y="489"/>
         </scene>
         <!--Edit-->
         <scene sceneID="aKj-GJ-DTt">
@@ -574,6 +566,6 @@
         <image name="crossmark" width="204" height="204"/>
         <image name="editbutton.png" width="128" height="128"/>
         <image name="ladybird.png" width="149" height="149"/>
-        <image name="thehomebutton.png" width="267" height="267"/>
+        <image name="thehomebutton.png" width="45" height="45"/>
     </resources>
 </document>

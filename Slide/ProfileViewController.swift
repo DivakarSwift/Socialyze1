@@ -89,6 +89,12 @@ class ProfileViewController: UIViewController {
         //self.navigationController?.navigationBar.isHidden = false
     }
     
+    @IBAction func matchTouched(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Matches", bundle: nil).instantiateViewController(withIdentifier: "MatchesViewController") as! MatchesViewController
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
+    }
+    
     @IBAction func swipeHome(_ sender: Any) {
         performSegue(withIdentifier: "unwindFromProfile", sender: nil)
     }
