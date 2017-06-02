@@ -17,6 +17,8 @@ let checkInThreshold: TimeInterval = 3*60*60 //3hr
 
 class PlaceDetailViewController: UIViewController {
     
+    @IBOutlet weak var distanceConstraint: NSLayoutConstraint!
+    @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var placeNameAddressLbl: UILabel!
     @IBOutlet weak var placeDetailLbl: UILabel!
     @IBOutlet weak var checkInStatusLabel: UILabel!
@@ -106,7 +108,7 @@ class PlaceDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkMarkImageView.isHidden = true
-        self.placeNameAddressLbl.isHidden = true
+        self.distanceConstraint.constant = 0
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
@@ -145,7 +147,7 @@ class PlaceDetailViewController: UIViewController {
         self.addSwipeGesture(toView: self.view)
 //        self.addTapGesture(toView: self.view)
         if place?.ads == nil {
-            self.view.viewWithTag(6)?.isHidden = true
+            self.logoHeightConstraint.constant = 0
         }
     }
     
@@ -191,15 +193,13 @@ class PlaceDetailViewController: UIViewController {
             self.placeImageView.kf.setImage(with: URL(string: img), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         }
         if let img = self.place?.ads?.first?.headerImage {
+            self.logoHeightConstraint.constant = 100
             self.view.viewWithTag(7)?.isHidden = false
             let button = self.view.viewWithTag(6) as! UIButton!
             button?.kf.setImage(with: URL(string: img), for: .normal)
         }
         else {
-            if let headerView = self.view.viewWithTag(7), let mapView = self.view.viewWithTag(1){
-                headerView.isHidden = true
-                self.view.addConstraint(NSLayoutConstraint(item: mapView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 20))
-            }
+            self.logoHeightConstraint.constant = 0
         }
         self.placeDetailLbl.text = label
         view.layoutIfNeeded()
@@ -320,7 +320,7 @@ class PlaceDetailViewController: UIViewController {
             let text: String
             if distance <= thresholdRadius { // 100 ft
                 text = "less than 100ft"
-                self.placeNameAddressLbl.isHidden = true
+                self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
                 if self.isCheckedIn {
                     self.isCheckedIn = false
@@ -329,7 +329,7 @@ class PlaceDetailViewController: UIViewController {
                     }
                 }
             }else {
-                self.placeNameAddressLbl.isHidden = false
+                self.distanceConstraint.constant = 150
                 self.checkMarkImageView.isHidden = true
                 let ft = distance * 3.28084
                 
@@ -349,7 +349,7 @@ class PlaceDetailViewController: UIViewController {
             self.placeNameAddressLbl.layer.shadowRadius = 3.0
             
             if (place?.early)! > 0 {
-                self.placeNameAddressLbl.isHidden = true
+                self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
             }
         }
