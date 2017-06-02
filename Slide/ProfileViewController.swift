@@ -166,6 +166,7 @@ class ProfileViewController: UIViewController {
                 let tmpValue = orgText.substring(with: range).appending("...")
                 self.bioTextView.text = tmpValue
                 self.bioLabel.text = self.bioTextView.text
+                //updateBio(bio: tmpValue)
             } else {
                 self.bioTextView.text = user?.profile.bio
                 self.bioLabel.text = self.bioTextView.text
