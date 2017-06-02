@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -492,7 +492,7 @@
                                 <rect key="frame" x="0.0" y="349" width="414" height="38.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="It is the largest library of the University with beautiful modern architecture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5V-6x-JJM">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="38.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="38.333333333333314"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -509,14 +509,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="l5V-6x-JJM" firstAttribute="centerX" secondItem="yGZ-eT-m4p" secondAttribute="centerX" id="8Cx-NJ-S5r"/>
+                                    <constraint firstAttribute="trailing" secondItem="l5V-6x-JJM" secondAttribute="trailing" id="CR2-xt-VZH"/>
                                     <constraint firstItem="l5V-6x-JJM" firstAttribute="centerY" secondItem="yGZ-eT-m4p" secondAttribute="centerY" id="HR1-mV-n94"/>
                                     <constraint firstAttribute="trailing" secondItem="6s3-we-glH" secondAttribute="trailing" id="Igo-Gg-IuS"/>
+                                    <constraint firstItem="l5V-6x-JJM" firstAttribute="leading" secondItem="yGZ-eT-m4p" secondAttribute="leading" id="LUg-n2-Amu"/>
                                     <constraint firstItem="6s3-we-glH" firstAttribute="leading" secondItem="yGZ-eT-m4p" secondAttribute="leading" id="Qpf-3Y-gYA"/>
                                     <constraint firstAttribute="bottom" secondItem="l5V-6x-JJM" secondAttribute="bottom" id="Qzb-Re-0jq"/>
-                                    <constraint firstItem="l5V-6x-JJM" firstAttribute="leading" secondItem="yGZ-eT-m4p" secondAttribute="leading" constant="20" id="Rz2-oF-aex"/>
                                     <constraint firstItem="6s3-we-glH" firstAttribute="top" secondItem="yGZ-eT-m4p" secondAttribute="top" id="U0k-fg-ciJ"/>
                                     <constraint firstAttribute="bottom" secondItem="6s3-we-glH" secondAttribute="bottom" id="Wmj-q2-deK"/>
-                                    <constraint firstAttribute="trailing" secondItem="l5V-6x-JJM" secondAttribute="trailing" constant="20" id="bSu-oE-Wdo"/>
                                     <constraint firstItem="l5V-6x-JJM" firstAttribute="top" secondItem="yGZ-eT-m4p" secondAttribute="top" id="bcB-Ae-EYB"/>
                                 </constraints>
                             </view>
