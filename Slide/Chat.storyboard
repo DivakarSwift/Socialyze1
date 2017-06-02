@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -208,21 +208,21 @@
                                 </prototypes>
                             </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tyw-F9-9nP">
-                                <rect key="frame" x="0.0" y="436" width="262" height="44"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="42v-xJ-Vyo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
                                 <connections>
                                     <outlet property="delegate" destination="6Cc-8j-Et5" id="8ob-I1-IRl"/>
                                 </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-Ar-EDH">
-                                <rect key="frame" x="270" y="443" width="50" height="30"/>
+                                <rect key="frame" x="320" y="443" width="0.0" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Lcb-hm-x3a"/>
+                                    <constraint firstAttribute="width" id="Lcb-hm-x3a"/>
                                     <constraint firstAttribute="height" constant="30" id="e5l-eb-D9u"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
@@ -241,7 +241,7 @@
                             <constraint firstAttribute="trailing" secondItem="SLu-SY-xog" secondAttribute="trailing" id="b3q-E5-3Pr"/>
                             <constraint firstItem="rLH-jT-WY4" firstAttribute="leading" secondItem="EUB-39-02C" secondAttribute="leading" id="bk6-yI-3uv"/>
                             <constraint firstAttribute="bottom" secondItem="Tyw-F9-9nP" secondAttribute="bottom" id="jsJ-jS-Fc7"/>
-                            <constraint firstItem="MeL-Ar-EDH" firstAttribute="leading" secondItem="Tyw-F9-9nP" secondAttribute="trailing" constant="8" id="rEA-H1-0uj"/>
+                            <constraint firstItem="MeL-Ar-EDH" firstAttribute="leading" secondItem="Tyw-F9-9nP" secondAttribute="trailing" id="rEA-H1-0uj"/>
                             <constraint firstItem="Tyw-F9-9nP" firstAttribute="top" secondItem="SLu-SY-xog" secondAttribute="bottom" id="xZu-kh-SMq"/>
                             <constraint firstAttribute="trailing" secondItem="rLH-jT-WY4" secondAttribute="trailing" id="xdE-by-Kae"/>
                             <constraint firstAttribute="trailing" secondItem="MeL-Ar-EDH" secondAttribute="trailing" id="yKp-Zd-j8Y"/>

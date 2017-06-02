@@ -166,7 +166,6 @@ class ProfileViewController: UIViewController {
                 let tmpValue = orgText.substring(with: range).appending("...")
                 self.bioTextView.text = tmpValue
                 self.bioLabel.text = self.bioTextView.text
-                //updateBio(bio: tmpValue)
             } else {
                 self.bioTextView.text = user?.profile.bio
                 self.bioLabel.text = self.bioTextView.text
@@ -216,22 +215,30 @@ extension ProfileViewController: UITextViewDelegate {
     
     // For checking whether enter text can be taken or not.
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            self.savebio(textView)
+        }
+        
         if textView == bioTextView && text != ""{
             let x = (textView.text ?? "").characters.count
             return x <= 199
         }
+        
+        
         return true
     }
+    
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    func savebio(_ sender: UITextView){
         if let id = Authenticator.shared.user?.id {
-            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(textView.text)
-            self.user?.profile.bio = textView.text
+            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(sender.text)
+            self.user?.profile.bio = sender.text
             Authenticator.shared.user = self.user
         }
     }

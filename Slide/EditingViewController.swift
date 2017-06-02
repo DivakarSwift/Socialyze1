@@ -83,7 +83,6 @@ class EditingTableViewController: UITableViewController {
                 let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
                 let tmpValue = orgText.substring(with: range).appending("...")
                 self.bioTextView.text = tmpValue
-                //updateBio(bio: tmpValue)
             } else {
                 self.bioTextView.text = user?.profile.bio
             }
@@ -364,6 +363,10 @@ extension EditingTableViewController: UITextViewDelegate {
     
     // For checking whether enter text can be taken or not.
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            self.savebio(textView)
+        }
         if textView == bioTextView && text != ""{
             let x = (textView.text ?? "").characters.count
             return x <= 199
@@ -376,10 +379,11 @@ extension EditingTableViewController: UITextViewDelegate {
         return true
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    
+    func savebio(_ sender: UITextView){
         if let id = Authenticator.shared.user?.id {
-            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(textView.text)
-            self.user?.profile.bio = textView.text
+            FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(sender.text)
+            self.user?.profile.bio = sender.text
             Authenticator.shared.user = self.user
         }
     }

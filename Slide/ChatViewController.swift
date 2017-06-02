@@ -368,4 +368,17 @@ extension ChatViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.updateTableContentInset()
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn  range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            performAction(textView)
+        }
+        return true
+    }
+    
+    func performAction(_ sender: Any) {
+        self.send(sender)
+    }
+    
 }
