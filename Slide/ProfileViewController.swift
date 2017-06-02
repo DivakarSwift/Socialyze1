@@ -12,7 +12,7 @@ import FacebookCore
 import SwiftyJSON
 
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController/*, UITextFieldDelegate*/ {
     
     @IBOutlet weak var bioTextView: UITextView!
     @IBOutlet weak var bioLabel: UILabel!
@@ -60,7 +60,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.editButton.isHidden = true
-        self.hideKeyboardWhenTappedAround()
+        //self.hideKeyboardWhenTappedAround()
+        //self.bioTextView.delegate = self
         self.navigationItem.setHidesBackButton(true, animated: true)
         lblUserName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         lblUserName.layer.shadowRadius = 3
@@ -88,6 +89,11 @@ class ProfileViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         //self.navigationController?.navigationBar.isHidden = false
     }
+    
+//    func textFieldShouldReturn(_ bioTextView: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return true
+//    }
     
     @IBAction func matchTouched(_ sender: UIButton) {
         let vc = UIStoryboard(name: "Matches", bundle: nil).instantiateViewController(withIdentifier: "MatchesViewController") as! MatchesViewController
@@ -216,10 +222,13 @@ extension ProfileViewController: UITextViewDelegate {
     
     // For checking whether enter text can be taken or not.
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if textView == bioTextView && text != ""{
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        } else if textView == bioTextView && text != ""{
             let x = (textView.text ?? "").characters.count
             return x <= 199
-        }
+        } 
         return true
     }
     
@@ -235,5 +244,7 @@ extension ProfileViewController: UITextViewDelegate {
             Authenticator.shared.user = self.user
         }
     }
+    
+    
     
 }
