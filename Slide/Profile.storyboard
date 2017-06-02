@@ -44,7 +44,7 @@
                                         <rect key="frame" x="0.0" y="-5" width="414" height="35.666666666666629"/>
                                         <color key="backgroundColor" white="0.33333333329999998" alpha="0.5" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="QEE-sF-Qvd" id="arJ-ZZ-Jez"/>
                                         </connections>
@@ -387,7 +387,7 @@
                                                                 <constraint firstAttribute="height" constant="120" id="Y1V-Z4-kNL"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="send" enablesReturnKeyAutomatically="YES"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                             <connections>
                                                                 <outlet property="delegate" destination="Xua-vR-Ynp" id="OKy-MN-pPL"/>
                                                             </connections>
