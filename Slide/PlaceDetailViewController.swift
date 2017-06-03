@@ -113,6 +113,7 @@ class PlaceDetailViewController: UIViewController {
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
+        
         swipingLabel.layer.shadowOpacity = 1
         swipingLabel.layer.shadowRadius = 3
         swipingLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -589,6 +590,9 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
         let label = cell.viewWithTag(2) as! UILabel
 //        label.text = "Dari"
         label.text = user.profile.firstName
+        label.layer.shadowOpacity = 1
+        label.layer.shadowRadius = 3
+        label.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
