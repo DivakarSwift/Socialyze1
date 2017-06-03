@@ -25,6 +25,7 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var checkInButton: UIButton!
     @IBOutlet weak var checkMarkImageView: UIImageView!
+    @IBOutlet weak var swipingLabel: UILabel!
     
     //    @IBOutlet weak var friendsTableView: UITableView!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
@@ -112,7 +113,9 @@ class PlaceDetailViewController: UIViewController {
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
-        
+        swipingLabel.layer.shadowOpacity = 1
+        swipingLabel.layer.shadowRadius = 3
+        swipingLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         let image = place?.secondImage ?? place?.mainImage ?? ""
         self.hideControls(image: image, label: place?.bio)
         self.placeNameAddressLbl.text = place?.nameAddress
