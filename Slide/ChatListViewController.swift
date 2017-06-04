@@ -243,14 +243,14 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
             
             // By palceID
             if let placeID = self.chatUsers[indexPath.row].checkIn?.placeID {
-                let checkId = ((placeID == "ChIJ6_-8ziWPOIgRSQzt9UEhOmI") || (placeID == "ChIJnRvS7biOOIgR8WzprZwSklE") || (placeID == "ChIJCcOQ6COPOIgRcLEuZixc9Wk") || (placeID == "ChIJMQsDsZqOOIgReHL17_Uf2Hg"))
-                checkInLabel.text = checkId ? "Joined \(val)" : "@ \(val)"
+                let checkId = ((placeID == "ChIJ6_-8ziWPOIgRSQzt9UEhOmI") || (placeID == "ChIJnRvS7biOOIgR8WzprZwSklE") || (placeID == "ChIJCcOQ6COPOIgRcLEuZixc9Wk") || (placeID == "ChIJMQsDsZqOOIgReHL17_Uf2Hg") || (placeID == "ChIJVX_yAZSOOIgRpZhJFs2DSUs"))
+                checkInLabel.text = checkId ? "Joined event @ \(val)" : "@ \(val)"
             }
             
             // By Name
             else {
-                let check = ((val == "Nationwide Arena") || (val == "Newport Music Hall") || (val == "Express Live!") || (val == "Schottenstein Center"))
-                checkInLabel.text = check ? "Joined \(val)" : "@ \(val)"
+                let check = ((val == "Nationwide Arena") || (val == "Newport Music Hall") || (val == "Express Live!") || (val == "Schottenstein Center") || (val == "Ohio Stadium"))
+                checkInLabel.text = check ? "Joined event @ \(val)" : "@ \(val)"
             }
             
         } else {
