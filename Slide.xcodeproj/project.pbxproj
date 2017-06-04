@@ -40,6 +40,10 @@
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
 		DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */; };
 		DA0B5F611ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */; };
+		F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594351EE3DB44003631EE /* indicator_75.gif */; };
+		F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594361EE3DB44003631EE /* indicator_40.gif */; };
+		F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594371EE3DB44003631EE /* indicator_20.gif */; };
+		F4A5943C1EE3DB44003631EE /* indicator_149.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594381EE3DB44003631EE /* indicator_149.gif */; };
 		F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */; };
 		F621B3BE1ED82D2F007E5F05 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F621B3BD1ED82D2F007E5F05 /* Place.swift */; };
 		F6475F5C1ED2F012004C8D90 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6475F5A1ED2F012004C8D90 /* MessageUI.framework */; };
@@ -99,6 +103,10 @@
 		7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeSegue.swift; sourceTree = "<group>"; };
 		DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeUnwindSegue.swift; sourceTree = "<group>"; };
+		F4A594351EE3DB44003631EE /* indicator_75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_75.gif; sourceTree = "<group>"; };
+		F4A594361EE3DB44003631EE /* indicator_40.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_40.gif; sourceTree = "<group>"; };
+		F4A594371EE3DB44003631EE /* indicator_20.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_20.gif; sourceTree = "<group>"; };
+		F4A594381EE3DB44003631EE /* indicator_149.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_149.gif; sourceTree = "<group>"; };
 		F603F9271EBABB5E00DCC16F /* MatchedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchedViewController.swift; sourceTree = "<group>"; };
 		F621B3BD1ED82D2F007E5F05 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F6475F591ED2F012004C8D90 /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
@@ -205,6 +213,10 @@
 		1F6546551EA1C1D000D726E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F4A594351EE3DB44003631EE /* indicator_75.gif */,
+				F4A594361EE3DB44003631EE /* indicator_40.gif */,
+				F4A594371EE3DB44003631EE /* indicator_20.gif */,
+				F4A594381EE3DB44003631EE /* indicator_149.gif */,
 				FC7A24211E695F56004C9E44 /* Assets.xcassets */,
 				FC7A24231E695F56004C9E44 /* LaunchScreen.storyboard */,
 				FC7A24261E695F56004C9E44 /* Info.plist */,
@@ -362,6 +374,7 @@
 				TargetAttributes = {
 					FC7A24161E695F56004C9E44 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8C873544ED;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -398,10 +411,14 @@
 				FC7A24251E695F56004C9E44 /* LaunchScreen.storyboard in Resources */,
 				FC5219831E7011DC00EDF19A /* Categories.storyboard in Resources */,
 				FC7A24221E695F56004C9E44 /* Assets.xcassets in Resources */,
+				F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */,
+				F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */,
 				FC7A24201E695F56004C9E44 /* Main.storyboard in Resources */,
 				1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */,
 				FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */,
 				1F1E553A1EA8A17F00748894 /* Chat.storyboard in Resources */,
+				F4A5943C1EE3DB44003631EE /* indicator_149.gif in Resources */,
+				F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */,
 				1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,11 +643,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slide/Slide.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8C873544ED;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyzee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,11 +663,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Slide/Slide.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8C873544ED;
 				INFOPLIST_FILE = Slide/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.socialyzeapp.socialyzee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

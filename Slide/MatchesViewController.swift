@@ -227,6 +227,9 @@ extension MatchesViewController: UITableViewDataSource {
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.rounded()
             imageView.kf.indicatorType = .activity
+            let p = Bundle.main.path(forResource: "indicator_20", ofType: "gif")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: p))
+            imageView.kf.indicatorType = .image(imageData: data)
             imageView.kf.setImage(with: currentUser?.profile.images.first)
             
             let replyImageView = cell.viewWithTag(4) as! UIImageView

@@ -46,6 +46,9 @@ class ProfileViewController: UIViewController {
             
             if let images = self.user?.profile.images {
                 self.userImageView.kf.indicatorType = .activity
+                let p = Bundle.main.path(forResource: "indicator_149", ofType: "gif")!
+                let data = try! Data(contentsOf: URL(fileURLWithPath: p))
+                self.userImageView.kf.indicatorType = .image(imageData: data)
                 self.userImageView.kf.setImage(with: images.first, placeholder: nil)
                 self.images = images
             }
@@ -111,6 +114,9 @@ class ProfileViewController: UIViewController {
     func changeImage() {
         if currentImageIndex < images.count && currentImageIndex >= 0 {
             let url = images[currentImageIndex]
+            let p = Bundle.main.path(forResource: "indicator_149", ofType: "gif")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: p))
+            self.userImageView.kf.indicatorType = .image(imageData: data)
             self.userImageView.kf.setImage(with: url)
         }
         if currentImageIndex == images.count - 1 {

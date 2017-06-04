@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 import GooglePlaces
 import FloatRatingView
+import FacebookCore
 
 class ViewController: UIViewController {
     
@@ -173,8 +174,14 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        (cell.viewWithTag(1) as! UIImageView).kf.indicatorType = .activity
-        (cell.viewWithTag(1) as! UIImageView).kf.setImage(with: URL(string: places[indexPath.row].mainImage ?? "" ))
+        let imageView:UIImageView = cell.viewWithTag(1) as! UIImageView
+        imageView.kf.indicatorType = .activity
+        let p = Bundle.main.path(forResource: "indicator_40", ofType: "gif")!
+        let data = try! Data(contentsOf: URL(fileURLWithPath: p))
+        imageView.kf.indicatorType = .image(imageData: data)
+        
+        imageView.kf.setImage(with: URL(string: places[indexPath.row].mainImage ?? "" ))
+        
         (cell.viewWithTag(2) as! UILabel).text = places[indexPath.row].nameAddress
         
         // the shadow does not seem to be working
@@ -312,7 +319,16 @@ extension ViewController {
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
+        
         print("Tapped in notification")
+        let accesstoken = AccessToken.current
+        if let _ = accesstoken?.authenticationToken {
+            print("Facebook Access-token available")
+            // redirect to required location
+        } else {
+            print("Facebook Access-token not found")
+            appDelegate.checkForLogin()
+        }
     }
     
     //This is key callback to present notification while the app is in foreground

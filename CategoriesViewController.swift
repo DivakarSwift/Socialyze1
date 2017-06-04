@@ -141,6 +141,9 @@ class CategoriesViewController: UIViewController {
             let imageURL = images[currentImageIndex]
             
             self.activityIndicator.startAnimating()
+            let p = Bundle.main.path(forResource: "indicator_149", ofType: "gif")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: p))
+            self.imageView.kf.indicatorType = .image(imageData: data)
             self.imageView.kf.setImage(with: imageURL, placeholder: nil, options: [.transition(.fade(0.2))], progressBlock: { receivedSize, totalSize in
                 let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
                 print("downloading progress: \(percentage)%")
@@ -360,6 +363,9 @@ class CategoriesViewController: UIViewController {
     func changeUser() {
         self.bioLabel.isHidden = false
         if let user = users.first {
+            let p = Bundle.main.path(forResource: "indicator_149", ofType: "gif")!
+            let data = try! Data(contentsOf: URL(fileURLWithPath: p))
+            self.imageView.kf.indicatorType = .image(imageData: data)
             self.imageView.kf.setImage(with: user.profile.images.first)
             //            self.imageView.kf.setImage(with: user.profile.images.first)
             self.userName.text = user.profile.firstName ?? "Username"
