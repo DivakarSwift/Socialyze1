@@ -234,48 +234,35 @@ class PlaceDetailViewController: UIViewController {
             thresholdRadius = 0
         }
         
+        func check() {
+            self.checkIn {[weak self] in
+                if self?.checkinData.count != 0 {
+                    self?.performSegue(withIdentifier: "Categories", sender: self)
+                }else {
+                    self?.alert(message: "No new users at this time. Check back later", title: "Oops", okAction: {
+                        self?.dismiss(animated: true, completion: nil)
+                        _ = self?.navigationController?.popViewController(animated: false)
+                    })
+                }
+            }
+        }
+        
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
-            self.checkIn {[weak self] in
-                if self?.checkinData.count != 0 {
-                    self?.performSegue(withIdentifier: "Categories", sender: self)
-                }else {
-                    self?.alert(message: "No new users at this time. Check back later")
-                }
-            }
+            check()
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
-            self.checkIn {[weak self] in
-                if self?.checkinData.count != 0 {
-                    self?.performSegue(withIdentifier: "Categories", sender: self)
-                }else {
-                    self?.alert(message: "No new users at this time. Check back later")
-                }
-            }
+            check()
         } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
-            self.checkIn {[weak self] in
-                if self?.checkinData.count != 0 {
-                    self?.performSegue(withIdentifier: "Categories", sender: self)
-                }else {
-                    self?.alert(message: "No new users at this time. Check back later")
-                }
-            }
+            check()
         } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
-                self.checkIn {[weak self] in
-                    if self?.checkinData.count != 0 {
-                        self?.performSegue(withIdentifier: "Categories", sender: self)
-                    }else {
-                        self?.alert(message: "No new users at this time. Check back later")
-                    }
-                }
+                check()
         } else if (place?.early)! > 0 {
-            self.checkIn {[weak self] in
-                if self?.checkinData.count != 0 {
-                    self?.performSegue(withIdentifier: "Categories", sender: self)
-                }else {
-                    self?.alert(message: "No new users at this time. Check back later")
-                }
-            }
+            check()
         } else {
-            self.alert(message: GlobalConstants.Message.userNotInPerimeter)
+            self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: { 
+                
+                self.dismiss(animated: true, completion: nil)
+                _ = self.navigationController?.popViewController(animated: false)
+            })
         }
         
         // REMOVE on deployment
@@ -465,6 +452,10 @@ class PlaceDetailViewController: UIViewController {
             let destinationVC = segue.destination as! CategoriesViewController
             let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
             destinationVC.place = self.place
+            destinationVC.noUsers = {
+                self.dismiss(animated: true, completion: nil)
+                _ = self.navigationController?.popViewController(animated: false)
+            }
             destinationVC.checkinUserIds = userIdsSet
         }
         return super.prepare(for: segue, sender: sender)

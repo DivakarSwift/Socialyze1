@@ -57,6 +57,7 @@ class CategoriesViewController: UIViewController {
     
     let userService = UserService()
     var fromFBFriends:User?
+    var noUsers:(() -> ())?
     
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
@@ -124,15 +125,7 @@ class CategoriesViewController: UIViewController {
         view.addGestureRecognizer(gesture)
     }
     
-    func addSwipeGesture(toView view: UIView) {
-        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
-        gesture.direction = .down
-        view.addGestureRecognizer(gesture)
-    }
-    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-        dismiss(animated: true, completion: nil)
-        _ = self.navigationController?.popViewController(animated: false)
-    }
+
     
     func addTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
@@ -379,7 +372,9 @@ class CategoriesViewController: UIViewController {
         } else {
 //            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
                 self.alert(message: "No new users at this time. Check back later", okAction: {
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: false, completion: {
+                        self.noUsers?()
+                    })
                 })     
 //            } else if let nav = self.navigationController {
 //                    nav.popToRootViewController(animated: true)
@@ -419,6 +414,18 @@ class CategoriesViewController: UIViewController {
     }
 }
 
+extension CategoriesViewController {
+    //MARK:  Only for profile View
+    func addSwipeGesture(toView view: UIView) {
+        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
+        gesture.direction = .down
+        view.addGestureRecognizer(gesture)
+    }
+    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+        _ = self.navigationController?.popViewController(animated: false)
+    }
+}
 
 extension CategoriesViewController: UIPopoverControllerDelegate, UIPopoverPresentationControllerDelegate {
     
