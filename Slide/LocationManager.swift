@@ -103,13 +103,17 @@ extension SlydeLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error updating location: \(error.localizedDescription)")
-        if isNotDetermined || isDenied {return}
+        if isNotDetermined || isDenied {
+            return
+        }
         GlobalConstants.Notification.locationUpdateError.fire()
         self.delegate?.locationObtainError()
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if isNotDetermined {return}
+        if isNotDetermined {
+            return
+        }
         GlobalConstants.Notification.locationAuthorizationStatusChanged.fire()
         self.delegate?.locationPermissionChanged()
     }

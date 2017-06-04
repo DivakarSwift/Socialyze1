@@ -46,17 +46,23 @@ class ViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         
         SlydeLocationManager.shared.requestLocation()
-        
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                // Enable or disable features based on authorization.
-                if !granted {
-                    print("Something went wrong")
+        SlydeLocationManager.shared.delegate = self
+        if SlydeLocationManager.shared.isAuthorized {
+            if #available(iOS 10.0, *) {
+                let center = UNUserNotificationCenter.current()
+                center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                    // Enable or disable features based on authorization.
+                    if !granted {
+                        
+                        DispatchQueue.main.async {
+                            self.alertWithOkCancel(message: "Notification not Allowed. Would you like to open Setting?", title: "Alert", okTitle: "Open Setting", cancelTitle: "Dismiss", okAction: {
+                                UIApplication.openAppSettings()
+                            }, cancelAction: nil)
+                        }
+                    }
                 }
             }
         }
-        
         
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
@@ -277,16 +283,21 @@ extension ViewController: SlydeLocationManagerDelegate {
     }
     
     func locationPermissionChanged() {
+        
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
-            center.getNotificationSettings(completionHandler: { (setting) in
-                if setting.authorizationStatus != .authorized {
-                    // Notifications not allowed
-                    print("Notification not allowed")
-                    UIApplication.openAppSettings()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                // Enable or disable features based on authorization.
+                if !granted {
+                    DispatchQueue.main.async {
+                        self.alertWithOkCancel(message: "Notification not Allowed. Would you like to open Setting?", title: "Alert", okTitle: "Open Setting", cancelTitle: "Dismiss", okAction: {
+                            UIApplication.openAppSettings()
+                        }, cancelAction: nil)
+                    }
                 }
-            })
+            }
         }
+
     }
     
     func locationObtainError() {
