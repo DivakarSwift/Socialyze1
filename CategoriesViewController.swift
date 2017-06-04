@@ -409,6 +409,7 @@ class CategoriesViewController: UIViewController {
                 vc.chatUserName = user.profile.firstName!
                 vc.chatOppentId = user.id
                 vc.chatUser = user
+                vc.fromMatch = true
                 let nav = UINavigationController(rootViewController: vc)
                 self.present(nav, animated: true, completion: nil)
             }

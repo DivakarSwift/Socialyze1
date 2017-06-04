@@ -18,6 +18,7 @@ class ChatViewController: UIViewController {
     var chatOppentId:String?
     var chatUser:User?
     var fromSquad:Bool?
+    var fromMatch:Bool?
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
     
     var chatService = ChatService.shared
@@ -38,6 +39,10 @@ class ChatViewController: UIViewController {
     func backButtonClicked(_ button:UIBarButtonItem!){
         if let nav = self.navigationController {
             nav.popViewController(animated: true)
+            if let _ = self.fromMatch {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
+                appDelegate.window?.rootViewController = vc
+            }
         } else {
             self.dismiss(animated: true, completion: nil)
         }

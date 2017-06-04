@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 import UserNotifications
+import SwiftyJSON
 
 
 class Utilities: NSObject {
@@ -35,9 +36,11 @@ class Utilities: NSObject {
                 title = name
             }
             let body = chatItem.lastMessage ?? "Check conversation"
-            localNotif(withTitle: title, body: body, viewController: viewController)
+            var userInfo:[String:Any] = [:]
+            userInfo["chat"] = chatItem.toJSON()
+            userInfo["user"] = user?.toJSON()
+            localNotif(withTitle: title, body: body,userInfo: userInfo, viewController: viewController)
         })
-        
     }
     
     class func fireMatchedNotification(_ viewController: UIViewController, userId :String) {
@@ -53,12 +56,15 @@ class Utilities: NSObject {
         
     }
     
-    class func localNotif(withTitle title: String, body:String, viewController: UIViewController) {
+    class func localNotif(withTitle title: String, body:String, userInfo: [String:Any]? = nil, viewController: UIViewController) {
         if #available(iOS 10.0, *) {
             let center = UNUserNotificationCenter.current()
             let content = UNMutableNotificationContent()
             content.title = title
             content.body = body
+            if let userInfo = userInfo {
+                content.userInfo = userInfo
+            }
             content.categoryIdentifier = "alarm"
             content.sound = UNNotificationSound.default()
             

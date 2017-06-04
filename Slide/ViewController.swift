@@ -11,6 +11,8 @@ import UserNotifications
 import GooglePlaces
 import FloatRatingView
 import FacebookCore
+import ObjectMapper
+import SwiftyJSON
 
 class ViewController: UIViewController {
     
@@ -315,19 +317,19 @@ extension ViewController: SlydeLocationManagerDelegate {
 
 extension ViewController {
     
-    
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        
         print("Tapped in notification")
-        let accesstoken = AccessToken.current
-        if let _ = accesstoken?.authenticationToken {
-            print("Facebook Access-token available")
-            // redirect to required location
-        } else {
-            print("Facebook Access-token not found")
-            appDelegate.checkForLogin()
+        let userInfo = response.notification.request.content.userInfo
+        
+        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+            let userJson = JSON(userData)
+            let chatJson = JSON(chatData)
+            
+            if let user: User = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                self.openChat(user: user, chatItem: chatItem)
+            }
         }
     }
     
@@ -335,16 +337,52 @@ extension ViewController {
     @available(iOS 10.0, *)
     public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
+        
+        print(notification.request.content.userInfo)
+        
         print("Notification being triggered")
         //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
         //to distinguish between notifications
         if notification.request.identifier == Node.chatList.rawValue {
             completionHandler( [.alert,.sound,.badge])
-            
         }
         else if  notification.request.identifier ==  Node.matchList.rawValue {
             completionHandler( [.alert,.sound,.badge])
         }
+    }
+    
+    func openChat(user: User, chatItem :ChatItem) {
+        let accesstoken = AccessToken.current
+        if let _ = accesstoken?.authenticationToken {
+            print("Facebook Access-token available")
+            // redirect to required location
+            
+            let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+            
+            vc.fromMatch = true
+            vc.chatItem = chatItem
+            vc.chatUser = user
+            vc.chatUserName = user.profile.firstName ?? ""
+            vc.chatOppentId = user.id
+            
+            if let nav =  self.navigationController {
+                nav.pushViewController(vc, animated: true)
+            } else {
+                self.present(vc, animated: true, completion: {
+                    
+                })
+            }
+            
+        } else {
+            print("Facebook Access-token not found")
+            appDelegate.checkForLogin()
+        }
+    }
+    
+    func openMatch() {
+        let vc = UIStoryboard(name: "Matches", bundle: nil).instantiateViewController(withIdentifier: "MatchesViewController") as! MatchesViewController
+        let nav = UINavigationController(rootViewController: vc)
+        self.present(nav, animated: true, completion: nil)
     }
 }
 
