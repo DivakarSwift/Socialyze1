@@ -56,7 +56,6 @@ class ViewController: UIViewController {
                 center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                     // Enable or disable features based on authorization.
                     if !granted {
-                        
                         DispatchQueue.main.async {
                             self.alertWithOkCancel(message: "Notification not Allowed. Would you like to open Setting?", title: "Alert", okTitle: "Open Setting", cancelTitle: "Dismiss", okAction: {
                                 UIApplication.openAppSettings()

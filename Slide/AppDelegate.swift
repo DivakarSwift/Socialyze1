@@ -77,6 +77,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let token = FIRInstanceID.instanceID().token()
+        print("FCM token: \(token ?? "")")
+        if let user = Authenticator.shared.user, let token = token {
+            UserService().addGoogleToken(user: user, token: token)
+        }
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+        
+    }
+    
+    
     func checkForLogin() {
         
         let fbTokenNeedsRefrehsed = AccessToken.current?.expirationDate.timeIntervalSinceNow ?? 0 < 60*60*5

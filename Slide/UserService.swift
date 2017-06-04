@@ -22,6 +22,12 @@ class UserService: FirebaseManager {
         }
     }
     
+    func addGoogleToken(user: User, token: String) {
+        let userDict = ["googleDeviceToken":token]
+        reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
+        }
+    }
+    
     func updateUserProfileImage(user: User, image: (URL?,UIImage?), index: String, completion: @escaping (((URL?,UIImage?), Error?) -> Void)) {
         
         if let img = image.1 {

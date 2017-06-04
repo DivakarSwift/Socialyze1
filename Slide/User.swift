@@ -17,6 +17,7 @@ struct User: Mappable, Equatable {
     var id: String?
     var profile = Profile()
     var checkIn : UserCheckIn?
+    var googleDeviceToken:String?
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
     
