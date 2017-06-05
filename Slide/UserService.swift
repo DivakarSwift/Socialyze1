@@ -22,8 +22,8 @@ class UserService: FirebaseManager {
         }
     }
     
-    func addGoogleToken(user: LocalUser, token: String) {
-        let userDict = ["googleDeviceToken":token]
+    func addGoogleToken(user: LocalUser, fcmToken: String) {
+        let userDict = ["fcmToken":fcmToken]
         reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
         }
     }

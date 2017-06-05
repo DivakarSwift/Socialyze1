@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  LocalUser.swift
 //  Slide
 //
 //  Created by bibek timalsina on 3/26/17.
@@ -74,6 +74,7 @@ struct Profile: Mappable {
     var firstName:String?
     var lastName:String?
     var bio: String?
+    var fcmToken:String?
     var images: [URL] = []
     var distanceLowerBound: Double?
     var distanceUpperBound: Double?
@@ -95,6 +96,7 @@ struct Profile: Mappable {
         firstName <- map["firstName"]
         lastName <- map["lastName"]
         bio <- map["bio"]
+        fcmToken <- map["fcmToken"]
         images <- (map["images"], URLTransform())
         distanceLowerBound <- map["distanceLowerBound"]
         distanceUpperBound <- map["distanceUpperrBound"]
