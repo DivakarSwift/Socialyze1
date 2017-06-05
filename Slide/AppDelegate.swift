@@ -68,9 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            })
         } else {
             // Fallback on earlier versions
-            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert], categories: nil))
+            
         }
+        application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
         
+        application.registerForRemoteNotifications()
         
         checkForLogin()
         
@@ -79,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        let token = InstanceID.instanceID().token()
+        let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
         if let user = Authenticator.shared.user, let token = token {
             UserService().addGoogleToken(user: user, token: token)
