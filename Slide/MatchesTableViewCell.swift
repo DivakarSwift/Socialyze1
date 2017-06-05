@@ -14,9 +14,9 @@ class MatchesTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noMatchesLabel: UILabel!
     
-    var itemSelected:((User) -> ())?
+    var itemSelected:((LocalUser) -> ())?
     
-    var users = [User]() {
+    var users = [LocalUser]() {
         didSet {
             self.noMatchesLabel.isHidden = users.count > 0
             self.collectionView.isHidden = users.count == 0

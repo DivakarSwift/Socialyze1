@@ -35,7 +35,7 @@ class ProfileViewController: UIViewController {
     
     var imageTimer: Timer?
     
-    fileprivate var user: User? {
+    fileprivate var user: LocalUser? {
         didSet {
             self.editButton.isHidden = false
             self.updateBio()

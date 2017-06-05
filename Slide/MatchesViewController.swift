@@ -17,7 +17,7 @@ class MatchesViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    var matchList:[User] =  [] {
+    var matchList:[LocalUser] =  [] {
         didSet {
             self.tableView.reloadData()
         }
@@ -93,8 +93,8 @@ class MatchesViewController: UIViewController {
         }
     }
     
-    func fetchUserForChatSelected(chatItem : ChatItem) -> User?{
-        var chatUser:User?
+    func fetchUserForChatSelected(chatItem : ChatItem) -> LocalUser?{
+        var chatUser:LocalUser?
         for data in self.matchList {
             if chatItem.inUser == data.id {
                 chatUser = data
@@ -254,7 +254,7 @@ extension MatchesViewController: UITableViewDataSource {
         }
     }
     
-    func openChat(forUser user: User, chatItem: ChatItem? = nil) {
+    func openChat(forUser user: LocalUser, chatItem: ChatItem? = nil) {
         let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         vc.chatItem = chatItem
         vc.chatUser = user

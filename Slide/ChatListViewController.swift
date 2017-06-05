@@ -42,7 +42,7 @@ class ChatListViewController: UIViewController {
         }
     }
     
-    var chatUsers = [User]() {
+    var chatUsers = [LocalUser]() {
         didSet {
             self.tableView.reloadData()
         }
@@ -321,7 +321,7 @@ extension ChatListViewController: UITableViewDelegate, UITableViewDataSource {
         }, cancelAction: nil)
     }
 
-    func unMatch(user: User) {
+    func unMatch(user: LocalUser) {
         self.activityIndicator.startAnimating()
         var val = ChatItem()
         if let friend = user.id, let me = Authenticator.shared.user?.id {

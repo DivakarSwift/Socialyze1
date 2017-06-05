@@ -16,7 +16,7 @@ class MatchedViewController : UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     
     
-    var friend: User?
+    var friend: LocalUser?
     var chatItem :ChatItem? {
         didSet {
             if let user = self.friend {

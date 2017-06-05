@@ -326,7 +326,7 @@ extension ViewController {
             let userJson = JSON(userData)
             let chatJson = JSON(chatData)
             
-            if let user: User = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
                 self.openChat(user: user, chatItem: chatItem)
             }
         }
@@ -350,7 +350,7 @@ extension ViewController {
         }
     }
     
-    func openChat(user: User, chatItem :ChatItem) {
+    func openChat(user: LocalUser, chatItem :ChatItem) {
         let accesstoken = AccessToken.current
         if let _ = accesstoken?.authenticationToken {
             print("Facebook Access-token available")

@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SDKApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
 //        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
@@ -79,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
-        let token = FIRInstanceID.instanceID().token()
+        let token = InstanceID.instanceID().token()
         print("FCM token: \(token ?? "")")
         if let user = Authenticator.shared.user, let token = token {
             UserService().addGoogleToken(user: user, token: token)

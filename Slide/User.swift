@@ -9,11 +9,11 @@
 import Foundation
 import ObjectMapper
 
-func ==(lhs: User, rhs: User) -> Bool {
+func ==(lhs: LocalUser, rhs: LocalUser) -> Bool {
     return lhs.id == rhs.id
 }
 
-struct User: Mappable, Equatable {
+struct LocalUser: Mappable, Equatable {
     var id: String?
     var profile = Profile()
     var checkIn : UserCheckIn?

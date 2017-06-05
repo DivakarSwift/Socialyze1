@@ -19,7 +19,7 @@ class EditingTableViewController: UITableViewController {
     var imageToRemove:[URL] = []
     @IBOutlet weak var bioTextView: UITextView!
     var pickerTag:Int = 111
-    var user:User? {
+    var user:LocalUser? {
         didSet {
             if let images = self.user?.profile.images{
                 self.images = []
@@ -90,7 +90,7 @@ class EditingTableViewController: UITableViewController {
     }
     
     @IBAction func textFieldDidChange(_ sender: UITextField) {
-        FIRDatabase.database().reference().child("user/\(FIRAuth.auth()!.currentUser!.uid)/profile/bio").setValue(bioText.text)
+        Database.database().reference().child("user/\(Auth.auth().currentUser!.uid)/profile/bio").setValue(bioText.text)
     }
     
     @IBAction func doneNavBtn(_ sender: Any) {

@@ -13,7 +13,7 @@ import FacebookShare
 
 class CategoriesViewController: UIViewController {
     
-    var users: [User] = [] {
+    var users: [LocalUser] = [] {
         didSet {
             if let images = users.first?.profile.images {
                 self.images = images
@@ -56,7 +56,7 @@ class CategoriesViewController: UIViewController {
     }()
     
     let userService = UserService()
-    var fromFBFriends:User?
+    var fromFBFriends:LocalUser?
     var noUsers:(() -> ())?
     
     @IBOutlet weak var actionImageView: UIImageView!
@@ -190,7 +190,7 @@ class CategoriesViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func report(forUser opponent: User) {
+    private func report(forUser opponent: LocalUser) {
         let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
         reportAlert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "Remarks"
@@ -215,7 +215,7 @@ class CategoriesViewController: UIViewController {
         self.present(reportAlert, animated: true, completion: nil)
     }
     
-    private func block(forUser opponent:User) {
+    private func block(forUser opponent:LocalUser) {
         guard let myId = Authenticator.shared.user?.id else {
             self.alert(message: GlobalConstants.Message.oops)
             return
@@ -296,7 +296,7 @@ class CategoriesViewController: UIViewController {
         
     }
     
-    func removeTopUser() -> User? {
+    func removeTopUser() -> LocalUser? {
         let rejectedUser = self.users.first
         self.users = Array(users.dropFirst())
         self.changeUser()
@@ -388,7 +388,7 @@ class CategoriesViewController: UIViewController {
         }
     }
     
-    private func showMatchedPopover(opponent user: User, myId: String) {
+    private func showMatchedPopover(opponent user: LocalUser, myId: String) {
         
         let popoverVC = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "MatchedViewController") as! MatchedViewController
         

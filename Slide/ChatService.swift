@@ -25,7 +25,7 @@ class ChatService: FirebaseManager {
         chatRefIds[chat.chatId!] = ref
     }
     
-    func getChatListAndObserve(of user: User, completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
+    func getChatListAndObserve(of user: LocalUser, completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observe(.childAdded, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])
             if let chatItem: ChatItem = json.map() {
@@ -64,7 +64,7 @@ class ChatService: FirebaseManager {
     }
 
     
-    func getLastMessage(of user: User, forUserId: String,  completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
+    func getLastMessage(of user: LocalUser, forUserId: String,  completion: @escaping (ChatItem?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).child(forUserId).observeSingleEvent(of: .value, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])
             if let chatItem: ChatItem = json.map() {

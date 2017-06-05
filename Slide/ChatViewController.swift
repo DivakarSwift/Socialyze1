@@ -16,7 +16,7 @@ class ChatViewController: UIViewController {
     var chatData = [ChatData]()
     var chatUserName: String = ""
     var chatOppentId:String?
-    var chatUser:User?
+    var chatUser:LocalUser?
     var fromSquad:Bool?
     var fromMatch:Bool?
     let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .white)
@@ -208,7 +208,7 @@ class ChatViewController: UIViewController {
         }
     }
     
-    private func block(forUser opponent:User) {
+    private func block(forUser opponent:LocalUser) {
         guard let myId = Authenticator.shared.user?.id else {
             self.alert(message: GlobalConstants.Message.oops)
             return
@@ -230,7 +230,7 @@ class ChatViewController: UIViewController {
         })
     }
     
-    private func report(forUser opponent: User) {
+    private func report(forUser opponent: LocalUser) {
             let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
             reportAlert.addTextField(configurationHandler: { (textField) in
                 textField.placeholder = "Remarks"
@@ -275,7 +275,7 @@ class ChatViewController: UIViewController {
         })
     }
     
-    private func delete(user: User) {
+    private func delete(user: LocalUser) {
         self.activityIndicator.startAnimating()
         var val = ChatItem()
         if let friend = user.id, let me = Authenticator.shared.user?.id {

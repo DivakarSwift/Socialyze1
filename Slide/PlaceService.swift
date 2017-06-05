@@ -13,7 +13,7 @@ import  SwiftyJSON
 class PlaceService: FirebaseManager {
     
     func getPlaces( completion: @escaping ([Place])->(), failure: @escaping (FirebaseManagerError)->()) {
-        self.reference.child(Node.PlacesList.rawValue).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+        self.reference.child(Node.PlacesList.rawValue).observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
             if let snapshotValue = snapshot.value, let places:[Place] = JSON(snapshotValue).map() {
                 completion(places)
         } else {
@@ -22,7 +22,7 @@ class PlaceService: FirebaseManager {
         })
     }
     
-    func user(_ user: User, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
+    func user(_ user: LocalUser, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
         
         let ref1 = self.reference.child(Node.Places.rawValue).child((place.nameAddress?.replacingOccurrences(of: " ", with: ""))!).child(Node.checkIn.rawValue).child(user.id!)
         
@@ -34,21 +34,21 @@ class PlaceService: FirebaseManager {
             "fbId": user.profile.fbId!
             ]
         
-        ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+        ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: DatabaseReference) -> Void in
             
             values = [
                 "place" : place.nameAddress ?? "",
                 "placeID" : place.placeId ?? "",
                 "time" : Date().timeIntervalSince1970
             ]
-            ref2.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: FIRDatabaseReference) -> Void in
+            ref2.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: DatabaseReference) -> Void in
                 completion(error == nil, error)
             })
         })
     }
     
     
-    func user(_ user: User, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
+    func user(_ user: LocalUser, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
         guard let placeName = place.nameAddress else {
             completion(false,nil)
             return
@@ -81,7 +81,7 @@ class PlaceService: FirebaseManager {
             failure(FirebaseManagerError.noUserFound)
             return
         }
-        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).observeSingleEvent(of: .value, with: {(snapshot: FIRDataSnapshot) in
+        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.checkIn.rawValue).observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
             if let snapshotValue = snapshot.value {
                 if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
                     return json.map()

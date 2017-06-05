@@ -91,7 +91,7 @@ class PlaceDetailViewController: UIViewController {
         }
     }
     
-    var checkinUsers: [User] = [] {
+    var checkinUsers: [LocalUser] = [] {
         didSet {
             self.activityIndicator.stopAnimating()
             self.changeStatus()

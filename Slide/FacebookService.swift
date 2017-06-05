@@ -19,7 +19,7 @@ class FacebookService {
     
     private var images:[String] = []
     private var hasImageCount = -1
-    private var user:User?
+    private var user:LocalUser?
     private var friends = [FacebookFriend]()
     
     func logout() {
@@ -52,7 +52,7 @@ class FacebookService {
         }
     }
     
-    func getUserDetails(success: @escaping (User) -> (), failure: @escaping (GlobalConstants.Message)->()) {
+    func getUserDetails(success: @escaping (LocalUser) -> (), failure: @escaping (GlobalConstants.Message)->()) {
         self.getUserDetails(nextPageCursor: nil, complete: {
             success(self.user!)
         }) { (error) in
@@ -74,7 +74,7 @@ class FacebookService {
             print(json)
             if let id = json["id"].string, let firstName = json["first_name"].string, let lastName = json["last_name"].string {
                 
-                var user = User()
+                var user = LocalUser()
                 user.profile.fbId = id
                 user.profile.firstName = firstName
                 user.profile.lastName = lastName

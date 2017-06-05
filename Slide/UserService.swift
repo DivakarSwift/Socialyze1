@@ -13,30 +13,31 @@ import SwiftyJSON
 
 class UserService: FirebaseManager {
     
-    var user:User?
+    var user:LocalUser?
     
-    func saveUser(user: User, completion: @escaping CallBackWithSuccessError) {
+    func saveUser(user: LocalUser, completion: @escaping CallBackWithSuccessError) {
         let userDict = user.toJSON()
         reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
             completion(error == nil, error)
         }
     }
     
-    func addGoogleToken(user: User, token: String) {
+    func addGoogleToken(user: LocalUser, token: String) {
         let userDict = ["googleDeviceToken":token]
         reference.child(Node.user.rawValue).child(user.id!).updateChildValues(userDict) { (error, _) in
         }
     }
     
-    func updateUserProfileImage(user: User, image: (URL?,UIImage?), index: String, completion: @escaping (((URL?,UIImage?), Error?) -> Void)) {
+    func updateUserProfileImage(user: LocalUser, image: (URL?,UIImage?), index: String, completion: @escaping (((URL?,UIImage?), Error?) -> Void)) {
         
         if let img = image.1 {
             let data = UIImageJPEGRepresentation(img, 0.7)
-            let metaData = FIRStorageMetadata()
+            let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
             
             let ref = storageRef.child("image_\(user.id!)_photo\(index).jpg")
-            let uploadAction = ref.put(data!, metadata: metaData)
+            
+            let uploadAction = ref.putData(data!, metadata: metaData)
             uploadAction.observe(.progress, handler: { (snapshot) in
                 let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
                     / Double(snapshot.progress!.totalUnitCount)
@@ -88,7 +89,7 @@ class UserService: FirebaseManager {
                 guard let errorCode = (error as NSError?)?.code else {
                     return
                 }
-                guard let error = FIRStorageErrorCode(rawValue: errorCode) else {
+                guard let error = StorageErrorCode(rawValue: errorCode) else {
                     return
                 }
                 switch (error) {
@@ -102,10 +103,10 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getMe(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
-        reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+    func getMe(withId userId: String, completion: @escaping (LocalUser?, FirebaseManagerError?) -> Void) {
+        reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])
-            if let user: User = json.map() {
+            if let user: LocalUser = json.map() {
                 completion(user, nil)
             }else {
                 completion(nil, FirebaseManagerError.noUserFound)
@@ -114,10 +115,10 @@ class UserService: FirebaseManager {
     }
 
     
-    func getUser(withId userId: String, completion: @escaping (User?, FirebaseManagerError?) -> Void) {
-        reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+    func getUser(withId userId: String, completion: @escaping (LocalUser?, FirebaseManagerError?) -> Void) {
+        reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])
-            if let user: User = json.map() {
+            if let user: LocalUser = json.map() {
                 completion(user, nil)
             }else {
                 completion(nil, FirebaseManagerError.noUserFound)
@@ -125,16 +126,16 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getAllUser(completion: @escaping ([User]) -> Void) {
-        reference.child(Node.user.rawValue).observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+    func getAllUser(completion: @escaping ([LocalUser]) -> Void) {
+        reference.child(Node.user.rawValue).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             if let val = snapshot.value {
                 let json = JSON(val)
-                if let users:[User] = json.map() {
+                if let users:[LocalUser] = json.map() {
                     completion(users)
                 } else {
-                    var users:[User] = []
+                    var users:[LocalUser] = []
                     for (_,data) in json {
-                        if let user:User = data.map() {
+                        if let user:LocalUser = data.map() {
                             users.append(user)
                         }
                     }
@@ -144,7 +145,7 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getMatchListUsers(of user: User, completion: @escaping ([User]?, FirebaseManagerError?) -> ()) {
+    func getMatchListUsers(of user: LocalUser, completion: @escaping ([LocalUser]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value {
                 let matchList = JSON(value)
@@ -152,7 +153,7 @@ class UserService: FirebaseManager {
                     completion(nil, FirebaseManagerError.noDataFound)
                     return
                 }
-                var users:[User] = []
+                var users:[LocalUser] = []
                 for (key,_) in matchList {
                         self.getUser(withId: key, completion: { (user, error) in
                             if error == nil {
@@ -173,7 +174,7 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getBlockedIds(of user: User, completion: @escaping ([String]?, FirebaseManagerError?) -> ()) {
+    func getBlockedIds(of user: LocalUser, completion: @escaping ([String]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.blockedUsers.rawValue).observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
                 print(value)
@@ -190,7 +191,7 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getMatchedIds(of user: User, completion: @escaping ([String], FirebaseManagerError?) -> ()) {
+    func getMatchedIds(of user: LocalUser, completion: @escaping ([String], FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.matchList.rawValue).observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
                 print(value)
@@ -207,7 +208,7 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getChatListAndObserve(of user: User, completion: @escaping ([ChatItem]?, FirebaseManagerError?) -> ()) {
+    func getChatListAndObserve(of user: LocalUser, completion: @escaping ([ChatItem]?, FirebaseManagerError?) -> ()) {
         reference.child(Node.user.rawValue).child(user.id!).child(Node.chatList.rawValue).observe(.value, with: { (snapshot) in
             if let value = snapshot.value {
                 print(value)
@@ -229,7 +230,7 @@ class UserService: FirebaseManager {
         })
     }
     
-    func accept(user: User, myId: String, completion: @escaping(_ success: Bool, _ isMatching: Bool) -> Void) {
+    func accept(user: LocalUser, myId: String, completion: @escaping(_ success: Bool, _ isMatching: Bool) -> Void) {
         // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
         
         print("OpponentId: \(user.id!)")
@@ -280,7 +281,7 @@ class UserService: FirebaseManager {
         })
     }
     
-    func reject(user: User, myId: String, completion: @escaping() -> Void) {
+    func reject(user: LocalUser, myId: String, completion: @escaping() -> Void) {
         // reference.child(FireBaseNodes.ConnectionsPending.rawValue).queryOrderedByChild(requestType.rawValue).queryEqualToValue(ofUid)
         
         print("OpponentId: \(user.id!)")
@@ -319,11 +320,11 @@ class UserService: FirebaseManager {
         })
     }
     
-    func getReportedAndBlockedUsers(completion: @escaping ([User]) -> Void) {
+    func getReportedAndBlockedUsers(completion: @escaping ([LocalUser]) -> Void) {
         
     }
     
-    func block(user: User, myId: String, completion: @escaping CallBackWithSuccessError) {
+    func block(user: LocalUser, myId: String, completion: @escaping CallBackWithSuccessError) {
         
         guard let opponetId = user.id, let fbID = user.profile.fbId else {
             completion(false,nil)
@@ -345,7 +346,7 @@ class UserService: FirebaseManager {
         }
     }
     
-    func blockAndReport(user: User, remark: String, completion: @escaping CallBackWithSuccessError) {
+    func blockAndReport(user: LocalUser, remark: String, completion: @escaping CallBackWithSuccessError) {
         guard let me = Authenticator.shared.user?.id else {
             completion(false, FirebaseManagerError.noUserFound)
             return
@@ -359,7 +360,7 @@ class UserService: FirebaseManager {
         }
     }
     
-    func report(user: User, remark: String, completion: @escaping CallBackWithSuccessError) {
+    func report(user: LocalUser, remark: String, completion: @escaping CallBackWithSuccessError) {
         let dict = [
             "reportedBy": Authenticator.currentFIRUser!.uid,
             "remarks": remark,
@@ -399,14 +400,14 @@ class UserService: FirebaseManager {
         })
     }
     
-    private func deleteChat(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
+    private func deleteChat(userId:String , completion: @escaping (_ references : [DatabaseReference]?, _ error : Error?) -> Void) {
         // Delete ChatList
         let ref = reference.child(Node.user.rawValue).child(userId).child(Node.chatList.rawValue)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value {
                 let chatList = JSON(value)
                 var chatItems:[ChatItem] = []
-                var refs:[FIRDatabaseReference] = []
+                var refs:[DatabaseReference] = []
                 if chatList.count == 0 {
                     completion(refs,nil)
                     return
@@ -429,14 +430,14 @@ class UserService: FirebaseManager {
         })
     }
     
-    private func deleteAcceptAndMatchList(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
+    private func deleteAcceptAndMatchList(userId:String , completion: @escaping (_ references : [DatabaseReference]?, _ error : Error?) -> Void) {
         // Delete MatchList and Accept List
         let refAccept = reference.child(Node.user.rawValue).child(userId).child(Node.acceptList.rawValue)
         refAccept.observeSingleEvent(of: .value, with: { (snapshot) in
             if let value = snapshot.value {
                 let acceptList = JSON(value)
                 var acceptedUser:[String] = []
-                var refs:[FIRDatabaseReference] = []
+                var refs:[DatabaseReference] = []
                 if acceptList.count == 0 {
                     completion(refs,nil)
                     return
@@ -457,10 +458,10 @@ class UserService: FirebaseManager {
         })
     }
     
-    private func deleteCheckIns(userId:String , completion: @escaping (_ references : [FIRDatabaseReference]?, _ error : Error?) -> Void) {
+    private func deleteCheckIns(userId:String , completion: @escaping (_ references : [DatabaseReference]?, _ error : Error?) -> Void) {
         // Delete MatchList and Accept List
         
-        var PlacesRefs:[FIRDatabaseReference] = []
+        var PlacesRefs:[DatabaseReference] = []
         if let places = Authenticator.shared.places {
             places.forEach({ (place) in
                 if let placeName = place.nameAddress {
@@ -477,7 +478,7 @@ class UserService: FirebaseManager {
     }
     
     func deleteUser(userId:String , completion: @escaping CallBackWithSuccessError)  {
-        var firebaseRefereces:[FIRDatabaseReference] = []
+        var firebaseRefereces:[DatabaseReference] = []
         self.deleteChat(userId: userId, completion: { (chatRefs,error) in
             if let error = error {
                 completion(false, error)
