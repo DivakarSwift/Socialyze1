@@ -208,7 +208,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let user = Authenticator.shared.user, let token = token {
             UserService().addGoogleToken(user: user, fcmToken: token)
         }
-        
     }
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {

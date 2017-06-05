@@ -131,7 +131,14 @@ class Authenticator {
                             var userValue = LocalUser()
                             if let fbUser = self.user {
                                 userValue = fbUser
+                                
                             }
+                            let token = Messaging.messaging().fcmToken
+                            print("FCM token: \(token ?? "")")
+                            if let token = token {
+                                userValue.fcmToken = token
+                            }
+                            
                             userValue.id = Authenticator.currentFIRUser?.uid
                             userValue.profile.fbId = AccessToken.current?.userId
                             print("The list of photo urls are:")
@@ -164,6 +171,11 @@ class Authenticator {
                             })
                         } else {
                             Authenticator.shared.user = user
+                            let token = Messaging.messaging().fcmToken
+                            print("FCM token: \(token ?? "")")
+                            if let user = Authenticator.shared.user, let fcmToken = token {
+                                UserService().addGoogleToken(user: user, fcmToken: fcmToken)
+                            }
                             GlobalConstants.UserDefaultKey.firstTimeLogin.set(value: true)
                             self.delegate?.didSignInUser()
                         }

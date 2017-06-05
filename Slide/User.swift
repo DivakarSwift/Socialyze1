@@ -17,7 +17,7 @@ struct LocalUser: Mappable, Equatable {
     var id: String?
     var profile = Profile()
     var checkIn : UserCheckIn?
-    var googleDeviceToken:String?
+    var fcmToken:String?
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
     
@@ -30,6 +30,7 @@ struct LocalUser: Mappable, Equatable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         profile <- map["profile"]
+        fcmToken <- map["fcmToken"]
         checkIn <- map[Node.checkIn.rawValue]
         userWhoBlockedMe <- map["blockedByUsers"]
     }
