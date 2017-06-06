@@ -81,6 +81,5 @@ class MatchedViewController : UIViewController {
             self.backToCheckIn?(self.chatItem)
         })
     }
-    
 }
 

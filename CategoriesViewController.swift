@@ -317,6 +317,7 @@ class CategoriesViewController: UIViewController {
                 
                 if isMatching {
                     self?.showMatchedPopover(opponent: acceptedUser, myId: myId)
+                    self?.fireMatchNotification(user: acceptedUser)
                 } else {
                     _ = self?.removeTopUser()
                 }
@@ -418,6 +419,25 @@ class CategoriesViewController: UIViewController {
             }
         }
         self.present(popoverVC,animated: true,completion: nil)
+    }
+    
+    private func fireMatchNotification(user:LocalUser) {
+        var parameters:[String:Any] = [:]
+        var userInfo:[String:Any] = [:]
+        userInfo["user"] = Authenticator.shared.user?.toJSON()
+        
+        var header:[String:Any] = [:]
+        header["Authorization"] = GlobalConstants.APIKeys.googleLegacyServerKey
+        
+        parameters["notification"] = ["title": "Match",
+                                      "body": Authenticator.shared.user?.profile.firstName]
+        parameters["to"] = user.fcmToken
+        parameters["collapse_key"] = "New_match"
+        parameters["data"] = userInfo
+        parameters["priority"] = "high"
+        //        parameters["time_to_live"] = "600"
+        
+        Utilities.firePushNotification(with: parameters)
     }
 }
 

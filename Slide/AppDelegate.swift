@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         Messaging.messaging().delegate = self
         
+        UIApplication.shared.applicationIconBadgeNumber = 0
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
 //        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
