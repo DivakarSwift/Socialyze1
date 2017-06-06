@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1066081493702-lk95mie5i09drkhi7fbe5ujpqu7c07cp.apps.googleusercontent.com</string>
+	<string>1066081493702-d4i0uhf8vvd6pk745tujbje5f3eipbk6.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1066081493702-lk95mie5i09drkhi7fbe5ujpqu7c07cp</string>
+	<string>com.googleusercontent.apps.1066081493702-d4i0uhf8vvd6pk745tujbje5f3eipbk6</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCaV6MN63wUuFPhPFD7_unwUQCCm3eHxnc</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.socialyzeapp.Socialyze</string>
+	<string>com.socialyzeapp.socialyze</string>
 	<key>PROJECT_ID</key>
 	<string>socialyze-72c6a</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1066081493702:ios:1a1537f87ada6561</string>
+	<string>1:1066081493702:ios:5fb7ffa2397babdb</string>
 	<key>DATABASE_URL</key>
 	<string>https://socialyze-72c6a.firebaseio.com</string>
 </dict>

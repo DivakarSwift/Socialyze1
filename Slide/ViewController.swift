@@ -99,8 +99,8 @@ class ViewController: UIViewController {
         
         getPlaces()
                 
-        ChatService.shared.observeChatList(self)
-        ChatService.shared.observeMatchList(self)
+//        ChatService.shared.observeChatList(self)
+//        ChatService.shared.observeMatchList(self)
         
     }
     

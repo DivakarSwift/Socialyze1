@@ -21,7 +21,6 @@
 		1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546591EA1C2E300D726E8 /* FacebookService.swift */; };
 		1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */; };
 		1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65465D1EA255C800D726E8 /* CheckInModel.swift */; };
-		1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */; };
 		1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DC1E9CA584004B12FC /* LocationManager.swift */; };
 		1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DE1E9CA5AF004B12FC /* Constants.swift */; };
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
@@ -53,6 +52,7 @@
 		F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */; };
 		F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */; };
 		F68AB57A1EDFCB9100D4AB96 /* AdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */; };
+		F68DD4031EE6B4F500614F52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F68DD4021EE6B4F500614F52 /* GoogleService-Info.plist */; };
 		FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC19367C1E70FB85009F2912 /* Profile.storyboard */; };
 		FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC19367F1E70FC01009F2912 /* ProfileViewController.swift */; };
 		FC1936821E710463009F2912 /* EditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1936811E710463009F2912 /* EditingViewController.swift */; };
@@ -82,7 +82,6 @@
 		1F6546591EA1C2E300D726E8 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
 		1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
 		1F65465D1EA255C800D726E8 /* CheckInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInModel.swift; sourceTree = "<group>"; };
-		1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F9F02DC1E9CA584004B12FC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1F9F02DE1E9CA5AF004B12FC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -117,6 +116,7 @@
 		F657EDCE1ECC5DD200D8E8BB /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdsViewController.swift; sourceTree = "<group>"; };
+		F68DD4021EE6B4F500614F52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FC19367C1E70FB85009F2912 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		FC19367F1E70FC01009F2912 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC1936811E710463009F2912 /* EditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditingViewController.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 				FC7A24211E695F56004C9E44 /* Assets.xcassets */,
 				FC7A24231E695F56004C9E44 /* LaunchScreen.storyboard */,
 				FC7A24261E695F56004C9E44 /* Info.plist */,
-				1F9885111E82BF5100CD2B59 /* GoogleService-Info.plist */,
+				F68DD4021EE6B4F500614F52 /* GoogleService-Info.plist */,
 				F64ED4CF1ECD66DF0064FB74 /* Places.xcdatamodeld */,
 			);
 			name = Resources;
@@ -413,6 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68DD4031EE6B4F500614F52 /* GoogleService-Info.plist in Resources */,
 				FC1936851E7104D4009F2912 /* Matches.storyboard in Resources */,
 				FC7A24251E695F56004C9E44 /* LaunchScreen.storyboard in Resources */,
 				FC5219831E7011DC00EDF19A /* Categories.storyboard in Resources */,
@@ -425,7 +426,6 @@
 				1F1E553A1EA8A17F00748894 /* Chat.storyboard in Resources */,
 				F4A5943C1EE3DB44003631EE /* indicator_149.gif in Resources */,
 				F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */,
-				1F9885121E82BF5100CD2B59 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
