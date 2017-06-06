@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Firebase
+import SwiftyJSON
 import FacebookCore
 import GoogleMaps
 import GooglePlaces
@@ -236,7 +237,14 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // Print full message.
-        print(userInfo)
+        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+            let userJson = JSON(userData)
+            let chatJson = JSON(chatData)
+            
+            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                Utilities.openChat(user: user, chatItem: chatItem)
+            }
+        }
         
         // Change this to your preferred presentation option
         completionHandler([])

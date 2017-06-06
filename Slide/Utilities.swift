@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FacebookCore
 import UIKit
 import Kingfisher
 import UserNotifications
@@ -99,6 +100,45 @@ class Utilities: NSObject {
         })
         task.resume()
     }
+    
+    class func openChat(user: LocalUser, chatItem :ChatItem) {
+        let accesstoken = AccessToken.current
+        if let _ = accesstoken?.authenticationToken {
+            print("Facebook Access-token available")
+            // redirect to required location
+            
+            let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+            
+            vc.fromMatch = true
+            vc.chatItem = chatItem
+            vc.chatUser = user
+            vc.chatUserName = user.profile.firstName ?? ""
+            vc.chatOppentId = user.id
+            
+            let nav = UINavigationController(rootViewController: vc)
+            appDelegate.window?.rootViewController = nav
+//            if let nav =  self.navigationController {
+//                nav.pushViewController(vc, animated: true)
+//            } else {
+//                self.present(vc, animated: true, completion: {
+//                    
+//                })
+//            }
+            
+        } else {
+            print("Facebook Access-token not found")
+            appDelegate.checkForLogin()
+        }
+    }
+    
+    class func openMatch() {
+        let vc = UIStoryboard(name: "Matches", bundle: nil).instantiateViewController(withIdentifier: "MatchesViewController") as! MatchesViewController
+        let nav = UINavigationController(rootViewController: vc)
+        
+        appDelegate.window?.rootViewController = nav
+//        self.present(nav, animated: true, completion: nil)
+    }
+
     
     class func localNotif(withTitle title: String, body:String, userInfo: [String:Any]? = nil, viewController: UIViewController) {
         if #available(iOS 10.0, *) {

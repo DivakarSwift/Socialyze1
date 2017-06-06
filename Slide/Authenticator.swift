@@ -200,16 +200,26 @@ class Authenticator {
     
     func logout() {
         
-        LoginManager().logOut() //facebook logout
-        GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
-        ChatService.shared.logout()
-        
-        do {
-            try Auth.auth().signOut()
-            self.delegate?.didLogoutUser()
-        }catch {
-            self.delegate?.didOccurAuthentication(error: AuthenticationError.logoutFailed(with: error))
-            doLog("Error \(error)")
+        if let userId = self.user?.id {
+            let ref = FirebaseManager().reference.child(Node.user.rawValue).child(userId).child("fcmToken")
+            ref.removeValue { (error, _) in
+                if let error = error {
+                    self.delegate?.didOccurAuthentication(error: AuthenticationError.logoutFailed(with: error))
+                    doLog("Error \(error)")
+                } else {
+                    LoginManager().logOut() //facebook logout
+                    GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
+                    ChatService.shared.logout()
+                    
+                    do {
+                        try Auth.auth().signOut()
+                        self.delegate?.didLogoutUser()
+                    }catch {
+                        self.delegate?.didOccurAuthentication(error: AuthenticationError.logoutFailed(with: error))
+                        doLog("Error \(error)")
+                    }
+                }
+            }
         }
     }
     
