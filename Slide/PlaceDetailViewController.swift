@@ -307,10 +307,10 @@ class PlaceDetailViewController: UIViewController {
     }
     
     func locationUpdated() {
-        if let distance = getDistanceToUser() {
+        if let distance = getDistanceToUser(), let size = place?.size {
             let text: String
-            if distance <= thresholdRadius { // 100 ft
-                text = "less than 100ft"
+            if distance <= smallRadius {
+                text = "less than 75ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
                 if self.isCheckedIn {
@@ -319,7 +319,37 @@ class PlaceDetailViewController: UIViewController {
                         
                     }
                 }
-            }else {
+            } else if distance <= mediumRadius && size == 2 {
+                text = "less than 200ft"
+                self.distanceConstraint.constant = 0
+                self.checkMarkImageView.isHidden = false
+                if self.isCheckedIn {
+                    self.isCheckedIn = false
+                    self.checkIn {
+                        
+                    }
+                }
+            }  else if distance <= largeRadius  && size == 3 {
+                text = "less than 500ft"
+                self.distanceConstraint.constant = 0
+                self.checkMarkImageView.isHidden = false
+                if self.isCheckedIn {
+                    self.isCheckedIn = false
+                    self.checkIn {
+                        
+                    }
+                }
+            } else if distance <= hugeRadius  && size == 4 {
+                text = "less than 1000ft"
+                self.distanceConstraint.constant = 0
+                self.checkMarkImageView.isHidden = false
+                if self.isCheckedIn {
+                    self.isCheckedIn = false
+                    self.checkIn {
+                        
+                    }
+                }
+            } else {
                 self.distanceConstraint.constant = 150
                 self.checkMarkImageView.isHidden = true
                 let ft = distance * 3.28084
