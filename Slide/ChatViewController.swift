@@ -174,12 +174,14 @@ class ChatViewController: UIViewController {
         var header:[String:Any] = [:]
         header["Authorization"] = GlobalConstants.APIKeys.googleLegacyServerKey
         
-        parameters["notification"] = ["title": chatUser?.profile.name,
+        let myName = Authenticator.shared.user?.profile.name ?? "User"
+        parameters["notification"] = ["title": myName,
                                       "body": message.message]
         parameters["to"] = chatUser?.fcmToken
         parameters["collapse_key"] = "New_message"
         parameters["data"] = userInfo
         parameters["priority"] = "high"
+        parameters["sound"] = "default"
 //        parameters["time_to_live"] = "600"
         
         Utilities.firePushNotification(with: parameters)
