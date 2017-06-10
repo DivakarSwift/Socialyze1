@@ -243,6 +243,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
             
             if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
                 Utilities.openChat(user: user, chatItem: chatItem)
+            } else {
+                Utilities.openMatch()
             }
         }
         
@@ -265,6 +267,8 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         completionHandler()
     }
+    
+    
 }
 // [END ios_10_message_handling]
 

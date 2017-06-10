@@ -103,7 +103,7 @@ class Utilities: NSObject {
     
     class func openChat(user: LocalUser, chatItem :ChatItem) {
         let accesstoken = AccessToken.current
-        if let _ = accesstoken?.authenticationToken {
+//        if let _ = accesstoken?.authenticationToken {
             print("Facebook Access-token available")
             // redirect to required location
             
@@ -125,10 +125,10 @@ class Utilities: NSObject {
 //                })
 //            }
             
-        } else {
-            print("Facebook Access-token not found")
-            appDelegate.checkForLogin()
-        }
+//        } else {
+//            print("Facebook Access-token not found")
+//            appDelegate.checkForLogin()
+//        }
     }
     
     class func openMatch() {
