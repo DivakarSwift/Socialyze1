@@ -155,7 +155,7 @@ class ChatListViewController: UIViewController {
     }
     
     private func openMessage() {
-        let text = "Hey! Meet me with Socialyzeapp.com!"
+        let text = "Hey! Meet me with https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8 "
         
         
         if !MFMessageComposeViewController.canSendText() {
@@ -184,8 +184,8 @@ class ChatListViewController: UIViewController {
         
         
         // Please change this two urls accordingly
-        let appLinkUrl:URL = URL(string: "http://yourwebpage.com")!
-        let previewImageUrl:URL = URL(string: "http://yourwebpage.com/preview-image.png")!
+        let appLinkUrl:URL = URL(string: "https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8")!
+        let previewImageUrl:URL = URL(string: "http://socialyzeapp.com/wp-content/uploads/2017/03/logo-128p.png")!
         
         var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)
         inviteContent.appLink = appLinkUrl
