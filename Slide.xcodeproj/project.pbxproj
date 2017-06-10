@@ -213,9 +213,9 @@
 		1F6546551EA1C1D000D726E8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F4A594351EE3DB44003631EE /* indicator_75.gif */,
-				F4A594361EE3DB44003631EE /* indicator_40.gif */,
 				F4A594371EE3DB44003631EE /* indicator_20.gif */,
+				F4A594361EE3DB44003631EE /* indicator_40.gif */,
+				F4A594351EE3DB44003631EE /* indicator_75.gif */,
 				F4A594381EE3DB44003631EE /* indicator_149.gif */,
 				FC7A24211E695F56004C9E44 /* Assets.xcassets */,
 				FC7A24231E695F56004C9E44 /* LaunchScreen.storyboard */,

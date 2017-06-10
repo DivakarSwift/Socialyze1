@@ -548,7 +548,7 @@ extension PlaceDetailViewController : MFMessageComposeViewControllerDelegate, UI
         
         
         // Please change this two urls accordingly
-        let appLinkUrl:URL = URL(string: "https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8")!
+        let appLinkUrl:URL = URL(string: GlobalConstants.urls.itunesLink)!
         let previewImageUrl:URL = URL(string: "http://socialyzeapp.com/wp-content/uploads/2017/03/logo-128p.png")!
         
         var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)

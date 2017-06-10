@@ -176,12 +176,13 @@ class ChatViewController: UIViewController {
         
         let myName = Authenticator.shared.user?.profile.name ?? "User"
         parameters["notification"] = ["title": myName,
-                                      "body": message.message]
+                                      "body": message.message,
+                                      "sound": "default"
+        ]
         parameters["to"] = chatUser?.fcmToken
         parameters["collapse_key"] = "New_message"
         parameters["data"] = userInfo
         parameters["priority"] = "high"
-        parameters["sound"] = "default"
 //        parameters["time_to_live"] = "600"
         
         Utilities.firePushNotification(with: parameters)

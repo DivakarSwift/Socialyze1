@@ -163,14 +163,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-         Messaging.messaging().appDidReceiveMessage(userInfo)
+//         Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
+        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+            let userJson = JSON(userData)
+            print(userJson)
+            let chatJson = JSON(chatData)
+            print(chatJson)
+            
+            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                Utilities.openChat(user: user, chatItem: chatItem)
+            }
+        } else {
+            Utilities.openMatch()
+        }
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -179,14 +190,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-         Messaging.messaging().appDidReceiveMessage(userInfo)
+//         Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        print(userInfo)
+        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+            let userJson = JSON(userData)
+            print(userJson)
+            let chatJson = JSON(chatData)
+            print(chatJson)
+            
+            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                Utilities.openChat(user: user, chatItem: chatItem)
+            }
+        } else {
+            Utilities.openMatch()
+        }
         
         completionHandler(UIBackgroundFetchResult.newData)
     }
@@ -237,19 +259,19 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // Print full message.
-        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
-            let userJson = JSON(userData)
-            let chatJson = JSON(chatData)
-            
-            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
-                Utilities.openChat(user: user, chatItem: chatItem)
-            } else {
-                Utilities.openMatch()
-            }
-        }
+//        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+//            let userJson = JSON(userData)
+//            let chatJson = JSON(chatData)
+//            
+//            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+//                Utilities.openChat(user: user, chatItem: chatItem)
+//            } else {
+//                Utilities.openMatch()
+//            }
+//        }
         
         // Change this to your preferred presentation option
-        completionHandler([])
+        completionHandler([.alert,.badge, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -263,7 +285,19 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // Print full message.
-        print(userInfo)
+        // Print full message.
+        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+            let userJson = JSON(userData)
+            print(userJson)
+            let chatJson = JSON(chatData)
+            print(chatJson)
+            
+            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                Utilities.openChat(user: user, chatItem: chatItem)
+            }
+        } else {
+            Utilities.openMatch()
+        }
         
         completionHandler()
     }
