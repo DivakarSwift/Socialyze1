@@ -106,6 +106,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Socialyze"
+        UIApplication.shared.isStatusBarHidden = false
         self.navigationController?.navigationBar.isHidden = false
     }
     
