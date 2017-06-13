@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,27 +62,37 @@
                                     <constraint firstItem="yAZ-ls-no2" firstAttribute="leading" secondItem="d1w-x1-StJ" secondAttribute="leading" id="oqe-Mf-aX2"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="goF-SG-JG0">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="goF-SG-JG0">
                                 <rect key="frame" x="143" y="656" width="128" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6UF-7x-Urj">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqg-lP-xSa">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6UF-7x-Urj">
+                                                <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6UF-7x-Urj" secondAttribute="height" multiplier="1:1" id="xCK-q0-ukW"/>
+                                                    <constraint firstAttribute="height" constant="40" id="zQx-ce-gDW"/>
+                                                </constraints>
+                                                <state key="normal" image="ladybird"/>
+                                                <connections>
+                                                    <action selector="matchTouched:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="ttY-BU-MU2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="0Ao-Z4-gOv"/>
-                                            <constraint firstAttribute="width" constant="60" id="8RO-Sc-WAl"/>
+                                            <constraint firstItem="6UF-7x-Urj" firstAttribute="centerY" secondItem="kqg-lP-xSa" secondAttribute="centerY" id="Ssd-oo-Mdn"/>
+                                            <constraint firstItem="6UF-7x-Urj" firstAttribute="centerX" secondItem="kqg-lP-xSa" secondAttribute="centerX" id="wG1-n9-qCu"/>
                                         </constraints>
-                                        <state key="normal" image="ladybird.png"/>
-                                        <connections>
-                                            <action selector="matchTouched:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="ttY-BU-MU2"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YP-ZS-lSh">
                                         <rect key="frame" x="68" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="SJD-VU-iDe"/>
                                             <constraint firstAttribute="width" constant="60" id="Sf8-Lf-d4e"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="thehomebutton.png"/>
+                                        <state key="normal" title="Button" image="thehomebutton"/>
                                         <connections>
                                             <segue destination="lrU-wq-ast" kind="unwind" customClass="CustomSwipeUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="h5g-i3-hk2"/>
                                         </connections>
@@ -565,7 +575,7 @@
     <resources>
         <image name="crossmark" width="204" height="204"/>
         <image name="editbutton.png" width="128" height="128"/>
-        <image name="ladybird.png" width="149" height="149"/>
-        <image name="thehomebutton.png" width="45" height="45"/>
+        <image name="ladybird" width="149" height="149"/>
+        <image name="thehomebutton" width="267" height="267"/>
     </resources>
 </document>

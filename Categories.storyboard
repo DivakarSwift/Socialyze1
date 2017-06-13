@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,20 +28,34 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-XG-7I6" userLabel="HomebugStack View">
                                 <rect key="frame" x="100" y="471" width="120" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-Rb-cf3">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XP0-Z9-STb">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                        <state key="normal" image="ladybird.png"/>
-                                        <connections>
-                                            <segue destination="Q5v-td-E0K" kind="show" identifier="openMatches" id="vGy-V4-hxx"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMO-Rb-cf3">
+                                                <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="4NA-ZB-5qc"/>
+                                                    <constraint firstAttribute="width" secondItem="nMO-Rb-cf3" secondAttribute="height" id="A8E-VM-5yN"/>
+                                                </constraints>
+                                                <state key="normal" image="ladybird"/>
+                                                <connections>
+                                                    <segue destination="Q5v-td-E0K" kind="show" identifier="openMatches" id="vGy-V4-hxx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="nMO-Rb-cf3" firstAttribute="centerY" secondItem="XP0-Z9-STb" secondAttribute="centerY" id="Nzx-Ob-A3H"/>
+                                            <constraint firstItem="nMO-Rb-cf3" firstAttribute="centerX" secondItem="XP0-Z9-STb" secondAttribute="centerX" id="eiA-Gw-Qqe"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAf-tw-I4N">
                                         <rect key="frame" x="60" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="8oh-ja-fZz"/>
                                             <constraint firstAttribute="width" secondItem="hAf-tw-I4N" secondAttribute="height" multiplier="1:1" id="l45-mU-vDt"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="thehomebutton.png"/>
+                                        <state key="normal" title="Button" image="thehomebutton"/>
                                         <connections>
                                             <segue destination="sBn-x1-vpJ" kind="show" identifier="openMain" id="DK4-OY-Xuz"/>
                                         </connections>
@@ -226,7 +240,7 @@
     <resources>
         <image name="checkmark" width="204" height="204"/>
         <image name="exclamation.png" width="64" height="64"/>
-        <image name="ladybird.png" width="149" height="149"/>
-        <image name="thehomebutton.png" width="45" height="45"/>
+        <image name="ladybird" width="149" height="149"/>
+        <image name="thehomebutton" width="267" height="267"/>
     </resources>
 </document>
