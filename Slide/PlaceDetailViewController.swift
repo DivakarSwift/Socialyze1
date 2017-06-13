@@ -58,6 +58,17 @@ class PlaceDetailViewController: UIViewController {
     let Elong3 = -82.923034
     let Elat4 = 40.054964
     let Elong4 = -82.906963
+    
+    let PFPlat1 = 39.971492
+    let PFPlong1 = -83.002396
+    let PFPlat2 = 39.965752
+    let PFPlong2 = -83.001344
+    let PFPlat3 = 39.961838
+    let PFPlong3 = -83.003726
+    let PFPlat4 = 39.957233
+    let PFPlong4 = -83.004649
+    
+    
     var adsIndex:Int = 0
     
     private var isCheckedIn = false
@@ -254,6 +265,8 @@ class PlaceDetailViewController: UIViewController {
         } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
             check()
         } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
+                check()
+        } else if (place?.nameAddress)! == "Pride Festival & Parade" && (SlydeLocationManager.shared.distanceFromUser(lat: PFPlat1, long: PFPlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat2, long: PFPlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat3, long: PFPlong3)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat4, long: PFPlong4)! < hugeRadius) {
                 check()
         } else if (place?.early)! > 0 {
             check()
