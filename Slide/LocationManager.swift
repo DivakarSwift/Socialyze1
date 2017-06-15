@@ -21,7 +21,7 @@ class SlydeLocationManager: NSObject {
     let manager = CLLocationManager()
     weak var delegate: SlydeLocationManagerDelegate?
     // 40.00313,-83.00782
-    fileprivate var location: CLLocation? = CLLocation(latitude: 39.997957, longitude: -83.0085650)
+    fileprivate var location: CLLocation? = CLLocation(latitude: 40.005088, longitude: -83.008432)
     //lat: 39.997957, long: -83.0085650))
     
     fileprivate var shouldGetLocationContiniously = false
