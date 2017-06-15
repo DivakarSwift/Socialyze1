@@ -185,13 +185,12 @@ class ChatListViewController: UIViewController {
         
         // Please change this two urls accordingly
 //        let appLinkUrl:URL = URL(string: "https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8")!
-        let appLinkUrl:URL = URL(string: GlobalConstants.urls.itunesLink)!
+        let appLinkUrl:URL = URL(string: "https://fb.me/1351482471639007")!//GlobalConstants.urls.itunesLink)!
         
         let previewImageUrl:URL = URL(string: "http://socialyzeapp.com/wp-content/uploads/2017/03/logo-128p.png")!
         
         var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)
         inviteContent.previewImageURL = previewImageUrl
-        
         
         let inviteDialog = AppInvite.Dialog(invite: inviteContent)
         do {
