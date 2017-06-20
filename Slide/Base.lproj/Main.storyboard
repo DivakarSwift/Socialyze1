@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Z2Y-N2-6bc">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -329,7 +329,7 @@
             <objects>
                 <navigationController storyboardIdentifier="mainNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ddF-1J-eb0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="apb-Db-fU9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="apb-Db-fU9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -477,7 +477,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WPc-Gh-Xg7" id="ygQ-E1-Ls6">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -626,16 +626,6 @@
                                 <rect key="frame" x="157" y="697" width="100" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swiping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL8-gh-caI">
-                                <rect key="frame" x="170" y="695.66666666666652" width="74" height="20.333333333333371"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="74" id="pfv-E4-ghB"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -654,7 +644,6 @@
                             <constraint firstAttribute="trailing" secondItem="ecm-p5-5NR" secondAttribute="trailing" id="Xf8-2H-h4H"/>
                             <constraint firstItem="yGZ-eT-m4p" firstAttribute="centerY" secondItem="dpq-ck-TJJ" secondAttribute="centerY" id="Xqx-bI-7gU"/>
                             <constraint firstItem="vfI-jG-jHP" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="Y0i-NV-2jI"/>
-                            <constraint firstItem="cyB-6I-bS5" firstAttribute="centerX" secondItem="SL8-gh-caI" secondAttribute="centerX" id="Zy5-Lt-dum"/>
                             <constraint firstAttribute="trailing" secondItem="vfI-jG-jHP" secondAttribute="trailing" id="b5K-OG-xAp"/>
                             <constraint firstItem="HtE-1a-ofZ" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="bCN-c6-xja"/>
                             <constraint firstItem="yJb-qJ-ptO" firstAttribute="top" secondItem="V1k-db-Ndc" secondAttribute="bottom" constant="5" id="bCw-xE-nK2"/>
@@ -664,7 +653,6 @@
                             <constraint firstItem="iKt-3l-l3T" firstAttribute="top" secondItem="Axf-Ag-CCA" secondAttribute="bottom" id="e4E-Vn-Lv5"/>
                             <constraint firstItem="cyB-6I-bS5" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" constant="157" id="fSU-zy-1n0"/>
                             <constraint firstItem="vfI-jG-jHP" firstAttribute="top" secondItem="vzG-qA-tRM" secondAttribute="bottom" id="fpm-AV-1nN"/>
-                            <constraint firstAttribute="bottom" secondItem="SL8-gh-caI" secondAttribute="bottom" constant="20" symbolic="YES" id="heh-Fw-jud"/>
                             <constraint firstItem="ecm-p5-5NR" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="hlR-ta-gBS"/>
                             <constraint firstItem="yGZ-eT-m4p" firstAttribute="leading" secondItem="dpq-ck-TJJ" secondAttribute="leading" id="nAX-PD-cN0"/>
                             <constraint firstItem="ecm-p5-5NR" firstAttribute="top" secondItem="vfI-jG-jHP" secondAttribute="bottom" id="nyq-2i-yir"/>
@@ -690,7 +678,6 @@
                         <outlet property="placeDetailLbl" destination="l5V-6x-JJM" id="Hka-5V-MRk"/>
                         <outlet property="placeImageView" destination="HtE-1a-ofZ" id="3L7-F4-GEm"/>
                         <outlet property="placeNameAddressLbl" destination="cMk-Hz-1UU" id="Hyg-3Q-5ro"/>
-                        <outlet property="swipingLabel" destination="SL8-gh-caI" id="Ejt-ve-WST"/>
                         <segue destination="35w-DO-SmY" kind="show" identifier="Categories" id="vJs-Ew-t4C"/>
                     </connections>
                 </viewController>
