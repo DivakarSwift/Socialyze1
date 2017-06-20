@@ -125,9 +125,9 @@ class PlaceDetailViewController: UIViewController {
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
         
-        swipingLabel.layer.shadowOpacity = 1
-        swipingLabel.layer.shadowRadius = 3
-        swipingLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        //swipingLabel.layer.shadowOpacity = 1
+        //swipingLabel.layer.shadowRadius = 3
+        //swipingLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         let image = place?.secondImage ?? place?.mainImage ?? ""
         self.hideControls(image: image, label: place?.bio)
         self.placeNameAddressLbl.text = place?.nameAddress
