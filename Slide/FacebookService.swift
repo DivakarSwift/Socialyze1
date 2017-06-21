@@ -9,6 +9,7 @@
 import Foundation
 import FacebookCore
 import SwiftyJSON
+import ObjectMapper
 
 class FacebookService {
     private init() {
@@ -34,6 +35,29 @@ class FacebookService {
         }else {
             return false
         }
+    }
+    
+    func getAccessToken() -> AccessToken? {
+        guard let fbtoken:[String:Any] = GlobalConstants.UserDefaultKey.fbAccessToken.value() else {
+            return nil
+        }
+        let json = JSON(fbtoken)
+        guard let token:FacebookAccessToken = json.map() else {
+            return nil
+        }
+        var expiryDate:Date = Date()
+        var refreshDate:Date = Date()
+        if let date = token.expirationDate {
+           expiryDate = Utilities.returnDate(ofValue: date)!
+        }
+        if let date = token.refreshDate {
+            refreshDate = Utilities.returnDate(ofValue: date)!
+        }
+        
+        let accesstoken = AccessToken(appId: token.appId!, authenticationToken: token.authenticationToken!, userId: token.userId, refreshDate: refreshDate, expirationDate: expiryDate)
+        
+        AccessToken.current = accesstoken
+        return AccessToken.current
     }
     
     func isUserFriendsPermissionGiven() -> Bool {
@@ -96,11 +120,11 @@ class FacebookService {
     }
     
     private func createGraphRequestAndStart(forPath path: String, params: [String : Any] = [:], httpMethod: GraphRequestHTTPMethod = .GET, success: @escaping (GraphResponse) -> (), failure: @escaping (GlobalConstants.Message)->()) {
-        let accesstoken = AccessToken.current
+        var accesstoken = AccessToken.current
         if let _ = AccessToken.current?.authenticationToken {
             print("Facebook Access-token available")
         } else {
-            print("Facebook Access-token not found")
+             accesstoken = self.getAccessToken()
         }
         
         let graphRequest = GraphRequest.init(graphPath: path, parameters: params, accessToken: accesstoken, httpMethod: .GET, apiVersion: .defaultVersion)

@@ -75,8 +75,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func checkForLogin() {
         
-        let fbTokenNeedsRefrehsed = AccessToken.current?.expirationDate.timeIntervalSinceNow ?? 0 < 60*60*5
-        
+        AccessToken.current = FacebookService.shared.getAccessToken()
+        let expiryTime = AccessToken.current?.expirationDate.timeIntervalSinceNow
+        let fbTokenNeedsRefrehsed =  (expiryTime ?? 0) < 60*60*5
         
         if Authenticator.isUserLoggedIn, let loggedInAlready: Bool = GlobalConstants.UserDefaultKey.firstTimeLogin.value(), loggedInAlready && !fbTokenNeedsRefrehsed {
             let identifier = "mainNav"
@@ -89,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
                 self.window?.rootViewController = vc
             })
-        }else {
+        } else {
             let identifier = "LoginViewController"
             Authenticator.shared.logout()
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)

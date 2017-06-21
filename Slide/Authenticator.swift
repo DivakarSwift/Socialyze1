@@ -51,6 +51,7 @@ class Authenticator {
     static let shared = Authenticator()
     
     var user: LocalUser?
+    var fbToken: FacebookAccessToken?
     var facebookProfileImages:[URL] = []
     var places:[Place]?
     
@@ -61,7 +62,8 @@ class Authenticator {
     private init() {}
     
     static var isUserLoggedIn: Bool{
-        return Authenticator.currentFIRUser != nil
+        let val = Authenticator.currentFIRUser != nil
+        return val
     }
     
     func authenticateWith(provider: Provider) {
@@ -89,6 +91,17 @@ class Authenticator {
                     GlobalConstants.UserDefaultKey.userDOBPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: userBirthDay))) //"user_birthday"
                     // GlobalConstants.UserDefaultKey.taggableFriendsPermissionStatusFromFacebook.set(value: grantedPermissions.contains(Permission(name: taggableFriends)))
                     
+                    
+                    var fbaccessToken = FacebookAccessToken()
+                    fbaccessToken.appId = accessToken.appId
+                    fbaccessToken.authenticationToken = accessToken.authenticationToken
+                    fbaccessToken.expirationDate = Utilities.returnDate(dateValue: accessToken.expirationDate) 
+                    fbaccessToken.refreshDate =  Utilities.returnDate(dateValue: accessToken.refreshDate)
+                    fbaccessToken.userId = accessToken.userId
+                    
+                    let accesTokenDict = fbaccessToken.toJSON()
+                    
+                    GlobalConstants.UserDefaultKey.fbAccessToken.set(value: accesTokenDict)
                     GlobalConstants.UserDefaultKey.userIdFromFacebook.set(value: accessToken.userId)
                     
                     if self.delegate?.shouldUserSignInIntoFirebase() ?? false {

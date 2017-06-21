@@ -247,6 +247,23 @@ class Utilities: NSObject {
         
     }
     
+    class func returnDate(dateValue: Date, timeZone:String? = nil) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
+        if let zone = timeZone {
+            dateFormatter.timeZone = TimeZone(identifier: zone)
+        }
+        let datee = dateFormatter.string(from: dateValue)
+        return datee
+    }
+    
+    class func returnDate(ofValue date: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss.SSS'Z'"
+        let datee = dateFormatter.date(from: date)
+        return datee
+    }
+    
 }
 
 struct MyIndicator: Indicator {
