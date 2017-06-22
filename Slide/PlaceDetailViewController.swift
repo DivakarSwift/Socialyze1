@@ -260,16 +260,22 @@ class PlaceDetailViewController: UIViewController {
         
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
             check()
+            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
             check()
+            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
             check()
+            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
-                check()
+            check()
+            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else if (place?.nameAddress)! == "Pride Festival & Parade" && (SlydeLocationManager.shared.distanceFromUser(lat: PFPlat1, long: PFPlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat2, long: PFPlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat3, long: PFPlong3)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat4, long: PFPlong4)! < hugeRadius) {
-                check()
+            check()
+            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else if (place?.early)! > 0 {
             check()
+            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else {
             self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: { 
                 
@@ -326,6 +332,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 75ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -336,6 +343,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 200ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -346,6 +354,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 500ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -356,6 +365,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 1000ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -365,6 +375,7 @@ class PlaceDetailViewController: UIViewController {
             } else {
                 self.distanceConstraint.constant = 150
                 self.checkMarkImageView.isHidden = true
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkmark32x32"), for: .normal)
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
@@ -375,6 +386,7 @@ class PlaceDetailViewController: UIViewController {
                 
                 if self.isCheckedIn {
                     self.checkout()
+                    self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
                 }
             }
             self.placeNameAddressLbl.text = /*self.place!.nameAddress + */" \(text)"
@@ -385,6 +397,7 @@ class PlaceDetailViewController: UIViewController {
             if (place?.early)! > 0 {
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
             }
         }
     }
