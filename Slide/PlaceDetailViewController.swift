@@ -332,7 +332,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 75ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -343,7 +343,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 200ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -354,7 +354,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 500ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -365,7 +365,7 @@ class PlaceDetailViewController: UIViewController {
                 text = "less than 1000ft"
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -375,7 +375,7 @@ class PlaceDetailViewController: UIViewController {
             } else {
                 self.distanceConstraint.constant = 150
                 self.checkMarkImageView.isHidden = true
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkmark32x32"), for: .normal)
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkmark48x48"), for: .normal)
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
@@ -397,7 +397,7 @@ class PlaceDetailViewController: UIViewController {
             if (place?.early)! > 0 {
                 self.distanceConstraint.constant = 0
                 self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin32x32"), for: .normal)
+                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
             }
         }
     }
