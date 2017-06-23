@@ -1,8 +1,8 @@
 //
-//  PlaceDetailViewController.swift
+//  EventDetailViewController.swift
 //  Slide
 //
-//  Created by bibek timalsina on 4/8/17.
+//  Created by Rajendra Karki on 6/23/17.
 //  Copyright © 2017 Salem Khan. All rights reserved.
 //
 
@@ -13,9 +13,8 @@ import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
 
-let checkInThreshold: TimeInterval = 3*60*60 //3hr
 
-class PlaceDetailViewController: UIViewController {
+class EventDetailViewController: UIViewController {
     
     @IBOutlet weak var distanceConstraint: NSLayoutConstraint!
     @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
@@ -521,7 +520,7 @@ class PlaceDetailViewController: UIViewController {
 
 
 // MARK: - INVITE ACTION
-extension PlaceDetailViewController : MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
+extension EventDetailViewController : MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     // More option
     fileprivate func showMoreOption() {
@@ -597,7 +596,7 @@ extension PlaceDetailViewController : MFMessageComposeViewControllerDelegate, UI
     }
 }
 
-extension PlaceDetailViewController: AuthenticatorDelegate {
+extension EventDetailViewController: AuthenticatorDelegate {
     func didOccurAuthentication(error: AuthenticationError) {
         self.alert(message: error.localizedDescription)
     }
@@ -622,7 +621,7 @@ extension PlaceDetailViewController: AuthenticatorDelegate {
     }
 }
 
-extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
+extension EventDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  self.checkinUsers.count
@@ -673,7 +672,7 @@ extension PlaceDetailViewController : UICollectionViewDelegate, UICollectionView
     }
 }
 
-extension PlaceDetailViewController: UIViewControllerTransitioningDelegate {
+extension EventDetailViewController: UIViewControllerTransitioningDelegate {
         func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
             return DismissAnimator()
         }
