@@ -242,7 +242,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdF-qL-xqo">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="64"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <state key="normal" image="PlayButton"/>
+                                        <state key="normal" image="checkmark64x64"/>
                                         <connections>
                                             <action selector="checkIn:" destination="Lf4-0l-NNR" eventType="touchUpInside" id="uQx-rK-z43"/>
                                             <segue destination="HWX-UH-0OC" kind="show" id="eiD-pg-o6F"/>
@@ -255,10 +255,13 @@
                                 <rect key="frame" x="157" y="628" width="61" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txZ-Xq-bJn">
-                                <rect key="frame" x="17" y="616" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txZ-Xq-bJn">
+                                <rect key="frame" x="26" y="609" width="32" height="32"/>
                                 <state key="normal" image="add-user"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-2b-wUp">
+                                <rect key="frame" x="317" y="609" width="32" height="32"/>
+                                <state key="normal" image="tapgesture32x32"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,7 +274,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="obU-QN-fdH" secondAttribute="trailing" constant="10" id="8mQ-vn-XnF"/>
                             <constraint firstItem="kMF-eh-Qbd" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leading" id="9W3-O4-mUP"/>
                             <constraint firstItem="Flj-gh-ry4" firstAttribute="top" secondItem="ygZ-LF-bw0" secondAttribute="bottom" id="Dnp-Th-oxP"/>
+                            <constraint firstItem="TwP-Y2-uyH" firstAttribute="top" secondItem="txZ-Xq-bJn" secondAttribute="bottom" constant="26" id="Erz-lK-1lQ"/>
                             <constraint firstItem="Tlp-Ki-SM8" firstAttribute="top" secondItem="vqQ-Fa-xEA" secondAttribute="top" id="HtM-3h-KVI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sYE-2b-wUp" secondAttribute="trailing" constant="10" id="JCC-lg-Nu8"/>
                             <constraint firstItem="kMF-eh-Qbd" firstAttribute="top" secondItem="C2U-VB-36U" secondAttribute="bottom" id="KvD-Ae-36Q"/>
                             <constraint firstItem="lPn-qH-5O0" firstAttribute="top" secondItem="ygZ-LF-bw0" secondAttribute="bottom" constant="5" id="RdH-7B-GTH"/>
                             <constraint firstAttribute="trailing" secondItem="kMF-eh-Qbd" secondAttribute="trailing" id="SIB-Yp-Mgl"/>
@@ -288,7 +293,9 @@
                             <constraint firstItem="lPn-qH-5O0" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leading" id="hJw-c9-sat"/>
                             <constraint firstAttribute="trailing" secondItem="zWq-Ha-xcX" secondAttribute="trailing" id="jcK-tG-mQw"/>
                             <constraint firstItem="TwP-Y2-uyH" firstAttribute="top" secondItem="b8H-xH-Sp5" secondAttribute="bottom" constant="44" id="k8n-HF-S8z"/>
+                            <constraint firstItem="TwP-Y2-uyH" firstAttribute="top" secondItem="sYE-2b-wUp" secondAttribute="bottom" constant="26" id="mlN-FI-Ng5"/>
                             <constraint firstItem="Y0O-O4-ulp" firstAttribute="top" secondItem="b8H-xH-Sp5" secondAttribute="bottom" constant="5" id="o7P-Oh-BgU"/>
+                            <constraint firstItem="txZ-Xq-bJn" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leadingMargin" constant="10" id="pwz-hH-nxa"/>
                             <constraint firstAttribute="trailing" secondItem="Flj-gh-ry4" secondAttribute="trailing" id="r8Y-P2-Dvc"/>
                             <constraint firstItem="Flj-gh-ry4" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leading" id="rKr-2g-vmZ"/>
                             <constraint firstItem="b8H-xH-Sp5" firstAttribute="top" secondItem="Flj-gh-ry4" secondAttribute="bottom" id="wdY-ma-FJF"/>
@@ -420,7 +427,7 @@
                 <viewControllerPlaceholder storyboardName="Categories" id="HWX-UH-0OC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8d5-8S-Efi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="340"/>
+            <point key="canvasLocation" x="2129" y="372"/>
         </scene>
         <!--PlaceToUserMapViewController-->
         <scene sceneID="ze1-hr-DLq">
@@ -432,11 +439,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="PlayButton" width="64" height="64"/>
         <image name="add-user" width="32" height="32"/>
         <image name="checkinbutton32x32" width="32" height="32"/>
         <image name="checkmark1" width="366" height="360"/>
+        <image name="checkmark64x64" width="64" height="64"/>
         <image name="i200-6" width="400" height="200"/>
         <image name="location-pin" width="32" height="32"/>
+        <image name="tapgesture32x32" width="32" height="32"/>
     </resources>
 </document>
