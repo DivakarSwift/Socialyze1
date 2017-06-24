@@ -64,14 +64,6 @@ class EventDetailViewController: UIViewController {
     private var goingData = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
-            
-            _ = self.goingData.filter { (checkin) -> Bool in
-                let val = checkin.userId == self.authenticator.user?.id
-                if val {
-                    self.isGoing = val
-                }
-                return val
-            }
             self.changeGoingStatus()
         }
     }
@@ -246,8 +238,13 @@ class EventDetailViewController: UIViewController {
         case .going:
             self.going()
         case .swipe:
-            
-            break
+            if self.goingData.count != 0 {
+                self.performSegue(withIdentifier: "Categories", sender: self)
+            }else {
+                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
+                self.eventAction = .checkIn
+                self.changeGoingStatus()
+            }
         case .checkIn:
             self.checkInn()
             break
@@ -267,7 +264,6 @@ class EventDetailViewController: UIViewController {
         }, cancelAction: { _ in
             self.eventAction = .checkIn
         })
-        
     }
     
     private func checkInn() {
@@ -468,7 +464,12 @@ class EventDetailViewController: UIViewController {
         let text = "\(goingData.count) Going"
         self.goingStatusLabel.text = text
         
-        self.checkinMarkImageView.isHidden = isGoing
+        
+        if self.goingData.count > 0 && isGoing {
+            self.eventAction = .swipe
+        }
+        
+        self.checkinMarkImageView.isHidden = !isGoing
         
         if self.goingData.count > 0 {
             let fbIds = self.faceBookFriends.map({$0.id})
@@ -518,7 +519,15 @@ class EventDetailViewController: UIViewController {
         self.placeService.getGoingUsers(at: (self.place)!, completion: {[weak self] (checkins) in
             self?.activityIndicator.stopAnimating()
             
-            self?.goingData = checkins
+            
+            self?.goingData = checkins.filter { (checkin) -> Bool in
+                let val = checkin.userId == self?.authenticator.user?.id
+                if val {
+                    self?.isGoing = val
+                    
+                }
+                return !val
+            }
             
             }, failure: {[weak self] error in
                 self?.activityIndicator.stopAnimating()
@@ -572,7 +581,7 @@ class EventDetailViewController: UIViewController {
             destinationVC.place = self.place
         }else if segue.identifier == "Categories" {
             let destinationVC = segue.destination as! CategoriesViewController
-            let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
+            let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
             destinationVC.place = self.place
             destinationVC.noUsers = {
                 self.dismiss(animated: true, completion: nil)
