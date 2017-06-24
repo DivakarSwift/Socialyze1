@@ -14,65 +14,43 @@ import FirebaseAuth
 import MessageUI
 
 
+enum EventAction {
+    case going
+    case checkIn
+    case swipe
+}
+
 class EventDetailViewController: UIViewController {
     
-    @IBOutlet weak var distanceConstraint: NSLayoutConstraint!
-    @IBOutlet weak var logoHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var placeNameAddressLbl: UILabel!
-    @IBOutlet weak var placeDetailLbl: UILabel!
-    @IBOutlet weak var checkInStatusLabel: UILabel!
-    @IBOutlet weak var placeImageView: UIImageView!
-    @IBOutlet weak var checkInButton: UIButton!
-    @IBOutlet weak var checkMarkImageView: UIImageView!
-    @IBOutlet weak var swipingLabel: UILabel!
-    
-    //    @IBOutlet weak var friendsTableView: UITableView!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var placeDistanceLabel: UILabel!
+    @IBOutlet weak var locationPinButton: UIButton!
+    @IBOutlet weak var checkinMarkImageView: UIImageView!
+    @IBOutlet weak var eventDateLabel:UILabel!
+    @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var eventPlaceLabel:UILabel!
+    @IBOutlet weak var goingStatusLabel: UILabel!
+    @IBOutlet weak var includingFriendsLabel: UILabel!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
+    @IBOutlet weak var checkInButton:UIButton!
+    @IBOutlet weak var inviteButton:UIButton!
+    @IBOutlet weak var eventImageView: UIImageView!
+    
     
     var place: Place?
-    
-    let smallRadius = 22.86 // 75ft, probably
-    let mediumRadius = 60.96 // 200ft probably 
-    let largeRadius = 152.4 // 500ft, probably
-    let hugeRadius = 304.8 // 1000ft, probably
     var thresholdRadius = 30.48 //100ft
-    
-    let SNlat1 = 39.984467
-    let SNlong1 = -83.004969
-    let SNlat2 = 39.979144
-    let SNlong2 = -83.003942
-    let SNlat3 = 39.973620
-    let SNlong3 = -83.003916
-    
-    let CSlat1 = 39.969603
-    let CSlong1 = -82.986968
-    let CSlat2 = 39.969660
-    let CSlong2 = -82.990433
-    
-    let Elat1 = 40.050414
-    let Elong1 = -82.915127
-    let Elat2 = 40.052936
-    let Elong2 = -82.914870
-    let Elat3 = 40.051383
-    let Elong3 = -82.923034
-    let Elat4 = 40.054964
-    let Elong4 = -82.906963
-    
-    let PFPlat1 = 39.971492
-    let PFPlong1 = -83.002396
-    let PFPlat2 = 39.965752
-    let PFPlong2 = -83.001344
-    let PFPlat3 = 39.961838
-    let PFPlong3 = -83.003726
-    let PFPlat4 = 39.957233
-    let PFPlong4 = -83.004649
-    
-    
     var adsIndex:Int = 0
     
     private var isCheckedIn = false
+    private var isGoing = false
+    fileprivate var eventAction:EventAction = .going {
+        didSet {
+            self.changeInviteButton(action: self.eventAction)
+        }
+    }
     
     let facebookService = FacebookService.shared
+    let userService = UserService()
     private let authenticator = Authenticator.shared
     private let placeService = PlaceService()
     private var faceBookFriends = [FacebookFriend]() {
@@ -81,7 +59,9 @@ class EventDetailViewController: UIViewController {
         }
     }
     private var checkinData = [Checkin]()
+    private var goingData = [Checkin]()
     private var exceptedUsers:[String] = []
+    
     private var checkinWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
@@ -118,8 +98,7 @@ class EventDetailViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.checkMarkImageView.isHidden = true
-        self.distanceConstraint.constant = 0
+        self.checkinMarkImageView.isHidden = true
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
@@ -129,7 +108,6 @@ class EventDetailViewController: UIViewController {
         //swipingLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         let image = place?.secondImage ?? place?.mainImage ?? ""
         self.hideControls(image: image, label: place?.bio)
-        self.placeNameAddressLbl.text = place?.nameAddress
         self.locationUpdated()
         
         SlydeLocationManager.shared.startUpdatingLocation()
@@ -160,9 +138,7 @@ class EventDetailViewController: UIViewController {
         self.title = place?.nameAddress
         self.addSwipeGesture(toView: self.view)
 //        self.addTapGesture(toView: self.view)
-        if place?.ads == nil {
-            self.logoHeightConstraint.constant = 0
-        }
+        
     }
     
     deinit {
@@ -189,7 +165,27 @@ class EventDetailViewController: UIViewController {
 //        _ = self.navigationController?.popViewController(animated: false)
     }
     
-
+    func changeInviteButton(action: EventAction) {
+        switch action {
+        case .going:
+            self.checkInButton.setTitle("Going", for: .normal)
+            self.checkInButton.setImage(nil, for: .normal)
+            self.checkInButton.setTitleColor(UIColor.white, for: .normal)
+            self.checkInButton.backgroundColor = UIColor.appGreen
+        case .checkIn:
+            self.checkInButton.setTitle("Check In", for: .normal)
+            self.checkInButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
+            self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
+            self.checkInButton.backgroundColor = UIColor.white
+        case .swipe:
+            self.checkInButton.setTitle("Swipe", for: .normal)
+            self.checkInButton.setImage(nil, for: .normal)
+            self.checkInButton.setTitleColor(UIColor.white, for: .normal)
+            self.checkInButton.backgroundColor = UIColor.appPurple
+        }
+    }
+    
+    
     @IBAction func next(_ sender: UIButton) {
         if let adsUrl = place?.ads?.first?.link {
             if #available(iOS 10.0, *) {
@@ -204,18 +200,13 @@ class EventDetailViewController: UIViewController {
         
     func hideControls(image:String?, label:String?) {
         if let img = image {
-            self.placeImageView.kf.setImage(with: URL(string: img), placeholder: #imageLiteral(resourceName: "OriginalBug") )
+            self.eventImageView.kf.setImage(with: URL(string: img), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         }
         if let img = self.place?.ads?.first?.headerImage {
-            self.logoHeightConstraint.constant = 100
             self.view.viewWithTag(7)?.isHidden = false
             let button = self.view.viewWithTag(6) as! UIButton!
             button?.kf.setImage(with: URL(string: img), for: .normal)
         }
-        else {
-            self.logoHeightConstraint.constant = 0
-        }
-        self.placeDetailLbl.text = label
         view.layoutIfNeeded()
     }
     
@@ -232,6 +223,20 @@ class EventDetailViewController: UIViewController {
     }
     
     @IBAction func checkIn(_ sender: UIButton) {
+        switch eventAction {
+        case .going:
+            
+            break
+        case .swipe:
+            
+            break
+        case .checkIn:
+            self.checkInn()
+            break
+        }
+    }
+    
+    private func checkInn() {
         if place?.size == 1 {
             thresholdRadius = smallRadius
         } else if place?.size == 2{
@@ -259,7 +264,7 @@ class EventDetailViewController: UIViewController {
         
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
             check()
-            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            self.inviteButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
             check()
             self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
@@ -276,7 +281,7 @@ class EventDetailViewController: UIViewController {
             check()
             self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         } else {
-            self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: { 
+            self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: {
                 
                 self.dismiss(animated: true, completion: nil)
                 _ = self.navigationController?.popViewController(animated: false)
@@ -299,7 +304,6 @@ class EventDetailViewController: UIViewController {
     
     @IBAction func invite(_ sender: UIButton) {
 //        self.showMoreOption()
-        
     }
     
     private func checkIn(onSuccess: @escaping () -> ()) {
@@ -329,9 +333,8 @@ class EventDetailViewController: UIViewController {
             let text: String
             if distance <= smallRadius {
                 text = "less than 75ft"
-                self.distanceConstraint.constant = 0
-                self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
+                self.checkinMarkImageView.isHidden = false
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -340,9 +343,8 @@ class EventDetailViewController: UIViewController {
                 }
             } else if distance <= mediumRadius && size == 2 {
                 text = "less than 200ft"
-                self.distanceConstraint.constant = 0
-                self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
+                self.checkinMarkImageView.isHidden = false
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -351,9 +353,8 @@ class EventDetailViewController: UIViewController {
                 }
             }  else if distance <= largeRadius  && size == 3 {
                 text = "less than 500ft"
-                self.distanceConstraint.constant = 0
-                self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
+                self.checkinMarkImageView.isHidden = false
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -362,9 +363,8 @@ class EventDetailViewController: UIViewController {
                 }
             } else if distance <= hugeRadius  && size == 4 {
                 text = "less than 1000ft"
-                self.distanceConstraint.constant = 0
-                self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
+                self.checkinMarkImageView.isHidden = false
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -372,9 +372,8 @@ class EventDetailViewController: UIViewController {
                     }
                 }
             } else {
-                self.distanceConstraint.constant = 150
-                self.checkMarkImageView.isHidden = true
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkmark48x48"), for: .normal)
+                self.checkinMarkImageView.isHidden = true
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
@@ -388,15 +387,10 @@ class EventDetailViewController: UIViewController {
                     self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
                 }
             }
-            self.placeNameAddressLbl.text = /*self.place!.nameAddress + */" \(text)"
-            self.placeNameAddressLbl.layer.shadowOpacity = 1.0
-            self.placeNameAddressLbl.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-            self.placeNameAddressLbl.layer.shadowRadius = 3.0
             
             if (place?.early)! > 0 {
-                self.distanceConstraint.constant = 0
-                self.checkMarkImageView.isHidden = false
-                self.checkInButton.setImage(#imageLiteral(resourceName: "checkin48x48"), for: .normal)
+                self.checkinMarkImageView.isHidden = false
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "pin"), for: .normal)
             }
         }
     }
@@ -417,18 +411,21 @@ class EventDetailViewController: UIViewController {
     }
     
     func changeStatus() {
+        let text = "\(checkinWithExpectUser.count) Going"
+        self.goingStatusLabel.text = text
+        
         if self.checkinWithExpectUser.count > 0 {
             let fbIds = self.faceBookFriends.map({$0.id})
             let friendCheckins = checkinWithExpectUser.filter({fbIds.contains($0.fbId!)})
-            var text = "\(checkinWithExpectUser.count) checked in "
-            if friendCheckins.count > 1 {
-                text = text + (friendCheckins.count > 1 ? "including \(friendCheckins.count) friends " : "")
+            
+            if friendCheckins.count > 0 {
+                let text = "including \(friendCheckins.count) FF's"
+                self.includingFriendsLabel.text = text
             } else {
-                text = text + (friendCheckins.count > 0 ? "including \(friendCheckins.count) friend " : "")
+                self.includingFriendsLabel.text = ""
             }
-            self.checkInStatusLabel.text = text
-        }else {
-            self.checkInStatusLabel.text = ""
+        } else {
+            self.includingFriendsLabel.text = ""
         }
         self.friendsCollectionView.reloadData()
     }

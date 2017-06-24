@@ -41,6 +41,7 @@
 		DA0B5F611ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */; };
 		F40FCC901EFCA5A1008AF554 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */; };
 		F40FCC921EFCB036008AF554 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40FCC911EFCB036008AF554 /* EventDetailViewController.swift */; };
+		F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */; };
 		F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594351EE3DB44003631EE /* indicator_75.gif */; };
 		F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594361EE3DB44003631EE /* indicator_40.gif */; };
 		F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594371EE3DB44003631EE /* indicator_20.gif */; };
@@ -107,6 +108,7 @@
 		DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeUnwindSegue.swift; sourceTree = "<group>"; };
 		F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		F40FCC911EFCB036008AF554 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F4A594351EE3DB44003631EE /* indicator_75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_75.gif; sourceTree = "<group>"; };
 		F4A594361EE3DB44003631EE /* indicator_40.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_40.gif; sourceTree = "<group>"; };
 		F4A594371EE3DB44003631EE /* indicator_20.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_20.gif; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */,
 				1FE787641E87F0B2006B2445 /* JSONExtension.swift */,
 				1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */,
+				F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */,
 				FC5219811E70114700EDF19A /* CategoriesViewController.swift in Sources */,
 				F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */,
+				F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */,
 				F64B2B531ED56AB800FE2BF6 /* DismissAnimator.swift in Sources */,
 				1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */,
 				1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */,

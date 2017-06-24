@@ -31,44 +31,7 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var friendsCollectionView: UICollectionView!
     
     var place: Place?
-    
-    let smallRadius = 22.86 // 75ft, probably
-    let mediumRadius = 60.96 // 200ft probably 
-    let largeRadius = 152.4 // 500ft, probably
-    let hugeRadius = 304.8 // 1000ft, probably
     var thresholdRadius = 30.48 //100ft
-    
-    let SNlat1 = 39.984467
-    let SNlong1 = -83.004969
-    let SNlat2 = 39.979144
-    let SNlong2 = -83.003942
-    let SNlat3 = 39.973620
-    let SNlong3 = -83.003916
-    
-    let CSlat1 = 39.969603
-    let CSlong1 = -82.986968
-    let CSlat2 = 39.969660
-    let CSlong2 = -82.990433
-    
-    let Elat1 = 40.050414
-    let Elong1 = -82.915127
-    let Elat2 = 40.052936
-    let Elong2 = -82.914870
-    let Elat3 = 40.051383
-    let Elong3 = -82.923034
-    let Elat4 = 40.054964
-    let Elong4 = -82.906963
-    
-    let PFPlat1 = 39.971492
-    let PFPlong1 = -83.002396
-    let PFPlat2 = 39.965752
-    let PFPlong2 = -83.001344
-    let PFPlat3 = 39.961838
-    let PFPlong3 = -83.003726
-    let PFPlat4 = 39.957233
-    let PFPlong4 = -83.004649
-    
-    
     var adsIndex:Int = 0
     
     private var isCheckedIn = false
