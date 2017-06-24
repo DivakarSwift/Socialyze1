@@ -152,20 +152,39 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let place = places[indexPath.row]
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
-        vc.place = place
-        self.present(vc, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(vc, animated: true)
+        
+        if let placeId = places[indexPath.row].placeId {
+          if placeId == "" {
+            let place = places[indexPath.row]
+            let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+            vc.place = place
+            self.present(vc, animated: true, completion: nil)
+            }
+          else {
+            let place = places[indexPath.row]
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
+            vc.place = place
+            self.present(vc, animated: true, completion: nil)
+            }
+        } else {
+            let place = places[indexPath.row]
+            let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+            vc.place = place
+            self.present(vc, animated: true, completion: nil)
+        }
+        
+        
+        
+        //        self.navigationController?.pushViewController(vc, animated: true)
         // self.performSegue(withIdentifier: "categoryDetail", sender: self)
         
-//        if let nav = self.navigationController {
-//            nav.present(vc, animated: true, completion: nil)
-//        }
-//        vc.navigationController?.isNavigationBarHidden = true
-//        let backItem = UIBarButtonItem()
-//        backItem.title = "Back"
-//        navigationItem.backBarButtonItem = backItem
+        //        if let nav = self.navigationController {
+        //            nav.present(vc, animated: true, completion: nil)
+        //        }
+        //        vc.navigationController?.isNavigationBarHidden = true
+        //        let backItem = UIBarButtonItem()
+        //        backItem.title = "Back"
+        //        navigationItem.backBarButtonItem = backItem
     }
 }
 

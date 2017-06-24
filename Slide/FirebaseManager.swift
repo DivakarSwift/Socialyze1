@@ -19,6 +19,7 @@ enum Node: String {
     case chatList
     case chat
     case checkIn
+    case going
     case blockedUsers
     case Places
     case PlacesList

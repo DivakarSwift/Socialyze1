@@ -89,7 +89,7 @@ class SlydeLocationManager: NSObject {
 
 extension SlydeLocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("updated location is: \(location)")
+        print("updated location is: \(String(describing: location))")
         if !self.shouldGetLocationContiniously {
             self.stopUpdatingLocation()
         }

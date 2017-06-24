@@ -22,6 +22,10 @@ struct Place:Mappable {
     var placeId: String?
     var ads:[Ads]?
     
+    var date:String?
+    var time:String?
+    var hall:String?
+    
     init?(map: Map) {
         self.mapping(map: map)
     }
@@ -37,6 +41,10 @@ struct Place:Mappable {
         self.bio <- map["bio"]
         self.placeId <- map["placeId"]
         self.ads <- map["ads"]
+        
+        self.date <- map["date"]
+        self.time <- map["time"]
+        self.hall <- map["hall"]
     }
 }
 
