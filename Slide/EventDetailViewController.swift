@@ -168,6 +168,7 @@ class EventDetailViewController: UIViewController {
     
     func setupView() {
         if let place = self.place {
+            self.isGoing = false
             self.eventNameLabel.text = place.nameAddress
             self.eventDateLabel.text = place.date
             self.eventTimeLabel.text = place.time
@@ -432,7 +433,6 @@ class EventDetailViewController: UIViewController {
                 
                 if self.isCheckedIn {
                     self.checkout()
-                    self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
                 }
             }
             
