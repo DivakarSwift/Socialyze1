@@ -17,7 +17,8 @@ import MessageUI
 enum EventAction {
     case going
     case checkIn
-    case swipe
+    case goingSwipe
+    case checkInSwipe
 }
 
 class EventDetailViewController: UIViewController {
@@ -199,7 +200,7 @@ class EventDetailViewController: UIViewController {
             self.checkInButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
             self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
             self.checkInButton.backgroundColor = UIColor.white
-        case .swipe:
+        case .goingSwipe, .checkInSwipe:
             self.checkInButton.setTitle("Swipe", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.white, for: .normal)
@@ -238,7 +239,7 @@ class EventDetailViewController: UIViewController {
         switch eventAction {
         case .going:
             self.going()
-        case .swipe:
+        case .goingSwipe:
             if self.goingData.count != 0 {
                 self.performSegue(withIdentifier: "Categories", sender: self)
             }else {
@@ -247,8 +248,17 @@ class EventDetailViewController: UIViewController {
                 self.changeGoingStatus()
             }
         case .checkIn:
-            self.checkInn()
-            break
+            self.alertWithOkCancel(message: "Are you at this event place?", title: "Alert", okTitle: "Yes", cancelTitle: "No", okAction: {
+                self.checkInn()
+            }, cancelAction: { _ in
+            })
+        case .checkInSwipe:
+            if self.checkinData.count != 0 {
+                self.performSegue(withIdentifier: "Categories", sender: self)
+            } else {
+                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
+                self.changeGoingStatus()
+            }
         }
     }
     
@@ -282,14 +292,7 @@ class EventDetailViewController: UIViewController {
         
         func check() {
             self.checkIn {[weak self] in
-                if self?.checkinData.count != 0 {
-                    self?.performSegue(withIdentifier: "Categories", sender: self)
-                }else {
-                    self?.alert(message: "No new users at this time. Check back later", title: "Oops", okAction: {
-                        self?.dismiss(animated: true, completion: nil)
-                        _ = self?.navigationController?.popViewController(animated: false)
-                    })
-                }
+               self?.eventAction = .checkInSwipe
             }
         }
         
@@ -365,7 +368,7 @@ class EventDetailViewController: UIViewController {
                 me.isGoing = success
                 
                 if success {
-                    self?.eventAction = .swipe
+                    self?.eventAction = .goingSwipe
                 }
             }
             
@@ -464,9 +467,8 @@ class EventDetailViewController: UIViewController {
         let text = "\(goingData.count) Going"
         self.goingStatusLabel.text = text
         
-        
         if self.goingData.count > 0 && isGoing {
-            self.eventAction = .swipe
+            self.eventAction = .goingSwipe
         }
         
         self.checkinMarkImageView.isHidden = !isGoing
@@ -515,16 +517,13 @@ class EventDetailViewController: UIViewController {
     
     func getGoingUsers() {
         self.activityIndicator.startAnimating()
-        
         self.placeService.getGoingUsers(at: (self.place)!, completion: {[weak self] (checkins) in
             self?.activityIndicator.stopAnimating()
-            
             
             self?.goingData = checkins.filter { (checkin) -> Bool in
                 let val = checkin.userId == self?.authenticator.user?.id
                 if val {
                     self?.isGoing = val
-                    
                 }
                 return !val
             }
@@ -581,13 +580,19 @@ class EventDetailViewController: UIViewController {
             destinationVC.place = self.place
         }else if segue.identifier == "Categories" {
             let destinationVC = segue.destination as! CategoriesViewController
-            let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
+            
             destinationVC.place = self.place
             destinationVC.noUsers = {
                 self.dismiss(animated: true, completion: nil)
                 _ = self.navigationController?.popViewController(animated: false)
             }
-            destinationVC.checkinUserIds = userIdsSet
+            if eventAction == .goingSwipe {
+                let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
+                destinationVC.checkinUserIds = userIdsSet
+            } else if eventAction == .checkInSwipe {
+                let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
+                destinationVC.checkinUserIds = userIdsSet
+            }
         }
         return super.prepare(for: segue, sender: sender)
     }
