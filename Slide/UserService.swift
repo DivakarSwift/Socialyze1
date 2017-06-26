@@ -276,7 +276,6 @@ class UserService: FirebaseManager {
                 } else {
                     completion(error == nil, match)
                 }
-                
             }
         })
     }

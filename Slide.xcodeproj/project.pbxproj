@@ -40,8 +40,8 @@
 		DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */; };
 		DA0B5F611ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */; };
 		F40FCC901EFCA5A1008AF554 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */; };
-		F40FCC921EFCB036008AF554 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40FCC911EFCB036008AF554 /* EventDetailViewController.swift */; };
 		F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */; };
+		F45DDD821F0095CC009F8EDC /* EventPlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DDD811F0095CC009F8EDC /* EventPlaceDetailViewController.swift */; };
 		F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594351EE3DB44003631EE /* indicator_75.gif */; };
 		F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594361EE3DB44003631EE /* indicator_40.gif */; };
 		F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594371EE3DB44003631EE /* indicator_20.gif */; };
@@ -107,8 +107,8 @@
 		DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeSegue.swift; sourceTree = "<group>"; };
 		DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeUnwindSegue.swift; sourceTree = "<group>"; };
 		F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
-		F40FCC911EFCB036008AF554 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		F45DDD811F0095CC009F8EDC /* EventPlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPlaceDetailViewController.swift; sourceTree = "<group>"; };
 		F4A594351EE3DB44003631EE /* indicator_75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_75.gif; sourceTree = "<group>"; };
 		F4A594361EE3DB44003631EE /* indicator_40.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_40.gif; sourceTree = "<group>"; };
 		F4A594371EE3DB44003631EE /* indicator_20.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_20.gif; sourceTree = "<group>"; };
@@ -282,7 +282,7 @@
 		F40FCC8E1EFCA583008AF554 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				F40FCC911EFCB036008AF554 /* EventDetailViewController.swift */,
+				F45DDD811F0095CC009F8EDC /* EventPlaceDetailViewController.swift */,
 				F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */,
 			);
 			name = Events;
@@ -523,6 +523,7 @@
 				F6475F5E1ED2F1E9004C8D90 /* TextMessageViewController.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
 				F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */,
+				F45DDD821F0095CC009F8EDC /* EventPlaceDetailViewController.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
 				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,
@@ -548,7 +549,6 @@
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
 				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,
-				F40FCC921EFCB036008AF554 /* EventDetailViewController.swift in Sources */,
 				1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

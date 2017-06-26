@@ -62,12 +62,7 @@ class EventDetailViewController: UIViewController {
     }
     
     private var checkinData = [Checkin]()
-    private var goingData = [Checkin]() {
-        didSet {
-            self.activityIndicator.stopAnimating()
-            self.changeGoingStatus()
-        }
-    }
+    private var goingData = [Checkin]()
     private var exceptedUsers:[String] = []
     
     private var checkinWithExpectUser = [Checkin]() {
@@ -83,16 +78,46 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
-            
            self.getAllCheckedInUsers(data : checkinWithExpectUser)
-//            self.changeStatus()
+        }
+    }
+    
+    private var goingWithExpectUser = [Checkin]() {
+        didSet {
+            self.activityIndicator.stopAnimating()
+            self.goingData = goingWithExpectUser.filter({(checkin) -> Bool in
+                if let goingUserId = checkin.userId {
+                    // return true
+                    if exceptedUsers.contains(goingUserId) {
+                        return false
+                    }
+                    return true
+                }
+                return false
+            })
+            self.goingData = self.goingWithExpectUser.filter({(checkin) -> Bool in
+                if let checkInUserId = checkin.userId, let authUserId = self.authenticator.user?.id, let checkinTime = checkin.time {
+                    // return true
+                    
+                    let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
+                    return checkTimeValid
+                }
+                return false
+            })
+            self.getAllGoingUsers(data : checkinWithExpectUser)
+            self.changeGoingStatus()
         }
     }
     
     var checkinUsers: [LocalUser] = [] {
         didSet {
             self.activityIndicator.stopAnimating()
-//            self.changeStatus()
+        }
+    }
+    
+    var goingUsers: [LocalUser] = [] {
+        didSet {
+            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -120,11 +145,10 @@ class EventDetailViewController: UIViewController {
         
         if facebookService.isUserFriendsPermissionGiven() {
             getUserFriends()
-        }else {
+        } else {
             authenticator.delegate = self
             authenticator.authenticateWith(provider: .facebook)
         }
-        
         getGoingUsers()
         self.setupCollectionView()
         
@@ -241,16 +265,21 @@ class EventDetailViewController: UIViewController {
             self.going()
         case .goingSwipe:
             if self.goingData.count != 0 {
-                self.performSegue(withIdentifier: "Categories", sender: self)
-            }else {
+                self.alertWithOkCancel(message: "You are going, so wanna see who else are going?", title: "Hey, There", okTitle: "Yes", cancelTitle: "No", okAction: {
+                    self.performSegue(withIdentifier: "Categories", sender: self)
+                }, cancelAction: { _ in
+                    self.eventAction = .checkIn
+                })
+            } else {
                 self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
-                self.eventAction = .checkIn
-                self.changeGoingStatus()
             }
+            self.eventAction = .checkIn
+            self.changeGoingStatus()
         case .checkIn:
             self.alertWithOkCancel(message: "Are you at this event place?", title: "Alert", okTitle: "Yes", cancelTitle: "No", okAction: {
                 self.checkInn()
             }, cancelAction: { _ in
+                
             })
         case .checkInSwipe:
             if self.checkinData.count != 0 {
@@ -464,7 +493,7 @@ class EventDetailViewController: UIViewController {
     }
     
     func changeGoingStatus() {
-        let text = "\(goingData.count) Going"
+        let text = "\(goingWithExpectUser.count) Going"
         self.goingStatusLabel.text = text
         
         if self.goingData.count > 0 && isGoing {
@@ -517,21 +546,21 @@ class EventDetailViewController: UIViewController {
     
     func getGoingUsers() {
         self.activityIndicator.startAnimating()
-        self.placeService.getGoingUsers(at: (self.place)!, completion: {[weak self] (checkins) in
-            self?.activityIndicator.stopAnimating()
-            
-            self?.goingData = checkins.filter { (checkin) -> Bool in
-                let val = checkin.userId == self?.authenticator.user?.id
-                if val {
-                    self?.isGoing = val
-                }
-                return !val
-            }
-            
-            }, failure: {[weak self] error in
-                self?.activityIndicator.stopAnimating()
-                //                        self?.alert(message: error.localizedDescription)
-        })
+        if let authUserId = self.authenticator.user?.id {
+            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
+                self?.exceptedUsers = userIds
+                self?.placeService.getGoingUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
+                    self?.activityIndicator.stopAnimating()
+                    
+                    self?.goingWithExpectUser = checkins
+                    
+                    }, failure: {[weak self] error in
+                        self?.activityIndicator.stopAnimating()
+                        //                        self?.alert(message: error.localizedDescription)
+                })
+                
+            })
+        }
     }
     
     func getAllCheckedInUsers(data : [Checkin]) {
@@ -566,6 +595,37 @@ class EventDetailViewController: UIViewController {
         }
     }
 
+    func getAllGoingUsers(data : [Checkin]) {
+        var acknowledgedCount = 0 {
+            didSet {
+                if acknowledgedCount == self.goingData.count {
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
+        acknowledgedCount = 0
+        
+        let userIdsSet = Set(data.flatMap({$0.userId}))
+        userIdsSet.forEach { (userId) in
+            
+            UserService().getUser(withId: userId, completion: { [weak self] (user, error) in
+                
+                if let _ = error {
+                    //                    self?.alert(message: error.localizedDescription)
+                    return
+                }
+                
+                if let user = user {
+                    if let index = self?.checkinUsers.index(of: user) {
+                        self?.goingUsers[index] = user
+                    }else {
+                        self?.goingUsers.append(user)
+                    }
+                }
+            })
+            acknowledgedCount += 1
+        }
+    }
     
     func getDistanceToUser() -> Double? {
         if let lat = self.place?.lat, let lon = place?.long, let distance = SlydeLocationManager.shared.distanceFromUser(lat: lat, long: lon) {
@@ -583,13 +643,15 @@ class EventDetailViewController: UIViewController {
             
             destinationVC.place = self.place
             destinationVC.noUsers = {
-                self.dismiss(animated: true, completion: nil)
-                _ = self.navigationController?.popViewController(animated: false)
+                self.eventAction = .checkIn
+                self.changeGoingStatus()
             }
             if eventAction == .goingSwipe {
+                destinationVC.isGoing = true
                 let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
                 destinationVC.checkinUserIds = userIdsSet
             } else if eventAction == .checkInSwipe {
+                destinationVC.isCheckedIn = true
                 let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
                 destinationVC.checkinUserIds = userIdsSet
             }

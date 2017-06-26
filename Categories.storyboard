@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -70,7 +70,7 @@
                                     <constraint firstAttribute="width" secondItem="fmo-QB-gAY" secondAttribute="height" multiplier="1:1" id="xf4-sb-hLh"/>
                                 </constraints>
                                 <color key="tintColor" red="0.88255472720000006" green="0.88255472720000006" blue="0.88255472720000006" alpha="0.14752782534246575" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="exclamation.png"/>
+                                <state key="normal" image="exclamation"/>
                                 <connections>
                                     <action selector="reportUser:" destination="2Nx-S1-xmf" eventType="touchUpInside" id="u6k-yg-g9N"/>
                                 </connections>
@@ -107,6 +107,25 @@
                                     <constraint firstAttribute="trailing" secondItem="gF5-2E-WGr" secondAttribute="trailing" id="r3j-NY-nuc"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-Qb-aHX">
+                                <rect key="frame" x="16" y="468" width="32" height="80"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-eq-add">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="9df-Us-1GR"/>
+                                            <constraint firstAttribute="height" id="VrL-Rc-fIK"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark32x32" translatesAutoresizingMaskIntoConstraints="NO" id="VYF-IP-ma9">
+                                        <rect key="frame" x="0.0" y="8" width="32" height="32"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkinbutton32x32" translatesAutoresizingMaskIntoConstraints="NO" id="xDY-8T-zFa">
+                                        <rect key="frame" x="0.0" y="48" width="32" height="32"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -114,6 +133,7 @@
                             <constraint firstItem="Mzx-XG-7I6" firstAttribute="top" secondItem="SjA-zs-owl" secondAttribute="bottom" constant="40" id="527-5g-KYz"/>
                             <constraint firstItem="g7v-cZ-y41" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leading" constant="20" id="7Jz-CB-thd"/>
                             <constraint firstAttribute="trailing" secondItem="g7v-cZ-y41" secondAttribute="trailing" constant="20" id="9uZ-UJ-zyE"/>
+                            <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="oP4-Qb-aHX" secondAttribute="bottom" constant="20" id="BbR-Rv-4XC"/>
                             <constraint firstAttribute="trailing" secondItem="Suk-AW-li8" secondAttribute="trailing" id="Ctm-j6-6He"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="Suk-AW-li8" secondAttribute="bottom" id="Hwo-wQ-ywG"/>
                             <constraint firstItem="Suk-AW-li8" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leading" id="KrQ-0Y-qfN"/>
@@ -123,6 +143,7 @@
                             <constraint firstItem="lk2-Pl-G83" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" constant="60" id="fp1-RM-Psf"/>
                             <constraint firstItem="SjA-zs-owl" firstAttribute="centerX" secondItem="wbe-1n-hP3" secondAttribute="centerX" id="idl-cs-53g"/>
                             <constraint firstItem="RzW-O7-ROV" firstAttribute="top" secondItem="fmo-QB-gAY" secondAttribute="bottom" constant="20" id="mfu-xG-6ey"/>
+                            <constraint firstItem="oP4-Qb-aHX" firstAttribute="leading" secondItem="wbe-1n-hP3" secondAttribute="leadingMargin" id="nuv-RZ-XTE"/>
                             <constraint firstItem="Suk-AW-li8" firstAttribute="top" secondItem="wbe-1n-hP3" secondAttribute="top" id="sPu-kQ-TOf"/>
                             <constraint firstItem="Mzx-XG-7I6" firstAttribute="top" secondItem="g7v-cZ-y41" secondAttribute="bottom" constant="20" id="tvd-1A-bd0"/>
                         </constraints>
@@ -130,6 +151,8 @@
                     <connections>
                         <outlet property="actionImageView" destination="SjA-zs-owl" id="8tY-tK-mzR"/>
                         <outlet property="bioLabel" destination="gF5-2E-WGr" id="Kpm-qA-wh0"/>
+                        <outlet property="checkedInImageView" destination="xDY-8T-zFa" id="WKh-RN-8VQ"/>
+                        <outlet property="goingImageView" destination="VYF-IP-ma9" id="IHP-cG-yJ4"/>
                         <outlet property="imageView" destination="Suk-AW-li8" id="bAb-2i-INK"/>
                         <outlet property="infoButton" destination="fmo-QB-gAY" id="jCf-JQ-zgC"/>
                         <outlet property="userName" destination="lk2-Pl-G83" id="Ctd-jR-bmQ"/>
@@ -238,8 +261,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkinbutton32x32" width="32" height="32"/>
         <image name="checkmark" width="204" height="204"/>
-        <image name="exclamation.png" width="64" height="64"/>
+        <image name="checkmark32x32" width="32" height="32"/>
+        <image name="exclamation" width="64" height="64"/>
         <image name="ladybird" width="149" height="149"/>
         <image name="thehomebutton" width="267" height="267"/>
     </resources>

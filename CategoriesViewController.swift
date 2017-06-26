@@ -51,9 +51,12 @@ class CategoriesViewController: UIViewController {
     let categoryDefaults = UserDefaults.standard
     
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
-        let image : UIImage = UIImage(named: "ladybird.png")!
+        let image : UIImage = #imageLiteral(resourceName: "ladybird")
         return CustomActivityIndicatorView(image: image)
     }()
+    
+    var isCheckedIn: Bool?
+    var isGoing:Bool?
     
     let userService = UserService()
     var fromFBFriends:LocalUser?
@@ -64,6 +67,8 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var checkedInImageView: UIImageView!
+    @IBOutlet weak var goingImageView: UIImageView!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -73,22 +78,21 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.checkedInImageView.isHidden = true
+        self.goingImageView.isHidden = true
+        
         self.infoButton.rounded()
         self.infoButton.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
-        
         
         userName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         userName.layer.shadowRadius = 3
         userName.layer.shadowOpacity = 1
         
         addLoadingIndicator()
-        
         imageView.isUserInteractionEnabled = true
-        
         actionImageView.isHidden = true
         
         self.addTapGesture(toView: self.imageView)
-        
         self.activityIndicator.startAnimating()
         if let friend = self.fromFBFriends {
             self.addSwipeGesture(toView: self.imageView)
@@ -98,7 +102,6 @@ class CategoriesViewController: UIViewController {
             self.getAllCheckedInUsers()
             self.addPanGesture(toView: self.imageView)
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +109,14 @@ class CategoriesViewController: UIViewController {
         if let  friend = self.fromFBFriends {
             self.navigationController?.navigationItem.title  = friend.profile.firstName
         }
+        
+        if let val = isGoing, val {
+            self.goingImageView.isHidden = false
+        }
+        if let val = isCheckedIn, val {
+            self.checkedInImageView.isHidden = false
+        }
+        
         self.navigationController?.navigationBar.isHidden = true
         UIApplication.shared.isStatusBarHidden = true
     }
@@ -333,6 +344,11 @@ class CategoriesViewController: UIViewController {
     }
     
     func getAllCheckedInUsers() {
+        if self.checkinUserIds.count == self.users.count {
+            self.activityIndicator.stopAnimating()
+            return
+        }
+        
         var acknowledgedCount = 0 {
             didSet {
                 if acknowledgedCount == self.checkinUserIds.count {
