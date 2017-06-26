@@ -78,7 +78,7 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
-           self.getAllCheckedInUsers(data : checkinWithExpectUser)
+            self.getAllCheckedInUsers(data : checkinWithExpectUser)
         }
     }
     
@@ -95,6 +95,7 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
+            
             self.goingData = self.goingWithExpectUser.filter({(checkin) -> Bool in
                 if let checkInUserId = checkin.userId, let authUserId = self.authenticator.user?.id, let checkinTime = checkin.time {
                     // return true
@@ -104,7 +105,8 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
-            self.getAllGoingUsers(data : checkinWithExpectUser)
+            
+            self.getAllGoingUsers(data : goingWithExpectUser)
             self.changeGoingStatus()
         }
     }
@@ -121,7 +123,6 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    private var checkInKey: String?
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = #imageLiteral(resourceName: "ladybird")
         let activityIndicator = CustomActivityIndicatorView(image: image)
@@ -133,11 +134,13 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.checkinMarkImageView.isHidden = false
+        self.locationPinButton.isHidden = false
+        
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
-            setupView()
+        setupView()
         
         self.locationUpdated()
         
@@ -164,8 +167,7 @@ class EventDetailViewController: UIViewController {
         UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
         self.addSwipeGesture(toView: self.view)
-//        self.addTapGesture(toView: self.view)
-        
+        self.addTapGesture(toView: self.view)
     }
     
     deinit {
@@ -178,7 +180,7 @@ class EventDetailViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     func handleTap(_ gesture: UITapGestureRecognizer) {
-//        self.viewDetail()
+                self.viewDetail()
     }
     
     func addSwipeGesture(toView view: UIView) {
@@ -187,10 +189,8 @@ class EventDetailViewController: UIViewController {
         view.addGestureRecognizer(gesture)
     }
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-                dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
         UIApplication.shared.isStatusBarHidden = false
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        _ = self.navigationController?.popViewController(animated: false)
     }
     
     // MARK: -
@@ -246,9 +246,8 @@ class EventDetailViewController: UIViewController {
                 UIApplication.shared.openURL(URL(string: adsUrl)!)
             }
         }
-        
     }
-        
+    
     
     
     @IBAction func detail(_ sender: UIButton) {
@@ -296,15 +295,15 @@ class EventDetailViewController: UIViewController {
     }
     
     private func going() {
-        self.alertWithOkCancel(message: "Are you interested in going?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: { 
-            
+        self.alertWithOkCancel(message: "Are you interested in going?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
             self.goingIn {[weak self] in
-                    if self?.goingData.count != 0 {
-                        
-                    }else {
-                        
-                    }
+                self?.locationPinButton.isHidden = false
+                if self?.goingData.count != 0 {
+                    
+                }else {
+                    
                 }
+            }
         }, cancelAction: { _ in
             self.eventAction = .checkIn
         })
@@ -325,28 +324,30 @@ class EventDetailViewController: UIViewController {
         
         func check() {
             self.checkIn {[weak self] in
-               self?.eventAction = .checkInSwipe
+                self?.eventAction = .checkInSwipe
+                self?.locationPinButton.isHidden = false
+                self?.placeDistanceLabel.isHidden = true
             }
         }
         
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
             check()
-            self.inviteButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
             check()
-            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            
         } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
             check()
-            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            
         } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
             check()
-            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            
         } else if (place?.nameAddress)! == "Pride Festival & Parade" && (SlydeLocationManager.shared.distanceFromUser(lat: PFPlat1, long: PFPlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat2, long: PFPlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat3, long: PFPlong3)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat4, long: PFPlong4)! < hugeRadius) {
             check()
-            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            
         } else if (place?.early)! > 0 {
             check()
-            self.checkInButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+            
         } else {
             self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: {
                 
@@ -370,7 +371,7 @@ class EventDetailViewController: UIViewController {
     }
     
     @IBAction func invite(_ sender: UIButton) {
-//        self.showMoreOption()
+        //        self.showMoreOption()
     }
     
     private func checkIn(onSuccess: @escaping () -> ()) {
@@ -485,7 +486,7 @@ class EventDetailViewController: UIViewController {
         facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
             self?.faceBookFriends = friends
             }, failure: { (error) in
-//                self?.alert(message: error)
+                //                self?.alert(message: error)
                 print(error)
         })
     }
@@ -541,7 +542,7 @@ class EventDetailViewController: UIViewController {
                     })
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
-//                        self?.alert(message: error.localizedDescription)
+                        //                        self?.alert(message: error.localizedDescription)
                 })
                 
             })
@@ -583,7 +584,7 @@ class EventDetailViewController: UIViewController {
             UserService().getUser(withId: userId, completion: { [weak self] (user, error) in
                 
                 if let _ = error {
-//                    self?.alert(message: error.localizedDescription)
+                    //                    self?.alert(message: error.localizedDescription)
                     return
                 }
                 
@@ -598,11 +599,12 @@ class EventDetailViewController: UIViewController {
             acknowledgedCount += 1
         }
     }
-
+    
     func getAllGoingUsers(data : [Checkin]) {
+        self.activityIndicator.startAnimating()
         var acknowledgedCount = 0 {
             didSet {
-                if acknowledgedCount == self.goingData.count {
+                if acknowledgedCount == data.count {
                     self.activityIndicator.stopAnimating()
                 }
             }
@@ -612,8 +614,9 @@ class EventDetailViewController: UIViewController {
         let userIdsSet = Set(data.flatMap({$0.userId}))
         userIdsSet.forEach { (userId) in
             
-            UserService().getUser(withId: userId, completion: { [weak self] (user, error) in
+            self.userService.getUser(withId: userId, completion: { [weak self] (user, error) in
                 
+                acknowledgedCount += 1
                 if let _ = error {
                     //                    self?.alert(message: error.localizedDescription)
                     return
@@ -627,7 +630,6 @@ class EventDetailViewController: UIViewController {
                     }
                 }
             })
-            acknowledgedCount += 1
         }
     }
     
@@ -662,7 +664,7 @@ class EventDetailViewController: UIViewController {
         }
         return super.prepare(for: segue, sender: sender)
     }
-
+    
 }
 
 
@@ -771,17 +773,17 @@ extension EventDetailViewController: AuthenticatorDelegate {
 extension EventDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.checkinUsers.count
+        return  self.goingUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        let user = self.checkinUsers[indexPath.row]
+        let user = self.goingUsers[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         
         let label = cell.viewWithTag(2) as! UILabel
-//        label.text = "Dari"
+        //        label.text = "Dari"
         label.text = user.profile.firstName
         label.layer.shadowOpacity = 1
         label.layer.shadowRadius = 3
@@ -789,7 +791,7 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
         
         let imageView = cell.viewWithTag(1) as! UIImageView
         imageView.rounded()
-//        imageView.image = UIImage(named: "profile.png")
+        //        imageView.image = UIImage(named: "profile.png")
         imageView.kf.setImage(with: user.profile.images.first)
         
         return cell
@@ -797,12 +799,12 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
-        vc.fromFBFriends = self.checkinUsers[indexPath.row]
+        vc.fromFBFriends = self.goingUsers[indexPath.row]
         vc.transitioningDelegate = self
         self.present(vc, animated: true, completion: nil)
-//        if let nav = self.navigationController {
-//            nav.present(vc, animated: true, completion: nil)
-//        }
+        //        if let nav = self.navigationController {
+        //            nav.present(vc, animated: true, completion: nil)
+        //        }
     }
     
     func setupCollectionView() {
@@ -820,8 +822,8 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
 }
 
 extension EventDetailViewController: UIViewControllerTransitioningDelegate {
-        func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            return DismissAnimator()
-        }
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
 }
 
