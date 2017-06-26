@@ -149,6 +149,10 @@ class EventDetailViewController: UIViewController {
             authenticator.delegate = self
             authenticator.authenticateWith(provider: .facebook)
         }
+        
+        self.eventAction = .going
+        self.changeGoingStatus()
+        
         getGoingUsers()
         self.setupCollectionView()
         
