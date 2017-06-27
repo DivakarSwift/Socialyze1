@@ -246,22 +246,22 @@ class EventDetailViewController: UIViewController {
             self.going()
         case .goingSwipe:
             if self.goingData.count != 0 {
-                self.alertWithOkCancel(message: "You are going, so wanna see who else are going?", title: "Hey, There", okTitle: "Yes", cancelTitle: "No", okAction: {
+//                self.alertWithOkCancel(message: "You are going, so wanna see who else are going?", title: "Hey, There", okTitle: "Yes", cancelTitle: "No", okAction: {
                     self.performSegue(withIdentifier: "Categories", sender: self)
-                }, cancelAction: { _ in
-                    self.eventAction = .checkIn
-                })
+//                }, cancelAction: { _ in
+//                    self.eventAction = .checkIn
+//                })
             } else {
                 self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
             }
             self.eventAction = .checkIn
             self.changeGoingStatus()
         case .checkIn:
-            self.alertWithOkCancel(message: "Are you at this event place?", title: "Alert", okTitle: "Yes", cancelTitle: "No", okAction: {
+//            self.alertWithOkCancel(message: "Are you at this event place?", title: "Alert", okTitle: "Yes", cancelTitle: "No", okAction: {
                 self.checkInn()
-            }, cancelAction: { _ in
-                
-            })
+//            }, cancelAction: { _ in
+            
+//            })
         case .checkInSwipe:
             if self.checkinData.count != 0 {
                 self.performSegue(withIdentifier: "Categories", sender: self)
@@ -273,7 +273,7 @@ class EventDetailViewController: UIViewController {
     }
     
     private func going() {
-        self.alertWithOkCancel(message: "Are you interested in going?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+//        self.alertWithOkCancel(message: "Are you interested in going?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
             self.goingIn {[weak self] in
                 
                 if let me = self {
@@ -282,9 +282,9 @@ class EventDetailViewController: UIViewController {
                     self?.eventAction = .goingSwipe
                 }
             }
-        }, cancelAction: { _ in
-            self.eventAction = .checkIn
-        })
+//        }, cancelAction: { _ in
+//            self.eventAction = .checkIn
+//        })
     }
     
     private func checkInn() {
