@@ -98,7 +98,14 @@ class CategoriesViewController: UIViewController {
             self.addSwipeGesture(toView: self.imageView)
             self.users = []
             self.users.append(friend)
+            
+            self.checkedInImageView.isHidden = !friend.isCheckedIn
+//            self.goingImageView.isHidden = !friend.isGoing
+            
         } else {
+            self.checkedInImageView.isHidden = true
+            self.goingImageView.isHidden = true
+            
             self.getAllCheckedInUsers()
             self.addPanGesture(toView: self.imageView)
         }

@@ -68,6 +68,8 @@ class EventDetailViewController: UIViewController {
     private var checkinWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
+            
+            // Removing already swipped user
             self.checkinData = checkinWithExpectUser.filter({(checkin) -> Bool in
                 if let checkInUserId = checkin.userId {
                     // return true
@@ -79,12 +81,6 @@ class EventDetailViewController: UIViewController {
                 return false
             })
             
-            self.checkinData = self.checkinData.map { (checkin) -> Checkin in
-                var data = checkin
-                data.isCheckedIn = true
-                return data
-            }
-            
             self.getAllGoingUsers()
         }
     }
@@ -93,7 +89,7 @@ class EventDetailViewController: UIViewController {
         didSet {
             self.activityIndicator.stopAnimating()
             
-            // Removing Blocked user
+            // Removing already swipped user
             self.goingData = goingWithExpectUser.filter({(checkin) -> Bool in
                 if let goingUserId = checkin.userId {
                     // return true
@@ -108,23 +104,6 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
-            
-            // removing user not at this place
-            self.goingData = self.goingWithExpectUser.filter({(checkin) -> Bool in
-                if let checkInUserId = checkin.userId, let authUserId = self.authenticator.user?.id, let checkinTime = checkin.time {
-                    // return true
-                    
-                    let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
-                    return checkTimeValid
-                }
-                return false
-            })
-            
-            self.goingData = self.goingData.map { (checkin) -> Checkin in
-                var data = checkin
-                data.isGoing = true
-                return data
-            }
             
             self.getAllGoingUsers()
             self.changeGoingStatus()
@@ -146,9 +125,6 @@ class EventDetailViewController: UIViewController {
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.checkinMarkImageView.isHidden = true
-        self.locationPinButton.isHidden = false
         
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
         
@@ -181,7 +157,7 @@ class EventDetailViewController: UIViewController {
         UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
         self.addSwipeGesture(toView: self.view)
-        self.addTapGesture(toView: self.view)
+        self.addTapGesture(toView: self.eventImageView)
     }
     
     deinit {
@@ -365,7 +341,7 @@ class EventDetailViewController: UIViewController {
     private func checkout() {
         self.placeService.user(authenticator.user!, checkOutFrom: self.place!) {[weak self] (success, error) in
             if success {
-                _ = self?.navigationController?.popViewController(animated: true)
+//                _ = self?.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -380,46 +356,28 @@ class EventDetailViewController: UIViewController {
     
     func locationUpdated() {
         if let distance = getDistanceToUser(), let size = place?.size {
-            let text: String
-            if distance <= smallRadius {
-                text = "< 75ft"
-                if self.isCheckedIn {
-                    self.isCheckedIn = false
-                    self.checkIn {
+            
+            let check1 = distance <= smallRadius
+            let check2 = distance <= mediumRadius && size == 2
+            let check3 = distance <= largeRadius  && size == 3
+            let check4 = distance <= hugeRadius  && size == 4
                         
-                    }
-                }
-            } else if distance <= mediumRadius && size == 2 {
-                text = "< 200ft"
-                if self.isCheckedIn {
-                    self.isCheckedIn = false
-                    self.checkIn {
-                        
-                    }
-                }
-            }  else if distance <= largeRadius  && size == 3 {
-                text = "< 500ft"
-                if self.isCheckedIn {
-                    self.isCheckedIn = false
-                    self.checkIn {
-                        
-                    }
-                }
-            } else if distance <= hugeRadius  && size == 4 {
-                text = "< 1000ft"
-                if self.isCheckedIn {
-                    self.isCheckedIn = false
-                    self.checkIn {
-                        
-                    }
-                }
-            } else {
+            if check1 || check2 || check3 || check4 {
+                self.locationPinButton.isHidden = true
+                self.placeDistanceLabel.isHidden = true
+                self.checkinMarkImageView.isHidden = false
+            }
+            else {
+                self.locationPinButton.isHidden = false
+                self.placeDistanceLabel.isHidden = false
+                self.checkinMarkImageView.isHidden = true
+                
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
-                    text = "\(Int(ft / 5280))mi."
-                }else {
-                    text = "\(Int(distance * 3.28084))ft."
+                    self.placeDistanceLabel.text = "\(Int(ft / 5280))mi."
+                } else {
+                    self.placeDistanceLabel.text = "\(Int(distance * 3.28084))ft."
                 }
                 
                 if self.isCheckedIn {
@@ -427,11 +385,7 @@ class EventDetailViewController: UIViewController {
                 }
             }
             
-            self.placeDistanceLabel.text = text
             
-            if (place?.early)! > 0 {
-                
-            }
         }
     }
     
@@ -439,7 +393,6 @@ class EventDetailViewController: UIViewController {
         let text = "\(goingWithExpectUser.count) Going"
         self.goingStatusLabel.text = text
         
-        self.checkinMarkImageView.isHidden = !isGoing
         if isGoing {
             self.eventAction = .goingSwipe
         }
@@ -577,7 +530,7 @@ class EventDetailViewController: UIViewController {
     func getAllGoingUsers() {
         
         var data:[Checkin] = [Checkin]()
-        data = self.goingData
+        data = self.goingWithExpectUser
         
         let dataIds = data.map {
             $0.userId!
@@ -586,11 +539,7 @@ class EventDetailViewController: UIViewController {
         _ = self.checkinData.map { (val) -> Checkin in
             var value = val
             if dataIds.contains(value.userId!) {
-                for (index,x) in data.enumerated() {
-                    if x.userId == value.userId {
-                        data[index].isCheckedIn = true
-                    }
-                }
+                
             } else {
                 data.append(value)
             }
@@ -610,7 +559,7 @@ class EventDetailViewController: UIViewController {
         let userIdsSet = Set(data.flatMap({$0.userId}))
         userIdsSet.forEach { (userId) in
             
-            self.userService.getUser(withId: userId, completion: { [weak self] (user, error) in
+            self.userService.getUser(withId: userId, completion: { [weak self] (userData, error) in
                 
                 acknowledgedCount += 1
                 if let _ = error {
@@ -618,7 +567,23 @@ class EventDetailViewController: UIViewController {
                     return
                 }
                 
-                if let user = user {
+                if var user = userData {
+                    // For checkedin
+                    var dataIds = self?.checkinData.map {
+                        $0.userId!
+                    }
+                    if let id = user.id, dataIds?.contains(id) ?? false {
+                        user.isCheckedIn = true
+                    }
+                    
+                    // For checkedin
+                    dataIds = self?.goingWithExpectUser.map {
+                        $0.userId!
+                    }
+                    if let id = user.id, dataIds?.contains(id) ?? false {
+                        user.isGoing = true
+                    }
+                    
                     if let index = self?.eventUsers.index(of: user) {
                         self?.eventUsers[index] = user
                     }else {
@@ -759,14 +724,27 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
         //        imageView.image = UIImage(named: "profile.png")
         imageView.kf.setImage(with: user.profile.images.first)
         
+        let checkButton = cell.viewWithTag(3) as! UIButton
+        checkButton.isHidden = !user.isCheckedIn
+        
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
-        vc.fromFBFriends = self.eventUsers[indexPath.row]
-        vc.transitioningDelegate = self
-        self.present(vc, animated: true, completion: nil)
+        if self.eventUsers[indexPath.row].isCheckedIn {
+            self.alert(message: "User is checked in", title: "Alert", okAction: { 
+                let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+                vc.fromFBFriends = self.eventUsers[indexPath.row]
+                vc.transitioningDelegate = self
+                self.present(vc, animated: true, completion: nil)
+            })
+        } else {
+            let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+            vc.fromFBFriends = self.eventUsers[indexPath.row]
+            vc.transitioningDelegate = self
+            self.present(vc, animated: true, completion: nil)
+        }
         //        if let nav = self.navigationController {
         //            nav.present(vc, animated: true, completion: nil)
         //        }

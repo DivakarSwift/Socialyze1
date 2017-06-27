@@ -22,6 +22,19 @@ class EventAdsViewController: UIViewController {
     override func viewDidLoad() {
         self.addSwipeGesture(toView: self.view)
         self.setupView()
+        self.addTapGesture(toView: self.view)
+    }
+    
+   
+    
+    // MARK: - Gesture
+    func addTapGesture(toView view: UIView) {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    func handleTap(_ gesture: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
+        UIApplication.shared.isStatusBarHidden = false
     }
     
     func setupView() {
