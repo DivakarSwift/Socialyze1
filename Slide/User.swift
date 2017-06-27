@@ -21,6 +21,9 @@ struct LocalUser: Mappable, Equatable {
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
     
+    var isCheckedIn = false
+    var isGoing = false
+    
     init() {}
     
     init?(map: Map) {

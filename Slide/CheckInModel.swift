@@ -13,6 +13,8 @@ struct Checkin: Mappable {
     var fbId: String?
     var time: Double?
     var userId: String?
+    var isGoing:Bool = false
+    var isCheckedIn: Bool = false
     
     init?(map: Map) {
         self.mapping(map: map)

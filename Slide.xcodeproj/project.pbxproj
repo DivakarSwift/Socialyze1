@@ -42,6 +42,7 @@
 		F40FCC901EFCA5A1008AF554 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */; };
 		F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */; };
 		F45DDD821F0095CC009F8EDC /* EventPlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DDD811F0095CC009F8EDC /* EventPlaceDetailViewController.swift */; };
+		F48EB7FF1F01EE7D008A326E /* EventAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */; };
 		F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594351EE3DB44003631EE /* indicator_75.gif */; };
 		F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594361EE3DB44003631EE /* indicator_40.gif */; };
 		F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594371EE3DB44003631EE /* indicator_20.gif */; };
@@ -109,6 +110,7 @@
 		F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		F45DDD811F0095CC009F8EDC /* EventPlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPlaceDetailViewController.swift; sourceTree = "<group>"; };
+		F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAdsViewController.swift; sourceTree = "<group>"; };
 		F4A594351EE3DB44003631EE /* indicator_75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_75.gif; sourceTree = "<group>"; };
 		F4A594361EE3DB44003631EE /* indicator_40.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_40.gif; sourceTree = "<group>"; };
 		F4A594371EE3DB44003631EE /* indicator_20.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_20.gif; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			children = (
 				F45DDD811F0095CC009F8EDC /* EventPlaceDetailViewController.swift */,
 				F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */,
+				F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */,
 				FC7A241B1E695F56004C9E44 /* AppDelegate.swift in Sources */,
 				7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */,
+				F48EB7FF1F01EE7D008A326E /* EventAdsViewController.swift in Sources */,
 				1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */,
 				F4C78B7C1EFACBFB00259A55 /* FacebookAccessToken.swift in Sources */,
 				1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */,

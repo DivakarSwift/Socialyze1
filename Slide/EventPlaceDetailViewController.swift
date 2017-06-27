@@ -78,16 +78,29 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
-            self.getAllCheckedInUsers(data : checkinWithExpectUser)
+            
+            self.checkinData = self.checkinData.map { (checkin) -> Checkin in
+                var data = checkin
+                data.isCheckedIn = true
+                return data
+            }
+            
+            self.getAllGoingUsers()
         }
     }
     
     private var goingWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
+            
+            // Removing Blocked user
             self.goingData = goingWithExpectUser.filter({(checkin) -> Bool in
                 if let goingUserId = checkin.userId {
                     // return true
+                    if Authenticator.shared.user?.id == goingUserId {
+                        self.isGoing = true
+                        self.changeGoingStatus()
+                    }
                     if exceptedUsers.contains(goingUserId) {
                         return false
                     }
@@ -96,6 +109,7 @@ class EventDetailViewController: UIViewController {
                 return false
             })
             
+            // removing user not at this place
             self.goingData = self.goingWithExpectUser.filter({(checkin) -> Bool in
                 if let checkInUserId = checkin.userId, let authUserId = self.authenticator.user?.id, let checkinTime = checkin.time {
                     // return true
@@ -106,18 +120,18 @@ class EventDetailViewController: UIViewController {
                 return false
             })
             
-            self.getAllGoingUsers(data : goingWithExpectUser)
+            self.goingData = self.goingData.map { (checkin) -> Checkin in
+                var data = checkin
+                data.isGoing = true
+                return data
+            }
+            
+            self.getAllGoingUsers()
             self.changeGoingStatus()
         }
     }
     
-    var checkinUsers: [LocalUser] = [] {
-        didSet {
-            self.activityIndicator.stopAnimating()
-        }
-    }
-    
-    var goingUsers: [LocalUser] = [] {
+    var eventUsers: [LocalUser] = [] {
         didSet {
             self.activityIndicator.stopAnimating()
         }
@@ -133,7 +147,7 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.checkinMarkImageView.isHidden = false
+        self.checkinMarkImageView.isHidden = true
         self.locationPinButton.isHidden = false
         
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
@@ -180,7 +194,7 @@ class EventDetailViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     func handleTap(_ gesture: UITapGestureRecognizer) {
-                self.viewDetail()
+        self.viewDetail()
     }
     
     func addSwipeGesture(toView view: UIView) {
@@ -236,30 +250,16 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func next(_ sender: UIButton) {
-        if let adsUrl = place?.ads?.first?.link {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL(string: adsUrl)!, options: [:], completionHandler: nil)
-            } else {
-                // Fallback on earlier versions
-                UIApplication.shared.openURL(URL(string: adsUrl)!)
-            }
-        }
-    }
-    
-    
-    
     @IBAction func detail(_ sender: UIButton) {
         self.viewDetail()
     }
     
     func  viewDetail(){
-        if let _ = self.place?.ads {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "AdsViewController") as! AdsViewController
-            vc.place = self.place
-            self.present(vc, animated: true, completion: nil)
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
+        vc.place = self.place
+        vc.checkinData = self.checkinData
+        vc.facebookFriends = self.faceBookFriends
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func checkIn(_ sender: UIButton) {
@@ -297,11 +297,11 @@ class EventDetailViewController: UIViewController {
     private func going() {
         self.alertWithOkCancel(message: "Are you interested in going?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
             self.goingIn {[weak self] in
-                self?.locationPinButton.isHidden = false
-                if self?.goingData.count != 0 {
-                    
-                }else {
-                    
+                
+                if let me = self {
+                    me.isGoing = true
+                    me.changeGoingStatus()
+                    self?.eventAction = .goingSwipe
                 }
             }
         }, cancelAction: { _ in
@@ -371,43 +371,7 @@ class EventDetailViewController: UIViewController {
     }
     
     @IBAction func invite(_ sender: UIButton) {
-        //        self.showMoreOption()
-    }
-    
-    private func checkIn(onSuccess: @escaping () -> ()) {
-        self.placeService.user(authenticator.user!, checkInAt: self.place!, completion: {[weak self] (success, error) in
-            success ?
-                onSuccess() :
-                self?.alert(message: error?.localizedDescription)
-            if let me = self {
-                me.isCheckedIn = success
-                
-                if success {
-                    SlydeLocationManager.shared.stopUpdatingLocation()
-                    Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
-                }
-            }
-            
-            print(error ?? "CHECKED IN")
-        })
-    }
-    
-    private func goingIn(onSuccess: @escaping () -> ()) {
-        
-        self.placeService.user(authenticator.user!, goingAt: self.place!) { [weak self] (success, error) in
-            success ?
-                onSuccess() :
-                self?.alert(message: error?.localizedDescription)
-            if let me = self {
-                me.isGoing = success
-                
-                if success {
-                    self?.eventAction = .goingSwipe
-                }
-            }
-            
-            print(error ?? "CHECKED IN")
-        }
+        self.showMoreOption()
     }
     
     func recheckin() {
@@ -418,9 +382,7 @@ class EventDetailViewController: UIViewController {
         if let distance = getDistanceToUser(), let size = place?.size {
             let text: String
             if distance <= smallRadius {
-                text = "less than 75ft"
-                self.checkinMarkImageView.isHidden = false
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "location-pin"), for: .normal)
+                text = "< 75ft"
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -428,9 +390,7 @@ class EventDetailViewController: UIViewController {
                     }
                 }
             } else if distance <= mediumRadius && size == 2 {
-                text = "less than 200ft"
-                self.checkinMarkImageView.isHidden = false
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "location-pin"), for: .normal)
+                text = "< 200ft"
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -438,9 +398,7 @@ class EventDetailViewController: UIViewController {
                     }
                 }
             }  else if distance <= largeRadius  && size == 3 {
-                text = "less than 500ft"
-                self.checkinMarkImageView.isHidden = false
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "location-pin"), for: .normal)
+                text = "< 500ft"
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -448,9 +406,7 @@ class EventDetailViewController: UIViewController {
                     }
                 }
             } else if distance <= hugeRadius  && size == 4 {
-                text = "less than 1000ft"
-                self.checkinMarkImageView.isHidden = false
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "location-pin"), for: .normal)
+                text = "< 1000ft"
                 if self.isCheckedIn {
                     self.isCheckedIn = false
                     self.checkIn {
@@ -458,8 +414,6 @@ class EventDetailViewController: UIViewController {
                     }
                 }
             } else {
-                self.checkinMarkImageView.isHidden = true
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "location-pin"), for: .normal)
                 let ft = distance * 3.28084
                 
                 if ft >= 5280 {
@@ -476,36 +430,19 @@ class EventDetailViewController: UIViewController {
             self.placeDistanceLabel.text = text
             
             if (place?.early)! > 0 {
-                self.checkinMarkImageView.isHidden = false
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "location-pin"), for: .normal)
+                
             }
         }
-    }
-    
-    func getUserFriends() {
-        facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
-            self?.faceBookFriends = friends
-            }, failure: { (error) in
-                //                self?.alert(message: error)
-                print(error)
-        })
-    }
-    
-    func getCheckedInFriends() -> [FacebookFriend] {
-        let fbIds = self.checkinWithExpectUser.flatMap({$0.fbId})
-        let friendCheckins = self.faceBookFriends.filter({fbIds.contains($0.id)})
-        return friendCheckins
     }
     
     func changeGoingStatus() {
         let text = "\(goingWithExpectUser.count) Going"
         self.goingStatusLabel.text = text
         
-        if self.goingData.count > 0 && isGoing {
+        self.checkinMarkImageView.isHidden = !isGoing
+        if isGoing {
             self.eventAction = .goingSwipe
         }
-        
-        self.checkinMarkImageView.isHidden = !isGoing
         
         if self.goingData.count > 0 {
             let fbIds = self.faceBookFriends.map({$0.id})
@@ -521,116 +458,6 @@ class EventDetailViewController: UIViewController {
             self.includingFriendsLabel.text = ""
         }
         self.friendsCollectionView.reloadData()
-    }
-    
-    func getCheckedinUsers() {
-        self.activityIndicator.startAnimating()
-        if let authUserId = self.authenticator.user?.id {
-            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
-                self?.exceptedUsers = userIds
-                self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
-                    self?.activityIndicator.stopAnimating()
-                    
-                    self?.checkinWithExpectUser = checkins.filter({(checkin) -> Bool in
-                        if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
-                            // return true
-                            
-                            let checkTimeValid = checkInUserId != authUserId && (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
-                            return checkTimeValid
-                        }
-                        return false
-                    })
-                    }, failure: {[weak self] error in
-                        self?.activityIndicator.stopAnimating()
-                        //                        self?.alert(message: error.localizedDescription)
-                })
-                
-            })
-        }
-    }
-    
-    func getGoingUsers() {
-        self.activityIndicator.startAnimating()
-        if let authUserId = self.authenticator.user?.id {
-            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
-                self?.exceptedUsers = userIds
-                self?.placeService.getGoingUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
-                    self?.activityIndicator.stopAnimating()
-                    
-                    self?.goingWithExpectUser = checkins
-                    
-                    }, failure: {[weak self] error in
-                        self?.activityIndicator.stopAnimating()
-                        //                        self?.alert(message: error.localizedDescription)
-                })
-                
-            })
-        }
-    }
-    
-    func getAllCheckedInUsers(data : [Checkin]) {
-        var acknowledgedCount = 0 {
-            didSet {
-                if acknowledgedCount == self.checkinData.count {
-                    self.activityIndicator.stopAnimating()
-                }
-            }
-        }
-        acknowledgedCount = 0
-        
-        let userIdsSet = Set(data.flatMap({$0.userId}))
-        userIdsSet.forEach { (userId) in
-            
-            UserService().getUser(withId: userId, completion: { [weak self] (user, error) in
-                
-                if let _ = error {
-                    //                    self?.alert(message: error.localizedDescription)
-                    return
-                }
-                
-                if let user = user {
-                    if let index = self?.checkinUsers.index(of: user) {
-                        self?.checkinUsers[index] = user
-                    }else {
-                        self?.checkinUsers.append(user)
-                    }
-                }
-            })
-            acknowledgedCount += 1
-        }
-    }
-    
-    func getAllGoingUsers(data : [Checkin]) {
-        self.activityIndicator.startAnimating()
-        var acknowledgedCount = 0 {
-            didSet {
-                if acknowledgedCount == data.count {
-                    self.activityIndicator.stopAnimating()
-                }
-            }
-        }
-        acknowledgedCount = 0
-        
-        let userIdsSet = Set(data.flatMap({$0.userId}))
-        userIdsSet.forEach { (userId) in
-            
-            self.userService.getUser(withId: userId, completion: { [weak self] (user, error) in
-                
-                acknowledgedCount += 1
-                if let _ = error {
-                    //                    self?.alert(message: error.localizedDescription)
-                    return
-                }
-                
-                if let user = user {
-                    if let index = self?.checkinUsers.index(of: user) {
-                        self?.goingUsers[index] = user
-                    }else {
-                        self?.goingUsers.append(user)
-                    }
-                }
-            })
-        }
     }
     
     func getDistanceToUser() -> Double? {
@@ -663,6 +490,144 @@ class EventDetailViewController: UIViewController {
             }
         }
         return super.prepare(for: segue, sender: sender)
+    }
+    
+    // MARK: - API Calls
+    private func checkIn(onSuccess: @escaping () -> ()) {
+        self.placeService.user(authenticator.user!, checkInAt: self.place!, completion: {[weak self] (success, error) in
+            success ?
+                onSuccess() :
+                self?.alert(message: error?.localizedDescription)
+            if let me = self {
+                me.isCheckedIn = success
+                
+                if success {
+                    SlydeLocationManager.shared.stopUpdatingLocation()
+                    Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
+                }
+            }
+            
+            print(error ?? "CHECKED IN")
+        })
+    }
+    
+    private func goingIn(onSuccess: @escaping () -> ()) {
+        
+        self.placeService.user(authenticator.user!, goingAt: self.place!) { [weak self] (success, error) in
+            success ?
+                onSuccess() :
+                self?.alert(message: error?.localizedDescription)
+            
+            print(error ?? "CHECKED IN")
+        }
+    }
+    
+    func getUserFriends() {
+        facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
+            self?.faceBookFriends = friends
+            }, failure: { (error) in
+                //                self?.alert(message: error)
+                print(error)
+        })
+    }
+    
+    func getCheckedInFriends() -> [FacebookFriend] {
+        let fbIds = self.checkinWithExpectUser.flatMap({$0.fbId})
+        let friendCheckins = self.faceBookFriends.filter({fbIds.contains($0.id)})
+        return friendCheckins
+    }
+    
+    func getCheckedinUsers() {
+        self.activityIndicator.startAnimating()
+        if let authUserId = self.authenticator.user?.id {
+            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
+                self?.exceptedUsers = userIds
+                self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
+                    self?.activityIndicator.stopAnimating()
+                    
+                    self?.checkinWithExpectUser = checkins
+                    }, failure: {[weak self] error in
+                        self?.activityIndicator.stopAnimating()
+                        //                        self?.alert(message: error.localizedDescription)
+                })
+                
+            })
+        }
+    }
+    
+    func getGoingUsers() {
+        self.activityIndicator.startAnimating()
+        if let authUserId = self.authenticator.user?.id {
+            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
+                self?.exceptedUsers = userIds
+                self?.placeService.getGoingUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
+                    self?.activityIndicator.stopAnimating()
+                    self?.goingWithExpectUser = checkins
+                    self?.getCheckedinUsers()
+                    
+                    }, failure: {[weak self] error in
+                        self?.activityIndicator.stopAnimating()
+                        self?.getCheckedinUsers()
+                })
+                
+            })
+        }
+    }
+    
+    func getAllGoingUsers() {
+        
+        var data:[Checkin] = [Checkin]()
+        data = self.goingData
+        
+        let dataIds = data.map {
+            $0.userId!
+        }
+        
+        _ = self.checkinData.map { (val) -> Checkin in
+            var value = val
+            if dataIds.contains(value.userId!) {
+                for (index,x) in data.enumerated() {
+                    if x.userId == value.userId {
+                        data[index].isCheckedIn = true
+                    }
+                }
+            } else {
+                data.append(value)
+            }
+            return value
+        }
+        
+        self.activityIndicator.startAnimating()
+        var acknowledgedCount = 0 {
+            didSet {
+                if acknowledgedCount == data.count {
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
+        acknowledgedCount = 0
+        
+        let userIdsSet = Set(data.flatMap({$0.userId}))
+        userIdsSet.forEach { (userId) in
+            
+            self.userService.getUser(withId: userId, completion: { [weak self] (user, error) in
+                
+                acknowledgedCount += 1
+                if let _ = error {
+                    //                    self?.alert(message: error.localizedDescription)
+                    return
+                }
+                
+                if let user = user {
+                    if let index = self?.eventUsers.index(of: user) {
+                        self?.eventUsers[index] = user
+                    }else {
+                        self?.eventUsers.append(user)
+                    }
+                    self?.friendsCollectionView.reloadData()
+                }
+            })
+        }
     }
     
 }
@@ -773,13 +738,13 @@ extension EventDetailViewController: AuthenticatorDelegate {
 extension EventDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.goingUsers.count
+        return  self.eventUsers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         
-        let user = self.goingUsers[indexPath.row]
+        let user = self.eventUsers[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         
         let label = cell.viewWithTag(2) as! UILabel
@@ -799,7 +764,7 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
-        vc.fromFBFriends = self.goingUsers[indexPath.row]
+        vc.fromFBFriends = self.eventUsers[indexPath.row]
         vc.transitioningDelegate = self
         self.present(vc, animated: true, completion: nil)
         //        if let nav = self.navigationController {
@@ -826,4 +791,5 @@ extension EventDetailViewController: UIViewControllerTransitioningDelegate {
         return DismissAnimator()
     }
 }
+
 
