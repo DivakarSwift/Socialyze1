@@ -148,7 +148,9 @@ class EventDetailViewController: UIViewController {
         
         getGoingUsers()
         self.setupCollectionView()
-        
+        self.checkInButton.layer.cornerRadius = 5
+        self.includingFriendsLabel.layer.cornerRadius = 5
+        self.eventPlaceLabel.layer.cornerRadius = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {
