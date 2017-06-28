@@ -516,6 +516,19 @@ class EventDetailViewController: UIViewController {
             UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
                 self?.exceptedUsers = userIds
                 self?.placeService.getGoingUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
+                    
+                    self?.goingWithExpectUser = checkins.filter({(checkin) -> Bool in
+                        if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
+                            // return true
+                            if checkInUserId == myId {
+                                return false
+                            }
+                            return true
+                        }
+                        return true
+                    })
+
+                    
                     self?.activityIndicator.stopAnimating()
                     self?.goingWithExpectUser = checkins
                     self?.getCheckedinUsers()
