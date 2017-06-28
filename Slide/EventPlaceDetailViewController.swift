@@ -500,16 +500,19 @@ class EventDetailViewController: UIViewController {
                 self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
                     self?.activityIndicator.stopAnimating()
                     
-                    self?.checkinWithExpectUser = xcheckins.filter({(checkin) -> Bool in
+                    self?.checkinWithExpectUser = checkins.filter({(checkin) -> Bool in
+                        var val:Bool = true
                         if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
                             // return true
                             if checkInUserId == myId {
-                                return false
+                                val = false
+                            } else {
+                                val = true
                             }
-                            return true
                         }
-                        return true
+                        return val
                     })
+                    
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
                         //                        self?.alert(message: error.localizedDescription)
@@ -527,19 +530,21 @@ class EventDetailViewController: UIViewController {
                 self?.placeService.getGoingUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
                     
                     self?.goingWithExpectUser = checkins.filter({(checkin) -> Bool in
+                        
+                        var val:Bool = true
                         if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
                             // return true
                             if checkInUserId == myId {
-                                return false
+                                val = false
+                            } else {
+                                val = true
                             }
-                            return true
                         }
-                        return true
+                        return val
                     })
 
                     
                     self?.activityIndicator.stopAnimating()
-                    self?.goingWithExpectUser = checkins
                     self?.getCheckedinUsers()
                     
                     }, failure: {[weak self] error in
