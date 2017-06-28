@@ -37,17 +37,17 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     
-    let facebookService = FacebookService.shared
-    let userService = UserService()
-    private let authenticator = Authenticator.shared
-    private let placeService = PlaceService()
+    fileprivate let facebookService = FacebookService.shared
+    fileprivate let userService = UserService()
+    fileprivate let authenticator = Authenticator.shared
+    fileprivate let placeService = PlaceService()
     
     var place: Place?
     var thresholdRadius = 30.48 //100ft
     var adsIndex:Int = 0
     
-    private var isCheckedIn = false
-    private var isGoing = false
+    fileprivate var isCheckedIn = false
+    fileprivate var isGoing = false
     
     fileprivate var eventAction:EventAction = .going {
         didSet {
@@ -55,17 +55,17 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    private var faceBookFriends = [FacebookFriend]() {
+    fileprivate var faceBookFriends = [FacebookFriend]() {
         didSet {
             self.changeGoingStatus()
         }
     }
     
-    private var checkinData = [Checkin]()
-    private var goingData = [Checkin]()
+    fileprivate var checkinData = [Checkin]()
+    fileprivate var goingData = [Checkin]()
     private var exceptedUsers:[String] = []
     
-    private var checkinWithExpectUser = [Checkin]() {
+    fileprivate var checkinWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
             
@@ -85,7 +85,7 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    private var goingWithExpectUser = [Checkin]() {
+    fileprivate var goingWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
             
@@ -237,7 +237,7 @@ class EventDetailViewController: UIViewController {
         vc.place = self.place
         vc.checkinData = self.checkinData
         vc.facebookFriends = self.faceBookFriends
-        self.present(vc, animated: true, completion: nil)
+        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func checkIn(_ sender: UIButton) {
@@ -247,7 +247,7 @@ class EventDetailViewController: UIViewController {
         case .goingSwipe:
             if self.goingData.count != 0 {
 //                self.alertWithOkCancel(message: "You are going, so wanna see who else are going?", title: "Hey, There", okTitle: "Yes", cancelTitle: "No", okAction: {
-                    self.performSegue(withIdentifier: "Categories", sender: self)
+                self.openCategories()
 //                }, cancelAction: { _ in
 //                    self.eventAction = .checkIn
 //                })
@@ -264,12 +264,33 @@ class EventDetailViewController: UIViewController {
 //            })
         case .checkInSwipe:
             if self.checkinData.count != 0 {
-                self.performSegue(withIdentifier: "Categories", sender: self)
+                self.openCategories()
             } else {
                 self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
                 self.changeGoingStatus()
             }
         }
+    }
+    
+    fileprivate func openCategories() {
+        let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+        
+        vc.place = self.place
+        vc.noUsers = {
+            self.dismiss(animated: true, completion: nil)
+            _ = self.navigationController?.popViewController(animated: false)
+            
+        }
+        if self.eventAction == .goingSwipe {
+            vc.isGoing = true
+            let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
+            vc.checkinUserIds = userIdsSet
+        } else if self.eventAction == .checkInSwipe {
+            vc.isCheckedIn = true
+            let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
+            vc.checkinUserIds = userIdsSet
+        }
+        self.present(vc, animated: true, completion: nil)
     }
     
     private func going() {
@@ -409,8 +430,6 @@ class EventDetailViewController: UIViewController {
             } else {
                 self.includingFriendsLabel.text = ""
             }
-        } else {
-            self.includingFriendsLabel.text = ""
         }
         self.friendsCollectionView.reloadData()
     }
@@ -431,8 +450,9 @@ class EventDetailViewController: UIViewController {
             
             destinationVC.place = self.place
             destinationVC.noUsers = {
-                self.eventAction = .checkIn
-                self.changeGoingStatus()
+                self.dismiss(animated: true, completion: nil)
+                _ = self.navigationController?.popViewController(animated: false)
+                
             }
             if eventAction == .goingSwipe {
                 destinationVC.isGoing = true
@@ -473,7 +493,7 @@ class EventDetailViewController: UIViewController {
                 onSuccess() :
                 self?.alert(message: error?.localizedDescription)
             
-            print(error ?? "CHECKED IN")
+            print(error ?? "GOING")
         }
     }
     
@@ -505,6 +525,8 @@ class EventDetailViewController: UIViewController {
                         if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
                             // return true
                             if checkInUserId == myId {
+//                                self?.isCheckedIn = true
+//                                self?.changeGoingStatus()
                                 val = false
                             } else {
                                 val = true
@@ -535,6 +557,8 @@ class EventDetailViewController: UIViewController {
                         if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
                             // return true
                             if checkInUserId == myId {
+                                self?.isGoing = true
+                                self?.changeGoingStatus()
                                 val = false
                             } else {
                                 val = true

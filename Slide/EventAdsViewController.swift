@@ -33,7 +33,7 @@ class EventAdsViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     func handleTap(_ gesture: UITapGestureRecognizer) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
         UIApplication.shared.isStatusBarHidden = false
     }
     
