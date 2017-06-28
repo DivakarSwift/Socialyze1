@@ -500,7 +500,16 @@ class EventDetailViewController: UIViewController {
                 self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
                     self?.activityIndicator.stopAnimating()
                     
-                    self?.checkinWithExpectUser = checkins
+                    self?.checkinWithExpectUser = xcheckins.filter({(checkin) -> Bool in
+                        if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
+                            // return true
+                            if checkInUserId == myId {
+                                return false
+                            }
+                            return true
+                        }
+                        return true
+                    })
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
                         //                        self?.alert(message: error.localizedDescription)
