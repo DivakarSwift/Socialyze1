@@ -54,9 +54,12 @@ class EventAdsViewController: UIViewController {
                 let fbIds = self.facebookFriends.map{ $0.id }
                 let friendCheckins = data.filter({fbIds.contains($0.fbId!)})
                 
-                if friendCheckins.count > 0 {
+                if friendCheckins.count > 1 {
+                    let text = "including \(friendCheckins.count) friends"
+                    self.facebookLabel.text = text
+                } else if friendCheckins.count > 0 {
                     self.facebookLabel.isHidden = false
-                    let text = "including \(friendCheckins.count) Friend(s)"
+                    let text = "including \(friendCheckins.count) friend"
                     self.facebookLabel.text = text
                 } else {
                     self.facebookLabel.isHidden = true

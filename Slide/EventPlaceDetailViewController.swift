@@ -194,7 +194,7 @@ class EventDetailViewController: UIViewController {
             self.eventDateLabel.text = place.date
             self.eventTimeLabel.text = place.time
             if let hall = place.hall {
-                self.eventPlaceLabel.text = "@ \(String(describing: hall))"
+                self.eventPlaceLabel.text = "\(String(describing: hall))"
             }
             
             let image = place.secondImage ?? place.mainImage ?? ""
@@ -708,7 +708,7 @@ extension EventDetailViewController : MFMessageComposeViewControllerDelegate, UI
         
         
         // Please change this two urls accordingly
-        let appLinkUrl:URL = URL(string: GlobalConstants.urls.itunesLink)!
+        let appLinkUrl:URL = URL(string: "https://fb.me/1351482471639007")!//GlobalConstants.urls.itunesLink)!
         let previewImageUrl:URL = URL(string: "http://socialyzeapp.com/wp-content/uploads/2017/03/logo-128p.png")!
         
         var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)

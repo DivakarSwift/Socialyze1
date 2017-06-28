@@ -104,7 +104,7 @@ class CategoriesViewController: UIViewController {
             
         } else {
             self.checkedInImageView.isHidden = true
-            self.goingImageView.isHidden = true
+            //self.goingImageView.isHidden = true
             
             self.getAllCheckedInUsers()
             self.addPanGesture(toView: self.imageView)
@@ -117,9 +117,9 @@ class CategoriesViewController: UIViewController {
             self.navigationController?.navigationItem.title  = friend.profile.firstName
         }
         
-        if let val = isGoing, val {
-            self.goingImageView.isHidden = false
-        }
+        //if let val = isGoing, val {
+            //self.goingImageView.isHidden = false
+        //}
         if let val = isCheckedIn, val {
             self.checkedInImageView.isHidden = false
         }
