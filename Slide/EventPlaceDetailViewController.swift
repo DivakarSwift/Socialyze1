@@ -424,10 +424,13 @@ class EventDetailViewController: UIViewController {
             let fbIds = self.faceBookFriends.map({$0.id})
             let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
             
-            if friendCheckins.count > 0 {
-                let text = "including \(friendCheckins.count) Friend"
+            if friendCheckins.count > 1 {
+                let text = "including \(friendCheckins.count) friends"
                 self.includingFriendsLabel.text = text
-            } else {
+            } else if friendCheckins.count > 0 {
+                let text = "including \(friendCheckins.count) friend"
+                self.includingFriendsLabel.text = text
+            }else {
                 self.includingFriendsLabel.text = ""
             }
         }
