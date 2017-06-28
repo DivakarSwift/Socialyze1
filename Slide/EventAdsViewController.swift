@@ -46,7 +46,7 @@ class EventAdsViewController: UIViewController {
         }
         
         if let count = self.checkinData?.count {
-            self.checkedInLabel.text = "\(count) Checked In."
+            self.checkedInLabel.text = "\(count) Checked In"
         }
         
         if let data =  self.checkinData {
@@ -56,7 +56,7 @@ class EventAdsViewController: UIViewController {
                 
                 if friendCheckins.count > 0 {
                     self.facebookLabel.isHidden = false
-                    let text = "including \(friendCheckins.count) FF's"
+                    let text = "including \(friendCheckins.count) Friend(s)"
                     self.facebookLabel.text = text
                 } else {
                     self.facebookLabel.isHidden = true

@@ -404,7 +404,7 @@ class EventDetailViewController: UIViewController {
             let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
             
             if friendCheckins.count > 0 {
-                let text = "including \(friendCheckins.count) FF's"
+                let text = "including \(friendCheckins.count) Friend"
                 self.includingFriendsLabel.text = text
             } else {
                 self.includingFriendsLabel.text = ""
