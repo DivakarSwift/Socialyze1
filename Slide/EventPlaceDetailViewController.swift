@@ -277,8 +277,10 @@ class EventDetailViewController: UIViewController {
         
         vc.place = self.place
         vc.noUsers = {
-            self.dismiss(animated: true, completion: nil)
-            _ = self.navigationController?.popViewController(animated: false)
+            if self.eventAction == .checkInSwipe {
+                self.dismiss(animated: true, completion: nil)
+                _ = self.navigationController?.popViewController(animated: false)
+            }
             
         }
         if self.eventAction == .goingSwipe {
@@ -416,8 +418,8 @@ class EventDetailViewController: UIViewController {
         let text = "\(goingWithExpectUser.count) Going"
         self.goingStatusLabel.text = text
         
-        if isGoing {
-            self.eventAction = .goingSwipe
+        if isGoing && self.eventAction == .going {
+                self.eventAction = .goingSwipe
         }
         
         if self.goingData.count > 0 {

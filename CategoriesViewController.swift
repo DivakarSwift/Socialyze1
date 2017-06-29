@@ -169,7 +169,7 @@ class CategoriesViewController: UIViewController {
                     self.activityIndicator.isAnimating = false
                     self.activityIndicator.stopAnimating()
                 }
-            },completionHandler: { _ in
+            }, completionHandler: { _ in
                 self.activityIndicator.isAnimating = false
                 self.activityIndicator.stopAnimating()
             })
