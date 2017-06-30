@@ -134,6 +134,22 @@ class EventDetailViewController: UIViewController {
         self.activityIndicator.center = view.center
         setupView()
         
+        self.placeDistanceLabel.layer.shadowOpacity = 1.0
+        self.placeDistanceLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.placeDistanceLabel.layer.shadowRadius = 3.0
+        self.eventNameLabel.layer.shadowOpacity = 1.0
+        self.eventNameLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.eventNameLabel.layer.shadowRadius = 3.0
+        self.eventTimeLabel.layer.shadowOpacity = 1.0
+        self.eventTimeLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.eventTimeLabel.layer.shadowRadius = 3.0
+        self.eventPlaceLabel.layer.shadowOpacity = 1.0
+        self.eventPlaceLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.eventPlaceLabel.layer.shadowRadius = 3.0
+        self.eventDateLabel.layer.shadowOpacity = 1.0
+        self.eventDateLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.eventDateLabel.layer.shadowRadius = 3.0
+        
         self.locationUpdated()
         
         SlydeLocationManager.shared.startUpdatingLocation()
