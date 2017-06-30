@@ -37,35 +37,37 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     
-    fileprivate let facebookService = FacebookService.shared
-    fileprivate let userService = UserService()
-    fileprivate let authenticator = Authenticator.shared
-    fileprivate let placeService = PlaceService()
+    internal let facebookService = FacebookService.shared
+    internal let userService = UserService()
+    internal let authenticator = Authenticator.shared
+    internal let placeService = PlaceService()
     
     var place: Place?
-    var thresholdRadius = 30.48 //100ft
-    var adsIndex:Int = 0
+    var isEvent:Bool?
     
-    fileprivate var isCheckedIn = false
-    fileprivate var isGoing = false
+    fileprivate var thresholdRadius = 30.48 //100ft
+    fileprivate var adsIndex:Int = 0
     
-    fileprivate var eventAction:EventAction = .going {
+    internal var isCheckedIn = false
+    internal var isGoing = false
+    
+    internal var eventAction:EventAction = .going {
         didSet {
             self.changeCheckInButton(action: self.eventAction)
         }
     }
     
-    fileprivate var faceBookFriends = [FacebookFriend]() {
+    internal var faceBookFriends = [FacebookFriend]() {
         didSet {
             self.changeGoingStatus()
         }
     }
     
-    fileprivate var checkinData = [Checkin]()
-    fileprivate var goingData = [Checkin]()
-    private var exceptedUsers:[String] = []
+    internal var checkinData = [Checkin]()
+    internal var goingData = [Checkin]()
+    internal var exceptedUsers:[String] = []
     
-    fileprivate var checkinWithExpectUser = [Checkin]() {
+    internal var checkinWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
             
@@ -85,7 +87,7 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    fileprivate var goingWithExpectUser = [Checkin]() {
+    internal var goingWithExpectUser = [Checkin]() {
         didSet {
             self.activityIndicator.stopAnimating()
             
@@ -116,7 +118,7 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
+    lazy internal var activityIndicator : CustomActivityIndicatorView = {
         let image : UIImage = #imageLiteral(resourceName: "ladybird")
         let activityIndicator = CustomActivityIndicatorView(image: image)
         return activityIndicator
@@ -366,7 +368,7 @@ class EventDetailViewController: UIViewController {
     private func checkout() {
         self.placeService.user(authenticator.user!, checkOutFrom: self.place!) {[weak self] (success, error) in
             if success {
-//                _ = self?.navigationController?.popViewController(animated: true)
+                _ = self?.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -470,187 +472,6 @@ class EventDetailViewController: UIViewController {
             }
         }
         return super.prepare(for: segue, sender: sender)
-    }
-    
-    // MARK: - API Calls
-    private func checkIn(onSuccess: @escaping () -> ()) {
-        self.placeService.user(authenticator.user!, checkInAt: self.place!, completion: {[weak self] (success, error) in
-            success ?
-                onSuccess() :
-                self?.alert(message: error?.localizedDescription)
-            if let me = self {
-                me.isCheckedIn = success
-                
-                if success {
-                    SlydeLocationManager.shared.stopUpdatingLocation()
-                    Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
-                }
-            }
-            
-            print(error ?? "CHECKED IN")
-        })
-    }
-    
-    private func goingIn(onSuccess: @escaping () -> ()) {
-        
-        self.placeService.user(authenticator.user!, goingAt: self.place!) { [weak self] (success, error) in
-            success ?
-                onSuccess() :
-                self?.alert(message: error?.localizedDescription)
-            
-            print(error ?? "GOING")
-        }
-    }
-    
-    func getUserFriends() {
-        facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
-            self?.faceBookFriends = friends
-            }, failure: { (error) in
-                //                self?.alert(message: error)
-                print(error)
-        })
-    }
-    
-    func getCheckedInFriends() -> [FacebookFriend] {
-        let fbIds = self.checkinWithExpectUser.flatMap({$0.fbId})
-        let friendCheckins = self.faceBookFriends.filter({fbIds.contains($0.id)})
-        return friendCheckins
-    }
-    
-    func getCheckedinUsers() {
-        self.activityIndicator.startAnimating()
-        if let authUserId = self.authenticator.user?.id {
-            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
-                self?.exceptedUsers = userIds
-                self?.placeService.getCheckInUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
-                    self?.activityIndicator.stopAnimating()
-                    
-                    self?.checkinWithExpectUser = checkins.filter({(checkin) -> Bool in
-                        var val:Bool = true
-                        if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
-                            // return true
-                            if checkInUserId == myId {
-//                                self?.isCheckedIn = true
-//                                self?.changeGoingStatus()
-                                val = false
-                            } else {
-                                val = true
-                            }
-                        }
-                        return val
-                    })
-                    
-                    }, failure: {[weak self] error in
-                        self?.activityIndicator.stopAnimating()
-                        //                        self?.alert(message: error.localizedDescription)
-                })
-                
-            })
-        }
-    }
-    
-    func getGoingUsers() {
-        self.activityIndicator.startAnimating()
-        if let authUserId = self.authenticator.user?.id {
-            UserService().expectUserIdsOfacceptList(userId: authUserId, completion: { [weak self] (userIds) in
-                self?.exceptedUsers = userIds
-                self?.placeService.getGoingUsers(at: (self?.place)!, completion: {[weak self] (checkins) in
-                    
-                    self?.goingWithExpectUser = checkins.filter({(checkin) -> Bool in
-                        
-                        var val:Bool = true
-                        if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
-                            // return true
-                            if checkInUserId == myId {
-                                self?.isGoing = true
-                                self?.changeGoingStatus()
-                                val = false
-                            } else {
-                                val = true
-                            }
-                        }
-                        return val
-                    })
-
-                    
-                    self?.activityIndicator.stopAnimating()
-                    self?.getCheckedinUsers()
-                    
-                    }, failure: {[weak self] error in
-                        self?.activityIndicator.stopAnimating()
-                        self?.getCheckedinUsers()
-                })
-                
-            })
-        }
-    }
-    
-    func getAllGoingUsers() {
-        
-        var data:[Checkin] = [Checkin]()
-        data = self.goingWithExpectUser
-        
-        let dataIds = data.map {
-            $0.userId!
-        }
-        
-        _ = self.checkinData.map { (val) -> Checkin in
-            var value = val
-            if dataIds.contains(value.userId!) {
-                
-            } else {
-                data.append(value)
-            }
-            return value
-        }
-        
-        self.activityIndicator.startAnimating()
-        var acknowledgedCount = 0 {
-            didSet {
-                if acknowledgedCount == data.count {
-                    self.activityIndicator.stopAnimating()
-                }
-            }
-        }
-        acknowledgedCount = 0
-        
-        let userIdsSet = Set(data.flatMap({$0.userId}))
-        userIdsSet.forEach { (userId) in
-            
-            self.userService.getUser(withId: userId, completion: { [weak self] (userData, error) in
-                
-                acknowledgedCount += 1
-                if let _ = error {
-                    //                    self?.alert(message: error.localizedDescription)
-                    return
-                }
-                
-                if var user = userData {
-                    // For checkedin
-                    var dataIds = self?.checkinData.map {
-                        $0.userId!
-                    }
-                    if let id = user.id, dataIds?.contains(id) ?? false {
-                        user.isCheckedIn = true
-                    }
-                    
-                    // For checkedin
-                    dataIds = self?.goingWithExpectUser.map {
-                        $0.userId!
-                    }
-                    if let id = user.id, dataIds?.contains(id) ?? false {
-                        user.isGoing = true
-                    }
-                    
-                    if let index = self?.eventUsers.index(of: user) {
-                        self?.eventUsers[index] = user
-                    }else {
-                        self?.eventUsers.append(user)
-                    }
-                    self?.friendsCollectionView.reloadData()
-                }
-            })
-        }
     }
     
 }

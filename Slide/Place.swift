@@ -26,6 +26,9 @@ struct Place:Mappable {
     var time:String?
     var hall:String?
     
+    var isEvent:Bool?
+    var event:Event?
+    
     init?(map: Map) {
         self.mapping(map: map)
     }
@@ -45,6 +48,9 @@ struct Place:Mappable {
         self.date <- map["date"]
         self.time <- map["time"]
         self.hall <- map["hall"]
+        
+        self.isEvent <- map["isEvent"]
+        self.event <- map["Event"]
     }
 }
 
@@ -63,6 +69,26 @@ struct Ads: Mappable {
         self.image <- map["image"]
         self.link <- map["link"]
         self.headerImage <- map["headerImage"]
+    }
+}
+
+struct Event: Mappable {
+    var title: String?
+    var image: String?
+    var detail: String?
+    var date:String?
+    var time:String?
+    
+    init?(map: Map) {
+        self.mapping(map: map)
+    }
+    
+    mutating func mapping(map: Map) {
+        self.title <- map["eventName"]
+        self.image <- map["firstImage"]
+        self.detail <- map["eventDetails"]
+        self.date <- map["date"]
+        self.time <- map["time"]
     }
 }
 
