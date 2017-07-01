@@ -204,6 +204,8 @@ class EventDetailViewController: UIViewController {
                 self.eventTimeLabel.text = place.time
                 if let hall = place.hall {
                     self.eventPlaceLabel.text = "\(String(describing: hall))"
+                } else {
+                    self.eventPlaceLabel.text = place.bio
                 }
                 
                 let image = place.secondImage ?? place.mainImage ?? ""

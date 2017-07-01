@@ -26,6 +26,12 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" sdfds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjs-ce-uKC">
+                                <rect key="frame" x="16" y="28" width="44" height="18"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXl-aE-7cr">
                                 <rect key="frame" x="327" y="28" width="32" height="32"/>
                                 <constraints>
@@ -42,7 +48,9 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bZX-13-6Nq" secondAttribute="trailing" id="29G-zd-Db0"/>
                             <constraint firstItem="bZX-13-6Nq" firstAttribute="top" secondItem="BJo-eI-FWJ" secondAttribute="bottom" id="7Bg-kk-xAH"/>
+                            <constraint firstItem="Sjs-ce-uKC" firstAttribute="top" secondItem="MXl-aE-7cr" secondAttribute="top" id="EIW-Qv-JBp"/>
                             <constraint firstItem="qvb-2B-HNT" firstAttribute="top" secondItem="bZX-13-6Nq" secondAttribute="bottom" id="Edw-VM-Qxl"/>
+                            <constraint firstItem="Sjs-ce-uKC" firstAttribute="leading" secondItem="Dvg-fy-iNU" secondAttribute="leadingMargin" id="M9v-l2-v7T"/>
                             <constraint firstItem="MXl-aE-7cr" firstAttribute="top" secondItem="BJo-eI-FWJ" secondAttribute="bottom" constant="8" id="gBg-2Z-kKE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MXl-aE-7cr" secondAttribute="trailing" id="pdj-Wx-vmG"/>
                             <constraint firstItem="bZX-13-6Nq" firstAttribute="leading" secondItem="Dvg-fy-iNU" secondAttribute="leading" id="sWb-Fj-xVO"/>
@@ -50,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="bZX-13-6Nq" id="aEP-81-fZw"/>
+                        <outlet property="placeNameLabel" destination="Sjs-ce-uKC" id="afH-GY-85e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B0G-iH-77h" userLabel="First Responder" sceneMemberID="firstResponder"/>

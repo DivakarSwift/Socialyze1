@@ -223,7 +223,7 @@
                                                         </constraints>
                                                         <state key="normal" image="location-pin"/>
                                                         <connections>
-                                                            <segue destination="xtS-dc-s1C" kind="presentation" id="vqf-gU-h5Z"/>
+                                                            <segue destination="xtS-dc-s1C" kind="presentation" identifier="openMap" id="vqf-gU-h5Z"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

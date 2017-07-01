@@ -13,6 +13,8 @@ class PlaceToUserMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var placeNameLabel: UILabel!
+    
     var place: Place?
     
     override func viewDidLoad() {
@@ -23,6 +25,10 @@ class PlaceToUserMapViewController: UIViewController {
     private func configureMapView() {
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
+        
+        if let name = self.place?.nameAddress {
+            self.placeNameLabel.text = name
+        }
         if let userLocation = SlydeLocationManager.shared.getLocation() {
             let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, zoom: 6.0)
             self.mapView.camera = camera
