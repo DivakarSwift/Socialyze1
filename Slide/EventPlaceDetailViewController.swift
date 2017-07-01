@@ -195,6 +195,8 @@ class EventDetailViewController: UIViewController {
                 self.eventNameLabel.text = place.event?.title
                 self.eventDateLabel.text = place.event?.date
                 self.eventTimeLabel.text = place.event?.time
+                self.eventPlaceLabel.text = place.event?.detail
+                
                 let image = place.event?.image ?? place.mainImage ?? ""
                 self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
                 getGoingUsers()
