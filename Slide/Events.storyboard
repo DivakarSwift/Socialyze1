@@ -362,7 +362,6 @@
                         <outlet property="friendsCollectionView" destination="LmA-QN-OKo" id="GX3-0R-1WO"/>
                         <outlet property="goingStatusLabel" destination="gfm-dC-mX0" id="XE9-Z9-LHJ"/>
                         <outlet property="goingView" destination="XbH-xu-H3I" id="23p-3h-mRG"/>
-                        <outlet property="includingFriendsLabel" destination="HNf-xg-rAQ" id="pca-dF-0DX"/>
                         <outlet property="inviteButton" destination="txZ-Xq-bJn" id="oPU-ww-RTP"/>
                         <outlet property="locationPinButton" destination="U6P-au-0h2" id="FrJ-jm-GZj"/>
                         <outlet property="nameBioLabel" destination="9zu-mf-2Be" id="2KH-ur-AHi"/>
