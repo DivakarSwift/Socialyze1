@@ -67,8 +67,7 @@ class CategoriesViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var checkedInImageView: UIImageView!
-    @IBOutlet weak var goingImageView: UIImageView!
+    @IBOutlet weak var checkInButton: UIButton!
     
     override var prefersStatusBarHidden: Bool {
         return true
@@ -78,8 +77,7 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.checkedInImageView.isHidden = true
-        self.goingImageView.isHidden = true
+        self.checkInButton.isHidden = true
         
         self.infoButton.rounded()
         self.infoButton.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
@@ -98,14 +96,8 @@ class CategoriesViewController: UIViewController {
             self.addSwipeGesture(toView: self.imageView)
             self.users = []
             self.users.append(friend)
-            
-            self.checkedInImageView.isHidden = !friend.isCheckedIn
-//            self.goingImageView.isHidden = !friend.isGoing
-            
+            self.checkInButton.isHidden = !friend.isCheckedIn
         } else {
-            self.checkedInImageView.isHidden = true
-            //self.goingImageView.isHidden = true
-            
             self.getAllCheckedInUsers()
             self.addPanGesture(toView: self.imageView)
         }
@@ -121,7 +113,7 @@ class CategoriesViewController: UIViewController {
             //self.goingImageView.isHidden = false
         //}
         if let val = isCheckedIn, val {
-            self.checkedInImageView.isHidden = false
+            self.checkInButton.isHidden = false
         }
         
         self.navigationController?.navigationBar.isHidden = true
@@ -183,6 +175,11 @@ class CategoriesViewController: UIViewController {
     }
     
     // MARK: - User Actions
+    
+    @IBAction func checkInClikced(_ sender: UIButton) {
+        self.alert(message: "User is Checked In.")
+    }
+    
     @IBAction func reportUser(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let block = UIAlertAction(title: "Block", style: .default) { (_) in

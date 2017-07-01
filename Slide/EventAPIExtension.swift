@@ -64,23 +64,15 @@ extension EventDetailViewController {
                     self?.activityIndicator.stopAnimating()
                     
                     self?.checkinWithExpectUser = checkins.filter({(checkin) -> Bool in
-                        var val:Bool = true
-                        if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
-                            // return true
-                            if checkInUserId == myId {
-                                //                                self?.isCheckedIn = true
-                                //                                self?.changeGoingStatus()
-                                val = false
-                            } else {
-                                val = true
-                            }
+                        if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
+                            let notMe = checkInUserId != authUserId
+                            let checkTimeValid = (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
+                            return notMe && checkTimeValid
                         }
-                        return val
+                        return false
                     })
-                    
                     }, failure: {[weak self] error in
                         self?.activityIndicator.stopAnimating()
-                        //                        self?.alert(message: error.localizedDescription)
                 })
                 
             })
@@ -98,18 +90,16 @@ extension EventDetailViewController {
                         
                         var val:Bool = true
                         if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
-                            // return true
-                            if checkInUserId == myId {
-                                self?.isGoing = true
+                            
+                            let me = checkInUserId == myId
+                            if me {
+                                self?.isGoing = me
                                 self?.changeGoingStatus()
-                                val = false
-                            } else {
-                                val = true
                             }
+                            val = !me
                         }
                         return val
                     })
-                    
                     
                     self?.activityIndicator.stopAnimating()
                     self?.getCheckedinUsers()
@@ -118,7 +108,6 @@ extension EventDetailViewController {
                         self?.activityIndicator.stopAnimating()
                         self?.getCheckedinUsers()
                 })
-                
             })
         }
     }

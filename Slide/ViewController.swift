@@ -153,6 +153,12 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let place = places[indexPath.row]
+        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+        vc.place = place
+        self.present(vc, animated: true, completion: nil)
+        
+        /*
         if let placeId = places[indexPath.row].placeId {
           if placeId == "" {
             let place = places[indexPath.row]
@@ -173,7 +179,7 @@ extension ViewController: UICollectionViewDelegate {
             self.present(vc, animated: true, completion: nil)
         }
         
-        
+        */
         
         //        self.navigationController?.pushViewController(vc, animated: true)
         // self.performSegue(withIdentifier: "categoryDetail", sender: self)

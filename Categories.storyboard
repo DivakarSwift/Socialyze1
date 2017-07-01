@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2Nx-S1-xmf">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -108,7 +108,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oP4-Qb-aHX">
-                                <rect key="frame" x="16" y="468" width="32" height="80"/>
+                                <rect key="frame" x="16" y="508" width="32" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-eq-add">
                                         <rect key="frame" x="0.0" y="0.0" width="32" height="0.0"/>
@@ -118,12 +118,13 @@
                                             <constraint firstAttribute="height" id="VrL-Rc-fIK"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark32x32" translatesAutoresizingMaskIntoConstraints="NO" id="VYF-IP-ma9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8F-xp-xB8">
                                         <rect key="frame" x="0.0" y="8" width="32" height="32"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkinbutton32x32" translatesAutoresizingMaskIntoConstraints="NO" id="xDY-8T-zFa">
-                                        <rect key="frame" x="0.0" y="48" width="32" height="32"/>
-                                    </imageView>
+                                        <state key="normal" image="checkinbutton32x32"/>
+                                        <connections>
+                                            <action selector="checkInClikced:" destination="2Nx-S1-xmf" eventType="touchUpInside" id="fT5-IO-xTS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -151,8 +152,7 @@
                     <connections>
                         <outlet property="actionImageView" destination="SjA-zs-owl" id="8tY-tK-mzR"/>
                         <outlet property="bioLabel" destination="gF5-2E-WGr" id="Kpm-qA-wh0"/>
-                        <outlet property="checkedInImageView" destination="xDY-8T-zFa" id="WKh-RN-8VQ"/>
-                        <outlet property="goingImageView" destination="VYF-IP-ma9" id="IHP-cG-yJ4"/>
+                        <outlet property="checkInButton" destination="M8F-xp-xB8" id="rbd-sf-uOw"/>
                         <outlet property="imageView" destination="Suk-AW-li8" id="bAb-2i-INK"/>
                         <outlet property="infoButton" destination="fmo-QB-gAY" id="jCf-JQ-zgC"/>
                         <outlet property="userName" destination="lk2-Pl-G83" id="Ctd-jR-bmQ"/>
@@ -263,7 +263,6 @@
     <resources>
         <image name="checkinbutton32x32" width="32" height="32"/>
         <image name="checkmark" width="204" height="204"/>
-        <image name="checkmark32x32" width="32" height="32"/>
         <image name="exclamation" width="64" height="64"/>
         <image name="ladybird" width="149" height="149"/>
         <image name="thehomebutton" width="267" height="267"/>
