@@ -37,7 +37,7 @@ class SlydeLocationManager: NSObject {
     
     func distanceFromUser(lat: Double, long: Double) -> Double? {
         let location = CLLocation(latitude: lat, longitude: long)
-        self.location = CLLocation(latitude: 39.956332, longitude: -83.004056)
+//        self.location = CLLocation(latitude: 39.956332, longitude: -83.004056)
         if let userLocation = self.location {
             return location.distance(from: userLocation)
         }else {
