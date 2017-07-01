@@ -228,7 +228,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHH-Tc-diG">
                                 <rect key="frame" x="16" y="28" width="359" height="66"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjo-oI-aeU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjo-oI-aeU">
                                         <rect key="frame" x="0.0" y="24" width="4.5" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -275,6 +275,7 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="z6U-qH-itt" secondAttribute="trailing" constant="4" id="Wmg-qZ-y2V"/>
                                     <constraint firstAttribute="height" constant="66" id="XWS-bq-W1d"/>
                                     <constraint firstItem="mjo-oI-aeU" firstAttribute="leading" secondItem="nHH-Tc-diG" secondAttribute="leading" id="fqX-9d-rPP"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mjo-oI-aeU" secondAttribute="trailing" constant="120" id="yKJ-Xf-e0Y"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdF-qL-xqo">

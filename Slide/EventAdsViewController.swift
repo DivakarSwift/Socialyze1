@@ -42,7 +42,6 @@ class EventAdsViewController: UIViewController {
             let image = place.secondImage ?? place.mainImage ?? ""
             self.imageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         }
-        
     }
     
     func addSwipeGesture(toView view: UIView) {
