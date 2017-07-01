@@ -223,7 +223,7 @@
                                                         </constraints>
                                                         <state key="normal" image="location-pin"/>
                                                         <connections>
-                                                            <segue destination="xtS-dc-s1C" kind="presentation" identifier="openMap" id="vqf-gU-h5Z"/>
+                                                            <action selector="map:" destination="Lf4-0l-NNR" eventType="touchUpInside" id="pOJ-Is-Uyj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -433,7 +433,7 @@
                 <viewControllerPlaceholder storyboardName="Maps" referencedIdentifier="PlaceToUserMapViewController" id="xtS-dc-s1C" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOW-c6-3tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2775" y="-401"/>
+            <point key="canvasLocation" x="2757" y="-436"/>
         </scene>
     </scenes>
     <resources>

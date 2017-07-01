@@ -265,6 +265,8 @@ class EventDetailViewController: UIViewController {
         self.viewDetail()
     }
     
+    
+    
     func  viewDetail() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
         vc.place = self.place
@@ -500,6 +502,13 @@ class EventDetailViewController: UIViewController {
         }
         return nil
     }
+    
+    @IBAction func map(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "Maps", bundle: nil).instantiateViewController(withIdentifier: "PlaceToUserMapViewController") as! PlaceToUserMapViewController
+        vc.place = self.place
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "openMap" {

@@ -48,4 +48,7 @@ class PlaceToUserMapViewController: UIViewController {
         self.mapView.isMyLocationEnabled = true 
     }
     
-}
+    @IBAction func back(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBOutlet weak var back: UIButton!}
