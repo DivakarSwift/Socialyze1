@@ -144,8 +144,6 @@ class EventDetailViewController: UIViewController {
         }
         
         self.changeGoingStatus()
-        
-        getGoingUsers()
         self.setupCollectionView()
         self.checkInButton.layer.cornerRadius = 5
         self.includingFriendsLabel.layer.cornerRadius = 5
@@ -154,7 +152,6 @@ class EventDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.locationUpdated()
         self.navigationController?.isNavigationBarHidden = true
         UIApplication.shared.isStatusBarHidden = true
@@ -172,6 +169,7 @@ class EventDetailViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         view.addGestureRecognizer(tap)
     }
+    
     func handleTap(_ gesture: UITapGestureRecognizer) {
         self.viewDetail()
     }
@@ -181,6 +179,7 @@ class EventDetailViewController: UIViewController {
         gesture.direction = .down
         view.addGestureRecognizer(gesture)
     }
+    
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
         dismiss(animated: true, completion: nil)
         UIApplication.shared.isStatusBarHidden = false
@@ -191,15 +190,28 @@ class EventDetailViewController: UIViewController {
     func setupView() {
         if let place = self.place {
             self.isGoing = false
-            self.eventNameLabel.text = place.nameAddress
-            self.eventDateLabel.text = place.date
-            self.eventTimeLabel.text = place.time
-            if let hall = place.hall {
-                self.eventPlaceLabel.text = "\(String(describing: hall))"
-            }
             
-            let image = place.secondImage ?? place.mainImage ?? ""
-            self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
+            if let event = place.isEvent, event {
+                self.eventNameLabel.text = place.event?.title
+                self.eventDateLabel.text = place.event?.date
+                self.eventTimeLabel.text = place.event?.time
+                let image = place.event?.image ?? place.mainImage ?? ""
+                self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
+                getGoingUsers()
+            } else {
+                self.eventNameLabel.text = place.nameAddress
+                self.eventDateLabel.text = place.date
+                self.eventTimeLabel.text = place.time
+                if let hall = place.hall {
+                    self.eventPlaceLabel.text = "\(String(describing: hall))"
+                }
+                
+                let image = place.secondImage ?? place.mainImage ?? ""
+                self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
+                self.eventAction = .checkIn
+                self.changeCheckInButton(action: .checkIn)
+                getCheckedinUsers()
+            }
         }
         
         self.placeDistanceLabel.layer.shadowOpacity = 1.0
@@ -249,7 +261,7 @@ class EventDetailViewController: UIViewController {
         self.viewDetail()
     }
     
-    func  viewDetail(){
+    func  viewDetail() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
         vc.place = self.place
         vc.checkinData = self.checkinData
@@ -404,10 +416,19 @@ class EventDetailViewController: UIViewController {
             }
             else {
                 self.placeDistanceLabel.isHidden = false
-                if self.isGoing {
-                    self.eventAction = .checkInSwipe
+                
+                if let isEvent = self.place?.isEvent, isEvent {
+                    if self.isGoing {
+                        self.eventAction = .goingSwipe
+                    } else {
+                        self.eventAction = .going
+                    }
                 } else {
-                    self.eventAction = .going
+                    if self.isCheckedIn {
+                        self.eventAction = .checkInSwipe
+                    } else {
+                        self.eventAction = .checkIn
+                    }
                 }
                 self.changeGoingStatus()
                 
@@ -423,27 +444,49 @@ class EventDetailViewController: UIViewController {
     }
     
     func changeGoingStatus() {
-        let text = "\(goingWithExpectUser.count) Going"
-        self.goingStatusLabel.text = text
         
-        if isGoing && self.eventAction == .going {
-                self.eventAction = .goingSwipe
-        }
-        
-        if self.goingData.count > 0 {
-            let fbIds = self.faceBookFriends.map({$0.id})
-            let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
+        if let isEvent = self.place?.isEvent, isEvent {
+            let text = "\(goingWithExpectUser.count) Going"
+            self.goingStatusLabel.text = text
             
-            if friendCheckins.count > 1 {
-                let text = "including \(friendCheckins.count) friends"
-                self.includingFriendsLabel.text = text
-            } else if friendCheckins.count > 0 {
-                let text = "including \(friendCheckins.count) friend"
-                self.includingFriendsLabel.text = text
-            }else {
-                self.includingFriendsLabel.text = ""
+            if isGoing && self.eventAction == .going {
+                self.eventAction = .goingSwipe
+            }
+            
+            if self.goingData.count > 0 {
+                let fbIds = self.faceBookFriends.map({$0.id})
+                let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
+                
+                if friendCheckins.count > 1 {
+                    let text = "including \(friendCheckins.count) friends"
+                    self.includingFriendsLabel.text = text
+                } else if friendCheckins.count > 0 {
+                    let text = "including \(friendCheckins.count) friend"
+                    self.includingFriendsLabel.text = text
+                }else {
+                    self.includingFriendsLabel.text = ""
+                }
+            }
+        } else {
+            let text = "\(checkinData.count) CheckIn"
+            self.goingStatusLabel.text = text
+            
+            if self.checkinData.count > 0 {
+                let fbIds = self.faceBookFriends.map({$0.id})
+                let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
+                
+                if friendCheckins.count > 1 {
+                    let text = "including \(friendCheckins.count) friends"
+                    self.includingFriendsLabel.text = text
+                } else if friendCheckins.count > 0 {
+                    let text = "including \(friendCheckins.count) friend"
+                    self.includingFriendsLabel.text = text
+                }else {
+                    self.includingFriendsLabel.text = ""
+                }
             }
         }
+        
         self.friendsCollectionView.reloadData()
     }
     
