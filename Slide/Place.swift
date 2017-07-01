@@ -19,6 +19,7 @@ struct Place:Mappable {
     var size: Int? // custom = 0, small = 1, medium = 2, large = 3
     var early: Int? // early check-in, 0 for no, 1 for yes
     var bio: String? // locations description
+    var nameBio:String? // Imp Description
     var placeId: String?
     var ads:[Ads]?
     
@@ -42,6 +43,7 @@ struct Place:Mappable {
         self.size <- map["size"]
         self.early <- map["early"]
         self.bio <- map["bio"]
+        self.nameBio <- map["nameBio"]
         self.placeId <- map["placeId"]
         self.ads <- map["ads"]
         

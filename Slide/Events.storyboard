@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Flj-gh-ry4" userLabel="CheckIn list">
-                                <rect key="frame" x="0.0" y="451.5" width="375" height="133.5"/>
+                                <rect key="frame" x="0.0" y="433.5" width="375" height="151.5"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LmA-QN-OKo">
                                         <rect key="frame" x="20" y="10" width="335" height="100"/>
@@ -119,7 +119,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-QN-fdH">
-                                <rect key="frame" x="26" y="172" width="323" height="141.5"/>
+                                <rect key="frame" x="26" y="135.5" width="323" height="178"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-2a-VRh">
                                         <rect key="frame" x="158" y="0.0" width="7.5" height="31"/>
@@ -163,18 +163,25 @@
                                             <constraint firstItem="tck-b6-DGg" firstAttribute="leading" secondItem="MH7-4A-r6T" secondAttribute="leading" id="qfU-QD-H9M"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zu-mf-2Be" userLabel="Bio Name Label">
+                                        <rect key="frame" x="155.5" y="151.5" width="12.5" height="26.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" tag="2" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ygZ-LF-bw0" userLabel="Detail Stack View">
-                                <rect key="frame" x="0.0" y="333.5" width="375" height="118"/>
+                            <stackView opaque="NO" tag="2" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygZ-LF-bw0" userLabel="Detail Stack View">
+                                <rect key="frame" x="0.0" y="333.5" width="375" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-xu-H3I">
-                                        <rect key="frame" x="125.5" y="0.0" width="124" height="36"/>
+                                        <rect key="frame" x="125.5" y="0.0" width="124" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-dC-mX0" userLabel="Going Stats Label">
-                                                <rect key="frame" x="8" y="4" width="108" height="28"/>
+                                                <rect key="frame" x="8" y="4" width="108" height="42"/>
                                                 <color key="backgroundColor" red="0.5062774404" green="0.1943579295" blue="0.51832170050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -182,17 +189,35 @@
                                         <color key="backgroundColor" red="0.5062774404" green="0.1943579295" blue="0.51832170050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="gfm-dC-mX0" secondAttribute="bottom" constant="4" id="2KS-rL-bsU"/>
-                                            <constraint firstAttribute="height" constant="36" id="n30-Hc-WTb"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="gfm-dC-mX0" secondAttribute="trailing" id="sWG-ze-DzH"/>
                                             <constraint firstItem="gfm-dC-mX0" firstAttribute="top" secondItem="XbH-xu-H3I" secondAttribute="top" constant="4" id="ybZ-nR-xor"/>
                                             <constraint firstItem="gfm-dC-mX0" firstAttribute="leading" secondItem="XbH-xu-H3I" secondAttribute="leadingMargin" id="zlV-Vb-Zcu"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiu-MG-fVR">
+                                        <rect key="frame" x="125.5" y="50" width="124" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3z2-j5-JzY" userLabel="Going Stats Label">
+                                                <rect key="frame" x="8" y="4" width="108" height="42"/>
+                                                <color key="backgroundColor" red="0.5062774404" green="0.1943579295" blue="0.51832170050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.5062774404" green="0.1943579295" blue="0.51832170050000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="3z2-j5-JzY" secondAttribute="trailing" id="1Lp-fE-tze"/>
+                                            <constraint firstItem="3z2-j5-JzY" firstAttribute="leading" secondItem="tiu-MG-fVR" secondAttribute="leadingMargin" id="K6i-4Z-jxR"/>
+                                            <constraint firstItem="3z2-j5-JzY" firstAttribute="top" secondItem="tiu-MG-fVR" secondAttribute="top" constant="4" id="mKC-XQ-Gyg"/>
+                                            <constraint firstAttribute="bottom" secondItem="3z2-j5-JzY" secondAttribute="bottom" constant="4" id="y6N-Lp-8PI"/>
+                                        </constraints>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNf-xg-rAQ" userLabel="Going Stats Label">
-                                        <rect key="frame" x="0.0" y="46" width="375" height="72"/>
+                                        <rect key="frame" x="0.0" y="100" width="375" height="0.0"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="72" id="FoM-LW-MT1"/>
+                                            <constraint firstAttribute="height" id="FoM-LW-MT1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,6 +352,8 @@
                     </view>
                     <connections>
                         <outlet property="checkInButton" destination="OdF-qL-xqo" id="yrc-Sh-E6L"/>
+                        <outlet property="checkInStatusLabel" destination="3z2-j5-JzY" id="Ocn-MT-6Jm"/>
+                        <outlet property="checkInView" destination="tiu-MG-fVR" id="0Tv-hA-t4O"/>
                         <outlet property="eventDateLabel" destination="iuX-2a-VRh" id="9cu-Eh-1YL"/>
                         <outlet property="eventImageView" destination="Tlp-Ki-SM8" id="Izn-mI-8MV"/>
                         <outlet property="eventNameLabel" destination="mjo-oI-aeU" id="wzz-Vc-iSp"/>
@@ -334,9 +361,11 @@
                         <outlet property="eventTimeLabel" destination="9hk-zZ-jFy" id="RXR-pA-DA2"/>
                         <outlet property="friendsCollectionView" destination="LmA-QN-OKo" id="GX3-0R-1WO"/>
                         <outlet property="goingStatusLabel" destination="gfm-dC-mX0" id="XE9-Z9-LHJ"/>
+                        <outlet property="goingView" destination="XbH-xu-H3I" id="23p-3h-mRG"/>
                         <outlet property="includingFriendsLabel" destination="HNf-xg-rAQ" id="pca-dF-0DX"/>
                         <outlet property="inviteButton" destination="txZ-Xq-bJn" id="oPU-ww-RTP"/>
                         <outlet property="locationPinButton" destination="U6P-au-0h2" id="FrJ-jm-GZj"/>
+                        <outlet property="nameBioLabel" destination="9zu-mf-2Be" id="2KH-ur-AHi"/>
                         <outlet property="placeDistanceLabel" destination="Irb-FT-tbZ" id="uLC-5W-hrT"/>
                     </connections>
                 </viewController>
@@ -359,28 +388,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SzI-AW-XR1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <stackView opaque="NO" tag="2" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wrl-RL-N4N" userLabel="Detail Stack View">
-                                <rect key="frame" x="184.5" y="403.5" width="7" height="82"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2n-dU-yGZ" userLabel="Going Stats Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="7" height="36"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0k-wE-6oJ" userLabel="Going Stats Label">
-                                        <rect key="frame" x="0.0" y="46" width="7" height="36"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="orv-iS-74a"/>
-                                </constraints>
-                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4yS-oE-dKf">
                                 <rect key="frame" x="20" y="100" width="217.5" height="244.5"/>
                                 <subviews>
@@ -396,7 +403,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wrl-RL-N4N" firstAttribute="centerY" secondItem="7Zb-Qa-3yw" secondAttribute="centerY" multiplier="1:0.75" id="25X-9b-sRr"/>
                             <constraint firstItem="SzI-AW-XR1" firstAttribute="leading" secondItem="7Zb-Qa-3yw" secondAttribute="leading" id="724-Qw-ONh"/>
                             <constraint firstItem="SzI-AW-XR1" firstAttribute="top" secondItem="7Zb-Qa-3yw" secondAttribute="top" id="PA1-Pd-Cz6"/>
                             <constraint firstItem="4yS-oE-dKf" firstAttribute="top" secondItem="7Zb-Qa-3yw" secondAttribute="top" constant="100" id="Qtl-gC-Mid"/>
@@ -405,13 +411,10 @@
                             <constraint firstAttribute="trailing" secondItem="SzI-AW-XR1" secondAttribute="trailing" id="YH0-pe-hZ6"/>
                             <constraint firstItem="4yS-oE-dKf" firstAttribute="leading" secondItem="7Zb-Qa-3yw" secondAttribute="leading" constant="20" id="axa-7i-NFK"/>
                             <constraint firstItem="3iM-cA-C4H" firstAttribute="top" secondItem="SzI-AW-XR1" secondAttribute="bottom" id="bxP-Jy-SsO"/>
-                            <constraint firstItem="wrl-RL-N4N" firstAttribute="centerX" secondItem="7Zb-Qa-3yw" secondAttribute="centerX" id="jAl-gW-0Sm"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="checkedInLabel" destination="Y2n-dU-yGZ" id="dPb-GV-FNp"/>
                         <outlet property="descriptionLabel" destination="prm-iK-qx5" id="1mT-bP-jgM"/>
-                        <outlet property="facebookLabel" destination="x0k-wE-6oJ" id="lL7-Al-rh1"/>
                         <outlet property="imageView" destination="SzI-AW-XR1" id="HGh-ne-3Tg"/>
                     </connections>
                 </viewController>

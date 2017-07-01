@@ -15,9 +15,7 @@ class EventAdsViewController: UIViewController {
     var facebookFriends:[FacebookFriend] = [FacebookFriend]()
 
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var checkedInLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var facebookLabel: UILabel!
     
     override func viewDidLoad() {
         self.addSwipeGesture(toView: self.view)
@@ -43,32 +41,6 @@ class EventAdsViewController: UIViewController {
             
             let image = place.secondImage ?? place.mainImage ?? ""
             self.imageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
-        }
-        
-        if let count = self.checkinData?.count {
-            self.checkedInLabel.text = "\(count) Checked In"
-        }
-        
-        if let data =  self.checkinData {
-            if data.count > 0 {
-                let fbIds = self.facebookFriends.map{ $0.id }
-                let friendCheckins = data.filter({fbIds.contains($0.fbId!)})
-                
-                if friendCheckins.count > 1 {
-                    let text = "including \(friendCheckins.count) friends"
-                    self.facebookLabel.text = text
-                } else if friendCheckins.count > 0 {
-                    self.facebookLabel.isHidden = false
-                    let text = "including \(friendCheckins.count) friend"
-                    self.facebookLabel.text = text
-                } else {
-                    self.facebookLabel.isHidden = true
-                    self.facebookLabel.text = ""
-                }
-            } else {
-                self.facebookLabel.isHidden = true
-                self.facebookLabel.text = ""
-            }
         }
         
     }

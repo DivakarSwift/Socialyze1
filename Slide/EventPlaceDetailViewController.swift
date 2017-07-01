@@ -29,12 +29,18 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventDateLabel:UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var eventPlaceLabel:UILabel!
+    
+    @IBOutlet weak var goingView: UIView!
+    @IBOutlet weak var checkInView: UIView!
+    
     @IBOutlet weak var goingStatusLabel: UILabel!
-    @IBOutlet weak var includingFriendsLabel: UILabel!
+    @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet weak var checkInButton:UIButton!
     @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
+    
+    @IBOutlet weak var nameBioLabel: UILabel!
     
     internal let facebookService = FacebookService.shared
     internal let userService = UserService()
@@ -146,7 +152,6 @@ class EventDetailViewController: UIViewController {
         self.changeGoingStatus()
         self.setupCollectionView()
         self.checkInButton.layer.cornerRadius = 5
-        self.includingFriendsLabel.layer.cornerRadius = 5
         self.eventPlaceLabel.layer.cornerRadius = 5
     }
     
@@ -216,6 +221,9 @@ class EventDetailViewController: UIViewController {
                 self.changeCheckInButton(action: .checkIn)
                 getCheckedinUsers()
             }
+            if let impDescription = place.nameBio {
+                self.nameBioLabel.text = impDescription
+            }
         }
         
         self.placeDistanceLabel.layer.shadowOpacity = 1.0
@@ -284,8 +292,7 @@ class EventDetailViewController: UIViewController {
                 self.openCategories()
             } else {
                 self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: {
-                    self.dismiss(animated: true, completion: nil)
-                    _ = self.navigationController?.popViewController(animated: false)
+                    
                 })
             }
         case .checkIn:
@@ -295,8 +302,7 @@ class EventDetailViewController: UIViewController {
                 self.openCategories()
             } else {
                 self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: {
-                    self.dismiss(animated: true, completion: nil)
-                    _ = self.navigationController?.popViewController(animated: false)
+                    
                 })
                 self.changeGoingStatus()
             }
@@ -375,8 +381,6 @@ class EventDetailViewController: UIViewController {
         } else {
             self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: {
                 
-                self.dismiss(animated: true, completion: nil)
-                _ = self.navigationController?.popViewController(animated: false)
             })
         }
         
@@ -452,47 +456,46 @@ class EventDetailViewController: UIViewController {
     func changeGoingStatus() {
         
         if let isEvent = self.place?.isEvent, isEvent {
-            let text = "\(goingWithExpectUser.count) Going"
-            self.goingStatusLabel.text = text
+            self.goingView.isHidden = false
+            var goignText = "\(goingWithExpectUser.count) going"
             
             if isGoing && self.eventAction == .going {
                 self.eventAction = .goingSwipe
             }
             
-            if self.goingData.count > 0 {
+            if self.goingWithExpectUser.count > 0 {
                 let fbIds = self.faceBookFriends.map({$0.id})
-                let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
+                let friendCheckins = goingWithExpectUser.filter({fbIds.contains($0.fbId!)})
                 
                 if friendCheckins.count > 1 {
-                    let text = "including \(friendCheckins.count) friends"
-                    self.includingFriendsLabel.text = text
+                    goignText = goignText + "including \(friendCheckins.count) friends"
                 } else if friendCheckins.count > 0 {
-                    let text = "including \(friendCheckins.count) friend"
-                    self.includingFriendsLabel.text = text
-                }else {
-                    self.includingFriendsLabel.text = ""
+                    goignText = goignText + "including \(friendCheckins.count) friend"
                 }
+                self.goingStatusLabel.text = goignText
             }
         } else {
-            let text = "\(checkinData.count) CheckIn"
-            self.goingStatusLabel.text = text
+            self.goingView.isHidden = true
+        }
+        if self.checkinData.count > 0 {
+            self.checkInView.isHidden = false
+            var checkinText = "\(checkinData.count) checked in"
+            self.checkInStatusLabel.text = checkinText
             
             if self.checkinData.count > 0 {
                 let fbIds = self.faceBookFriends.map({$0.id})
                 let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
                 
                 if friendCheckins.count > 1 {
-                    let text = "including \(friendCheckins.count) friends"
-                    self.includingFriendsLabel.text = text
+                    checkinText =  checkinText + " including \(friendCheckins.count) friends"
                 } else if friendCheckins.count > 0 {
-                    let text = "including \(friendCheckins.count) friend"
-                    self.includingFriendsLabel.text = text
-                }else {
-                    self.includingFriendsLabel.text = ""
+                    checkinText = checkinText + " including \(friendCheckins.count) friend"
                 }
+                self.checkInStatusLabel.text = checkinText
             }
+        } else {
+            self.checkInView.isHidden = true
         }
-        
         self.friendsCollectionView.reloadData()
     }
     
