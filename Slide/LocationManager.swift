@@ -20,10 +20,8 @@ class SlydeLocationManager: NSObject {
     
     let manager = CLLocationManager()
     weak var delegate: SlydeLocationManagerDelegate?
-    // 40.00313,-83.00782
-    fileprivate var location: CLLocation? = CLLocation(latitude: 40.005088, longitude: -83.008432)
-    //lat: 39.997957, long: -83.0085650))
     
+    fileprivate var location: CLLocation? = CLLocation(latitude: 39.956332, longitude: -83.004056)
     fileprivate var shouldGetLocationContiniously = false
     
     private override init() {
@@ -39,7 +37,7 @@ class SlydeLocationManager: NSObject {
     
     func distanceFromUser(lat: Double, long: Double) -> Double? {
         let location = CLLocation(latitude: lat, longitude: long)
-        
+        self.location = CLLocation(latitude: 39.956332, longitude: -83.004056)
         if let userLocation = self.location {
             return location.distance(from: userLocation)
         }else {

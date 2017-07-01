@@ -26,7 +26,6 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var placeDistanceLabel: UILabel!
     @IBOutlet weak var locationPinButton: UIButton!
-    @IBOutlet weak var checkinMarkImageView: UIImageView!
     @IBOutlet weak var eventDateLabel:UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var eventPlaceLabel:UILabel!
@@ -151,7 +150,6 @@ class EventDetailViewController: UIViewController {
         self.eventDateLabel.layer.shadowRadius = 3.0
         
         self.locationUpdated()
-        
         SlydeLocationManager.shared.startUpdatingLocation()
         
         if facebookService.isUserFriendsPermissionGiven() {
@@ -161,7 +159,6 @@ class EventDetailViewController: UIViewController {
             authenticator.authenticateWith(provider: .facebook)
         }
         
-        self.eventAction = .going
         self.changeGoingStatus()
         
         getGoingUsers()
@@ -173,6 +170,8 @@ class EventDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.locationUpdated()
         self.navigationController?.isNavigationBarHidden = true
         UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
@@ -264,27 +263,23 @@ class EventDetailViewController: UIViewController {
             self.going()
         case .goingSwipe:
             if self.goingData.count != 0 {
-//                self.alertWithOkCancel(message: "You are going, so wanna see who else are going?", title: "Hey, There", okTitle: "Yes", cancelTitle: "No", okAction: {
                 self.openCategories()
-//                }, cancelAction: { _ in
-//                    self.eventAction = .checkIn
-//                })
             } else {
-                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
+                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: {
+                    self.dismiss(animated: true, completion: nil)
+                    _ = self.navigationController?.popViewController(animated: false)
+                })
             }
-            self.eventAction = .checkIn
-            self.changeGoingStatus()
         case .checkIn:
-//            self.alertWithOkCancel(message: "Are you at this event place?", title: "Alert", okTitle: "Yes", cancelTitle: "No", okAction: {
                 self.checkInn()
-//            }, cancelAction: { _ in
-            
-//            })
         case .checkInSwipe:
             if self.checkinData.count != 0 {
                 self.openCategories()
             } else {
-                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: nil)
+                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: {
+                    self.dismiss(animated: true, completion: nil)
+                    _ = self.navigationController?.popViewController(animated: false)
+                })
                 self.changeGoingStatus()
             }
         }
@@ -295,11 +290,8 @@ class EventDetailViewController: UIViewController {
         
         vc.place = self.place
         vc.noUsers = {
-            if self.eventAction == .checkInSwipe {
                 self.dismiss(animated: true, completion: nil)
-                _ = self.navigationController?.popViewController(animated: false)
-            }
-            
+                _ = self.navigationController?.popViewController(animated: false) 
         }
         if self.eventAction == .goingSwipe {
             vc.isGoing = true
@@ -314,28 +306,23 @@ class EventDetailViewController: UIViewController {
     }
     
     private func going() {
-//        self.alertWithOkCancel(message: "Are you interested in going?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
-            self.goingIn {[weak self] in
-                
-                if let me = self {
-                    me.isGoing = true
-                    me.changeGoingStatus()
-                    self?.eventAction = .goingSwipe
-                }
+        self.goingIn {[weak self] in
+            if let me = self {
+                me.isGoing = true
+                self?.eventAction = .goingSwipe
             }
-//        }, cancelAction: { _ in
-//            self.eventAction = .checkIn
-//        })
+        }
     }
     
     private func checkInn() {
+        
         if place?.size == 1 {
             thresholdRadius = smallRadius
-        } else if place?.size == 2{
+        } else if place?.size == 2 {
             thresholdRadius = mediumRadius
         } else if place?.size == 3 {
             thresholdRadius = largeRadius
-        } else if place?.size == 4{
+        } else if place?.size == 4 {
             thresholdRadius = hugeRadius
         } else if place?.size == 0 {
             thresholdRadius = 0
@@ -344,7 +331,7 @@ class EventDetailViewController: UIViewController {
         func check() {
             self.checkIn {[weak self] in
                 self?.eventAction = .checkInSwipe
-                self?.locationPinButton.isHidden = false
+                self?.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
                 self?.placeDistanceLabel.isHidden = true
             }
         }
@@ -406,14 +393,23 @@ class EventDetailViewController: UIViewController {
             let check4 = distance <= hugeRadius  && size == 4
                         
             if check1 || check2 || check3 || check4 {
-                self.locationPinButton.isHidden = true
                 self.placeDistanceLabel.isHidden = true
-                self.checkinMarkImageView.isHidden = false
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
+                if self.isCheckedIn {
+                    self.eventAction = .checkInSwipe
+                } else {
+                    self.eventAction = .checkIn
+                }
+                self.changeGoingStatus()
             }
             else {
-                self.locationPinButton.isHidden = false
                 self.placeDistanceLabel.isHidden = false
-                self.checkinMarkImageView.isHidden = true
+                if self.isGoing {
+                    self.eventAction = .checkInSwipe
+                } else {
+                    self.eventAction = .going
+                }
+                self.changeGoingStatus()
                 
                 let ft = distance * 3.28084
                 
@@ -422,13 +418,7 @@ class EventDetailViewController: UIViewController {
                 } else {
                     self.placeDistanceLabel.text = "\(Int(distance * 3.28084))ft."
                 }
-                
-                if self.isCheckedIn {
-                    self.checkout()
-                }
             }
-            
-            
         }
     }
     

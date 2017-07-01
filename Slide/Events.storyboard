@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -44,7 +44,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCell" id="p6a-h8-5nO">
-                                                <rect key="frame" x="0.0" y="-2" width="198" height="103"/>
+                                                <rect key="frame" x="0.0" y="-1.5" width="198" height="103"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="198" height="103"/>
@@ -149,9 +149,6 @@
                                                 <rect key="frame" x="0.0" y="-0.5" width="63" height="64"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="15"/>
-                                                <connections>
-                                                    <segue destination="xtS-dc-s1C" kind="show" id="dhk-nk-lIj"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -213,47 +210,46 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z6U-qH-itt">
-                                        <rect key="frame" x="305" y="13" width="46" height="40"/>
+                                        <rect key="frame" x="309" y="8" width="38" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkinbutton32x32" translatesAutoresizingMaskIntoConstraints="NO" id="M40-ij-qr1">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPu-dD-pNx">
+                                                <rect key="frame" x="0.0" y="0.0" width="32" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6P-au-0h2">
+                                                        <rect key="frame" x="0.0" y="9" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="PUP-1a-RCS"/>
+                                                            <constraint firstAttribute="width" constant="32" id="fQ5-Pm-dLa"/>
+                                                        </constraints>
+                                                        <state key="normal" image="location-pin"/>
+                                                        <connections>
+                                                            <segue destination="xtS-dc-s1C" kind="show" id="vqf-gU-h5Z"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="M40-ij-qr1" secondAttribute="height" multiplier="1:1" id="RWW-se-n5I"/>
+                                                    <constraint firstItem="U6P-au-0h2" firstAttribute="centerY" secondItem="lPu-dD-pNx" secondAttribute="centerY" id="CZN-Vw-82M"/>
+                                                    <constraint firstItem="U6P-au-0h2" firstAttribute="centerX" secondItem="lPu-dD-pNx" secondAttribute="centerX" id="JQS-DK-FKo"/>
+                                                    <constraint firstAttribute="width" constant="32" id="hQF-cb-FKv"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-FT-tbZ">
-                                                <rect key="frame" x="40" y="0.0" width="6" height="40"/>
+                                                <rect key="frame" x="32" y="0.0" width="6" height="50"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="1hJ-Hz-xna"/>
-                                        </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-tq-Mso">
-                                        <rect key="frame" x="273" y="6.5" width="32" height="53"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="lxt-tq-Mso" secondAttribute="height" multiplier="3:5" id="DZG-9G-fwk"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="11" maxX="0.0" maxY="11"/>
-                                        <state key="normal" image="location-pin">
-                                            <color key="titleColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.13725490200000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="mjo-oI-aeU" firstAttribute="centerY" secondItem="nHH-Tc-diG" secondAttribute="centerY" id="2gE-AG-4rq"/>
-                                    <constraint firstItem="lxt-tq-Mso" firstAttribute="centerY" secondItem="nHH-Tc-diG" secondAttribute="centerY" id="4m8-xZ-3kl"/>
                                     <constraint firstItem="z6U-qH-itt" firstAttribute="centerY" secondItem="nHH-Tc-diG" secondAttribute="centerY" id="Hee-Td-BfG"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="z6U-qH-itt" secondAttribute="trailing" id="Wmg-qZ-y2V"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="z6U-qH-itt" secondAttribute="trailing" constant="4" id="Wmg-qZ-y2V"/>
                                     <constraint firstAttribute="height" constant="66" id="XWS-bq-W1d"/>
                                     <constraint firstItem="mjo-oI-aeU" firstAttribute="leading" secondItem="nHH-Tc-diG" secondAttribute="leading" id="fqX-9d-rPP"/>
-                                    <constraint firstItem="z6U-qH-itt" firstAttribute="leading" secondItem="lxt-tq-Mso" secondAttribute="trailing" id="uoT-mp-251"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OdF-qL-xqo">
@@ -331,7 +327,6 @@
                     </view>
                     <connections>
                         <outlet property="checkInButton" destination="OdF-qL-xqo" id="yrc-Sh-E6L"/>
-                        <outlet property="checkinMarkImageView" destination="M40-ij-qr1" id="e8E-88-TIf"/>
                         <outlet property="eventDateLabel" destination="iuX-2a-VRh" id="9cu-Eh-1YL"/>
                         <outlet property="eventImageView" destination="Tlp-Ki-SM8" id="Izn-mI-8MV"/>
                         <outlet property="eventNameLabel" destination="mjo-oI-aeU" id="wzz-Vc-iSp"/>
@@ -341,7 +336,7 @@
                         <outlet property="goingStatusLabel" destination="gfm-dC-mX0" id="XE9-Z9-LHJ"/>
                         <outlet property="includingFriendsLabel" destination="HNf-xg-rAQ" id="pca-dF-0DX"/>
                         <outlet property="inviteButton" destination="txZ-Xq-bJn" id="oPU-ww-RTP"/>
-                        <outlet property="locationPinButton" destination="lxt-tq-Mso" id="ch2-Rh-SEG"/>
+                        <outlet property="locationPinButton" destination="U6P-au-0h2" id="FrJ-jm-GZj"/>
                         <outlet property="placeDistanceLabel" destination="Irb-FT-tbZ" id="uLC-5W-hrT"/>
                     </connections>
                 </viewController>
