@@ -291,7 +291,7 @@ class EventDetailViewController: UIViewController {
             if self.goingData.count != 0 {
                 self.openCategories()
             } else {
-                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: {
+                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
                     
                 })
             }
@@ -301,7 +301,7 @@ class EventDetailViewController: UIViewController {
             if self.checkinData.count != 0 {
                 self.openCategories()
             } else {
-                self.alert(message: "No others going till this time. Check back later", title: "Oops", okAction: {
+                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
                     
                 })
                 self.changeGoingStatus()
@@ -456,7 +456,6 @@ class EventDetailViewController: UIViewController {
     func changeGoingStatus() {
         
         if let isEvent = self.place?.isEvent, isEvent {
-            self.goingView.isHidden = false
             var goignText = "\(goingWithExpectUser.count) going"
             
             if isGoing && self.eventAction == .going {
@@ -468,9 +467,9 @@ class EventDetailViewController: UIViewController {
                 let friendCheckins = goingWithExpectUser.filter({fbIds.contains($0.fbId!)})
                 
                 if friendCheckins.count > 1 {
-                    goignText = goignText + "including \(friendCheckins.count) friends"
+                    goignText = goignText + " including \(friendCheckins.count) friends"
                 } else if friendCheckins.count > 0 {
-                    goignText = goignText + "including \(friendCheckins.count) friend"
+                    goignText = goignText + " including \(friendCheckins.count) friend"
                 }
                 self.goingStatusLabel.text = goignText
             }
@@ -484,7 +483,7 @@ class EventDetailViewController: UIViewController {
             
             if self.checkinData.count > 0 {
                 let fbIds = self.faceBookFriends.map({$0.id})
-                let friendCheckins = goingData.filter({fbIds.contains($0.fbId!)})
+                let friendCheckins = checkinData.filter({fbIds.contains($0.fbId!)})
                 
                 if friendCheckins.count > 1 {
                     checkinText =  checkinText + " including \(friendCheckins.count) friends"
