@@ -201,63 +201,33 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        let imageView:UIImageView = cell.viewWithTag(1) as! UIImageView
-        imageView.kf.indicatorType = .activity
-        let p = Bundle.main.path(forResource: "indicator_40", ofType: "gif")!
-        let data = try! Data(contentsOf: URL(fileURLWithPath: p))
-        imageView.kf.indicatorType = .image(imageData: data)
         
-        imageView.kf.setImage(with: URL(string: places[indexPath.row].mainImage ?? "" ))
         
-        (cell.viewWithTag(2) as! UILabel).text = places[indexPath.row].nameAddress
-        
-        // the shadow does not seem to be working
-//        let placeName = (cell.viewWithTag(2) as! UILabel)
-//        placeName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-//        placeName.layer.shadowRadius = 3
-//        placeName.layer.shadowOpacity = 1
-//        placeName.layer.masksToBounds = false
-        
-        let floatRatingView = cell.viewWithTag(3) as! FloatRatingView
-        let starLabel = cell.viewWithTag(4) as! UILabel
-        floatRatingView.isHidden = false
-        starLabel.isHidden = false
-        
-        floatRatingView.rating = 0
-        floatRatingView.floatRatings = true
-        
-        let screenSize = UIScreen.main.bounds
-        let screenHeight = screenSize.height
-        if screenHeight == 568{
-            cell.widthLayout.constant = 70
-        }else{
-            cell.widthLayout.constant = 100
-        }
-        
-        (cell.viewWithTag(4) as! UILabel).text = ""
+        cell.starLabel.text = ""
         if(UserDefaults.standard.object(forKey: places[indexPath.row].placeId ?? "") != nil){
             let starData = UserDefaults.standard.object(forKey: places[indexPath.row].placeId ?? "") as! NSDictionary
             print(starData)
-            floatRatingView.rating = Float(starData["rating"] as! String)!
-            starLabel.text = starData["rating"] as? String
+            cell.floatRatingView.rating = Float(starData["rating"] as! String)!
+            cell.starLabel.text = starData["rating"] as? String
             
         } else {
             if places[indexPath.row].placeId != "" {
                 self.placeId( nmbr: indexPath.row)
             } else {
-                floatRatingView.isHidden = true
-                starLabel.isHidden = true
+                cell.floatRatingView.isHidden = true
+                cell.starLabel.isHidden = true
             }
         }
         
         
-        (cell.viewWithTag(4) as! UILabel).font = UIFont.systemFont(ofSize: 11)
+        cell.starLabel.font = UIFont.systemFont(ofSize: 11)
         
         if(indexPath.item % 6 == 0){
-            (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 22)
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 22)
         }else{
-            (cell.viewWithTag(2) as! UILabel).font = UIFont.systemFont(ofSize: 18)
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 18)
         }
+        cell.ConfigureCell(place: places[indexPath.row])
         
         return cell
     }

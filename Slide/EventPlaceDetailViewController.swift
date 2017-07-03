@@ -40,8 +40,6 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     
-    @IBOutlet weak var nameBioLabel: UILabel!
-    
     internal let facebookService = FacebookService.shared
     internal let userService = UserService()
     internal let authenticator = Authenticator.shared
@@ -220,9 +218,6 @@ class EventDetailViewController: UIViewController {
                 self.eventAction = .checkIn
                 self.changeCheckInButton(action: .checkIn)
                 getCheckedinUsers()
-            }
-            if let impDescription = place.nameBio {
-                self.nameBioLabel.text = impDescription
             }
         }
         
