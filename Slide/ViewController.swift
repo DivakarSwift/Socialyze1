@@ -223,7 +223,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.starLabel.font = UIFont.systemFont(ofSize: 11)
         
         if(indexPath.item % 6 == 0){
-            cell.nameLabel.font = UIFont.systemFont(ofSize: 22)
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 24)
         }else{
             cell.nameLabel.font = UIFont.systemFont(ofSize: 18)
         }
