@@ -22,6 +22,8 @@ class PlaceService: FirebaseManager {
         })
     }
     
+
+    
     func user(_ user: LocalUser, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
         
         let ref1 = self.reference.child(Node.Places.rawValue).child((place.nameAddress?.replacingOccurrences(of: " ", with: ""))!).child(Node.checkIn.rawValue).child(user.id!)

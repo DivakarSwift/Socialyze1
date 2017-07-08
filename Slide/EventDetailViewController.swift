@@ -127,6 +127,9 @@ class EventDetailViewController: UIViewController {
         return activityIndicator
     }()
     
+    
+    
+    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -278,6 +281,16 @@ class EventDetailViewController: UIViewController {
         self.present(vc, animated: false, completion: nil)
     }
     
+    @IBAction func dealBtnTapped(_ sender: Any) {
+        
+        let sb = self.storyboard
+        let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
+        adDeatilVc.eventUsers = self.eventUsers
+        adDeatilVc.place = self.place!
+        self.present(adDeatilVc, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func checkIn(_ sender: UIButton) {
         switch eventAction {
         case .going:
@@ -392,6 +405,8 @@ class EventDetailViewController: UIViewController {
             }
         }
     }
+    
+    
     
     @IBAction func invite(_ sender: UIButton) {
         self.showMoreOption()

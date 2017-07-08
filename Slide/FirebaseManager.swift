@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 enum Node: String {
     case user
@@ -55,6 +56,7 @@ class FirebaseManager {
     init() {}
     
     private static let _reference = Database.database().reference()
+    private static let _auth = Auth.auth()
     private static let _storageReference = Storage.storage().reference()
     private static let _storagee = Storage.storage()
     
