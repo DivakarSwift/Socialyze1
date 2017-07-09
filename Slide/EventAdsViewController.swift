@@ -30,6 +30,7 @@ class EventAdsViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var expiryLabel: UILabel!
     @IBOutlet weak var useDealBtn: UIButton!
+    @IBOutlet weak var dealDoneView: UIView!
     
     override func viewDidLoad() {
         self.addSwipeGesture(toView: self.view)
@@ -66,6 +67,7 @@ class EventAdsViewController: UIViewController {
                             (count,_) in
                             self.dealService.updateDeal(place: self.place!, count: count)
                             self.getDeals()
+                            self.dealDoneView.isHidden = false
                         })
                         
                     }
