@@ -131,7 +131,7 @@ class EventAdsViewController: UIViewController {
                 let time = self.dateFormatter().string(from: Date())
                 self.dealService.useDeal(user: user, place: self.place!, time: time, completion: {
                     (result) in
-                    if result == true{
+                    if result == true {
                         self.useDealBtn.titleLabel?.text = "Used"
                         self.useDealBtn.backgroundColor = UIColor.gray
                         
@@ -327,6 +327,7 @@ extension EventAdsViewController:UICollectionViewDataSource{
         
         return cell
     }
+    
     func setupCollectionView() {
         let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
         let collectionViewCellSpacing:CGFloat = 10

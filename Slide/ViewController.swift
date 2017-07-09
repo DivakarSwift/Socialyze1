@@ -219,14 +219,18 @@ extension ViewController: UICollectionViewDataSource {
             }
         }
         
+        let cellType = indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
+        switch cellType {
+        case .big:
+            cell.nameLabel.font = UIFont.init(name: "Verdana Bold", size: 24)
+            cell.bioNameLabel.font = UIFont.init(name: "Chalkboard SE Bold", size: 23)
+        default:
+            cell.nameLabel.font = UIFont.init(name: "Verdana Bold", size: 18)
+            cell.bioNameLabel.font = UIFont.init(name: "Chalkboard SE Bold", size: 17)
+        }
         
         cell.starLabel.font = UIFont.systemFont(ofSize: 11)
         
-        if(indexPath.item % 6 == 0){
-            cell.nameLabel.font = UIFont.systemFont(ofSize: 24)
-        }else{
-            cell.nameLabel.font = UIFont.systemFont(ofSize: 18)
-        }
         cell.ConfigureCell(place: places[indexPath.row])
         
         return cell
