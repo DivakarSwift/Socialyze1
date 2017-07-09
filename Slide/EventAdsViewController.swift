@@ -35,6 +35,7 @@ class EventAdsViewController: UIViewController {
     @IBOutlet weak var useDealBtn: UIButton!
     @IBOutlet weak var dealDoneView: UIView!
     @IBOutlet weak var inviteButton: UIButton!
+    @IBOutlet weak var usedDealTime: UILabel!
     
     override func viewDidLoad() {
         self.addSwipeGesture(toView: self.view)
@@ -139,6 +140,13 @@ class EventAdsViewController: UIViewController {
                             self.dealService.updateDeal(place: self.place!, count: count)
                             self.getDeals()
                             self.dealDoneView.isHidden = false
+                            
+                            
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "h:m a '\n' d.M.yy"
+                            dateFormatter.timeZone = TimeZone.current
+                            let string = dateFormatter.string(from: Date())
+                            self.usedDealTime.text = string
                         })
                         
                     }

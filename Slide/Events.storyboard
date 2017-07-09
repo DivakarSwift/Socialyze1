@@ -543,7 +543,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:25 pm 7.6.17" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fra-Hj-EqE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7:25 pm 7.6.17" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fra-Hj-EqE" userLabel="7:25 pm 7.6.17">
                                         <rect key="frame" x="0.0" y="101.5" width="240" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -609,6 +609,7 @@
                         <outlet property="imageView" destination="SzI-AW-XR1" id="HGh-ne-3Tg"/>
                         <outlet property="inviteButton" destination="HmS-fP-Tbh" id="pz7-jj-alu"/>
                         <outlet property="useDealBtn" destination="lDQ-Bi-8zD" id="dYG-na-Som"/>
+                        <outlet property="usedDealTime" destination="fra-Hj-EqE" id="Ien-tZ-OW0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2a-9r-JsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
