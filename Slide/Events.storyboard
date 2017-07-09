@@ -398,6 +398,7 @@
                                     <constraint firstAttribute="width" constant="200" id="3DN-wa-4jm"/>
                                     <constraint firstAttribute="height" constant="42" id="iMB-Xo-MPv"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Invite Friends">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -405,7 +406,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVR-s7-fuD">
                                 <rect key="frame" x="0.0" y="60" width="320" height="46"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap &quot;Use Deal&quot; with friends after showing to merchaant" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-xs-4za">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap &quot;Use Deal&quot; with friends after showing to merchant" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAf-xs-4za">
                                         <rect key="frame" x="20" y="5" width="280" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -430,11 +431,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFm-mr-Nwo">
-                                <rect key="frame" x="117.5" y="243" width="85.5" height="21"/>
+                                <rect key="frame" x="116" y="243" width="89" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="uoD-ui-oeH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -445,6 +446,7 @@
                                     <constraint firstAttribute="height" constant="42" id="q9n-HA-AoE"/>
                                     <constraint firstAttribute="width" constant="200" id="wyH-wp-xuf"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Use Deal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -460,11 +462,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expires in 13th June 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0Y-XV-bPR">
-                                <rect key="frame" x="96.5" y="527" width="203.5" height="21"/>
+                                <rect key="frame" x="91.5" y="527" width="208.5" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="pcr-ZU-jTI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.76717163705583757" green="0.18127081331916173" blue="0.22719371179618719" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -605,6 +607,7 @@
                         <outlet property="expiryLabel" destination="c0Y-XV-bPR" id="f2i-IE-J4E"/>
                         <outlet property="friendsCollectionView" destination="8lc-d4-b6F" id="tBz-rs-uYx"/>
                         <outlet property="imageView" destination="SzI-AW-XR1" id="HGh-ne-3Tg"/>
+                        <outlet property="inviteButton" destination="HmS-fP-Tbh" id="pz7-jj-alu"/>
                         <outlet property="useDealBtn" destination="lDQ-Bi-8zD" id="dYG-na-Som"/>
                     </connections>
                 </viewController>

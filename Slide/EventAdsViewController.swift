@@ -9,6 +9,9 @@
 import UIKit
 import ObjectMapper
 import FirebaseAuth
+import MessageUI
+import FacebookCore
+import FacebookShare
 
 class EventAdsViewController: UIViewController {
     
@@ -31,6 +34,7 @@ class EventAdsViewController: UIViewController {
     @IBOutlet weak var expiryLabel: UILabel!
     @IBOutlet weak var useDealBtn: UIButton!
     @IBOutlet weak var dealDoneView: UIView!
+    @IBOutlet weak var inviteButton: UIButton!
     
     override func viewDidLoad() {
         self.addSwipeGesture(toView: self.view)
@@ -43,6 +47,7 @@ class EventAdsViewController: UIViewController {
         checkedInLabel.text = "\(self.eventUsers.count) Checked in"
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
+        inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
     }
     
     func dateFormatter() -> DateFormatter {
@@ -50,6 +55,72 @@ class EventAdsViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)!
         return dateFormatter
+    }
+    
+    func invite() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
+            self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
+        }
+        alert.addAction(facebook)
+        
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
+            self?.openMessage()
+        }
+        alert.addAction(textMessage)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openMessage() {
+        let text = "Hey! Meet me with https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8"
+        
+        
+        if !MFMessageComposeViewController.canSendText() {
+            // For simulator only.
+            let messageURL = URL(string: "sms:body=\(text)")
+            guard let url = messageURL else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        } else {
+            let controller = MFMessageComposeViewController()
+            controller.messageComposeDelegate = self
+            controller.body = text
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    private func openFacebookInvite() {
+        
+        
+        // Please change this two urls accordingly
+        let appLinkUrl:URL = URL(string: "https://fb.me/1351482471639007")!//GlobalConstants.urls.itunesLink)!
+        let previewImageUrl:URL = URL(string: "http://socialyzeapp.com/wp-content/uploads/2017/03/logo-128p.png")!
+        
+        var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)
+        inviteContent.appLink = appLinkUrl
+        inviteContent.previewImageURL = previewImageUrl
+        
+        
+        let inviteDialog = AppInvite.Dialog(invite: inviteContent)
+        do {
+            try inviteDialog.show()
+        } catch  (let error) {
+            print(error.localizedDescription)
+        }
     }
     
     func useDeal(){
@@ -102,20 +173,19 @@ class EventAdsViewController: UIViewController {
             self!.deal = Mapper<Deal>().map(JSON: dealDictionary)
             self!.descriptionLabel.text = self!.deal!.detail
             self!.countLabel.text = "\(self!.deal!.count!) Used"
-            self!.expiryLabel.text = "Expires in \(self!.deal!.expiry!)"
-            let expiryTime = self!.deal!.expiry!
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy/MM/dd HH:mm"
-            let time = formatter.date(from: expiryTime)
             
-            let date = Date()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy/MM/dd HH:mm"
-            dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone
-            let currentT = dateFormatter.string(from: date)
-            let nowTime = formatter.date(from: currentT)
-            if time! < nowTime! {
-                self!.descriptionLabel.text = "Sorry the deal has been expired!"
+            if let expiryDate = self?.dateFormatter().date(from: self!.deal!.expiry!) {
+                let form = DateComponentsFormatter()
+                form.maximumUnitCount = 2
+                form.unitsStyle = .full
+                form.allowedUnits = [.year, .month, .day, .hour, .minute]
+                let s = form.string(from: Date(), to: expiryDate)
+                
+                self!.expiryLabel.text = "Expires in \(s ?? "")"
+                
+                if expiryDate.timeIntervalSince(Date()) <= 0 {
+                    self!.descriptionLabel.text = "Sorry the deal has been expired!"
+                }
             }
         })
     }
@@ -263,6 +333,12 @@ extension EventAdsViewController:UICollectionViewDataSource{
     }
 }
 
+extension EventAdsViewController: MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
 
 
 
