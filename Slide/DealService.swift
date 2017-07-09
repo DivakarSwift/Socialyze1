@@ -2,7 +2,7 @@
 //  DealService.swift
 //  Slide
 //
-//  Created by Lizan Pradhanang on 7/8/17.
+//  Created by Bibek on 7/8/17.
 //  Copyright © 2017 Salem Khan. All rights reserved.
 //
 
