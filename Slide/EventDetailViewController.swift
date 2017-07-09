@@ -278,6 +278,7 @@ class EventDetailViewController: UIViewController {
         vc.place = self.place
         vc.checkinData = self.checkinData
         vc.facebookFriends = self.faceBookFriends
+        vc.placeService = self.placeService
         self.present(vc, animated: false, completion: nil)
     }
     
@@ -287,6 +288,7 @@ class EventDetailViewController: UIViewController {
         let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
         adDeatilVc.eventUsers = self.eventUsers
         adDeatilVc.place = self.place!
+        adDeatilVc.placeService = self.placeService
         self.present(adDeatilVc, animated: true, completion: nil)
     }
     

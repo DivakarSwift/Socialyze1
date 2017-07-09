@@ -19,11 +19,11 @@ class DealService{
             if snapshot.value is NSNull{
                 
             }else{
-            let dealDic = snapshot.value as! [String:Any]
-            completion(dealDic)
-          }  
+                let dealDic = snapshot.value as! [String:Any]
+                completion(dealDic)
+            }
         })
-    
+        
     }
     
     func useDeal(user : User, place:Place,time: String, completion: @escaping (Bool) -> ()){
@@ -48,8 +48,8 @@ class DealService{
                 let dic = [String:Any]()
                 completion(0,dic)
             }else{
-            let dic = snapshot.value as! [String:Any]
-            completion(dic.count,dic)
+                let dic = snapshot.value as! [String:Any]
+                completion(dic.count,dic)
             }
         })
     }
