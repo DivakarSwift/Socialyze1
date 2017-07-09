@@ -274,22 +274,25 @@ class EventDetailViewController: UIViewController {
     
     
     func  viewDetail() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
-        vc.place = self.place
-        vc.checkinData = self.checkinData
-        vc.facebookFriends = self.faceBookFriends
-        vc.placeService = self.placeService
-        self.present(vc, animated: false, completion: nil)
+        if self.place?.hasDeal ?? false {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
+            vc.place = self.place
+            vc.checkinData = self.checkinData
+            vc.facebookFriends = self.faceBookFriends
+            vc.placeService = self.placeService
+            self.present(vc, animated: false, completion: nil)
+        }
     }
     
     @IBAction func dealBtnTapped(_ sender: Any) {
-        
-        let sb = self.storyboard
-        let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
-        adDeatilVc.eventUsers = self.eventUsers
-        adDeatilVc.place = self.place!
-        adDeatilVc.placeService = self.placeService
-        self.present(adDeatilVc, animated: true, completion: nil)
+        if self.place?.hasDeal ?? false {
+            let sb = self.storyboard
+            let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
+            adDeatilVc.eventUsers = self.eventUsers
+            adDeatilVc.place = self.place!
+            adDeatilVc.placeService = self.placeService
+            self.present(adDeatilVc, animated: true, completion: nil)
+        }
     }
     
     
@@ -306,7 +309,7 @@ class EventDetailViewController: UIViewController {
                 })
             }
         case .checkIn:
-                self.checkInn()
+            self.checkInn()
         case .checkInSwipe:
             if self.checkinData.count != 0 {
                 self.openCategories()
@@ -324,8 +327,8 @@ class EventDetailViewController: UIViewController {
         
         vc.place = self.place
         vc.noUsers = {
-                self.dismiss(animated: true, completion: nil)
-                _ = self.navigationController?.popViewController(animated: false) 
+            self.dismiss(animated: true, completion: nil)
+            _ = self.navigationController?.popViewController(animated: false)
         }
         if self.eventAction == .goingSwipe {
             vc.isGoing = true
@@ -425,7 +428,7 @@ class EventDetailViewController: UIViewController {
             let check2 = distance <= mediumRadius && size == 2
             let check3 = distance <= largeRadius  && size == 3
             let check4 = distance <= hugeRadius  && size == 4
-                        
+            
             if check1 || check2 || check3 || check4 {
                 self.placeDistanceLabel.isHidden = true
                 self.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)

@@ -28,7 +28,10 @@ struct Place:Mappable {
     var hall:String?
     
     var isEvent:Bool?
+    var hasDeal: Bool?
     var event:Event?
+    
+    var deal: Deal?
     
     init?(map: Map) {
         self.mapping(map: map)
@@ -53,6 +56,9 @@ struct Place:Mappable {
         
         self.isEvent <- map["isEvent"]
         self.event <- map["Event"]
+        
+        self.deal <- map["deal"]
+        self.hasDeal <- map["hasDeal"]
     }
 }
 

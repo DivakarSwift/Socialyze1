@@ -23,7 +23,7 @@ class EventAdsViewController: UIViewController {
     var placeService: PlaceService!
     let dealService = DealService()
     fileprivate var thresholdRadius = 30.48 //100ft
-    var deal:Deal?
+//    var deal:Deal?
     var isCheckedIn = false
     
     @IBOutlet weak var imageView: UIImageView!
@@ -39,9 +39,9 @@ class EventAdsViewController: UIViewController {
     
     override func viewDidLoad() {
         self.addSwipeGesture(toView: self.view)
+        self.setup()
         self.setupView()
         self.addTapGesture(toView: self.view)
-        self.fetchUsers()
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
@@ -49,6 +49,24 @@ class EventAdsViewController: UIViewController {
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
+    }
+    
+    private func setup() {
+        self.descriptionLabel.text = self.place?.deal?.detail
+        
+        if let expiryDate = self.dateFormatter().date(from: self.place?.deal?.expiry ?? " ") {
+            let form = DateComponentsFormatter()
+            form.maximumUnitCount = 2
+            form.unitsStyle = .full
+            form.allowedUnits = [.year, .month, .day, .hour, .minute]
+            let s = form.string(from: Date(), to: expiryDate)
+            
+            self.expiryLabel.text = "Expires in \(s ?? "")"
+            
+            if expiryDate.timeIntervalSince(Date()) <= 0 {
+                self.descriptionLabel.text = "Sorry the deal has been expired!"
+            }
+        }
     }
     
     func dateFormatter() -> DateFormatter {
@@ -154,10 +172,13 @@ class EventAdsViewController: UIViewController {
             }
         }
     }
-    func fetchUsers(){
-        self.dealService.fetchUser(place: self.place!, completion: {
-            [weak self](_,dic) in
-            for (key, value) in dic {
+    
+    func getDeals(){
+        self.dealService.getPlaceDealInPlace(place: self.place!, completion: {[weak self]
+            (placeDeal) in
+            guard let _ = self else {return}
+            self!.countLabel.text = "\(placeDeal.count ?? 0) Used"
+            for (key, value) in placeDeal.users ?? [:] {
                 let userId = Auth.auth().currentUser!.uid
                 if key == userId {
                     self?.useDealBtn.setTitle("Used", for: .normal)
@@ -167,32 +188,6 @@ class EventAdsViewController: UIViewController {
                     if let value = value as? [String: String], let time = value["time"], let date = self?.dateFormatter().date(from: time) {
                         // show time if needed
                     }
-                }
-            }
-        })
-    }
-    
-    
-    
-    func getDeals(){
-        self.dealService.getDealInPlace(place: self.place!, completion: {[weak self]
-            (dealDictionary) in
-            guard let _ = self else {return}
-            self!.deal = Mapper<Deal>().map(JSON: dealDictionary)
-            self!.descriptionLabel.text = self!.deal!.detail
-            self!.countLabel.text = "\(self!.deal!.count!) Used"
-            
-            if let expiryDate = self?.dateFormatter().date(from: self!.deal!.expiry!) {
-                let form = DateComponentsFormatter()
-                form.maximumUnitCount = 2
-                form.unitsStyle = .full
-                form.allowedUnits = [.year, .month, .day, .hour, .minute]
-                let s = form.string(from: Date(), to: expiryDate)
-                
-                self!.expiryLabel.text = "Expires in \(s ?? "")"
-                
-                if expiryDate.timeIntervalSince(Date()) <= 0 {
-                    self!.descriptionLabel.text = "Sorry the deal has been expired!"
                 }
             }
         })
@@ -274,7 +269,7 @@ class EventAdsViewController: UIViewController {
     
     func setupView() {
         if let place = self.place {
-            self.descriptionLabel.text = place.bio
+            // self.descriptionLabel.text = place.bio
             
             let image = place.secondImage ?? place.mainImage ?? ""
             self.imageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )

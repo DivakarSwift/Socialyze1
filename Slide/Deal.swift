@@ -12,16 +12,25 @@ import ObjectMapper
 class Deal: Mappable{
     var detail:String?
     var expiry:String?
-    var count:Int?
-    var users:[[String:Any]]?
     
     required init?(map: Map) {
     }
     
     func mapping(map: Map) {
-        detail <- map["Deal Details"]
-        expiry <- map["Expiry Date"]
-        count <- map["Use Count"]
-        users <- map["Users"]
+        detail <- map["dealDetail"]
+        expiry <- map["expiryDate"]
+    }
+}
+
+class PlaceDeal: Mappable {
+    var count:Int?
+    var users:[String:Any]?
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        count <- map["useCount"]
+        users <- map["users"]
     }
 }

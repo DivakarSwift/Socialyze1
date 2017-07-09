@@ -8,19 +8,22 @@
 
 import Foundation
 import Firebase
+import ObjectMapper
 
 class DealService{
     
-    func getDealInPlace(place:Place , completion: @escaping ([String:Any]) -> ()){
+    func getPlaceDealInPlace(place:Place, completion: @escaping (PlaceDeal) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
         let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal")
-        dataRef.observe(.value, with: {
+        dataRef.observeSingleEvent(of: .value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
                 
             }else{
                 let dealDic = snapshot.value as! [String:Any]
-                completion(dealDic)
+                if let deal = Mapper<PlaceDeal>().map(JSON: dealDic) {
+                    completion(deal)
+                }
             }
         })
         
@@ -28,7 +31,7 @@ class DealService{
     
     func useDeal(user : User, place:Place,time: String, completion: @escaping (Bool) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("Users").child(user.uid).child("time")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("users").child(user.uid).child("time")
         dataRef.setValue(time, withCompletionBlock: {
             (error,_) in
             if error != nil{
@@ -39,9 +42,10 @@ class DealService{
         })
         
     }
+    
     func fetchUser(place:Place, completion: @escaping (Int,[String:Any]) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("Users")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("users")
         dataRef.observe(.value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
@@ -56,7 +60,7 @@ class DealService{
     
     func updateDeal(place:Place, count:Int){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("Use Count")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("useCount")
         dataRef.setValue(count)
     }
 }
