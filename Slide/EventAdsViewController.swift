@@ -44,7 +44,7 @@ class EventAdsViewController: UIViewController {
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
-        checkedInLabel.text = "\(self.eventUsers.count) Checked in"
+        checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
@@ -56,14 +56,13 @@ class EventAdsViewController: UIViewController {
         if let expiryDate = self.dateFormatter().date(from: self.place?.deal?.expiry ?? " ") {
             let form = DateComponentsFormatter()
             form.maximumUnitCount = 2
-            form.unitsStyle = .full
+            form.unitsStyle = .abbreviated
             form.allowedUnits = [.year, .month, .day, .hour, .minute]
             let s = form.string(from: Date(), to: expiryDate)
             
             self.expiryLabel.text = "Expires in \(s ?? "")"
             
             if expiryDate.timeIntervalSince(Date()) <= 0 {
-                // self.descriptionLabel.text = "Sorry the deal has been expired!"
                 self.useDealBtn.isEnabled = false
                 self.expiryLabel.text = "The deal has expired."
                 self.useDealBtn.backgroundColor = UIColor.gray
@@ -74,7 +73,7 @@ class EventAdsViewController: UIViewController {
     func dateFormatter() -> DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)!
+        dateFormatter.timeZone = TimeZone.current
         return dateFormatter
     }
     
@@ -163,7 +162,7 @@ class EventAdsViewController: UIViewController {
                             
                             
                             let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "h:m a '\n' d.M.yy"
+                            dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
                             dateFormatter.timeZone = TimeZone.current
                             let string = dateFormatter.string(from: Date())
                             self.usedDealTime.text = string
