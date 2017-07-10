@@ -42,7 +42,7 @@ class EventAdsViewController: UIViewController {
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
-        checkedInLabel.text = "\(self.eventUsers.count) checked in"
+        checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
@@ -148,34 +148,45 @@ class EventAdsViewController: UIViewController {
         }
     }
     
-    func useDeal(){
-        if useDealBtn.titleLabel?.text == "Use Deal"{
-            let user = Auth.auth().currentUser!
-            self.checkInn {
-                let time = self.dateFormatter().string(from: Date())
-                self.dealService.useDeal(user: user, place: self.place!, time: time, completion: {
-                    (result) in
-                    if result == true {
-                        self.useDealBtn.titleLabel?.text = "Used"
-                        self.useDealBtn.backgroundColor = UIColor.gray
-                        
-                        self.dealService.fetchUser(place: self.place!, completion: {
-                            (count,_) in
-                            self.dealService.updateDeal(place: self.place!, count: count)
-                            self.getDeals()
-                            self.dealDoneView.isHidden = false
-                            
-                            
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
-                            dateFormatter.timeZone = TimeZone.current
-                            let string = dateFormatter.string(from: Date())
-                            self.usedDealTime.text = string
-                        })
-                        
-                    }
-                })
+    func useDeal() {
+        guard let user = authenticator.user else { return }
+        
+        let mimimumFriends = self.place?.deal?.mimimumFriends ?? 0
+        
+        if self.eventUsers.filter({
+            $0.id != user.id
+        }).count < (mimimumFriends - 1) {
+            var msg = GlobalConstants.Message.friendsNotSufficient
+            msg.okAction = {
+                self.invite()
             }
+            self.alert(message: msg)
+            return
+        }
+        
+        self.checkInn {
+            let time = self.dateFormatter().string(from: Date())
+            self.dealService.useDeal(user: user, place: self.place!, time: time, completion: {
+                (result) in
+                if result == true {
+                    self.useDealBtn.titleLabel?.text = "Used"
+                    self.useDealBtn.backgroundColor = UIColor.gray
+                    
+                    self.dealService.fetchUser(place: self.place!, completion: {
+                        (count,_) in
+                        self.dealService.updateDeal(place: self.place!, count: count)
+                        self.getDeals()
+                        self.dealDoneView.isHidden = false
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                        dateFormatter.timeZone = TimeZone.current
+                        let string = dateFormatter.string(from: Date())
+                        self.usedDealTime.text = string
+                    })
+                    
+                }
+            })
         }
     }
     

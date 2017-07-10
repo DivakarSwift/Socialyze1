@@ -12,6 +12,7 @@ import ObjectMapper
 class Deal: Mappable{
     var detail:String?
     var expiry:String?
+    var mimimumFriends: Int?
     
     required init?(map: Map) {
     }
@@ -19,6 +20,7 @@ class Deal: Mappable{
     func mapping(map: Map) {
         detail <- map["dealDetail"]
         expiry <- map["expiryDate"]
+        mimimumFriends <- map["mimimumFriends"]
     }
 }
 

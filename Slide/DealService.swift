@@ -29,9 +29,9 @@ class DealService{
         
     }
     
-    func useDeal(user : User, place:Place,time: String, completion: @escaping (Bool) -> ()){
+    func useDeal(user: LocalUser, place:Place,time: String, completion: @escaping (Bool) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("users").child(user.uid).child("time")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("users").child(user.id!).child("time")
         dataRef.setValue(time, withCompletionBlock: {
             (error,_) in
             if error != nil{

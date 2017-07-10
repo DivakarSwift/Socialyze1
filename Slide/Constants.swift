@@ -117,5 +117,6 @@ struct GlobalConstants {
         }, cancelAction: nil)
         static let userNotInPerimeter = Message(title: "Sorry", message: "Arrive at this place to start swiping", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
         static let userNotInPerimeterToUseDeal = Message(title: "Sorry", message: "Arrive at this place use the deal.", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
+        static let friendsNotSufficient = Message(title: "Sorry", message: "You need more friends to use the deal. Do you want to invite more friends?", okTitle: "Invite", cancelTitle: "Cancel", okAction: nil, cancelAction: nil)
     }
 }
