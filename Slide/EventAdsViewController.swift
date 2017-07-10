@@ -64,7 +64,10 @@ class EventAdsViewController: UIViewController {
             self.expiryLabel.text = "Expires in \(s ?? "")"
             
             if expiryDate.timeIntervalSince(Date()) <= 0 {
-                self.descriptionLabel.text = "Sorry the deal has been expired!"
+                // self.descriptionLabel.text = "Sorry the deal has been expired!"
+                self.useDealBtn.isEnabled = false
+                self.expiryLabel.text = "The deal has expired."
+                self.useDealBtn.backgroundColor = UIColor.gray
             }
         }
     }
