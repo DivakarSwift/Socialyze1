@@ -39,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-Jm-eDM">
-                                <rect key="frame" x="0.0" y="64" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="766"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewLayout key="collectionViewLayout" id="7Ga-5E-mUn" customClass="TRMosaicLayout" customModule="Slide" customModuleProvider="target"/>
                                 <cells>
