@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
             endingLineNumber = "207"
-            landmarkName = "getDistanceToUser()"
+            landmarkName = "checkInn(action:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -63,8 +63,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "220"
             endingLineNumber = "220"
-            landmarkName = "checkInn(action:)"
-            landmarkType = "7">
+            landmarkName = "check()"
+            landmarkType = "9">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
