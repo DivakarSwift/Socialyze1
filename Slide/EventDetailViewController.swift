@@ -267,10 +267,14 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    @IBAction func dealBtnTapped(_ sender: Any) {
+    func  viewDetail() {
         if self.place?.hasDeal ?? false {
             openEventAd()
         }
+    }
+    
+    @IBAction func dealBtnTapped(_ sender: Any) {
+        self.viewDetail()
     }
     
     private func openEventAd() {
