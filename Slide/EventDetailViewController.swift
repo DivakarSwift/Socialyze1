@@ -275,24 +275,34 @@ class EventDetailViewController: UIViewController {
     
     func  viewDetail() {
         if self.place?.hasDeal ?? false {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
-            vc.place = self.place
-            vc.checkinData = self.checkinData
-            vc.facebookFriends = self.faceBookFriends
-            vc.placeService = self.placeService
-            self.present(vc, animated: false, completion: nil)
+            openEventAd()
         }
     }
     
     @IBAction func dealBtnTapped(_ sender: Any) {
         if self.place?.hasDeal ?? false {
-            let sb = self.storyboard
-            let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
-            adDeatilVc.eventUsers = self.eventUsers
-            adDeatilVc.place = self.place!
-            adDeatilVc.placeService = self.placeService
-            self.present(adDeatilVc, animated: true, completion: nil)
+            openEventAd()
         }
+    }
+    
+    private func openEventAd() {
+        let sb = self.storyboard
+        let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
+        adDeatilVc.eventUsers = getCheckedInFbFriends()
+        adDeatilVc.place = self.place!
+        adDeatilVc.placeService = self.placeService
+        self.present(adDeatilVc, animated: true, completion: nil)
+    }
+    
+    private func getCheckedInFbFriends() -> [LocalUser] {
+       return self.eventUsers.filter({(user) -> Bool in
+            for checkin in checkinData {
+                if checkin.userId == user.id {
+                    return true
+                }
+            }
+            return false
+        })
     }
     
     

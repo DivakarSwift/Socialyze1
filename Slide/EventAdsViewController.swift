@@ -16,7 +16,6 @@ import FacebookShare
 class EventAdsViewController: UIViewController {
     
     var place:Place?
-    var checkinData:[Checkin]?
     var facebookFriends:[FacebookFriend] = [FacebookFriend]()
     var eventUsers:[LocalUser] = []
     let authenticator = Authenticator.shared
@@ -319,8 +318,8 @@ extension EventAdsViewController:UICollectionViewDataSource{
         //        imageView.rounded()
         //        imageView.image = UIImage(named: "profile.png")
         imageView.kf.setImage(with: user.profile.images.first)
-        let checkButton = cell.viewWithTag(3) as! UIButton
-        checkButton.isHidden = !user.isCheckedIn
+       // let checkButton = cell.viewWithTag(3) as! UIButton
+       // checkButton.isHidden = !user.isCheckedIn
         
         
         return cell
