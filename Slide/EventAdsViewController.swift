@@ -22,7 +22,7 @@ class EventAdsViewController: UIViewController {
     var placeService: PlaceService!
     let dealService = DealService()
     fileprivate var thresholdRadius = 30.48 //100ft
-//    var deal:Deal?
+    //    var deal:Deal?
     var isCheckedIn = false
     
     @IBOutlet weak var imageView: UIImageView!
@@ -37,17 +37,22 @@ class EventAdsViewController: UIViewController {
     @IBOutlet weak var usedDealTime: UILabel!
     
     override func viewDidLoad() {
-        self.addSwipeGesture(toView: self.view)
         self.setup()
         self.setupView()
-        self.addTapGesture(toView: self.view)
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
-        checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
+        checkedInLabel.text = "\(self.eventUsers.count) checked in"
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.addSwipeGesture(toView: self.view)
+        self.addTapGesture(toView: self.view)
     }
     
     private func setup() {
@@ -262,10 +267,20 @@ class EventAdsViewController: UIViewController {
     func addTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
         view.addGestureRecognizer(tap)
+        tap.delegate = self
     }
-    func handleTap(_ gesture: UITapGestureRecognizer) {
-        dismiss(animated: false, completion: nil)
-        UIApplication.shared.isStatusBarHidden = false
+    
+    @IBAction func handleTap(_ gesture: UITapGestureRecognizer) {
+        let event = UIEvent()
+        let location = gesture.location(in: self.view)
+        
+        //check actually view you hit via hitTest
+        let view = self.view.hitTest(location, with: event)
+        
+        if view?.gestureRecognizers?.contains(gesture) ?? false {
+            dismiss(animated: false, completion: nil)
+            UIApplication.shared.isStatusBarHidden = false
+        }
     }
     
     func setupView() {
@@ -287,14 +302,15 @@ class EventAdsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         UIApplication.shared.isStatusBarHidden = false
     }
-    
-    
-    
-    
 }
 
-extension EventAdsViewController:UICollectionViewDelegate{
-    
+extension EventAdsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+        vc.fromFBFriends = self.eventUsers[indexPath.row]
+        vc.transitioningDelegate = self
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension EventAdsViewController:UICollectionViewDataSource{
@@ -317,8 +333,8 @@ extension EventAdsViewController:UICollectionViewDataSource{
         //        imageView.rounded()
         //        imageView.image = UIImage(named: "profile.png")
         imageView.kf.setImage(with: user.profile.images.first)
-       // let checkButton = cell.viewWithTag(3) as! UIButton
-       // checkButton.isHidden = !user.isCheckedIn
+        // let checkButton = cell.viewWithTag(3) as! UIButton
+        // checkButton.isHidden = !user.isCheckedIn
         
         
         return cell
@@ -345,5 +361,24 @@ extension EventAdsViewController: MFMessageComposeViewControllerDelegate, UINavi
     }
 }
 
+extension EventAdsViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        let event = UIEvent()
+        let location = gestureRecognizer.location(in: self.view)
+        
+        //check actually view you hit via hitTest
+        let view = self.view.hitTest(location, with: event)
+        
+        if view?.gestureRecognizers?.contains(gestureRecognizer) ?? false {
+            return true
+        }
+        return false
+    }
+}
 
+extension EventAdsViewController: UIViewControllerTransitioningDelegate {
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
+    }
+}
 

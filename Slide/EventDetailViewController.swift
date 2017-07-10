@@ -667,8 +667,7 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        
+    
         let user = self.eventUsers[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         
