@@ -151,11 +151,11 @@ class EventAdsViewController: UIViewController {
     func useDeal() {
         guard let user = authenticator.user else { return }
         
-        let mimimumFriends = self.place?.deal?.mimimumFriends ?? 0
+        let minimumFriends = self.place?.deal?.minimumFriends ?? 0
         
         if self.eventUsers.filter({
             $0.id != user.id
-        }).count < mimimumFriends {
+        }).count < minimumFriends {
             var msg = GlobalConstants.Message.friendsNotSufficient
             msg.okAction = {
                 self.invite()
