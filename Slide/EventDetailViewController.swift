@@ -287,13 +287,25 @@ class EventDetailViewController: UIViewController {
     }
     
     private func getCheckedInFbFriends() -> [LocalUser] {
-       return self.eventUsers.filter({(user) -> Bool in
-            for checkin in checkinData {
-                if checkin.userId == user.id {
-                    return true
+        return self.eventUsers.filter({(user) -> Bool in
+            let isCheckedIn: () -> (Bool) = {
+                for checkin in self.checkinData {
+                    if checkin.userId == user.id {
+                        return true
+                    }
                 }
+                return false
             }
-            return false
+            
+            let isFbFriend: () -> (Bool) = {
+                for faceBookFriend in self.faceBookFriends {
+                    if user.profile.fbId == faceBookFriend.id {
+                        return true
+                    }
+                }
+                return false
+            }
+            return isCheckedIn() && isFbFriend()
         })
     }
     
@@ -667,7 +679,7 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
+        
         let user = self.eventUsers[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         

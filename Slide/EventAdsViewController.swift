@@ -155,7 +155,7 @@ class EventAdsViewController: UIViewController {
         
         if self.eventUsers.filter({
             $0.id != user.id
-        }).count < (mimimumFriends - 1) {
+        }).count < mimimumFriends {
             var msg = GlobalConstants.Message.friendsNotSufficient
             msg.okAction = {
                 self.invite()
