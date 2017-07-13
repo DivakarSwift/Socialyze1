@@ -49,22 +49,6 @@ class PlaceService: FirebaseManager {
         })
     }
     
-    func user(_ user: LocalUser, goingAt event: Place, completion: @escaping CallBackWithSuccessError) {
-        
-        let ref1 = self.reference.child(Node.Places.rawValue).child((event.nameAddress?.replacingOccurrences(of: " ", with: ""))!).child(Node.going.rawValue).child(user.id!)
-        
-        let values:[String : Any] = [
-            "userId": user.id!,
-            "time": Date().timeIntervalSince1970,
-            "fbId": user.profile.fbId!
-        ]
-        
-        ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: DatabaseReference) -> Void in
-            completion(error == nil, error)
-        })
-    }
-    
-    
     func user(_ user: LocalUser, checkOutFrom place: Place, completion: @escaping CallBackWithSuccessError) {
         guard let placeName = place.nameAddress else {
             completion(false,nil)
@@ -111,12 +95,32 @@ class PlaceService: FirebaseManager {
         })
     }
     
+    func user(_ user: LocalUser, goingAt event: Place, completion: @escaping CallBackWithSuccessError) {
+        
+        let ref1 = self.reference.child(Node.Places.rawValue).child((event.nameAddress?.replacingOccurrences(of: " ", with: ""))!).child(Node.going.rawValue).child(event.event?.uid ?? "--1").child(user.id!)
+        
+        let values:[String : Any] = [
+            "userId": user.id!,
+            "time": Date().timeIntervalSince1970,
+            "fbId": user.profile.fbId!
+        ]
+        
+        ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: DatabaseReference) -> Void in
+            completion(error == nil, error)
+        })
+    }
+    
+    
     func getGoingUsers(at place: Place, completion: @escaping ([Checkin])->(), failure: @escaping (FirebaseManagerError)->()) {
         guard let placeName = place.nameAddress else {
             failure(FirebaseManagerError.noUserFound)
             return
         }
-        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.going.rawValue).observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
+//        if place.event?.expiryDate?.compare(Date()) == ComparisonResult.orderedAscending {
+//            completion([])
+//            return
+//        }
+        self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.going.rawValue).child(place.event?.uid ?? "--1").observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
             if let snapshotValue = snapshot.value {
                 if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
                     return json.map()

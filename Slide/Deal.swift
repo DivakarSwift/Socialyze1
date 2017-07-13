@@ -13,6 +13,7 @@ class Deal: Mappable{
     var detail:String?
     var expiry:String?
     var minimumFriends: Int?
+    var uid: String?
     
     required init?(map: Map) {
     }
@@ -21,6 +22,7 @@ class Deal: Mappable{
         detail <- map["dealDetail"]
         expiry <- map["expiryDate"]
         minimumFriends <- map["minimumFriends"]
+        uid <- map["uid"]
     }
 }
 

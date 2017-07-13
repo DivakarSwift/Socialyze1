@@ -42,12 +42,12 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "521661205.233572"
+                  timestampString = "521665440.133365"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "156"
                   endingLineNumber = "156"
-                  offsetFromSymbolStart = "8020">
+                  offsetFromSymbolStart = "8344">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -57,7 +57,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "521661205.23618"
+                  timestampString = "521665440.139249"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "157"
@@ -70,16 +70,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "521661011.143342"
+            filePath = "Slide/PlaceService.swift"
+            timestampString = "521665392.038418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "getCheckInUsers(at:completion:failure:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

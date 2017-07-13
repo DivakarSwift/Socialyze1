@@ -86,17 +86,27 @@ struct Event: Mappable {
     var detail: String?
     var date:String?
     var time:String?
+    var uid: String?
+    var expiryDate: Date?
     
     init?(map: Map) {
         self.mapping(map: map)
     }
     
     mutating func mapping(map: Map) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyyTHH:mm"
+        dateFormatter.locale = Locale.init(identifier: "en_US")
+        
+        let transform = DateFormatterTransform.init(dateFormatter: dateFormatter)
+        
         self.title <- map["eventName"]
         self.image <- map["firstImage"]
         self.detail <- map["eventDetails"]
         self.date <- map["date"]
         self.time <- map["time"]
+        self.uid <- map["uid"]
+        self.expiryDate <- (map["expiryDate"], transform)
     }
 }
 
