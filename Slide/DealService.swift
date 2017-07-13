@@ -14,7 +14,7 @@ class DealService{
     
     func getPlaceDealInPlace(place:Place, completion: @escaping (PlaceDeal) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1")
         dataRef.observeSingleEvent(of: .value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
@@ -31,7 +31,7 @@ class DealService{
     
     func useDeal(user: LocalUser, place:Place,time: String, completion: @escaping (Bool) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("users").child(user.id!).child("time")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users").child(user.id!).child("time")
         dataRef.setValue(time, withCompletionBlock: {
             (error,_) in
             if error != nil{
@@ -45,7 +45,7 @@ class DealService{
     
     func fetchUser(place:Place, completion: @escaping (Int,[String:Any]) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("users")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users")
         dataRef.observe(.value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
@@ -60,7 +60,7 @@ class DealService{
     
     func updateDeal(place:Place, count:Int){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child("useCount")
+        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("useCount")
         dataRef.setValue(count)
     }
 }

@@ -95,7 +95,7 @@ struct Event: Mappable {
     
     mutating func mapping(map: Map) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyyTHH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         dateFormatter.locale = Locale.init(identifier: "en_US")
         
         let transform = DateFormatterTransform.init(dateFormatter: dateFormatter)
