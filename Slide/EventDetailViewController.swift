@@ -283,7 +283,7 @@ class EventDetailViewController: UIViewController {
         adDeatilVc.eventUsers = getCheckedInFbFriends()
         adDeatilVc.place = self.place!
         adDeatilVc.placeService = self.placeService
-        self.present(adDeatilVc, animated: true, completion: nil)
+        self.present(adDeatilVc, animated: false, completion: nil)
     }
     
     private func getCheckedInFbFriends() -> [LocalUser] {
