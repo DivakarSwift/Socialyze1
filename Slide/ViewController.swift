@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = self.view.center
         
+        self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
+        
         SlydeLocationManager.shared.requestLocation()
         SlydeLocationManager.shared.delegate = self
         if SlydeLocationManager.shared.isAuthorized {
@@ -83,7 +85,7 @@ class ViewController: UIViewController {
         
         //create a new button
         let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-
+        
         leftButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
         leftButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
         leftButton.rounded()
@@ -98,11 +100,12 @@ class ViewController: UIViewController {
         )
         
         getPlaces()
-                
-//        ChatService.shared.observeChatList(self)
-//        ChatService.shared.observeMatchList(self)
+        
+        //        ChatService.shared.observeChatList(self)
+        //        ChatService.shared.observeMatchList(self)
         
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "Socialyze"
@@ -115,15 +118,24 @@ class ViewController: UIViewController {
             self.collectionView.reloadData()
         }
     }
-
+    
     func getPlaces() {
         self.activityIndicator.startAnimating()
         PlaceService().getPlaces(completion: { (places) in
             self.activityIndicator.stopAnimating()
             self.places = places
+            self.locationUpdated()
         }, failure: { error in
             self.activityIndicator.stopAnimating()
             self.alert(message: error.localizedDescription)
+        })
+    }
+    
+    func locationUpdated() {
+        self.places = self.places.sorted(by: { (place1, place2) -> Bool in
+            let place1Distance = SlydeLocationManager.shared.distanceFromUser(lat: place1.lat ?? 0, long: place1.long ?? 0) ?? 0
+            let place2Distance = SlydeLocationManager.shared.distanceFromUser(lat: place2.lat ?? 0, long: place2.long ?? 0) ?? 0
+            return place1Distance < place2Distance
         })
     }
     
@@ -133,14 +145,14 @@ class ViewController: UIViewController {
         controller.userId = Authenticator.currentFIRUser?.uid
         performSegue(withIdentifier: "swipeToProfile", sender: nil)
         
-//        self.navigationController?.pushViewController(controller, animated: true)
+        //        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func chatBtn(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "swipeToChat", sender: nil)
-//        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
-//        self.navigationController?.pushViewController(controller, animated: true)
+        //        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
+        //        let controller = storyboard.instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
+        //        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {
@@ -159,27 +171,27 @@ extension ViewController: UICollectionViewDelegate {
         self.present(vc, animated: true, completion: nil)
         
         /*
-        if let placeId = places[indexPath.row].placeId {
-          if placeId == "" {
-            let place = places[indexPath.row]
-            let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-            vc.place = place
-            self.present(vc, animated: true, completion: nil)
-            }
-          else {
-            let place = places[indexPath.row]
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
-            vc.place = place
-            self.present(vc, animated: true, completion: nil)
-            }
-        } else {
-            let place = places[indexPath.row]
-            let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-            vc.place = place
-            self.present(vc, animated: true, completion: nil)
-        }
-        
-        */
+         if let placeId = places[indexPath.row].placeId {
+         if placeId == "" {
+         let place = places[indexPath.row]
+         let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+         vc.place = place
+         self.present(vc, animated: true, completion: nil)
+         }
+         else {
+         let place = places[indexPath.row]
+         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
+         vc.place = place
+         self.present(vc, animated: true, completion: nil)
+         }
+         } else {
+         let place = places[indexPath.row]
+         let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+         vc.place = place
+         self.present(vc, animated: true, completion: nil)
+         }
+         
+         */
         
         //        self.navigationController?.pushViewController(vc, animated: true)
         // self.performSegue(withIdentifier: "categoryDetail", sender: self)
@@ -305,7 +317,7 @@ extension ViewController: SlydeLocationManagerDelegate {
                 }
             }
         }
-
+        
     }
     
     func locationObtainError() {
@@ -315,30 +327,30 @@ extension ViewController: SlydeLocationManagerDelegate {
 }
 
 //extension ViewController {
-//    
+//
 //    @available(iOS 10.0, *)
 //    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//        
+//
 //        print("Tapped in notification")
 //        let userInfo = response.notification.request.content.userInfo
-//        
+//
 //        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
 //            let userJson = JSON(userData)
 //            let chatJson = JSON(chatData)
-//            
+//
 //            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
 //                Utilities.openChat(user: user, chatItem: chatItem)
 //            }
 //        }
 //    }
-//    
+//
 //    //This is key callback to present notification while the app is in foreground
 //    @available(iOS 10.0, *)
 //    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//        
-//        
+//
+//
 //        print(notification.request.content.userInfo)
-//        
+//
 //        print("Notification being triggered")
 //        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
 //        //to distinguish between notifications
@@ -349,6 +361,6 @@ extension ViewController: SlydeLocationManagerDelegate {
 //            completionHandler( [.alert,.sound,.badge])
 //        }
 //    }
-    
+
 //}
 
