@@ -310,7 +310,7 @@ class EventDetailViewController: UIViewController {
     }
     
     
-    @IBAction func checkIn(_ sender: UIButton) {
+    @IBAction func checkIn(_ sender: UIButton?) {
         switch eventAction {
         case .going:
             self.going()
@@ -450,6 +450,7 @@ class EventDetailViewController: UIViewController {
                     self.eventAction = .checkInSwipe
                 } else {
                     self.eventAction = .checkIn
+                    self.checkIn(nil)
                 }
                 self.changeGoingStatus()
             }

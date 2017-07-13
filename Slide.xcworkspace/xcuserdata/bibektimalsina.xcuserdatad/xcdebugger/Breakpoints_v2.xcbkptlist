@@ -13,22 +13,6 @@
             timestampString = "521479158.902325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
-            landmarkName = "checkIn(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "521479158.902325"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "281"
             endingLineNumber = "281"
             landmarkName = "openEventAd()"
@@ -58,7 +42,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "521480267.012258"
+                  timestampString = "521661205.233572"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "156"
@@ -73,7 +57,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "521480267.014146"
+                  timestampString = "521661205.23618"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "157"
@@ -81,6 +65,22 @@
                   offsetFromSymbolStart = "31">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/EventDetailViewController.swift"
+            timestampString = "521661011.143342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
