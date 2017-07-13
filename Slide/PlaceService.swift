@@ -116,10 +116,10 @@ class PlaceService: FirebaseManager {
             failure(FirebaseManagerError.noUserFound)
             return
         }
-//        if place.event?.expiryDate?.compare(Date()) == ComparisonResult.orderedAscending {
-//            completion([])
-//            return
-//        }
+        if place.event?.expiryDate?.compare(Date()) == ComparisonResult.orderedAscending {
+            completion([])
+            return
+        }
         self.reference.child(Node.Places.rawValue).child(placeName.replacingOccurrences(of: " ", with: "")).child(Node.going.rawValue).child(place.event?.uid ?? "--1").observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
             if let snapshotValue = snapshot.value {
                 if let json: [Checkin] = JSON(snapshotValue).dictionary?.values.flatMap({ (json) -> Checkin? in
