@@ -39,10 +39,11 @@ class EventAdsViewController: UIViewController {
     override func viewDidLoad() {
         self.setup()
         self.setupView()
+        self.useDealBtn.layer.cornerRadius = 5
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
-        checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
+        checkedInLabel.text = "\(self.eventUsers.count) checked in"
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
@@ -69,7 +70,7 @@ class EventAdsViewController: UIViewController {
             
             if expiryDate.timeIntervalSince(Date()) <= 0 {
                 self.useDealBtn.isEnabled = false
-                self.expiryLabel.text = "The deal has expired."
+                self.expiryLabel.text = "The deal has expired"
                 self.useDealBtn.backgroundColor = UIColor.gray
             }
         }
@@ -103,7 +104,7 @@ class EventAdsViewController: UIViewController {
     }
     
     private func openMessage() {
-        let text = "Hey! Meet me with https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8"
+        let text = "Hey! Meet me with this app https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8"
         
         
         if !MFMessageComposeViewController.canSendText() {
@@ -158,7 +159,7 @@ class EventAdsViewController: UIViewController {
         }).count < minimumFriends {
             var msg = GlobalConstants.Message.friendsNotSufficient
             msg.okAction = {
-                self.invite()
+                self.openMessage()
             }
             self.alert(message: msg)
             return
