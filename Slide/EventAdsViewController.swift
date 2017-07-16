@@ -40,10 +40,24 @@ class EventAdsViewController: UIViewController {
         self.setup()
         self.setupView()
         self.useDealBtn.layer.cornerRadius = 5
+        self.countLabel.layer.shadowOpacity = 1.0
+        self.countLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.countLabel.layer.shadowRadius = 3.0
+        self.checkedInLabel.layer.shadowOpacity = 1.0
+        self.checkedInLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.checkedInLabel.layer.shadowRadius = 3.0
+        self.expiryLabel.layer.shadowOpacity = 1.0
+        self.expiryLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.expiryLabel.layer.shadowRadius = 3.0
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
-        checkedInLabel.text = "\(self.eventUsers.count) checked in"
+        //checkedInLabel.text = "\(self.eventUsers.count) friend checked in"
+        if eventUsers.count > 1 {
+            checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
+        } else if eventUsers.count > 0 {
+            checkedInLabel.text = "\(self.eventUsers.count) friend checked in"
+        }
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
