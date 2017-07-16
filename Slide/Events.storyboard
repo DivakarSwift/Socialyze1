@@ -96,8 +96,8 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mjo-oI-aeU" secondAttribute="trailing" constant="120" id="yKJ-Xf-e0Y"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-QN-fdH">
-                                <rect key="frame" x="26" y="127" width="268" height="137"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-QN-fdH">
+                                <rect key="frame" x="26" y="97" width="268" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-2a-VRh">
                                         <rect key="frame" x="130.5" y="0.0" width="7" height="29"/>
@@ -143,8 +143,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygZ-LF-bw0" userLabel="Detail Stack View">
-                                <rect key="frame" x="0.0" y="284" width="320" height="116"/>
+                            <stackView opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygZ-LF-bw0" userLabel="Detail Stack View">
+                                <rect key="frame" x="0.0" y="243" width="320" height="116"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-xu-H3I">
                                         <rect key="frame" x="98" y="8" width="124" height="50"/>
@@ -311,11 +311,11 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OdF-qL-xqo" firstAttribute="centerX" secondItem="vqQ-Fa-xEA" secondAttribute="centerX" id="0bU-SO-Nbg"/>
-                            <constraint firstItem="LmA-QN-OKo" firstAttribute="top" secondItem="ygZ-LF-bw0" secondAttribute="bottom" constant="10" id="2tO-tx-YZz"/>
+                            <constraint firstItem="LmA-QN-OKo" firstAttribute="top" secondItem="ygZ-LF-bw0" secondAttribute="bottom" constant="51" id="2tO-tx-YZz"/>
                             <constraint firstItem="Tlp-Ki-SM8" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leading" id="4w0-41-e4c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="obU-QN-fdH" secondAttribute="trailing" constant="10" id="8mQ-vn-XnF"/>
                             <constraint firstItem="kMF-eh-Qbd" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leading" id="9W3-O4-mUP"/>
-                            <constraint firstItem="Flj-gh-ry4" firstAttribute="top" secondItem="ygZ-LF-bw0" secondAttribute="bottom" id="Dnp-Th-oxP"/>
+                            <constraint firstItem="Flj-gh-ry4" firstAttribute="top" secondItem="ygZ-LF-bw0" secondAttribute="bottom" constant="41" id="Dnp-Th-oxP"/>
                             <constraint firstItem="TwP-Y2-uyH" firstAttribute="top" secondItem="txZ-Xq-bJn" secondAttribute="bottom" constant="26" id="Erz-lK-1lQ"/>
                             <constraint firstItem="Tlp-Ki-SM8" firstAttribute="top" secondItem="vqQ-Fa-xEA" secondAttribute="top" id="HtM-3h-KVI"/>
                             <constraint firstAttribute="trailing" secondItem="nHH-Tc-diG" secondAttribute="trailing" id="Ipi-pr-cgv"/>
@@ -326,8 +326,8 @@
                             <constraint firstAttribute="trailing" secondItem="kMF-eh-Qbd" secondAttribute="trailing" id="SIB-Yp-Mgl"/>
                             <constraint firstItem="TwP-Y2-uyH" firstAttribute="top" secondItem="Tlp-Ki-SM8" secondAttribute="bottom" id="SWY-b9-V2I"/>
                             <constraint firstAttribute="trailing" secondItem="Tlp-Ki-SM8" secondAttribute="trailing" id="SYg-30-eNr"/>
-                            <constraint firstItem="ygZ-LF-bw0" firstAttribute="top" secondItem="vqQ-Fa-xEA" secondAttribute="centerY" id="THD-Wi-Pdb"/>
-                            <constraint firstItem="obU-QN-fdH" firstAttribute="bottom" secondItem="vqQ-Fa-xEA" secondAttribute="centerY" constant="-20" id="YTN-uD-aQu"/>
+                            <constraint firstItem="ygZ-LF-bw0" firstAttribute="top" secondItem="vqQ-Fa-xEA" secondAttribute="centerY" constant="-41" id="THD-Wi-Pdb"/>
+                            <constraint firstItem="obU-QN-fdH" firstAttribute="bottom" secondItem="vqQ-Fa-xEA" secondAttribute="centerY" constant="-50" id="YTN-uD-aQu"/>
                             <constraint firstAttribute="trailing" secondItem="b8H-xH-Sp5" secondAttribute="trailing" constant="10" id="bPw-SG-iq7"/>
                             <constraint firstItem="ygZ-LF-bw0" firstAttribute="centerX" secondItem="vqQ-Fa-xEA" secondAttribute="centerX" id="cMw-J0-cjt"/>
                             <constraint firstItem="obU-QN-fdH" firstAttribute="leading" secondItem="vqQ-Fa-xEA" secondAttribute="leadingMargin" constant="10" id="eBW-9C-rOV"/>
@@ -386,7 +386,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SzI-AW-XR1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmS-fP-Tbh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmS-fP-Tbh">
                                 <rect key="frame" x="10" y="510" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="3DN-wa-4jm"/>
@@ -581,8 +581,8 @@
                             <constraint firstAttribute="trailing" secondItem="c0Y-XV-bPR" secondAttribute="trailing" constant="20" id="cjE-0U-QOi"/>
                             <constraint firstItem="ggy-Vu-euI" firstAttribute="top" secondItem="zKd-mL-Wvf" secondAttribute="bottom" constant="10" id="cox-0U-qrB"/>
                             <constraint firstItem="hFm-mr-Nwo" firstAttribute="top" secondItem="prm-iK-qx5" secondAttribute="bottom" constant="20" id="f7k-dH-3mW"/>
-                            <constraint firstItem="HmS-fP-Tbh" firstAttribute="centerX" secondItem="7Zb-Qa-3yw" secondAttribute="centerX" constant="-130" id="hdN-uN-kMY"/>
-                            <constraint firstItem="HmS-fP-Tbh" firstAttribute="centerX" secondItem="7Zb-Qa-3yw" secondAttribute="centerX" constant="-130" id="jCL-PC-Klx"/>
+                            <constraint firstItem="HmS-fP-Tbh" firstAttribute="centerX" secondItem="7Zb-Qa-3yw" secondAttribute="centerX" constant="-134" id="hdN-uN-kMY"/>
+                            <constraint firstItem="HmS-fP-Tbh" firstAttribute="centerX" secondItem="7Zb-Qa-3yw" secondAttribute="centerX" constant="-134" id="jCL-PC-Klx"/>
                             <constraint firstItem="8lc-d4-b6F" firstAttribute="top" secondItem="hFm-mr-Nwo" secondAttribute="bottom" constant="21" id="jTs-Ye-Oqc"/>
                             <constraint firstItem="c0Y-XV-bPR" firstAttribute="top" secondItem="Xww-jV-vid" secondAttribute="bottom" constant="20" id="mbW-yO-Jxh"/>
                             <constraint firstAttribute="trailing" secondItem="prm-iK-qx5" secondAttribute="trailing" constant="40" id="mfT-5g-o3F"/>
