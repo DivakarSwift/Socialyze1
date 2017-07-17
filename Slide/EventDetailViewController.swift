@@ -357,10 +357,36 @@ class EventDetailViewController: UIViewController {
     }
     
     private func going() {
+        
+        // let message = "\(authenticator.user?.profile.firstName ?? "") \(authenticator.user?.profile.lastName ?? "") is going @ \(self.place?.nameAddress ?? ""). Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "")"
         self.goingIn {[weak self] in
+            
             if let me = self {
                 me.isGoing = true
                 self?.eventAction = .goingSwipe
+            }
+        }
+    }
+    
+    private func fireGoingPushNotificationToFriends(users: [LocalUser], counter: Int, message: String) {
+        var parameters:[String:Any] = [:]
+        var userInfo:[String:Any] = [:]
+        userInfo["user"] = Authenticator.shared.user?.toJSON()
+        
+        var header:[String:Any] = [:]
+        header["Authorization"] = GlobalConstants.APIKeys.googleLegacyServerKey
+        
+        parameters["notification"] = ["title": "Going",
+                                      "body": message,
+                                      "sound":"default"]
+        parameters["to"] = users[counter].fcmToken
+        parameters["collapse_key"] = "GOING"
+        parameters["data"] = userInfo
+        parameters["priority"] = "high"
+        
+        Utilities.firePushNotification(with: parameters) {
+            if counter + 1 < users.count {
+                self.fireGoingPushNotificationToFriends(users: users, counter: counter + 1, message: message)
             }
         }
     }

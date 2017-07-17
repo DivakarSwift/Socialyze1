@@ -57,7 +57,7 @@ class Utilities: NSObject {
         
     }
     
-    class func firePushNotification(with parameters:Dictionary<String, Any>) {
+    class func firePushNotification(with parameters:Dictionary<String, Any>, completion: (() -> ())? = nil) {
         //create the url with URL
         let url = URL(string: "https://fcm.googleapis.com/fcm/send")!
         
@@ -79,7 +79,7 @@ class Utilities: NSObject {
         
         //create dataTask using the session object to send data to the server
         let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            
+            completion?()
             guard error == nil else {
                 return
             }
@@ -95,6 +95,7 @@ class Utilities: NSObject {
                 }
                 
             } catch let error {
+                
                 print(error.localizedDescription)
             }
         })
