@@ -22,6 +22,7 @@ pod 'GoogleMaps'
 pod 'GooglePlaces'
 pod 'FloatRatingView', '~> 2.0.0'
 pod 'TTTAttributedLabel'
+pod 'Alamofire'
 #pod 'NoChat'
 
 post_install do |installer|
