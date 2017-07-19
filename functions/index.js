@@ -1,24 +1,8 @@
 const functions = require('firebase-functions');
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
-
 // The Firebase Admin SDK to access the Firebase Realtime Database.
-// const admin = require('firebase-admin');
-// admin.initializeApp(functions.config().firebase);
-//
 const admin = require('firebase-admin');
-admin.initializeApp(
-    functions.config().firebase
-);
-
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//     response.send("Hello from Firebase!");
-// });
+admin.initializeApp(functions.config().firebase);
 
 exports.iAmGoing = functions.https.onRequest((request, response) => {
     const placeId = request.body.placeId;
@@ -31,7 +15,7 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
     const eventUid = request.body.eventUid
 
     const url = "/Places/" + placeId + "/going/" + eventUid + "/" + userId;
-    //.child(event.event?.uid ?? "--1").child(user.id!)
+    
     admin.database().ref(url).set({
         "time": time,
         "fbId": fbId,
