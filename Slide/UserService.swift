@@ -553,12 +553,5 @@ class UserService: FirebaseManager {
         })
         
     }
-    
-    func getUserFromFbId(fbId: String) {
-        reference.child("user").queryOrdered(byChild: "profile/fbId").queryEqual(toValue: fbId).observeSingleEvent(of: .value, with: {snapshot in
-            print(snapshot)
-            print("here")
-        })
-    }
 
 }

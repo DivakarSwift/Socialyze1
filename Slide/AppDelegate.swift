@@ -70,7 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         checkForLogin()
         
-        UserService().getUserFromFbId(fbId: "101281293814104")
         return true
     }
 
