@@ -31,7 +31,7 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
     const eventUid = request.body.eventUid
 
     const url = "/Places/" + placeId + "/going/" + eventUid + "/" + userId;
-//.child(event.event?.uid ?? "--1").child(user.id!)
+    //.child(event.event?.uid ?? "--1").child(user.id!)
     admin.database().ref(url).set({
         "time": time,
         "fbId": fbId,
@@ -48,7 +48,7 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
             };
 
             friendsFbId.forEach(function (element) {
-                
+
                 admin.database().ref("user").orderByChild("profile/fbId").equalTo(element).once('value')
                     .then(snapshot => {
                         let token;
@@ -57,13 +57,7 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
                         });
                         if (typeof token === 'string' || token instanceof String) {
                             console.log(token);
-                            admin.messaging().sendToDevice(token, payload)
-                            .then(function (response) {
-                                console.log("push notification message sent");
-                            })
-                            .catch(function (error) {
-                                console.log("error in sending message");
-                            });
+                            sendPushNotification(token, payload);
                         }
                     }).catch(function (error) {
                         console.log(error);
@@ -73,5 +67,15 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
             // console.log("ddd");
         });
 });
+
+function sendPushNotification(registrationToken, payload) {
+    admin.messaging().sendToDevice(registrationToken, payload)
+        .then(function (response) {
+            console.log("push notification message sent");
+        })
+        .catch(function (error) {
+            console.log("error in sending message");
+        });
+}
 
 
