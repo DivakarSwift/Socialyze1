@@ -739,7 +739,7 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
         label.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
         let imageView = cell.viewWithTag(1) as! UIImageView
-        imageView.rounded()
+        //imageView.rounded()
         //        imageView.image = UIImage(named: "profile.png")
         imageView.kf.setImage(with: user.profile.images.first)
         

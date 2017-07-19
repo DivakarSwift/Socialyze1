@@ -39,10 +39,25 @@ class EventAdsViewController: UIViewController {
     override func viewDidLoad() {
         self.setup()
         self.setupView()
+        self.useDealBtn.layer.cornerRadius = 5
+        self.countLabel.layer.shadowOpacity = 1.0
+        self.countLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.countLabel.layer.shadowRadius = 3.0
+        self.checkedInLabel.layer.shadowOpacity = 1.0
+        self.checkedInLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.checkedInLabel.layer.shadowRadius = 3.0
+        self.expiryLabel.layer.shadowOpacity = 1.0
+        self.expiryLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.expiryLabel.layer.shadowRadius = 3.0
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
-        checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
+        //checkedInLabel.text = "\(self.eventUsers.count) friend checked in"
+        if eventUsers.count > 1 {
+            checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
+        } else if eventUsers.count > 0 {
+            checkedInLabel.text = "\(self.eventUsers.count) friend checked in"
+        }
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
@@ -69,7 +84,7 @@ class EventAdsViewController: UIViewController {
             
             if expiryDate.timeIntervalSince(Date()) <= 0 {
                 self.useDealBtn.isEnabled = false
-                self.expiryLabel.text = "The deal has expired."
+                self.expiryLabel.text = "The deal has expired"
                 self.useDealBtn.backgroundColor = UIColor.gray
             }
         }
@@ -103,7 +118,7 @@ class EventAdsViewController: UIViewController {
     }
     
     private func openMessage() {
-        let text = "Hey! Meet me with https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8"
+        let text = "Hey! Meet me with this app https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8"
         
         
         if !MFMessageComposeViewController.canSendText() {
@@ -158,7 +173,7 @@ class EventAdsViewController: UIViewController {
         }).count < minimumFriends {
             var msg = GlobalConstants.Message.friendsNotSufficient
             msg.okAction = {
-                self.invite()
+                self.openMessage()
             }
             self.alert(message: msg)
             return

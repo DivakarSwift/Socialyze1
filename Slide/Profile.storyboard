@@ -1,14 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-BoldItalic</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Profile View Controller-->
         <scene sceneID="Juc-WH-BlO">
@@ -101,10 +107,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-7f-XWW">
-                                <rect key="frame" x="327" y="40" width="67" height="67"/>
+                                <rect key="frame" x="350" y="35" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="3dB-7f-XWW" secondAttribute="height" multiplier="1:1" id="Lzg-cp-KPe"/>
-                                    <constraint firstAttribute="width" constant="67" id="Qh7-Zu-4Bg"/>
+                                    <constraint firstAttribute="width" constant="48" id="Qh7-Zu-4Bg"/>
                                 </constraints>
                                 <state key="normal" image="editbutton.png"/>
                                 <connections>
@@ -123,7 +129,7 @@
                         <constraints>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="bottom" secondItem="kax-Li-6ri" secondAttribute="top" id="0LB-dj-keI"/>
                             <constraint firstItem="goF-SG-JG0" firstAttribute="centerX" secondItem="P2q-w0-1YG" secondAttribute="centerX" id="202-Lz-dvc"/>
-                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="centerY" secondItem="3dB-7f-XWW" secondAttribute="centerY" id="8lh-17-eJ8"/>
+                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="centerY" secondItem="3dB-7f-XWW" secondAttribute="centerY" constant="14.5" id="8lh-17-eJ8"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" id="9iY-IX-Wyj"/>
                             <constraint firstItem="d1w-x1-StJ" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" id="EtQ-uR-b0b"/>
                             <constraint firstItem="BYg-Jd-xdB" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leadingMargin" constant="20" id="FgI-sc-3k5"/>
@@ -131,11 +137,11 @@
                             <constraint firstAttribute="trailing" secondItem="d1w-x1-StJ" secondAttribute="trailing" id="Mf4-WF-431"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="top" secondItem="P2q-w0-1YG" secondAttribute="top" id="Sb5-Mf-NkL"/>
                             <constraint firstItem="goF-SG-JG0" firstAttribute="top" secondItem="d1w-x1-StJ" secondAttribute="bottom" id="Tci-Rm-b4H"/>
-                            <constraint firstItem="3dB-7f-XWW" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="20" id="bYv-3D-CHJ"/>
-                            <constraint firstItem="3dB-7f-XWW" firstAttribute="trailing" secondItem="P2q-w0-1YG" secondAttribute="trailingMargin" id="dyT-tn-v5N"/>
+                            <constraint firstItem="3dB-7f-XWW" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="15" id="bYv-3D-CHJ"/>
+                            <constraint firstItem="3dB-7f-XWW" firstAttribute="trailing" secondItem="P2q-w0-1YG" secondAttribute="trailingMargin" constant="4" id="dyT-tn-v5N"/>
                             <constraint firstAttribute="trailing" secondItem="12q-Lr-3tK" secondAttribute="trailing" id="ejg-ia-5Uz"/>
-                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="height" secondItem="3dB-7f-XWW" secondAttribute="height" id="nbU-lS-Zii"/>
-                            <constraint firstItem="3dB-7f-XWW" firstAttribute="leading" secondItem="BYg-Jd-xdB" secondAttribute="trailing" constant="20" id="xbv-WC-DsY"/>
+                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="height" secondItem="3dB-7f-XWW" secondAttribute="height" constant="19" id="nbU-lS-Zii"/>
+                            <constraint firstItem="3dB-7f-XWW" firstAttribute="leading" secondItem="BYg-Jd-xdB" secondAttribute="trailing" constant="43" id="xbv-WC-DsY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CO1-Ia-K0p"/>
