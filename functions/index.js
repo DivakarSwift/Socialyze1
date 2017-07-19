@@ -28,9 +28,10 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
     const friendsFbId = request.body.friendsFbId;
     const notificationTitle = request.body.notificationTitle;
     const notificationBody = request.body.notificationBody;
+    const eventUid = request.body.eventUid
 
-    const url = "/Places/" + placeId + "/going/" + userId;
-
+    const url = "/Places/" + placeId + "/going/" + eventUid + "/" + userId;
+//.child(event.event?.uid ?? "--1").child(user.id!)
     admin.database().ref(url).set({
         "time": time,
         "fbId": fbId,
@@ -47,25 +48,24 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
             };
 
             friendsFbId.forEach(function (element) {
-                // console.log("here");
-                // console.log(element);
+                
                 admin.database().ref("user").orderByChild("profile/fbId").equalTo(element).once('value')
                     .then(snapshot => {
-                        // console.log("here2");
                         let token;
                         snapshot.forEach(function (data) {
                             token = data.val().fcmToken;
                         });
-                        // console.log(token);
-                        admin.messaging().sendToDevice(token, payload)
+                        if (typeof token === 'string' || token instanceof String) {
+                            console.log(token);
+                            admin.messaging().sendToDevice(token, payload)
                             .then(function (response) {
                                 console.log("push notification message sent");
                             })
                             .catch(function (error) {
                                 console.log("error in sending message");
                             });
+                        }
                     }).catch(function (error) {
-                        // console.log("error MAN");
                         console.log(error);
                     });
             }, this);
