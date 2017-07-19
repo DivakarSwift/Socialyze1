@@ -359,6 +359,7 @@ class EventDetailViewController: UIViewController {
     private func going() {
         
         // let message = "\(authenticator.user?.profile.firstName ?? "") \(authenticator.user?.profile.lastName ?? "") is going @ \(self.place?.nameAddress ?? ""). Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "")"
+        
         self.goingIn {[weak self] in
             
             if let me = self {

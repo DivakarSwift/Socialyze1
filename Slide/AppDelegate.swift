@@ -69,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         
         checkForLogin()
+        
+        UserService().getUserFromFbId(fbId: "101281293814104")
         return true
     }
 

@@ -55,10 +55,10 @@ struct GlobalConstants {
         static let googleServerKey = "AAAA-DdoosY:APA91bHg4l8ikoFFfuK34WSvwGq-8iWb5Hr82jWfw49_NN3mTGU6HqvPWT4u5KvttApsSQ1SBYMqc716cbhJTGA-YKgZes475kWPycyqMFmejBiKvv-rt559Wu981C8sUO-noFciWfP8"
         static let googleLegacyServerKey = "AIzaSyBxoyciPQN6DQroc1zeLFu1dB_0CY3L4kU"
         static let googleSenderId = "1066081493702"
-        
     }
     
     struct urls {
+        static let baseUrl = "https://us-central1-socialyze-72c6a.cloudfunctions.net/"
         static let itunesLink = "https://itunes.apple.com/us/app/socialyze/id1239571430"
     }
     
