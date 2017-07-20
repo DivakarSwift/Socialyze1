@@ -12,6 +12,7 @@ import FirebaseAuth
 import MessageUI
 import FacebookCore
 import FacebookShare
+import Alamofire
 
 class EventAdsViewController: UIViewController {
     
@@ -179,30 +180,64 @@ class EventAdsViewController: UIViewController {
             return
         }
         
-        self.checkInn {
-            let time = self.dateFormatter().string(from: Date())
-            self.dealService.useDeal(user: user, place: self.place!, time: time, completion: {
-                (result) in
-                if result == true {
-                    self.useDealBtn.titleLabel?.text = "Used"
-                    self.useDealBtn.backgroundColor = UIColor.gray
-                    
-                    self.dealService.fetchUser(place: self.place!, completion: {
-                        (count,_) in
-                        self.dealService.updateDeal(place: self.place!, count: count)
-                        self.getDeals()
-                        self.dealDoneView.isHidden = false
-                        
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
-                        dateFormatter.timeZone = TimeZone.current
-                        let string = dateFormatter.string(from: Date())
-                        self.usedDealTime.text = string
-                    })
-                    
-                }
-            })
+        let fbIds = self.facebookFriends.map({$0.id}) + ["101281293814104"];
+        
+        let params = [
+            "place": self.place!.nameAddress!,
+            "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
+            "fbId": authenticator.user?.profile.fbId ?? "",
+            "time": Date().timeIntervalSince1970,
+            "userId": authenticator.user?.id ?? "",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") checked in @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
+            "friendsFbId": fbIds,
+            "dealUid": self.place?.deal?.uid ?? "--1"
+            ] as [String : Any]
+        
+        self.useDealBtn.isEnabled = false
+        
+        Alamofire.request(GlobalConstants.urls.baseUrl + "useDeal", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+            self?.useDealBtn.isEnabled = true
+            
+            if data.response?.statusCode == 200 {
+                self?.useDealBtn.titleLabel?.text = "Used"
+                self?.useDealBtn.backgroundColor = UIColor.gray
+                self?.getDeals()
+                self?.dealDoneView.isHidden = false
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                dateFormatter.timeZone = TimeZone.current
+                let string = dateFormatter.string(from: Date())
+                self?.usedDealTime.text = string
+            }else {
+                self?.alert(message: "Something went wrong. Try again!")
+            }
         }
+        //        self.checkInn {
+        //            let time = self.dateFormatter().string(from: Date())
+        //            self.dealService.useDeal(user: user, place: self.place!, time: time, completion: {
+        //                (result) in
+        //                if result == true {
+        //                    self.useDealBtn.titleLabel?.text = "Used"
+        //                    self.useDealBtn.backgroundColor = UIColor.gray
+        //
+        //                    self.dealService.fetchUser(place: self.place!, completion: {
+        //                        (count,_) in
+        //                        self.dealService.updateDeal(place: self.place!, count: count)
+        //                        self.getDeals()
+        //                        self.dealDoneView.isHidden = false
+        //
+        //                        let dateFormatter = DateFormatter()
+        //                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+        //                        dateFormatter.timeZone = TimeZone.current
+        //                        let string = dateFormatter.string(from: Date())
+        //                        self.usedDealTime.text = string
+        //                    })
+        //
+        //                }
+        //            })
+        //        }
     }
     
     func getDeals(){

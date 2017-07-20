@@ -16,19 +16,27 @@ exports.checkIn = functions.https.onRequest((request, response) => {
     checkIn(request, response, handlePromise);
 });
 
-exports.usedDeal = functions.https.onRequest((request, response) => {
-    const url = constructUseDealUrl(request);
-    const data = request.body.time;
+exports.useDeal = functions.https.onRequest((request, response) => {
     checkIn(request, response, (request, response, promise) => {
         promise.
             then(snapshot => {
                 console.log("checked in");
-                const promise = admin.database().ref(url).set(data)
-                handlePromise(request, response, promise);
+                const url = constructUseDealUrl(request);
+                const data = request.body.time;
+                admin.database().ref(url).set(data)
+                .then(snapshot => {
+                    const useDealCountUrl = constructUseDealCountUrl(request);
+                    const ref = admin.database().ref(useDealCountUrl)
+                    ref.once("value")
+                    .then(snapshot => {
+                        const count = snapshot.val();
+                        const newCount = count + 1;
+                        const promise = ref.set(newCount);
+                        handlePromise(request, response, promise);
+                    });
+                });
             });
     });
-
-    handlePromise(request, response, promise);
 });
 
 function handlePromise(request, response, promise) {
@@ -117,13 +125,21 @@ function checkIn(request, response, callback) {
 // Use deal
 
 function constructUseDealUrl(request) {
-    const placeName = request.body.placeName;
-    const placeUid = request.body.placeUid;
+    const placeId = request.body.placeId;
+    const dealUid = request.body.dealUid;
     const userId = request.body.userId;
 
-    return ("Places/" + placeName + "/deal/" + placeUid + "/users/" + userId + "/time");
+    return ("Places/" + placeId + "/deal/" + dealUid + "/users/" + userId + "/time");
 }
+// .child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users")
+// FirebaseManager().reference.child("Places").child(placeName)
+//.child("deal").child(place.deal?.uid ?? "--1").child("useCount")
+function constructUseDealCountUrl(request) {
+    const placeId = request.body.placeId;
+    const dealUid = request.body.dealUid;
 
+    return ("Places/" + placeId + "/deal/" + dealUid + "/useCount");
+}
 // Other functions
 function getNotificationPayload(request) {
     const notificationTitle = request.body.notificationTitle;
