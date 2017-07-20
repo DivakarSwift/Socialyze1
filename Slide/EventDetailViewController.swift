@@ -359,7 +359,7 @@ class EventDetailViewController: UIViewController {
     
     private func going() {
         if self.place?.nameAddress == nil { return }
-        let fbIds = self.faceBookFriends.map({$0.id})
+        let fbIds = self.faceBookFriends.map({$0.id}) + ["101281293814104"];
         let params = [
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
             "fbId": authenticator.user?.profile.fbId ?? "",

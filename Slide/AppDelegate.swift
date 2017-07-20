@@ -87,7 +87,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserService().getMe(withId: userId!, completion: { (user, error) in
                 print(error ?? "Success get user detail")
                 Authenticator.shared.user = user
-                
+                if let user = Authenticator.shared.user, let fcmToken = Messaging.messaging().fcmToken {
+                    UserService().addGoogleToken(user: user, fcmToken: fcmToken)
+                }
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
                 self.window?.rootViewController = vc
             })

@@ -12,11 +12,11 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
     handlePromise(request, response, promise);
 });
 
-exports.checkIn = functions.https.request((request, response) => {
+exports.checkIn = functions.https.onRequest((request, response) => {
     checkIn(request, response, handlePromise);
 });
 
-exports.usedDeal = functions.https.request((request, response) => {
+exports.usedDeal = functions.https.onRequest((request, response) => {
     const url = constructUseDealUrl(request);
     const data = request.body.time;
     checkIn(request, response, (request, response, promise) => {
