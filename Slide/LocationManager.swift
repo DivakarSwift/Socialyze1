@@ -26,9 +26,9 @@ class SlydeLocationManager: NSObject {
     
     private override init() {
         super.init()
-        self.manager.desiredAccuracy =  kCLLocationAccuracyBest
+        self.manager.desiredAccuracy = kCLLocationAccuracyBest
         self.manager.delegate = self
-        self.manager.requestAlwaysAuthorization()
+        self.manager.requestWhenInUseAuthorization()
     }
     
     func getLocation() ->  CLLocation? {
