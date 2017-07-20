@@ -12,7 +12,6 @@ import FacebookShare
 import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
-import Alamofire
 
 
 enum EventAction {
@@ -61,8 +60,15 @@ class EventDetailViewController: UIViewController {
         }
     }
     
+    internal var obtainedFacebookFriends = false {
+        didSet {
+            checkInn(silence: true)
+        }
+    }
+    
     internal var faceBookFriends = [FacebookFriend]() {
         didSet {
+            self.obtainedFacebookFriends = true
             self.changeGoingStatus()
         }
     }
@@ -71,8 +77,14 @@ class EventDetailViewController: UIViewController {
     internal var goingData = [Checkin]()
     internal var exceptedUsers:[String] = []
     
+    internal var obtainedCheckInWithExpectUser = false{
+        didSet {
+            checkInn(silence: true)
+        }
+    }
     internal var checkinWithExpectUser = [Checkin]() {
         didSet {
+            self.obtainedCheckInWithExpectUser = true
             self.activityIndicator.stopAnimating()
             
             // Removing already swipped user
@@ -357,38 +369,6 @@ class EventDetailViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    private func going() {
-        if self.place?.nameAddress == nil { return }
-        let fbIds = self.faceBookFriends.map({$0.id}) + ["101281293814104"];
-        let params = [
-            "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
-            "fbId": authenticator.user?.profile.fbId ?? "",
-            "time": Date().timeIntervalSince1970,
-            "userId": authenticator.user?.id ?? "",
-            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
-            "friendsFbId": fbIds,
-            "eventUid": self.place?.event?.uid ?? "--1"
-        ] as [String : Any]
-        
-        Alamofire.request(GlobalConstants.urls.baseUrl + "iAmGoing", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
-            if data.response?.statusCode == 200 {
-                if let me = self {
-                    me.isGoing = true
-                    self?.eventAction = .goingSwipe
-                }
-            }
-        }
-        
-//        self.goingIn {[weak self] in
-//            
-//            if let me = self {
-//                me.isGoing = true
-//                self?.eventAction = .goingSwipe
-//            }
-//        }
-    }
-    
     private func fireGoingPushNotificationToFriends(users: [LocalUser], counter: Int, message: String) {
         var parameters:[String:Any] = [:]
         var userInfo:[String:Any] = [:]
@@ -412,8 +392,8 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    private func checkInn() {
-        
+    private func checkInn(silence: Bool = false) {
+        guard self.obtainedFacebookFriends && self.obtainedCheckInWithExpectUser else {return}
         if place?.size == 1 {
             thresholdRadius = smallRadius
         } else if place?.size == 2 {
@@ -427,11 +407,7 @@ class EventDetailViewController: UIViewController {
         }
         
         func check() {
-            self.checkIn {[weak self] in
-                self?.eventAction = .checkInSwipe
-                self?.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
-                self?.placeDistanceLabel.isHidden = true
-            }
+            self.checkIn()
         }
         
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
@@ -453,6 +429,7 @@ class EventDetailViewController: UIViewController {
             check()
             
         } else {
+            if silence {return}
             self.alert(message: GlobalConstants.Message.userNotInPerimeter.message, title: GlobalConstants.Message.userNotInPerimeter.title, okAction: {
                 
             })

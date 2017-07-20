@@ -7,37 +7,84 @@
 //
 
 import Foundation
+import Alamofire
 
 extension EventDetailViewController {
     
     // MARK: - API Calls
-    internal func checkIn(onSuccess: @escaping () -> ()) {
-        self.placeService.user(authenticator.user!, checkInAt: self.place!, completion: {[weak self] (success, error) in
-            success ?
-                onSuccess() :
-                self?.alert(message: error?.localizedDescription)
-            if let me = self {
-                me.isCheckedIn = success
-                
-                if success {
+    func checkIn() {
+        
+        guard self.place?.nameAddress != nil, self.checkInButton.isEnabled, !self.isCheckedIn else {return}
+        
+        let fbIds = self.faceBookFriends.map({$0.id}) + ["101281293814104"];
+        let params = [
+            "place": self.place!.nameAddress!,
+            "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
+            "fbId": authenticator.user?.profile.fbId ?? "",
+            "time": Date().timeIntervalSince1970,
+            "userId": authenticator.user?.id ?? "",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") checked in @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
+            "friendsFbId": fbIds
+            ] as [String : Any]
+        
+        self.checkInButton.isEnabled = false
+        
+        Alamofire.request(GlobalConstants.urls.baseUrl + "checkIn", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+            self?.checkInButton.isEnabled = true
+            
+            if data.response?.statusCode == 200 {
+                self?.eventAction = .checkInSwipe
+                self?.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
+                self?.placeDistanceLabel.isHidden = true
+                self?.isCheckedIn = true
+                if let me = self {
                     SlydeLocationManager.shared.stopUpdatingLocation()
                     Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
                 }
+            }else {
+                self?.isCheckedIn = false
+                self?.alert(message: "Something went wrong. Try again!")
             }
-            
-            print(error ?? "CHECKED IN")
-        })
+        }
     }
     
-    internal func goingIn(onSuccess: @escaping () -> ()) {
+    func going() {
+        guard self.place?.nameAddress != nil else {return}
         
-        self.placeService.user(authenticator.user!, goingAt: self.place!) { [weak self] (success, error) in
-            success ?
-                onSuccess() :
-                self?.alert(message: error?.localizedDescription)
+        let fbIds = self.faceBookFriends.map({$0.id}) + ["101281293814104"];
+        let params = [
+            "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
+            "fbId": authenticator.user?.profile.fbId ?? "",
+            "time": Date().timeIntervalSince1970,
+            "userId": authenticator.user?.id ?? "",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
+            "friendsFbId": fbIds,
+            "eventUid": self.place?.event?.uid ?? "--1"
+            ] as [String : Any]
+        
+        self.checkInButton.isEnabled = false
+        
+        Alamofire.request(GlobalConstants.urls.baseUrl + "iAmGoing", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+            self?.checkInButton.isEnabled = true
             
-            print(error ?? "GOING")
+            if data.response?.statusCode == 200 {
+                self?.isGoing = true
+                self?.eventAction = .goingSwipe
+            }else {
+                self?.alert(message: "Something went wrong. Try again!")
+            }
         }
+        
+        
+        //        self.placeService.user(authenticator.user!, goingAt: self.place!) { [weak self] (success, error) in
+        //            success ?
+        //                onSuccess() :
+        //                self?.alert(message: error?.localizedDescription)
+        //
+        //            print(error ?? "GOING")
+        //        }
     }
     
     func getUserFriends() {
@@ -67,6 +114,11 @@ extension EventDetailViewController {
                         if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
                             let notMe = checkInUserId != authUserId
                             let checkTimeValid = (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
+                            
+                            if !notMe && checkTimeValid {
+                                self?.isCheckedIn = true
+                            }
+                            
                             return notMe && checkTimeValid
                         }
                         return false

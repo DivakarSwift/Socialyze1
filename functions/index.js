@@ -13,7 +13,16 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
 });
 
 exports.checkIn = functions.https.onRequest((request, response) => {
-    checkIn(request, response, handlePromise);
+    const checkInUrl = constructCheckInUrl(request);
+
+    admin.database().ref(checkInUrl).once("value")
+        .then(snapshot => {
+            if (snapshot.exists()) {
+                snapshot.val().
+            } else {
+                checkIn(request, response, handlePromise);
+            }
+        });
 });
 
 exports.usedDeal = functions.https.onRequest((request, response) => {
@@ -103,10 +112,8 @@ function constructUserCheckInData(request) {
 function checkIn(request, response, callback) {
     const url = constructCheckInUrl(request);
     const data = constructCheckInData(request);
-
     admin.database().ref(url).set(data)
         .then(snapshot => {
-
             const userCheckInUrl = constructUserCheckInUrl(request);
             const userCheckInData = constructUserCheckInData(request);
             const promise = admin.database().ref(userCheckInUrl).set(userCheckInData);
@@ -164,6 +171,7 @@ function sendPushNotification(registrationToken, payload) {
             console.log("push notification message sent");
         })
         .catch(function (error) {
+            console.log(error);
             console.log("error in sending message");
         });
 }
