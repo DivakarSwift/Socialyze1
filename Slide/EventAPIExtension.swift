@@ -16,7 +16,7 @@ extension EventDetailViewController {
         
         guard self.place?.nameAddress != nil, self.checkInButton.isEnabled, !self.isCheckedIn else {return}
         
-        let fbIds = self.faceBookFriends.map({$0.id}) + ["101281293814104"];
+        let fbIds = self.faceBookFriends.map({$0.id}) // + ["101281293814104"];
         let params = [
             "place": self.place!.nameAddress!,
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
@@ -52,7 +52,7 @@ extension EventDetailViewController {
     func going() {
         guard self.place?.nameAddress != nil else {return}
         
-        let fbIds = self.faceBookFriends.map({$0.id}) + ["101281293814104"];
+        let fbIds = self.faceBookFriends.map({$0.id}) // + ["101281293814104"];
         let params = [
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
             "fbId": authenticator.user?.profile.fbId ?? "",

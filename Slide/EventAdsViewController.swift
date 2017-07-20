@@ -180,7 +180,7 @@ class EventAdsViewController: UIViewController {
             return
         }
         
-        let fbIds = self.facebookFriends.map({$0.id}) + ["101281293814104"];
+        let fbIds = self.facebookFriends.map({$0.id}) // + ["101281293814104"];
         
         let params = [
             "place": self.place!.nameAddress!,
