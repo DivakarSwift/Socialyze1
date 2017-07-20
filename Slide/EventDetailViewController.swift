@@ -51,6 +51,8 @@ class EventDetailViewController: UIViewController {
     fileprivate var thresholdRadius = 30.48 //100ft
     fileprivate var adsIndex:Int = 0
     
+    fileprivate weak var adDetailVC: EventAdsViewController?
+    
     internal var isCheckedIn = false
     internal var isGoing = false
     
@@ -63,6 +65,7 @@ class EventDetailViewController: UIViewController {
     internal var obtainedFacebookFriends = false {
         didSet {
             checkInn(silence: true)
+            adDetailVC?.facebookFriends = self.faceBookFriends
         }
     }
     
@@ -293,9 +296,11 @@ class EventDetailViewController: UIViewController {
     private func openEventAd() {
         let sb = self.storyboard
         let adDeatilVc = sb?.instantiateViewController(withIdentifier: "EventAdsViewController") as! EventAdsViewController
+        adDeatilVc.facebookFriends = self.faceBookFriends
         adDeatilVc.eventUsers = getCheckedInFbFriends()
         adDeatilVc.place = self.place!
         adDeatilVc.placeService = self.placeService
+        self.adDetailVC = adDeatilVc
         self.present(adDeatilVc, animated: false, completion: nil)
     }
     

@@ -188,8 +188,8 @@ class EventAdsViewController: UIViewController {
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
-            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") checked in @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") to use your deal @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "dealUid": self.place?.deal?.uid ?? "--1"
             ] as [String : Any]
