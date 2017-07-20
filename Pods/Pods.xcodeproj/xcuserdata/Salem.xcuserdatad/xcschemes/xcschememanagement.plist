@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -127,6 +132,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3271EEA3D85C2D210ED8CE3F9492CD3C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3308AB0A735A2746F3E1802D9C3571CD</key>
 		<dict>
 			<key>primary</key>
@@ -192,6 +202,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7875B24CF0E070785375AA0C9507F1D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7D04535608058A2FABC0D16935868FB9</key>
 		<dict>
 			<key>primary</key>
@@ -203,6 +218,11 @@
 			<true/>
 		</dict>
 		<key>8446F74C42467C05144E8F6DA205F75D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -287,7 +307,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E6BDF9B52451737AD3D668AB70303179</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F66C10B78E5E32E4A5B7D50BEA159523</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F797DA04249F4DCE326297977A63B25D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
