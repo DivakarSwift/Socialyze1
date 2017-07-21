@@ -18,13 +18,14 @@ extension EventDetailViewController {
         
         let fbIds = self.faceBookFriends.map({$0.id}) // + ["101281293814104"];
         let params = [
+             "sound": "default",
             "place": self.place!.nameAddress!,
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
-            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and get exclusive deal @ \(self.place?.nameAddress ?? "").",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet your friend and get the exclusive deal shown here @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds
             ] as [String : Any]
         
@@ -54,12 +55,13 @@ extension EventDetailViewController {
         
         let fbIds = self.faceBookFriends.map({$0.id}) // + ["101281293814104"];
         let params = [
+            "sound": "default",
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going to \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and get exclusive deal @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Meet your friend and get the exclusive deal shown here @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "eventUid": self.place?.event?.uid ?? "--1"
             ] as [String : Any]
