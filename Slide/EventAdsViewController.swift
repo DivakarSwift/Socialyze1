@@ -189,7 +189,7 @@ class EventAdsViewController: UIViewController {
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") to use your deal @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") to use your exclusive deal @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "dealUid": self.place?.deal?.uid ?? "--1"
             ] as [String : Any]

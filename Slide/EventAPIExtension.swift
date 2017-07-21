@@ -23,8 +23,8 @@ extension EventDetailViewController {
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
-            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") checked in @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and get exclusive deal @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds
             ] as [String : Any]
         
@@ -58,8 +58,8 @@ extension EventDetailViewController {
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
-            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and save money on drinks @ \(self.place?.nameAddress ?? "").",
+            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going to \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") and get exclusive deal @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "eventUid": self.place?.event?.uid ?? "--1"
             ] as [String : Any]
