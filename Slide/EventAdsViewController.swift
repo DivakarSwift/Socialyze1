@@ -85,7 +85,7 @@ class EventAdsViewController: UIViewController {
             
             if expiryDate.timeIntervalSince(Date()) <= 0 {
                 self.useDealBtn.isEnabled = false
-                self.expiryLabel.text = "The deal has expired"
+                self.expiryLabel.text = "Deal Expired"
                 self.useDealBtn.backgroundColor = UIColor.gray
             }
         }
@@ -183,13 +183,14 @@ class EventAdsViewController: UIViewController {
         let fbIds = self.facebookFriends.map({$0.id}) // + ["101281293814104"];
         
         let params = [
+            "sound": "default",
             "place": self.place!.nameAddress!,
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet \(authenticator.user?.profile.firstName ?? "") to use your deal @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Meet your friend and get the exclusive deal shown here @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "dealUid": self.place?.deal?.uid ?? "--1"
             ] as [String : Any]
