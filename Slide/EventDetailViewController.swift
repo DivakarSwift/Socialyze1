@@ -514,27 +514,26 @@ class EventDetailViewController: UIViewController {
     
     func changeGoingStatus() {
         
-        if let isEvent = self.place?.isEvent, isEvent {
+        if let isEvent = self.place?.isEvent, isEvent, self.goingWithExpectUser.count > 0 {
             var goignText = "\(goingWithExpectUser.count) going"
             
             if isGoing && self.eventAction == .going {
                 self.eventAction = .goingSwipe
             }
+            let fbIds = self.faceBookFriends.map({$0.id})
+            let friendCheckins = goingWithExpectUser.filter({fbIds.contains($0.fbId!)})
             
-            if self.goingWithExpectUser.count > 0 {
-                let fbIds = self.faceBookFriends.map({$0.id})
-                let friendCheckins = goingWithExpectUser.filter({fbIds.contains($0.fbId!)})
-                
-                if friendCheckins.count > 1 {
-                    goignText = goignText + " including \(friendCheckins.count) friends"
-                } else if friendCheckins.count > 0 {
-                    goignText = goignText + " including \(friendCheckins.count) friend"
-                }
-                self.goingStatusLabel.text = goignText
+            if friendCheckins.count > 1 {
+                goignText = goignText + " including \(friendCheckins.count) friends"
+            } else if friendCheckins.count > 0 {
+                goignText = goignText + " including \(friendCheckins.count) friend"
             }
+            self.goingStatusLabel.text = goignText
+            
         } else {
             self.goingView.isHidden = true
         }
+        
         if self.checkinData.count > 0 {
             self.checkInView.isHidden = false
             var checkinText = "\(checkinData.count) checked in"

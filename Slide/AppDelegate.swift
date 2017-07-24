@@ -40,8 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.applicationIconBadgeNumber = 0
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().enableAutoToolbar = false
-//        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
-//        IQKeyboardManager.sharedManager().shouldHidePreviousNext = false
+        //        IQKeyboardManager.sharedManager().shouldShowTextFieldPlaceholder = false
+        //        IQKeyboardManager.sharedManager().shouldHidePreviousNext = false
         
         GMSServices.provideAPIKey(GlobalConstants.APIKeys.googleMap)
         GMSPlacesClient.provideAPIKey(GlobalConstants.APIKeys.googlePlace)
@@ -59,9 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//            UNUserNotificationCenter.current().requestAuthorization(
-//            options: authOptions,
-//            completionHandler: {_, _ in })
+            //            UNUserNotificationCenter.current().requestAuthorization(
+            //            options: authOptions,
+            //            completionHandler: {_, _ in })
         } else {
             let setting = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
             application.registerUserNotificationSettings(setting)
@@ -72,9 +72,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     
     func checkForLogin() {
+        
+        GlobalConstants.UserDefaultKey.loggedInForCurrentSession.set(value: false)
         
         AccessToken.current = FacebookService.shared.getAccessToken()
         let expiryTime = AccessToken.current?.expirationDate.timeIntervalSinceNow
@@ -90,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let user = Authenticator.shared.user, let fcmToken = Messaging.messaging().fcmToken {
                     UserService().addGoogleToken(user: user, fcmToken: fcmToken)
                 }
+                GlobalConstants.UserDefaultKey.loggedInForCurrentSession.set(value: true)
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
                 self.window?.rootViewController = vc
             })
@@ -109,7 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return SDKApplicationDelegate.shared.application(app, open: url, options: options)
     }
     
-
+    
     // MARK: - Core Data stack
     
     @available(iOS 10.0, *)
@@ -160,14 +163,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-
+    
     // [START receive_message]
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // If you are receiving a notification message while your app is in the background,
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-//         Messaging.messaging().appDidReceiveMessage(userInfo)
+        //         Messaging.messaging().appDidReceiveMessage(userInfo)
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
@@ -194,24 +197,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // this callback will not be fired till the user taps on the notification launching the application.
         // TODO: Handle data of notification
         // With swizzling disabled you must let Messaging know about the message, for Analytics
-//         Messaging.messaging().appDidReceiveMessage(userInfo)
+        //         Messaging.messaging().appDidReceiveMessage(userInfo)
+        // Print message ID.
+        guard let isLoggedInSession: Bool = GlobalConstants.UserDefaultKey.loggedInForCurrentSession.value(), isLoggedInSession  else {
+            Utilities.openLogin()
+            return
+        }
+        
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
         
         // Print full message.
-        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
-            let userJson = JSON(userData)
-            print(userJson)
-            let chatJson = JSON(chatData)
-            print(chatJson)
-            
-            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
-                Utilities.openChat(user: user, chatItem: chatItem)
+        // Print full message.
+        if let userData = userInfo["user"] {
+            if let chatData = userInfo["chat"] {
+                let userJson = JSON(userData)
+                print(userJson)
+                let chatJson = JSON(chatData)
+                print(chatJson)
+                
+                if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                    Utilities.openChat(user: user, chatItem: chatItem)
+                }
+            }else {
+                Utilities.openMatch()
             }
         } else {
-            Utilities.openMatch()
+            Utilities.openMain()
         }
         
         completionHandler(UIBackgroundFetchResult.newData)
@@ -229,7 +243,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("APNs token retrieved: \(deviceToken)")
         
         // With swizzling disabled you must set the APNs token here.
-         Messaging.messaging().apnsToken = deviceToken
+        Messaging.messaging().apnsToken = deviceToken
         
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
@@ -249,13 +263,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 @available(iOS 10, *)
 extension AppDelegate : UNUserNotificationCenterDelegate {
     
-   
+    
     // Receive displayed notifications for iOS 10 devices.
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         let userInfo = notification.request.content.userInfo
-         Messaging.messaging().appDidReceiveMessage(userInfo)
+        Messaging.messaging().appDidReceiveMessage(userInfo)
         
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
@@ -263,16 +277,16 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         }
         
         // Print full message.
-//        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
-//            let userJson = JSON(userData)
-//            let chatJson = JSON(chatData)
-//            
-//            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
-//                Utilities.openChat(user: user, chatItem: chatItem)
-//            } else {
-//                Utilities.openMatch()
-//            }
-//        }
+        //        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
+        //            let userJson = JSON(userData)
+        //            let chatJson = JSON(chatData)
+        //
+        //            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+        //                Utilities.openChat(user: user, chatItem: chatItem)
+        //            } else {
+        //                Utilities.openMatch()
+        //            }
+        //        }
         
         // Change this to your preferred presentation option
         completionHandler([.alert,.badge, .sound])
@@ -283,6 +297,11 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         
+        guard let isLoggedInSession: Bool = GlobalConstants.UserDefaultKey.loggedInForCurrentSession.value(), isLoggedInSession  else {
+            Utilities.openLogin()
+            return
+        }
+        
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
@@ -290,17 +309,21 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         
         // Print full message.
         // Print full message.
-        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
-            let userJson = JSON(userData)
-            print(userJson)
-            let chatJson = JSON(chatData)
-            print(chatJson)
-            
-            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
-                Utilities.openChat(user: user, chatItem: chatItem)
+        if let userData = userInfo["user"] {
+            if let chatData = userInfo["chat"] {
+                let userJson = JSON(userData)
+                print(userJson)
+                let chatJson = JSON(chatData)
+                print(chatJson)
+                
+                if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
+                    Utilities.openChat(user: user, chatItem: chatItem)
+                }
+            }else {
+                Utilities.openMatch()
             }
         } else {
-            Utilities.openMatch()
+            Utilities.openMain()
         }
         
         completionHandler()

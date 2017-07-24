@@ -223,7 +223,7 @@ class Authenticator {
                     LoginManager().logOut() //facebook logout
                     GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
                     ChatService.shared.logout()
-                    
+                    GlobalConstants.UserDefaultKey.loggedInForCurrentSession.set(value: false)
                     do {
                         try Auth.auth().signOut()
                         self.delegate?.didLogoutUser()

@@ -15,7 +15,7 @@ import SwiftyJSON
 
 
 class Utilities: NSObject {
-
+    
     class func returnAge(ofValue date: String, format :String) -> Int? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
@@ -104,32 +104,32 @@ class Utilities: NSObject {
     
     class func openChat(user: LocalUser, chatItem :ChatItem) {
         let accesstoken = AccessToken.current
-//        if let _ = accesstoken?.authenticationToken {
-            print("Facebook Access-token available")
-            // redirect to required location
-            
-            let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
-            
-            vc.fromMatch = true
-            vc.chatItem = chatItem
-            vc.chatUser = user
-            vc.chatUserName = user.profile.firstName ?? ""
-            vc.chatOppentId = user.id
-            
-            let nav = UINavigationController(rootViewController: vc)
-            appDelegate.window?.rootViewController = nav
-//            if let nav =  self.navigationController {
-//                nav.pushViewController(vc, animated: true)
-//            } else {
-//                self.present(vc, animated: true, completion: {
-//                    
-//                })
-//            }
-            
-//        } else {
-//            print("Facebook Access-token not found")
-//            appDelegate.checkForLogin()
-//        }
+        //        if let _ = accesstoken?.authenticationToken {
+        print("Facebook Access-token available")
+        // redirect to required location
+        
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        
+        vc.fromMatch = true
+        vc.chatItem = chatItem
+        vc.chatUser = user
+        vc.chatUserName = user.profile.firstName ?? ""
+        vc.chatOppentId = user.id
+        
+        let nav = UINavigationController(rootViewController: vc)
+        appDelegate.window?.rootViewController = nav
+        //            if let nav =  self.navigationController {
+        //                nav.pushViewController(vc, animated: true)
+        //            } else {
+        //                self.present(vc, animated: true, completion: {
+        //
+        //                })
+        //            }
+        
+        //        } else {
+        //            print("Facebook Access-token not found")
+        //            appDelegate.checkForLogin()
+        //        }
     }
     
     class func openMatch() {
@@ -137,9 +137,19 @@ class Utilities: NSObject {
         let nav = UINavigationController(rootViewController: vc)
         
         appDelegate.window?.rootViewController = nav
-//        self.present(nav, animated: true, completion: nil)
+        //        self.present(nav, animated: true, completion: nil)
     }
-
+    
+    class func openMain() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
+        appDelegate.window?.rootViewController = vc
+    }
+    
+    class func openLogin() {
+        let identifier = "LoginViewController"
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        appDelegate.window?.rootViewController = vc
+    }
     
     class func localNotif(withTitle title: String, body:String, userInfo: [String:Any]? = nil, viewController: UIViewController) {
         if #available(iOS 10.0, *) {

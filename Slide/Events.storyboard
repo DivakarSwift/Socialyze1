@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -96,7 +96,7 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="mjo-oI-aeU" secondAttribute="trailing" constant="120" id="yKJ-Xf-e0Y"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-QN-fdH">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="obU-QN-fdH">
                                 <rect key="frame" x="26" y="97" width="268" height="137"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuX-2a-VRh">
@@ -143,7 +143,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygZ-LF-bw0" userLabel="Detail Stack View">
+                            <stackView opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ygZ-LF-bw0" userLabel="Detail Stack View">
                                 <rect key="frame" x="0.0" y="243" width="320" height="116"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XbH-xu-H3I">
@@ -294,6 +294,10 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="txZ-Xq-bJn">
                                 <rect key="frame" x="26" y="510" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="C5o-Sq-HW1"/>
+                                    <constraint firstAttribute="height" constant="32" id="LQH-qL-aMy"/>
+                                </constraints>
                                 <state key="normal" image="invitefriendssolidicon"/>
                                 <connections>
                                     <action selector="invite:" destination="Lf4-0l-NNR" eventType="touchUpInside" id="aMj-bP-PYl"/>
