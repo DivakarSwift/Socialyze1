@@ -514,8 +514,11 @@ class EventDetailViewController: UIViewController {
     
     func changeGoingStatus() {
         
-        if let isEvent = self.place?.isEvent, isEvent, self.goingWithExpectUser.count > 0 {
+        if let isEvent = self.place?.isEvent, isEvent,
+            self.goingWithExpectUser.count > 0 {
+            self.goingView.isHidden = false
             var goignText = "\(goingWithExpectUser.count) going"
+            self.goingStatusLabel.text = goignText
             
             if isGoing && self.eventAction == .going {
                 self.eventAction = .goingSwipe
