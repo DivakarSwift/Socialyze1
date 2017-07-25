@@ -84,7 +84,7 @@ class ViewController: UIViewController {
         )
         
         //create a new button
-        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
         
         leftButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
         leftButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButton
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: #imageLiteral(resourceName: "chaticon"),
+            image: #imageLiteral(resourceName: "friendsicon"),
             style: UIBarButtonItemStyle.plain,
             target: self,
             action: #selector(chatBtn)
@@ -234,11 +234,11 @@ extension ViewController: UICollectionViewDataSource {
         let cellType = indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
         switch cellType {
         case .big:
-            cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 24)
-            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 23)
+            cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 24)
+            cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
         default:
             cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 18)
-            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 17)
+            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 16)
         }
         
         cell.starLabel.font = UIFont.systemFont(ofSize: 11)

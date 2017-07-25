@@ -55,9 +55,9 @@ class EventAdsViewController: UIViewController {
         self.setupCollectionView()
         //checkedInLabel.text = "\(self.eventUsers.count) friend checked in"
         if eventUsers.count > 1 {
-            checkedInLabel.text = "\(self.eventUsers.count) friends checked in"
+            checkedInLabel.text = "\(self.eventUsers.count) of 2 required friends checked in"
         } else if eventUsers.count > 0 {
-            checkedInLabel.text = "\(self.eventUsers.count) friend checked in"
+            checkedInLabel.text = "\(self.eventUsers.count) of 2 required friends checked in"
         }
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
@@ -190,7 +190,7 @@ class EventAdsViewController: UIViewController {
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet your friend and get the exclusive deal shown here @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "dealUid": self.place?.deal?.uid ?? "--1"
             ] as [String : Any]
