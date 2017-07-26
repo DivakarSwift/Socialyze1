@@ -45,7 +45,7 @@ class CategoriesViewController: UIViewController {
     }
     var place:Place?
     var currentImageIndex = 0
-
+    
     var checkinUserIds = Set<String>()
     
     let categoryDefaults = UserDefaults.standard
@@ -100,6 +100,7 @@ class CategoriesViewController: UIViewController {
         } else {
             self.getAllCheckedInUsers()
             self.addPanGesture(toView: self.imageView)
+            self.addSwipeGesture(toView: self.imageView)
         }
     }
     
@@ -110,7 +111,7 @@ class CategoriesViewController: UIViewController {
         }
         
         //if let val = isGoing, val {
-            //self.goingImageView.isHidden = false
+        //self.goingImageView.isHidden = false
         //}
         if let val = isCheckedIn, val {
             self.checkInButton.isHidden = false
@@ -133,9 +134,10 @@ class CategoriesViewController: UIViewController {
     func addPanGesture(toView view: UIView) {
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged))
         view.addGestureRecognizer(gesture)
+        gesture.delegate = self
     }
     
-
+    
     
     func addTapGesture(toView view: UIView) {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
@@ -184,7 +186,7 @@ class CategoriesViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let block = UIAlertAction(title: "Block", style: .default) { (_) in
             if let user = self.users.first {
-               self.block(forUser: user)
+                self.block(forUser: user)
             }
         }
         alert.addAction(block)
@@ -253,7 +255,7 @@ class CategoriesViewController: UIViewController {
         })
     }
     
-
+    
     
     func wasDragged(_ gestureRecognizer: UIPanGestureRecognizer) {
         
@@ -365,7 +367,7 @@ class CategoriesViewController: UIViewController {
             userService.getUser(withId: userId, completion: { [weak self] (user, error) in
                 
                 if let _ = error {
-//                    self?.alert(message: error.localizedDescription)
+                    //                    self?.alert(message: error.localizedDescription)
                     return
                 }
                 
@@ -397,15 +399,15 @@ class CategoriesViewController: UIViewController {
             }
             self.bioLabel.text = user.profile.bio
         } else {
-//            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
-                self.alert(message: "No new users at this time. Check back later", okAction: {
-                    self.dismiss(animated: false, completion: {
-                        self.noUsers?()
-                    })
-                })     
-//            } else if let nav = self.navigationController {
-//                    nav.popToRootViewController(animated: true)
-//            }
+            //            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
+            self.alert(message: "No new users at this time. Check back later", okAction: {
+                self.dismiss(animated: false, completion: {
+                    self.noUsers?()
+                })
+            })
+            //            } else if let nav = self.navigationController {
+            //                    nav.popToRootViewController(animated: true)
+            //            }
         }
     }
     
@@ -468,6 +470,7 @@ extension CategoriesViewController {
         let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
         gesture.direction = .down
         view.addGestureRecognizer(gesture)
+        gesture.delegate = self
     }
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
         dismiss(animated: true, completion: nil)
@@ -483,6 +486,16 @@ extension CategoriesViewController: UIPopoverControllerDelegate, UIPopoverPresen
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         self.view.alpha = 1.0
+    }
+}
+
+extension CategoriesViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let pangesture: UIPanGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+            let translation = pangesture.translation(in: self.imageView)
+            return(translation.x * translation.x > translation.y * translation.y)
+        }
+        return true
     }
 }
 
