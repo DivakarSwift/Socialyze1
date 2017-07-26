@@ -58,109 +58,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventAdsViewController.swift"
-            timestampString = "522243663.171734"
+            timestampString = "522724043.298545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "useDeal()"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
+            landmarkName = "getDeals()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/EventAdsViewController.swift"
-            timestampString = "522244221.206449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "useDeal()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.EventAdsViewController.useDeal () -&gt; ()"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "522633315.77117"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "3445">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.EventAdsViewController.(useDeal () -&gt; ()).(implicit closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "522633315.774384"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "170"
-                  endingLineNumber = "170"
-                  offsetFromSymbolStart = "10">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Slide/EventAdsViewController.swift"
-            timestampString = "522244241.255028"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "useDeal()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.EventAdsViewController.useDeal () -&gt; ()"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "522633315.779861"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "172"
-                  endingLineNumber = "172"
-                  offsetFromSymbolStart = "8344">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.EventAdsViewController.(useDeal () -&gt; ()).(closure #1)"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Projects/Slyde/Slide/EventAdsViewController.swift"
-                  timestampString = "522633315.782261"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "173"
-                  endingLineNumber = "173"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

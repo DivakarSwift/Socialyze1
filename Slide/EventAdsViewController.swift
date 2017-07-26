@@ -62,6 +62,7 @@ class EventAdsViewController: UIViewController {
         getDeals()
         useDealBtn.addTarget(self, action: #selector(useDeal), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(invite), for: .touchUpInside)
+        useDealBtn.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -215,30 +216,6 @@ class EventAdsViewController: UIViewController {
                 self?.alert(message: "Something went wrong. Try again!")
             }
         }
-        //        self.checkInn {
-        //            let time = self.dateFormatter().string(from: Date())
-        //            self.dealService.useDeal(user: user, place: self.place!, time: time, completion: {
-        //                (result) in
-        //                if result == true {
-        //                    self.useDealBtn.titleLabel?.text = "Used"
-        //                    self.useDealBtn.backgroundColor = UIColor.gray
-        //
-        //                    self.dealService.fetchUser(place: self.place!, completion: {
-        //                        (count,_) in
-        //                        self.dealService.updateDeal(place: self.place!, count: count)
-        //                        self.getDeals()
-        //                        self.dealDoneView.isHidden = false
-        //
-        //                        let dateFormatter = DateFormatter()
-        //                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
-        //                        dateFormatter.timeZone = TimeZone.current
-        //                        let string = dateFormatter.string(from: Date())
-        //                        self.usedDealTime.text = string
-        //                    })
-        //
-        //                }
-        //            })
-        //        }
     }
     
     func getDeals(){
@@ -246,18 +223,37 @@ class EventAdsViewController: UIViewController {
             (placeDeal) in
             guard let _ = self else {return}
             self!.countLabel.text = "\(placeDeal.count ?? 0) Used"
+            var iUsedTheDeal = false
             for (key, value) in placeDeal.users ?? [:] {
                 let userId = Auth.auth().currentUser!.uid
-                if key == userId {
-                    self?.useDealBtn.setTitle("Used", for: .normal)
-                    self?.useDealBtn.isEnabled = false
-                    self?.useDealBtn.backgroundColor = UIColor.gray
+                if key == userId, let value = value as? [String: Double] {
+                    iUsedTheDeal = true
+                    self?.dealDoneView.isHidden = false
                     
-                    if let value = value as? [String: String], let time = value["time"], let date = self?.dateFormatter().date(from: time) {
-                        // show time if needed
-                    }
+                    let dateInterval = value["time"]
+                    let date = Date.init(timeIntervalSince1970: dateInterval ?? 0)
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.locale = Locale(identifier: "en_US")
+                    dateFormatter.timeZone = TimeZone.current
+                    dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                    let string = dateFormatter.string(from: date)
+                    self?.usedDealTime.text = string
+                    
+                    self?.useDealBtn.isHidden = true
+                    
+//                    self?.useDealBtn.setTitle("Used", for: .normal)
+                    self?.useDealBtn.isEnabled = false
+//                    self?.useDealBtn.backgroundColor = UIColor.gray
+                    
+//                    if let value = value as? [String: String], let time = value["time"], let date = self?.dateFormatter().date(from: time) {
+//                        // show time if needed
+//                        
+//                    }
                 }
             }
+            
+            self?.useDealBtn.isEnabled = !iUsedTheDeal
         })
     }
     
