@@ -64,6 +64,7 @@ class EventDetailViewController: UIViewController {
     
     internal var obtainedFacebookFriends = false {
         didSet {
+            self.friendsCollectionView.reloadData()
             checkInn(silence: true)
             adDetailVC?.facebookFriends = self.faceBookFriends
         }
@@ -324,6 +325,17 @@ class EventDetailViewController: UIViewController {
                 return false
             }
             return isCheckedIn() && isFbFriend()
+        })
+    }
+    
+    fileprivate func getFacebookFriendEventUsers() -> [LocalUser] {
+        return self.eventUsers.filter({(user) -> Bool in
+            for faceBookFriend in self.faceBookFriends {
+                if user.profile.fbId == faceBookFriend.id {
+                    return true
+                }
+            }
+            return false
         })
     }
     
@@ -707,17 +719,17 @@ extension EventDetailViewController: AuthenticatorDelegate {
 extension EventDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.eventUsers.count
+        return  self.getFacebookFriendEventUsers().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let user = self.eventUsers[indexPath.row]
+        let user = self.getFacebookFriendEventUsers().elementAt(index: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
         
         let label = cell.viewWithTag(2) as! UILabel
         //        label.text = "Dari"
-        label.text = user.profile.firstName
+        label.text = user?.profile.firstName
         label.layer.shadowOpacity = 1
         label.layer.shadowRadius = 3
         label.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
@@ -725,10 +737,14 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
         let imageView = cell.viewWithTag(1) as! UIImageView
         //imageView.rounded()
         //        imageView.image = UIImage(named: "profile.png")
-        imageView.kf.setImage(with: user.profile.images.first)
+        if let user = user {
+            imageView.kf.setImage(with: user.profile.images.first)
+        }else {
+            imageView.image = nil
+        }
         
         let checkButton = cell.viewWithTag(3) as! UIButton
-        checkButton.isHidden = !user.isCheckedIn
+        checkButton.isHidden = !(user?.isCheckedIn ?? true)
         
         
         return cell

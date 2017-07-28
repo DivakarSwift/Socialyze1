@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "522244108.963417"
+            timestampString = "522924813.523367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
             landmarkName = "locationUpdated()"
             landmarkType = "7">
          </BreakpointContent>

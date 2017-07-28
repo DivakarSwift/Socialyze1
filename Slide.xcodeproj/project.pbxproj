@@ -18,6 +18,7 @@
 		1F1E553C1EA8A6FB00748894 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E553B1EA8A6FB00748894 /* ChatViewController.swift */; };
 		1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E553D1EA8A77E00748894 /* AutoTextField.swift */; };
 		1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */; };
+		1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */; };
 		1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546511EA1C15A00D726E8 /* UserService.swift */; };
 		1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546571EA1C22200D726E8 /* PlaceService.swift */; };
 		1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546591EA1C2E300D726E8 /* FacebookService.swift */; };
@@ -87,6 +88,7 @@
 		1F1E553B1EA8A6FB00748894 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1F1E553D1EA8A77E00748894 /* AutoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextField.swift; sourceTree = "<group>"; };
 		1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		1F6546511EA1C15A00D726E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		1F6546571EA1C22200D726E8 /* PlaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
 		1F6546591EA1C2E300D726E8 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				1FE787641E87F0B2006B2445 /* JSONExtension.swift */,
 				1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */,
 				F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */,
+				1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,
 				1FE787631E877DAD006B2445 /* User.swift in Sources */,
+				1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */,
 				F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */,
 				FC7A241B1E695F56004C9E44 /* AppDelegate.swift in Sources */,
 				7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */,
