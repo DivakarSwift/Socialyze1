@@ -89,6 +89,9 @@ class EventAdsViewController: UIViewController {
                 self.useDealBtn.isEnabled = false
                 self.expiryLabel.text = "Deal Expired"
                 self.useDealBtn.backgroundColor = UIColor.gray
+            }else {
+                self.useDealBtn.isEnabled = true
+                self.useDealBtn.backgroundColor = UIColor.init(red: 74/255, green: 176/255, blue: 80/255, alpha: 1)
             }
         }
     }
@@ -222,6 +225,7 @@ class EventAdsViewController: UIViewController {
     func getDeals(){
         self.dealService.getPlaceDeal(place: self.place!) { (place) in
             self.place = place
+            self.setup()
             self.dealService.getPlaceDealInPlace(place: self.place!, completion: {[weak self]
                 (placeDeal) in
                 guard let _ = self else {return}
