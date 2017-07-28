@@ -185,40 +185,46 @@ class EventAdsViewController: UIViewController {
             return
         }
         
-        let fbIds = self.facebookFriends.map({$0.id}) // + ["101281293814104"];
-        
-        let params = [
-            "sound": "default",
-            "place": self.place!.nameAddress!,
-            "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
-            "fbId": authenticator.user?.profile.fbId ?? "",
-            "time": Date().timeIntervalSince1970,
-            "userId": authenticator.user?.id ?? "",
-            "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
-            "friendsFbId": fbIds,
-            "dealUid": self.place?.deal?.uid ?? "--1"
-            ] as [String : Any]
-        
-        self.useDealBtn.isEnabled = false
-        
-        Alamofire.request(GlobalConstants.urls.baseUrl + "useDeal", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
-            self?.useDealBtn.isEnabled = true
+        func callNetwork() {
+            let fbIds = self.facebookFriends.map({$0.id}) // + ["101281293814104"];
             
-            if data.response?.statusCode == 200 {
-                self?.useDealBtn.titleLabel?.text = "Used"
-                self?.useDealBtn.backgroundColor = UIColor.gray
-                self?.getDeals()
-                self?.dealDoneView.isHidden = false
+            let params = [
+                "sound": "default",
+                "place": self.place!.nameAddress!,
+                "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
+                "fbId": authenticator.user?.profile.fbId ?? "",
+                "time": Date().timeIntervalSince1970,
+                "userId": authenticator.user?.id ?? "",
+                "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
+                "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
+                "friendsFbId": fbIds,
+                "dealUid": self.place?.deal?.uid ?? "--1"
+                ] as [String : Any]
+            
+            self.useDealBtn.isEnabled = false
+            
+            Alamofire.request(GlobalConstants.urls.baseUrl + "useDeal", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+                self?.useDealBtn.isEnabled = true
                 
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
-                dateFormatter.timeZone = TimeZone.current
-                let string = dateFormatter.string(from: Date())
-                self?.usedDealTime.text = string
-            }else {
-                self?.alert(message: "Something went wrong. Try again!")
+                if data.response?.statusCode == 200 {
+                    self?.useDealBtn.titleLabel?.text = "Used"
+                    self?.useDealBtn.backgroundColor = UIColor.gray
+                    self?.getDeals()
+                    self?.dealDoneView.isHidden = false
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                    dateFormatter.timeZone = TimeZone.current
+                    let string = dateFormatter.string(from: Date())
+                    self?.usedDealTime.text = string
+                }else {
+                    self?.alert(message: "Something went wrong. Try again!")
+                }
             }
+        }
+        
+        self.checkInn {
+            callNetwork()
         }
     }
     
@@ -278,40 +284,20 @@ class EventAdsViewController: UIViewController {
             thresholdRadius = 0
         }
         
-        func check() {
-            self.placeService.user(authenticator.user!, checkInAt: self.place!, completion: {[weak self] (success, error) in
-                if !success {
-                    self?.alert(message: error?.localizedDescription)
-                }else {
-                    action()
-                    // do on success
-                }
-                if let me = self {
-                    me.isCheckedIn = success
-                    
-                    if success {
-                        SlydeLocationManager.shared.stopUpdatingLocation()
-                    }
-                }
-                
-                print(error ?? "CHECKED IN")
-            })
-        }
-        
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
-            check()
+            action()
             
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
-            check()
+            action()
             
         } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
-            check()
+            action()
             
         } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
-            check()
+            action()
             
         } else if (place?.nameAddress)! == "Pride Festival & Parade" && (SlydeLocationManager.shared.distanceFromUser(lat: PFPlat1, long: PFPlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat2, long: PFPlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat3, long: PFPlong3)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat4, long: PFPlong4)! < hugeRadius) {
-            check()
+            action()
             
         }
         else {
