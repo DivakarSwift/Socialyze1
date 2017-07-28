@@ -33,6 +33,8 @@ struct Place:Mappable {
     
     var deal: Deal?
     
+    var id: Int?
+    
     init?(map: Map) {
         self.mapping(map: map)
     }

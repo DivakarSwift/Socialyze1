@@ -9,12 +9,25 @@
 import Foundation
 import Firebase
 import ObjectMapper
+import SwiftyJSON
 
-class DealService{
+class DealService: FirebaseManager {
+    
+    func getPlaceDeal(place: Place, completion: @escaping (Place) -> ()) {
+        let placeName = place.nameAddress ?? ""
+        self.reference.child(Node.PlacesList.rawValue).queryOrdered(byChild: "nameAddress").queryEqual(toValue: placeName).observeSingleEvent(of: .value, with: {snapShot in
+            
+            if let snapshotValue = ((snapShot.value) as? [String: Any])?.first?.value, let place: Place = JSON(snapshotValue).map() {
+                completion(place)
+            } else {
+               // failure(FirebaseManagerError.noDataFound)
+            }
+        })
+    }
     
     func getPlaceDealInPlace(place:Place, completion: @escaping (PlaceDeal) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1")
+        let dataRef = self.reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1")
         dataRef.observeSingleEvent(of: .value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
@@ -31,7 +44,7 @@ class DealService{
     
     func useDeal(user: LocalUser, place:Place,time: String, completion: @escaping (Bool) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users").child(user.id!).child("time")
+        let dataRef = self.reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users").child(user.id!).child("time")
         dataRef.setValue(time, withCompletionBlock: {
             (error,_) in
             if error != nil{
@@ -45,7 +58,7 @@ class DealService{
     
     func fetchUser(place:Place, completion: @escaping (Int,[String:Any]) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users")
+        let dataRef = self.reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users")
         dataRef.observe(.value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
@@ -60,7 +73,7 @@ class DealService{
     
     func updateDeal(place:Place, count:Int){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = FirebaseManager().reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("useCount")
+        let dataRef = self.reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("useCount")
         dataRef.setValue(count)
     }
 }

@@ -50,6 +50,7 @@ class EventAdsViewController: UIViewController {
         self.expiryLabel.layer.shadowOpacity = 1.0
         self.expiryLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         self.expiryLabel.layer.shadowRadius = 3.0
+        
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
         self.setupCollectionView()
@@ -219,42 +220,37 @@ class EventAdsViewController: UIViewController {
     }
     
     func getDeals(){
-        self.dealService.getPlaceDealInPlace(place: self.place!, completion: {[weak self]
-            (placeDeal) in
-            guard let _ = self else {return}
-            self!.countLabel.text = "\(placeDeal.count ?? 0) Used"
-            var iUsedTheDeal = false
-            for (key, value) in placeDeal.users ?? [:] {
-                let userId = Auth.auth().currentUser!.uid
-                if key == userId, let value = value as? [String: Double] {
-                    iUsedTheDeal = true
-                    self?.dealDoneView.isHidden = false
-                    
-                    let dateInterval = value["time"]
-                    let date = Date.init(timeIntervalSince1970: dateInterval ?? 0)
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.locale = Locale(identifier: "en_US")
-                    dateFormatter.timeZone = TimeZone.current
-                    dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
-                    let string = dateFormatter.string(from: date)
-                    self?.usedDealTime.text = string
-                    
-                    self?.useDealBtn.isHidden = true
-                    
-//                    self?.useDealBtn.setTitle("Used", for: .normal)
-                    self?.useDealBtn.isEnabled = false
-//                    self?.useDealBtn.backgroundColor = UIColor.gray
-                    
-//                    if let value = value as? [String: String], let time = value["time"], let date = self?.dateFormatter().date(from: time) {
-//                        // show time if needed
-//                        
-//                    }
+        self.dealService.getPlaceDeal(place: self.place!) { (place) in
+            self.place = place
+            self.dealService.getPlaceDealInPlace(place: self.place!, completion: {[weak self]
+                (placeDeal) in
+                guard let _ = self else {return}
+                self!.countLabel.text = "\(placeDeal.count ?? 0) Used"
+                var iUsedTheDeal = false
+                for (key, value) in placeDeal.users ?? [:] {
+                    let userId = Auth.auth().currentUser!.uid
+                    if key == userId, let value = value as? [String: Double] {
+                        iUsedTheDeal = true
+                        self?.dealDoneView.isHidden = false
+                        
+                        let dateInterval = value["time"]
+                        let date = Date.init(timeIntervalSince1970: dateInterval ?? 0)
+                        
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.locale = Locale(identifier: "en_US")
+                        dateFormatter.timeZone = TimeZone.current
+                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                        let string = dateFormatter.string(from: date)
+                        self?.usedDealTime.text = string
+                        
+                        self?.useDealBtn.isHidden = true
+                        self?.useDealBtn.isEnabled = false
+                    }
                 }
-            }
-            
-            self?.useDealBtn.isEnabled = !iUsedTheDeal
-        })
+                
+                self?.useDealBtn.isEnabled = !iUsedTheDeal
+            })
+        }
     }
     
     func getDistanceToUser() -> Double? {

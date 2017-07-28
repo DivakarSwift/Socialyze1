@@ -16,25 +16,25 @@ class PlaceService: FirebaseManager {
         self.reference.child(Node.PlacesList.rawValue).observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
             if let snapshotValue = snapshot.value, let places:[Place] = JSON(snapshotValue).map() {
                 completion(places)
-        } else {
-            failure(FirebaseManagerError.noDataFound)
-        }
+            } else {
+                failure(FirebaseManagerError.noDataFound)
+            }
         })
     }
     
-
+    
     
     func user(_ user: LocalUser, checkInAt place: Place, completion: @escaping CallBackWithSuccessError) {
         
         let ref1 = self.reference.child(Node.Places.rawValue).child((place.nameAddress?.replacingOccurrences(of: " ", with: ""))!).child(Node.checkIn.rawValue).child(user.id!)
         
         let ref2 = self.reference.child(Node.user.rawValue).child(user.id!).child(Node.checkIn.rawValue)
-       
+        
         var values:[String : Any] = [
             "userId": user.id!,
             "time": Date().timeIntervalSince1970,
             "fbId": user.profile.fbId!
-            ]
+        ]
         
         ref1.updateChildValues(values, withCompletionBlock: {(error: Error?, ref: DatabaseReference) -> Void in
             
