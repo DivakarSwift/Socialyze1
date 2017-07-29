@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             switch status {
             case .authorized: break
             case .denied:
-                self.alertWithOkCancel(message: "You might love to be notified on where your friends are going, has checked in and used the deal. Change it from settings anytime.", title: "Allow push notification alert", okTitle: "Settings", cancelTitle: "Cancel", okAction: {
+                self.alertWithOkCancel(message: "Would you like to be notified on where your friends are going/ checked in?", title: "Friends notification", okTitle: "Settings", cancelTitle: "Cancel", okAction: {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
                     } else {
@@ -56,8 +56,8 @@ class ViewController: UIViewController {
                     }
                 }, cancelAction: nil)
             case .notDetermined:
-                self.alertWithOkCancel(message: "You might love to be notified on where your friends are going, has checked in and used the deal. You can change it later from phone settings anytime.", title: "Allow push notification alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
-                    appDelegate.registerForNotification()
+                self.alertWithOkCancel(message: "Would you like to be notified on where your friends are going/ checked in?", title: "Friends notification", okTitle: "Yes", cancelTitle: "No thanks",   okAction: { appDelegate.registerForNotification()
+                    
                 }, cancelAction: nil)
             }
         }

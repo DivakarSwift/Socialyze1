@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="saJ-jV-PM0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="saJ-jV-PM0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Matches View Controller-->
         <scene sceneID="dQF-MS-w1V">
@@ -120,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="-673" y="89"/>
         </scene>
-        <!--Matches-->
+        <!--Connections-->
         <scene sceneID="Qxt-or-VjD">
             <objects>
                 <viewController storyboardIdentifier="MatchesViewController" automaticallyAdjustsScrollViewInsets="NO" id="saJ-jV-PM0" customClass="MatchesViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
@@ -205,10 +211,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no matches yet! " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGx-h2-XPY" userLabel="no matches yet!">
-                                                    <rect key="frame" x="20" y="16" width="126" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No connections" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGx-h2-XPY" userLabel="no matches yet!">
+                                                    <rect key="frame" x="20" y="16" width="119.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Italic" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" red="0.6368377221" green="0.048687425069999998" blue="0.13850137730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -576,7 +582,7 @@
                             <outletCollection property="gestureRecognizers" destination="umL-mT-OcU" appends="YES" id="n2R-BP-0rP"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Matches" id="Nwy-Ui-Hwd"/>
+                    <navigationItem key="navigationItem" title="Connections" id="Nwy-Ui-Hwd"/>
                     <connections>
                         <outlet property="tableView" destination="7Rf-dx-KeF" id="vxa-Jx-bv4"/>
                         <segue destination="U8d-dE-tri" kind="unwind" identifier="unwindFromMatch" customClass="CustomSwipeLeftUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="Bxn-ex-HMa"/>
@@ -597,7 +603,7 @@
             <objects>
                 <navigationController storyboardIdentifier="matchNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="v4M-Sy-fOj" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ncZ-aW-hr7">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ncZ-aW-hr7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

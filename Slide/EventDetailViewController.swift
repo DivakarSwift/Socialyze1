@@ -277,7 +277,7 @@ class EventDetailViewController: UIViewController {
             self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
             self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
-            self.checkInButton.setTitle("Swipe", for: .normal)
+            self.checkInButton.setTitle("Connect", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.white, for: .normal)
             self.checkInButton.backgroundColor = UIColor.appPurple
