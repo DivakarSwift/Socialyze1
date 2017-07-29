@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 import GooglePlaces
 import FloatRatingView
 import FacebookCore
@@ -44,6 +43,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        appDelegate.isNotificationPermissionGranted { (status) in
+            switch status {
+            case .authorized: break
+            case .denied:
+                self.alertWithOkCancel(message: "You might love to be notified on where your friends are going, has checked in and used the deal. Change it from settings anytime.", title: "Allow push notification alert", okTitle: "Settings", cancelTitle: "Cancel", okAction: {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                    } else {
+                        // Fallback on earlier versions
+                        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                    }
+                }, cancelAction: nil)
+            case .notDetermined:
+                self.alertWithOkCancel(message: "You might love to be notified on where your friends are going, has checked in and used the deal. You can change it later from phone settings anytime.", title: "Allow push notification alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+                    appDelegate.registerForNotification()
+                }, cancelAction: nil)
+            }
+        }
         
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = self.view.center
@@ -52,21 +69,6 @@ class ViewController: UIViewController {
         
         SlydeLocationManager.shared.requestLocation()
         SlydeLocationManager.shared.delegate = self
-        if SlydeLocationManager.shared.isAuthorized {
-            if #available(iOS 10.0, *) {
-                let center = UNUserNotificationCenter.current()
-                center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                    // Enable or disable features based on authorization.
-                    if !granted {
-                        DispatchQueue.main.async {
-                            self.alertWithOkCancel(message: "Notification not Allowed. Would you like to open Setting?", title: "Alert", okTitle: "Open Setting", cancelTitle: "Dismiss", okAction: {
-                                UIApplication.openAppSettings()
-                            }, cancelAction: nil)
-                        }
-                    }
-                }
-            }
-        }
         
         let mosaicLayout = TRMosaicLayout()
         self.collectionView?.collectionViewLayout = mosaicLayout
@@ -303,20 +305,6 @@ extension ViewController: SlydeLocationManagerDelegate {
     }
     
     func locationPermissionChanged() {
-        
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-                // Enable or disable features based on authorization.
-                if !granted {
-                    DispatchQueue.main.async {
-                        self.alertWithOkCancel(message: "Notification not Allowed. Would you like to open Setting?", title: "Alert", okTitle: "Open Setting", cancelTitle: "Dismiss", okAction: {
-                            UIApplication.openAppSettings()
-                        }, cancelAction: nil)
-                    }
-                }
-            }
-        }
         
     }
     

@@ -56,21 +56,62 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.isStatusBarHidden = false
         
+        checkForLogin()
+        
+        return true
+    }
+    
+    func registerForNotification() {
+        UserDefaults.standard.set(true, forKey: "NOTIFICATION_AUTHORIZATION_ASKED")
+        let application = UIApplication.shared
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().delegate = self
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            //            UNUserNotificationCenter.current().requestAuthorization(
-            //            options: authOptions,
-            //            completionHandler: {_, _ in })
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
         } else {
             let setting = UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil)
             application.registerUserNotificationSettings(setting)
         }
         application.registerForRemoteNotifications()
-        
-        checkForLogin()
-        
-        return true
+    }
+    
+    enum NotificationStatus {
+        case denied, notDetermined, authorized
+    }
+    
+    func isNotificationPermissionGranted(completion: @escaping (NotificationStatus)->()) {
+        if #available(iOS 10.0, *) {
+            let current = UNUserNotificationCenter.current()
+            current.getNotificationSettings(completionHandler: { (settings) in
+                if settings.authorizationStatus == .notDetermined {
+                    completion(.notDetermined)
+                    // Notification permission has not been asked yet, go for it!
+                }
+                
+                if settings.authorizationStatus == .denied {
+                    // Notification permission was previously denied, go to settings & privacy to re-enable
+                    completion(.denied)
+                }
+                
+                if settings.authorizationStatus == .authorized {
+                    // Notification permission was already granted
+                    completion(.authorized)
+                }
+            })
+        } else {
+            // Fallback on earlier versions
+            if UIApplication.shared.isRegisteredForRemoteNotifications {
+                completion(.authorized)
+            }else {
+                if UserDefaults.standard.bool(forKey: "NOTIFICATION_AUTHORIZATION_ASKED") {
+                    completion(.denied)
+                }else {
+                    completion(.notDetermined)
+                }
+            }
+        }
     }
     
     
