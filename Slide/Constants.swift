@@ -117,7 +117,7 @@ struct GlobalConstants {
             UIApplication.shared.openURL(url)
         }, cancelAction: nil)
         static let userNotInPerimeter = Message(title: "Sorry", message: "Arrive at this place to start connecting", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
-        static let userNotInPerimeterToUseDeal = Message(title: "Be here with friends", message: "Be here with friends to use the deal", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
+        static let userNotInPerimeterToUseDeal = Message(title: "Be here with friends", message: "Be here with friends to use the deal", okTitle: "Invite", cancelTitle: "Cancel", okAction: nil, cancelAction: nil)
         static let friendsNotSufficient = Message(title: "Need more friends", message: "You need more friends to use the deal", okTitle: "Invite", cancelTitle: "Cancel", okAction: nil, cancelAction: nil)
     }
 }
