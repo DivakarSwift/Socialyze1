@@ -66,8 +66,8 @@ class ViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
+        self.observe(selector: #selector(self.locationPermissionChanged), notification: GlobalConstants.Notification.locationAuthorizationStatusChanged)
         
-        SlydeLocationManager.shared.requestLocation()
         SlydeLocationManager.shared.delegate = self
         
         let mosaicLayout = TRMosaicLayout()
@@ -113,6 +113,7 @@ class ViewController: UIViewController {
         self.title = "Socialyze"
         UIApplication.shared.isStatusBarHidden = false
         self.navigationController?.navigationBar.isHidden = false
+        SlydeLocationManager.shared.requestLocation()
     }
     
     var places = [Place]() {
@@ -301,11 +302,12 @@ extension ViewController : TRMosaicLayoutDelegate {
 extension ViewController: SlydeLocationManagerDelegate {
     func locationObtained() {
         
-        
     }
     
     func locationPermissionChanged() {
-        
+        if SlydeLocationManager.shared.isDenied {
+            self.alert(message: GlobalConstants.Message.locationDenied)
+        }
     }
     
     func locationObtainError() {

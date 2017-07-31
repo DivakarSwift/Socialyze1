@@ -35,7 +35,7 @@ extension UIViewController: UNUserNotificationCenterDelegate {
         if message.cancelTitle == nil {
             self.alert(message: message.message, title: message.title, okAction: message.okAction)
         }else {
-            self.alertWithOkCancel(message: message.message, title: message.title, okTitle: message.okTitle, cancelTitle: message.cancelTitle, okAction: message.okAction, cancelAction: message.cancelAction)
+            self.alertWithOkCancel(message: message.message, title: message.title, okTitle: message.cancelTitle, cancelTitle: message.okTitle, okAction: message.cancelAction, cancelAction: message.okAction)
         }
     }
     
