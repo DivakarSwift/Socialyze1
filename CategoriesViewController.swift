@@ -61,6 +61,8 @@ class CategoriesViewController: UIViewController {
     let userService = UserService()
     var fromFBFriends:LocalUser?
     var noUsers:(() -> ())?
+    var swipedUsers = Set<String>()
+    var onDone: ((Set<String>) -> ())?
     
     @IBOutlet weak var actionImageView: UIImageView!
     @IBOutlet weak var infoButton: UIButton!
@@ -246,6 +248,7 @@ class CategoriesViewController: UIViewController {
                     message = message + " " + name
                 }
                 self?.alert(message: message, title: "Success", okAction: {
+                    self?.onDone?(self!.swipedUsers)
                     self?.dismiss(animated: true, completion: nil)
                     _ = self?.navigationController?.popViewController(animated: true)
                 })
@@ -323,7 +326,9 @@ class CategoriesViewController: UIViewController {
     func rejectUser() {
         if let rejectedUser = self.users.first, let myId = Authenticator.shared.user?.id {
             self.userService.reject(user: rejectedUser, myId: myId, completion: { [weak self] _ in
-                _ = self?.removeTopUser()
+                if let user = self?.removeTopUser(), let userId = user.id {
+                    self?.swipedUsers.insert(userId)
+                }
             })
         }
     }
@@ -336,7 +341,9 @@ class CategoriesViewController: UIViewController {
                     self?.showMatchedPopover(opponent: acceptedUser, myId: myId)
                     self?.fireMatchNotification(user: acceptedUser)
                 } else {
-                    _ = self?.removeTopUser()
+                    if let user = self?.removeTopUser(), let userId = user.id {
+                        self?.swipedUsers.insert(userId)
+                    }
                 }
                 return
             })
@@ -365,7 +372,7 @@ class CategoriesViewController: UIViewController {
         acknowledgedCount = 0
         self.checkinUserIds.forEach { (userId) in
             userService.getUser(withId: userId, completion: { [weak self] (user, error) in
-                
+                acknowledgedCount += 1
                 if let _ = error {
                     //                    self?.alert(message: error.localizedDescription)
                     return
@@ -379,7 +386,6 @@ class CategoriesViewController: UIViewController {
                     }
                 }
             })
-            acknowledgedCount += 1
         }
     }
     
@@ -401,6 +407,7 @@ class CategoriesViewController: UIViewController {
         } else {
             //            if let name = self.place?.mainImage, name == #imageLiteral(resourceName: "Union") {
             self.alert(message: "No new users at this time. Check back later", okAction: {
+                self.onDone?(self.swipedUsers)
                 self.dismiss(animated: false, completion: {
                     self.noUsers?()
                 })
@@ -473,6 +480,7 @@ extension CategoriesViewController {
         gesture.delegate = self
     }
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
+        self?.onDone?(self!.swipedUsers)
         dismiss(animated: true, completion: nil)
         _ = self.navigationController?.popViewController(animated: false)
     }

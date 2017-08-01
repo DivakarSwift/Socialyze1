@@ -80,6 +80,7 @@ class EventDetailViewController: UIViewController {
     internal var checkinData = [Checkin]()
     internal var goingData = [Checkin]()
     internal var exceptedUsers:[String] = []
+    fileprivate var alreadySwippedUsers = Set<String>()
     
     internal var obtainedCheckInWithExpectUser = false{
         didSet {
@@ -374,14 +375,17 @@ class EventDetailViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
             _ = self.navigationController?.popViewController(animated: false)
         }
+        vc.onDone = {
+            self.alreadySwippedUsers.formUnion($0)
+        }
         if self.eventAction == .goingSwipe {
             vc.isGoing = true
             let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
-            vc.checkinUserIds = userIdsSet
+            vc.checkinUserIds = userIdsSet.subtracting(self.alreadySwippedUsers)
         } else if self.eventAction == .checkInSwipe {
             vc.isCheckedIn = true
             let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
-            vc.checkinUserIds = userIdsSet
+            vc.checkinUserIds = userIdsSet.subtracting(self.alreadySwippedUsers)
         }
         self.present(vc, animated: true, completion: nil)
     }
@@ -598,6 +602,10 @@ class EventDetailViewController: UIViewController {
                 _ = self.navigationController?.popViewController(animated: false)
                 
             }
+            destinationVC.onDone = {
+                
+            }
+//            destinationVC.swipedUsers = 
             if eventAction == .goingSwipe {
                 destinationVC.isGoing = true
                 let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
