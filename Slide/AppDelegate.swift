@@ -55,8 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         application.isStatusBarHidden = false
-        
-        checkForLogin()
+
+        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewControllerWithDeal")
+        self.window?.rootViewController = vc
+        // checkForLogin()
         
         return true
     }
