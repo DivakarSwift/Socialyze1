@@ -432,7 +432,7 @@ class CategoriesViewController: UIViewController {
         popoverController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
         popoverVC.friend = user
         
-        popoverVC.backToCheckIn = { chatItem in
+        popoverVC.backToCheckIn = { [weak self] chatItem in
             if let item = chatItem {
                 let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
                 vc.chatItem = item
@@ -441,10 +441,12 @@ class CategoriesViewController: UIViewController {
                 vc.chatUser = user
                 vc.fromMatch = true
                 let nav = UINavigationController(rootViewController: vc)
-                self.present(nav, animated: true, completion: nil)
+                self?.present(nav, animated: true, completion: nil)
             }
             else {
-                _ = self.removeTopUser()
+                if let user = self?.removeTopUser(), let userId = user.id {
+                    self?.swipedUsers.insert(userId)
+                }
             }
         }
         self.present(popoverVC,animated: true,completion: nil)
