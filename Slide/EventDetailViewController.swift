@@ -602,9 +602,6 @@ class EventDetailViewController: UIViewController {
                 _ = self.navigationController?.popViewController(animated: false)
                 
             }
-            destinationVC.onDone = {
-                
-            }
 //            destinationVC.swipedUsers = 
             if eventAction == .goingSwipe {
                 destinationVC.isGoing = true

@@ -480,7 +480,7 @@ extension CategoriesViewController {
         gesture.delegate = self
     }
     func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-        self?.onDone?(self!.swipedUsers)
+        self.onDone?(self.swipedUsers)
         dismiss(animated: true, completion: nil)
         _ = self.navigationController?.popViewController(animated: false)
     }
