@@ -23,8 +23,6 @@ class EventDealTableViewCell: UITableViewCell {
     @IBOutlet weak var checkedInUserList: UICollectionView!
     @IBOutlet weak var collectionViewStack: UIStackView!
     
-    private var collectionViewHandler: UserListCollectionViewHandler?
-    
     var parentViewController: UIViewController?
     
     var onUserSelected: ((LocalUser) -> ())?
@@ -46,15 +44,8 @@ class EventDealTableViewCell: UITableViewCell {
             self.collectionViewStack.isHidden = !isFriendsCheckedIn
             self.checkedInCountLabel.isHidden = !isFriendsCheckedIn
             
-            guard isFriendsCheckedIn else {
-                self.collectionViewHandler = nil
-                return
-            }
-            
-            self.collectionViewHandler = UserListCollectionViewHandler.initWith(collectionView: self.checkedInUserList, users: checkedInFriends, onUserSelect: { [weak self] (localUser) in
-                self?.onUserSelected?(localUser)
-            })
             self.checkedInCountLabel.text = "\(checkedInFriends.count) friends checked in"
+            checkedInUserList.reloadData()
         }
     }
     
@@ -114,6 +105,8 @@ class EventDealTableViewCell: UITableViewCell {
                     self.useDealButton.backgroundColor = UIColor.init(red: 74/255, green: 176/255, blue: 80/255, alpha: 1)
                 }
             }
+            let image = place?.event?.image ?? place?.mainImage ?? ""
+            self.placeImage.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
             self.useDealButton.isEnabled = false
             self.getDeals()
         }
@@ -121,9 +114,9 @@ class EventDealTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.useDealButton.set(cornerRadius: 3)
-        self.inviteButton.set(cornerRadius: 3)
+        setupCollectionView()
+        self.useDealButton.set(cornerRadius: 5)
+        self.inviteButton.set(cornerRadius: 5)
     }
     
     
@@ -242,5 +235,63 @@ class EventDealTableViewCell: UITableViewCell {
             (placeDeal) in
             self?.placeDeal = placeDeal
         })
+    }
+}
+
+extension EventDealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.setupCollectionView()
+        return  checkedInFriends.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let user = checkedInFriends[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "friendsCell", for: indexPath)
+        
+        let label = cell.viewWithTag(2) as! UILabel
+        
+        label.text = user.profile.firstName
+        label.layer.shadowOpacity = 1
+        label.layer.shadowRadius = 3
+        label.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        
+        let imageView = cell.viewWithTag(1) as! UIImageView
+        imageView.rounded()
+        
+        imageView.kf.setImage(with: user.profile.images.first)
+        
+        let checkButton = cell.viewWithTag(3) as! UIButton
+        checkButton.isHidden = !user.isCheckedIn
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedUser = self.checkedInFriends[indexPath.row]
+        self.onUserSelected?(selectedUser)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewCellSpacing:CGFloat = 10
+        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
+        let cellWidth: CGFloat = (self.checkedInUserList.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
+        let cellHeight: CGFloat = self.checkedInUserList.frame.size.height - 10
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
+    func setupCollectionView() {
+//        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
+//        let collectionViewCellSpacing:CGFloat = 10
+//        
+//        if let layout = checkedInUserList.collectionViewLayout as? UICollectionViewFlowLayout{
+//            let cellWidth: CGFloat = (self.checkedInUserList.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
+//            let cellHeight: CGFloat = self.checkedInUserList.frame.size.height - 10
+//            layout.itemSize = CGSize(width: cellWidth, height:cellHeight)
+//            layout.minimumLineSpacing = collectionViewCellSpacing
+//            layout.minimumInteritemSpacing = collectionViewCellSpacing
+//        }
+        checkedInUserList.delegate = self
+        checkedInUserList.dataSource = self
     }
 }

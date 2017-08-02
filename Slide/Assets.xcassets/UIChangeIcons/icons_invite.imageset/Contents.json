@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "barxxxx.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "icons_invite@3X.png",
       "scale" : "2x"
     },
     {
