@@ -34,6 +34,20 @@ class EventDetailViewControllerWithDeal: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        tableView.panGestureRecognizer.addTarget(self, action: #selector(self.swippedDown(_:)))
+    }
+    
+    @objc private func swippedDown(_ sender: UIPanGestureRecognizer) {
+        
+        guard let originView = sender.view as? UITableView else { return }
+        
+        // Only let the table view dismiss if we're at the top.
+        
+        if originView.contentOffset.y <= 0 && sender.state == .began {
+            dismiss(animated: true, completion: nil)
+            print("Dismiss view now")
+        }
     }
 }
 
