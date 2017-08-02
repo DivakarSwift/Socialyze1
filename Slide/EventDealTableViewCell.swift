@@ -22,6 +22,7 @@ class EventDealTableViewCell: UITableViewCell {
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var checkedInUserList: UICollectionView!
     @IBOutlet weak var collectionViewStack: UIStackView!
+    @IBOutlet weak var collectionViewWidthConstraint: NSLayoutConstraint!
     
     var parentViewController: UIViewController?
     
@@ -238,10 +239,12 @@ class EventDealTableViewCell: UITableViewCell {
     }
 }
 
-extension EventDealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension EventDealTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.setupCollectionView()
-        return  checkedInFriends.count
+        let count =  self.checkedInFriends.count
+        let width = (65 * count) + (10 * (count - 1))
+        self.collectionViewWidthConstraint.constant = min(CGFloat(width), self.frame.width - 40)
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -261,7 +264,7 @@ extension EventDealTableViewCell: UICollectionViewDelegate, UICollectionViewData
         
         imageView.kf.setImage(with: user.profile.images.first)
         
-        let checkButton = cell.viewWithTag(3) as! UIButton
+        let checkButton = cell.viewWithTag(3) as! UIImageView
         checkButton.isHidden = !user.isCheckedIn
         
         return cell
@@ -272,25 +275,7 @@ extension EventDealTableViewCell: UICollectionViewDelegate, UICollectionViewData
         self.onUserSelected?(selectedUser)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewCellSpacing:CGFloat = 10
-        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
-        let cellWidth: CGFloat = (self.checkedInUserList.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
-        let cellHeight: CGFloat = self.checkedInUserList.frame.size.height - 10
-        return CGSize(width: cellWidth, height: cellHeight)
-    }
-    
     func setupCollectionView() {
-//        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
-//        let collectionViewCellSpacing:CGFloat = 10
-//        
-//        if let layout = checkedInUserList.collectionViewLayout as? UICollectionViewFlowLayout{
-//            let cellWidth: CGFloat = (self.checkedInUserList.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
-//            let cellHeight: CGFloat = self.checkedInUserList.frame.size.height - 10
-//            layout.itemSize = CGSize(width: cellWidth, height:cellHeight)
-//            layout.minimumLineSpacing = collectionViewCellSpacing
-//            layout.minimumInteritemSpacing = collectionViewCellSpacing
-//        }
         checkedInUserList.delegate = self
         checkedInUserList.dataSource = self
     }

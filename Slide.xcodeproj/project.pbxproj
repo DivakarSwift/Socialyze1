@@ -12,6 +12,9 @@
 		1A1C41D31F10D3A500A878CD /* Deal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C41D21F10D3A500A878CD /* Deal.swift */; };
 		1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C9A41E8F4FA900934676 /* MosaicLayout.swift */; };
 		1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */; };
+		1F0BD2341F322558002BB616 /* EventAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BD2321F322558002BB616 /* EventAdsViewController.swift */; };
+		1F0BD2351F322558002BB616 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0BD2331F322558002BB616 /* Events.storyboard */; };
+		1F0BD2371F32256E002BB616 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0BD2361F32256E002BB616 /* EventDetailViewController.swift */; };
 		1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */; };
 		1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */; };
 		1F1E553A1EA8A17F00748894 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1E55391EA8A17F00748894 /* Chat.storyboard */; };
@@ -38,17 +41,12 @@
 		1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E51EA84348001BD4F2 /* ChatService.swift */; };
 		1FEC06E81EA87F81001BD4F2 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */; };
 		1FEE63E01F31A867004E4A62 /* EventDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE63DF1F31A867004E4A62 /* EventDealTableViewCell.swift */; };
-		1FEE63E21F31AA12004E4A62 /* UserListCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE63E11F31AA12004E4A62 /* UserListCollectionViewHandler.swift */; };
 		1FF046541EA8D84D00522063 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF046531EA8D84D00522063 /* ChatListViewController.swift */; };
-		1FF3C67E1F30EC2D0030F814 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C67D1F30EC2D0030F814 /* EventDetailViewController.swift */; };
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
 		7085EDF81E6EEB3700AD3420 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */; };
 		DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */; };
 		DA0B5F611ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */; };
-		F40FCC901EFCA5A1008AF554 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */; };
 		F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */; };
-		F45DDD821F0095CC009F8EDC /* EventDetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45DDD811F0095CC009F8EDC /* EventDetailViewController2.swift */; };
-		F48EB7FF1F01EE7D008A326E /* EventAdsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */; };
 		F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594351EE3DB44003631EE /* indicator_75.gif */; };
 		F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594361EE3DB44003631EE /* indicator_40.gif */; };
 		F4A5943B1EE3DB44003631EE /* indicator_20.gif in Resources */ = {isa = PBXBuildFile; fileRef = F4A594371EE3DB44003631EE /* indicator_20.gif */; };
@@ -85,6 +83,9 @@
 		1E9E8DF44459AB0C1E56DFAA /* Pods_Slide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Slide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F06C9A41E8F4FA900934676 /* MosaicLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicLayout.swift; sourceTree = "<group>"; };
 		1F06C9A61E8F4FCE00934676 /* MosaicColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MosaicColumn.swift; sourceTree = "<group>"; };
+		1F0BD2321F322558002BB616 /* EventAdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAdsViewController.swift; sourceTree = "<group>"; };
+		1F0BD2331F322558002BB616 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		1F0BD2361F32256E002BB616 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		1F0E23B31E9F39BE00EC0F4D /* Maps.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Maps.storyboard; sourceTree = "<group>"; };
 		1F0E23B51E9F47C700EC0F4D /* PlaceToUserMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceToUserMapViewController.swift; sourceTree = "<group>"; };
 		1F1E55391EA8A17F00748894 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -111,19 +112,14 @@
 		1FEC06E51EA84348001BD4F2 /* ChatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		1FEE63DF1F31A867004E4A62 /* EventDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDealTableViewCell.swift; sourceTree = "<group>"; };
-		1FEE63E11F31AA12004E4A62 /* UserListCollectionViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCollectionViewHandler.swift; sourceTree = "<group>"; };
 		1FF046531EA8D84D00522063 /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
-		1FF3C67D1F30EC2D0030F814 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.debug.xcconfig"; sourceTree = "<group>"; };
 		6FB78CCFC1102B749DFF93D8 /* Pods-Slide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.release.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.release.xcconfig"; sourceTree = "<group>"; };
 		7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicatorView.swift; sourceTree = "<group>"; };
 		7085EDF71E6EEB3700AD3420 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DA0B5F5E1ECCDA2C00E5119E /* CustomSwipeSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeSegue.swift; sourceTree = "<group>"; };
 		DA0B5F601ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwipeUnwindSegue.swift; sourceTree = "<group>"; };
-		F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		F45DDD811F0095CC009F8EDC /* EventDetailViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController2.swift; sourceTree = "<group>"; };
-		F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventAdsViewController.swift; sourceTree = "<group>"; };
 		F4A594351EE3DB44003631EE /* indicator_75.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_75.gif; sourceTree = "<group>"; };
 		F4A594361EE3DB44003631EE /* indicator_40.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_40.gif; sourceTree = "<group>"; };
 		F4A594371EE3DB44003631EE /* indicator_20.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = indicator_20.gif; sourceTree = "<group>"; };
@@ -301,13 +297,11 @@
 		F40FCC8E1EFCA583008AF554 /* Events */ = {
 			isa = PBXGroup;
 			children = (
-				F45DDD811F0095CC009F8EDC /* EventDetailViewController2.swift */,
-				F40FCC8F1EFCA5A1008AF554 /* Events.storyboard */,
-				F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */,
+				1F0BD2361F32256E002BB616 /* EventDetailViewController.swift */,
+				1F0BD2321F322558002BB616 /* EventAdsViewController.swift */,
+				1F0BD2331F322558002BB616 /* Events.storyboard */,
 				F4FD435C1F05EA72002A1CD1 /* EventAPIExtension.swift */,
-				1FF3C67D1F30EC2D0030F814 /* EventDetailViewController.swift */,
 				1FEE63DF1F31A867004E4A62 /* EventDealTableViewCell.swift */,
-				1FEE63E11F31AA12004E4A62 /* UserListCollectionViewHandler.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -466,7 +460,7 @@
 				F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */,
 				FC7A24201E695F56004C9E44 /* Main.storyboard in Resources */,
 				1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */,
-				F40FCC901EFCA5A1008AF554 /* Events.storyboard in Resources */,
+				1F0BD2351F322558002BB616 /* Events.storyboard in Resources */,
 				FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */,
 				1F1E553A1EA8A17F00748894 /* Chat.storyboard in Resources */,
 				F4A5943C1EE3DB44003631EE /* indicator_149.gif in Resources */,
@@ -549,10 +543,8 @@
 				F6475F5E1ED2F1E9004C8D90 /* TextMessageViewController.swift in Sources */,
 				FC1936871E7104ED009F2912 /* MatchesViewController.swift in Sources */,
 				F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */,
-				F45DDD821F0095CC009F8EDC /* EventDetailViewController2.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
 				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
-				1FF3C67E1F30EC2D0030F814 /* EventDetailViewController.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,
 				1FE787631E877DAD006B2445 /* User.swift in Sources */,
 				1FEE63E01F31A867004E4A62 /* EventDealTableViewCell.swift in Sources */,
@@ -560,7 +552,6 @@
 				F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */,
 				FC7A241B1E695F56004C9E44 /* AppDelegate.swift in Sources */,
 				7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */,
-				F48EB7FF1F01EE7D008A326E /* EventAdsViewController.swift in Sources */,
 				1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */,
 				F4C78B7C1EFACBFB00259A55 /* FacebookAccessToken.swift in Sources */,
 				1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */,
@@ -570,13 +561,14 @@
 				F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */,
 				F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */,
 				F64B2B531ED56AB800FE2BF6 /* DismissAnimator.swift in Sources */,
-				1FEE63E21F31AA12004E4A62 /* UserListCollectionViewHandler.swift in Sources */,
 				1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */,
 				1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */,
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,
+				1F0BD2371F32256E002BB616 /* EventDetailViewController.swift in Sources */,
 				1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */,
 				1F1E553C1EA8A6FB00748894 /* ChatViewController.swift in Sources */,
 				F68AB57A1EDFCB9100D4AB96 /* AdsViewController.swift in Sources */,
+				1F0BD2341F322558002BB616 /* EventAdsViewController.swift in Sources */,
 				FC1936801E70FC01009F2912 /* ProfileViewController.swift in Sources */,
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
 				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,

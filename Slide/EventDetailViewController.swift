@@ -52,6 +52,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var friendsCollectionViewStack: UIStackView!
     @IBOutlet weak var eventDateTimeStack: UIStackView!
+    @IBOutlet weak var collectionViewWidthConstraint: NSLayoutConstraint!
     
     internal let facebookService = FacebookService.shared
     internal let userService = UserService()
@@ -164,7 +165,7 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         // if hasDeal
-        tableViewHeader.frame.size.height = self.view.frame.height - Constants.heightOfSectionHeader - Constants.heightOfCollapsedCell
+        tableViewHeader.frame.size.height = self.view.frame.height - (self.place?.hasDeal == true ? (Constants.heightOfSectionHeader + Constants.heightOfCollapsedCell) : 0)
         // if no deal height = view.frame.height
         
         tableView.delegate = self
@@ -181,14 +182,22 @@ class EventDetailViewController: UIViewController {
         self.locationUpdated()
         SlydeLocationManager.shared.startUpdatingLocation()
         
-        if facebookService.isUserFriendsPermissionGiven() {
-            getUserFriends()
-        } else {
-            authenticator.delegate = self
-            authenticator.authenticateWith(provider: .facebook)
-        }
+        self.activityIndicator.startAnimating()
         
-        self.changeGoingStatus()
+        self.placeService.getFreshPlace(place: self.place!) { (place) in
+            self.place = place
+            
+            self.tableViewHeader.frame.size.height = self.view.frame.height - (self.place?.hasDeal == true ? (Constants.heightOfSectionHeader + Constants.heightOfCollapsedCell) : 0)
+            
+            if self.facebookService.isUserFriendsPermissionGiven() {
+                self.getUserFriends()
+            } else {
+                self.authenticator.delegate = self
+                self.authenticator.authenticateWith(provider: .facebook)
+            }
+            
+            self.changeGoingStatus()
+        }
         self.setupCollectionView()
         self.checkInButton.set(cornerRadius: 5)
         self.inviteButton.set(cornerRadius: 5)
@@ -201,8 +210,6 @@ class EventDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
-        //        self.addSwipeGesture(toView: self.view)
-        //        self.addTapGesture(toView: self.eventImageView)
     }
     
     deinit {
@@ -229,28 +236,6 @@ class EventDetailViewController: UIViewController {
             shouldDismiss = false
         }
     }
-    
-    //    // MARK: - Gesture
-    //    func addTapGesture(toView view: UIView) {
-    //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-    //        view.addGestureRecognizer(tap)
-    //    }
-    //
-    //    func handleTap(_ gesture: UITapGestureRecognizer) {
-    //        self.viewDetail()
-    //    }
-    
-    //    func addSwipeGesture(toView view: UIView) {
-    //        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
-    //        gesture.direction = .down
-    //        view.addGestureRecognizer(gesture)
-    //    }
-    //
-    //    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-    //        dismiss(animated: true, completion: nil)
-    //        UIApplication.shared.isStatusBarHidden = false
-    //    }
-    
     // MARK: -
     
     func setupView() {
@@ -383,14 +368,14 @@ class EventDetailViewController: UIViewController {
     
     fileprivate func getFacebookFriendEventUsers() -> [LocalUser] {
         return self.eventUsers
-        //            .filter({(user) -> Bool in
-        //            for faceBookFriend in self.faceBookFriends {
-        //                if user.profile.fbId == faceBookFriend.id {
-        //                    return true
-        //                }
-        //            }
-        //            return false
-        //        })
+            .filter({(user) -> Bool in
+                for faceBookFriend in self.faceBookFriends {
+                    if user.profile.fbId == faceBookFriend.id {
+                        return true
+                    }
+                }
+                return false
+            })
     }
     
     
@@ -540,7 +525,7 @@ class EventDetailViewController: UIViewController {
             
             if check1 || check2 || check3 || check4 {
                 self.placeDistanceLabel.isHidden = true
-                self.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
+                self.locationPinButton.setImage(#imageLiteral(resourceName: "icon_checked_in"), for: .normal)
                 if self.isCheckedIn {
                     self.eventAction = .checkInSwipe
                 } else {
@@ -782,7 +767,11 @@ extension EventDetailViewController: AuthenticatorDelegate {
 extension EventDetailViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  self.getFacebookFriendEventUsers().count
+        
+        let count =  self.getFacebookFriendEventUsers().count
+        let width = (65 * count) + (10 * (count - 1))
+        self.collectionViewWidthConstraint.constant = min(CGFloat(width), self.view.frame.width - 40)
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -820,14 +809,6 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
-//        let collectionViewCellSpacing:CGFloat = 10
-//        let cellWidth:CGFloat = (self.view.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
-//        let cellHeight:CGFloat = 88
-//        return CGSize(width: cellWidth, height: cellHeight)
-//    }
-    
     fileprivate func showUserDetail(user: LocalUser) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
         vc.fromFBFriends = user
@@ -836,16 +817,6 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func setupCollectionView() {
-//        let numberOfColumn:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 3
-//        let collectionViewCellSpacing:CGFloat = 10
-        
-//        if let layout = friendsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout{
-//            let cellWidth:CGFloat = ( self.view.frame.size.width  - (numberOfColumn + 1)*collectionViewCellSpacing)/numberOfColumn
-//            let cellHeight:CGFloat = self.friendsCollectionView.frame.size.height - 2*collectionViewCellSpacing
-//            layout.itemSize = CGSize(width: cellWidth, height:cellHeight)
-//            layout.minimumLineSpacing = collectionViewCellSpacing
-//            layout.minimumInteritemSpacing = collectionViewCellSpacing
-//        }
         friendsCollectionView.delegate = self
         friendsCollectionView.dataSource = self
     }
@@ -892,6 +863,10 @@ extension EventDetailViewController: UITableViewDelegate {
 }
 
 extension EventDetailViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.place?.hasDeal == true ? 1 : 0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerView
     }

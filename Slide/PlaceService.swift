@@ -12,6 +12,18 @@ import  SwiftyJSON
 
 class PlaceService: FirebaseManager {
     
+    func getFreshPlace(place: Place, completion: @escaping (Place) -> ()) {
+        let placeName = place.nameAddress ?? ""
+        self.reference.child(Node.PlacesList.rawValue).queryOrdered(byChild: "nameAddress").queryEqual(toValue: placeName).observeSingleEvent(of: .value, with: {snapShot in
+            
+            if let snapshotValue = ((snapShot.value) as? [String: Any])?.first?.value, let place: Place = JSON(snapshotValue).map() {
+                completion(place)
+            } else {
+                // failure(FirebaseManagerError.noDataFound)
+            }
+        })
+    }
+    
     func getPlaces( completion: @escaping ([Place])->(), failure: @escaping (FirebaseManagerError)->()) {
         self.reference.child(Node.PlacesList.rawValue).observeSingleEvent(of: .value, with: {(snapshot: DataSnapshot) in
             if let snapshotValue = snapshot.value, let places:[Place] = JSON(snapshotValue).map() {
