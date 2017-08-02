@@ -12,7 +12,7 @@ class EventDetailViewControllerWithDeal: UIViewController {
     
     struct Constants {
         static let heightOfSectionHeader: CGFloat = 50
-        static let heightOfCollapsedCell: CGFloat = 66
+        static let heightOfCollapsedCell: CGFloat = 82
     }
     
     @IBOutlet weak var goingBottomConstraint: NSLayoutConstraint!
@@ -69,15 +69,19 @@ extension EventDetailViewControllerWithDeal: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: false)
+        let oldCell = expandedCell
+        let scrollPosition: UITableViewScrollPosition
         if self.expandedCell == indexPath {
             self.expandedCell = nil
-            self.tableView.reloadData()
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            scrollPosition = .bottom
         }else {
+            scrollPosition = .top
             self.expandedCell = indexPath
-            self.tableView.reloadData()
-            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
+        
+        let reloadingCells = oldCell == nil ? [indexPath] : [indexPath, oldCell!]
+        self.tableView.reloadRows(at: reloadingCells, with: .automatic)
+        self.tableView.scrollToRow(at: indexPath, at: scrollPosition, animated: true)
     }
 }
 
