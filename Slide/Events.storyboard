@@ -121,27 +121,28 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mE7-WC-vtq">
                                                             <rect key="frame" x="0.0" y="81" width="284" height="15"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-g7-raH">
-                                                                    <rect key="frame" x="89" y="0.0" width="106.5" height="15"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a7H-Ba-E0F">
+                                                                    <rect key="frame" x="63" y="0.0" width="158.5" height="15"/>
                                                                     <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="a7H-Ba-E0F">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="106.5" height="15"/>
-                                                                            <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-PF-2ZA">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="width" secondItem="hiw-PF-2ZA" secondAttribute="height" multiplier="1:1" id="cwj-qv-g1a"/>
-                                                                                        <constraint firstAttribute="width" constant="15" id="njl-DV-BNl"/>
-                                                                                    </constraints>
-                                                                                </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29th July, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-iU-NRi">
-                                                                                    <rect key="frame" x="20" y="0.0" width="86.5" height="15"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                        </stackView>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-PF-2ZA">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" secondItem="hiw-PF-2ZA" secondAttribute="height" multiplier="1:1" id="cwj-qv-g1a"/>
+                                                                                <constraint firstAttribute="width" constant="15" id="njl-DV-BNl"/>
+                                                                            </constraints>
+                                                                        </imageView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29th July, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLR-iU-NRi">
+                                                                            <rect key="frame" x="20" y="0.0" width="86.5" height="15"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZ8-BT-IL7">
+                                                                            <rect key="frame" x="111.5" y="0.0" width="47" height="15"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -194,7 +195,7 @@
                                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                             </collectionViewFlowLayout>
                                                                             <cells>
-                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5Oo-yD-5ab">
+                                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCell" id="5Oo-yD-5ab">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="65" height="88"/>
                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -543,9 +544,12 @@
                         <outlet property="checkInButton" destination="ocP-TS-AOv" id="Wra-N0-ziu"/>
                         <outlet property="checkInStatusLabel" destination="6xc-Ua-nBv" id="PDw-3y-hhx"/>
                         <outlet property="eventDateLabel" destination="FLR-iU-NRi" id="2La-0F-pHd"/>
+                        <outlet property="eventDateTimeStack" destination="mE7-WC-vtq" id="EG7-35-As9"/>
                         <outlet property="eventImageView" destination="x2N-pg-vGd" id="WBK-7z-0cc"/>
                         <outlet property="eventNameLabel" destination="lSa-W3-Ade" id="iTG-eq-2eb"/>
+                        <outlet property="eventTimeLabel" destination="wZ8-BT-IL7" id="GVf-Yj-wUQ"/>
                         <outlet property="friendsCollectionView" destination="Kf6-8f-mIu" id="816-H2-ESz"/>
+                        <outlet property="friendsCollectionViewStack" destination="z0W-dA-St0" id="BSp-vo-QcX"/>
                         <outlet property="goingBottomConstraint" destination="vMI-Ds-m7Q" id="ctM-UC-L68"/>
                         <outlet property="goingStatusLabel" destination="Cca-9z-4Sq" id="BZt-H4-t1P"/>
                         <outlet property="headerView" destination="gwK-7d-xCs" id="vRo-il-fS1"/>

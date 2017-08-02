@@ -42,10 +42,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var locationPinButton: UIButton!
     @IBOutlet weak var eventDateLabel:UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
-    @IBOutlet weak var eventPlaceLabel:UILabel!
-    
-    @IBOutlet weak var goingView: UIView!
-    @IBOutlet weak var checkInView: UIView!
+    //    @IBOutlet weak var eventPlaceLabel:UILabel!
     
     @IBOutlet weak var goingStatusLabel: UILabel!
     @IBOutlet weak var checkInStatusLabel: UILabel!
@@ -53,6 +50,8 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var checkInButton:UIButton!
     @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
+    @IBOutlet weak var friendsCollectionViewStack: UIStackView!
+    @IBOutlet weak var eventDateTimeStack: UIStackView!
     
     internal let facebookService = FacebookService.shared
     internal let userService = UserService()
@@ -78,7 +77,8 @@ class EventDetailViewController: UIViewController {
     
     internal var obtainedFacebookFriends = false {
         didSet {
-            self.friendsCollectionView.reloadData()
+            reloadFriendsCollectionView()
+            self.tableView.reloadData()
             checkInn(silence: true)
             adDetailVC?.facebookFriends = self.faceBookFriends
         }
@@ -159,8 +159,6 @@ class EventDetailViewController: UIViewController {
     }()
     
     
-    
-    
     // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,7 +191,7 @@ class EventDetailViewController: UIViewController {
         self.changeGoingStatus()
         self.setupCollectionView()
         self.checkInButton.layer.cornerRadius = 5
-        self.eventPlaceLabel.layer.cornerRadius = 5
+        // self.eventPlaceLabel.layer.cornerRadius = 5
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -202,47 +200,55 @@ class EventDetailViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         UIApplication.shared.isStatusBarHidden = true
         self.title = place?.nameAddress
-//        self.addSwipeGesture(toView: self.view)
-//        self.addTapGesture(toView: self.eventImageView)
+        //        self.addSwipeGesture(toView: self.view)
+        //        self.addTapGesture(toView: self.eventImageView)
     }
     
     deinit {
         SlydeLocationManager.shared.stopUpdatingLocation()
     }
     
+    private var shouldDismiss = false
     @objc private func swippedDown(_ sender: UIPanGestureRecognizer) {
         
         guard let originView = sender.view as? UITableView else { return }
         
         // Only let the table view dismiss if we're at the top.
-        
-        if originView.contentOffset.y <= 0 && sender.state == .began {
+        if originView.contentOffset.y < -10 && shouldDismiss {
             dismiss(animated: true, completion: nil)
             UIApplication.shared.isStatusBarHidden = false
             print("Dismiss view now")
         }
+        
+        if originView.contentOffset.y <= 0 && sender.state == .began {
+            shouldDismiss = true
+        }
+        
+        if [.cancelled, .ended, .failed].contains(sender.state) {
+            shouldDismiss = false
+        }
     }
     
-//    // MARK: - Gesture
-//    func addTapGesture(toView view: UIView) {
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
-//        view.addGestureRecognizer(tap)
-//    }
-//    
-//    func handleTap(_ gesture: UITapGestureRecognizer) {
-//        self.viewDetail()
-//    }
+    //    // MARK: - Gesture
+    //    func addTapGesture(toView view: UIView) {
+    //        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap))
+    //        view.addGestureRecognizer(tap)
+    //    }
+    //
+    //    func handleTap(_ gesture: UITapGestureRecognizer) {
+    //        self.viewDetail()
+    //    }
     
-//    func addSwipeGesture(toView view: UIView) {
-//        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
-//        gesture.direction = .down
-//        view.addGestureRecognizer(gesture)
-//    }
-//    
-//    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
-//        dismiss(animated: true, completion: nil)
-//        UIApplication.shared.isStatusBarHidden = false
-//    }
+    //    func addSwipeGesture(toView view: UIView) {
+    //        let gesture = UISwipeGestureRecognizer(target: self, action: #selector(wasSwipped))
+    //        gesture.direction = .down
+    //        view.addGestureRecognizer(gesture)
+    //    }
+    //
+    //    func wasSwipped(_ gesture: UISwipeGestureRecognizer) {
+    //        dismiss(animated: true, completion: nil)
+    //        UIApplication.shared.isStatusBarHidden = false
+    //    }
     
     // MARK: -
     
@@ -251,23 +257,33 @@ class EventDetailViewController: UIViewController {
             self.isGoing = false
             
             if let event = place.isEvent, event {
-                self.eventNameLabel.text = place.event?.title
-                self.eventDateLabel.text = place.event?.date
-                self.eventTimeLabel.text = place.event?.time
-                self.eventPlaceLabel.text = place.event?.detail
+                let eventTitle = place.event?.title ?? ""
+                self.eventNameLabel.text = eventTitle.isEmpty ? place.nameAddress : eventTitle
+                let date = place.event?.date ?? ""
+                let time = place.event?.time ?? ""
+                self.eventDateLabel.text = date
+                self.eventTimeLabel.text = time
+                
+                self.eventDateTimeStack.isHidden = (date + time).isEmpty
+                // self.eventPlaceLabel.text = place.event?.detail
                 
                 let image = place.event?.image ?? place.mainImage ?? ""
                 self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
                 getGoingUsers()
             } else {
                 self.eventNameLabel.text = place.nameAddress
-                self.eventDateLabel.text = place.date
-                self.eventTimeLabel.text = place.time
-                if let hall = place.hall {
-                    self.eventPlaceLabel.text = "\(String(describing: hall))"
-                } else {
-                    self.eventPlaceLabel.text = place.bio
-                }
+                
+                let date = place.date ?? ""
+                let time = place.time ?? ""
+                self.eventDateLabel.text = date
+                self.eventTimeLabel.text = time
+                
+                self.eventDateTimeStack.isHidden = (date + time).isEmpty
+                //                if let hall = place.hall {
+                //                    self.eventPlaceLabel.text = "\(String(describing: hall))"
+                //                } else {
+                //                    self.eventPlaceLabel.text = place.bio
+                //                }
                 
                 let image = place.secondImage ?? place.mainImage ?? ""
                 self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
@@ -286,9 +302,9 @@ class EventDetailViewController: UIViewController {
         self.eventTimeLabel.layer.shadowOpacity = 1.0
         self.eventTimeLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         self.eventTimeLabel.layer.shadowRadius = 3.0
-        self.eventPlaceLabel.layer.shadowOpacity = 1.0
-        self.eventPlaceLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        self.eventPlaceLabel.layer.shadowRadius = 3.0
+        //        self.eventPlaceLabel.layer.shadowOpacity = 1.0
+        //        self.eventPlaceLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        //        self.eventPlaceLabel.layer.shadowRadius = 3.0
         self.eventDateLabel.layer.shadowOpacity = 1.0
         self.eventDateLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         self.eventDateLabel.layer.shadowRadius = 3.0
@@ -341,7 +357,7 @@ class EventDetailViewController: UIViewController {
         self.present(adDeatilVc, animated: false, completion: nil)
     }
     
-    private func getCheckedInFbFriends() -> [LocalUser] {
+    fileprivate func getCheckedInFbFriends() -> [LocalUser] {
         return self.eventUsers.filter({(user) -> Bool in
             let isCheckedIn: () -> (Bool) = {
                 for checkin in self.checkinData {
@@ -564,7 +580,7 @@ class EventDetailViewController: UIViewController {
         
         if let isEvent = self.place?.isEvent, isEvent,
             self.goingWithExpectUser.count > 0 {
-            self.goingView.isHidden = false
+            self.goingStatusLabel.isHidden = false
             var goignText = "\(goingWithExpectUser.count) going"
             self.goingStatusLabel.text = goignText
             
@@ -582,11 +598,11 @@ class EventDetailViewController: UIViewController {
             self.goingStatusLabel.text = goignText
             
         } else {
-            self.goingView.isHidden = true
+            self.goingStatusLabel.isHidden = true
         }
         
         if self.checkinData.count > 0 {
-            self.checkInView.isHidden = false
+            self.checkInStatusLabel.isHidden = false
             var checkinText = "\(checkinData.count) checked in"
             self.checkInStatusLabel.text = checkinText
             
@@ -602,8 +618,17 @@ class EventDetailViewController: UIViewController {
                 self.checkInStatusLabel.text = checkinText
             }
         } else {
-            self.checkInView.isHidden = true
+            self.checkInStatusLabel.isHidden = true
         }
+        reloadFriendsCollectionView()
+    }
+    
+    func reloadFriendsCollectionView() {
+        if self.getFacebookFriendEventUsers().count == 0 {
+            self.friendsCollectionViewStack.isHidden = true
+            return
+        }
+        self.friendsCollectionViewStack.isHidden = false
         self.friendsCollectionView.reloadData()
     }
     
@@ -787,8 +812,15 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let user = self.getFacebookFriendEventUsers().elementAt(index: indexPath.row) {
+            self.showUserDetail(user: user)
+        }
+    }
+    
+    fileprivate func showUserDetail(user: LocalUser) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
-        vc.fromFBFriends = self.eventUsers[indexPath.row]
+        vc.fromFBFriends = user
         vc.transitioningDelegate = self
         self.present(vc, animated: true, completion: nil)
     }
@@ -804,6 +836,9 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
             layout.minimumLineSpacing = collectionViewCellSpacing
             layout.minimumInteritemSpacing = collectionViewCellSpacing
         }
+        friendsCollectionView.delegate = self
+        friendsCollectionView.dataSource = self
+        reloadFriendsCollectionView()
     }
 }
 
@@ -853,13 +888,21 @@ extension EventDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventDealTableViewCell", for: indexPath) as! EventDealTableViewCell
         cell.parentViewController = self
-        cell.checkedInFriends = []
+        cell.checkedInFriends = self.getCheckedInFbFriends()
+        cell.onInvite = {
+            [weak self] in
+            self?.showMoreOption()
+        }
+        cell.onUserSelected = {[weak self] localUser in
+            self?.showUserDetail(user: localUser)
+        }
+        cell.place = self.place
         return cell
     }
 }

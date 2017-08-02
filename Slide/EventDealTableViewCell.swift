@@ -132,7 +132,7 @@ class EventDealTableViewCell: UITableViewCell {
     }
     
     @IBAction func useDeal(_ sender: Any) {
-        
+        self.useDeal()
     }
     
     private func dateFormatter() -> DateFormatter {

@@ -56,9 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.isStatusBarHidden = false
 
-        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewControllerWithDeal")
-        self.window?.rootViewController = vc
-        // checkForLogin()
+//        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewControllerWithDeal")
+//        self.window?.rootViewController = vc
+         checkForLogin()
         
         return true
     }
