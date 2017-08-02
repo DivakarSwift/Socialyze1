@@ -37,6 +37,8 @@
 		1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */; };
 		1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E51EA84348001BD4F2 /* ChatService.swift */; };
 		1FEC06E81EA87F81001BD4F2 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */; };
+		1FEE63E01F31A867004E4A62 /* EventDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE63DF1F31A867004E4A62 /* EventDealTableViewCell.swift */; };
+		1FEE63E21F31AA12004E4A62 /* UserListCollectionViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FEE63E11F31AA12004E4A62 /* UserListCollectionViewHandler.swift */; };
 		1FF046541EA8D84D00522063 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF046531EA8D84D00522063 /* ChatListViewController.swift */; };
 		1FF3C67E1F30EC2D0030F814 /* EventDetailViewControllerWithDeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF3C67D1F30EC2D0030F814 /* EventDetailViewControllerWithDeal.swift */; };
 		7085EDF31E6EEA2300AD3420 /* CustomActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7085EDF21E6EEA2300AD3420 /* CustomActivityIndicatorView.swift */; };
@@ -108,6 +110,8 @@
 		1FE7876A1E8813A1006B2445 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../UIViewExtension.swift; sourceTree = "<group>"; };
 		1FEC06E51EA84348001BD4F2 /* ChatService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		1FEC06E71EA87F80001BD4F2 /* ChatModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
+		1FEE63DF1F31A867004E4A62 /* EventDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDealTableViewCell.swift; sourceTree = "<group>"; };
+		1FEE63E11F31AA12004E4A62 /* UserListCollectionViewHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserListCollectionViewHandler.swift; sourceTree = "<group>"; };
 		1FF046531EA8D84D00522063 /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		1FF3C67D1F30EC2D0030F814 /* EventDetailViewControllerWithDeal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewControllerWithDeal.swift; sourceTree = "<group>"; };
 		4895ACE136E430CD51E1ABA1 /* Pods-Slide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Slide.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Slide/Pods-Slide.debug.xcconfig"; sourceTree = "<group>"; };
@@ -302,6 +306,8 @@
 				F48EB7FE1F01EE7D008A326E /* EventAdsViewController.swift */,
 				F4FD435C1F05EA72002A1CD1 /* EventAPIExtension.swift */,
 				1FF3C67D1F30EC2D0030F814 /* EventDetailViewControllerWithDeal.swift */,
+				1FEE63DF1F31A867004E4A62 /* EventDealTableViewCell.swift */,
+				1FEE63E11F31AA12004E4A62 /* UserListCollectionViewHandler.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -549,6 +555,7 @@
 				1FF3C67E1F30EC2D0030F814 /* EventDetailViewControllerWithDeal.swift in Sources */,
 				FC7A241D1E695F56004C9E44 /* ViewController.swift in Sources */,
 				1FE787631E877DAD006B2445 /* User.swift in Sources */,
+				1FEE63E01F31A867004E4A62 /* EventDealTableViewCell.swift in Sources */,
 				1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */,
 				F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */,
 				FC7A241B1E695F56004C9E44 /* AppDelegate.swift in Sources */,
@@ -563,6 +570,7 @@
 				F657EDCF1ECC5DD200D8E8BB /* CustomCell.swift in Sources */,
 				F41C843B1EFE4BCC00B30C46 /* UIColorExtension.swift in Sources */,
 				F64B2B531ED56AB800FE2BF6 /* DismissAnimator.swift in Sources */,
+				1FEE63E21F31AA12004E4A62 /* UserListCollectionViewHandler.swift in Sources */,
 				1FE787671E87FBDC006B2445 /* LoginViewController.swift in Sources */,
 				1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */,
 				1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */,

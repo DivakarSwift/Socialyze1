@@ -20,7 +20,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Event Detail View Controller With Deal-->
+        <!--Event Detail View Controller-->
         <scene sceneID="seD-wf-Fh3">
             <objects>
                 <view contentMode="scaleToFill" id="gwK-7d-xCs">
@@ -56,7 +56,7 @@
                     </constraints>
                 </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ruS-bH-XeS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="EventDetailViewControllerWithDeal" id="Iad-c2-HnH" customClass="EventDetailViewControllerWithDeal" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventDetailViewController" id="Iad-c2-HnH" customClass="EventDetailViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1KU-aM-wkz"/>
                         <viewControllerLayoutGuide type="bottom" id="uie-Jv-496"/>
@@ -86,17 +86,24 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="284" height="20"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lIG-Gt-QhO">
-                                                                    <rect key="frame" x="103.5" y="0.0" width="77.5" height="20"/>
+                                                                    <rect key="frame" x="78" y="0.0" width="128.5" height="20"/>
                                                                     <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BB-7P-SvV">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="46" height="20"/>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <connections>
+                                                                                <action selector="map:" destination="Iad-c2-HnH" eventType="touchUpInside" id="f5w-lI-39C"/>
+                                                                            </connections>
+                                                                        </button>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location-pin" translatesAutoresizingMaskIntoConstraints="NO" id="LhB-Pk-EyP">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                                            <rect key="frame" x="51" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="20" id="1nq-Fz-nPL"/>
                                                                                 <constraint firstAttribute="width" secondItem="LhB-Pk-EyP" secondAttribute="height" multiplier="1:1" id="D5c-rN-Ouu"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7713 mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eNo-24-M8M">
-                                                                            <rect key="frame" x="25" y="0.0" width="52.5" height="20"/>
+                                                                            <rect key="frame" x="76" y="0.0" width="52.5" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <nil key="highlightedColor"/>
@@ -179,9 +186,8 @@
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="88" id="DpY-1v-nTM"/>
-                                                                                <constraint firstAttribute="width" constant="150" id="sHh-7V-4rV"/>
                                                                             </constraints>
-                                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3EP-kt-4lw">
+                                                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="3EP-kt-4lw">
                                                                                 <size key="itemSize" width="65" height="88"/>
                                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -246,6 +252,9 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="invite:" destination="Iad-c2-HnH" eventType="touchUpInside" id="1Li-SH-SqJ"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocP-TS-AOv">
                                                                     <rect key="frame" x="144" y="0.0" width="136" height="40"/>
@@ -259,6 +268,9 @@
                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="checkIn:" destination="Iad-c2-HnH" eventType="touchUpInside" id="ygD-J6-lQ7"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -282,7 +294,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DealCell" rowHeight="367" id="Foa-54-RuO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventDealTableViewCell" rowHeight="367" id="Foa-54-RuO" customClass="EventDealTableViewCell" customModule="Slide" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="475" width="320" height="367"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Foa-54-RuO" id="SNL-IV-zu6">
@@ -314,17 +326,16 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="88"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="150" id="tfl-Y5-5lz"/>
                                                                                         <constraint firstAttribute="height" constant="88" id="ybT-iO-8FN"/>
                                                                                     </constraints>
-                                                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cxW-Tx-vB3">
+                                                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="cxW-Tx-vB3">
                                                                                         <size key="itemSize" width="65" height="88"/>
                                                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                                     </collectionViewFlowLayout>
                                                                                     <cells>
-                                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VwZ-TV-5HX">
+                                                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="friendsCell" id="VwZ-TV-5HX">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="65" height="88"/>
                                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -382,6 +393,9 @@
                                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="invite:" destination="Foa-54-RuO" eventType="touchUpInside" id="3QP-GR-74i"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="7VR-Vn-rVO">
                                                                             <rect key="frame" x="144" y="0.0" width="136" height="40"/>
@@ -401,6 +415,9 @@
                                                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                         <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                     </state>
+                                                                                    <connections>
+                                                                                        <action selector="useDeal:" destination="Foa-54-RuO" eventType="touchUpInside" id="Srl-Bj-meV"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                             </subviews>
                                                                         </stackView>
@@ -497,6 +514,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="checkedInCountLabel" destination="NJE-Ak-b9n" id="oTC-tD-1E7"/>
+                                            <outlet property="checkedInUserList" destination="jqh-Gf-VhK" id="QWG-fp-SOi"/>
+                                            <outlet property="collectionViewStack" destination="gsO-Dl-YO6" id="cv4-JH-1tg"/>
+                                            <outlet property="dealDetailLabel" destination="xE0-mu-Rgm" id="fND-z1-Bcv"/>
+                                            <outlet property="expiryDateTimeLabel" destination="KEC-Gl-ozo" id="if8-pS-OHF"/>
+                                            <outlet property="inviteButton" destination="Mfz-do-aBz" id="jnQ-un-ckA"/>
+                                            <outlet property="placeImage" destination="Fgb-JO-pzI" id="9br-E0-1AT"/>
+                                            <outlet property="useDealButton" destination="REB-st-zKE" id="vl0-AM-NDi"/>
+                                            <outlet property="usedCountLabel" destination="0F4-Mx-bcg" id="oKI-0z-o14"/>
+                                            <outlet property="usedDealDateLabel" destination="JS1-E2-ROP" id="bK3-i5-BTZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -511,8 +540,18 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="checkInButton" destination="ocP-TS-AOv" id="Wra-N0-ziu"/>
+                        <outlet property="checkInStatusLabel" destination="6xc-Ua-nBv" id="PDw-3y-hhx"/>
+                        <outlet property="eventDateLabel" destination="FLR-iU-NRi" id="2La-0F-pHd"/>
+                        <outlet property="eventImageView" destination="x2N-pg-vGd" id="WBK-7z-0cc"/>
+                        <outlet property="eventNameLabel" destination="lSa-W3-Ade" id="iTG-eq-2eb"/>
+                        <outlet property="friendsCollectionView" destination="Kf6-8f-mIu" id="816-H2-ESz"/>
                         <outlet property="goingBottomConstraint" destination="vMI-Ds-m7Q" id="ctM-UC-L68"/>
+                        <outlet property="goingStatusLabel" destination="Cca-9z-4Sq" id="BZt-H4-t1P"/>
                         <outlet property="headerView" destination="gwK-7d-xCs" id="vRo-il-fS1"/>
+                        <outlet property="inviteButton" destination="mNz-y3-ZDe" id="GfL-tB-7dm"/>
+                        <outlet property="locationPinButton" destination="1BB-7P-SvV" id="kkV-4R-j79"/>
+                        <outlet property="placeDistanceLabel" destination="eNo-24-M8M" id="uwR-eO-H6v"/>
                         <outlet property="tableView" destination="QZN-p0-YXF" id="0tc-3E-A55"/>
                         <outlet property="tableViewHeader" destination="V6n-Yr-nLJ" id="dSU-ft-eGy"/>
                     </connections>
@@ -520,10 +559,10 @@
             </objects>
             <point key="canvasLocation" x="1350" y="-43.309859154929576"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--View Controller-->
         <scene sceneID="iWf-ge-qpJ">
             <objects>
-                <viewController storyboardIdentifier="EventDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lf4-0l-NNR" customClass="EventDetailViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lf4-0l-NNR" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C2U-VB-36U"/>
                         <viewControllerLayoutGuide type="bottom" id="TwP-Y2-uyH"/>
