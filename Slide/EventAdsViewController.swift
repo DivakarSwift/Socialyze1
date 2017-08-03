@@ -299,8 +299,8 @@ class EventAdsViewController: UIViewController {
             
         }
         else {
-            self.alert(message: GlobalConstants.Message.userNotInPerimeterToUseDeal)
-             var mass = GlobalConstants.Message.userNotInPerimeterToUseDeal
+            var mass = GlobalConstants.Message.userNotInPerimeterToUseDeal
+            //self.alert(message: GlobalConstants.Message.userNotInPerimeterToUseDeal)
             self.alert(message: mass)
             mass.okAction = {
                 self.openMessage()
