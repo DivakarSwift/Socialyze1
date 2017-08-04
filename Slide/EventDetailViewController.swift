@@ -315,7 +315,7 @@ class EventDetailViewController: UIViewController {
             self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
             self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
-            self.checkInButton.setTitle("Swipe", for: .normal)
+            self.checkInButton.setTitle("Connect", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.white, for: .normal)
             self.checkInButton.backgroundColor = UIColor.appPurple
@@ -503,7 +503,7 @@ class EventDetailViewController: UIViewController {
                 _ = self?.navigationController?.popViewController(animated: true)
             }
         }
-    }
+}
     
     
     
@@ -578,9 +578,9 @@ class EventDetailViewController: UIViewController {
             let friendCheckins = goingWithExpectUser.filter({fbIds.contains($0.fbId!)})
             
             if friendCheckins.count > 1 {
-                goignText = goignText + " including \(friendCheckins.count) friends"
+                goignText = goignText + ", \(friendCheckins.count) friends"
             } else if friendCheckins.count > 0 {
-                goignText = goignText + " including \(friendCheckins.count) friend"
+                goignText = goignText + ", \(friendCheckins.count) friend"
             }
             self.goingStatusLabel.text = goignText
             
@@ -598,9 +598,9 @@ class EventDetailViewController: UIViewController {
                 let friendCheckins = checkinData.filter({fbIds.contains($0.fbId!)})
                 
                 if friendCheckins.count > 1 {
-                    checkinText =  checkinText + " including \(friendCheckins.count) friends"
+                    checkinText =  checkinText + ", \(friendCheckins.count) friends"
                 } else if friendCheckins.count > 0 {
-                    checkinText = checkinText + " including \(friendCheckins.count) friend"
+                    checkinText = checkinText + ", \(friendCheckins.count) friend"
                 }
                 self.checkInStatusLabel.text = checkinText
             }
