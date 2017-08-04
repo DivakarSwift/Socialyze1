@@ -47,18 +47,19 @@ class ViewController: UIViewController {
             switch status {
             case .authorized: break
             case .denied:
-                self.alertWithOkCancel(message: "You might love to be notified on where your friends are going, has checked in and used the deal. Change it from settings anytime.", title: "Allow push notification alert", okTitle: "Settings", cancelTitle: "Cancel", okAction: {
+                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "Cancel", cancelTitle: "Settings", okAction: nil, cancelAction: {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
                     } else {
                         // Fallback on earlier versions
                         UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
                     }
-                }, cancelAction: nil)
+                
+            })
             case .notDetermined:
-                self.alertWithOkCancel(message: "You might love to be notified on where your friends are going, has checked in and used the deal. You can change it later from phone settings anytime.", title: "Allow push notification alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
+            self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
                     appDelegate.registerForNotification()
-                }, cancelAction: nil)
+                })
             }
         }
         
@@ -66,8 +67,8 @@ class ViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         
         self.observe(selector: #selector(self.locationUpdated), notification: GlobalConstants.Notification.newLocationObtained)
+        self.observe(selector: #selector(self.locationPermissionChanged), notification: GlobalConstants.Notification.locationAuthorizationStatusChanged)
         
-        SlydeLocationManager.shared.requestLocation()
         SlydeLocationManager.shared.delegate = self
         
         let mosaicLayout = TRMosaicLayout()
@@ -113,6 +114,7 @@ class ViewController: UIViewController {
         self.title = "Socialyze"
         UIApplication.shared.isStatusBarHidden = false
         self.navigationController?.navigationBar.isHidden = false
+        SlydeLocationManager.shared.requestLocation()
     }
     
     var places = [Place]() {

@@ -171,7 +171,7 @@ class EventAdsViewController: UIViewController {
     
     func useDeal() {
         guard let user = authenticator.user else { return }
-        
+        func callNetwork() {
         let minimumFriends = self.place?.deal?.minimumFriends ?? 0
         
         if self.eventUsers.filter({
@@ -185,7 +185,6 @@ class EventAdsViewController: UIViewController {
             return
         }
         
-        func callNetwork() {
             let fbIds = self.facebookFriends.map({$0.id}) // + ["101281293814104"];
             
             let params = [
