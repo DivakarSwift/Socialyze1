@@ -242,7 +242,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
         default:
             cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 18)
-            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 16)
+            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 15)
         }
         
         cell.starLabel.font = UIFont.systemFont(ofSize: 11)
@@ -308,6 +308,9 @@ extension ViewController: SlydeLocationManagerDelegate {
     
     func locationPermissionChanged() {
         
+        if SlydeLocationManager.shared.isDenied {
+            self.alert(message: GlobalConstants.Message.locationDenied)
+        }
     }
     
     func locationObtainError() {
