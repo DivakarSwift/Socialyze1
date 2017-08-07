@@ -850,7 +850,7 @@ extension EventDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 305
+         return 250
         // if indexPath == expandedCell {
        // return self.view.frame.height - Constants.heightOfSectionHeader
        // }
