@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "523798740.962288"
+            timestampString = "523801080.040642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "507"
-            endingLineNumber = "507"
+            startingLineNumber = "513"
+            endingLineNumber = "513"
             landmarkName = "checkInn(silence:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +170,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/CategoriesViewController.swift"
-                  timestampString = "523800373.883454"
+                  timestampString = "523801124.501278"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "329"
@@ -185,7 +185,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/CategoriesViewController.swift"
-                  timestampString = "523800373.886085"
+                  timestampString = "523801124.505974"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "329"
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "523798740.962288"
+            timestampString = "523801080.040642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "920"
-            endingLineNumber = "920">
+            startingLineNumber = "926"
+            endingLineNumber = "926">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -311,11 +311,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "523798740.962288"
+            timestampString = "523800896.358971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>

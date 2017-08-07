@@ -53,6 +53,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var friendsCollectionViewStack: UIStackView?
     @IBOutlet weak var eventDateTimeStack: UIStackView!
     @IBOutlet weak var collectionViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var placeNameLabel: UILabel!
     
     internal let facebookService = FacebookService.shared
     internal let userService = UserService()
@@ -244,10 +245,11 @@ class EventDetailViewController: UIViewController {
     func setupView() {
         if let place = self.place {
             self.isGoing = false
-            
+            self.placeNameLabel.text = place.nameAddress
             if let event = place.isEvent, event {
                 let eventTitle = place.event?.title ?? ""
-                self.eventNameLabel.text = eventTitle.isEmpty ? place.nameAddress : eventTitle
+                self.eventNameLabel.isHidden = eventTitle.isEmpty
+                self.eventNameLabel.text = eventTitle//.isEmpty ? place.nameAddress : eventTitle
                 let date = place.event?.date ?? ""
                 let time = place.event?.time ?? ""
                 self.eventDateLabel.text = date
@@ -260,8 +262,9 @@ class EventDetailViewController: UIViewController {
                 self.eventImageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
                 getGoingUsers()
             } else {
-                self.eventNameLabel.text = place.nameAddress
                 
+                self.eventNameLabel.text = place.nameAddress
+                self.eventNameLabel.isHidden = true
                 let date = place.date ?? ""
                 let time = place.time ?? ""
                 self.eventDateLabel.text = date
@@ -288,6 +291,9 @@ class EventDetailViewController: UIViewController {
         self.eventNameLabel.layer.shadowOpacity = 1.0
         self.eventNameLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         self.eventNameLabel.layer.shadowRadius = 3.0
+        self.placeNameLabel.layer.shadowOpacity = 1.0
+        self.placeNameLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        self.placeNameLabel.layer.shadowRadius = 3.0
         self.eventTimeLabel.layer.shadowOpacity = 1.0
         self.eventTimeLabel.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         self.eventTimeLabel.layer.shadowRadius = 3.0
