@@ -150,6 +150,8 @@ class EventDetailViewController: UIViewController {
     
     var eventUsers: [LocalUser] = [] {
         didSet {
+            self.friendsCollectionView.reloadData()
+            self.tableView.reloadData()
             self.activityIndicator.stopAnimating()
         }
     }
@@ -848,10 +850,11 @@ extension EventDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath == expandedCell {
-            return self.view.frame.height - Constants.heightOfSectionHeader
-        }
-        return Constants.heightOfCollapsedCell
+         return 305
+        // if indexPath == expandedCell {
+       // return self.view.frame.height - Constants.heightOfSectionHeader
+       // }
+       // return Constants.heightOfCollapsedCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

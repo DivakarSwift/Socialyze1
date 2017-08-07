@@ -228,7 +228,7 @@ extension EventDetailViewController {
                     }else {
                         self?.eventUsers.append(user)
                     }
-                    self?.friendsCollectionView.reloadData()
+                    // self?.friendsCollectionView.reloadData()
                 }
             })
         }

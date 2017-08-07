@@ -80,7 +80,7 @@ class EventDealTableViewCell: UITableViewCell {
                     return
                 }
             }
-            self.useDealButton.isEnabled = !iUsedDeal
+            self.useDealButton.isEnabled = !iUsedDeal && !self.isDealExpired
         }
     }
     
@@ -101,7 +101,9 @@ class EventDealTableViewCell: UITableViewCell {
                     self.useDealButton.isEnabled = false
                     self.expiryDateTimeLabel.text = "Deal Expired"
                     self.useDealButton.backgroundColor = UIColor.gray
+                    self.isDealExpired = true
                 }else {
+                    self.isDealExpired = false
                     self.useDealButton.isEnabled = true
                     self.useDealButton.backgroundColor = UIColor.init(red: 74/255, green: 176/255, blue: 80/255, alpha: 1)
                 }
@@ -112,6 +114,8 @@ class EventDealTableViewCell: UITableViewCell {
             self.getDeals()
         }
     }
+    
+   private var isDealExpired: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
