@@ -26,6 +26,8 @@ class EventAdsViewController: UIViewController {
     //    var deal:Deal?
     var isCheckedIn = false
     
+    var isDealExpired = false
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var checkedInLabel: UILabel!
@@ -88,8 +90,10 @@ class EventAdsViewController: UIViewController {
             if expiryDate.timeIntervalSince(Date()) <= 0 {
                 self.useDealBtn.isEnabled = false
                 self.expiryLabel.text = "Deal Expired"
+                self.isDealExpired = true
                 self.useDealBtn.backgroundColor = UIColor.gray
             }else {
+                self.isDealExpired = false
                 self.useDealBtn.isEnabled = true
                 self.useDealBtn.backgroundColor = UIColor.init(red: 74/255, green: 176/255, blue: 80/255, alpha: 1)
             }
@@ -257,7 +261,7 @@ class EventAdsViewController: UIViewController {
                     }
                 }
                 
-                self?.useDealBtn.isEnabled = !iUsedTheDeal
+                self?.useDealBtn.isEnabled = !iUsedTheDeal && !self.isDealExpired
             })
         }
     }
