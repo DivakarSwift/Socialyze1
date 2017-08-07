@@ -381,12 +381,16 @@ class EventDetailViewController: UIViewController {
     
     
     @IBAction func checkIn(_ sender: UIButton?) {
+        
         switch eventAction {
         case .going:
             self.going()
         case .goingSwipe:
-            if self.goingData.count != 0 {
-                self.openCategories()
+            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
+            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
+            
+            if userIdsSet.count != 0 {
+                self.openCategories(userId: userIdsSet)
             } else {
                 self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
                     
@@ -395,8 +399,10 @@ class EventDetailViewController: UIViewController {
         case .checkIn:
             self.checkInn()
         case .checkInSwipe:
-            if self.checkinData.count != 0 {
-                self.openCategories()
+            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
+            let userIdsSet = Set(self.checkinData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
+            if userIdsSet.count != 0 {
+                self.openCategories(userId: userIdsSet)
             } else {
                 self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
                     
@@ -406,7 +412,7 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    fileprivate func openCategories() {
+    fileprivate func openCategories(userId: Set<String>) {
         let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
         
         vc.place = self.place
@@ -417,14 +423,13 @@ class EventDetailViewController: UIViewController {
         vc.onDone = {
             self.alreadySwippedUsers.formUnion($0)
         }
+        
         if self.eventAction == .goingSwipe {
             vc.isGoing = true
-            let userIdsSet = Set(self.goingData.flatMap({$0.userId}))
-            vc.checkinUserIds = userIdsSet.subtracting(self.alreadySwippedUsers)
+            vc.checkinUserIds = userId
         } else if self.eventAction == .checkInSwipe {
             vc.isCheckedIn = true
-            let userIdsSet = Set(self.checkinData.flatMap({$0.userId}))
-            vc.checkinUserIds = userIdsSet.subtracting(self.alreadySwippedUsers)
+            vc.checkinUserIds = userId
         }
         self.present(vc, animated: true, completion: nil)
     }
