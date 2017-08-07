@@ -50,7 +50,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var checkInButton:UIButton!
     @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
-    @IBOutlet weak var friendsCollectionViewStack: UIStackView!
+    @IBOutlet weak var friendsCollectionViewStack: UIStackView?
     @IBOutlet weak var eventDateTimeStack: UIStackView!
     @IBOutlet weak var collectionViewWidthConstraint: NSLayoutConstraint!
     
@@ -623,10 +623,10 @@ class EventDetailViewController: UIViewController {
     
     func reloadFriendsCollectionView() {
         if self.getFacebookFriendEventUsers().count == 0 {
-            self.friendsCollectionViewStack.isHidden = true
+            self.friendsCollectionView.isHidden = true
             return
         }
-        self.friendsCollectionViewStack.isHidden = false
+        self.friendsCollectionView.isHidden = false
         self.friendsCollectionView.reloadData()
     }
     
@@ -850,7 +850,7 @@ extension EventDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 250
+         return 260
         // if indexPath == expandedCell {
        // return self.view.frame.height - Constants.heightOfSectionHeader
        // }

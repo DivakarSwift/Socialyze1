@@ -35,7 +35,7 @@ class EventDealTableViewCell: UITableViewCell {
     
     var isCollapsed: Bool = true {
         didSet {
-            detailTextLabel?.numberOfLines = isCollapsed ? 2 : 0
+            // detailTextLabel?.numberOfLines = isCollapsed ? 2 : 0
         }
     }
     
