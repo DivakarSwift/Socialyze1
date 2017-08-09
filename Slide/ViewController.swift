@@ -241,7 +241,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 24)
             cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
         default:
-            cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 18)
+            cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 16)
             cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 15)
         }
         

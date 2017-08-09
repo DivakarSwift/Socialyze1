@@ -71,7 +71,7 @@ class EventDealTableViewCell: UITableViewCell {
                     let dateFormatter = DateFormatter()
                     dateFormatter.locale = Locale(identifier: "en_US")
                     dateFormatter.timeZone = TimeZone.current
-                    dateFormatter.dateFormat = "d/M/yyyy h:mm a"
+                    dateFormatter.dateFormat = "M/d/yyyy h:mm a"
                     let string = dateFormatter.string(from: date)
                     self.usedDealDateLabel.text = string
                     
@@ -122,7 +122,8 @@ class EventDealTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-         // self.useDealButton.set(cornerRadius: 5)
+        self.useDealButton.set(cornerRadius: 5)
+        self.socialyzedView.set(cornerRadius:5)
         self.inviteButton.set(cornerRadius: 5)
     }
     
@@ -184,7 +185,7 @@ class EventDealTableViewCell: UITableViewCell {
                     self?.getDeals()
                     
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                    dateFormatter.dateFormat = "h:mm a '\n' M.d.yy"
                     dateFormatter.timeZone = TimeZone.current
                     let string = dateFormatter.string(from: Date())
                     self?.usedDealDateLabel.text = string

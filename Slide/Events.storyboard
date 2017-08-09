@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -426,7 +426,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcw-HG-Bs1">
-                                                            <rect key="frame" x="0.0" y="1" width="320" height="29"/>
+                                                            <rect key="frame" x="35" y="1" width="266" height="29"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="70S-26-nHx">
                                                                     <rect key="frame" x="0.0" y="2" width="320" height="25"/>
@@ -467,18 +467,18 @@
                                                             <constraints>
                                                                 <constraint firstItem="70S-26-nHx" firstAttribute="leading" secondItem="Pcw-HG-Bs1" secondAttribute="leading" id="Izy-3H-818"/>
                                                                 <constraint firstAttribute="bottom" secondItem="70S-26-nHx" secondAttribute="bottom" constant="2" id="TJS-2X-GCq"/>
-                                                                <constraint firstAttribute="trailing" secondItem="70S-26-nHx" secondAttribute="trailing" id="UnN-5b-rlY"/>
+                                                                <constraint firstAttribute="trailing" secondItem="70S-26-nHx" secondAttribute="trailing" constant="-54" id="UnN-5b-rlY"/>
                                                                 <constraint firstItem="70S-26-nHx" firstAttribute="top" secondItem="Pcw-HG-Bs1" secondAttribute="top" constant="2" id="Yuz-3K-zeR"/>
                                                                 <constraint firstAttribute="height" constant="29" id="tiL-tg-M9F"/>
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-wk-EL9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                                            <rect key="frame" x="35" y="0.0" width="266" height="30"/>
                                                             <color key="backgroundColor" red="0.2784313725" green="0.69019607839999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="mi4-4q-jbT"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                                             <state key="normal" title="Use Deal">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -548,7 +548,7 @@
                                                                                                 <constraint firstAttribute="height" constant="12" id="RVl-VU-rga"/>
                                                                                             </constraints>
                                                                                         </imageView>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till 30th July, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-Gl-ozo">
+                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till 30th July, 2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-Gl-ozo">
                                                                                             <rect key="frame" x="16" y="0.0" width="83" height="12"/>
                                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                                                             <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -567,15 +567,15 @@
                                                     <constraints>
                                                         <constraint firstItem="ZKo-CT-7Dt" firstAttribute="top" secondItem="NJE-Ak-b9n" secondAttribute="bottom" constant="5" id="3jG-oL-xfn"/>
                                                         <constraint firstItem="VdG-wk-EL9" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" id="GDD-QC-HVw"/>
-                                                        <constraint firstAttribute="trailing" secondItem="VdG-wk-EL9" secondAttribute="trailing" id="Gts-uz-XNM"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Pcw-HG-Bs1" secondAttribute="trailing" id="NtQ-oZ-Zdb"/>
-                                                        <constraint firstItem="VdG-wk-EL9" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="TGW-ry-5ZE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VdG-wk-EL9" secondAttribute="trailing" constant="19" id="Gts-uz-XNM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Pcw-HG-Bs1" secondAttribute="trailing" constant="19" id="NtQ-oZ-Zdb"/>
+                                                        <constraint firstItem="VdG-wk-EL9" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="35" id="TGW-ry-5ZE"/>
                                                         <constraint firstAttribute="bottom" secondItem="ZKo-CT-7Dt" secondAttribute="bottom" constant="10" id="Vcf-23-ClT"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZKo-CT-7Dt" secondAttribute="trailing" constant="10" id="W8x-Wd-1Ra"/>
                                                         <constraint firstItem="Pcw-HG-Bs1" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" constant="1" id="d6F-FA-agf"/>
                                                         <constraint firstItem="NJE-Ak-b9n" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="10" id="fil-ho-b7a"/>
                                                         <constraint firstAttribute="trailing" secondItem="NJE-Ak-b9n" secondAttribute="trailing" constant="10" id="mbA-na-oNY"/>
-                                                        <constraint firstItem="Pcw-HG-Bs1" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="qhw-Lm-mia"/>
+                                                        <constraint firstItem="Pcw-HG-Bs1" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="35" id="qhw-Lm-mia"/>
                                                         <constraint firstItem="NJE-Ak-b9n" firstAttribute="top" secondItem="VdG-wk-EL9" secondAttribute="bottom" constant="5" id="tzZ-XI-1Ot"/>
                                                         <constraint firstItem="ZKo-CT-7Dt" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="10" id="ztH-5F-7qd"/>
                                                     </constraints>
