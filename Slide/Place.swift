@@ -13,7 +13,7 @@ import ObjectMapper
 struct Place:Mappable {
     var nameAddress: String?
     var mainImage: String?
-    var secondImage: String?
+   // var secondImage: String?
     var lat: Double?
     var long: Double?
     var size: Int? // custom = 0, small = 1, medium = 2, large = 3
@@ -42,7 +42,7 @@ struct Place:Mappable {
     mutating func mapping(map: Map) {
         self.nameAddress <- map["nameAddress"]
         self.mainImage <- map["mainImage"]
-        self.secondImage <- map["secondImage"]
+        // self.secondImage <- map["secondImage"]
         self.lat <- map["lat"]
         self.long <- map["long"]
         self.size <- map["size"]

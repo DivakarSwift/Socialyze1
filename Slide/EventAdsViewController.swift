@@ -330,7 +330,7 @@ class EventAdsViewController: UIViewController {
         if let place = self.place {
             // self.descriptionLabel.text = place.bio
             
-            let image = place.secondImage ?? place.mainImage ?? ""
+            let image = place.mainImage ?? ""
             self.imageView.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
         }
     }

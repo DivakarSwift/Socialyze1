@@ -23,6 +23,7 @@ class EventDealTableViewCell: UITableViewCell {
     @IBOutlet weak var checkedInUserList: UICollectionView!
     @IBOutlet weak var collectionViewStack: UIStackView!
     @IBOutlet weak var collectionViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var socialyzedView: UIView!
     
     var parentViewController: UIViewController?
     
@@ -43,9 +44,8 @@ class EventDealTableViewCell: UITableViewCell {
         didSet {
             let isFriendsCheckedIn = checkedInFriends.count > 0
             self.collectionViewStack.isHidden = !isFriendsCheckedIn
-            self.checkedInCountLabel.isHidden = !isFriendsCheckedIn
-            
-            self.checkedInCountLabel.text = "\(checkedInFriends.count) of 2 required friends checked in"
+//            self.checkedInCountLabel.isHidden = !isFriendsCheckedIn
+            self.checkedInCountLabel.text = "\(checkedInFriends.count) friends checked in"
             checkedInUserList.reloadData()
         }
     }
@@ -71,7 +71,7 @@ class EventDealTableViewCell: UITableViewCell {
                     let dateFormatter = DateFormatter()
                     dateFormatter.locale = Locale(identifier: "en_US")
                     dateFormatter.timeZone = TimeZone.current
-                    dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+                    dateFormatter.dateFormat = "d/M/yyyy h:mm a"
                     let string = dateFormatter.string(from: date)
                     self.usedDealDateLabel.text = string
                     
@@ -88,6 +88,7 @@ class EventDealTableViewCell: UITableViewCell {
     var place: Place? {
         didSet {
             self.dealDetailLabel.text = place?.deal?.detail
+            self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(place?.deal?.minimumFriends ?? 0) required friends checked in"
             
             if let expiryDate = self.dateFormatter().date(from: self.place?.deal?.expiry ?? " ") {
                 let form = DateComponentsFormatter()
@@ -109,7 +110,7 @@ class EventDealTableViewCell: UITableViewCell {
                     self.useDealButton.backgroundColor = UIColor.init(red: 74/255, green: 176/255, blue: 80/255, alpha: 1)
                 }
             }
-            let image = place?.event?.image ?? place?.mainImage ?? ""
+            let image = place?.deal?.image ?? place?.mainImage ?? ""
             self.placeImage.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
             self.useDealButton.isEnabled = false
             self.getDeals()

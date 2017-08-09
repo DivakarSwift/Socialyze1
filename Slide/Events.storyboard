@@ -425,15 +425,53 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOn-1D-Twq">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Used at 22.22.44 09.55 pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JS1-E2-ROP">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pcw-HG-Bs1">
+                                                            <rect key="frame" x="0.0" y="1" width="320" height="29"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="70S-26-nHx">
+                                                                    <rect key="frame" x="0.0" y="2" width="320" height="25"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ubP-Ix-Tg7">
+                                                                            <rect key="frame" x="27.5" y="0.0" width="265" height="25"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIALYZED" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-AX-dIk">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="25"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="90" id="e1n-t9-gIY"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ladybird" translatesAutoresizingMaskIntoConstraints="NO" id="Blj-Mg-HDr">
+                                                                                    <rect key="frame" x="110" y="0.0" width="25" height="25"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="Blj-Mg-HDr" secondAttribute="height" multiplier="1:1" id="gjd-sd-Jhi"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.22.44 09.55 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JS1-E2-ROP">
+                                                                                    <rect key="frame" x="155" y="0.0" width="110" height="25"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="110" id="1IZ-I2-jiK"/>
+                                                                                    </constraints>
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="Q7J-xW-bVB"/>
+                                                                <constraint firstItem="70S-26-nHx" firstAttribute="leading" secondItem="Pcw-HG-Bs1" secondAttribute="leading" id="Izy-3H-818"/>
+                                                                <constraint firstAttribute="bottom" secondItem="70S-26-nHx" secondAttribute="bottom" constant="2" id="TJS-2X-GCq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="70S-26-nHx" secondAttribute="trailing" id="UnN-5b-rlY"/>
+                                                                <constraint firstItem="70S-26-nHx" firstAttribute="top" secondItem="Pcw-HG-Bs1" secondAttribute="top" constant="2" id="Yuz-3K-zeR"/>
+                                                                <constraint firstAttribute="height" constant="29" id="tiL-tg-M9F"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-wk-EL9">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                             <color key="backgroundColor" red="0.2784313725" green="0.69019607839999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -530,14 +568,14 @@
                                                         <constraint firstItem="ZKo-CT-7Dt" firstAttribute="top" secondItem="NJE-Ak-b9n" secondAttribute="bottom" constant="5" id="3jG-oL-xfn"/>
                                                         <constraint firstItem="VdG-wk-EL9" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" id="GDD-QC-HVw"/>
                                                         <constraint firstAttribute="trailing" secondItem="VdG-wk-EL9" secondAttribute="trailing" id="Gts-uz-XNM"/>
-                                                        <constraint firstItem="JS1-E2-ROP" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" id="OOb-xJ-6sf"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Pcw-HG-Bs1" secondAttribute="trailing" id="NtQ-oZ-Zdb"/>
                                                         <constraint firstItem="VdG-wk-EL9" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="TGW-ry-5ZE"/>
                                                         <constraint firstAttribute="bottom" secondItem="ZKo-CT-7Dt" secondAttribute="bottom" constant="10" id="Vcf-23-ClT"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZKo-CT-7Dt" secondAttribute="trailing" constant="10" id="W8x-Wd-1Ra"/>
+                                                        <constraint firstItem="Pcw-HG-Bs1" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" constant="1" id="d6F-FA-agf"/>
                                                         <constraint firstItem="NJE-Ak-b9n" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="10" id="fil-ho-b7a"/>
-                                                        <constraint firstItem="JS1-E2-ROP" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="h1X-ju-q1O"/>
                                                         <constraint firstAttribute="trailing" secondItem="NJE-Ak-b9n" secondAttribute="trailing" constant="10" id="mbA-na-oNY"/>
-                                                        <constraint firstAttribute="trailing" secondItem="JS1-E2-ROP" secondAttribute="trailing" id="s6j-Go-Mmh"/>
+                                                        <constraint firstItem="Pcw-HG-Bs1" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="qhw-Lm-mia"/>
                                                         <constraint firstItem="NJE-Ak-b9n" firstAttribute="top" secondItem="VdG-wk-EL9" secondAttribute="bottom" constant="5" id="tzZ-XI-1Ot"/>
                                                         <constraint firstItem="ZKo-CT-7Dt" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="10" id="ztH-5F-7qd"/>
                                                     </constraints>
@@ -570,6 +608,7 @@
                                             <outlet property="expiryDateTimeLabel" destination="KEC-Gl-ozo" id="if8-pS-OHF"/>
                                             <outlet property="inviteButton" destination="Mfz-do-aBz" id="jnQ-un-ckA"/>
                                             <outlet property="placeImage" destination="Fgb-JO-pzI" id="9br-E0-1AT"/>
+                                            <outlet property="socialyzedView" destination="Pcw-HG-Bs1" id="Vp1-YX-Nqs"/>
                                             <outlet property="useDealButton" destination="VdG-wk-EL9" id="4w2-3M-g47"/>
                                             <outlet property="usedCountLabel" destination="0F4-Mx-bcg" id="oKI-0z-o14"/>
                                             <outlet property="usedDealDateLabel" destination="JS1-E2-ROP" id="bK3-i5-BTZ"/>
@@ -1312,6 +1351,7 @@
         <image name="icons_date" width="22" height="22"/>
         <image name="icons_invite" width="16" height="16"/>
         <image name="invitefriendssolidicon" width="32" height="32"/>
+        <image name="ladybird" width="149" height="149"/>
         <image name="location-pin" width="32" height="32"/>
     </resources>
 </document>

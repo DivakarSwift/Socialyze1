@@ -14,6 +14,7 @@ class Deal: Mappable{
     var expiry:String?
     var minimumFriends: Int?
     var uid: String?
+    var image: String?
     
     required init?(map: Map) {
     }
@@ -23,6 +24,7 @@ class Deal: Mappable{
         expiry <- map["expiryDate"]
         minimumFriends <- map["minimumFriends"]
         uid <- map["uid"]
+        image <- map["image"]
     }
 }
 
