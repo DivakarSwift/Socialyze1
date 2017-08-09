@@ -25,7 +25,7 @@ class EventDetailViewController: UIViewController {
     
     struct Constants {
         static let heightOfSectionHeader: CGFloat = 50
-        static let heightOfCollapsedCell: CGFloat = 64
+        static let heightOfCollapsedCell: CGFloat = 123
     }
     
     @IBOutlet weak var goingBottomConstraint: NSLayoutConstraint!
@@ -847,18 +847,18 @@ extension EventDetailViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension EventDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.heightOfSectionHeader
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.heightOfSectionHeader
-    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return Constants.heightOfSectionHeader
+//    }
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+//        return Constants.heightOfSectionHeader
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 260
+//         return 260
         // if indexPath == expandedCell {
-       // return self.view.frame.height - Constants.heightOfSectionHeader
+        return self.view.frame.height - Constants.heightOfSectionHeader
        // }
        // return Constants.heightOfCollapsedCell
     }
@@ -886,9 +886,9 @@ extension EventDetailViewController: UITableViewDataSource {
         return self.place?.hasDeal == true ? 1 : 0
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return headerView
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        return headerView
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
