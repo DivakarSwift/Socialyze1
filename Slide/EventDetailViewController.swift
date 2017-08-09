@@ -25,7 +25,7 @@ class EventDetailViewController: UIViewController {
     
     struct Constants {
         static let heightOfSectionHeader: CGFloat = 0
-        static let heightOfCollapsedCell: CGFloat = 118
+        static let heightOfCollapsedCell: CGFloat = 150
     }
     
     @IBOutlet weak var goingBottomConstraint: NSLayoutConstraint!
@@ -385,6 +385,7 @@ class EventDetailViewController: UIViewController {
                 }
                 return false
             })
+            .sorted(by: {$0.0.isCheckedIn})
     }
     
     

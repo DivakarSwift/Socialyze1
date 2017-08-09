@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "523801080.040642"
+            timestampString = "523935667.54143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "513"
-            endingLineNumber = "513"
+            startingLineNumber = "514"
+            endingLineNumber = "514"
             landmarkName = "checkInn(silence:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,7 +170,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/CategoriesViewController.swift"
-                  timestampString = "523935132.729435"
+                  timestampString = "523935668.817638"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "329"
@@ -185,7 +185,7 @@
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/CategoriesViewController.swift"
-                  timestampString = "523935132.733332"
+                  timestampString = "523935668.821946"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "329"
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "523801080.040642"
+            timestampString = "523935667.54143"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "926"
-            endingLineNumber = "926">
+            startingLineNumber = "927"
+            endingLineNumber = "927">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
