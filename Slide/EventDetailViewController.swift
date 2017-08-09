@@ -786,9 +786,9 @@ extension EventDetailViewController : UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        let count =  self.getFacebookFriendEventUsers().count
+        let count = self.getFacebookFriendEventUsers().count
         let width = (65 * count) + (10 * (count - 1))
-        self.collectionViewWidthConstraint.constant = min(CGFloat(width), self.view.frame.width - 40)
+        self.collectionViewWidthConstraint.constant = min(CGFloat(width), self.view.frame.width - 40 - (2 * 68))
         return count
     }
     
