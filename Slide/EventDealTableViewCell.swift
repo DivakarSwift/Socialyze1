@@ -121,7 +121,7 @@ class EventDealTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        // self.useDealButton.set(cornerRadius: 5)
+         // self.useDealButton.set(cornerRadius: 5)
         self.inviteButton.set(cornerRadius: 5)
     }
     
@@ -207,7 +207,6 @@ class EventDealTableViewCell: UITableViewCell {
         } else if place?.size == 0 {
             thresholdRadius = 0
         }
-        
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
             action()
             

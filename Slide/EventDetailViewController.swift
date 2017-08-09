@@ -25,7 +25,7 @@ class EventDetailViewController: UIViewController {
     
     struct Constants {
         static let heightOfSectionHeader: CGFloat = 0
-        static let heightOfCollapsedCell: CGFloat = 150
+        static let heightOfCollapsedCell: CGFloat = 125
     }
     
     @IBOutlet weak var goingBottomConstraint: NSLayoutConstraint!

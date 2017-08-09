@@ -302,7 +302,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barxxxx" translatesAutoresizingMaskIntoConstraints="NO" id="Fgb-JO-pzI">
-                                                    <rect key="frame" x="0.0" y="150" width="320" height="109.5"/>
+                                                    <rect key="frame" x="0.0" y="125.5" width="320" height="134"/>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="yOp-Jd-hOi">
                                                     <rect key="frame" x="0.0" y="72" width="320" height="187.5"/>
@@ -423,19 +423,19 @@
                                                     </subviews>
                                                 </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOn-1D-Twq">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="125.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 friends checked in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NJE-Ak-b9n">
-                                                            <rect key="frame" x="10" y="0.0" width="300" height="21.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Used at 22.22.44 09.55 pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JS1-E2-ROP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="21.5" id="i2w-hV-cnu"/>
+                                                                <constraint firstAttribute="height" constant="30" id="Q7J-xW-bVB"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                             <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-wk-EL9">
-                                                            <rect key="frame" x="0.0" y="27" width="320" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdG-wk-EL9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                             <color key="backgroundColor" red="0.2784313725" green="0.69019607839999997" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="mi4-4q-jbT"/>
@@ -450,8 +450,17 @@
                                                                 <action selector="useDeal:" destination="Foa-54-RuO" eventType="touchUpInside" id="9wk-SZ-Dj2"/>
                                                             </connections>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99 friends checked in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="NJE-Ak-b9n">
+                                                            <rect key="frame" x="10" y="35" width="300" height="21.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21.5" id="i2w-hV-cnu"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZKo-CT-7Dt">
-                                                            <rect key="frame" x="10" y="62" width="300" height="78"/>
+                                                            <rect key="frame" x="10" y="61.5" width="300" height="54"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2GY-Ms-Uhc">
                                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="32"/>
@@ -468,7 +477,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AhS-Nj-cUv">
-                                                                    <rect key="frame" x="0.0" y="42" width="300" height="36"/>
+                                                                    <rect key="frame" x="0.0" y="42" width="300" height="12"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rOI-93-2n0">
                                                                             <rect key="frame" x="0.0" y="0.0" width="167" height="12"/>
@@ -511,12 +520,6 @@
                                                                                 </stackView>
                                                                             </subviews>
                                                                         </stackView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deal Used at 22.22.44 09.55 pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JS1-E2-ROP">
-                                                                            <rect key="frame" x="0.0" y="22" width="173.5" height="14"/>
-                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -524,15 +527,18 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="ZKo-CT-7Dt" firstAttribute="top" secondItem="VdG-wk-EL9" secondAttribute="bottom" constant="5" id="4nj-gu-8Bz"/>
-                                                        <constraint firstItem="NJE-Ak-b9n" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" id="5aL-Ww-qos"/>
+                                                        <constraint firstItem="ZKo-CT-7Dt" firstAttribute="top" secondItem="NJE-Ak-b9n" secondAttribute="bottom" constant="5" id="3jG-oL-xfn"/>
+                                                        <constraint firstItem="VdG-wk-EL9" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" id="GDD-QC-HVw"/>
                                                         <constraint firstAttribute="trailing" secondItem="VdG-wk-EL9" secondAttribute="trailing" id="Gts-uz-XNM"/>
+                                                        <constraint firstItem="JS1-E2-ROP" firstAttribute="top" secondItem="xOn-1D-Twq" secondAttribute="top" id="OOb-xJ-6sf"/>
                                                         <constraint firstItem="VdG-wk-EL9" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="TGW-ry-5ZE"/>
                                                         <constraint firstAttribute="bottom" secondItem="ZKo-CT-7Dt" secondAttribute="bottom" constant="10" id="Vcf-23-ClT"/>
                                                         <constraint firstAttribute="trailing" secondItem="ZKo-CT-7Dt" secondAttribute="trailing" constant="10" id="W8x-Wd-1Ra"/>
                                                         <constraint firstItem="NJE-Ak-b9n" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="10" id="fil-ho-b7a"/>
+                                                        <constraint firstItem="JS1-E2-ROP" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" id="h1X-ju-q1O"/>
                                                         <constraint firstAttribute="trailing" secondItem="NJE-Ak-b9n" secondAttribute="trailing" constant="10" id="mbA-na-oNY"/>
-                                                        <constraint firstItem="VdG-wk-EL9" firstAttribute="top" secondItem="NJE-Ak-b9n" secondAttribute="bottom" constant="5" id="yvz-Gl-Igv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JS1-E2-ROP" secondAttribute="trailing" id="s6j-Go-Mmh"/>
+                                                        <constraint firstItem="NJE-Ak-b9n" firstAttribute="top" secondItem="VdG-wk-EL9" secondAttribute="bottom" constant="5" id="tzZ-XI-1Ot"/>
                                                         <constraint firstItem="ZKo-CT-7Dt" firstAttribute="leading" secondItem="xOn-1D-Twq" secondAttribute="leading" constant="10" id="ztH-5F-7qd"/>
                                                     </constraints>
                                                 </view>
@@ -564,7 +570,7 @@
                                             <outlet property="expiryDateTimeLabel" destination="KEC-Gl-ozo" id="if8-pS-OHF"/>
                                             <outlet property="inviteButton" destination="Mfz-do-aBz" id="jnQ-un-ckA"/>
                                             <outlet property="placeImage" destination="Fgb-JO-pzI" id="9br-E0-1AT"/>
-                                            <outlet property="useDealButton" destination="REB-st-zKE" id="vl0-AM-NDi"/>
+                                            <outlet property="useDealButton" destination="VdG-wk-EL9" id="4w2-3M-g47"/>
                                             <outlet property="usedCountLabel" destination="0F4-Mx-bcg" id="oKI-0z-o14"/>
                                             <outlet property="usedDealDateLabel" destination="JS1-E2-ROP" id="bK3-i5-BTZ"/>
                                         </connections>

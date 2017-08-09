@@ -31,7 +31,10 @@ class DealService: FirebaseManager {
         dataRef.observeSingleEvent(of: .value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
-                
+                let deal = PlaceDeal()
+                deal.count = 0
+                deal.users = [:]
+                completion(deal)
             }else{
                 let dealDic = snapshot.value as! [String:Any]
                 if let deal = Mapper<PlaceDeal>().map(JSON: dealDic) {

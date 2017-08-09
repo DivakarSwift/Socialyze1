@@ -30,6 +30,8 @@ class PlaceDeal: Mappable {
     var count:Int?
     var users:[String:Any]?
     
+    init() {}
+    
     required init?(map: Map) {
     }
     

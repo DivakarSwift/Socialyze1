@@ -13,7 +13,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import MessageUI
 
-let checkInThreshold: TimeInterval = 3000*60*60 //3hr
+let checkInThreshold: TimeInterval = 3*60*60 //3hr
 let goingThreshold: TimeInterval = 3 * 60 * 60 // 3hr
 
 class PlaceDetailViewController: UIViewController {
