@@ -120,7 +120,7 @@ class EventDealTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
-        self.useDealButton.set(cornerRadius: 5)
+        // self.useDealButton.set(cornerRadius: 5)
         self.inviteButton.set(cornerRadius: 5)
     }
     
