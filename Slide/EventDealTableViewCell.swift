@@ -45,7 +45,7 @@ class EventDealTableViewCell: UITableViewCell {
             self.collectionViewStack.isHidden = !isFriendsCheckedIn
             self.checkedInCountLabel.isHidden = !isFriendsCheckedIn
             
-            self.checkedInCountLabel.text = "\(checkedInFriends.count) friends checked in"
+            self.checkedInCountLabel.text = "\(checkedInFriends.count) of 2 required friends checked in"
             checkedInUserList.reloadData()
         }
     }
