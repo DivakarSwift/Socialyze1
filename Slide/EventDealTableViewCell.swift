@@ -55,7 +55,8 @@ class EventDealTableViewCell: UITableViewCell {
             self.usedCountLabel.text = "\(placeDeal?.count ?? 0) Used"
             
             self.useDealButton.isHidden = false
-            self.usedDealDateLabel.isHidden = true
+            // self.usedDealDateLabel.isHidden = true
+            self.usedDealDateLabel.text = " "
             
             var iUsedDeal = false
             
@@ -74,7 +75,7 @@ class EventDealTableViewCell: UITableViewCell {
                     let string = dateFormatter.string(from: date)
                     self.usedDealDateLabel.text = string
                     
-                    self.usedDealDateLabel.isHidden = false
+                   // self.usedDealDateLabel.isHidden = false
                     self.useDealButton.isHidden = true
                     
                     return
