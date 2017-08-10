@@ -251,7 +251,7 @@
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocP-TS-AOv">
                                                                             <rect key="frame" x="0.0" y="26.5" width="68" height="35"/>
-                                                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="backgroundColor" red="0.63529411759999999" green="0.043137254899999998" blue="0.078431372550000003" alpha="0.84824486300000002" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                                                             <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                                                             <state key="normal" title="GOING">
@@ -432,9 +432,9 @@
                                                                     <rect key="frame" x="0.0" y="2" width="320" height="25"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ubP-Ix-Tg7">
-                                                                            <rect key="frame" x="27.5" y="0.0" width="265" height="25"/>
+                                                                            <rect key="frame" x="15" y="0.0" width="290" height="25"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIALYZED" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-AX-dIk">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SOCIALYZED" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-AX-dIk">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="25"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="90" id="e1n-t9-gIY"/>
@@ -449,10 +449,10 @@
                                                                                         <constraint firstAttribute="width" secondItem="Blj-Mg-HDr" secondAttribute="height" multiplier="1:1" id="gjd-sd-Jhi"/>
                                                                                     </constraints>
                                                                                 </imageView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.22.44 09.55 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JS1-E2-ROP">
-                                                                                    <rect key="frame" x="155" y="0.0" width="110" height="25"/>
+                                                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22.22.44 09.55pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JS1-E2-ROP">
+                                                                                    <rect key="frame" x="155" y="0.0" width="135" height="25"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="110" id="1IZ-I2-jiK"/>
+                                                                                        <constraint firstAttribute="width" constant="135" id="1IZ-I2-jiK"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -518,10 +518,10 @@
                                                                     <rect key="frame" x="0.0" y="42" width="300" height="12"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rOI-93-2n0">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="167" height="12"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="12"/>
                                                                             <subviews>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Dat-aJ-7vA">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="48" height="12"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="12"/>
                                                                                     <subviews>
                                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_used" translatesAutoresizingMaskIntoConstraints="NO" id="QQn-5K-UOl">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
@@ -531,7 +531,7 @@
                                                                                             </constraints>
                                                                                         </imageView>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Used" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0F4-Mx-bcg">
-                                                                                            <rect key="frame" x="16" y="0.0" width="32" height="12"/>
+                                                                                            <rect key="frame" x="16" y="0.0" width="164" height="12"/>
                                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
                                                                                             <color key="textColor" red="0.4705343246" green="0.47061932090000003" blue="0.47052896020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <nil key="highlightedColor"/>
@@ -539,24 +539,50 @@
                                                                                     </subviews>
                                                                                 </stackView>
                                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="8mR-JE-tnE">
-                                                                                    <rect key="frame" x="68" y="0.0" width="99" height="12"/>
+                                                                                    <rect key="frame" x="200" y="0.0" width="100" height="12"/>
                                                                                     <subviews>
-                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons_date" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-si-wT6">
+                                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clockicon" translatesAutoresizingMaskIntoConstraints="NO" id="d1S-si-wT6">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
                                                                                             <constraints>
                                                                                                 <constraint firstAttribute="width" secondItem="d1S-si-wT6" secondAttribute="height" multiplier="1:1" id="IBL-O6-TCd"/>
                                                                                                 <constraint firstAttribute="height" constant="12" id="RVl-VU-rga"/>
                                                                                             </constraints>
                                                                                         </imageView>
-                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till 30th July, 2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-Gl-ozo">
-                                                                                            <rect key="frame" x="16" y="0.0" width="83" height="12"/>
-                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
-                                                                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                            <nil key="highlightedColor"/>
-                                                                                        </label>
+                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XBH-Jo-S3A">
+                                                                                            <rect key="frame" x="16" y="0.0" width="84" height="12"/>
+                                                                                            <subviews>
+                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hDO-gY-nj8">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="12"/>
+                                                                                                    <subviews>
+                                                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rmY-Wh-xC4">
+                                                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="12"/>
+                                                                                                            <subviews>
+                                                                                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hTX-1i-s5P">
+                                                                                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="12"/>
+                                                                                                                    <subviews>
+                                                                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Till 30th July, 2017" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEC-Gl-ozo">
+                                                                                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="12"/>
+                                                                                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="10"/>
+                                                                                                                            <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                                                            <nil key="highlightedColor"/>
+                                                                                                                        </label>
+                                                                                                                    </subviews>
+                                                                                                                </stackView>
+                                                                                                            </subviews>
+                                                                                                        </stackView>
+                                                                                                    </subviews>
+                                                                                                </stackView>
+                                                                                            </subviews>
+                                                                                        </stackView>
                                                                                     </subviews>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="5cJ-Di-r7g"/>
+                                                                                    </constraints>
                                                                                 </stackView>
                                                                             </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="width" constant="300" id="M7j-gC-568"/>
+                                                                            </constraints>
                                                                         </stackView>
                                                                     </subviews>
                                                                 </stackView>
@@ -1341,6 +1367,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clockicon" width="24" height="24"/>
         <image name="DealUsedImage" width="225" height="225"/>
         <image name="barxxxx" width="2400" height="1600"/>
         <image name="checkinbutton32x32" width="32" height="32"/>

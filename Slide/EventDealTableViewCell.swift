@@ -71,7 +71,7 @@ class EventDealTableViewCell: UITableViewCell {
                     let dateFormatter = DateFormatter()
                     dateFormatter.locale = Locale(identifier: "en_US")
                     dateFormatter.timeZone = TimeZone.current
-                    dateFormatter.dateFormat = "M/d/yyyy h:mm a"
+                    dateFormatter.dateFormat = "M/d/yy h:mm a"
                     let string = dateFormatter.string(from: date)
                     self.usedDealDateLabel.text = string
                     
@@ -138,7 +138,7 @@ class EventDealTableViewCell: UITableViewCell {
     
     private func dateFormatter() -> DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        dateFormatter.dateFormat = "yy-MM-dd HH:mm"
         dateFormatter.timeZone = TimeZone.current
         return dateFormatter
     }
