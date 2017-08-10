@@ -317,10 +317,10 @@ class EventDetailViewController: UIViewController {
             self.checkInButton.setTitle("Going", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.white, for: .normal)
-            self.checkInButton.backgroundColor = UIColor.appGreen
+            //self.checkInButton.backgroundColor = UIColor.blue
         case .checkIn:
             self.checkInButton.setTitle("Check In", for: .normal)
-            self.checkInButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
+            self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
             self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
