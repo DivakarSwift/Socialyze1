@@ -60,7 +60,13 @@ class EventDetailViewController: UIViewController {
     internal let authenticator = Authenticator.shared
     internal let placeService = PlaceService()
     
-    var place: Place?
+    var place: Place? {
+        didSet {
+            self.validDeals = place?.validDeals() ?? []
+        }
+    }
+    var validDeals = [Deal]()
+    
     var isEvent:Bool?
     
     fileprivate var thresholdRadius = 30.48 //100ft
@@ -168,9 +174,15 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // if hasDeal
-        tableViewHeader.frame.size.height = self.view.frame.height - (self.place?.hasDeal == true ? (Constants.heightOfSectionHeader + Constants.heightOfCollapsedCell) : 0)
-        // if no deal height = view.frame.height
+        func setHeaderHeight() {
+            // if hasDeal
+            let dealCount = self.validDeals.count
+            let hasDeal = self.place?.hasDeal ?? false
+            tableViewHeader.frame.size.height = self.view.frame.height - ((dealCount > 0 && hasDeal) ? (Constants.heightOfSectionHeader + Constants.heightOfCollapsedCell) : 0)
+            // if no deal height = view.frame.height
+        }
+        
+        setHeaderHeight()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -190,8 +202,7 @@ class EventDetailViewController: UIViewController {
         
         self.placeService.getFreshPlace(place: self.place!) { (place) in
             self.place = place
-            
-            self.tableViewHeader.frame.size.height = self.view.frame.height - (self.place?.hasDeal == true ? (Constants.heightOfSectionHeader + Constants.heightOfCollapsedCell) : 0)
+            setHeaderHeight()
             
             if self.facebookService.isUserFriendsPermissionGiven() {
                 self.getUserFriends()
@@ -317,16 +328,16 @@ class EventDetailViewController: UIViewController {
             self.checkInButton.setTitle("Going", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.white, for: .normal)
-            //self.checkInButton.backgroundColor = UIColor.blue
+        //self.checkInButton.backgroundColor = UIColor.blue
         case .checkIn:
             self.checkInButton.setTitle("Check In", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             //self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
-            //self.checkInButton.backgroundColor = UIColor.white
+        //self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
             self.checkInButton.setTitle("Connect", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
-           // self.checkInButton.setTitleColor(UIColor., for: .normal)
+            // self.checkInButton.setTitleColor(UIColor., for: .normal)
             //self.checkInButton.backgroundColor = UIColor.white
         }
     }
@@ -521,7 +532,7 @@ class EventDetailViewController: UIViewController {
                 _ = self?.navigationController?.popViewController(animated: true)
             }
         }
-}
+    }
     
     
     
@@ -848,20 +859,20 @@ extension EventDetailViewController: UIViewControllerTransitioningDelegate {
 }
 
 extension EventDetailViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return Constants.heightOfSectionHeader
-//    }
-//    
-//    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
-//        return Constants.heightOfSectionHeader
-//    }
+    //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //        return Constants.heightOfSectionHeader
+    //    }
+    //
+    //    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+    //        return Constants.heightOfSectionHeader
+    //    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//         return 260
+        //         return 260
         // if indexPath == expandedCell {
         return self.view.frame.height - Constants.heightOfSectionHeader
-       // }
-       // return Constants.heightOfCollapsedCell
+        // }
+        // return Constants.heightOfCollapsedCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -884,15 +895,13 @@ extension EventDetailViewController: UITableViewDelegate {
 
 extension EventDetailViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.place?.hasDeal == true ? 1 : 0
+        let dealCount = self.validDeals.count
+        let hasDeal = self.place?.hasDeal ?? false
+        return hasDeal && dealCount > 0 ? 1 : 0
     }
     
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        return headerView
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.validDeals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -907,6 +916,7 @@ extension EventDetailViewController: UITableViewDataSource {
             self?.showUserDetail(user: localUser)
         }
         cell.place = self.place
+        cell.deal = self.validDeals[indexPath.row]
         return cell
     }
 }

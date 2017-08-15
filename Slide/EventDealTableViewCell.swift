@@ -85,12 +85,14 @@ class EventDealTableViewCell: UITableViewCell {
         }
     }
     
-    var place: Place? {
+    var place: Place?
+    
+    var deal: Deal? {
         didSet {
-            self.dealDetailLabel.text = place?.deal?.detail
-            self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(place?.deal?.minimumFriends ?? 0) required friends checked in"
+            self.dealDetailLabel.text = deal?.detail
+            self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(deal?.minimumFriends ?? 0) required friends checked in"
             
-            if let expiryDate = self.dateFormatter().date(from: self.place?.deal?.expiry ?? " ") {
+            if let expiryDate = self.dateFormatter().date(from: (deal?.expiry ?? "") + "T" + (deal?.endTime ?? "")) {
                 let form = DateComponentsFormatter()
                 form.maximumUnitCount = 2
                 form.unitsStyle = .abbreviated
@@ -110,7 +112,7 @@ class EventDealTableViewCell: UITableViewCell {
                     self.useDealButton.backgroundColor = UIColor.init(red: 74/255, green: 176/255, blue: 80/255, alpha: 1)
                 }
             }
-            let image = place?.deal?.image ?? place?.mainImage ?? ""
+            let image = deal?.image ?? place?.mainImage ?? ""
             self.placeImage.kf.setImage(with: URL(string: image), placeholder: #imageLiteral(resourceName: "OriginalBug") )
             self.useDealButton.isEnabled = false
             self.getDeals()
@@ -138,7 +140,7 @@ class EventDealTableViewCell: UITableViewCell {
     
     private func dateFormatter() -> DateFormatter {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy-MM-dd HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
         dateFormatter.timeZone = TimeZone.current
         return dateFormatter
     }
@@ -147,7 +149,7 @@ class EventDealTableViewCell: UITableViewCell {
         guard let user = authenticator.user else { return }
         
         self.checkInn {
-            let minimumFriends = self.place?.deal?.minimumFriends ?? 0
+            let minimumFriends = self.deal?.minimumFriends ?? 0
             
             if self.checkedInFriends.filter({
                 $0.id != user.id
@@ -157,6 +159,11 @@ class EventDealTableViewCell: UITableViewCell {
                     self.onInvite?()
                 }
                 self.parentViewController?.alert(message: msg)
+                return
+            }
+            
+            if self.deal?.isValid() == false {
+                self.parentViewController?.alert(message: GlobalConstants.Message.invalidDeal)
                 return
             }
             
@@ -172,7 +179,7 @@ class EventDealTableViewCell: UITableViewCell {
                 "notificationTitle": "\(self.authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
                 "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
                 "friendsFbId": fbIds,
-                "dealUid": self.place?.deal?.uid ?? "--1"
+                "dealUid": self.deal?.uid ?? "--1"
                 ] as [String : Any]
             
             self.useDealButton.isEnabled = false

@@ -8,6 +8,7 @@
 
 import UIKit
 import ObjectMapper
+import SwiftyJSON
 
 
 struct Place:Mappable {
@@ -32,6 +33,14 @@ struct Place:Mappable {
     var event:Event?
     
     var deal: Deal?
+    var _deals = [String: Any]()
+    var deals = [Deal]()
+//{
+//        let jsons: [Deal] = _deals.values.flatMap({
+//            return JSON($0).map()
+//        })
+//        return jsons
+//    }
     
     var id: Int?
     
@@ -60,7 +69,12 @@ struct Place:Mappable {
         self.event <- map["Event"]
         
         self.deal <- map["deal"]
+        self.deals <- map["deals"]
         self.hasDeal <- map["hasDeal"]
+    }
+    
+    func validDeals() -> [Deal] {
+        return self.deals.filter {$0.isValid()}
     }
 }
 
