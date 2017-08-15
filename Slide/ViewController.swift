@@ -224,14 +224,18 @@ extension ViewController: UICollectionViewDataSource {
             }
         }
         
-        let cellType = indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
-        switch cellType {
-        case .big:
+        switch indexPath.item % 10 {
+        case 0,6: // large cells
             cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 24)
             cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
-        default:
+            
+        case 1,2,5,7: // small cells
             cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 16)
             cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 15)
+            
+        default: // equal sized cells
+            cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 20)
+            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 16)
         }
         
         cell.starLabel.font = UIFont.systemFont(ofSize: 11)
