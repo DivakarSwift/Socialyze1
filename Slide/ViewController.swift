@@ -54,10 +54,10 @@ class ViewController: UIViewController {
                         // Fallback on earlier versions
                         UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
                     }
-                
-            })
+                    
+                })
             case .notDetermined:
-            self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
+                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
                     appDelegate.registerForNotification()
                 })
             }
@@ -71,13 +71,15 @@ class ViewController: UIViewController {
         
         SlydeLocationManager.shared.delegate = self
         
-        let mosaicLayout = TRMosaicLayout()
-        self.collectionView?.collectionViewLayout = mosaicLayout
-        mosaicLayout.delegate = self
+        let padding: CGFloat = 2
+        let layout = SnapchatLikeFlowLayout(unitHeight: 180, padding: padding)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        self.collectionView.setCollectionViewLayout(layout, animated: false)
         
-        self.collectionView.reloadData()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        self.collectionView.reloadData()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "profileicon"),
@@ -103,9 +105,6 @@ class ViewController: UIViewController {
         )
         
         getPlaces()
-        
-        //        ChatService.shared.observeChatList(self)
-        //        ChatService.shared.observeMatchList(self)
         
     }
     
@@ -148,20 +147,44 @@ class ViewController: UIViewController {
         let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
         controller.userId = Authenticator.currentFIRUser?.uid
         performSegue(withIdentifier: "swipeToProfile", sender: nil)
-        
-        //        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func chatBtn(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "swipeToChat", sender: nil)
-        //        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
-        //        let controller = storyboard.instantiateViewController(withIdentifier: "ChatListViewController") as! ChatListViewController
-        //        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {
         let settingsViewController = UIViewController()
         self.navigationController?.pushViewController(settingsViewController, animated: true)
+    }
+    
+    func placeId( nmbr:Int)  {
+        let placeID = places[nmbr].placeId ?? ""
+        let placesClinet = GMSPlacesClient()
+        placesClinet.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place details for \(placeID)")
+                return
+            }
+            
+            print("Place name \(place.name)")
+            print("Place address \(place.formattedAddress)")
+            print("Place placeID \(place.placeID)")
+            print("Place attributions \(place.rating)")
+            let Str = String(place.rating)
+            var userDefaultDict = [String: String]()
+            userDefaultDict["rating"] = Str
+            userDefaultDict["placeID"] = place.placeID
+            userDefaultDict["address"] = place.formattedAddress
+            UserDefaults.standard.set(userDefaultDict, forKey:place.placeID )
+            UserDefaults.standard.synchronize()
+            self.collectionView.reloadData()
+        })
     }
 }
 
@@ -173,40 +196,6 @@ extension ViewController: UICollectionViewDelegate {
         let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
         vc.place = place
         self.present(vc, animated: true, completion: nil)
-        
-        /*
-         if let placeId = places[indexPath.row].placeId {
-         if placeId == "" {
-         let place = places[indexPath.row]
-         let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-         vc.place = place
-         self.present(vc, animated: true, completion: nil)
-         }
-         else {
-         let place = places[indexPath.row]
-         let vc = self.storyboard?.instantiateViewController(withIdentifier: "PlaceDetailViewController") as! PlaceDetailViewController
-         vc.place = place
-         self.present(vc, animated: true, completion: nil)
-         }
-         } else {
-         let place = places[indexPath.row]
-         let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-         vc.place = place
-         self.present(vc, animated: true, completion: nil)
-         }
-         
-         */
-        
-        //        self.navigationController?.pushViewController(vc, animated: true)
-        // self.performSegue(withIdentifier: "categoryDetail", sender: self)
-        
-        //        if let nav = self.navigationController {
-        //            nav.present(vc, animated: true, completion: nil)
-        //        }
-        //        vc.navigationController?.isNavigationBarHidden = true
-        //        let backItem = UIBarButtonItem()
-        //        backItem.title = "Back"
-        //        navigationItem.backBarButtonItem = backItem
     }
 }
 
@@ -253,51 +242,43 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController : TRMosaicLayoutDelegate {
-    
-    func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
-        
-        // I recommend setting every third cell as .Big to get the best layout
-        return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 4, left: 1, bottom: 4, right: 2)
-    }
-    
-    func heightForSmallMosaicCell() -> CGFloat {
-        return 180
-    }
-    
-    func placeId( nmbr:Int)  {
-        let placeID = places[nmbr].placeId ?? ""
-        let placesClinet = GMSPlacesClient()
-        placesClinet.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
-            if let error = error {
-                print("lookup place id query error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let place = place else {
-                print("No place details for \(placeID)")
-                return
-            }
-            
-            print("Place name \(place.name)")
-            print("Place address \(place.formattedAddress)")
-            print("Place placeID \(place.placeID)")
-            print("Place attributions \(place.rating)")
-            let Str = String(place.rating)
-            var userDefaultDict = [String: String]()
-            userDefaultDict["rating"] = Str
-            userDefaultDict["placeID"] = place.placeID
-            userDefaultDict["address"] = place.formattedAddress
-            UserDefaults.standard.set(userDefaultDict, forKey:place.placeID )
-            UserDefaults.standard.synchronize()
-            self.collectionView.reloadData()
-        })
-    }
-}
+//extension ViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        let spacing = layout.minimumInteritemSpacing
+//        let width = collectionView.frame.width - spacing
+//
+//        let heightForSmallCell: CGFloat = 180
+//
+//        switch indexPath.item % 5 {
+//        case 0,2: return CGSize(width: width/2, height: heightForSmallCell - spacing)
+//        default: return CGSize(width: width/2, height: heightForSmallCell * 2)
+//        }
+//    }
+//}
+
+//extension ViewController : TRMosaicLayoutDelegate {
+//
+//    func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
+//        switch indexPath.item % 5 {
+//        case 0,1: return .small
+//        default: return .big
+//        }
+//
+//        // I recommend setting every third cell as .Big to get the best layout
+//        // return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
+//    }
+//
+//    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 4, left: 1, bottom: 4, right: 2)
+//    }
+//
+//    func heightForSmallMosaicCell() -> CGFloat {
+//        return 180
+//    }
+//
+
+//}
 
 
 extension ViewController: SlydeLocationManagerDelegate {

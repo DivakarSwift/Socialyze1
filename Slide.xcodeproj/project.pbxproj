@@ -25,6 +25,7 @@
 		1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546591EA1C2E300D726E8 /* FacebookService.swift */; };
 		1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */; };
 		1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65465D1EA255C800D726E8 /* CheckInModel.swift */; };
+		1F6D5E791F42D67E0042E195 /* SnapchatLikeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */; };
 		1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DC1E9CA584004B12FC /* LocationManager.swift */; };
 		1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DE1E9CA5AF004B12FC /* Constants.swift */; };
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
@@ -96,6 +97,7 @@
 		1F6546591EA1C2E300D726E8 /* FacebookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
 		1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
 		1F65465D1EA255C800D726E8 /* CheckInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInModel.swift; sourceTree = "<group>"; };
+		1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapchatLikeFlowLayout.swift; sourceTree = "<group>"; };
 		1F9F02DC1E9CA584004B12FC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1F9F02DE1E9CA5AF004B12FC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				F6475F5D1ED2F1E9004C8D90 /* TextMessageViewController.swift */,
 				F64B2B521ED56AB800FE2BF6 /* DismissAnimator.swift */,
 				F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */,
+				1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				1FE7876B1E8813A1006B2445 /* UIViewExtension.swift in Sources */,
 				F4C78B7C1EFACBFB00259A55 /* FacebookAccessToken.swift in Sources */,
 				1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */,
+				1F6D5E791F42D67E0042E195 /* SnapchatLikeFlowLayout.swift in Sources */,
 				DA0B5F611ECCDA4500E5119E /* CustomSwipeUnwindSegue.swift in Sources */,
 				DA0B5F5F1ECCDA2C00E5119E /* CustomSwipeSegue.swift in Sources */,
 				FC5219811E70114700EDF19A /* CategoriesViewController.swift in Sources */,
