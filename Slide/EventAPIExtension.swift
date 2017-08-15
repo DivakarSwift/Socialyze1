@@ -45,7 +45,7 @@ extension EventDetailViewController {
                 }
                 completion?(true)
             }else {
-                completion(false)
+                completion?(false)
                 self?.isCheckedIn = false
                 self?.alert(message: "Something went wrong. Try again!")
             }
