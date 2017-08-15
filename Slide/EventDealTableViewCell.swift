@@ -25,7 +25,7 @@ class EventDealTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var socialyzedView: UIView!
     
-    var parentViewController: UIViewController?
+    var parentViewController: EventDetailViewController?
     
     var onUserSelected: ((LocalUser) -> ())?
     var onInvite: (()->())?
@@ -217,7 +217,11 @@ class EventDealTableViewCell: UITableViewCell {
             thresholdRadius = 0
         }
         if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
-            action()
+            self.parentViewController?.checkIn(completion: { (success) in
+                if success {
+                    action()
+                }
+            })
             
         } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
             action()

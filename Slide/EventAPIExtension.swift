@@ -12,7 +12,7 @@ import Alamofire
 extension EventDetailViewController {
     
     // MARK: - API Calls
-    func checkIn() {
+    func checkIn(completion: ((Bool)->())? = nil) {
         
         guard self.place?.nameAddress != nil, self.checkInButton.isEnabled, !self.isCheckedIn else {return}
         
@@ -43,7 +43,9 @@ extension EventDetailViewController {
                     SlydeLocationManager.shared.stopUpdatingLocation()
                     Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
                 }
+                completion?(true)
             }else {
+                completion(false)
                 self?.isCheckedIn = false
                 self?.alert(message: "Something went wrong. Try again!")
             }
