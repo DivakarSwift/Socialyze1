@@ -231,34 +231,34 @@ class EventAdsViewController: UIViewController {
         self.dealService.getPlaceDeal(place: self.place!) { (place) in
             self.place = place
             self.setup()
-            self.dealService.getPlaceDealInPlace(place: self.place!, completion: {[weak self]
-                (placeDeal) in
-                guard let _ = self else {return}
-                self!.countLabel.text = "\(placeDeal.count ?? 0) Used"
-                var iUsedTheDeal = false
-                for (key, value) in placeDeal.users ?? [:] {
-                    let userId = Auth.auth().currentUser!.uid
-                    if key == userId, let value = value as? [String: Double] {
-                        iUsedTheDeal = true
-                        self?.dealDoneView.isHidden = false
-                        
-                        let dateInterval = value["time"]
-                        let date = Date.init(timeIntervalSince1970: dateInterval ?? 0)
-                        
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.locale = Locale(identifier: "en_US")
-                        dateFormatter.timeZone = TimeZone.current
-                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
-                        let string = dateFormatter.string(from: date)
-                        self?.usedDealTime.text = string
-                        
-                        self?.useDealBtn.isHidden = true
-                        self?.useDealBtn.isEnabled = false
-                    }
-                }
-                
-                self?.useDealBtn.isEnabled = !iUsedTheDeal
-            })
+//            self.dealService.getPlaceDealInPlace(place: self.place!, deal: self.deal, completion: {[weak self]
+//                (placeDeal) in
+//                guard let _ = self else {return}
+//                self!.countLabel.text = "\(placeDeal.count ?? 0) Used"
+//                var iUsedTheDeal = false
+//                for (key, value) in placeDeal.users ?? [:] {
+//                    let userId = Auth.auth().currentUser!.uid
+//                    if key == userId, let value = value as? [String: Double] {
+//                        iUsedTheDeal = true
+//                        self?.dealDoneView.isHidden = false
+//                        
+//                        let dateInterval = value["time"]
+//                        let date = Date.init(timeIntervalSince1970: dateInterval ?? 0)
+//                        
+//                        let dateFormatter = DateFormatter()
+//                        dateFormatter.locale = Locale(identifier: "en_US")
+//                        dateFormatter.timeZone = TimeZone.current
+//                        dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
+//                        let string = dateFormatter.string(from: date)
+//                        self?.usedDealTime.text = string
+//                        
+//                        self?.useDealBtn.isHidden = true
+//                        self?.useDealBtn.isEnabled = false
+//                    }
+//                }
+//                
+//                self?.useDealBtn.isEnabled = !iUsedTheDeal
+//            })
         }
     }
     

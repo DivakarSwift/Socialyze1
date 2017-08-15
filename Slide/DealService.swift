@@ -25,9 +25,9 @@ class DealService: FirebaseManager {
         })
     }
     
-    func getPlaceDealInPlace(place:Place, completion: @escaping (PlaceDeal) -> ()){
+    func getPlaceDealInPlace(place:Place, deal: Deal, completion: @escaping (PlaceDeal) -> ()){
         let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
-        let dataRef = self.reference.child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1")
+        let dataRef = self.reference.child("Places").child(placeName).child("deal").child(deal.uid ?? "--1")
         dataRef.observeSingleEvent(of: .value, with: {
             (snapshot) in
             if snapshot.value is NSNull{

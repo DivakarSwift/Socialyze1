@@ -245,7 +245,7 @@ class EventDealTableViewCell: UITableViewCell {
     }
     
     private func getDeals(){
-        self.dealService.getPlaceDealInPlace(place: self.place!, completion: {[weak self]
+        self.dealService.getPlaceDealInPlace(place: self.place!, deal: self.deal!, completion: {[weak self]
             (placeDeal) in
             self?.placeDeal = placeDeal
         })
