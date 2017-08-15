@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         
         SlydeLocationManager.shared.delegate = self
         
-        let padding: CGFloat = 2
+        let padding: CGFloat = 4
         let layout = SnapchatLikeFlowLayout(unitHeight: 180, padding: padding)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0

@@ -47,30 +47,35 @@ class SnapchatLikeFlowLayout: UICollectionViewFlowLayout {
             let semiLargeCellHeight = largeCellHeight * 0.8
             
             
-            let first = CGRect(x: startOrigin.x, y: startOrigin.y + padding, width: unitSize.width, height: largeCellHeight)
+            let first = CGRect(x: startOrigin.x, y: startOrigin.y + padding, width: unitSize.width*1.25, height: largeCellHeight)
             setAttribute(frame: first, index: index)
             
-            let second = CGRect(x: first.maxX + padding, y: first.minY, width: unitSize.width, height: unitSize.height)
+            let second = CGRect(x: first.maxX + padding, y: first.minY, width: unitSize.width*0.75, height: unitSize.height)
             setAttribute(frame: second, index: index + 1)
             
-            let third = CGRect(x: second.minX, y: second.maxY + padding, width: unitSize.width, height: unitSize.height)
+            let third = CGRect(x: second.minX, y: second.maxY + padding, width: unitSize.width*0.75, height: unitSize.height)
             setAttribute(frame: third, index: index + 2)
             
+            // Equal width
             let fourth = CGRect(x: first.minX, y: first.maxY + padding, width: unitSize.width, height: semiLargeCellHeight)
             setAttribute(frame: fourth, index: index + 3)
             
             let fifth = CGRect(x: fourth.maxX + padding, y:fourth.minY, width: unitSize.width, height: semiLargeCellHeight)
             setAttribute(frame: fifth, index: index + 4)
             
-            let sixth = CGRect(x: fourth.minX, y: fourth.maxY + padding, width: unitSize.width, height: unitSize.height)
+            
+            
+            
+            let sixth = CGRect(x: fourth.minX, y: fourth.maxY + padding, width: unitSize.width*0.75, height: unitSize.height)
             setAttribute(frame: sixth, index: index + 5)
             
-            let seventh = CGRect(x: sixth.maxX + padding, y: sixth.minY, width: unitSize.width, height: largeCellHeight)
+            let seventh = CGRect(x: sixth.maxX + padding, y: sixth.minY, width: unitSize.width*1.25, height: largeCellHeight)
             setAttribute(frame: seventh, index: index + 6)
             
-            let eighth = CGRect(x: sixth.minX, y: sixth.maxY + padding, width: unitSize.width, height: unitSize.height)
+            let eighth = CGRect(x: sixth.minX, y: sixth.maxY + padding, width: unitSize.width*0.75, height: unitSize.height)
             setAttribute(frame: eighth, index: index + 7)
             
+            // Equal width
             let nineth = CGRect(x: eighth.minX, y:eighth.maxY + padding, width: unitSize.width, height: semiLargeCellHeight)
             setAttribute(frame: nineth, index: index + 8)
             
