@@ -35,7 +35,7 @@ class Deal: Mappable{
     
     func isValid() -> Bool {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
         
         let startDateTimeStringForDeal = (startDate ?? "") + "T" + (fromTime ?? "")
