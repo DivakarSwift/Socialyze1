@@ -17,26 +17,30 @@ exports.checkIn = functions.https.onRequest((request, response) => {
 });
 
 exports.useDeal = functions.https.onRequest((request, response) => {
-    checkIn(request, response, (request, response, promise) => {
-        promise.
-            then(snapshot => {
-                console.log("checked in");
-                const url = constructUseDealUrl(request);
-                const data = request.body.time;
-                admin.database().ref(url).set(data)
+    // checkIn(request, response, (request, response, promise) => {
+    //     promise.
+    //         then(snapshot => {
+    // console.log("checked in");
+    const data = request.body.time;
+    const userUseDealUrl = constructUserUseDealUrl(request);
+    admin.database().ref(userUseDealUrl).set(data)
+        .then(snapshot => {
+            const url = constructUseDealUrl(request);
+            admin.database().ref(url).set(data)
                 .then(snapshot => {
                     const useDealCountUrl = constructUseDealCountUrl(request);
                     const ref = admin.database().ref(useDealCountUrl)
                     ref.once("value")
-                    .then(snapshot => {
-                        const count = snapshot.val();
-                        const newCount = count + 1;
-                        const promise = ref.set(newCount);
-                        handlePromise(request, response, promise);
-                    });
+                        .then(snapshot => {
+                            const count = snapshot.val();
+                            const newCount = count + 1;
+                            const promise = ref.set(newCount);
+                            handlePromise(request, response, promise);
+                        });
                 });
-            });
-    });
+        });
+    // });
+    // });
 });
 
 function handlePromise(request, response, promise) {
@@ -130,6 +134,13 @@ function constructUseDealUrl(request) {
     const userId = request.body.userId;
 
     return ("Places/" + placeId + "/deal/" + dealUid + "/users/" + userId + "/time");
+}
+
+function constructUserUseDealUrl(request) {
+    const placeId = request.body.placeId;
+    const userId = request.body.userId;
+
+    return ("Places/" + placeId + "/userDeal/" + userId);
 }
 // .child("Places").child(placeName).child("deal").child(place.deal?.uid ?? "--1").child("users")
 // FirebaseManager().reference.child("Places").child(placeName)

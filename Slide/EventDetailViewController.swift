@@ -68,6 +68,13 @@ class EventDetailViewController: UIViewController {
     var validDeals = [Deal]()
     
     var isEvent:Bool?
+    var userCanUseDealForToday: Bool = true {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var lastDealUsedDate: Date = Date()
+    var useDealApiCalling = false
     
     fileprivate var thresholdRadius = 30.48 //100ft
     fileprivate var adsIndex:Int = 0
@@ -204,14 +211,19 @@ class EventDetailViewController: UIViewController {
             self.place = place
             setHeaderHeight()
             
-            if self.facebookService.isUserFriendsPermissionGiven() {
-                self.getUserFriends()
-            } else {
-                self.authenticator.delegate = self
-                self.authenticator.authenticateWith(provider: .facebook)
-            }
-            
-            self.changeGoingStatus()
+            self.placeService.getUserCanUseDealStatusToday(at: place, completion: { (canUse, lastUsedDate) in
+                self.lastDealUsedDate = lastUsedDate ?? Date()
+                self.userCanUseDealForToday = canUse
+                
+                if self.facebookService.isUserFriendsPermissionGiven() {
+                    self.getUserFriends()
+                } else {
+                    self.authenticator.delegate = self
+                    self.authenticator.authenticateWith(provider: .facebook)
+                }
+                
+                self.changeGoingStatus()
+            })
         }
         self.setupCollectionView()
         self.checkInButton.set(cornerRadius: 5)
@@ -541,6 +553,7 @@ class EventDetailViewController: UIViewController {
     }
     
     func recheckin() {
+        self.isCheckedIn = false
         SlydeLocationManager.shared.requestLocation()
     }
     
@@ -687,6 +700,80 @@ class EventDetailViewController: UIViewController {
             }
         }
         return super.prepare(for: segue, sender: sender)
+    }
+    
+    func useDeal(deal: Deal) {
+        guard let user = authenticator.user, !self.useDealApiCalling else { return }
+        
+        self.useDealApiCalling = true
+        
+        self.dealCheckInn {
+            let minimumFriends = deal.minimumFriends ?? 0
+            let checkedInFriends = self.getCheckedInFbFriends()
+            if checkedInFriends.filter({
+                $0.id != user.id
+            }).count < minimumFriends {
+                var msg = GlobalConstants.Message.friendsNotSufficient
+                msg.okAction = {
+                    self.showMoreOption()
+                }
+                self.alert(message: msg)
+                self.useDealApiCalling = false
+                return
+            }
+            
+            if deal.isValid() == false {
+                self.alert(message: GlobalConstants.Message.invalidDeal)
+                self.useDealApiCalling = false
+                return
+            }
+            
+            self.useDealApiCall(deal: deal)
+        }
+    }
+    
+    private func dealCheckInn(action: @escaping ()->()) {
+        
+        if place?.size == 1 {
+            thresholdRadius = smallRadius
+        } else if place?.size == 2 {
+            thresholdRadius = mediumRadius
+        } else if place?.size == 3 {
+            thresholdRadius = largeRadius
+        } else if place?.size == 4 {
+            thresholdRadius = hugeRadius
+        } else if place?.size == 0 {
+            thresholdRadius = 0
+        }
+        
+        func checkIn() {
+            self.checkIn(completion: { (success) in
+                if success {
+                    action()
+                }else {
+                    self.useDealApiCalling = false
+                }
+            })
+        }
+        
+        if let distance = self.getDistanceToUser(), distance <= thresholdRadius {
+            checkIn()
+        } else if thresholdRadius == 0 && (SlydeLocationManager.shared.distanceFromUser(lat: SNlat1, long: SNlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat2, long: SNlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: SNlat3, long: SNlong3)! < hugeRadius){
+            checkIn()
+            
+        } else if (place?.nameAddress)! == "Columbus State" && (SlydeLocationManager.shared.distanceFromUser(lat: CSlat1, long: CSlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: CSlat2, long: CSlong2)! < hugeRadius){
+            checkIn()
+            
+        } else if (place?.nameAddress)! == "Easton Town Center" && (SlydeLocationManager.shared.distanceFromUser(lat: Elat1, long: Elong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat2, long: Elong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: Elat3, long: Elong3)! < hugeRadius ||  SlydeLocationManager.shared.distanceFromUser(lat: Elat4, long: Elong4)! < hugeRadius) {
+            checkIn()
+            
+        } else if (place?.nameAddress)! == "Pride Festival & Parade" && (SlydeLocationManager.shared.distanceFromUser(lat: PFPlat1, long: PFPlong1)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat2, long: PFPlong2)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat3, long: PFPlong3)! < hugeRadius || SlydeLocationManager.shared.distanceFromUser(lat: PFPlat4, long: PFPlong4)! < hugeRadius) {
+            checkIn()
+            
+        }else {
+            self.alert(message: GlobalConstants.Message.userNotInPerimeterToUseDeal)
+            self.useDealApiCalling = false
+        }
     }
     
 }

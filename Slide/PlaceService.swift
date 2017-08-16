@@ -12,6 +12,28 @@ import  SwiftyJSON
 
 class PlaceService: FirebaseManager {
     
+    func getUserCanUseDealStatusToday(at place: Place, completion: @escaping (Bool, Date?) -> ()) {
+        let placeName = (place.nameAddress?.replacingOccurrences(of: " ", with: ""))!
+        let uid = Authenticator.currentFIRUser?.uid ?? "aaa"
+        let dataRef = self.reference.child("Places").child(placeName).child("userDeal").child(uid)
+        
+        dataRef.observeSingleEvent(of: .value, with: {
+            (snapshot) in
+            if snapshot.value is NSNull{
+                completion(true, nil)
+            }else{
+                if let lastUsedDealDateTimeInterval = snapshot.value as? Double {
+                    let lastUsedDate = Date(timeIntervalSince1970: lastUsedDealDateTimeInterval)
+                    let date = Date()
+                    let useValidDate = lastUsedDate.startOfNextDay()
+                    completion(date.compare(useValidDate) == .orderedDescending, lastUsedDate)
+                }else {
+                    completion(true, nil)
+                }
+            }
+        })
+    }
+    
     func getFreshPlace(place: Place, completion: @escaping (Place) -> ()) {
         let placeName = place.nameAddress ?? ""
         self.reference.child(Node.PlacesList.rawValue).queryOrdered(byChild: "nameAddress").queryEqual(toValue: placeName).observeSingleEvent(of: .value, with: {snapShot in

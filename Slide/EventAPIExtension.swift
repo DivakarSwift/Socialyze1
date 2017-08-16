@@ -14,6 +14,11 @@ extension EventDetailViewController {
     // MARK: - API Calls
     func checkIn(completion: ((Bool)->())? = nil) {
         
+        if self.isCheckedIn {
+            completion?(true)
+            return
+        }
+        
         guard self.place?.nameAddress != nil, self.checkInButton.isEnabled, !self.isCheckedIn else {return}
         
         let fbIds = self.faceBookFriends.map({$0.id}) // + ["101281293814104"];
@@ -41,12 +46,43 @@ extension EventDetailViewController {
                 self?.isCheckedIn = true
                 if let me = self {
                     SlydeLocationManager.shared.stopUpdatingLocation()
-                    Timer.scheduledTimer(timeInterval: 20*60, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
+                    Timer.scheduledTimer(timeInterval: checkInThreshold, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
                 }
                 completion?(true)
             }else {
                 completion?(false)
                 self?.isCheckedIn = false
+                self?.alert(message: "Something went wrong. Try again!")
+            }
+        }
+    }
+    
+    func useDealApiCall(deal: Deal) {
+        let fbIds = self.faceBookFriends.map({$0.id})
+        
+        let params = [
+            "sound": "default",
+            "place": self.place!.nameAddress!,
+            "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
+            "fbId": self.authenticator.user?.profile.fbId ?? "",
+            "time": Date().timeIntervalSince1970,
+            "userId": self.authenticator.user?.id ?? "",
+            "notificationTitle": "\(self.authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
+            "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
+            "friendsFbId": fbIds,
+            "dealUid": deal.uid ?? "--1"
+            ] as [String : Any]
+        
+        Alamofire.request(GlobalConstants.urls.baseUrl + "useDeal", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+            self?.useDealApiCalling = false
+            if data.response?.statusCode == 200 {
+                // self?.useDealButton.isHidden = true
+                // self?.getDeals()
+                
+                self?.lastDealUsedDate = Date()
+                self?.userCanUseDealForToday = false
+                
+            }else {
                 self?.alert(message: "Something went wrong. Try again!")
             }
         }

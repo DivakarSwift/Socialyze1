@@ -19,6 +19,7 @@
 		1F1E553C1EA8A6FB00748894 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E553B1EA8A6FB00748894 /* ChatViewController.swift */; };
 		1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E553D1EA8A77E00748894 /* AutoTextField.swift */; };
 		1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */; };
+		1F3D8DAD1F44C4D30080D374 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3D8DAC1F44C4D30080D374 /* DateExtension.swift */; };
 		1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */; };
 		1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546511EA1C15A00D726E8 /* UserService.swift */; };
 		1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546571EA1C22200D726E8 /* PlaceService.swift */; };
@@ -91,6 +92,7 @@
 		1F1E553B1EA8A6FB00748894 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1F1E553D1EA8A77E00748894 /* AutoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextField.swift; sourceTree = "<group>"; };
 		1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		1F3D8DAC1F44C4D30080D374 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		1F6546511EA1C15A00D726E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		1F6546571EA1C22200D726E8 /* PlaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceService.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				1FE787681E880D8B006B2445 /* UIViewControllerExtension.swift */,
 				F41C843A1EFE4BCC00B30C46 /* UIColorExtension.swift */,
 				1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */,
+				1F3D8DAC1F44C4D30080D374 /* DateExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				F621B3BE1ED82D2F007E5F05 /* Place.swift in Sources */,
 				1FF046541EA8D84D00522063 /* ChatListViewController.swift in Sources */,
 				F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */,
+				1F3D8DAD1F44C4D30080D374 /* DateExtension.swift in Sources */,
 				1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */,
 				1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */,
 				1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */,
