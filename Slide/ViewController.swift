@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         
         SlydeLocationManager.shared.delegate = self
         
-        let padding: CGFloat = 4
+        let padding: CGFloat = 2
         let layout = SnapchatLikeFlowLayout(unitHeight: 180, padding: padding)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
@@ -235,7 +235,7 @@ extension ViewController: UICollectionViewDataSource {
             
         default: // equal sized cells
             cell.nameLabel.font = UIFont.init(name: "Kailasa-Bold", size: 20)
-            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 19)
+            cell.bioNameLabel.font = UIFont.init(name: "Verdana-Bold", size: 19)
         }
         
         cell.starLabel.font = UIFont.systemFont(ofSize: 11)
