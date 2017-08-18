@@ -329,7 +329,7 @@
                         <constraints>
                             <constraint firstItem="D62-y0-Tsr" firstAttribute="leading" secondItem="iP7-aP-hHQ" secondAttribute="leading" constant="10" id="6Zx-de-A6B"/>
                             <constraint firstItem="hjR-Z4-c4n" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="Hnz-QQ-qHN"/>
-                            <constraint firstItem="z6w-Wz-mKu" firstAttribute="centerY" secondItem="iP7-aP-hHQ" secondAttribute="centerY" constant="-30" id="Ifa-LD-Fmu"/>
+                            <constraint firstItem="z6w-Wz-mKu" firstAttribute="centerY" secondItem="iP7-aP-hHQ" secondAttribute="centerY" priority="250" constant="-30" id="Ifa-LD-Fmu"/>
                             <constraint firstItem="7Kc-1z-W4n" firstAttribute="top" secondItem="hjR-Z4-c4n" secondAttribute="bottom" constant="106" id="Lf1-d7-q31"/>
                             <constraint firstItem="z6w-Wz-mKu" firstAttribute="width" secondItem="iP7-aP-hHQ" secondAttribute="width" multiplier="0.7" id="Q6h-te-6es"/>
                             <constraint firstAttribute="trailing" secondItem="D62-y0-Tsr" secondAttribute="trailing" constant="10" id="QLU-bL-Lmt"/>
@@ -337,6 +337,7 @@
                             <constraint firstItem="bvb-Tf-rtf" firstAttribute="top" secondItem="gbd-db-21d" secondAttribute="bottom" constant="30" id="ZfM-da-d81"/>
                             <constraint firstItem="z6w-Wz-mKu" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="d98-Hb-DFe"/>
                             <constraint firstItem="bvb-Tf-rtf" firstAttribute="centerX" secondItem="iP7-aP-hHQ" secondAttribute="centerX" id="rFB-yg-niR"/>
+                            <constraint firstItem="nOh-j5-owQ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="bvb-Tf-rtf" secondAttribute="bottom" constant="15" id="tl0-xo-Iye"/>
                             <constraint firstItem="gbd-db-21d" firstAttribute="top" secondItem="z6w-Wz-mKu" secondAttribute="bottom" constant="-10" id="wWG-mJ-yDg"/>
                             <constraint firstItem="7Kc-1z-W4n" firstAttribute="top" secondItem="D62-y0-Tsr" secondAttribute="bottom" constant="30" id="zGl-qr-SCi"/>
                         </constraints>

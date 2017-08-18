@@ -37,7 +37,7 @@ class SlydeLocationManager: NSObject {
     
     func distanceFromUser(lat: Double, long: Double) -> Double? {
         let location = CLLocation(latitude: lat, longitude: long)
-//        self.location = CLLocation(latitude: 39.956332, longitude: -83.004056)
+        //        self.location = CLLocation(latitude: 39.956332, longitude: -83.004056)
         if let userLocation = self.location {
             return location.distance(from: userLocation)
         }else {
@@ -91,7 +91,7 @@ extension SlydeLocationManager: CLLocationManagerDelegate {
         if !self.shouldGetLocationContiniously {
             self.stopUpdatingLocation()
         }
-       self.location = locations.last
+        self.location = locations.last
         
         if let _ = self.location?.coordinate {
             GlobalConstants.Notification.newLocationObtained.fire()
