@@ -221,8 +221,8 @@ function sendPushNotification(registrationToken, payload) {
 
 var gcloud = require('google-cloud');
 var gcs = gcloud.storage({
-  projectId: 'socialyze-72c6a',
-  keyFilename: 'socialyze-72c6a-firebase-adminsdk-pz0iq-19c1c1ae1c.json'
+    projectId: 'socialyze-72c6a',
+    keyFilename: 'socialyze-72c6a-firebase-adminsdk-pz0iq-19c1c1ae1c.json'
 });
 
 // const gcs = require('@google-cloud/storage')();
@@ -230,33 +230,53 @@ var request = require('request');
 const bucket = gcs.bucket('socialyze-72c6a.appspot.com');
 
 // On profile images set
-exports.makeUppercase = functions.database.ref('/user/{userId}/profile/images')
+exports.newImageUploadedFromFB = functions.database.ref('/user/{userId}/profile')
     .onCreate(event => {
-        const images = event.data.val();
+        const images = event.data.val().images;
         console.log('images:');
         console.log(images);
+        var newImages = [];
         return new Promise(function (fulfil, reject) {
-            var acknowledgedCount = 0
-
+            var acknowledgedCount = 0;
             for (var image of images) {
                 console.log(image);
                 const nameOfFile = filename(image);
                 console.log(nameOfFile);
                 var file = bucket.file(nameOfFile);
+                
+                var config = {
+                    action: 'read',
+                    expires: '03-17-2025'
+                };
+
+                file.getSignedUrl(config, function (err, url) {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    newImages.push(url);
+                });
                 request(image).pipe(file.createWriteStream())
                     .on('error', function (err) {
                         console.log(err);
                         console.log("error download file");
                         acknowledgedCount++;
                         if (acknowledgedCount == images.length) {
-                            fulfil();
+                            event.data.ref.child('images').set(newImages)
+                            .then(value => {
+                                fulfil();
+                            });
                         }
                     })
                     .on('finish', function () {
                         console.log("success download file");
                         acknowledgedCount++;
+
                         if (acknowledgedCount == images.length) {
-                            fulfil();
+                            event.data.ref.child('images').set(newImages)
+                            .then(value => {
+                                fulfil();
+                            });
                         }
                     });
             }
