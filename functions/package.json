@@ -6,7 +6,8 @@
     "@google-cloud/storage": "^1.2.1",
     "firebase-admin": "~4.2.1",
     "firebase-functions": "^0.5.7",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "uuid-v4": "0.1.0"
   },
   "private": true
 }

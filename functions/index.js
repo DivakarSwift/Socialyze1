@@ -228,57 +228,118 @@ var gcs = gcloud.storage({
 // const gcs = require('@google-cloud/storage')();
 var request = require('request');
 const bucket = gcs.bucket('socialyze-72c6a.appspot.com');
+var fs = require('fs');
+const UUID = require("uuid-v4");
 
 // On profile images set
-exports.newImageUploadedFromFB = functions.database.ref('/user/{userId}/profile')
+exports.newImageUploadedFromFB = functions.database.ref('/user/{userId}/profile/images')
     .onCreate(event => {
-        const images = event.data.val().images;
+        const images = event.data.val();
         console.log('images:');
         console.log(images);
-        var newImages = [];
+
         return new Promise(function (fulfil, reject) {
             var acknowledgedCount = 0;
-            for (var image of images) {
-                console.log(image);
-                const nameOfFile = filename(image);
-                console.log(nameOfFile);
-                var file = bucket.file(nameOfFile);
-                
-                var config = {
-                    action: 'read',
-                    expires: '03-17-2025'
-                };
-
-                file.getSignedUrl(config, function (err, url) {
-                    if (err) {
-                        console.error(err);
-                        return;
-                    }
-                    newImages.push(url);
-                });
-                request(image).pipe(file.createWriteStream())
-                    .on('error', function (err) {
-                        console.log(err);
-                        console.log("error download file");
-                        acknowledgedCount++;
-                        if (acknowledgedCount == images.length) {
-                            event.data.ref.child('images').set(newImages)
-                            .then(value => {
-                                fulfil();
-                            });
+            var newImages = [];
+            if (event.data.userId == "VYCJpC2KMTXzDCFK4zlC2fAjmNX2") {
+                fulfil();
+            } else {
+                for (var image of images) {
+                    console.log(image);
+                    const nameOfFile = filename(image);
+                    console.log(nameOfFile);
+                    var file = bucket.file(nameOfFile);
+                    const uuid = UUID();
+                    const options = {
+                        destination: nameOfFile,
+                        uploadType: "media",
+                        metadata: {
+                            metadata: {
+                                contentType: 'image/jpeg',
+                                firebaseStorageDownloadTokens: uuid
+                            }
                         }
-                    })
-                    .on('finish', function () {
-                        console.log("success download file");
-                        acknowledgedCount++;
+                    };
 
-                        if (acknowledgedCount == images.length) {
-                            event.data.ref.child('images').set(newImages)
-                            .then(value => {
-                                fulfil();
-                            });
-                        }
-                    });
+                    let urlNew = "https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid
+                    newImages.push(urlNew);
+                    request(image).pipe(file.createWriteStream(nameOfFile, options))
+                        .on('error', function (err) {
+                            console.log("download error");
+                            console.log(err);
+                            acknowledgedCount++;
+                            if (acknowledgedCount == images.length) {
+                                event.data.ref.set(newImages)
+                                    .then(value => {
+                                        fulfil();
+                                    });
+                            }
+                        })
+                        .on('finish', function () {
+                            console.log("file uploaded");
+                            acknowledgedCount++;
+                            if (acknowledgedCount == images.length) {
+                                event.data.ref.set(newImages)
+                                    .then(value => {
+                                        fulfil();
+                                    });
+                            }
+                        });
+
+                    // request(image)
+                    // .on('error', function (err) {
+                    //     console.log("downloaded error");
+                    //     console.log(err)
+                    //     acknowledgedCount++;
+                    //     if (acknowledgedCount == images.length) {
+                    //         event.data.ref.set(newImages)
+                    //             .then(value => {
+                    //                 fulfil();
+                    //             });
+                    //     }
+                    // })
+                    // .pipe(fs.createWriteStream(nameOfFile))
+                    // .on('finish', function () {
+                    //     console.log("downloaded file");
+                    //     upload(nameOfFile, filename)
+                    //         .then(downloadURL => {
+                    //             console.log(downloadURL);
+                    //             newImages.push(downloadURL);
+
+                    //             acknowledgedCount++;
+                    //             if (acknowledgedCount == images.length) {
+                    //                 event.data.ref.set(newImages)
+                    //                     .then(value => {
+                    //                         fulfil();
+                    //                     });
+                    //             }
+                    //         });
+                    // });
+
+                    // request(image).pipe(file.createWriteStream())
+                    // .on('error', function (err) {
+                    //     console.log(err);
+                    //     console.log("error download file");
+                    //     acknowledgedCount++;
+                    //     if (acknowledgedCount == images.length) {
+                    //         event.data.ref.child('images').set(newImages)
+                    //         .then(value => {
+                    //             fulfil();
+                    //         });
+                    //     }
+                    // })
+                    // .on('finish', function () {
+                    //     console.log("success download file");
+                    //     acknowledgedCount++;
+
+                    //     if (acknowledgedCount == images.length) {
+                    //         event.data.ref.child('images').set(newImages)
+                    //         .then(value => {
+                    //             fulfil();
+                    //         });
+                    //     }
+                    // });
+                }
             }
         });
     });
@@ -286,4 +347,27 @@ exports.newImageUploadedFromFB = functions.database.ref('/user/{userId}/profile'
 function filename(path) {
     path = path.substring(path.lastIndexOf("/") + 1);
     return (path.match(/[^.]+(\.[^?#]+)?/) || [])[0];
+}
+
+
+var upload = (localFile, remoteFile) => {
+
+    let uuid = UUID();
+
+    return bucket.upload(localFile, {
+        destination: remoteFile,
+        uploadType: "media",
+        metadata: {
+            metadata: {
+                contentType: 'image/jpeg',
+                firebaseStorageDownloadTokens: uuid
+            }
+        }
+    })
+        .then((data) => {
+
+            let file = data[0];
+
+            return Promise.resolve("https://firebasestorage.googleapis.com/v0/b/" + bucket.name + "/o/" + encodeURIComponent(file.name) + "?alt=media&token=" + uuid);
+        });
 }
