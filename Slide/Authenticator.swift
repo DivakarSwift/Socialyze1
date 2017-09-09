@@ -95,7 +95,7 @@ class Authenticator {
                     var fbaccessToken = FacebookAccessToken()
                     fbaccessToken.appId = accessToken.appId
                     fbaccessToken.authenticationToken = accessToken.authenticationToken
-                    fbaccessToken.expirationDate = Utilities.returnDate(dateValue: accessToken.expirationDate) 
+                    fbaccessToken.expirationDate = Utilities.returnDate(dateValue: accessToken.expirationDate)
                     fbaccessToken.refreshDate =  Utilities.returnDate(dateValue: accessToken.refreshDate)
                     fbaccessToken.userId = accessToken.userId
                     
@@ -110,7 +110,7 @@ class Authenticator {
                             
                             if let dob = self.user?.profile.dateOfBirth {
                                 if let age = Utilities.returnAge(ofValue: dob, format: "MM/dd/yyyy"), age > 17 {
-                                   self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
+                                    self.signInWithFirebase(credential: credential, provider: .facebook, email: nil)
                                 } else {
                                     self.delegate?.didOccurAuthentication(error: .facebookLoginDenied)
                                     doLog("User login denied! Age restriction.")
@@ -140,48 +140,64 @@ class Authenticator {
             }else {
                 if let id = Authenticator.currentFIRUser?.uid {
                     UserService().getMe(withId: id, completion: { (user, error) in
-                        if let _ = error {
-                            var userValue = LocalUser()
-                            if let fbUser = self.user {
-                                userValue = fbUser
-                                
-                            }
-                            let token = Messaging.messaging().fcmToken
-                            print("FCM token: \(token ?? "")")
-                            if let token = token {
-                                userValue.fcmToken = token
-                            }
+                        if error != nil || !(user?.isCreatedAfterFbImageDownloadToStorage ?? false) {
                             
-                            userValue.id = Authenticator.currentFIRUser?.uid
-                            userValue.profile.fbId = AccessToken.current?.userId
-                            print("The list of photo urls are:")
-                            FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
-                                print(photoUrlString)
-                                self.facebookProfileImages.append(URL(string: photoUrlString)!)
-                            }, completion: { images in
-                                self.facebookProfileImages = images.flatMap({ (image) -> URL? in
-                                    return URL(string: image)
-                                })
-                                print(self.facebookProfileImages)
-                                if self.facebookProfileImages.count > 5 {
-                                    for index in 5...self.facebookProfileImages.count-1 {
-                                        self.facebookProfileImages.remove(at: index)
-                                    }
+                            func action() {
+                                var userValue = LocalUser()
+                                if let fbUser = self.user {
+                                    userValue = fbUser
                                 }
-                                userValue.profile.images = self.facebookProfileImages
-                                print(userValue.profile.images)
-                                self.saveUser(user: userValue)
-                            }, failure: { _ in
-                                if self.facebookProfileImages.count > 0 {
+                                userValue.isCreatedAfterFbImageDownloadToStorage = true
+                                let token = Messaging.messaging().fcmToken
+                                print("FCM token: \(token ?? "")")
+                                if let token = token {
+                                    userValue.fcmToken = token
+                                }
+                                
+                                userValue.id = Authenticator.currentFIRUser?.uid
+                                userValue.profile.fbId = AccessToken.current?.userId
+                                print("The list of photo urls are:")
+                                FacebookService.shared.loadUserProfilePhotos(value: { (photoUrlString) in
+                                    print(photoUrlString)
+                                    self.facebookProfileImages.append(URL(string: photoUrlString)!)
+                                }, completion: { images in
+                                    self.facebookProfileImages = images.flatMap({ (image) -> URL? in
+                                        return URL(string: image)
+                                    })
+                                    print(self.facebookProfileImages)
                                     if self.facebookProfileImages.count > 5 {
                                         for index in 5...self.facebookProfileImages.count-1 {
                                             self.facebookProfileImages.remove(at: index)
                                         }
                                     }
                                     userValue.profile.images = self.facebookProfileImages
-                                }
-                                self.saveUser(user: userValue)
-                            })
+                                    print(userValue.profile.images)
+                                    self.saveUser(user: userValue)
+                                }, failure: { _ in
+                                    if self.facebookProfileImages.count > 0 {
+                                        if self.facebookProfileImages.count > 5 {
+                                            for index in 5...self.facebookProfileImages.count-1 {
+                                                self.facebookProfileImages.remove(at: index)
+                                            }
+                                        }
+                                        userValue.profile.images = self.facebookProfileImages
+                                    }
+                                    self.saveUser(user: userValue)
+                                })
+                            }
+                            
+                            if var user = user {
+                                user.profile.images = []
+                                UserService().saveUser(user: user, completion: { (success, error) in
+                                    if let error = error {
+                                        self.delegate?.didOccurAuthentication(error: .firebaseAuthenticationFailed(with: error))
+                                        return
+                                    }
+                                    action()
+                                })
+                            }else {
+                                action()
+                            }
                         } else {
                             Authenticator.shared.user = user
                             let token = Messaging.messaging().fcmToken

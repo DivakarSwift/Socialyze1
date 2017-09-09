@@ -20,7 +20,7 @@ class ChatListViewController: UIViewController {
     
     let userService = UserService()
     let facebookService = FacebookService.shared
-    fileprivate var me = Authenticator.shared.user
+    fileprivate var me: LocalUser? { return Authenticator.shared.user}
     private var faceBookFriends = [FacebookFriend]() {
         didSet {
             self.getAllUsers()

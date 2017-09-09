@@ -20,6 +20,7 @@ struct LocalUser: Mappable, Equatable {
     var fcmToken:String?
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
+    var isCreatedAfterFbImageDownloadToStorage = false
     
     var isCheckedIn = false
     var isGoing = false
@@ -36,6 +37,7 @@ struct LocalUser: Mappable, Equatable {
         fcmToken <- map["fcmToken"]
         checkIn <- map[Node.checkIn.rawValue]
         userWhoBlockedMe <- map["blockedByUsers"]
+        isCreatedAfterFbImageDownloadToStorage <- map["isCreatedAfterFbImageDownloadToStorage"]
     }
 }
 
