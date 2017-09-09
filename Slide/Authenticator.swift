@@ -145,7 +145,7 @@ class Authenticator {
                             func action() {
                                 var userValue = LocalUser()
                                 if let fbUser = self.user {
-                                    userValue = fbUser
+                                    userValue = user ?? fbUser
                                 }
                                 userValue.isCreatedAfterFbImageDownloadToStorage = true
                                 let token = Messaging.messaging().fcmToken

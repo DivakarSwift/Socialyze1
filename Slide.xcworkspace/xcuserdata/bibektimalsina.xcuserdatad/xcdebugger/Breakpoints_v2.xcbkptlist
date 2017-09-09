@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/AppDelegate.swift"
-            timestampString = "526650260.672606"
+            timestampString = "526652127.878347"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
             landmarkName = "checkForLogin()"
             landmarkType = "7">
          </BreakpointContent>

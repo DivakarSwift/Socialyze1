@@ -55,10 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         application.isStatusBarHidden = false
-
-//        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewControllerWithDeal")
-//        self.window?.rootViewController = vc
-         checkForLogin()
+        
+        //        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewControllerWithDeal")
+        //        self.window?.rootViewController = vc
+        checkForLogin()
         
         return true
     }
@@ -131,6 +131,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             UserService().getMe(withId: userId!, completion: { (user, error) in
                 print(error ?? "Success get user detail")
+                if !(user?.isCreatedAfterFbImageDownloadToStorage ?? false) {
+                    Authenticator.shared.logout()
+                    return
+                }
                 Authenticator.shared.user = user
                 if let user = Authenticator.shared.user, let fcmToken = Messaging.messaging().fcmToken {
                     UserService().addGoogleToken(user: user, fcmToken: fcmToken)
