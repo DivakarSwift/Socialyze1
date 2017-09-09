@@ -241,9 +241,13 @@ exports.newImageUploadedFromFB = functions.database.ref('/user/{userId}/profile/
         return new Promise(function (fulfil, reject) {
             var acknowledgedCount = 0;
             var newImages = [];
-            if (event.data.userId == "VYCJpC2KMTXzDCFK4zlC2fAjmNX2") {
+            const userId = event.params.userId;
+            console.log("userId is   => " + userId);
+            if (!(userId == "VYCJpC2KMTXzDCFK4zlC2fAjmNX2" || userId == "ZEPCsjvXv1YX4tGJnO7k7tRB4bL2")) {
+                console.log("fulfilled");
                 fulfil();
             } else {
+                console.log("unfulfilled");
                 for (var image of images) {
                     console.log(image);
                     const nameOfFile = filename(image);
