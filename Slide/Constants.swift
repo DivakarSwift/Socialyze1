@@ -120,5 +120,6 @@ struct GlobalConstants {
         static let userNotInPerimeterToUseDeal = Message(title: "Be here with friends", message: "Be here with friends to use the deal", okTitle: "Okay", cancelTitle: nil, okAction: nil, cancelAction: nil)
         static let friendsNotSufficient = Message(title: "Need more friends", message: "You need more friends to use the deal", okTitle: "Invite", cancelTitle: "Cancel", okAction: nil, cancelAction: nil)
         static let invalidDeal = Message(title: "Invalid deal", message: "The deal is expired for today.", okTitle: "Invite", cancelTitle: "Cancel", okAction: nil, cancelAction: nil)
+        static let userWontSave = Message(title: "", message: "There was error loading your latest profile. So, any changes you made currently is't saved.", okTitle: "Ok", cancelTitle: nil, okAction: nil, cancelAction: nil)
     }
 }

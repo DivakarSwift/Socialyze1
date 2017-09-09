@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QEE-sF-Qvd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -570,11 +570,18 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="bioTextView" destination="a03-YZ-JRE" id="JdC-k8-ejB"/>
+                        <outlet property="doneBarButton" destination="kzO-SU-BVB" id="8hF-vF-X7z"/>
                         <segue destination="Aym-0V-Xqe" kind="unwind" identifier="unwindToProfile" customClass="CustomSwipeUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="dFJ-z9-g1e"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z27-oD-Kjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Aym-0V-Xqe" userLabel="Exit" sceneMemberID="exit"/>
+                <barButtonItem systemItem="done" id="GwP-7E-dLq">
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="doneNavBtn:" destination="Xua-vR-Ynp" id="H8l-Cn-DWO"/>
+                    </connections>
+                </barButtonItem>
             </objects>
             <point key="canvasLocation" x="1771.0144927536232" y="104.34782608695653"/>
         </scene>

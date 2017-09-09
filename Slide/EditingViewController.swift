@@ -13,15 +13,40 @@ import SwiftyJSON
 import Firebase
 
 class EditingTableViewController: UITableViewController {
-        
-    var imagePicker: UIImagePickerController = UIImagePickerController()
-    var images:[(URL?,UIImage?)] = [] 
-    var imageToRemove:[URL] = []
+    
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     @IBOutlet weak var bioTextView: UITextView!
+    
+    var imagePicker: UIImagePickerController = UIImagePickerController()
+    var images:[(URL?,UIImage?)] = []
+    var imageToRemove:[URL] = []
+    
     var pickerTag:Int = 111
-    var user:LocalUser? {
+    var user: LocalUser? {
         didSet {
-            if let images = self.user?.profile.images{
+            if let userId = user?.id {
+                self.activityIndicator.startAnimating()
+                self.doneBarButton.isEnabled = false
+                UserService().getMe(withId: userId, completion: { (user, error) in
+                    self.activityIndicator.stopAnimating()
+                    self.doneBarButton.isEnabled = true
+                    if let user = user {
+                        self.latestLocalUser = true
+                        self.localUser = user
+                    }else {
+                        self.localUser = self.user
+                        self.alert(message: GlobalConstants.Message.oops)
+                    }
+                })
+            }
+        }
+    }
+    
+    var latestLocalUser: Bool = false
+    
+    var localUser:LocalUser? {
+        didSet {
+            if let images = self.localUser?.profile.images{
                 self.images = []
                 images.forEach({ (url) in
                     self.images.append((url,nil))
@@ -34,7 +59,7 @@ class EditingTableViewController: UITableViewController {
         let image : UIImage = UIImage(named: "ladybird.png")!
         return CustomActivityIndicatorView(image: image)
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
@@ -78,15 +103,15 @@ class EditingTableViewController: UITableViewController {
     
     func updateBio() {
         let maxLength = 200 //char length
-        if let orgText = user?.profile.bio {
+        if let orgText = localUser?.profile.bio {
             if orgText.characters.count > maxLength {
                 let range =  orgText.rangeOfComposedCharacterSequences(for: orgText.startIndex..<orgText.index(orgText.startIndex, offsetBy: maxLength))
                 let tmpValue = orgText.substring(with: range).appending("...")
                 self.bioTextView.text = tmpValue
             } else {
-                self.bioTextView.text = user?.profile.bio
+                self.bioTextView.text = localUser?.profile.bio
             }
-        } 
+        }
     }
     
     @IBAction func textFieldDidChange(_ sender: UITextField) {
@@ -94,7 +119,15 @@ class EditingTableViewController: UITableViewController {
     }
     
     @IBAction func doneNavBtn(_ sender: Any) {
+        if self.latestLocalUser {
             self.removeFirebaseImage(0)
+        }else {
+            var message = GlobalConstants.Message.userWontSave
+            message.okAction = {
+                _ = self.navigationController?.popViewController(animated: true)
+            }
+            self.alert(message: message)
+        }
     }
     
     @IBAction func cancelButtonTouched(_ sender: UIBarButtonItem) {
@@ -152,12 +185,12 @@ class EditingTableViewController: UITableViewController {
         let imagess = self.images.flatMap({
             return $0.0
         })
-        self.user?.profile.images = imagess
+        self.localUser?.profile.images = imagess
         self.assignImages()
-        UserService().saveUser(user: self.user!, completion: { (success, error) in
+        UserService().saveUser(user: self.localUser!, completion: { (success, error) in
             if error == nil {
                 //self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
-                    Authenticator.shared.user = self.user
+                Authenticator.shared.user = self.localUser
                 _ = self.navigationController?.popViewController(animated: true)
                 //self.performSegue(withIdentifier: "unwindToProfile", sender: self)
                 //})
@@ -242,7 +275,7 @@ class EditingTableViewController: UITableViewController {
         Authenticator.shared.logout()
         appDelegate.checkForLogin()
     }
-     
+    
     @IBAction func privacyPolicyBtn(_ sender: Any) {
         UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/privacy")!)
     }
@@ -261,7 +294,7 @@ extension EditingTableViewController: UIImagePickerControllerDelegate, UINavigat
             dismiss(animated: true, completion: nil)
             return
         }
-       
+        
         if self.images.count-1 >= index{
             self.images.remove(at: index)
             self.images.insert((nil,image), at: index)
@@ -300,14 +333,14 @@ extension EditingTableViewController {
                 UIApplication.shared.openURL(URL(string: "http://socialyzeapp.com/terms-and-conditions")!)
             }
         }
-        
+            
             // Logout row 6
         else if indexPath.row == 6 {
             self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
                 Authenticator.shared.logout()
             }, cancelAction: nil)
         }
-        
+            
             // Delete Accont row 7
         else if indexPath.row == 7 {
             self.alertWithOkCancel(message: "Are you sure?", title: "Alert", okTitle: "Ok", cancelTitle: "Cancel", okAction: {
@@ -383,8 +416,8 @@ extension EditingTableViewController: UITextViewDelegate {
     func savebio(_ sender: UITextView){
         if let id = Authenticator.shared.user?.id {
             FirebaseManager().reference.child("user/\(id)/profile/bio").setValue(sender.text)
-            self.user?.profile.bio = sender.text
-            Authenticator.shared.user = self.user
+            self.localUser?.profile.bio = sender.text
+            Authenticator.shared.user = self.localUser
         }
     }
     
