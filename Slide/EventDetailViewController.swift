@@ -733,6 +733,10 @@ class EventDetailViewController: UIViewController {
     }
     
     private func dealCheckInn(action: @escaping ()->()) {
+        if self.isCheckedIn {
+            action()
+            return
+        }
         
         if place?.size == 1 {
             thresholdRadius = smallRadius

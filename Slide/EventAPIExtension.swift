@@ -152,14 +152,14 @@ extension EventDetailViewController {
                     
                     self?.checkinWithExpectUser = checkins.filter({(checkin) -> Bool in
                         if let checkInUserId = checkin.userId, let authUserId = self?.authenticator.user?.id, let checkinTime = checkin.time {
-                            let notMe = checkInUserId != authUserId
+                            let isMe = checkInUserId == authUserId
                             let checkTimeValid = (Date().timeIntervalSince1970 - checkinTime) < checkInThreshold
                             
-                            if !notMe && checkTimeValid {
+                            if isMe && checkTimeValid {
                                 self?.isCheckedIn = true
                             }
                             
-                            return notMe && checkTimeValid
+                            return !isMe && checkTimeValid
                         }
                         return false
                     })
