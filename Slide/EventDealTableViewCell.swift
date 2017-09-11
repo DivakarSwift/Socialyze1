@@ -62,7 +62,7 @@ class EventDealTableViewCell: UITableViewCell {
         didSet {
             setupUseDeal()
             self.dealDetailLabel.text = deal?.detail
-            self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(deal?.minimumFriends ?? 0) required friends checked in"
+            self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(deal?.minimumFriends ?? 0) required friend(s) checked in"
             
             if let expiryDate = self.dateFormatter().date(from: (deal?.expiry ?? "") + "T" + (deal?.endTime ?? "")) {
                 let form = DateComponentsFormatter()
