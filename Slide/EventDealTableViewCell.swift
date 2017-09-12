@@ -64,8 +64,12 @@ class EventDealTableViewCell: UITableViewCell {
             self.dealDetailLabel.text = deal?.detail
             
             if deal?.minimumFriends ?? 0 == 0 {
-                self.checkedInCountLabel.text = "No friends required."
-            }else {
+                self.checkedInCountLabel.text = "No Friends Required"
+                }
+            else if deal?.minimumFriends ?? 0 == 1 {
+                self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(deal?.minimumFriends ?? 0) required friend checked in"
+                }
+            else {
                  self.checkedInCountLabel.text = "\(checkedInFriends.count) of \(deal?.minimumFriends ?? 0) required friends checked in"
             }
             
