@@ -53,6 +53,7 @@ class EditingTableViewController: UITableViewController {
                 })
             }
             self.updateBio()
+            self.assignImages()
         }
     }
     lazy fileprivate var activityIndicator : CustomActivityIndicatorView = {
