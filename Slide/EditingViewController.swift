@@ -351,12 +351,12 @@ extension EditingTableViewController {
                     self.activityIndicator.stopAnimating()
                     if let _ = error {
                         self.alert(message: "Delete process incomplete. Please try delete again.", title: "Server Error", okAction: {
-                            Authenticator.shared.logout()
+                            // Authenticator.shared.logout()
                         })
                     }
                     else {
                         self.alert(message: "Your account has been Deleted Successfully!", title: "Success", okAction: {
-                            Authenticator.shared.logout()
+                            Authenticator.shared.plainLogout()
                         })
                     }
                 })

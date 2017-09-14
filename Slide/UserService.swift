@@ -76,7 +76,7 @@ class UserService: FirebaseManager {
             completion(nil)
         }
     }
-
+    
     func downloadProfileImage(userId: String, index:String, completion : @escaping (URL?,FirebaseManagerError?) -> Void) {
         
         let ref = storageRef.child("images_\(userId)_photo\(index).jpg")
@@ -113,7 +113,7 @@ class UserService: FirebaseManager {
             }
         })
     }
-
+    
     
     func getUser(withId userId: String, completion: @escaping (LocalUser?, FirebaseManagerError?) -> Void) {
         reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
@@ -155,17 +155,17 @@ class UserService: FirebaseManager {
                 }
                 var users:[LocalUser] = []
                 for (key,_) in matchList {
-                        self.getUser(withId: key, completion: { (user, error) in
-                            if error == nil {
-                                if let user = user {
-                                    users.append(user)
-                                    completion(users,nil)
-                                }
-                            } else {
-                                completion(nil, error)
-                                return
+                    self.getUser(withId: key, completion: { (user, error) in
+                        if error == nil {
+                            if let user = user {
+                                users.append(user)
+                                completion(users,nil)
                             }
-                        })
+                        } else {
+                            completion(nil, error)
+                            return
+                        }
+                    })
                 }
             }
             else {
@@ -476,6 +476,12 @@ class UserService: FirebaseManager {
         }
     }
     
+    private func deleteUser(completion: @escaping CallBackWithSuccessError) {
+        Authenticator.currentFIRUser?.delete(completion: { (error) in
+            completion(error == nil, error)
+        })
+    }
+    
     func deleteUser(userId:String , completion: @escaping CallBackWithSuccessError)  {
         var firebaseRefereces:[DatabaseReference] = []
         self.deleteChat(userId: userId, completion: { (chatRefs,error) in
@@ -503,20 +509,17 @@ class UserService: FirebaseManager {
                                     firebaseRefereces.append(ref)
                                 })
                                 
+                                firebaseRefereces.append(self.reference.child(Node.user.rawValue).child(userId))
                                 // finally remove user
                                 firebaseRefereces.forEach({ (ref) in
                                     ref.removeValue()
                                 })
-                                self.reference.child(Node.user.rawValue).child(userId).removeValue { (error, _) in
-                                    if let error = error {
-                                        completion(false, error)
-                                    } else {
-                                        completion(true, nil)
-                                    }
-                                }
+                                
+                                self.deleteUser(completion: { (success, error) in
+                                    completion(success, error)
+                                })
                             }
                         })
-                        
                     }
                 })
             }
@@ -553,5 +556,5 @@ class UserService: FirebaseManager {
         })
         
     }
-
+    
 }

@@ -227,6 +227,14 @@ class Authenticator {
         })
     }
     
+    func plainLogout() {
+        LoginManager().logOut() //facebook logout
+        GlobalConstants.UserDefaultKey.firstTimeLogin.remove()
+        ChatService.shared.logout()
+        GlobalConstants.UserDefaultKey.loggedInForCurrentSession.set(value: false)
+        self.delegate?.didLogoutUser()
+    }
+    
     func logout() {
         
         if let userId = self.user?.id {

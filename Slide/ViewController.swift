@@ -118,6 +118,7 @@ class ViewController: UIViewController {
     
     var places = [Place]() {
         didSet {
+            Authenticator.shared.places = places
             self.collectionView.reloadData()
         }
     }
