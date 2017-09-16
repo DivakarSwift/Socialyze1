@@ -74,6 +74,7 @@ extension EventDetailViewController {
             ] as [String : Any]
         
         Alamofire.request(GlobalConstants.urls.baseUrl + "useDeal", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+            self?.activityIndicator.stopAnimating()
             self?.useDealApiCalling = false
             if data.response?.statusCode == 200 {
                 // self?.useDealButton.isHidden = true

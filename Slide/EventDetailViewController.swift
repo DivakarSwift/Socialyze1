@@ -706,13 +706,14 @@ class EventDetailViewController: UIViewController {
         guard let user = authenticator.user, !self.useDealApiCalling else { return }
         
         self.useDealApiCalling = true
-        
+        self.activityIndicator.startAnimating()
         self.dealCheckInn {
             let minimumFriends = deal.minimumFriends ?? 0
             let checkedInFriends = self.getCheckedInFbFriends()
             if checkedInFriends.filter({
                 $0.id != user.id
             }).count < minimumFriends {
+                self.activityIndicator.stopAnimating()
                 var msg = GlobalConstants.Message.friendsNotSufficient
                 msg.okAction = {
                     self.showMoreOption()
@@ -723,6 +724,7 @@ class EventDetailViewController: UIViewController {
             }
             
             if deal.isValid() == false {
+                self.activityIndicator.stopAnimating()
                 self.alert(message: GlobalConstants.Message.invalidDeal)
                 self.useDealApiCalling = false
                 return
@@ -755,6 +757,7 @@ class EventDetailViewController: UIViewController {
                 if success {
                     action()
                 }else {
+                    self.activityIndicator.stopAnimating()
                     self.useDealApiCalling = false
                 }
             })
@@ -775,6 +778,7 @@ class EventDetailViewController: UIViewController {
             checkIn()
             
         }else {
+            self.activityIndicator.stopAnimating()
             self.alert(message: GlobalConstants.Message.userNotInPerimeterToUseDeal)
             self.useDealApiCalling = false
         }
