@@ -40,6 +40,8 @@ class ViewController: UIViewController {
         return activityIndicator
     }()
     
+    fileprivate let refeshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,6 +108,8 @@ class ViewController: UIViewController {
         
         getPlaces()
         
+        self.configureRefreshControl()
+        
     }
     
     
@@ -124,14 +128,26 @@ class ViewController: UIViewController {
     }
     
     func getPlaces() {
-        self.activityIndicator.startAnimating()
+        if !self.refeshControl.isRefreshing {
+            self.activityIndicator.startAnimating()
+        }
         PlaceService().getPlaces(completion: { (places) in
-            self.activityIndicator.stopAnimating()
+            if self.refeshControl.isRefreshing {
+                self.refeshControl.endRefreshing()
+            }else {
+                self.activityIndicator.stopAnimating()
+            }
             self.places = places
             self.locationUpdated()
         }, failure: { error in
-            self.activityIndicator.stopAnimating()
-            self.alert(message: error.localizedDescription)
+            if self.activityIndicator.isAnimating {
+                self.activityIndicator.stopAnimating()
+            }
+            self.alert(message: error.localizedDescription, okAction: {
+                if self.refeshControl.isRefreshing {
+                    self.refeshControl.endRefreshing()
+                }
+            })
         })
     }
     
@@ -186,6 +202,20 @@ class ViewController: UIViewController {
             UserDefaults.standard.synchronize()
             self.collectionView.reloadData()
         })
+    }
+    
+    private func configureRefreshControl() {
+        self.refeshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        self.refeshControl.attributedTitle = NSAttributedString(string: "Pull to Update Places")
+        if #available(iOS 10.0, *) {
+            self.collectionView.refreshControl = refeshControl
+        } else {
+            self.collectionView.addSubview(refeshControl)
+        }
+    }
+    
+    @objc private func refresh() {
+        self.getPlaces()
     }
 }
 
