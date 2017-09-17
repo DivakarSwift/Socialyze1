@@ -413,7 +413,6 @@ class EventDetailViewController: UIViewController {
     
     
     @IBAction func checkIn(_ sender: UIButton?) {
-        
         switch eventAction {
         case .going:
             self.going()

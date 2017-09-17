@@ -36,9 +36,15 @@ extension EventDetailViewController {
         
         self.checkInButton.isEnabled = false
         
+        if completion == nil { // if nil then it is from checkin not use deal
+            self.activityIndicator.startAnimating()
+        }
+        
         Alamofire.request(GlobalConstants.urls.baseUrl + "checkIn", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
             self?.checkInButton.isEnabled = true
-            
+            if completion == nil { // if nil then it is from checkin not use deal
+                self?.activityIndicator.stopAnimating()
+            }
             if data.response?.statusCode == 200 {
                 self?.eventAction = .checkInSwipe
                 self?.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
@@ -107,7 +113,9 @@ extension EventDetailViewController {
         
         self.checkInButton.isEnabled = false
         
+        self.activityIndicator.startAnimating()
         Alamofire.request(GlobalConstants.urls.baseUrl + "iAmGoing", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
+            self?.activityIndicator.stopAnimating()
             self?.checkInButton.isEnabled = true
             
             if data.response?.statusCode == 200 {
