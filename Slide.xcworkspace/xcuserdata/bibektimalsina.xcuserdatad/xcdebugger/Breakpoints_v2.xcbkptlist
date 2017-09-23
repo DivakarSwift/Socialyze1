@@ -118,31 +118,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Slide.ChatListViewController.getBlockIds () -&gt; ()"
+                  symbolName = "Slide.ChatListViewController.getBlockIds() -&gt; ()"
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/ChatListViewController.swift"
-                  timestampString = "527226096.357015"
+                  timestampString = "527839303.948766"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "100"
                   endingLineNumber = "100"
-                  offsetFromSymbolStart = "84">
+                  offsetFromSymbolStart = "116">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Slide.ChatListViewController.(getBlockIds () -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;Swift.String&gt;&gt;, Swift.Optional&lt;Slide.FirebaseManagerError&gt;) -&gt; () in Slide.ChatListViewController.getBlockIds() -&gt; ()"
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/ChatListViewController.swift"
-                  timestampString = "527226096.360262"
+                  timestampString = "527839303.950354"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "101"
                   endingLineNumber = "101"
-                  offsetFromSymbolStart = "34">
+                  offsetFromSymbolStart = "28">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -166,31 +166,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Slide.UserService.getMatchedIds (of : Slide.LocalUser, completion : (Swift.Array&lt;Swift.String&gt;, Swift.Optional&lt;Slide.FirebaseManagerError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Slide.UserService.getMatchedIds(of: Slide.LocalUser, completion: (Swift.Array&lt;Swift.String&gt;, Swift.Optional&lt;Slide.FirebaseManagerError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/UserService.swift"
-                  timestampString = "527226096.368369"
+                  timestampString = "527839303.954342"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "195"
                   endingLineNumber = "195"
-                  offsetFromSymbolStart = "1493">
+                  offsetFromSymbolStart = "964">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Slide.UserService.(getMatchedIds (of : Slide.LocalUser, completion : (Swift.Array&lt;Swift.String&gt;, Swift.Optional&lt;Slide.FirebaseManagerError&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  symbolName = "closure #1 (__ObjC.DataSnapshot) -&gt; () in Slide.UserService.getMatchedIds(of: Slide.LocalUser, completion: (Swift.Array&lt;Swift.String&gt;, Swift.Optional&lt;Slide.FirebaseManagerError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Slide"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Projects/Slyde/Slide/UserService.swift"
-                  timestampString = "527226096.371119"
+                  timestampString = "527839303.956027"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "196"
                   endingLineNumber = "196"
-                  offsetFromSymbolStart = "41">
+                  offsetFromSymbolStart = "36">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDetailViewController.swift"
-            timestampString = "527304795.105491"
+            timestampString = "527839051.958157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "551"
@@ -241,38 +241,6 @@
             endingLineNumber = "27"
             landmarkName = "user"
             landmarkType = "24">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.EditingTableViewController.user.didset : Swift.Optional&lt;Slide.LocalUser&gt;"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Projects/Slyde/Slide/EditingViewController.swift"
-                  timestampString = "527226096.390996"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "1400">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Slide.EditingTableViewController.user.didset : Swift.Optional&lt;Slide.LocalUser&gt;"
-                  moduleName = "Slide"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Projects/Slyde/Slide/EditingViewController.swift"
-                  timestampString = "527226096.396405"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "1790">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -288,6 +256,117 @@
             startingLineNumber = "419"
             endingLineNumber = "419"
             landmarkName = "savebio(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/ViewController.swift"
+            timestampString = "527837773.61978"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "didSwipe(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/ViewController.swift"
+            timestampString = "527837774.4646"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "didSwipe(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/EventAPIExtension.swift"
+            timestampString = "527839051.959004"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "getCheckedinUsers()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in Slide.EventDetailViewController.getCheckedinUsers() -&gt; ()"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/Slyde/Slide/EventAPIExtension.swift"
+                  timestampString = "527839303.97957"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "2856">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Array&lt;Slide.Checkin&gt;) -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in Slide.EventDetailViewController.getCheckedinUsers() -&gt; ()"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/Slyde/Slide/EventAPIExtension.swift"
+                  timestampString = "527839303.981117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Slide.FirebaseManagerError) -&gt; () in closure #1 (Swift.Array&lt;Swift.String&gt;) -&gt; () in Slide.EventDetailViewController.getCheckedinUsers() -&gt; ()"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/Slyde/Slide/EventAPIExtension.swift"
+                  timestampString = "527839303.98261"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/EventDetailViewController.swift"
+            timestampString = "527839561.526493"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "649"
+            endingLineNumber = "649"
+            landmarkName = "changeGoingStatus()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

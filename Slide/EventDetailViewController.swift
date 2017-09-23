@@ -629,9 +629,9 @@ class EventDetailViewController: UIViewController {
             self.goingStatusLabel.isHidden = true
         }
         
-        if self.checkinData.count > 0 {
+        if self.checkinWithExpectUser.count > 0 {
             self.checkInStatusLabel.isHidden = false
-            var checkinText = "\(checkinData.count) checked in"
+            var checkinText = "\(self.checkinWithExpectUser.count) checked in"
             self.checkInStatusLabel.text = checkinText
             
             if self.checkinData.count > 0 {
