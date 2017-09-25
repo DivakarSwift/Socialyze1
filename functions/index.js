@@ -66,6 +66,30 @@ exports.useDeal = functions.https.onRequest((request, response) => {
     // });
 });
 
+exports.sendNotificationToLastCheckInUsers = functions.https.onRequest((request, response) => {
+    const placeName = request.body.placeName;
+    console.log(placeName);
+    admin.database().ref('user').orderByChild('checkIn/place').equalTo(placeName).once('value')
+    .then(snapshot => {
+        let tokens = [];
+        snapshot.forEach(function (data) {
+            const token = data.val().fcmToken;
+            // EVMepSAMy5gIgeZ3lKee8n5PCd42
+            if (typeof token === 'string' || token instanceof String){
+                tokens.push(token);
+            }
+        });
+        console.log(tokens);
+        if (tokens.length == 0) {
+            response.status(404).send('no users found');
+        }else {
+            const payload = getNotificationPayload(request);
+            sendPushNotification(tokens, payload);
+            response.status(200).send("sending");
+        }
+    });
+});
+
 function handlePromise(request, response, promise) {
     promise
         .then(snapshot => {
@@ -289,60 +313,6 @@ exports.newImageUploadedFromFB = functions.database.ref('/user/{userId}/profile/
                                 });
                         }
                     });
-
-                // request(image)
-                // .on('error', function (err) {
-                //     console.log("downloaded error");
-                //     console.log(err)
-                //     acknowledgedCount++;
-                //     if (acknowledgedCount == images.length) {
-                //         event.data.ref.set(newImages)
-                //             .then(value => {
-                //                 fulfil();
-                //             });
-                //     }
-                // })
-                // .pipe(fs.createWriteStream(nameOfFile))
-                // .on('finish', function () {
-                //     console.log("downloaded file");
-                //     upload(nameOfFile, filename)
-                //         .then(downloadURL => {
-                //             console.log(downloadURL);
-                //             newImages.push(downloadURL);
-
-                //             acknowledgedCount++;
-                //             if (acknowledgedCount == images.length) {
-                //                 event.data.ref.set(newImages)
-                //                     .then(value => {
-                //                         fulfil();
-                //                     });
-                //             }
-                //         });
-                // });
-
-                // request(image).pipe(file.createWriteStream())
-                // .on('error', function (err) {
-                //     console.log(err);
-                //     console.log("error download file");
-                //     acknowledgedCount++;
-                //     if (acknowledgedCount == images.length) {
-                //         event.data.ref.child('images').set(newImages)
-                //         .then(value => {
-                //             fulfil();
-                //         });
-                //     }
-                // })
-                // .on('finish', function () {
-                //     console.log("success download file");
-                //     acknowledgedCount++;
-
-                //     if (acknowledgedCount == images.length) {
-                //         event.data.ref.child('images').set(newImages)
-                //         .then(value => {
-                //             fulfil();
-                //         });
-                //     }
-                // });
             }
             // }
         });
