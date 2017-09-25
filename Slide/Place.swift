@@ -30,6 +30,8 @@ struct Place:Mappable {
     
     var isEvent:Bool?
     var hasDeal: Bool?
+    var hasLogo: Bool = false
+    var logoImage: String?
     var event:Event?
     
     var deal: Deal?
@@ -71,6 +73,9 @@ struct Place:Mappable {
         self.deal <- map["deal"]
         self.deals <- map["deals"]
         self.hasDeal <- map["hasDeal"]
+        
+        self.logoImage <- map["logoImage"]
+        self.hasLogo <- map["hasLogo"]
     }
     
     func validDeals() -> [Deal] {

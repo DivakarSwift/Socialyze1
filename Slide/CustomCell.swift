@@ -8,10 +8,12 @@
 
 import UIKit
 import FloatRatingView
+import Kingfisher
 
 class CustomCell: UICollectionViewCell {
     
     @IBOutlet var widthLayout: NSLayoutConstraint!
+    @IBOutlet weak var logoImageView: UIImageView!
     var imageView:UIImageView!
     var nameLabel:UILabel!
     var floatRatingView:FloatRatingView!
@@ -41,12 +43,19 @@ class CustomCell: UICollectionViewCell {
         
         nameLabel.text = place.nameAddress
         
-        // the shadow does not seem to be working
-        //        let placeName = (view.viewWithTag(2) as! UILabel)
-        //        placeName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        //        placeName.layer.shadowRadius = 3
-        //        placeName.layer.shadowOpacity = 1
-        //        placeName.layer.masksToBounds = false
+        if place.hasLogo,
+            let logoImageURLString = place.logoImage,
+            !logoImageURLString.isEmpty,
+            let imageUrl = URL(string: logoImageURLString) {
+            logoImageView.kf.setImage(with: imageUrl, placeholder: nil, completionHandler: { (image, error, _, _) in
+                
+                self.nameLabel.isHidden = error == nil
+                self.logoImageView.isHidden = error != nil
+            })
+        }else {
+            self.nameLabel.isHidden = false
+            self.logoImageView.isHidden = true
+        }
         
         floatRatingView.rating = 0
         floatRatingView.floatRatings = true
