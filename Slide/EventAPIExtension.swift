@@ -30,7 +30,7 @@ extension EventDetailViewController {
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Meet your friend in the next 3 hours to use your deal @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds
             ] as [String : Any]
         
@@ -74,7 +74,7 @@ extension EventDetailViewController {
             "time": Date().timeIntervalSince1970,
             "userId": self.authenticator.user?.id ?? "",
             "notificationTitle": "\(self.authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Sweet! Your deal is unlocked for the next 3 hours @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "dealUid": deal.uid ?? "--1"
             ] as [String : Any]
@@ -106,7 +106,7 @@ extension EventDetailViewController {
             "time": Date().timeIntervalSince1970,
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going to \(self.place?.nameAddress ?? "")",
-            "notificationBody": "Meet your friend and get the exclusive deal @ \(self.place?.nameAddress ?? "").",
+            "notificationBody": "Meet your friend to unlock exclusive deals @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
             "eventUid": self.place?.event?.uid ?? "--1"
             ] as [String : Any]
