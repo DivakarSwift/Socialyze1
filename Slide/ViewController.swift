@@ -15,6 +15,7 @@ import SwiftyJSON
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var leftBarCustomButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
@@ -83,21 +84,21 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.reloadData()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: #imageLiteral(resourceName: "profileicon"),
-            style: UIBarButtonItemStyle.plain,
-            target: self,
-            action: #selector(profileBtn)
-        )
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(
+//            image: #imageLiteral(resourceName: "profileicon"),
+//            style: UIBarButtonItemStyle.plain,
+//            target: self,
+//            action: #selector(profileBtn)
+//        )
         
         //create a new button
-        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-        
-        leftButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
-        leftButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
-        leftButton.rounded()
-        let leftBarButton = UIBarButtonItem(customView: leftButton)
-        navigationItem.leftBarButtonItem = leftBarButton
+//        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+//
+        leftBarCustomButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
+        leftBarCustomButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
+        leftBarCustomButton.rounded()
+//        let leftBarButton = UIBarButtonItem(customView: leftButton)
+//        navigationItem.leftBarButtonItem = leftBarButton
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "friendsicon"),
