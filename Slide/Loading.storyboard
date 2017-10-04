@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Menlo.ttc">
+            <string>Menlo-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Loading View Controller-->
+        <scene sceneID="aea-jU-ejW">
+            <objects>
+                <viewController storyboardIdentifier="LoadingViewController" id="dXM-Oh-VVB" customClass="LoadingViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3B6-6B-MSe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="Ue6-Js-2bb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-gw-WO9">
+                                <rect key="frame" x="0.0" y="551" width="375" height="26"/>
+                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ue6-Js-2bb" firstAttribute="leading" secondItem="3B6-6B-MSe" secondAttribute="leading" id="4pz-TN-K5u"/>
+                            <constraint firstItem="RSm-nk-OPi" firstAttribute="trailing" secondItem="AEe-gw-WO9" secondAttribute="trailing" id="Bv3-nJ-npv"/>
+                            <constraint firstItem="RSm-nk-OPi" firstAttribute="bottom" secondItem="Ue6-Js-2bb" secondAttribute="bottom" id="QZ8-iT-NpY"/>
+                            <constraint firstItem="AEe-gw-WO9" firstAttribute="leading" secondItem="RSm-nk-OPi" secondAttribute="leading" id="UHP-n6-h9Q"/>
+                            <constraint firstItem="RSm-nk-OPi" firstAttribute="bottom" secondItem="AEe-gw-WO9" secondAttribute="bottom" constant="90" id="du8-bN-ufx"/>
+                            <constraint firstItem="RSm-nk-OPi" firstAttribute="trailing" secondItem="Ue6-Js-2bb" secondAttribute="trailing" id="puS-SF-pBa"/>
+                            <constraint firstItem="Ue6-Js-2bb" firstAttribute="top" secondItem="3B6-6B-MSe" secondAttribute="top" id="vMJ-va-g2j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RSm-nk-OPi"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Ue6-Js-2bb" id="tMT-Y2-ZKV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wGS-R5-jCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="iTunesArtwork" width="512" height="512"/>
+    </resources>
+</document>

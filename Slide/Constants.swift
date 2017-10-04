@@ -85,6 +85,7 @@ struct GlobalConstants {
         static let fbAccessToken = UserDefaultKey(key: "Facebook_access_token".uppercased())
         static let firstTimeLogin = UserDefaultKey(key: "FIRST_TIME_APP_LOGIN")
         static let loggedInForCurrentSession = UserDefaultKey(key: "LOGGED_IN_FOR_THIS_SESION")
+        static let userSawTutorial = UserDefaultKey(key: "USER_SAW_APP_TUTORIAL")
     }
     
     struct Notification {

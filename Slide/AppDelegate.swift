@@ -126,29 +126,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let fbTokenNeedsRefrehsed =  (expiryTime ?? 0) < 60*60*5
         
         if Authenticator.isUserLoggedIn, let loggedInAlready: Bool = GlobalConstants.UserDefaultKey.firstTimeLogin.value(), loggedInAlready && !fbTokenNeedsRefrehsed {
-            let identifier = "mainNav"
-            let userId = Authenticator.currentFIRUser?.uid
-            
-            UserService().getMe(withId: userId!, completion: { (user, error) in
-                print(error ?? "Success get user detail")
-                if !(user?.isCreatedAfterFbImageDownloadToStorage ?? false) {
-                    Authenticator.shared.logout()
-                    return
-                }
-                Authenticator.shared.user = user
-                if let user = Authenticator.shared.user, let fcmToken = Messaging.messaging().fcmToken {
-                    UserService().addGoogleToken(user: user, fcmToken: fcmToken)
-                }
-                GlobalConstants.UserDefaultKey.loggedInForCurrentSession.set(value: true)
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
-                self.window?.rootViewController = vc
-            })
+            if let userSawTutorial: Bool = GlobalConstants.UserDefaultKey.userSawTutorial.value(), userSawTutorial {
+                
+                self.showLoading()
+                
+                let userId = Authenticator.currentFIRUser?.uid
+                
+                UserService().getMe(withId: userId!, completion: { (user, error) in
+                    print(error ?? "Success get user detail")
+                    if !(user?.isCreatedAfterFbImageDownloadToStorage ?? false) {
+                        Authenticator.shared.logout()
+                        return
+                    }
+                    Authenticator.shared.user = user
+                    if let user = Authenticator.shared.user, let fcmToken = Messaging.messaging().fcmToken {
+                        UserService().addGoogleToken(user: user, fcmToken: fcmToken)
+                    }
+                    GlobalConstants.UserDefaultKey.loggedInForCurrentSession.set(value: true)
+                    self.showMain()
+                })
+            }else {
+                self.showTutorial()
+            }
         } else {
-            let identifier = "LoginViewController"
-            Authenticator.shared.logout()
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
-            self.window?.rootViewController = vc
+            self.showLogin()
         }
+    }
+    
+    func showMain() {
+        let identifier = "mainNav"
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        self.window?.rootViewController = vc
+    }
+    
+    func showLogin() {
+        let identifier = "LoginViewController"
+        Authenticator.shared.logout()
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        self.window?.rootViewController = vc
+    }
+    
+    func showTutorial() {
+        let identifier = "TutorialViewController"
+        let vc = UIStoryboard(name: "Tutorial", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        self.window?.rootViewController = vc
+    }
+    
+    func showLoading() {
+        let identifier = "LoadingViewController"
+        let vc = UIStoryboard(name: "Loading", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        self.window?.rootViewController = vc
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {

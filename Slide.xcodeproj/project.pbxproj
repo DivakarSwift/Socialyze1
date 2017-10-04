@@ -34,6 +34,8 @@
 		1FB829311F83A31F00A255DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB829301F83A31E00A255DF /* ViewController.swift */; };
 		1FB829361F84880700A255DF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB829351F84880700A255DF /* TutorialViewController.swift */; };
 		1FB829381F84888C00A255DF /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB829371F84888C00A255DF /* Tutorial.storyboard */; };
+		1FB8293A1F848D4E00A255DF /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB829391F848D4E00A255DF /* Loading.storyboard */; };
+		1FB8293C1F848E3600A255DF /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB8293B1F848E3600A255DF /* LoadingViewController.swift */; };
 		1FCF785C1F3A9B2E00330E7A /* EventDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF78591F3A9B2E00330E7A /* EventDealTableViewCell.swift */; };
 		1FCF785D1F3A9B2E00330E7A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF785A1F3A9B2E00330E7A /* EventDetailViewController.swift */; };
 		1FCF785E1F3A9B2E00330E7A /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FCF785B1F3A9B2E00330E7A /* Events.storyboard */; };
@@ -109,6 +111,8 @@
 		1FB829301F83A31E00A255DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FB829351F84880700A255DF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		1FB829371F84888C00A255DF /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
+		1FB829391F848D4E00A255DF /* Loading.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
+		1FB8293B1F848E3600A255DF /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		1FCF78591F3A9B2E00330E7A /* EventDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDealTableViewCell.swift; sourceTree = "<group>"; };
 		1FCF785A1F3A9B2E00330E7A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		1FCF785B1F3A9B2E00330E7A /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				FC52197F1E70108500EDF19A /* Categories */,
 				FC1936831E7104BC009F2912 /* Matches */,
 				FC19367E1E70FB8E009F2912 /* Profile */,
+				1FB829391F848D4E00A255DF /* Loading.storyboard */,
+				1FB8293B1F848E3600A255DF /* LoadingViewController.swift */,
 			);
 			path = Slide;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				FC7A24221E695F56004C9E44 /* Assets.xcassets in Resources */,
 				F4A594391EE3DB44003631EE /* indicator_75.gif in Resources */,
 				F4A5943A1EE3DB44003631EE /* indicator_40.gif in Resources */,
+				1FB8293A1F848D4E00A255DF /* Loading.storyboard in Resources */,
 				FC7A24201E695F56004C9E44 /* Main.storyboard in Resources */,
 				1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */,
 				1FCF785E1F3A9B2E00330E7A /* Events.storyboard in Resources */,
@@ -596,6 +603,7 @@
 				1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */,
 				1FCF785C1F3A9B2E00330E7A /* EventDealTableViewCell.swift in Sources */,
 				1FEC06E61EA84348001BD4F2 /* ChatService.swift in Sources */,
+				1FB8293C1F848E3600A255DF /* LoadingViewController.swift in Sources */,
 				1F65465A1EA1C2E300D726E8 /* FacebookService.swift in Sources */,
 				1A1C41D31F10D3A500A878CD /* Deal.swift in Sources */,
 			);
