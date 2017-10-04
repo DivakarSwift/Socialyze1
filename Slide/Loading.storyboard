@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="Ue6-Js-2bb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEe-gw-WO9">
@@ -38,11 +38,11 @@
                         <constraints>
                             <constraint firstItem="Ue6-Js-2bb" firstAttribute="leading" secondItem="3B6-6B-MSe" secondAttribute="leading" id="4pz-TN-K5u"/>
                             <constraint firstItem="RSm-nk-OPi" firstAttribute="trailing" secondItem="AEe-gw-WO9" secondAttribute="trailing" id="Bv3-nJ-npv"/>
+                            <constraint firstItem="Ue6-Js-2bb" firstAttribute="top" secondItem="RSm-nk-OPi" secondAttribute="top" id="DCb-eb-0r8"/>
                             <constraint firstItem="RSm-nk-OPi" firstAttribute="bottom" secondItem="Ue6-Js-2bb" secondAttribute="bottom" id="QZ8-iT-NpY"/>
                             <constraint firstItem="AEe-gw-WO9" firstAttribute="leading" secondItem="RSm-nk-OPi" secondAttribute="leading" id="UHP-n6-h9Q"/>
                             <constraint firstItem="RSm-nk-OPi" firstAttribute="bottom" secondItem="AEe-gw-WO9" secondAttribute="bottom" constant="90" id="du8-bN-ufx"/>
                             <constraint firstItem="RSm-nk-OPi" firstAttribute="trailing" secondItem="Ue6-Js-2bb" secondAttribute="trailing" id="puS-SF-pBa"/>
-                            <constraint firstItem="Ue6-Js-2bb" firstAttribute="top" secondItem="3B6-6B-MSe" secondAttribute="top" id="vMJ-va-g2j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RSm-nk-OPi"/>
                     </view>
@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGS-R5-jCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="54"/>
+            <point key="canvasLocation" x="72.799999999999997" y="53.523238380809602"/>
         </scene>
     </scenes>
     <resources>
