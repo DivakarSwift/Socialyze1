@@ -12,7 +12,7 @@ class TutorialViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    fileprivate let images: [UIImage] = []
+    fileprivate let images: [UIImage] = [#imageLiteral(resourceName: "Tutorial1"), #imageLiteral(resourceName: "Tutorial2"), #imageLiteral(resourceName: "Tutorial3")]
     
     override func viewDidLoad() {
         super.viewDidLoad()

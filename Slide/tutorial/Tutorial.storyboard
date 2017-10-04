@@ -35,8 +35,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="349" height="361"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-f0-Jsv">
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial1" translatesAutoresizingMaskIntoConstraints="NO" id="7Lc-f0-Jsv">
                                                     <rect key="frame" x="0.0" y="0.0" width="349" height="361"/>
+                                                    <color key="backgroundColor" red="0.0042409580200910568" green="0.1607556939125061" blue="0.18201801180839539" alpha="0.87048855633802813" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -77,4 +78,7 @@
             <point key="canvasLocation" x="112.8" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Tutorial1" width="187" height="333"/>
+    </resources>
 </document>
