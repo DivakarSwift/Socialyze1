@@ -32,6 +32,8 @@
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
 		1FB2DB9D1E7E2A850017CD4B /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */; };
 		1FB829311F83A31F00A255DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB829301F83A31E00A255DF /* ViewController.swift */; };
+		1FB829361F84880700A255DF /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB829351F84880700A255DF /* TutorialViewController.swift */; };
+		1FB829381F84888C00A255DF /* Tutorial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB829371F84888C00A255DF /* Tutorial.storyboard */; };
 		1FCF785C1F3A9B2E00330E7A /* EventDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF78591F3A9B2E00330E7A /* EventDealTableViewCell.swift */; };
 		1FCF785D1F3A9B2E00330E7A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF785A1F3A9B2E00330E7A /* EventDetailViewController.swift */; };
 		1FCF785E1F3A9B2E00330E7A /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FCF785B1F3A9B2E00330E7A /* Events.storyboard */; };
@@ -105,6 +107,8 @@
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FB2DB9C1E7E2A850017CD4B /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
 		1FB829301F83A31E00A255DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1FB829351F84880700A255DF /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		1FB829371F84888C00A255DF /* Tutorial.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tutorial.storyboard; sourceTree = "<group>"; };
 		1FCF78591F3A9B2E00330E7A /* EventDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDealTableViewCell.swift; sourceTree = "<group>"; };
 		1FCF785A1F3A9B2E00330E7A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		1FCF785B1F3A9B2E00330E7A /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
@@ -266,6 +270,15 @@
 			name = UTILS;
 			sourceTree = "<group>";
 		};
+		1FB829341F84880700A255DF /* tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				1FB829351F84880700A255DF /* TutorialViewController.swift */,
+				1FB829371F84888C00A255DF /* Tutorial.storyboard */,
+			);
+			path = tutorial;
+			sourceTree = "<group>";
+		};
 		1FE787611E877DA1006B2445 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +379,7 @@
 		FC7A24191E695F56004C9E44 /* Slide */ = {
 			isa = PBXGroup;
 			children = (
+				1FB829341F84880700A255DF /* tutorial */,
 				F40FCC8E1EFCA583008AF554 /* Events */,
 				FCA5ED991ED4CC9800E0A4BF /* Slide.entitlements */,
 				1F1E55381EA8A16100748894 /* Chat */,
@@ -467,6 +481,7 @@
 				FC7A24201E695F56004C9E44 /* Main.storyboard in Resources */,
 				1F0E23B41E9F39BE00EC0F4D /* Maps.storyboard in Resources */,
 				1FCF785E1F3A9B2E00330E7A /* Events.storyboard in Resources */,
+				1FB829381F84888C00A255DF /* Tutorial.storyboard in Resources */,
 				FC19367D1E70FB85009F2912 /* Profile.storyboard in Resources */,
 				1F1E553A1EA8A17F00748894 /* Chat.storyboard in Resources */,
 				F4A5943C1EE3DB44003631EE /* indicator_149.gif in Resources */,
@@ -539,6 +554,7 @@
 				1FF046541EA8D84D00522063 /* ChatListViewController.swift in Sources */,
 				1FB829311F83A31F00A255DF /* ViewController.swift in Sources */,
 				F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */,
+				1FB829361F84880700A255DF /* TutorialViewController.swift in Sources */,
 				1F3D8DAD1F44C4D30080D374 /* DateExtension.swift in Sources */,
 				1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */,
 				1F0E23B61E9F47C700EC0F4D /* PlaceToUserMapViewController.swift in Sources */,
