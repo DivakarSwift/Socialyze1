@@ -10,13 +10,26 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
+    fileprivate var stop: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UIView.animate(withDuration: 1, delay: 0, options: .repeat, animations: {
-            self.imageView.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi * 2)
-        }, completion: nil)
+        transform()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stop = true
+    }
+    
+    func transform() {
+        UIView.animate(withDuration: 1, delay: 0, options: .curveLinear, animations: {
+            self.imageView.transform = self.imageView.transform.concatenating(CGAffineTransform.init(rotationAngle: CGFloat.pi))
+        }, completion: {_ in
+            if !self.stop {
+                self.transform()
+            }
+        })
     }
 
 }
