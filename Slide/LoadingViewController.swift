@@ -23,7 +23,7 @@ class LoadingViewController: UIViewController {
     }
     
     func transform() {
-        UIView.animate(withDuration: 1, delay: 0, options: .curveLinear, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveLinear, animations: {
             self.imageView.transform = self.imageView.transform.concatenating(CGAffineTransform.init(rotationAngle: CGFloat.pi))
         }, completion: {_ in
             if !self.stop {
