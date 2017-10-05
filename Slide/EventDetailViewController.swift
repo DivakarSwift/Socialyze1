@@ -335,6 +335,7 @@ class EventDetailViewController: UIViewController {
     // MARK: -
     
     func changeCheckInButton(action: EventAction) {
+        var hide: Bool = false
         switch action {
         case .going:
             self.checkInButton.setTitle("Going", for: .normal)
@@ -347,11 +348,13 @@ class EventDetailViewController: UIViewController {
             //self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
         //self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
+            hide = true
             self.checkInButton.setTitle("Connect", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             // self.checkInButton.setTitleColor(UIColor., for: .normal)
             //self.checkInButton.backgroundColor = UIColor.white
         }
+        self.checkInButton.isHidden = hide
     }
     
     func  viewDetail() {

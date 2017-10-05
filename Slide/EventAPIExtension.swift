@@ -170,7 +170,7 @@ extension EventDetailViewController {
                                 self?.isCheckedIn = true
                             }
                             
-                            return !isMe && checkTimeValid
+                            return checkTimeValid//!isMe && checkTimeValid
                         }
                         return false
                     })
@@ -191,7 +191,7 @@ extension EventDetailViewController {
                     
                     self?.goingWithExpectUser = checkins.filter({(checkin) -> Bool in
                         
-                        var val:Bool = true
+                       // var val:Bool = true
                         if let checkInUserId = checkin.userId, let myId = Authenticator.shared.user?.id {
                             
                             let me = checkInUserId == myId
@@ -199,9 +199,9 @@ extension EventDetailViewController {
                                 self?.isGoing = me
                                 self?.changeGoingStatus()
                             }
-                            val = !me
+                            // val = !me
                         }
-                        return val
+                        return true //val
                     })
                     
                     self?.activityIndicator.stopAnimating()
