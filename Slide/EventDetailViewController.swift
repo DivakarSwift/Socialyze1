@@ -416,30 +416,30 @@ class EventDetailViewController: UIViewController {
         switch eventAction {
         case .going:
             self.going()
-        case .goingSwipe:
-            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
-            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
-            
-            if userIdsSet.count != 0 {
-                self.openCategories(userId: userIdsSet)
-            } else {
-                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
-                    
-                })
-            }
+        case .goingSwipe: break
+//            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
+//            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
+//
+//            if userIdsSet.count != 0 {
+//                self.openCategories(userId: userIdsSet)
+//            } else {
+//                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
+//
+//                })
+//            }
         case .checkIn:
             self.checkInn()
-        case .checkInSwipe:
-            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
-            let userIdsSet = Set(self.checkinData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
-            if userIdsSet.count != 0 {
-                self.openCategories(userId: userIdsSet)
-            } else {
-                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
-                    
-                })
-                self.changeGoingStatus()
-            }
+        case .checkInSwipe: break
+//            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
+//            let userIdsSet = Set(self.checkinData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
+//            if userIdsSet.count != 0 {
+//                self.openCategories(userId: userIdsSet)
+//            } else {
+//                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
+//
+//                })
+//                self.changeGoingStatus()
+//            }
         }
     }
     
