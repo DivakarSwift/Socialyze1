@@ -55,6 +55,7 @@ extension EventDetailViewController {
                     Timer.scheduledTimer(timeInterval: checkInThreshold, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
                 }
                 completion?(true)
+                self?.getCheckedinUsers()
             }else {
                 completion?(false)
                 self?.isCheckedIn = false
@@ -121,6 +122,7 @@ extension EventDetailViewController {
             if data.response?.statusCode == 200 {
                 self?.isGoing = true
                 self?.eventAction = .goingSwipe
+                self?.getGoingUsers()
             }else {
                 self?.alert(message: "Something went wrong. Try again!")
             }
