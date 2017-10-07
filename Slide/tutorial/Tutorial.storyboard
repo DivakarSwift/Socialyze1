@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Menlo.ttc">
-            <string>Menlo-Bold</string>
+        <array key="Kailasa.ttc">
+            <string>Kailasa-Bold</string>
         </array>
     </customFonts>
     <scenes>
@@ -66,8 +66,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="ycw-GG-Ruu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="18"/>
-                                <state key="normal" title="START SOCIALYZING">
+                                <fontDescription key="fontDescription" name="Kailasa-Bold" family="Kailasa" pointSize="18"/>
+                                <state key="normal" title="Let's go!">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
