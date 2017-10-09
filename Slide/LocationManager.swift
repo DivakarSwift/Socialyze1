@@ -91,7 +91,7 @@ extension SlydeLocationManager: CLLocationManagerDelegate {
         if !self.shouldGetLocationContiniously {
             self.stopUpdatingLocation()
         }
-        // self.location = locations.last
+         self.location = locations.last
         
         if let _ = self.location?.coordinate {
             GlobalConstants.Notification.newLocationObtained.fire()

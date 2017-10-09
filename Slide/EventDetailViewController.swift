@@ -427,8 +427,8 @@ class EventDetailViewController: UIViewController {
         switch eventAction {
         case .going:
             self.going()
-        case .goingSwipe: break
-            // self.showMoreOption()
+        case .goingSwipe, .checkInSwipe:
+             self.showMoreOption()
             //            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
             //            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
             //
