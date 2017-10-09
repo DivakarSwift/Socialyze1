@@ -185,6 +185,30 @@ class CategoriesViewController: UIViewController {
         self.alert(message: "User is Checked In.")
     }
     
+    @IBAction func openChat(_ sender: Any) {
+        let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+        
+        var val = ChatItem()
+        if let friend = self.fromFBFriends?.id, let me = Authenticator.shared.user?.id {
+            let chatId =  friend > me ? friend+me : me+friend
+            val.chatId = chatId
+            val.userId = friend
+        }
+        vc.fromSquad = true
+        vc.chatItem = val
+        vc.chatUser = self.fromFBFriends
+        vc.chatUserName = self.fromFBFriends?.profile.firstName ?? ""
+        vc.chatOppentId = self.fromFBFriends?.id
+        
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        }else {
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: nil)
+        }
+    }
+    
+    
     @IBAction func reportUser(_ sender: Any) {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let block = UIAlertAction(title: "Block", style: .default) { (_) in

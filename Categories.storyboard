@@ -51,7 +51,7 @@
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                                                 <state key="normal" image="Chat"/>
                                                 <connections>
-                                                    <segue destination="Q5v-td-E0K" kind="show" identifier="openMatches" id="vGy-V4-hxx"/>
+                                                    <action selector="openChat:" destination="2Nx-S1-xmf" eventType="touchUpInside" id="aBl-08-89L"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -262,14 +262,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JmS-ds-jqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1080" y="-275"/>
-        </scene>
-        <!--matchNav-->
-        <scene sceneID="GmS-Ji-opl">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Matches" referencedIdentifier="matchNav" id="Q5v-td-E0K" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rZ3-wc-hSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="553" y="-214"/>
         </scene>
     </scenes>
     <resources>

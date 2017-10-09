@@ -38,10 +38,14 @@ class ChatViewController: UIViewController {
     
     func backButtonClicked(_ button:UIBarButtonItem!){
         if let nav = self.navigationController {
-            nav.popViewController(animated: true)
-            if let _ = self.fromMatch {
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
-                appDelegate.window?.rootViewController = vc
+            if nav.viewControllers.count == 1 {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }else {
+                nav.popViewController(animated: true)
+                if let _ = self.fromMatch {
+                    let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
+                    appDelegate.window?.rootViewController = vc
+                }
             }
         } else {
             self.dismiss(animated: true, completion: nil)
@@ -72,7 +76,7 @@ class ChatViewController: UIViewController {
             vc.fromFBFriends = user
             let nav = UINavigationController(rootViewController: vc)
             self.present(nav, animated: true, completion: nil)
-//            _ = self.navigationController?.pushViewController(vc, animated: true)
+            //            _ = self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -183,11 +187,11 @@ class ChatViewController: UIViewController {
         parameters["collapse_key"] = "New_message"
         parameters["data"] = userInfo
         parameters["priority"] = "high"
-//        parameters["time_to_live"] = "600"
+        //        parameters["time_to_live"] = "600"
         
         Utilities.firePushNotification(with: parameters)
     }
-        
+    
     // MARK: - More Options
     private func showMoreOption() {
         if let user = self.chatUser {
@@ -255,28 +259,28 @@ class ChatViewController: UIViewController {
     }
     
     private func report(forUser opponent: LocalUser) {
-            let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
-            reportAlert.addTextField(configurationHandler: { (textField) in
-                textField.placeholder = "Remarks"
+        let reportAlert = UIAlertController(title: "Report Remarks", message: "", preferredStyle: .alert)
+        reportAlert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Remarks"
+        })
+        
+        let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
+            self.activityIndicator.startAnimating()
+            self.userService.report(user: opponent, remark: reportAlert.textFields?.first?.text ?? "", completion: { [weak self] (success, error) in
+                self?.activityIndicator.stopAnimating()
+                if success {
+                    self?.alert(message: "Reported on user.")
+                }else {
+                    self?.alert(message: "Can't report the user. Try again!")
+                }
             })
-            
-            let ok = UIAlertAction(title: "Report", style: .default, handler: { (_) in
-                self.activityIndicator.startAnimating()
-                self.userService.report(user: opponent, remark: reportAlert.textFields?.first?.text ?? "", completion: { [weak self] (success, error) in
-                    self?.activityIndicator.stopAnimating()
-                    if success {
-                        self?.alert(message: "Reported on user.")
-                    }else {
-                        self?.alert(message: "Can't report the user. Try again!")
-                    }
-                })
-            })
-            
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            reportAlert.addAction(ok)
-            reportAlert.addAction(cancel)
-            
-            self.present(reportAlert, animated: true, completion: nil)
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        reportAlert.addAction(ok)
+        reportAlert.addAction(cancel)
+        
+        self.present(reportAlert, animated: true, completion: nil)
     }
     
     private func unMatch(name: String) {
