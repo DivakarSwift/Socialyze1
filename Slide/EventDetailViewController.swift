@@ -48,7 +48,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet weak var checkInButton:UIButton!
-    @IBOutlet weak var inviteButton:UIButton!
+    // @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var friendsCollectionViewStack: UIStackView?
     @IBOutlet weak var eventDateTimeStack: UIStackView!
@@ -226,8 +226,8 @@ class EventDetailViewController: UIViewController {
             })
         }
         self.setupCollectionView()
-        self.checkInButton.set(cornerRadius: 5)
-        self.inviteButton.set(cornerRadius: 5)
+        self.checkInButton.rounded()//.set(cornerRadius: 5)
+        // self.inviteButton.set(cornerRadius: 5)
         // self.eventPlaceLabel.layer.cornerRadius = 5
     }
     
@@ -335,7 +335,7 @@ class EventDetailViewController: UIViewController {
     // MARK: -
     
     func changeCheckInButton(action: EventAction) {
-        var hide: Bool = false
+        // var hide: Bool = false
         switch action {
         case .going:
             self.checkInButton.setTitle("Going", for: .normal)
@@ -348,13 +348,14 @@ class EventDetailViewController: UIViewController {
             //self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
         //self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
-            hide = true
-            self.checkInButton.setTitle("Connect", for: .normal)
+           // hide = true
+           // self.checkInButton.setTitle("Connect", for: .normal)
+            self.checkInButton.setTitle("Invite", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             // self.checkInButton.setTitleColor(UIColor., for: .normal)
             //self.checkInButton.backgroundColor = UIColor.white
         }
-        self.checkInButton.isHidden = hide
+       // self.checkInButton.isHidden = hide
     }
     
     func  viewDetail() {
@@ -419,7 +420,8 @@ class EventDetailViewController: UIViewController {
         switch eventAction {
         case .going:
             self.going()
-        case .goingSwipe: break
+        case .goingSwipe, .checkInSwipe:
+            self.showMoreOption()
 //            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
 //            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
 //
