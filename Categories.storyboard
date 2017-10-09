@@ -69,7 +69,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="thehomebutton"/>
                                         <connections>
-                                            <segue destination="sBn-x1-vpJ" kind="show" identifier="openMain" id="DK4-OY-Xuz"/>
+                                            <action selector="openHome:" destination="2Nx-S1-xmf" eventType="touchUpInside" id="wOx-DH-bnm"/>
                                         </connections>
                                     </button>
                                 </subviews>

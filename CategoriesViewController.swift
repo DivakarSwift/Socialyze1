@@ -181,6 +181,10 @@ class CategoriesViewController: UIViewController {
     
     // MARK: - User Actions
     
+    @IBAction func openHome(_ sender: Any) {
+        appDelegate.showMain()
+    }
+    
     @IBAction func checkInClikced(_ sender: UIButton) {
         self.alert(message: "User is Checked In.")
     }
