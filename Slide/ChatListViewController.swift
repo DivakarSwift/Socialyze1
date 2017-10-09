@@ -66,7 +66,7 @@ class ChatListViewController: UIViewController {
         getUserFriends()
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "thehomebutton"), style: .plain, target: self, action: #selector(self.goHome))
-        
+        self.refreshControl.tintColor = UIColor.white
         self.refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         if #available(iOS 10.0, *) {

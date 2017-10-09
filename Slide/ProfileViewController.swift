@@ -82,7 +82,7 @@ class ProfileViewController: UIViewController {
         self.user = Authenticator.shared.user
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         //self.navigationController?.navigationBar.isHidden = true
-        UIApplication.shared.isStatusBarHidden = true
+//        UIApplication.shared.isStatusBarHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
