@@ -67,7 +67,7 @@
                                             <constraint firstAttribute="width" constant="60" id="8oh-ja-fZz"/>
                                             <constraint firstAttribute="width" secondItem="hAf-tw-I4N" secondAttribute="height" multiplier="1:1" id="l45-mU-vDt"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="thehomebutton"/>
+                                        <state key="normal" image="thehomebuttonLarge"/>
                                         <connections>
                                             <action selector="openHome:" destination="2Nx-S1-xmf" eventType="touchUpInside" id="wOx-DH-bnm"/>
                                         </connections>
@@ -269,6 +269,6 @@
         <image name="checkinbutton32x32" width="32" height="32"/>
         <image name="checkmark" width="204" height="204"/>
         <image name="exclamation" width="64" height="64"/>
-        <image name="thehomebutton" width="267" height="267"/>
+        <image name="thehomebuttonLarge" width="133" height="133"/>
     </resources>
 </document>

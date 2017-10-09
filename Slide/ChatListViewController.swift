@@ -65,6 +65,8 @@ class ChatListViewController: UIViewController {
         self.view.addSubview(self.activityIndicator)
         getUserFriends()
         
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "thehomebutton"), style: .plain, target: self, action: #selector(self.goHome))
+        
         self.refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh")
         self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
         if #available(iOS 10.0, *) {
@@ -81,6 +83,10 @@ class ChatListViewController: UIViewController {
         self.navigationItem.title = "My Squad"
         self.navigationController?.navigationBar.isHidden = false
         self.fetchMatchIds()
+    }
+    
+    func goHome() {
+        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 1)
     }
     
     func refresh() {

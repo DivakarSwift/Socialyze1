@@ -15,9 +15,9 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource, 
     var viewControllerArray: [UIViewController] = {
         let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController()
         let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
-        let chatList = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatListViewController")
+        let chatList = UIStoryboard(name: "Chat", bundle: nil).instantiateInitialViewController()
         
-        return [profile!, main, chatList]
+        return [profile!, main, chatList!]
     }()
     
     override func viewDidLoad() {
@@ -37,6 +37,10 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource, 
         
         pageViewController.dataSource = self
         pageViewController.delegate = self
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {

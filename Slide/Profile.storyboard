@@ -101,7 +101,7 @@
                                             <constraint firstAttribute="height" constant="60" id="SJD-VU-iDe"/>
                                             <constraint firstAttribute="width" constant="60" id="Sf8-Lf-d4e"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="thehomebutton"/>
+                                        <state key="normal" image="thehomebuttonLarge"/>
                                         <connections>
                                             <action selector="goToHome:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="HKn-A5-vL9"/>
                                         </connections>
@@ -591,6 +591,6 @@
     <resources>
         <image name="crossmark" width="204" height="204"/>
         <image name="editbutton" width="128" height="128"/>
-        <image name="thehomebutton" width="267" height="267"/>
+        <image name="thehomebuttonLarge" width="133" height="133"/>
     </resources>
 </document>
