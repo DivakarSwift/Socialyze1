@@ -49,7 +49,7 @@
                                                     <constraint firstAttribute="width" secondItem="nMO-Rb-cf3" secondAttribute="height" id="A8E-VM-5yN"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                                                <state key="normal" image="Chat"/>
+                                                <state key="normal" image="chat2"/>
                                                 <connections>
                                                     <action selector="openChat:" destination="2Nx-S1-xmf" eventType="touchUpInside" id="aBl-08-89L"/>
                                                 </connections>
@@ -265,7 +265,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Chat" width="64" height="59"/>
+        <image name="chat2" width="40" height="40"/>
         <image name="checkinbutton32x32" width="32" height="32"/>
         <image name="checkmark" width="204" height="204"/>
         <image name="exclamation" width="64" height="64"/>
