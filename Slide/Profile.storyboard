@@ -108,8 +108,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">
-                                <rect key="frame" x="40" y="40" width="0.0" height="67"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">
+                                <rect key="frame" x="40" y="40" width="33.666666666666671" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -126,6 +126,7 @@
                             <constraint firstAttribute="trailing" secondItem="d1w-x1-StJ" secondAttribute="trailing" id="Mf4-WF-431"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="top" secondItem="P2q-w0-1YG" secondAttribute="top" id="Sb5-Mf-NkL"/>
                             <constraint firstItem="goF-SG-JG0" firstAttribute="top" secondItem="d1w-x1-StJ" secondAttribute="bottom" id="Tci-Rm-b4H"/>
+                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="20" id="XE1-fX-OpD"/>
                             <constraint firstAttribute="trailing" secondItem="12q-Lr-3tK" secondAttribute="trailing" id="ejg-ia-5Uz"/>
                         </constraints>
                     </view>
