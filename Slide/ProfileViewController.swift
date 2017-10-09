@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
         lblUserName.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         lblUserName.layer.shadowRadius = 3
         lblUserName.layer.shadowOpacity = 1
-        self.user = Authenticator.shared.user
+//        self.user = Authenticator.shared.user
         
         self.adddTapGesture(toView: self.userImageView)
         

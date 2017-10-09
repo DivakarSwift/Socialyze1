@@ -161,14 +161,16 @@ class ViewController: UIViewController {
     }
     
     func profileBtn(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-        let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
-        controller.userId = Authenticator.currentFIRUser?.uid
-        performSegue(withIdentifier: "swipeToProfile", sender: nil)
+//        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+//        let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
+//        controller.userId = Authenticator.currentFIRUser?.uid
+//        performSegue(withIdentifier: "swipeToProfile", sender: nil)
+        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 0)
     }
     
     func chatBtn(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "swipeToChat", sender: nil)
+        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 2)
+//        performSegue(withIdentifier: "swipeToChat", sender: nil)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {

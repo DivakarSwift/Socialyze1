@@ -18,6 +18,8 @@ class ChatListViewController: UIViewController {
     
     @IBOutlet weak var squadfooterView: UIView!
     
+    let refreshControl = UIRefreshControl()
+    
     let userService = UserService()
     let facebookService = FacebookService.shared
     fileprivate var me: LocalUser? { return Authenticator.shared.user}
@@ -62,6 +64,16 @@ class ChatListViewController: UIViewController {
         self.activityIndicator.center = self.view.center
         self.view.addSubview(self.activityIndicator)
         getUserFriends()
+        
+        self.refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh")
+        self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
+        if #available(iOS 10.0, *) {
+            self.tableView.refreshControl = self.refreshControl
+        } else {
+            self.tableView.addSubview(refreshControl)
+            // Fallback on earlier versions
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +81,11 @@ class ChatListViewController: UIViewController {
         self.navigationItem.title = "My Squad"
         self.navigationController?.navigationBar.isHidden = false
         self.fetchMatchIds()
+    }
+    
+    func refresh() {
+        self.getUserFriends()
+        self.refreshControl.endRefreshing()
     }
     
     // MARK: Methods
