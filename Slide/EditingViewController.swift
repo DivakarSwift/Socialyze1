@@ -125,7 +125,8 @@ class EditingTableViewController: UITableViewController {
         }else {
             var message = GlobalConstants.Message.userWontSave
             message.okAction = {
-                _ = self.navigationController?.popViewController(animated: true)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+               // _ = self.navigationController?.popViewController(animated: true)
             }
             self.alert(message: message)
         }
@@ -133,7 +134,8 @@ class EditingTableViewController: UITableViewController {
     
     @IBAction func cancelButtonTouched(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
-        _ = self.navigationController?.popViewController(animated: true)
+        self.navigationController?.dismiss(animated: true, completion: nil)
+       // _ = self.navigationController?.popViewController(animated: true)
     }
     
     func removeFirebaseImage(_ index: Int) {
@@ -150,7 +152,8 @@ class EditingTableViewController: UITableViewController {
                 self.activityIndicator.startAnimating()
                 self.uploadImage(index: 0)
             } else {
-                _ = self.navigationController?.popViewController(animated: true)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+               // _ = self.navigationController?.popViewController(animated: true)
                 //performSegue(withIdentifier: "unwindToProfile", sender: self)
             }
         }
@@ -192,11 +195,13 @@ class EditingTableViewController: UITableViewController {
             if error == nil {
                 //self.alert(message: "Successfully updated profile", title: "Success!", okAction: {
                 Authenticator.shared.user = self.localUser
-                _ = self.navigationController?.popViewController(animated: true)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+               // _ = self.navigationController?.popViewController(animated: true)
                 //self.performSegue(withIdentifier: "unwindToProfile", sender: self)
                 //})
             } else {
-                _ = self.navigationController?.popViewController(animated: true)
+                self.navigationController?.dismiss(animated: true, completion: nil)
+               // _ = self.navigationController?.popViewController(animated: true)
                 //self.performSegue(withIdentifier: "unwindToProfile", sender: self)
             }
             

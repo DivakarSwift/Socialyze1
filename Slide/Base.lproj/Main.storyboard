@@ -195,12 +195,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="left" id="bx8-uX-766">
+                <swipeGestureRecognizer enabled="NO" direction="left" id="bx8-uX-766">
                     <connections>
                         <action selector="didSwipe:" destination="BYZ-38-t0r" id="Hca-db-ToC"/>
                     </connections>
                 </swipeGestureRecognizer>
-                <swipeGestureRecognizer direction="right" id="6gS-XI-1Qj">
+                <swipeGestureRecognizer enabled="NO" direction="right" id="6gS-XI-1Qj">
                     <connections>
                         <action selector="didSwipe:" destination="BYZ-38-t0r" id="w4Q-R2-s7s"/>
                     </connections>

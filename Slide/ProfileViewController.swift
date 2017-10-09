@@ -98,6 +98,10 @@ class ProfileViewController: UIViewController {
         self.present(nav, animated: true, completion: nil)
     }
     
+    @IBAction func goToHome(_ sender: Any) {
+        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 1)
+    }
+    
     @IBAction func swipeHome(_ sender: Any) {
         performSegue(withIdentifier: "unwindFromProfile", sender: nil)
     }

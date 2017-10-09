@@ -102,6 +102,7 @@ struct GlobalConstants {
         static let locationAuthorizationStatusChanged = Notification(name: "Location_Authorization_Status_Changed".uppercased())
         static let newLocationObtained = Notification(name: "New_Location_Obtained".uppercased())
         static let locationUpdateError = Notification(name: "Location_Update_Error".uppercased())
+        static let changePage = Notification(name: "change_page_of_main_pageviewcontroller".uppercased())
     }
     
     struct Message {

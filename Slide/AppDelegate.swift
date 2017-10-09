@@ -154,9 +154,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func showMain() {
-        let identifier = "mainNav"
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
-        self.window?.rootViewController = vc
+//        let identifier = "mainNav"
+//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+        let mainPage = MainPageViewController()
+        self.window?.rootViewController = mainPage
     }
     
     func showLogin() {

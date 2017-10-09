@@ -27,6 +27,7 @@
 		1F65465C1EA255BC00D726E8 /* FacebookFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */; };
 		1F65465E1EA255C800D726E8 /* CheckInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65465D1EA255C800D726E8 /* CheckInModel.swift */; };
 		1F6D5E791F42D67E0042E195 /* SnapchatLikeFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */; };
+		1F7949721F8B57F2009A4526 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7949711F8B57F2009A4526 /* MainPageViewController.swift */; };
 		1F9F02DD1E9CA584004B12FC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DC1E9CA584004B12FC /* LocationManager.swift */; };
 		1F9F02DF1E9CA5AF004B12FC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F02DE1E9CA5AF004B12FC /* Constants.swift */; };
 		1FB2DB9B1E7E2A740017CD4B /* MatchesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */; };
@@ -104,6 +105,7 @@
 		1F65465B1EA255BC00D726E8 /* FacebookFriend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFriend.swift; sourceTree = "<group>"; };
 		1F65465D1EA255C800D726E8 /* CheckInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInModel.swift; sourceTree = "<group>"; };
 		1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapchatLikeFlowLayout.swift; sourceTree = "<group>"; };
+		1F7949711F8B57F2009A4526 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		1F9F02DC1E9CA584004B12FC /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		1F9F02DE1E9CA5AF004B12FC /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1FB2DB9A1E7E2A740017CD4B /* MatchesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				1F9F02DE1E9CA5AF004B12FC /* Constants.swift */,
 				1F9F02DC1E9CA584004B12FC /* LocationManager.swift */,
 				F672EA6F1EB9ED7000FB8A44 /* Utilities.swift */,
+				1F7949711F8B57F2009A4526 /* MainPageViewController.swift */,
 			);
 			name = UTILS;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				1F06C9A71E8F4FCE00934676 /* MosaicColumn.swift in Sources */,
 				F621B3BE1ED82D2F007E5F05 /* Place.swift in Sources */,
 				1FF046541EA8D84D00522063 /* ChatListViewController.swift in Sources */,
+				1F7949721F8B57F2009A4526 /* MainPageViewController.swift in Sources */,
 				1FB829311F83A31F00A255DF /* ViewController.swift in Sources */,
 				F603F9281EBABB5E00DCC16F /* MatchedViewController.swift in Sources */,
 				1FB829361F84880700A255DF /* TutorialViewController.swift in Sources */,

@@ -85,7 +85,7 @@
                                                 <state key="normal" image="editbutton"/>
                                                 <connections>
                                                     <action selector="editProfile:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="0Ir-5q-kQ2"/>
-                                                    <segue destination="Xua-vR-Ynp" kind="show" identifier="editProfile" id="RNp-YQ-jzq"/>
+                                                    <segue destination="R7K-63-y7L" kind="presentation" identifier="editProfile" id="RNp-YQ-jzq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -103,7 +103,7 @@
                                         </constraints>
                                         <state key="normal" title="Button" image="thehomebutton"/>
                                         <connections>
-                                            <segue destination="lrU-wq-ast" kind="unwind" customClass="CustomSwipeUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="h5g-i3-hk2"/>
+                                            <action selector="goToHome:" destination="QEE-sF-Qvd" eventType="touchUpInside" id="HKn-A5-vL9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -137,12 +137,10 @@
                         <outlet property="editButton" destination="3dB-7f-XWW" id="H3Q-87-i5D"/>
                         <outlet property="lblUserName" destination="BYg-Jd-xdB" id="hgv-xf-x0p"/>
                         <outlet property="userImageView" destination="12q-Lr-3tK" id="vi6-GL-zb9"/>
-                        <segue destination="lrU-wq-ast" kind="unwind" identifier="unwindFromProfile" customClass="CustomSwipeUnwindSegue" customModule="Slide" customModuleProvider="target" unwindAction="returnFromSegueActionsWithSender:" id="WqD-ho-TzR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BS6-An-PF0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="lrU-wq-ast" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="left" id="ZGc-5N-niU">
+                <swipeGestureRecognizer enabled="NO" direction="left" id="ZGc-5N-niU">
                     <connections>
                         <action selector="swipeHome:" destination="QEE-sF-Qvd" id="xNx-hL-Qtz"/>
                     </connections>
@@ -546,7 +544,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit" id="QW3-qO-nRD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kzO-SU-BVB">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="kzO-SU-BVB">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="doneNavBtn:" destination="Xua-vR-Ynp" id="eS3-fF-0DF"/>
@@ -568,6 +566,24 @@
                         <action selector="doneNavBtn:" destination="Xua-vR-Ynp" id="H8l-Cn-DWO"/>
                     </connections>
                 </barButtonItem>
+            </objects>
+            <point key="canvasLocation" x="2551" y="104"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i41-tO-OaZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R7K-63-y7L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NlA-fQ-lMQ">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xua-vR-Ynp" kind="relationship" relationship="rootViewController" id="8TJ-2s-hCK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SwD-GU-kTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1771.0144927536232" y="104.34782608695653"/>
         </scene>
