@@ -48,7 +48,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var checkInStatusLabel: UILabel!
     @IBOutlet weak var friendsCollectionView: UICollectionView!
     @IBOutlet weak var checkInButton:UIButton!
-    // @IBOutlet weak var inviteButton:UIButton!
+//    @IBOutlet weak var inviteButton:UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var friendsCollectionViewStack: UIStackView?
     @IBOutlet weak var eventDateTimeStack: UIStackView!
@@ -341,23 +341,24 @@ class EventDetailViewController: UIViewController {
     // MARK: -
     
     func changeCheckInButton(action: EventAction) {
-        // var hide: Bool = false
+//         var hide: Bool = false
+        self.checkInButton.setImage(nil, for: .normal)
+        self.checkInButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
         switch action {
         case .going:
             self.checkInButton.setTitle("Going", for: .normal)
-            self.checkInButton.setImage(nil, for: .normal)
             self.checkInButton.setTitleColor(UIColor.white, for: .normal)
         //self.checkInButton.backgroundColor = UIColor.blue
         case .checkIn:
             self.checkInButton.setTitle("Check In", for: .normal)
-            self.checkInButton.setImage(nil, for: .normal)
             //self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
         //self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
-            // hide = true
+//             hide = true
             // self.checkInButton.setTitle("Connect", for: .normal)
             self.checkInButton.setTitle("Invite", for: .normal)
-            self.checkInButton.setImage(nil, for: .normal)
+            self.checkInButton.setImage(#imageLiteral(resourceName: "icons_invite"), for: .normal)
+            self.checkInButton.titleEdgeInsets = UIEdgeInsets.init(top: 0, left: 3, bottom: 0, right: 0)
             // self.checkInButton.setTitleColor(UIColor., for: .normal)
             //self.checkInButton.backgroundColor = UIColor.white
         }
@@ -426,8 +427,8 @@ class EventDetailViewController: UIViewController {
         switch eventAction {
         case .going:
             self.going()
-        case .goingSwipe, .checkInSwipe:
-            self.showMoreOption()
+        case .goingSwipe: break
+            // self.showMoreOption()
             //            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
             //            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
             //
