@@ -81,7 +81,13 @@ class EventDetailViewController: UIViewController {
     
     fileprivate weak var adDetailVC: EventAdsViewController?
     
-    internal var isCheckedIn = false
+    internal var isCheckedIn = false {
+        didSet {
+            if isCheckedIn {
+                self.eventAction = .checkInSwipe
+            }
+        }
+    }
     internal var isGoing = false
     
     internal var eventAction:EventAction = .going {
@@ -348,14 +354,14 @@ class EventDetailViewController: UIViewController {
             //self.checkInButton.setTitleColor(UIColor.appPurple, for: .normal)
         //self.checkInButton.backgroundColor = UIColor.white
         case .goingSwipe, .checkInSwipe:
-           // hide = true
-           // self.checkInButton.setTitle("Connect", for: .normal)
+            // hide = true
+            // self.checkInButton.setTitle("Connect", for: .normal)
             self.checkInButton.setTitle("Invite", for: .normal)
             self.checkInButton.setImage(nil, for: .normal)
             // self.checkInButton.setTitleColor(UIColor., for: .normal)
             //self.checkInButton.backgroundColor = UIColor.white
         }
-       // self.checkInButton.isHidden = hide
+        // self.checkInButton.isHidden = hide
     }
     
     func  viewDetail() {
@@ -422,29 +428,29 @@ class EventDetailViewController: UIViewController {
             self.going()
         case .goingSwipe, .checkInSwipe:
             self.showMoreOption()
-//            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
-//            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
-//
-//            if userIdsSet.count != 0 {
-//                self.openCategories(userId: userIdsSet)
-//            } else {
-//                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
-//
-//                })
-//            }
+            //            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
+            //            let userIdsSet = Set(self.goingData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
+            //
+            //            if userIdsSet.count != 0 {
+            //                self.openCategories(userId: userIdsSet)
+            //            } else {
+            //                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
+            //
+            //                })
+        //            }
         case .checkIn:
             self.checkInn()
         case .checkInSwipe: break
-//            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
-//            let userIdsSet = Set(self.checkinData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
-//            if userIdsSet.count != 0 {
-//                self.openCategories(userId: userIdsSet)
-//            } else {
-//                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
-//
-//                })
-//                self.changeGoingStatus()
-//            }
+            //            let facebookUserIds = Set(self.getFacebookFriendEventUsers().flatMap({$0.id}))
+            //            let userIdsSet = Set(self.checkinData.flatMap({$0.userId})).subtracting(self.alreadySwippedUsers).subtracting(facebookUserIds)
+            //            if userIdsSet.count != 0 {
+            //                self.openCategories(userId: userIdsSet)
+            //            } else {
+            //                self.alert(message: "No others going at this time. Check back later", title: "Oops", okAction: {
+            //
+            //                })
+            //                self.changeGoingStatus()
+            //            }
         }
     }
     

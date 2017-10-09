@@ -46,10 +46,10 @@ extension EventDetailViewController {
                 self?.activityIndicator.stopAnimating()
             }
             if data.response?.statusCode == 200 {
+                self?.isCheckedIn = true
                 self?.eventAction = .checkInSwipe
                 self?.locationPinButton.setImage(#imageLiteral(resourceName: "checkinbutton32x32"), for: .normal)
                 self?.placeDistanceLabel.isHidden = true
-                self?.isCheckedIn = true
                 if let me = self {
                     SlydeLocationManager.shared.stopUpdatingLocation()
                     Timer.scheduledTimer(timeInterval: checkInThreshold, target: me, selector: #selector(me.recheckin), userInfo: nil, repeats: false)
