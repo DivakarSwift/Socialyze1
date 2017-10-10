@@ -109,7 +109,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYg-Jd-xdB">
-                                <rect key="frame" x="40" y="40" width="33.666666666666671" height="28.666666666666671"/>
+                                <rect key="frame" x="40" y="40" width="334" height="28.666666666666671"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -119,14 +119,15 @@
                         <constraints>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="bottom" secondItem="kax-Li-6ri" secondAttribute="top" id="0LB-dj-keI"/>
                             <constraint firstItem="goF-SG-JG0" firstAttribute="centerX" secondItem="P2q-w0-1YG" secondAttribute="centerX" id="202-Lz-dvc"/>
+                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="20" id="3cn-dR-6XV"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" id="9iY-IX-Wyj"/>
                             <constraint firstItem="d1w-x1-StJ" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" id="EtQ-uR-b0b"/>
-                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leadingMargin" constant="20" id="FgI-sc-3k5"/>
                             <constraint firstItem="kax-Li-6ri" firstAttribute="top" secondItem="goF-SG-JG0" secondAttribute="bottom" constant="20" id="JML-5P-uVW"/>
+                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="leading" secondItem="P2q-w0-1YG" secondAttribute="leading" constant="40" id="MLu-n4-S5X"/>
                             <constraint firstAttribute="trailing" secondItem="d1w-x1-StJ" secondAttribute="trailing" id="Mf4-WF-431"/>
                             <constraint firstItem="12q-Lr-3tK" firstAttribute="top" secondItem="P2q-w0-1YG" secondAttribute="top" id="Sb5-Mf-NkL"/>
                             <constraint firstItem="goF-SG-JG0" firstAttribute="top" secondItem="d1w-x1-StJ" secondAttribute="bottom" id="Tci-Rm-b4H"/>
-                            <constraint firstItem="BYg-Jd-xdB" firstAttribute="top" secondItem="pVt-t8-26s" secondAttribute="bottom" constant="20" id="XE1-fX-OpD"/>
+                            <constraint firstAttribute="trailing" secondItem="BYg-Jd-xdB" secondAttribute="trailing" constant="40" id="XF3-vD-JZm"/>
                             <constraint firstAttribute="trailing" secondItem="12q-Lr-3tK" secondAttribute="trailing" id="ejg-ia-5Uz"/>
                         </constraints>
                     </view>
