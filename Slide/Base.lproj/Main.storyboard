@@ -43,7 +43,7 @@
                                 <subviews>
                                     <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-s4-QyE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="rbM-sY-BbW"/>
                                         </constraints>
@@ -65,7 +65,7 @@
                                                             <rect key="frame" x="-7" y="8.9999999999998863" width="145.33333333333334" height="81.333333333333329"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Iv-Ddr">
-                                                                    <rect key="frame" x="0.0" y="1.6666666666666643" width="133" height="97"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="100"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-7W-LGc">
                                                                             <rect key="frame" x="0.0" y="0.0" width="133" height="50"/>
@@ -74,14 +74,14 @@
                                                                                 <constraint firstAttribute="height" constant="50" id="rnK-PO-Yb6"/>
                                                                             </constraints>
                                                                         </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shishir Sapkota" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-ew-VPQ">
-                                                                            <rect key="frame" x="0.0" y="50" width="133" height="15.666666666666657"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Shishir Sapkota" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-ew-VPQ">
+                                                                            <rect key="frame" x="0.0" y="50" width="133" height="15.666666666666671"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cazullaz's Grill and Bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-oC-h4i">
-                                                                            <rect key="frame" x="0.0" y="65.666666666666657" width="133" height="31.333333333333343"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cazullaz's Grill and Bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-oC-h4i">
+                                                                            <rect key="frame" x="0.0" y="65.666666666666686" width="133" height="34.333333333333329"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -106,15 +106,8 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anI-mo-eU3">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="1"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="1LO-6y-zvp"/>
-                                        </constraints>
-                                    </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-Jm-eDM">
-                                        <rect key="frame" x="0.0" y="101" width="414" height="685"/>
+                                        <rect key="frame" x="0.0" y="100" width="414" height="686"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewLayout key="collectionViewLayout" id="7Ga-5E-mUn"/>
                                         <cells>
