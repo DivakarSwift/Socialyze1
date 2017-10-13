@@ -12,6 +12,9 @@ import FloatRatingView
 import FacebookCore
 import ObjectMapper
 import SwiftyJSON
+import MessageUI
+import FacebookCore
+import FacebookShare
 
 class ViewController: UIViewController {
     
@@ -113,7 +116,7 @@ class ViewController: UIViewController {
         
         self.friendCollectionView.delegate = self
         self.friendCollectionView.dataSource = self
-
+        
         leftBarCustomButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
         leftBarCustomButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
         leftBarCustomButton.rounded()
@@ -287,6 +290,72 @@ class ViewController: UIViewController {
         self.getPlaces()
         self.getUserFriends()
     }
+    
+    fileprivate func showMoreOption() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        let facebook = UIAlertAction(title: "Facebook", style: .default) { [weak self] (_) in
+            self?.openFacebookInvite()
+            self?.alert(message: "Coming Soon!")
+        }
+        alert.addAction(facebook)
+        
+        let textMessage = UIAlertAction(title: "Text Message", style: .default) { [weak self] (_) in
+            self?.openMessage()
+        }
+        alert.addAction(textMessage)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func openMessage() {
+        let text = "Hey! Meet me with https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8 "
+        
+        
+        if !MFMessageComposeViewController.canSendText() {
+            // For simulator only.
+            let messageURL = URL(string: "sms:body=\(text)")
+            guard let url = messageURL else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        } else {
+            let controller = MFMessageComposeViewController()
+            controller.messageComposeDelegate = self
+            controller.body = text
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
+    func openFacebookInvite() {
+        
+        
+        // Please change this two urls accordingly
+        //        let appLinkUrl:URL = URL(string: "https://itunes.apple.com/us/app/socialyze/id1239571430?mt=8")!
+        let appLinkUrl:URL = URL(string: "https://fb.me/1351482471639007")!//GlobalConstants.urls.itunesLink)!
+        
+        let previewImageUrl:URL = URL(string: "http://socialyzeapp.com/wp-content/uploads/2017/03/logo-128p.png")!
+        
+        var inviteContent:AppInvite = AppInvite.init(appLink: appLinkUrl)
+        inviteContent.previewImageURL = previewImageUrl
+        
+        let inviteDialog = AppInvite.Dialog(invite: inviteContent)
+        do {
+            try inviteDialog.show()
+        } catch  (let error) {
+            print(error.localizedDescription)
+        }
+    }
 }
 
 
@@ -297,6 +366,31 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
             let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
             vc.place = place
             self.present(vc, animated: true, completion: nil)
+        }else {
+            if indexPath.row == 0 {
+                self.showMoreOption()
+            }else if indexPath.row == 1 && self.chatUsers.count == 0 {
+                return
+            }else {
+                if let chatUser = self.chatUsers.elementAt(index: indexPath.row - 1), let friend = chatUser.id, let me = Authenticator.shared.user?.id {
+                    
+                    let vc = UIStoryboard(name: "Chat", bundle: nil).instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
+                    
+                    var val = ChatItem()
+                    
+                    let chatId =  friend > me ? friend+me : me+friend
+                    val.chatId = chatId
+                    val.userId = friend
+                    
+                    vc.fromSquad = true
+                    vc.chatItem = val
+                    vc.chatUser = chatUser
+                    vc.chatUserName = chatUser.profile.firstName ?? ""
+                    vc.chatOppentId = friend
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         }
     }
     
@@ -393,5 +487,13 @@ extension ViewController: SlydeLocationManagerDelegate {
     func locationObtainError() {
         
         
+    }
+}
+
+extension ViewController : MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        
+        controller.dismiss(animated: true, completion: nil)
     }
 }

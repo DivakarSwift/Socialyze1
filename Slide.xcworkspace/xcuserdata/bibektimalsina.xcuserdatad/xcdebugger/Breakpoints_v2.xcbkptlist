@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/ViewController.swift"
-            timestampString = "529572300.754899"
+            timestampString = "529572914.661055"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "profileBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
