@@ -66,10 +66,25 @@ class ViewController: UIViewController {
     var blockedUserIds:[String]? {
         didSet {
             if let ids = blockedUserIds, ids.count > 0 {
-                self.chatUsers = self.chatUsers.filter({ (user) -> Bool in
+                let chatUsers = self.chatUsers.filter({ (user) -> Bool in
                     return !ids.contains(user.id!)
                 })
+                self.sortChatUsers(users: chatUsers)
             }
+        }
+    }
+    
+    func sortChatUsers(users: [LocalUser]) {
+        self.chatUsers = users.sorted { (user1, user2) -> Bool in
+            if let user1PlaceIndex = self.places.index(where: { (place) -> Bool in
+                return place.nameAddress == user1.checkIn?.place
+            }),
+                let user2PlaceIndex = self.places.index(where: { (place) -> Bool in
+                    return place.nameAddress == user2.checkIn?.place
+                }) {
+                return user1PlaceIndex < user2PlaceIndex
+            }
+            return false
         }
     }
     
@@ -161,12 +176,13 @@ class ViewController: UIViewController {
                 }
                 return false
             })
-            self.chatUsers = chatuserss.filter({(user) -> Bool in
+            let chatUsers = chatuserss.filter({(user) -> Bool in
                 if let userID = user.id, let blockedIds = self.blockedUserIds {
                     return !blockedIds.contains(userID)
                 }
                 return true
             })
+            self.sortChatUsers(users: chatuserss)
             self.getBlockIds()
         }
     }
