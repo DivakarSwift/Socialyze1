@@ -21,7 +21,6 @@ struct LocalUser: Mappable, Equatable {
     var userWhoBlockedMe: [String] = []
     var acceptedStatus = false
     var isCreatedAfterFbImageDownloadToStorage = false
-    
     var isCheckedIn = false
     var isGoing = false
     

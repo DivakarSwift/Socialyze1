@@ -41,37 +41,40 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-Ap-dlY">
                                 <rect key="frame" x="0.0" y="64" width="414" height="786"/>
                                 <subviews>
-                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-s4-QyE">
+                                    <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-s4-QyE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="rbM-sY-BbW"/>
+                                            <constraint firstAttribute="height" constant="100" id="Sns-Ic-Amc"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="ikn-hg-QG1">
-                                            <size key="itemSize" width="140" height="100"/>
+                                            <size key="itemSize" width="120" height="80"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendCheckinPlaceCollectionViewCell" id="gDa-OK-iwl" customClass="FriendCheckinPlaceCollectionViewCell" customModule="Slide" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
+                                                <rect key="frame" x="0.0" y="10" width="120" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="krI-Ff-3Un">
+                                                            <rect key="frame" x="35" y="0.0" width="50" height="50"/>
+                                                        </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="b5n-QT-tmf">
-                                                            <rect key="frame" x="-7" y="8.9999999999998863" width="145.33333333333334" height="81.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Iv-Ddr">
-                                                                    <rect key="frame" x="0.0" y="9.3333333333333357" width="0.0" height="81.333333333333343"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="80"/>
                                                                     <subviews>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iu7-4P-rVG">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-7W-LGc">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                    <rect key="frame" x="35" y="0.0" width="50" height="50"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" secondItem="G2F-7W-LGc" secondAttribute="height" multiplier="1:1" id="m7z-d9-lpV"/>
                                                                                         <constraint firstAttribute="height" constant="50" id="rnK-PO-Yb6"/>
@@ -79,18 +82,23 @@
                                                                                 </imageView>
                                                                             </subviews>
                                                                         </stackView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shishir Sapkota" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-ew-VPQ">
-                                                                            <rect key="frame" x="0.0" y="50" width="0.0" height="15.666666666666657"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cazullaz's Grill and Bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-oC-h4i">
-                                                                            <rect key="frame" x="0.0" y="65.666666666666657" width="0.0" height="15.666666666666671"/>
-                                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3BM-Zn-tMa">
+                                                                            <rect key="frame" x="0.0" y="50" width="120" height="30"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shishir Sapkota" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-ew-VPQ">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="10"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cazullaz's Grill and Bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-oC-h4i">
+                                                                                    <rect key="frame" x="0.0" y="10" width="120" height="20"/>
+                                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
                                                                     </subviews>
                                                                 </stackView>
                                                             </subviews>
@@ -99,11 +107,16 @@
                                                 </view>
                                                 <constraints>
                                                     <constraint firstItem="b5n-QT-tmf" firstAttribute="top" secondItem="gDa-OK-iwl" secondAttribute="top" id="4SR-aS-0nw"/>
+                                                    <constraint firstItem="krI-Ff-3Un" firstAttribute="top" secondItem="G2F-7W-LGc" secondAttribute="top" id="MkV-2P-AQX"/>
+                                                    <constraint firstItem="krI-Ff-3Un" firstAttribute="leading" secondItem="G2F-7W-LGc" secondAttribute="leading" id="VMq-uy-FE8"/>
+                                                    <constraint firstItem="krI-Ff-3Un" firstAttribute="bottom" secondItem="G2F-7W-LGc" secondAttribute="bottom" id="kJK-wK-zQy"/>
+                                                    <constraint firstItem="krI-Ff-3Un" firstAttribute="trailing" secondItem="G2F-7W-LGc" secondAttribute="trailing" id="mQo-WJ-mmw"/>
                                                     <constraint firstAttribute="trailing" secondItem="b5n-QT-tmf" secondAttribute="trailing" id="pwv-nH-1cD"/>
                                                     <constraint firstItem="b5n-QT-tmf" firstAttribute="leading" secondItem="gDa-OK-iwl" secondAttribute="leading" id="tF0-6w-Y63"/>
                                                     <constraint firstAttribute="bottom" secondItem="b5n-QT-tmf" secondAttribute="bottom" id="x49-UO-3qw"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="backgroundProfileImageView" destination="krI-Ff-3Un" id="RkR-L1-Vuc"/>
                                                     <outlet property="lastCheckinPlaceLabel" destination="64t-oC-h4i" id="me6-TE-0YH"/>
                                                     <outlet property="nameLabel" destination="xNK-ew-VPQ" id="Sxc-ES-URu"/>
                                                     <outlet property="profileImageView" destination="G2F-7W-LGc" id="AGq-Br-yTr"/>

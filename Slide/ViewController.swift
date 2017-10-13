@@ -44,6 +44,32 @@ class ViewController: UIViewController {
     
     fileprivate let refeshControl = UIRefreshControl()
     
+    fileprivate var me: LocalUser? { return Authenticator.shared.user}
+    let facebookService = FacebookService.shared
+    let userService = UserService()
+    
+    private var faceBookFriends = [FacebookFriend]() {
+        didSet {
+            self.getAllUsers()
+        }
+    }
+    
+    var chatUsers = [LocalUser]() {
+        didSet {
+            self.friendCollectionView.reloadData()
+        }
+    }
+    
+    var blockedUserIds:[String]? {
+        didSet {
+            if let ids = blockedUserIds, ids.count > 0 {
+                self.chatUsers = self.chatUsers.filter({ (user) -> Bool in
+                    return !ids.contains(user.id!)
+                })
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,22 +113,10 @@ class ViewController: UIViewController {
         
         self.friendCollectionView.delegate = self
         self.friendCollectionView.dataSource = self
-        
-        //        navigationItem.leftBarButtonItem = UIBarButtonItem(
-        //            image: #imageLiteral(resourceName: "profileicon"),
-        //            style: UIBarButtonItemStyle.plain,
-        //            target: self,
-        //            action: #selector(profileBtn)
-        //        )
-        
-        //create a new button
-        //        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-        //
+
         leftBarCustomButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
         leftBarCustomButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
         leftBarCustomButton.rounded()
-        //        let leftBarButton = UIBarButtonItem(customView: leftButton)
-        //        navigationItem.leftBarButtonItem = leftBarButton
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "friendsicon"),
@@ -111,10 +125,58 @@ class ViewController: UIViewController {
             action: #selector(chatBtn)
         )
         
-        getPlaces()
+        self.getPlaces()
+        self.getUserFriends()
         
         self.configureRefreshControl()
         
+    }
+    
+    func getUserFriends() {
+        self.activityIndicator.startAnimating()
+        facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in
+            self?.activityIndicator.stopAnimating()
+            self?.faceBookFriends = friends
+            let friendsCount = self?.faceBookFriends.count
+            print("Total number of facebook friends :\(String(describing: friendsCount))")
+            }, failure: { (error) in
+                self.activityIndicator.stopAnimating()
+                self.alert(message: error)
+                print(error)
+        })
+    }
+    
+    func getAllUsers() {
+        self.activityIndicator.startAnimating()
+        userService.getAllUser { (users) in
+            self.activityIndicator.stopAnimating()
+            print("Total number of user :\(users.count)")
+            let fbIds = self.faceBookFriends.flatMap({$0.id})
+            let chatuserss = users.filter({(user) -> Bool in
+                if let fbId = user.profile.fbId {
+                    return fbIds.contains(fbId)
+                }
+                return false
+            })
+            self.chatUsers = chatuserss.filter({(user) -> Bool in
+                if let userID = user.id, let blockedIds = self.blockedUserIds {
+                    return !blockedIds.contains(userID)
+                }
+                return true
+            })
+            self.getBlockIds()
+        }
+    }
+    
+    func getBlockIds() {
+        self.activityIndicator.startAnimating()
+        userService.getBlockedIds(of: me!) { (ids, error) in
+            self.activityIndicator.stopAnimating()
+            self.blockedUserIds = ids
+            if error != nil {
+                self.alert(message: GlobalConstants.Message.oops)
+            }
+        }
     }
     
     
@@ -223,6 +285,7 @@ class ViewController: UIViewController {
     
     @objc private func refresh() {
         self.getPlaces()
+        self.getUserFriends()
     }
 }
 
@@ -237,14 +300,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == friendCollectionView {
-            let width = collectionView.frame.width / 3.5
-            let height = width * 10/12
-            return CGSize(width: width, height: height)
-        }
-        return .zero
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        if collectionView == friendCollectionView {
+//            let width = collectionView.frame.width / 3.5
+//            let height = width * 10/12
+//            return CGSize(width: width, height: height)
+//        }
+//        return .zero
+//    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -252,7 +315,7 @@ extension ViewController: UICollectionViewDataSource {
         if collectionView == self.collectionView {
             return places.count
         }
-        return 5
+        return max(self.chatUsers.count, 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -296,7 +359,9 @@ extension ViewController: UICollectionViewDataSource {
             return cell
         }else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCheckinPlaceCollectionViewCell", for: indexPath) as! FriendCheckinPlaceCollectionViewCell
-            
+            let user = self.chatUsers.elementAt(index: indexPath.row)
+            cell.chatUser = user
+            cell.setup()
             return cell
         }
     }
