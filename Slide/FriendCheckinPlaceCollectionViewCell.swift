@@ -20,11 +20,13 @@ class FriendCheckinPlaceCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.profileImageView.rounded()
-       self.backgroundProfileImageView.rounded()
+        self.backgroundProfileImageView.rounded()
         self.profileImageView.set(borderWidth: 2, of: UIColor.white)
     }
     
     func setup() {
+        self.profileImageView.image = #imageLiteral(resourceName: "profileicon")
+        self.backgroundProfileImageView.image = #imageLiteral(resourceName: "profileicon")
         if let url = self.chatUser?.profile.images.first {
             self.profileImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "profileicon"), completionHandler: { (image, error, _, _) in
                 if let image = image {
