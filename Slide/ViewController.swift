@@ -227,7 +227,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UICollectionViewDelegate {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionView {
             let place = places[indexPath.row]
@@ -235,6 +235,15 @@ extension ViewController: UICollectionViewDelegate {
             vc.place = place
             self.present(vc, animated: true, completion: nil)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == friendCollectionView {
+            let width = collectionView.frame.width / 3.5
+            let height = width * 10/12
+            return CGSize(width: width, height: height)
+        }
+        return .zero
     }
 }
 

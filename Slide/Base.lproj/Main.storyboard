@@ -47,41 +47,46 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="rbM-sY-BbW"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="5" id="ikn-hg-QG1">
-                                            <size key="itemSize" width="133" height="100"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="ikn-hg-QG1">
+                                            <size key="itemSize" width="140" height="100"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendCheckinPlaceCollectionViewCell" id="gDa-OK-iwl" customClass="FriendCheckinPlaceCollectionViewCell" customModule="Slide" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="133" height="100"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="100"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="b5n-QT-tmf">
                                                             <rect key="frame" x="-7" y="8.9999999999998863" width="145.33333333333334" height="81.333333333333329"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Iv-Ddr">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="100"/>
+                                                                    <rect key="frame" x="0.0" y="9.3333333333333357" width="0.0" height="81.333333333333343"/>
                                                                     <subviews>
-                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-7W-LGc">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="133" height="50"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" secondItem="G2F-7W-LGc" secondAttribute="height" multiplier="1:1" id="m7z-d9-lpV"/>
-                                                                                <constraint firstAttribute="height" constant="50" id="rnK-PO-Yb6"/>
-                                                                            </constraints>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Shishir Sapkota" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-ew-VPQ">
-                                                                            <rect key="frame" x="0.0" y="50" width="133" height="15.666666666666671"/>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iu7-4P-rVG">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="50"/>
+                                                                            <subviews>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="G2F-7W-LGc">
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" secondItem="G2F-7W-LGc" secondAttribute="height" multiplier="1:1" id="m7z-d9-lpV"/>
+                                                                                        <constraint firstAttribute="height" constant="50" id="rnK-PO-Yb6"/>
+                                                                                    </constraints>
+                                                                                </imageView>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shishir Sapkota" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNK-ew-VPQ">
+                                                                            <rect key="frame" x="0.0" y="50" width="0.0" height="15.666666666666657"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cazullaz's Grill and Bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-oC-h4i">
-                                                                            <rect key="frame" x="0.0" y="65.666666666666686" width="133" height="34.333333333333329"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cazullaz's Grill and Bar" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64t-oC-h4i">
+                                                                            <rect key="frame" x="0.0" y="65.666666666666657" width="0.0" height="15.666666666666671"/>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
