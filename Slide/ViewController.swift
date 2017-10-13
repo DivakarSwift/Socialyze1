@@ -300,14 +300,18 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if collectionView == friendCollectionView {
-//            let width = collectionView.frame.width / 3.5
-//            let height = width * 10/12
-//            return CGSize(width: width, height: height)
-//        }
-//        return .zero
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == friendCollectionView {
+            if indexPath.row == 0 {
+                return CGSize(width: 60, height: 80)
+            }else if indexPath.row == 1 && self.chatUsers.count == 0 {
+                return CGSize(width: 200, height: 80)
+            }else {
+                return CGSize(width: 70, height: 80)
+            }
+        }
+        return .zero
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -315,7 +319,7 @@ extension ViewController: UICollectionViewDataSource {
         if collectionView == self.collectionView {
             return places.count
         }
-        return max(self.chatUsers.count, 2)
+        return max(self.chatUsers.count, 1) + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -358,52 +362,19 @@ extension ViewController: UICollectionViewDataSource {
             
             return cell
         }else {
+            if indexPath.row == 0 {
+                return collectionView.dequeueReusableCell(withReuseIdentifier: "InviteCell", for: indexPath)
+            }else if indexPath.row == 1 && self.chatUsers.count == 0 {
+                return collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCell", for: indexPath)
+            }
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCheckinPlaceCollectionViewCell", for: indexPath) as! FriendCheckinPlaceCollectionViewCell
-            let user = self.chatUsers.elementAt(index: indexPath.row)
+            let user = self.chatUsers.elementAt(index: indexPath.row - 1)
             cell.chatUser = user
             cell.setup()
             return cell
         }
     }
 }
-
-//extension ViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        let spacing = layout.minimumInteritemSpacing
-//        let width = collectionView.frame.width - spacing
-//
-//        let heightForSmallCell: CGFloat = 180
-//
-//        switch indexPath.item % 5 {
-//        case 0,2: return CGSize(width: width/2, height: heightForSmallCell - spacing)
-//        default: return CGSize(width: width/2, height: heightForSmallCell * 2)
-//        }
-//    }
-//}
-
-//extension ViewController : TRMosaicLayoutDelegate {
-//
-//    func collectionView(_ collectionView:UICollectionView, mosaicCellSizeTypeAtIndexPath indexPath:IndexPath) -> TRMosaicCellType {
-//        switch indexPath.item % 5 {
-//        case 0,1: return .small
-//        default: return .big
-//        }
-//
-//        // I recommend setting every third cell as .Big to get the best layout
-//        // return indexPath.item % 3 == 0 ? TRMosaicCellType.big : TRMosaicCellType.small
-//    }
-//
-//    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout: TRMosaicLayout, insetAtSection:Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 4, left: 1, bottom: 4, right: 2)
-//    }
-//
-//    func heightForSmallMosaicCell() -> CGFloat {
-//        return 180
-//    }
-//
-
-//}
 
 
 extension ViewController: SlydeLocationManagerDelegate {
@@ -424,42 +395,3 @@ extension ViewController: SlydeLocationManagerDelegate {
         
     }
 }
-
-//extension ViewController {
-//
-//    @available(iOS 10.0, *)
-//    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//
-//        print("Tapped in notification")
-//        let userInfo = response.notification.request.content.userInfo
-//
-//        if let userData = userInfo["user"], let chatData = userInfo["chat"] {
-//            let userJson = JSON(userData)
-//            let chatJson = JSON(chatData)
-//
-//            if let user: LocalUser = userJson.map(), let   chatItem:ChatItem = chatJson.map() {
-//                Utilities.openChat(user: user, chatItem: chatItem)
-//            }
-//        }
-//    }
-//
-//    //This is key callback to present notification while the app is in foreground
-//    @available(iOS 10.0, *)
-//    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//
-//
-//        print(notification.request.content.userInfo)
-//
-//        print("Notification being triggered")
-//        //You can either present alert ,sound or increase badge while the app is in foreground too with ios 10
-//        //to distinguish between notifications
-//        if notification.request.identifier == Node.chatList.rawValue {
-//            completionHandler( [.alert,.sound,.badge])
-//        }
-//        else if  notification.request.identifier ==  Node.matchList.rawValue {
-//            completionHandler( [.alert,.sound,.badge])
-//        }
-//    }
-
-//}
-
