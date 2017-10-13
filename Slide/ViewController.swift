@@ -51,6 +51,14 @@ class ViewController: UIViewController {
     let facebookService = FacebookService.shared
     let userService = UserService()
     
+    var places = [Place]() {
+        didSet {
+            Authenticator.shared.places = places
+            self.sortChatUsers(users: self.chatUsers)
+            self.collectionView.reloadData()
+        }
+    }
+    
     private var faceBookFriends = [FacebookFriend]() {
         didSet {
             self.getAllUsers()
@@ -75,17 +83,38 @@ class ViewController: UIViewController {
     }
     
     func sortChatUsers(users: [LocalUser]) {
-        self.chatUsers = users.sorted { (user1, user2) -> Bool in
-            if let user1PlaceIndex = self.places.index(where: { (place) -> Bool in
-                return place.nameAddress == user1.checkIn?.place
-            }),
-                let user2PlaceIndex = self.places.index(where: { (place) -> Bool in
-                    return place.nameAddress == user2.checkIn?.place
+        let (noPlaceUsers, placeUsers) = users
+            .map({ (user) -> (Int?, LocalUser) in
+                if let placeIndex = self.places.index(where: { (place) -> Bool in
+                    return place.nameAddress == user.checkIn?.place
                 }) {
-                return user1PlaceIndex < user2PlaceIndex
-            }
-            return false
+                    return (placeIndex, user)
+                }
+                return (nil, user)
+            })
+            .reduce(([LocalUser](), [(Int, LocalUser)]())) { (result, element) in
+                if element.0 == nil {
+                    return ((result.0 + [element.1]), result.1)
+                }else {
+                    return (result.0, result.1 + [(element.0!, element.1)])
+                }
         }
+        let sortedPlaceUsers = placeUsers.sorted(by: {$0.0 < $1.0}).map({$0.1})
+        
+        self.chatUsers = sortedPlaceUsers + noPlaceUsers
+        
+            
+//            .sorted { (user1, user2) -> Bool in
+//                if let user1PlaceIndex = self.places.index(where: { (place) -> Bool in
+//                    return place.nameAddress == user1.checkIn?.place
+//                }),
+//                    let user2PlaceIndex = self.places.index(where: { (place) -> Bool in
+//                        return place.nameAddress == user2.checkIn?.place
+//                    }) {
+//                    return user1PlaceIndex < user2PlaceIndex
+//                }
+//                return true
+//        }
     }
     
     override func viewDidLoad() {
@@ -182,7 +211,7 @@ class ViewController: UIViewController {
                 }
                 return true
             })
-            self.sortChatUsers(users: chatuserss)
+            self.sortChatUsers(users: chatUsers)
             self.getBlockIds()
         }
     }
@@ -204,13 +233,6 @@ class ViewController: UIViewController {
         UIApplication.shared.isStatusBarHidden = false
         self.navigationController?.navigationBar.isHidden = false
         SlydeLocationManager.shared.requestLocation()
-    }
-    
-    var places = [Place]() {
-        didSet {
-            Authenticator.shared.places = places
-            self.collectionView.reloadData()
-        }
     }
     
     func getPlaces() {

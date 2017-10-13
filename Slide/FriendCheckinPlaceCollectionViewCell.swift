@@ -33,6 +33,7 @@ class FriendCheckinPlaceCollectionViewCell: UICollectionViewCell {
             })
         }else {
             self.profileImageView.image = #imageLiteral(resourceName: "profileicon")
+            self.backgroundProfileImageView.image = #imageLiteral(resourceName: "profileicon")
         }
         
         self.nameLabel.text = self.chatUser?.profile.name
