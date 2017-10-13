@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var leftBarCustomButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var friendCollectionView: UICollectionView!
     
     @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer) {
         if sender.direction == UISwipeGestureRecognizerDirection.right {
@@ -84,21 +85,24 @@ class ViewController: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.reloadData()
         
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(
-//            image: #imageLiteral(resourceName: "profileicon"),
-//            style: UIBarButtonItemStyle.plain,
-//            target: self,
-//            action: #selector(profileBtn)
-//        )
+        self.friendCollectionView.delegate = self
+        self.friendCollectionView.dataSource = self
+        
+        //        navigationItem.leftBarButtonItem = UIBarButtonItem(
+        //            image: #imageLiteral(resourceName: "profileicon"),
+        //            style: UIBarButtonItemStyle.plain,
+        //            target: self,
+        //            action: #selector(profileBtn)
+        //        )
         
         //create a new button
-//        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-//
+        //        let leftButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+        //
         leftBarCustomButton.kf.setImage(with: Authenticator.shared.user?.profile.images.first,  for: .normal, placeholder: #imageLiteral(resourceName: "profileicon"))
         leftBarCustomButton.addTarget(self, action: #selector(profileBtn(_:)), for: .touchUpInside)
         leftBarCustomButton.rounded()
-//        let leftBarButton = UIBarButtonItem(customView: leftButton)
-//        navigationItem.leftBarButtonItem = leftBarButton
+        //        let leftBarButton = UIBarButtonItem(customView: leftButton)
+        //        navigationItem.leftBarButtonItem = leftBarButton
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: #imageLiteral(resourceName: "friendsicon"),
@@ -161,16 +165,16 @@ class ViewController: UIViewController {
     }
     
     func profileBtn(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
-//        let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
-//        controller.userId = Authenticator.currentFIRUser?.uid
-//        performSegue(withIdentifier: "swipeToProfile", sender: nil)
+        //        let storyboard = UIStoryboard(name: "Profile", bundle: nil)
+        //        let controller = storyboard.instantiateInitialViewController() as! ProfileViewController
+        //        controller.userId = Authenticator.currentFIRUser?.uid
+        //        performSegue(withIdentifier: "swipeToProfile", sender: nil)
         NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 0)
     }
     
     func chatBtn(_ sender: UIBarButtonItem) {
         NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 2)
-//        performSegue(withIdentifier: "swipeToChat", sender: nil)
+        //        performSegue(withIdentifier: "swipeToChat", sender: nil)
     }
     
     func settingsBtn(_ sender: UIBarButtonItem) {
@@ -225,58 +229,67 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let place = places[indexPath.row]
-        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
-        vc.place = place
-        self.present(vc, animated: true, completion: nil)
+        if collectionView == self.collectionView {
+            let place = places[indexPath.row]
+            let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+            vc.place = place
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return places.count
+        if collectionView == self.collectionView {
+            return places.count
+        }
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
-        
-        
-        cell.starLabel.text = ""
-        if(UserDefaults.standard.object(forKey: places[indexPath.row].placeId ?? "") != nil){
-            let starData = UserDefaults.standard.object(forKey: places[indexPath.row].placeId ?? "") as! NSDictionary
-            print(starData)
-            cell.floatRatingView.rating = Float(starData["rating"] as! String)!
-            cell.starLabel.text = starData["rating"] as? String
+        if collectionView == self.collectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCell
             
-        } else {
-            if places[indexPath.row].placeId != "" {
-                self.placeId( nmbr: indexPath.row)
+            cell.starLabel.text = ""
+            if(UserDefaults.standard.object(forKey: places[indexPath.row].placeId ?? "") != nil){
+                let starData = UserDefaults.standard.object(forKey: places[indexPath.row].placeId ?? "") as! NSDictionary
+                print(starData)
+                cell.floatRatingView.rating = Float(starData["rating"] as! String)!
+                cell.starLabel.text = starData["rating"] as? String
+                
             } else {
-                cell.floatRatingView.isHidden = true
-                cell.starLabel.isHidden = true
+                if places[indexPath.row].placeId != "" {
+                    self.placeId( nmbr: indexPath.row)
+                } else {
+                    cell.floatRatingView.isHidden = true
+                    cell.starLabel.isHidden = true
+                }
             }
-        }
-        
-        switch indexPath.item % 10 {
-        case 0,6: // large cells
-            cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 24)
-            cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
             
-        case 1,2,5,7: // small cells
-            cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 16)
-            cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 15)
+            switch indexPath.item % 10 {
+            case 0,6: // large cells
+                cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 24)
+                cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
+                
+            case 1,2,5,7: // small cells
+                cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 16)
+                cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 15)
+                
+            default: // equal sized cells
+                cell.nameLabel.font = UIFont.init(name: "Kailasa-Bold", size: 20)
+                cell.bioNameLabel.font = UIFont.init(name: "Verdana-Bold", size: 19)
+            }
             
-        default: // equal sized cells
-            cell.nameLabel.font = UIFont.init(name: "Kailasa-Bold", size: 20)
-            cell.bioNameLabel.font = UIFont.init(name: "Verdana-Bold", size: 19)
+            cell.starLabel.font = UIFont.systemFont(ofSize: 11)
+            
+            cell.ConfigureCell(place: places[indexPath.row])
+            
+            return cell
+        }else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendCheckinPlaceCollectionViewCell", for: indexPath) as! FriendCheckinPlaceCollectionViewCell
+            
+            return cell
         }
-        
-        cell.starLabel.font = UIFont.systemFont(ofSize: 11)
-        
-        cell.ConfigureCell(place: places[indexPath.row])
-        
-        return cell
     }
 }
 

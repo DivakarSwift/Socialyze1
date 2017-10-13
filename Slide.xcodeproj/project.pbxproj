@@ -40,6 +40,7 @@
 		1FCF785C1F3A9B2E00330E7A /* EventDealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF78591F3A9B2E00330E7A /* EventDealTableViewCell.swift */; };
 		1FCF785D1F3A9B2E00330E7A /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FCF785A1F3A9B2E00330E7A /* EventDetailViewController.swift */; };
 		1FCF785E1F3A9B2E00330E7A /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FCF785B1F3A9B2E00330E7A /* Events.storyboard */; };
+		1FD331D51F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD331D41F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift */; };
 		1FE7875E1E876B24006B2445 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7875D1E876B24006B2445 /* Authenticator.swift */; };
 		1FE787601E877D36006B2445 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE7875F1E877D36006B2445 /* FirebaseManager.swift */; };
 		1FE787631E877DAD006B2445 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE787621E877DAD006B2445 /* User.swift */; };
@@ -118,6 +119,7 @@
 		1FCF78591F3A9B2E00330E7A /* EventDealTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDealTableViewCell.swift; sourceTree = "<group>"; };
 		1FCF785A1F3A9B2E00330E7A /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		1FCF785B1F3A9B2E00330E7A /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		1FD331D41F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCheckinPlaceCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FE7875D1E876B24006B2445 /* Authenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		1FE7875F1E877D36006B2445 /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		1FE787621E877DAD006B2445 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				F64B2B521ED56AB800FE2BF6 /* DismissAnimator.swift */,
 				F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */,
 				1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */,
+				1FD331D41F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
 				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
+				1FD331D51F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift in Sources */,
 				1FE787631E877DAD006B2445 /* User.swift in Sources */,
 				1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */,
 				F64ED4D11ECD66E00064FB74 /* Places.xcdatamodeld in Sources */,
