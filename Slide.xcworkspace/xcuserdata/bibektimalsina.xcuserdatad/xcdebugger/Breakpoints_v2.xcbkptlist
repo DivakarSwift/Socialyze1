@@ -153,13 +153,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/ViewController.swift"
-            timestampString = "529575377.855858"
+            filePath = "Slide/MainPageViewController.swift"
+            timestampString = "529231359.952501"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
-            landmarkName = "profileBtn(_:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "changeView(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,13 +169,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/MainPageViewController.swift"
-            timestampString = "529231359.952501"
+            filePath = "Slide/activity/ActivityService.swift"
+            timestampString = "530077034.751809"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "changeView(_:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getActivities(myId:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

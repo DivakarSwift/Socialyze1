@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-Ap-dlY">
-                                <rect key="frame" x="0.0" y="64" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="766"/>
                                 <subviews>
                                     <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-s4-QyE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -201,7 +201,7 @@
                                         </cells>
                                     </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-Jm-eDM">
-                                        <rect key="frame" x="0.0" y="90" width="414" height="696"/>
+                                        <rect key="frame" x="0.0" y="90" width="414" height="676"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewLayout key="collectionViewLayout" id="7Ga-5E-mUn"/>
                                         <cells>

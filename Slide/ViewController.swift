@@ -276,7 +276,13 @@ class ViewController: UIViewController {
     }
     
     func chatBtn(_ sender: UIBarButtonItem) {
-        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 2)
+        let vc = UIStoryboard.init(name: "Activity", bundle: nil).instantiateViewController(withIdentifier: "ActivityViewController")
+        if let nav = self.navigationController {
+            nav.pushViewController(vc, animated: true)
+        }else {
+            self.present(vc, animated: true, completion: nil)
+        }
+//        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 2)
         //        performSegue(withIdentifier: "swipeToChat", sender: nil)
     }
     
