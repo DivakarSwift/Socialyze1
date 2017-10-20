@@ -93,7 +93,7 @@ class ActivityViewController: UIViewController {
     
     func getActivities() {
         let myId = self.authenticator.user?.profile.fbId ?? ""
-        activityService.getActivities(myId: "12345r") { [weak self] (models) in
+        activityService.getActivities(myId: myId) { [weak self] (models) in
             self?.activities = models
             self?.activityIndicator.stopAnimating()
             if self?.refreshControl.isRefreshing == true {
@@ -121,7 +121,7 @@ extension ActivityViewController: UITableViewDelegate {
         let activity = self.activities[indexPath.row]
         if let place = authenticator.places?
             .filter({
-                $0.nameAddress.map({activity.message?.lowercased().contains($0.lowercased()) == true}) == true
+                $0.nameAddress?.lowercased() == activity.place?.lowercased() //.map({activity.message?.lowercased().contains($0.lowercased()) == true}) == true
             })
             .sorted(by: {$0.nameAddress?.characters.count ?? 0 > $1.nameAddress?.characters.count ?? 0})
             .first {

@@ -244,30 +244,48 @@ function sendPushNotificationToFacebookUsers(request) {
 }
 
 function writeActivity(request) {
+    let data = {};
     let msg1 = request.body.notificationTitle;
     const msg2 = request.body.notificationBody;
+
     if (typeof msg2 === 'string' || msg2 instanceof String) {
         msg1 = msg1 + " " + msg2;
+        data["message"] = msg1;
     }
-    const sender = request.body.sender;
+
+    const sender = request.body.fbId;
+    if (typeof sender === 'string' || sender instanceof String) {
+        data["sender"] = sender;
+    }
+
+
     const type = request.body.type;
+    if (typeof type === 'string' || type instanceof String) {
+        data["type"] = type;
+    }
+
     const fbIds = request.body.friendsFbId;
+
     const time = request.body.time;
+    if (typeof time === 'string' || time instanceof String) {
+        data["time"] = time;
+    }
+
     const place = request.body.place;
+    if (typeof place === 'string' || place instanceof String) {
+        data["place"] = place;
+    }
     
     let receivers = {};
     fbIds.forEach(function(entry) {
         receivers[entry] = true;
     });
+
+    console.log("ACTIVITY RECEIVERS");
     console.log(receivers);
-    return admin.database().ref("Activities").push().set({
-        message: msg1,
-        type: type,
-        sender: sender,
-        receivers: receivers,
-        time: time,
-        place: place
-    });
+    
+    data["receivers"] = receivers;
+    return admin.database().ref("Activities").push().set(data);
 }
 
 function sendPushNotification(registrationToken, payload) {
