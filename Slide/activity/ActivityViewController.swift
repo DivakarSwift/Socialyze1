@@ -18,6 +18,8 @@ class ActivityViewController: UIViewController {
     let activityService = ActivityService()
     let userService = UserService()
     
+    var isGettingData = true
+    
     var activities = [ActivityModel]() {
         didSet {
             self.tableView.reloadData()
@@ -39,8 +41,6 @@ class ActivityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.activityIndicator.startAnimating()
         setup()
         configureRefreshControl()
         getActivities()
@@ -54,6 +54,9 @@ class ActivityViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Activities"
+        if self.isGettingData {
+            self.activityIndicator.startAnimating()
+        }
     }
     
     func setup() {
@@ -92,7 +95,12 @@ class ActivityViewController: UIViewController {
     func getActivities() {
         let myId = self.authenticator.user?.profile.fbId ?? ""
         activityService.getActivities(myId: "12345r") { [weak self] (models) in
+            self?.isGettingData = false
             self?.activities = models
+            self?.activityIndicator.stopAnimating()
+            if self?.refreshControl.isRefreshing == true {
+                self?.refreshControl.endRefreshing()
+            }
         }
     }
 
@@ -103,10 +111,25 @@ class ActivityViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
+    fileprivate func openPlaceDetail(place: Place) {
+        let vc = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventDetailViewController") as! EventDetailViewController
+        vc.place = place
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension ActivityViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let activity = self.activities[indexPath.row]
+        if let place = authenticator.places?
+            .filter({
+                $0.nameAddress.map({activity.message?.lowercased().contains($0) == true}) == true
+            })
+            .sorted(by: {$0.nameAddress?.characters.count ?? 0 > $1.nameAddress?.characters.count ?? 0})
+            .first {
+            self.openPlaceDetail(place: place)
+        }
+    }
 }
 
 extension ActivityViewController: UITableViewDataSource {
