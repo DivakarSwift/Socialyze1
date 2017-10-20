@@ -64,6 +64,9 @@ class ActivityViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator.center = view.center
     }
     
     private func configureRefreshControl() {
@@ -123,7 +126,7 @@ extension ActivityViewController: UITableViewDelegate {
         let activity = self.activities[indexPath.row]
         if let place = authenticator.places?
             .filter({
-                $0.nameAddress.map({activity.message?.lowercased().contains($0) == true}) == true
+                $0.nameAddress.map({activity.message?.lowercased().contains($0.lowercased()) == true}) == true
             })
             .sorted(by: {$0.nameAddress?.characters.count ?? 0 > $1.nameAddress?.characters.count ?? 0})
             .first {
