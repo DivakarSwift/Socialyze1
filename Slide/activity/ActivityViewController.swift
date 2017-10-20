@@ -118,6 +118,7 @@ class ActivityViewController: UIViewController {
 
 extension ActivityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.activities.count == 0 { return }
         let activity = self.activities[indexPath.row]
         if let place = authenticator.places?
             .filter({
@@ -132,10 +133,14 @@ extension ActivityViewController: UITableViewDelegate {
 
 extension ActivityViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.activities.count
+        return max(self.activities.count, 1)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if self.activities.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "noActivites", for: indexPath)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivityListTableViewCell", for: indexPath) as! ActivityListTableViewCell
         let activity = self.activities[indexPath.row]
         cell.activity = activity

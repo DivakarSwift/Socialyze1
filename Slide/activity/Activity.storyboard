@@ -66,6 +66,31 @@
                                             <outlet property="senderImageView" destination="Hvh-XF-qLa" id="mHr-qA-fXj"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="noActivites" rowHeight="150" id="bep-uX-m6A">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bep-uX-m6A" id="bWr-Jf-BC4">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Activites" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqO-um-uUA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="149.5" id="TbN-n5-nA7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="xqO-um-uUA" secondAttribute="bottom" id="4te-Yw-ybs"/>
+                                                <constraint firstItem="xqO-um-uUA" firstAttribute="top" secondItem="bWr-Jf-BC4" secondAttribute="top" id="VWQ-8C-8R5"/>
+                                                <constraint firstAttribute="trailing" secondItem="xqO-um-uUA" secondAttribute="trailing" id="WAe-mw-Nmf"/>
+                                                <constraint firstItem="xqO-um-uUA" firstAttribute="leading" secondItem="bWr-Jf-BC4" secondAttribute="leading" id="kPV-1F-VLp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
