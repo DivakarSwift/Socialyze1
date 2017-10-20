@@ -9,9 +9,24 @@
 import UIKit
 
 class ActivityListTableViewCell: UITableViewCell {
+    @IBOutlet weak var senderImageView: UIImageView!
+    @IBOutlet weak var messageLabel: UILabel!
+    
     var activity: ActivityModel? {
         didSet {
-            
+            setup()
         }
+    }
+    
+    var user: LocalUser?
+    
+    func setup() {
+        senderImageView.rounded()
+        if let url = user?.profile.images.first {
+            self.senderImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "profileicon"))
+        }else {
+            self.senderImageView.image = #imageLiteral(resourceName: "profileicon")
+        }
+        self.messageLabel.text = activity?.message
     }
 }

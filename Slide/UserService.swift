@@ -103,6 +103,16 @@ class UserService: FirebaseManager {
         })
     }
     
+    func getUser(withFbId fbId: String, completion: @escaping (LocalUser?, FirebaseManagerError?)-> Void) {
+        reference.child(Node.user.rawValue).queryOrdered(byChild: "profile/fbId").queryEqual(toValue: fbId).observeSingleEvent(of: .value, with: {snapshot in
+            if let value = snapshot.value , let user: LocalUser = JSON(value).first?.1.map() {
+                completion(user, nil)
+            }else {
+                completion(nil, FirebaseManagerError.noUserFound)
+            }
+        })
+    }
+    
     func getMe(withId userId: String, completion: @escaping (LocalUser?, FirebaseManagerError?) -> Void) {
         reference.child(Node.user.rawValue).child(userId).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
             let json = JSON(snapshot.value ?? [])

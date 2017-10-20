@@ -13,7 +13,7 @@ func ==(lhs: LocalUser, rhs: LocalUser) -> Bool {
     return lhs.id == rhs.id
 }
 
-struct LocalUser: Mappable, Equatable {
+struct LocalUser: Mappable, Equatable, Hashable {
     var id: String?
     var profile = Profile()
     var checkIn : UserCheckIn?
@@ -23,6 +23,10 @@ struct LocalUser: Mappable, Equatable {
     var isCreatedAfterFbImageDownloadToStorage = false
     var isCheckedIn = false
     var isGoing = false
+    
+    var hashValue: Int {
+        return (id ?? " ").hashValue
+    }
     
     init() {}
     

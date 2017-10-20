@@ -14,7 +14,7 @@
         <!--Activity View Controller-->
         <scene sceneID="yUr-K0-dgb">
             <objects>
-                <viewController storyboardIdentifier="ActivityViewController" id="cQh-n5-JVx" customClass="ActivityViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityViewController" automaticallyAdjustsScrollViewInsets="NO" id="cQh-n5-JVx" customClass="ActivityViewController" customModule="Slide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="a08-V5-8Ee">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,6 +61,10 @@
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AUP-jS-5G9" secondAttribute="bottom" constant="4" id="z0d-aS-1ez"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLabel" destination="4XC-B5-s1v" id="Eaq-po-oCi"/>
+                                            <outlet property="senderImageView" destination="Hvh-XF-qLa" id="mHr-qA-fXj"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
