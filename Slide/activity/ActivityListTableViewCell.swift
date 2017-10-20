@@ -45,5 +45,12 @@ class ActivityListTableViewCell: UITableViewCell {
             self.senderImageView.image = #imageLiteral(resourceName: "profileicon")
         }
         self.messageLabel.text = activity?.message
+        if let timeInterval = activity?.time {
+            let date = Date.init(timeIntervalSince1970: timeInterval)
+            let ago = date.ago(from: Date())
+            self.agoTime.text = ago
+        }else {
+            self.agoTime.text = "sometime ago."
+        }
     }
 }

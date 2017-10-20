@@ -45,15 +45,15 @@
                                                     </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salem, Nawaz, John and 3 other friends checked in @Bar and Grill. Join and get exciting deals." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4XC-B5-s1v">
-                                                    <rect key="frame" x="60" y="5" width="307" height="103.5"/>
+                                                    <rect key="frame" x="60" y="5" width="307" height="126"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2hrs ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqg-Pw-hRu">
-                                                    <rect key="frame" x="317" y="124" width="50" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9 yrs 3 Tmonth 2hrs 35 minute ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqg-Pw-hRu">
+                                                    <rect key="frame" x="168.5" y="131" width="198.5" height="13.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20.5" id="0T1-WS-au5"/>
+                                                        <constraint firstAttribute="height" constant="13.5" id="0T1-WS-au5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +62,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="4XC-B5-s1v" secondAttribute="trailing" constant="8" id="1qz-Wz-sw1"/>
-                                                <constraint firstItem="dqg-Pw-hRu" firstAttribute="top" secondItem="4XC-B5-s1v" secondAttribute="bottom" constant="15.5" id="BUW-hO-XVV"/>
+                                                <constraint firstItem="dqg-Pw-hRu" firstAttribute="top" secondItem="4XC-B5-s1v" secondAttribute="bottom" id="BUW-hO-XVV"/>
                                                 <constraint firstItem="4XC-B5-s1v" firstAttribute="leading" secondItem="AUP-jS-5G9" secondAttribute="trailing" constant="8" id="Bgp-Hw-B62"/>
                                                 <constraint firstItem="AUP-jS-5G9" firstAttribute="top" secondItem="jOA-Q0-eLw" secondAttribute="top" constant="4.5" id="HOv-s3-V3V"/>
                                                 <constraint firstItem="dqg-Pw-hRu" firstAttribute="trailing" secondItem="4XC-B5-s1v" secondAttribute="trailing" id="Yjf-yU-RNl"/>
