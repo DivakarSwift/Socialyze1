@@ -27,6 +27,7 @@ class ActivityListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         senderImageView.rounded()
+        backgroundImage.rounded()
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tappedOnImage))
         senderImageView.addGestureRecognizer(gesture)
         senderImageView.isUserInteractionEnabled = true
