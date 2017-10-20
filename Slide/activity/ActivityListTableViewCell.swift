@@ -12,6 +12,7 @@ class ActivityListTableViewCell: UITableViewCell {
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var agoTime: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
     
     var activity: ActivityModel? {
         didSet {
@@ -38,9 +39,11 @@ class ActivityListTableViewCell: UITableViewCell {
     }
     
     func setup() {
-        
+        self.backgroundImage.image = #imageLiteral(resourceName: "profileicon")
         if let url = user?.profile.images.first {
-            self.senderImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "profileicon"))
+            self.senderImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "profileicon"), completionHandler: { (image, _, _, _) in
+                self.backgroundImage.image = image
+            })
         }else {
             self.senderImageView.image = #imageLiteral(resourceName: "profileicon")
         }

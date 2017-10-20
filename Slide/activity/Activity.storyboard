@@ -30,11 +30,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="Jj7-wc-6Z7">
+                                                    <rect key="frame" x="0.0" y="4.5" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="W3n-xE-rU8"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-jS-5G9">
                                                     <rect key="frame" x="0.0" y="4.5" width="44" height="44"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileicon" translatesAutoresizingMaskIntoConstraints="NO" id="Hvh-XF-qLa">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44" id="VBU-Rd-3KG"/>
                                                             </constraints>
@@ -65,15 +72,20 @@
                                             <constraints>
                                                 <constraint firstItem="9Kd-zX-cfC" firstAttribute="leading" secondItem="AUP-jS-5G9" secondAttribute="trailing" constant="8" id="5MD-lO-IPx"/>
                                                 <constraint firstItem="9Kd-zX-cfC" firstAttribute="top" secondItem="AUP-jS-5G9" secondAttribute="top" id="7PV-GZ-zUw"/>
+                                                <constraint firstItem="Jj7-wc-6Z7" firstAttribute="top" secondItem="Hvh-XF-qLa" secondAttribute="top" id="Aqu-W0-0H3"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="9Kd-zX-cfC" secondAttribute="bottom" constant="5" id="DF5-XZ-rvi"/>
+                                                <constraint firstItem="Jj7-wc-6Z7" firstAttribute="leading" secondItem="Hvh-XF-qLa" secondAttribute="leading" id="DpU-WI-Pv9"/>
                                                 <constraint firstItem="AUP-jS-5G9" firstAttribute="top" secondItem="jOA-Q0-eLw" secondAttribute="top" constant="4.5" id="HOv-s3-V3V"/>
                                                 <constraint firstItem="AUP-jS-5G9" firstAttribute="leading" secondItem="jOA-Q0-eLw" secondAttribute="leading" constant="8" id="epe-RO-OKh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="9Kd-zX-cfC" secondAttribute="trailing" constant="8" id="mOC-rw-98L"/>
+                                                <constraint firstItem="Jj7-wc-6Z7" firstAttribute="bottom" secondItem="Hvh-XF-qLa" secondAttribute="bottom" id="u2L-34-ebH"/>
+                                                <constraint firstItem="Jj7-wc-6Z7" firstAttribute="trailing" secondItem="Hvh-XF-qLa" secondAttribute="trailing" id="yG1-tm-DPg"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="AUP-jS-5G9" secondAttribute="bottom" constant="4" id="z0d-aS-1ez"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="agoTime" destination="dqg-Pw-hRu" id="nb6-f5-qEU"/>
+                                            <outlet property="backgroundImage" destination="Jj7-wc-6Z7" id="enQ-Tr-JxC"/>
                                             <outlet property="messageLabel" destination="4XC-B5-s1v" id="Eaq-po-oCi"/>
                                             <outlet property="senderImageView" destination="Hvh-XF-qLa" id="mHr-qA-fXj"/>
                                         </connections>
