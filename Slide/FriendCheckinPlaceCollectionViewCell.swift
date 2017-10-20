@@ -10,6 +10,7 @@ import UIKit
 
 class FriendCheckinPlaceCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var checkedInIcon: UIImageView!
     @IBOutlet weak var backgroundProfileImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,6 +41,12 @@ class FriendCheckinPlaceCollectionViewCell: UICollectionViewCell {
         
         self.nameLabel.text = self.chatUser?.profile.name
         self.lastCheckinPlaceLabel.text = self.chatUser?.checkIn?.place
+        
+        if let timeInterval = self.chatUser?.checkIn?.time, (Date().timeIntervalSince1970 - timeInterval) < checkInThreshold {
+            self.checkedInIcon.isHidden = false
+        }else {
+            self.checkedInIcon.isHidden = true
+        }
     }
     
 }

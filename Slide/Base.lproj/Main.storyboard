@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-Ap-dlY">
-                                <rect key="frame" x="0.0" y="84" width="414" height="766"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="786"/>
                                 <subviews>
                                     <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B9n-s4-QyE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -178,11 +178,20 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_checked_in" translatesAutoresizingMaskIntoConstraints="NO" id="HUZ-9G-Blq">
+                                                            <rect key="frame" x="72.666666666666671" y="40" width="15" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="15" id="2QW-bK-1gH"/>
+                                                                <constraint firstAttribute="width" secondItem="HUZ-9G-Blq" secondAttribute="height" multiplier="1:1" id="xn1-Od-txL"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                 </view>
                                                 <constraints>
                                                     <constraint firstItem="b5n-QT-tmf" firstAttribute="top" secondItem="gDa-OK-iwl" secondAttribute="top" id="4SR-aS-0nw"/>
+                                                    <constraint firstItem="HUZ-9G-Blq" firstAttribute="trailing" secondItem="G2F-7W-LGc" secondAttribute="trailing" id="6R8-aL-1KF"/>
                                                     <constraint firstItem="krI-Ff-3Un" firstAttribute="top" secondItem="G2F-7W-LGc" secondAttribute="top" id="MkV-2P-AQX"/>
+                                                    <constraint firstItem="HUZ-9G-Blq" firstAttribute="bottom" secondItem="G2F-7W-LGc" secondAttribute="bottom" id="ShH-mJ-hU1"/>
                                                     <constraint firstItem="krI-Ff-3Un" firstAttribute="leading" secondItem="G2F-7W-LGc" secondAttribute="leading" id="VMq-uy-FE8"/>
                                                     <constraint firstItem="krI-Ff-3Un" firstAttribute="bottom" secondItem="G2F-7W-LGc" secondAttribute="bottom" id="kJK-wK-zQy"/>
                                                     <constraint firstItem="krI-Ff-3Un" firstAttribute="trailing" secondItem="G2F-7W-LGc" secondAttribute="trailing" id="mQo-WJ-mmw"/>
@@ -193,6 +202,7 @@
                                                 <size key="customSize" width="120" height="90"/>
                                                 <connections>
                                                     <outlet property="backgroundProfileImageView" destination="krI-Ff-3Un" id="RkR-L1-Vuc"/>
+                                                    <outlet property="checkedInIcon" destination="HUZ-9G-Blq" id="rM7-KX-wfd"/>
                                                     <outlet property="lastCheckinPlaceLabel" destination="64t-oC-h4i" id="me6-TE-0YH"/>
                                                     <outlet property="nameLabel" destination="xNK-ew-VPQ" id="Sxc-ES-URu"/>
                                                     <outlet property="profileImageView" destination="G2F-7W-LGc" id="AGq-Br-yTr"/>
@@ -201,7 +211,7 @@
                                         </cells>
                                     </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P4a-Jm-eDM">
-                                        <rect key="frame" x="0.0" y="90" width="414" height="676"/>
+                                        <rect key="frame" x="0.0" y="90" width="414" height="696"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewLayout key="collectionViewLayout" id="7Ga-5E-mUn"/>
                                         <cells>
@@ -952,6 +962,7 @@
         <image name="StarFull" width="45" height="45"/>
         <image name="checkmark1" width="366" height="360"/>
         <image name="fbLoginBtn" width="329" height="53"/>
+        <image name="icon_checked_in" width="22" height="22"/>
         <image name="icons_invite" width="16" height="16"/>
         <image name="map" width="128" height="128"/>
         <image name="profileicon" width="24" height="24"/>
