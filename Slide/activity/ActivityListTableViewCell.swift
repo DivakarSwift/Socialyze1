@@ -20,8 +20,24 @@ class ActivityListTableViewCell: UITableViewCell {
     
     var user: LocalUser?
     
-    func setup() {
+    var onImageTapped: ((LocalUser)->())?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         senderImageView.rounded()
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tappedOnImage))
+        senderImageView.addGestureRecognizer(gesture)
+        senderImageView.isUserInteractionEnabled = true
+    }
+    
+    func tappedOnImage() {
+        if let user = self.user {
+            onImageTapped?(user)
+        }
+    }
+    
+    func setup() {
+        
         if let url = user?.profile.images.first {
             self.senderImageView.kf.setImage(with: url, placeholder: #imageLiteral(resourceName: "profileicon"))
         }else {

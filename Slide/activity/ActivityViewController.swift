@@ -46,8 +46,17 @@ class ActivityViewController: UIViewController {
         getActivities()
     }
     
-    func setup() {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.title = "Activities"
+    }
+    
+    func setup() {
         tableView.tableFooterView = UIView()
         
         tableView.delegate = self
@@ -87,6 +96,13 @@ class ActivityViewController: UIViewController {
         }
     }
 
+    fileprivate func showUserDetail(user: LocalUser) {
+        let vc = UIStoryboard(name: "Categories", bundle: nil).instantiateViewController(withIdentifier: "categoryDetailViewController") as! CategoriesViewController
+        vc.fromFBFriends = user
+        vc.transitioningDelegate = self
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 }
 
 extension ActivityViewController: UITableViewDelegate {
@@ -103,7 +119,16 @@ extension ActivityViewController: UITableViewDataSource {
         let activity = self.activities[indexPath.row]
         cell.activity = activity
         cell.user = self.userModels.filter({$0.profile.fbId == activity.sender}).first
+        cell.onImageTapped = { user in
+            self.showUserDetail(user: user)
+        }
         cell.setup()
         return cell
+    }
+}
+
+extension ActivityViewController: UIViewControllerTransitioningDelegate {
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissAnimator()
     }
 }
