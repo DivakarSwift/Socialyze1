@@ -73,6 +73,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="agoTime" destination="dqg-Pw-hRu" id="nb6-f5-qEU"/>
                                             <outlet property="messageLabel" destination="4XC-B5-s1v" id="Eaq-po-oCi"/>
                                             <outlet property="senderImageView" destination="Hvh-XF-qLa" id="mHr-qA-fXj"/>
                                         </connections>

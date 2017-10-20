@@ -11,6 +11,7 @@ import UIKit
 class ActivityListTableViewCell: UITableViewCell {
     @IBOutlet weak var senderImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var agoTime: UILabel!
     
     var activity: ActivityModel? {
         didSet {
