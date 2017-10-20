@@ -18,8 +18,6 @@ class ActivityViewController: UIViewController {
     let activityService = ActivityService()
     let userService = UserService()
     
-    var isGettingData = true
-    
     var activities = [ActivityModel]() {
         didSet {
             self.tableView.reloadData()
@@ -43,6 +41,7 @@ class ActivityViewController: UIViewController {
         super.viewDidLoad()
         setup()
         configureRefreshControl()
+        self.activityIndicator.startAnimating()
         getActivities()
     }
     
@@ -54,9 +53,6 @@ class ActivityViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Activities"
-        if self.isGettingData {
-            self.activityIndicator.startAnimating()
-        }
     }
     
     func setup() {
@@ -98,7 +94,6 @@ class ActivityViewController: UIViewController {
     func getActivities() {
         let myId = self.authenticator.user?.profile.fbId ?? ""
         activityService.getActivities(myId: "12345r") { [weak self] (models) in
-            self?.isGettingData = false
             self?.activities = models
             self?.activityIndicator.stopAnimating()
             if self?.refreshControl.isRefreshing == true {
