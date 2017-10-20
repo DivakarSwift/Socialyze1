@@ -179,6 +179,11 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.title = ""
+    }
+    
     func getUserFriends() {
         self.activityIndicator.startAnimating()
         facebookService.getUserFriends(success: {[weak self] (friends: [FacebookFriend]) in

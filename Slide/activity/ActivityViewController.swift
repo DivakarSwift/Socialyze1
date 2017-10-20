@@ -47,6 +47,9 @@ class ActivityViewController: UIViewController {
     }
     
     func setup() {
+        self.title = "Activities"
+        tableView.tableFooterView = UIView()
+        
         tableView.delegate = self
         tableView.dataSource = self
     }
