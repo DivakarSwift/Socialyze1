@@ -245,12 +245,15 @@ function sendPushNotificationToFacebookUsers(request) {
 
 function writeActivity(request) {
     let data = {};
-    let msg1 = request.body.notificationTitle;
-    const msg2 = request.body.notificationBody;
 
-    if (typeof msg2 === 'string' || msg2 instanceof String) {
-        msg1 = msg1 + " " + msg2;
+    const msg1 = request.body.notificationTitle;
+    if (typeof msg1 === 'string' || msg1 instanceof String) {
         data["message"] = msg1;
+    }
+
+    const msg2 = request.body.notificationBody;
+    if (typeof msg2 === 'string' || msg2 instanceof String) {
+        data["additionalMessage"] = msg2;
     }
 
     const sender = request.body.fbId;
