@@ -31,7 +31,8 @@ extension EventDetailViewController {
             "userId": authenticator.user?.id ?? "",
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is @ \(self.place?.nameAddress ?? "")",
             "notificationBody": "Meet your friend in the next 3 hours to use your deal @ \(self.place?.nameAddress ?? "").",
-            "friendsFbId": fbIds
+            "friendsFbId": fbIds,
+            "type": "checkIn"
             ] as [String : Any]
         
         self.checkInButton.isEnabled = false
@@ -77,7 +78,8 @@ extension EventDetailViewController {
             "notificationTitle": "\(self.authenticator.user?.profile.firstName ?? "") used the deal @ \(self.place?.nameAddress ?? "")",
             "notificationBody": "Sweet! Your deal is unlocked for the next 3 hours @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
-            "dealUid": deal.uid ?? "--1"
+            "dealUid": deal.uid ?? "--1",
+            "type": "usedDeal"
             ] as [String : Any]
         
         Alamofire.request(GlobalConstants.urls.baseUrl + "useDeal", method: .post, parameters: params, encoding: JSONEncoding.default).responseData { [weak self](data) in
@@ -102,6 +104,7 @@ extension EventDetailViewController {
         let fbIds = self.faceBookFriends.map({$0.id}) // + ["101281293814104"];
         let params = [
             "sound": "default",
+            "place": self.place!.nameAddress!,
             "placeId": self.place!.nameAddress!.replacingOccurrences(of: " ", with: ""),
             "fbId": authenticator.user?.profile.fbId ?? "",
             "time": Date().timeIntervalSince1970,
@@ -109,7 +112,8 @@ extension EventDetailViewController {
             "notificationTitle": "\(authenticator.user?.profile.firstName ?? "") is going to \(self.place?.nameAddress ?? "")",
             "notificationBody": "Meet your friend to unlock exclusive deals @ \(self.place?.nameAddress ?? "").",
             "friendsFbId": fbIds,
-            "eventUid": self.place?.event?.uid ?? "--1"
+            "eventUid": self.place?.event?.uid ?? "--1",
+            "type": "going"
             ] as [String : Any]
         
         self.checkInButton.isEnabled = false
