@@ -44,7 +44,17 @@ class ActivityListTableViewCell: UITableViewCell {
         }else {
             self.senderImageView.image = #imageLiteral(resourceName: "profileicon")
         }
-        self.messageLabel.text = activity?.message
+        let messageFont = UIFont.systemFont(ofSize: 14, weight: UIFontWeightMedium)
+        
+        let message = NSMutableAttributedString(string: activity?.message ?? "", attributes: [NSFontAttributeName: messageFont])
+        if let additionalMessage = activity?.additionalMessage, !additionalMessage.isEmpty {
+            let additionalMessageFont = UIFont.systemFont(ofSize: 14)
+            let attributedMessage = NSAttributedString(string: "\n\(additionalMessage)", attributes: [NSFontAttributeName: additionalMessageFont])
+            message.append(attributedMessage)
+        }
+        
+        self.messageLabel.attributedText = message
+        
         if let timeInterval = activity?.time {
             let date = Date.init(timeIntervalSince1970: timeInterval)
             let ago = date.ago(from: Date())

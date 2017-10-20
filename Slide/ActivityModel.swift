@@ -15,6 +15,7 @@ struct ActivityModel: Mappable {
     var sender: String?
     var time: Double?
     var place: String?
+    var additionalMessage: String?
     
     init?(map: Map) {
         
@@ -26,5 +27,6 @@ struct ActivityModel: Mappable {
         sender <- map["sender"]
         time <- map["time"]
         place <- map["place"]
+        additionalMessage <- map["additionalMessage"]
     }
 }

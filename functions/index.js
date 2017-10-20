@@ -32,10 +32,10 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
     const data = constructIAmGoingData(request);
 
     admin.database().ref(url).set(data)
-    .then(snapshot => {
-        const promise = writeActivity(request);
-        handlePromise(request, response, promise);
-    });
+        .then(snapshot => {
+            const promise = writeActivity(request);
+            handlePromise(request, response, promise);
+        });
 });
 
 exports.checkIn = functions.https.onRequest((request, response) => {
@@ -60,12 +60,12 @@ exports.useDeal = functions.https.onRequest((request, response) => {
                         .then(snapshot => {
                             const count = snapshot.val();
                             const newCount = count + 1;
-                            
+
                             ref.set(newCount)
-                            .then(snapshot => {
-                                const promise = writeActivity(request);
-                                handlePromise(request, response, promise);
-                            });
+                                .then(snapshot => {
+                                    const promise = writeActivity(request);
+                                    handlePromise(request, response, promise);
+                                });
                         });
                 });
         });
@@ -77,24 +77,24 @@ exports.sendNotificationToLastCheckInUsers = functions.https.onRequest((request,
     const placeName = request.body.placeName;
     console.log(placeName);
     admin.database().ref('user').orderByChild('checkIn/place').equalTo(placeName).once('value')
-    .then(snapshot => {
-        let tokens = [];
-        snapshot.forEach(function (data) {
-            const token = data.val().fcmToken;
-            // EVMepSAMy5gIgeZ3lKee8n5PCd42
-            if (typeof token === 'string' || token instanceof String){
-                tokens.push(token);
+        .then(snapshot => {
+            let tokens = [];
+            snapshot.forEach(function (data) {
+                const token = data.val().fcmToken;
+                // EVMepSAMy5gIgeZ3lKee8n5PCd42
+                if (typeof token === 'string' || token instanceof String) {
+                    tokens.push(token);
+                }
+            });
+            console.log(tokens);
+            if (tokens.length == 0) {
+                response.status(404).send('no users found');
+            } else {
+                const payload = getNotificationPayload(request);
+                sendPushNotification(tokens, payload);
+                response.status(200).send("sending");
             }
         });
-        console.log(tokens);
-        if (tokens.length == 0) {
-            response.status(404).send('no users found');
-        }else {
-            const payload = getNotificationPayload(request);
-            sendPushNotification(tokens, payload);
-            response.status(200).send("sending");
-        }
-    });
 });
 
 function handlePromise(request, response, promise) {
@@ -176,10 +176,10 @@ function checkIn(request, response, callback) {
             const userCheckInUrl = constructUserCheckInUrl(request);
             const userCheckInData = constructUserCheckInData(request);
             admin.database().ref(userCheckInUrl).set(userCheckInData)
-            .then(snapshot => {
-                const promise = writeActivity(request);
-                callback(request, response, promise);
-            });
+                .then(snapshot => {
+                    const promise = writeActivity(request);
+                    callback(request, response, promise);
+                });
         });
 }
 
@@ -270,23 +270,23 @@ function writeActivity(request) {
     const fbIds = request.body.friendsFbId;
 
     const time = request.body.time;
-    if (typeof time === 'string' || time instanceof String) {
-        data["time"] = time;
-    }
+    // if (typeof time === 'string' || time instanceof String) {
+    data["time"] = time;
+    // }
 
     const place = request.body.place;
     if (typeof place === 'string' || place instanceof String) {
         data["place"] = place;
     }
-    
+
     let receivers = {};
-    fbIds.forEach(function(entry) {
+    fbIds.forEach(function (entry) {
         receivers[entry] = true;
     });
 
     console.log("ACTIVITY RECEIVERS");
     console.log(receivers);
-    
+
     data["receivers"] = receivers;
     return admin.database().ref("Activities").push().set(data);
 }
