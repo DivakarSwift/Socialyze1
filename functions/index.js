@@ -31,8 +31,11 @@ exports.iAmGoing = functions.https.onRequest((request, response) => {
     const url = constructIAmGoingUrl(request);
     const data = constructIAmGoingData(request);
 
-    const promise = admin.database().ref(url).set(data)
-    handlePromise(request, response, promise);
+    admin.database().ref(url).set(data)
+    .then(snapshot => {
+        const promise = writeActivity(request);
+        handlePromise(request, response, promise);
+    });
 });
 
 exports.checkIn = functions.https.onRequest((request, response) => {
@@ -57,8 +60,12 @@ exports.useDeal = functions.https.onRequest((request, response) => {
                         .then(snapshot => {
                             const count = snapshot.val();
                             const newCount = count + 1;
-                            const promise = ref.set(newCount);
-                            handlePromise(request, response, promise);
+                            
+                            ref.set(newCount)
+                            .then(snapshot => {
+                                const promise = writeActivity(request);
+                                handlePromise(request, response, promise);
+                            });
                         });
                 });
         });
@@ -168,8 +175,11 @@ function checkIn(request, response, callback) {
 
             const userCheckInUrl = constructUserCheckInUrl(request);
             const userCheckInData = constructUserCheckInData(request);
-            const promise = admin.database().ref(userCheckInUrl).set(userCheckInData);
-            callback(request, response, promise);
+            admin.database().ref(userCheckInUrl).set(userCheckInData)
+            .then(snapshot => {
+                const promise = writeActivity(request);
+                callback(request, response, promise);
+            });
         });
 }
 
@@ -231,6 +241,33 @@ function sendPushNotificationToFacebookUsers(request) {
                 console.log(error);
             });
     }, this);
+}
+
+function writeActivity(request) {
+    let msg1 = request.body.notificationTitle;
+    const msg2 = request.body.notificationBody;
+    if (typeof msg2 === 'string' || msg2 instanceof String) {
+        msg1 = msg1 + " " + msg2;
+    }
+    const sender = request.body.sender;
+    const type = request.body.type;
+    const fbIds = request.body.friendsFbId;
+    const time = request.body.time;
+    const place = request.body.place;
+    
+    let receivers = {};
+    fbIds.forEach(function(entry) {
+        receivers[entry] = true;
+    });
+    console.log(receivers);
+    return admin.database().ref("Activities").push().set({
+        message: msg1,
+        type: type,
+        sender: sender,
+        receivers: receivers,
+        time: time,
+        place: place
+    });
 }
 
 function sendPushNotification(registrationToken, payload) {
