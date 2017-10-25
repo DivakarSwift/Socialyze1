@@ -63,6 +63,9 @@ class ActivityViewController: UIViewController {
         
         self.view.addSubview(activityIndicator)
         self.activityIndicator.center = view.center
+        
+        let homeButton = UIBarButtonItem(image: #imageLiteral(resourceName: "thehomebutton"), style: .plain, target: self, action: #selector(goToHome))
+        self.navigationItem.leftBarButtonItem = homeButton
     }
     
     private func configureRefreshControl() {
@@ -73,6 +76,10 @@ class ActivityViewController: UIViewController {
         } else {
             self.tableView.addSubview(refreshControl)
         }
+    }
+    
+    func goToHome() {
+        NotificationCenter.default.post(name: GlobalConstants.Notification.changePage.notification, object: 1)
     }
     
     @objc private func refresh() {

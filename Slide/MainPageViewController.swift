@@ -16,8 +16,8 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource, 
         let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController()
         let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
         let activity = UIStoryboard.init(name: "Activity", bundle: nil).instantiateViewController(withIdentifier: "ActivityViewController")
-        
-        return [profile!, main, activity]
+        let activityNav = UINavigationController(rootViewController: activity)
+        return [profile!, main, activityNav]
     }()
     
     override func viewDidLoad() {
