@@ -15,9 +15,9 @@ class MainPageViewController: UIViewController, UIPageViewControllerDataSource, 
     var viewControllerArray: [UIViewController] = {
         let profile = UIStoryboard(name: "Profile", bundle: nil).instantiateInitialViewController()
         let main = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainNav")
-        let chatList = UIStoryboard(name: "Chat", bundle: nil).instantiateInitialViewController()
+        let activity = UIStoryboard.init(name: "Activity", bundle: nil).instantiateViewController(withIdentifier: "ActivityViewController")
         
-        return [profile!, main, chatList!]
+        return [profile!, main, activity]
     }()
     
     override func viewDidLoad() {
