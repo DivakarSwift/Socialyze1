@@ -24,6 +24,8 @@
 		1F1E553C1EA8A6FB00748894 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E553B1EA8A6FB00748894 /* ChatViewController.swift */; };
 		1F1E553E1EA8A77E00748894 /* AutoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E553D1EA8A77E00748894 /* AutoTextField.swift */; };
 		1F30929C1EA4E02A007F98E6 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */; };
+		1F3825331FA2B34300A95AB5 /* TestHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3825311FA2B34300A95AB5 /* TestHeaderCollectionReusableView.swift */; };
+		1F3825341FA2B34300A95AB5 /* TestHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F3825321FA2B34300A95AB5 /* TestHeaderCollectionReusableView.xib */; };
 		1F3D8DAD1F44C4D30080D374 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3D8DAC1F44C4D30080D374 /* DateExtension.swift */; };
 		1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */; };
 		1F6546521EA1C15A00D726E8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6546511EA1C15A00D726E8 /* UserService.swift */; };
@@ -108,6 +110,8 @@
 		1F1E553B1EA8A6FB00748894 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		1F1E553D1EA8A77E00748894 /* AutoTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTextField.swift; sourceTree = "<group>"; };
 		1F30929B1EA4E02A007F98E6 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
+		1F3825311FA2B34300A95AB5 /* TestHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		1F3825321FA2B34300A95AB5 /* TestHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		1F3D8DAC1F44C4D30080D374 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F5C7A4D1F2B31930029190E /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		1F6546511EA1C15A00D726E8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				F68AB5791EDFCB9100D4AB96 /* AdsViewController.swift */,
 				1F6D5E781F42D67E0042E195 /* SnapchatLikeFlowLayout.swift */,
 				1FD331D41F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift */,
+				1F3825311FA2B34300A95AB5 /* TestHeaderCollectionReusableView.swift */,
+				1F3825321FA2B34300A95AB5 /* TestHeaderCollectionReusableView.xib */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F3825341FA2B34300A95AB5 /* TestHeaderCollectionReusableView.xib in Resources */,
 				F68DD4031EE6B4F500614F52 /* GoogleService-Info.plist in Resources */,
 				FC1936851E7104D4009F2912 /* Matches.storyboard in Resources */,
 				FC7A24251E695F56004C9E44 /* LaunchScreen.storyboard in Resources */,
@@ -611,6 +618,7 @@
 				F672EA701EB9ED7000FB8A44 /* Utilities.swift in Sources */,
 				1F06C9A51E8F4FA900934676 /* MosaicLayout.swift in Sources */,
 				1F6546581EA1C22200D726E8 /* PlaceService.swift in Sources */,
+				1F3825331FA2B34300A95AB5 /* TestHeaderCollectionReusableView.swift in Sources */,
 				1FD331D51F9077B00025C809 /* FriendCheckinPlaceCollectionViewCell.swift in Sources */,
 				1FE787631E877DAD006B2445 /* User.swift in Sources */,
 				1F5C7A4E1F2B31930029190E /* ArrayExtension.swift in Sources */,

@@ -120,6 +120,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.collectionView.register(UINib.init(nibName: "TestHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "TestHeaderCollectionReusableView")
+        
         appDelegate.isNotificationPermissionGranted { (status) in
             switch status {
             case .authorized: break
@@ -176,6 +178,7 @@ class ViewController: UIViewController {
         self.getUserFriends()
         
         self.configureRefreshControl()
+        
         
     }
     
@@ -454,6 +457,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlow
         }
         return .zero
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if collectionView == self.collectionView {
+            return CGSize(width: collectionView.frame.width, height: 90)
+        }
+        return .zero
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -515,6 +525,22 @@ extension ViewController: UICollectionViewDataSource {
             cell.setup()
             return cell
         }
+    }
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if collectionView == self.collectionView {
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "TestHeaderCollectionReusableView", for: indexPath)
+            
+            // Get the superview's layout
+            let margins = view
+            
+            view.addSubview(self.friendCollectionView)
+            friendCollectionView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
+            friendCollectionView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
+            friendCollectionView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
+            friendCollectionView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
+            return view
+        }
+        return UICollectionReusableView()
     }
 }
 

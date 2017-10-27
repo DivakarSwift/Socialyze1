@@ -9,10 +9,13 @@
 import UIKit
 
 class SnapchatLikeFlowLayout: UICollectionViewFlowLayout {
-
+    
     private var cellLayouts: [IndexPath: UICollectionViewLayoutAttributes]
     private let unitHeight: CGFloat
     private let padding: CGFloat
+    private var headerAttributes: UICollectionViewLayoutAttributes!
+    
+    let headerHeight: CGFloat = 90
     
     required init(unitHeight: CGFloat, padding: CGFloat) {
         self.unitHeight = unitHeight
@@ -25,27 +28,45 @@ class SnapchatLikeFlowLayout: UICollectionViewFlowLayout {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func prepare() {
+    @discardableResult
+    func setAttribute(frame: CGRect, index: Int) -> UICollectionViewLayoutAttributes? {
         let max = self.collectionView?.numberOfItems(inSection: 0) ?? 0
-        var startOrigin: CGPoint = .zero
+        
+        let indexPath = IndexPath(item: index, section: 0)
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+        attributes.frame = frame
+        if index < max {
+            self.cellLayouts[indexPath] = attributes
+            return attributes
+        }
+        return nil
+    }
+    
+    override func prepare() {
+        
+        self.cellLayouts = [:]
+        
+        let contentOffset = self.collectionView?.contentOffset ?? .zero
+        let headerWidth = self.collectionView?.frame.width ?? 0
+        
+        //create new layout attributes for header
+        self.headerAttributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: IndexPath(item: 0, section: 0))
+        //offset y by the amount scrolled
+        let y = contentOffset.y < 0 ? 0 : contentOffset.y
+        let frame = CGRect(x: 0, y: y, width: headerWidth, height: headerHeight)
+        headerAttributes.frame = frame
+        headerAttributes.zIndex = 1024
+        
+        
+        let max = self.collectionView?.numberOfItems(inSection: 0) ?? 0
+        var startOrigin: CGPoint = CGPoint(x: 0, y: headerHeight)
         
         let availableWidth = (self.collectionView?.frame.width ?? padding) - padding
         let unitSize = CGSize(width: availableWidth/2, height: unitHeight)
         
         stride(from: 0, to: max, by: 10).forEach { (index) in
-            
-            func setAttribute(frame: CGRect, index: Int) {
-                let indexPath = IndexPath(item: index, section: 0)
-                let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
-                attributes.frame = frame
-                if index < max {
-                    self.cellLayouts[indexPath] = attributes
-                }
-            }
-            
             let largeCellHeight = (unitSize.height * 2) + padding
             let semiLargeCellHeight = largeCellHeight * 0.8
-            
             
             let first = CGRect(x: startOrigin.x, y: startOrigin.y + padding, width: unitSize.width*1.25, height: largeCellHeight)
             setAttribute(frame: first, index: index)
@@ -87,7 +108,9 @@ class SnapchatLikeFlowLayout: UICollectionViewFlowLayout {
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        return cellLayouts.values.filter({$0.frame.intersects(rect)})
+        var layouts = Array(cellLayouts.values.filter({$0.frame.intersects(rect)}))
+        layouts.append(headerAttributes)
+        return layouts
     }
     
     override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
@@ -99,5 +122,9 @@ class SnapchatLikeFlowLayout: UICollectionViewFlowLayout {
         let height = cellLayouts.sorted(by: {$0.value.frame.maxY > $1.value.frame.maxY}).first?.value.frame.maxY ?? 0
         
         return CGSize(width: self.collectionView?.frame.width ?? 0, height: height)
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
     }
 }
