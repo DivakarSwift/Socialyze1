@@ -122,26 +122,6 @@ class ViewController: UIViewController {
         
         self.collectionView.register(UINib.init(nibName: "TestHeaderCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "TestHeaderCollectionReusableView")
         
-        appDelegate.isNotificationPermissionGranted { (status) in
-            switch status {
-            case .authorized: break
-            case .denied:
-                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "Cancel", cancelTitle: "Settings", okAction: nil, cancelAction: {
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
-                    } else {
-                        // Fallback on earlier versions
-                        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
-                    }
-                    
-                })
-            case .notDetermined:
-                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
-                    appDelegate.registerForNotification()
-                })
-            }
-        }
-        
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.center = self.view.center
         
@@ -241,6 +221,27 @@ class ViewController: UIViewController {
         UIApplication.shared.isStatusBarHidden = false
         self.navigationController?.navigationBar.isHidden = false
         SlydeLocationManager.shared.requestLocation()
+        
+        
+        appDelegate.isNotificationPermissionGranted { (status) in
+            switch status {
+            case .authorized: break
+            case .denied:
+                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "Cancel", cancelTitle: "Settings", okAction: nil, cancelAction: {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
+                    } else {
+                        // Fallback on earlier versions
+                        UIApplication.shared.openURL(URL(string: UIApplicationOpenSettingsURLString)!)
+                    }
+                    
+                })
+            case .notDetermined:
+                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
+                    appDelegate.registerForNotification()
+                })
+            }
+        }
     }
     
     func getPlaces() {
