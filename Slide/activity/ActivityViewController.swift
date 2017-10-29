@@ -70,7 +70,7 @@ class ActivityViewController: UIViewController {
     
     private func configureRefreshControl() {
         self.refreshControl.addTarget(self, action: #selector(self.refresh), for: .valueChanged)
-        self.refreshControl.attributedTitle = NSAttributedString(string: "pull to refresh")
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
         if #available(iOS 10.0, *) {
             self.tableView.refreshControl = refreshControl
         } else {
