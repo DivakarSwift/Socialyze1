@@ -121,7 +121,14 @@ class EventDealTableViewCell: UITableViewCell {
     
     @IBAction func useDeal(_ sender: Any) {
         if let deal = deal {
-            self.parentViewController?.useDeal(deal: deal)
+            if deal.isActive().0 {
+                self.parentViewController?.useDeal(deal: deal)
+            }else {
+                let alert = UIAlertController(title: deal.isActive().1?.capitalized, message: "Please, come back later.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(action)
+                self.parentViewController?.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -147,19 +154,8 @@ class EventDealTableViewCell: UITableViewCell {
     }
     
     private func setupUseDeal() {
-        //            self.useDealButton.isHidden = false
-        // self.usedDealDateLabel.isHidden = true
-        //        self.usedDealDateLabel.text = " "
         
-        //            var iUsedDeal = false
         let iUsedDeal = !(self.parentViewController?.userCanUseDealForToday ?? true)
-        //            let userId = Auth.auth().currentUser!.uid
-        //            for (key, value) in placeDeal?.users ?? [:] {
-        //                if key == userId, let value = value as? [String: Double] {
-        //
-        //                    iUsedDeal = true
-        //                    let dateInterval = value["time"]
-        //                    let date = Date.init(timeIntervalSince1970: dateInterval ?? 0)
         let date = self.parentViewController?.lastDealUsedDate ?? Date()
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
@@ -167,13 +163,13 @@ class EventDealTableViewCell: UITableViewCell {
         dateFormatter.dateFormat = "M/d/yy h:mm a"
         let string = dateFormatter.string(from: date)
         self.usedDealDateLabel.text = string
-        
-        // self.usedDealDateLabel.isHidden = false
-        self.useDealButton.isHidden = iUsedDeal
-        
-        //                    return
-        //                }
-        //            }
+//        self.useDealButton.isHidden = iUsedDeal
+        if let isActive = self.deal?.isActive() {
+            if !isActive.0 {
+//                iUsedDeal = true
+                useDealButton.setTitle(isActive.1, for: .normal)
+            }
+        }
         self.useDealButton.isEnabled = !iUsedDeal && !self.isDealExpired
     }
 }

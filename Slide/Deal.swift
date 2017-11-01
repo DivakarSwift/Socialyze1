@@ -33,8 +33,42 @@ class Deal: Mappable{
         startDate <- map["startDate"]
     }
     
+    func isActive() -> (Bool, String?) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayDateString = formatter.string(from: Date())
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        
+        let startDateTimeStringForDeal = todayDateString + "T" + (fromTime ?? "")
+        let startDateTimeForDeal = formatter.date(from: startDateTimeStringForDeal)
+        
+        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
+        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
+        
+        var isActiveNow: Bool = false
+        var msg: String?
+        if let startDateTimeForDeal = startDateTimeForDeal, let endDateTimeForDeal = endDateTimeForDeal {
+            let date = Date()
+            let startDateCompareResult = date.compare(startDateTimeForDeal)
+            let endDateCompareResult = date.compare(endDateTimeForDeal)
+            
+            isActiveNow = (startDateCompareResult == .orderedDescending || startDateCompareResult == .orderedSame) && endDateCompareResult == .orderedAscending
+            
+            if !isActiveNow {
+                if startDateCompareResult == .orderedAscending {
+                    msg = "resumes in " + (startDateTimeForDeal.left(to: date) ?? "")
+                }else {
+                    msg = "resumes in " + (startDateTimeForDeal.addingTimeInterval(24*60*60).left(to: date) ?? "")
+                }
+            }
+            
+        }
+        return (isActiveNow, msg)
+    }
+    
     func isValid() -> Bool {
-        return true
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"

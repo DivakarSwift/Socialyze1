@@ -63,7 +63,7 @@ extension Date {
         var textTimeRemaining: String?
         if to <= self {
             let timeMag = getTimeMag(to)
-            textTimeRemaining = timeMag.time > 0 && timeMag.mag != "" ? "\(timeMag.time) \(timeMag.mag)\(timeMag.time > 1 ? "s" : "") left" : "a moment left"
+            textTimeRemaining = timeMag.time > 0 && timeMag.mag != "" ? "\(timeMag.time) \(timeMag.mag)\(timeMag.time > 1 ? "s" : "")" : "a moment"
         }
         return textTimeRemaining
     }

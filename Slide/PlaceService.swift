@@ -39,6 +39,7 @@ class PlaceService: FirebaseManager {
         self.reference.child(Node.PlacesList.rawValue).queryOrdered(byChild: "nameAddress").queryEqual(toValue: placeName).observeSingleEvent(of: .value, with: {snapShot in
             
             if let snapshotValue = ((snapShot.value) as? [String: Any])?.first?.value, let place: Place = JSON(snapshotValue).map() {
+                print(JSON(snapshotValue))
                 completion(place)
             } else {
                 // failure(FirebaseManagerError.noDataFound)
