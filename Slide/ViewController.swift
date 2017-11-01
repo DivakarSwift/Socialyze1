@@ -227,7 +227,7 @@ class ViewController: UIViewController {
             switch status {
             case .authorized: break
             case .denied:
-                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "Cancel", cancelTitle: "Settings", okAction: nil, cancelAction: {
+                self.alertWithOkCancel(message: "Like to know where your friends are going or at?", title: "Friends Notification", okTitle: "Cancel", cancelTitle: "Settings", okAction: nil, cancelAction: {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)
                     } else {
@@ -237,7 +237,7 @@ class ViewController: UIViewController {
                     
                 })
             case .notDetermined:
-                self.alertWithOkCancel(message: "Would you like to know where your friends are going/checked in?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
+                self.alertWithOkCancel(message: "Like to know where your friends are going or at?", title: "Friends Notification", okTitle: "No thanks", cancelTitle: "Okay", okAction: nil, cancelAction: {
                     appDelegate.registerForNotification()
                 })
             }
@@ -257,7 +257,7 @@ class ViewController: UIViewController {
             self.places = places
             self.locationUpdated()
         }, failure: { error in
-            if self.activityIndicator.isAnimating {
+           if self.activityIndicator.isAnimating {
                 self.activityIndicator.stopAnimating()
             }
             self.alert(message: error.localizedDescription, okAction: {
@@ -498,11 +498,11 @@ extension ViewController: UICollectionViewDataSource {
             switch indexPath.item % 10 {
             case 0,6: // large cells
                 cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 24)
-                cell.bioNameLabel.font = UIFont.init(name: "Menlo-Bold", size: 23)
+                cell.bioNameLabel.font = UIFont.init(name: "Verdana-Bold", size: 23)
                 
             case 1,2,5,7: // small cells
-                cell.nameLabel.font = UIFont.init(name: "Verdana-Bold", size: 16)
-                cell.bioNameLabel.font = UIFont.init(name: "ChalkboardSE-Bold", size: 15)
+                cell.nameLabel.font = UIFont.init(name: "Futura-Bold", size: 16)
+                cell.bioNameLabel.font = UIFont.init(name: "Verdana-Bold", size: 15)
                 
             default: // equal sized cells
                 cell.nameLabel.font = UIFont.init(name: "Kailasa-Bold", size: 20)
