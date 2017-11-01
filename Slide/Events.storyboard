@@ -319,7 +319,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barxxxx" translatesAutoresizingMaskIntoConstraints="NO" id="Fgb-JO-pzI">
                                                     <rect key="frame" x="0.0" y="140.5" width="320" height="119"/>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="yOp-Jd-hOi">
+                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradient" translatesAutoresizingMaskIntoConstraints="NO" id="yOp-Jd-hOi">
                                                     <rect key="frame" x="0.0" y="72" width="320" height="187.5"/>
                                                 </imageView>
                                                 <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-Es-Osj">
