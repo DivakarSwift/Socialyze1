@@ -34,6 +34,7 @@ class Deal: Mappable{
     }
     
     func isValid() -> Bool {
+        return true
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
