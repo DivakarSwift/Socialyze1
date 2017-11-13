@@ -33,6 +33,21 @@ class Deal: Mappable{
         startDate <- map["startDate"]
     }
     
+    func endsIn() -> String? {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayDateString = formatter.string(from: Date())
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        
+        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
+        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
+        
+        let timeRemaining = endDateTimeForDeal.flatMap({Date().left(to: $0)})
+        return "Ends in \(timeRemaining ?? "")"
+    }
+    
     func isActive() -> (Bool, String?) {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US")
@@ -58,9 +73,9 @@ class Deal: Mappable{
             
             if !isActiveNow {
                 if startDateCompareResult == .orderedAscending {
-                    msg = "resumes in " + (startDateTimeForDeal.left(to: date) ?? "")
+                    msg = "Resumes in " + (startDateTimeForDeal.left(to: date) ?? "")
                 }else {
-                    msg = "resumes in " + (startDateTimeForDeal.addingTimeInterval(24*60*60).left(to: date) ?? "")
+                    msg = "Resumes in " + (startDateTimeForDeal.addingTimeInterval(24*60*60).left(to: date) ?? "")
                 }
             }
             

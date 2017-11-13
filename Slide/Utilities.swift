@@ -18,8 +18,9 @@ class Utilities: NSObject {
     
     class func returnAge(ofValue date: String, format :String) -> Int? {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = NSTimeZone.system
+        dateFormatter.timeZone = TimeZone.current
         let birthday = dateFormatter.date(from: date)
         
         let calendar = Calendar.current

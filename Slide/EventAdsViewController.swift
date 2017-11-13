@@ -100,6 +100,7 @@ class EventAdsViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         return dateFormatter
     }
     
@@ -214,6 +215,7 @@ class EventAdsViewController: UIViewController {
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "h:mm a '\n' d.M.yy"
                     dateFormatter.timeZone = TimeZone.current
+                    dateFormatter.locale = Locale(identifier: "en_US")
                     let string = dateFormatter.string(from: Date())
                     self?.usedDealTime.text = string
                 }else {

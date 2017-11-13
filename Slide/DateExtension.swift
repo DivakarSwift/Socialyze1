@@ -25,7 +25,9 @@ extension Date {
     private func getTimeMag(_ compareToDate: Date) -> (time: Int, mag: String) {
         var time: Int = 0
         var mag: String = ""
-        let calender = Calendar.current
+        var calender = Calendar.init(identifier: Calendar.Identifier.gregorian)
+        calender.timeZone = TimeZone.current
+        calender.locale = Locale(identifier: "en_US")
         
         let dateComponents = calender.dateComponents([.day, .month, .year, .hour, .minute, .second], from: self, to: compareToDate)
         

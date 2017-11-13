@@ -80,11 +80,11 @@ class EventDealTableViewCell: UITableViewCell {
                 form.allowedUnits = [.year, .month, .day, .hour, .minute]
                 let s = form.string(from: Date(), to: expiryDate)
                 
-                self.expiryDateTimeLabel.text = "Expires in \(s ?? "")"
+                // self.expiryDateTimeLabel.text = "Expires in \(s ?? "")"
                 
                 if expiryDate.timeIntervalSince(Date()) <= 0 {
 //                    self.useDealButton.isEnabled = false
-                    self.expiryDateTimeLabel.text = "Deal Expired"
+                    // self.expiryDateTimeLabel.text = "Deal Expired"
                     self.useDealButton.backgroundColor = UIColor.gray
                     self.isDealExpired = true
                 }else {
@@ -136,6 +136,7 @@ class EventDealTableViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
         dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale(identifier: "en_US")
         return dateFormatter
     }
     
@@ -164,10 +165,12 @@ class EventDealTableViewCell: UITableViewCell {
         let string = dateFormatter.string(from: date)
         self.usedDealDateLabel.text = string
 //        self.useDealButton.isHidden = iUsedDeal
+        self.expiryDateTimeLabel.text = "Active now"
         if let isActive = self.deal?.isActive() {
             if !isActive.0 {
+                self.expiryDateTimeLabel.text = isActive.1
 //                iUsedDeal = true
-                useDealButton.setTitle(isActive.1, for: .normal)
+//                useDealButton.setTitle(isActive.1, for: .normal)
             }
         }
         self.useDealButton.isEnabled = !iUsedDeal && !self.isDealExpired
