@@ -123,7 +123,8 @@ class Deal: Mappable{
             let startDateCompareResult = date.compare(startDateTimeForDeal)
             let endDateCompareResult = date.compare(endDateTimeForDeal)
             
-            return (startDateCompareResult == .orderedDescending || startDateCompareResult == .orderedSame) && endDateCompareResult == .orderedAscending
+            // return (startDateCompareResult == .orderedDescending || startDateCompareResult == .orderedSame) &&
+            return endDateCompareResult == .orderedAscending
         }
         return false
     }
