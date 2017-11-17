@@ -19,6 +19,28 @@ class Deal: Mappable{
     var fromTime: String?
     var startDate: String?
     
+    func todayTime() -> (start: Date?, end: Date?) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayDateString = formatter.string(from: Date())
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+        
+        let startDateTimeStringForDeal = todayDateString + "T" + (fromTime ?? "")
+        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
+        
+        if let startDateTimeForDeal = formatter.date(from: startDateTimeStringForDeal),
+            let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal) {
+            if endDateTimeForDeal.compare(startDateTimeForDeal) == .orderedDescending {
+                return (startDateTimeForDeal, endDateTimeForDeal)
+            }else {
+                return (startDateTimeForDeal, endDateTimeForDeal.addingTimeInterval(24*60*60))
+            }
+        }
+        return (nil, nil)
+    }
+    
     required init?(map: Map) {
     }
     
@@ -34,33 +56,35 @@ class Deal: Mappable{
     }
     
     func endsIn() -> String? {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "yyyy-MM-dd"
-        let todayDateString = formatter.string(from: Date())
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
-        
-        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
-        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
-        
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "en_US")
+//        formatter.timeZone = TimeZone.current
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        let todayDateString = formatter.string(from: Date())
+//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+//
+//        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
+//        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
+        let (_, endDateTimeForDeal) = self.todayTime()
         let timeRemaining = endDateTimeForDeal.flatMap({Date().left(to: $0)})
         return "Ends in \(timeRemaining ?? "")"
     }
     
     func isActive() -> (Bool, String?) {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US")
-        formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "yyyy-MM-dd"
-        let todayDateString = formatter.string(from: Date())
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "en_US")
+//        formatter.timeZone = TimeZone.current
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        let todayDateString = formatter.string(from: Date())
+//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm"
+//
+//        let startDateTimeStringForDeal = todayDateString + "T" + (fromTime ?? "")
+//        let startDateTimeForDeal = formatter.date(from: startDateTimeStringForDeal)
+//
+//        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
+//        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
         
-        let startDateTimeStringForDeal = todayDateString + "T" + (fromTime ?? "")
-        let startDateTimeForDeal = formatter.date(from: startDateTimeStringForDeal)
-        
-        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
-        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
+        let (startDateTimeForDeal, endDateTimeForDeal) = self.todayTime()
         
         var isActiveNow: Bool = false
         var msg: String?
