@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDealTableViewCell.swift"
-            timestampString = "532231356.645269"
+            timestampString = "533612832.634733"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/EventDealTableViewCell.swift"
-            timestampString = "532231356.645903"
+            timestampString = "533612832.634799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "127"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/Deal.swift"
-            timestampString = "532623361.299389"
+            timestampString = "533612832.634844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Slide/Deal.swift"
-            timestampString = "532623361.300243"
+            timestampString = "533612832.635144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -105,13 +105,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Slide/Deal.swift"
-            timestampString = "532623361.300705"
+            filePath = "Slide/EventDealTableViewCell.swift"
+            timestampString = "533612832.635367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "isValid()"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "setupUseDeal()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/Deal.swift"
+            timestampString = "533612832.635411"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "endsIn()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Slide.Deal.endsIn() -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/Slyde/Slide/Deal.swift"
+                  timestampString = "533612843.156732"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Foundation.Date) -&gt; Swift.Optional&lt;Swift.String&gt; in Slide.Deal.endsIn() -&gt; Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "Slide"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/Slyde/Slide/Deal.swift"
+                  timestampString = "533612843.158386"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "13">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Slide/DateExtension.swift"
+            timestampString = "533612832.635628"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "left(to:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

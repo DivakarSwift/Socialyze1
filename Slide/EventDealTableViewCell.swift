@@ -165,7 +165,7 @@ class EventDealTableViewCell: UITableViewCell {
         let string = dateFormatter.string(from: date)
         self.usedDealDateLabel.text = string
 //        self.useDealButton.isHidden = iUsedDeal
-        self.expiryDateTimeLabel.text = "Active now"
+        self.expiryDateTimeLabel.text = self.deal?.endsIn()
         if let isActive = self.deal?.isActive() {
             if !isActive.0 {
                 self.expiryDateTimeLabel.text = isActive.1

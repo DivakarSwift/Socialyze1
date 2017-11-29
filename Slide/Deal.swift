@@ -66,7 +66,7 @@ class Deal: Mappable{
 //        let endDateTimeStringForDeal = todayDateString + "T" + (endTime ?? "")
 //        let endDateTimeForDeal = formatter.date(from: endDateTimeStringForDeal)
         let (_, endDateTimeForDeal) = self.todayTime()
-        let timeRemaining = endDateTimeForDeal.flatMap({Date().left(to: $0)})
+        let timeRemaining = endDateTimeForDeal.flatMap({$0.left(to: Date())})
         return "Ends in \(timeRemaining ?? "")"
     }
     
@@ -120,7 +120,7 @@ class Deal: Mappable{
         
         if let startDateTimeForDeal = startDateTimeForDeal, let endDateTimeForDeal = endDateTimeForDeal {
             let date = Date()
-            let startDateCompareResult = date.compare(startDateTimeForDeal)
+            // let startDateCompareResult = date.compare(startDateTimeForDeal)
             let endDateCompareResult = date.compare(endDateTimeForDeal)
             
             // return (startDateCompareResult == .orderedDescending || startDateCompareResult == .orderedSame) &&
